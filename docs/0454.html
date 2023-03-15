@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Microsoft releases Windows 11 build 22000.651 to the Release Preview channel</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>微软向发布预览频道发布Windows 11 build 22000.651</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/microsoft-windows-11-build-22000-651/#0001-01-01">https://www.xda-developers.com/microsoft-windows-11-build-22000-651/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">微软向发布预览频道发布Windows 11 build 22000.651</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">微软已经在发布预览频道向Windows内部人士发布了本月的Windows 10和Windows 11预览版更新。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>今天，微软向Windows内部人士发布了本月的预览版更新。那些在发布预览频道的人将获得<a href="https://www.xda-developers.com/windows-11/"> Windows 11 </a> build 22000.651或Windows 10 build 19044.1679，这取决于你的机器支持什么。通过预览更新，这意味着生产用户将有机会在一两周内测试它，然后它将成为下个月强制性补丁星期二更新的一部分。</p>
+
+  
+<p>像往常一样，有大量的修复。不过这个有一个有趣的问题，那就是它修复了一个会导致Windows 10或Windows 11需要40分钟才能启动的问题。微软没有详细说明这个bug或者是什么原因造成的。</p>
+
+<p>以下是Windows 11更新的完整修复列表</p>
+
+<blockquote>    <ul> <li><strong> <em>新增！</em> </strong>我们增加了对Windows安全启动组件的改进。</li> <li>我们修复了导致AppX部署服务(AppXSvc)在您安装某些MSIX应用程序后停止工作的问题。</li> <li>我们修复了在启动过程早期出现的可能导致停止错误的竞争情况。</li> <li>我们改进了自动驾驶客户端，以处理更新的可信平台模块(TPM)功能，支持自我部署和预配置场景。</li> <li>对于加入混合Azure AD的自动驾驶场景，我们将Azure Active Directory (Azure AD)注册的超时时间从60分钟更改为90分钟。这也解决了在超时时导致异常的竞争情况。</li> <li>我们修复了一个延迟操作系统启动大约40分钟的问题。</li> <li>我们修复了一个内存泄漏问题，该问题会影响一周中每天24小时使用的Windows系统。</li> <li>我们通过阻止使用特定于连接的DNS后缀搜索列表，修复了影响动态主机配置协议(DHCP)选项119(域搜索列表)的问题。</li> <li>我们修复了一个影响微软Edge IE模式下标题属性的问题。</li> <li>我们修复了一个问题，即在使用Azure AD-joined订阅权利升级到企业版的Windows企业版上不允许移动设备管理(MDM)策略。</li> <li>我们修复了一个可能导致视频字幕被部分剪掉的问题。</li> <li>我们修复了一个错误排列视频字幕的问题。</li> <li>我们修复了导致Kerberos身份验证失败的问题，错误为“0xc 0030009(RPC _ NT _ NULL _ REF _ POINTER)”。当客户端计算机在启用远程凭据保护的情况下尝试使用远程桌面协议(RDP)连接到另一台计算机时，会出现这种情况。</li> <li>我们修复了导致Windows在服务更新后进入BitLocker恢复的问题。</li> <li>我们修复了阻止从TPM设备检索认可密钥(EK)证书的问题。</li> <li>我们修复了可能无法将组策略的安全部分复制到计算机的问题。</li> <li>我们修复了阻止在Microsoft基础类(MFC)对话框中实例化Microsoft RDP客户端控件(版本11及更高版本)的问题。</li> <li>我们在任务栏的天气图标上显示温度。</li> <li>我们修复了一个问题，该问题阻止您在最大化的应用程序窗口中使用最小化、最大化和关闭按钮。出现此问题是因为通知中心保持输入焦点。</li> <li>我们修复了当您使用<strong>Netdom.exe</strong>或Active Directory域和信任管理单元来列出或修改名称后缀路由时可能出现的问题。这些程序可能会失败。错误消息是，“系统资源不足，无法完成请求的服务。”在主域控制器模拟器(PDCe)上安装2022年1月的安全更新后，会出现此问题。</li> <li>我们修复了导致根域的主域控制器(PDC)在系统日志中生成警告和错误事件的问题。当PDC错误地尝试扫描仅传出信任时，会出现此问题。</li> <li>我们修复了将网络驱动器映射到服务器消息块版本1 (SMBv1)共享时出现的问题。重新启动操作系统后，您将无法访问该网络驱动器。</li> <li>我们修复了一个影响SMB多通道连接并可能产生13A或C2错误的问题。</li> <li>我们修复了当客户端缓存(CSC)清理方法无法删除已创建的资源时会损坏池的问题。</li> <li>我们修复了一个问题，该问题可能会导致服务器锁定，因为非页面池会增长并用完所有内存。重新启动后，当您尝试修复损坏时，同样的问题再次出现。</li> <li>我们减少了许多线程争用一个文件的高每秒输入/输出操作(IOPS)场景中的资源争用开销。</li> </ul>
+ </blockquote>
+<p>如你所见，这是一份清单。目前，只有在Windows Insider计划的发布预览频道上，您才能看到此更新。它将在未来几周内扩展到更多用户，一如既往。</p>
+
+<p>如果你还在使用Windows 10，但不是因为系统要求，你还不能获得Windows 10 build 19044.1679。事实上，除非你受到系统要求的限制，否则发布预览频道会直接带你到Windows 11。生产时，您将获得预览版更新，如果您使用的是早期受支持的操作系统版本，您也会获得预览版更新。</p>
+
+<p>来源:微软(<a href="https://blogs.windows.com/windows-insider/2022/04/14/releasing-windows-11-build-22000-651-to-the-release-preview-channel/"> 1 </a> ) ( <a href="https://blogs.windows.com/windows-insider/2022/04/14/releasing-windows-10-build-19044-1679-to-release-preview-channel/"> 2 </a>)</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

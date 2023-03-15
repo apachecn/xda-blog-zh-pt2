@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>What is Riru, and what can you do with it on your Android device?</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>什么是Riru，你能在你的Android设备上用它做什么？</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/riru/#0001-01-01">https://www.xda-developers.com/riru/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+
+<p>在Magisk成为现实之前，是<a href="https://www.xda-developers.com/best-xposed-modules/"> Xposed Framework </a>极大地塑造了与设备无关的Android建模方法。我们可以在运行时使用Xposed和一个专门构建的模块来替换任何类中的任何方法，而不必反编译应用程序、修改代码、重新编译并将修改后的文件推回到我们的设备中。该框架本质上是对<code>/system/bin/app_process</code>的修改，以在启动时加载额外的JAR文件，这允许开发人员挂钩到<a href="https://developer.android.com/topic/performance/memory-overview"> Zygote进程</a>，并可以在其上下文中操作。</p>
+
+  
+<p>由于Magisk提供了基于覆盖的修改机制(通常被称为“无系统”)，理论上可以创建一个Magisk模块来修改Zygote进程，而无需物理修改<code>app_process</code>可执行文件。这就是Riru的用武之地。</p>
+
+ 
+<h2 id="what-is-riru">Riru是什么？</h2>
+<p>Riru由两名名为<a href="https://github.com/RikkaW">立夏</a>和<a href="https://github.com/yujincheng08">御锦城08 </a>的开发人员创建，是一个特制的<a href="https://www.xda-developers.com/best-magisk-modules/"> Magisk模块</a>，它提供Xposed式的功能，而不需要安装老式的Xposed框架。它注入到Zygote中，以便允许其他模块在应用程序或系统服务器中运行它们的代码。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="how-does-riru-work">Riru是如何工作的？</h2>
+<p>Riru的最初实现依赖于一个名为<code>libmemtrack</code>的特殊系统库的替换。然而，这种方法后来被放弃了，取而代之的是一种被称为“本机桥”(<code>ro.dalvik.vm.native.bridge</code>)的系统属性。通过利用该属性，开发人员可以动态加载和卸载他们选择的共享库，这最终会导致注入到Zygote流程中。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="how-to-download-and-install-riru">如何下载安装Riru？</h2>
+<p>如前所述，Riru作为Magisk模块提供。由于Magisk应用程序不再附带内置的模块浏览器，您需要直接从其GitHub存储库中下载Riru。</p>
+
+<p><strong> <a href="https://github.com/RikkaApps/Riru/releases/latest">下载日如</a> </strong></p>
+
+<p>下载发布ZIP文件后，您可以使用Magisk应用程序安装它。</p>
+
+<ol> <li>如果你是在PC或Mac上下载，那么将你的Android设备连接到它，并将下载的ZIP文件复制到目标设备的内存中。</li> <li>打开手机上的Magisk应用程序，使用底部导航菜单切换到<em>模块</em>选项卡。</li> <li>点击名为<em>从存储器</em>安装的按钮。</li> <li>浏览并选择您先前下载的模块ZIP。</li> <li>Magisk现在将安装该模块，并提示您重新启动。</li> </ol>
+
+
+
+
+
+<p>如果一切正常，重启后你可以看到Riru列在Magisk应用程序的<em>模块</em>标签下。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="what-can-i-do-with-riru">我能拿Riru怎么办？</h2>
+<p>Riru本身只是一个让其他模块与合子进程挂钩的入口。因此，您需要通过Magisk应用程序安装Riru兼容的模块，就像任何其他Magisk模块一样。但是，有些模块可能与最新的Riru版本不兼容。因此，您必须在安装之前验证模块的Riru版本依赖性。</p>
+
+<p>成功安装后，Riru模块将在Magisk应用程序中与Magisk模块并列。然后，您可以打开特定于模块的配置前端来修改其参数。对于没有接口的模块，你可以简单地继续使用你的修改过的Android实例，Riru会在后台处理一切。</p>
+
+
+
+<p>请记住，由于特定的SELinux规则实现，一些库存和定制rom与Riru开箱即用<a href="https://github.com/RikkaApps/Riru/wiki/Explanation-about-incorrect-SELinux-rules-from-third-party-ROMs-cause-Riru-not-working">不兼容。</a></p>
+<p class="ad-even"> </p>
+
+
+<h2 id="what-is-the-difference-between-riru-and-zygisk">Riru和Zygisk有什么区别？</h2>
+<p>在较新版本的Magisk上，由于Zygisk的存在，您可能会遇到Riru在安装后被禁用的情况。</p>
+
+
+
+<p>然而，这种冲突背后的原因很简单。Zygisk(如Zygote中的Magisk)是Riru的精神继承者。这是无系统界面的演变，XDA高级认可的开发人员<a href="https://forum.xda-developers.com/m/topjohnwu.4470081/"> topjohnwu </a>(即Magisk的创造者)和其他几个开发人员已经工作了一段时间。由于Riru和Zygisk都以Android Zygote进程为目标，所以这两者在默认配置下不能同时存在。但是，您可以从Magisk的设置中禁用Zygisk，重新启动设备，然后启用Riru。</p>
+
+<p>事实上，Riru的维护者不久前就停止了这个项目的开发。他们建议模块开发者将来转用Zygisk。然而，Zygisk仍处于萌芽阶段，有很大的改进空间，因此迁移需要时间。同时，您可以继续使用Riru及其模块。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>[Update 2: Fixed] This wallpaper triggers a rare bug causing Android devices to bootloop</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>[更新2:修复]这张壁纸引发了一个罕见的错误，导致Android设备启动</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/wallpaper-triggers-rare-bug-causing-android-devices-bootloop/#0001-01-01">https://www.xda-developers.com/wallpaper-triggers-rare-bug-causing-android-devices-bootloop/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新2 (08/03/2020 @美国东部时间下午3:03):</strong>随着2020年8月Android安全补丁的发布，谷歌对Android进行了更新，修复了这个bug。更多细节可以在底部找到。</p><p>更新1(美国东部时间06/04/2020 @ 03:12AM):关于“被诅咒的壁纸”导致手机崩溃的原因，出现了新的解释，谷歌也做出了回应。滚动到底部了解更多信息。下面保留了2020年6月1日发表的文章。</p> </div></section>
+<p/><p>想象一下，你正在网上搜寻很酷的壁纸，然后你看到了一幅如画的风景。它什么都有；郁郁葱葱的绿色森林，有一个小岛的原始湖泊，背景是白雪皑皑的山脉，厚厚的云层覆盖着阳光透过缝隙渗透进来。你立即下载图片，把它设置成你手机的壁纸，然后嘣！你的安卓手机卡在引导回路里了。听起来不太可能，不是吗？嗯，对这张特殊的壁纸来说是真的。</p>
+
+ 
+
+
+
+<p>知名的<a href="https://www.xda-developers.com/tag/samsung/">三星</a>泄密者Ice Universe最近在<em>推特</em> <strong> </strong>上分享了这张壁纸，他声称这张壁纸“会导致你的手机死机！”尽管他们发出了警告，一些用户还是下载了壁纸，以检查它是否真的在他们的手机上做了什么，他们得到了以下结果:</p>
+
+ 
+
+
+
+
+
+
+
+
+
+<p>据总部位于AOSP的定制ROM(POSP)的首席开发者大卫·比安科(Davide Bianco)称，这种特殊的壁纸会导致一些Android设备崩溃，因为它使用了RGB色彩空间，而不是Android上原生支持的sRGB色彩空间。比安科<a href="https://android-review.googlesource.com/c/platform/frameworks/base/+/1321016">已经向AOSP提交了一个补丁</a>，据报道该补丁修复了这个问题，补丁描述称“当用户试图将一张不是sRGB的图片设为壁纸时，就会出现这个问题。发生的情况是变量y值高于直方图界限，使SysUI崩溃。一种可能的解决方法是将y值限制为总是小于256。除了Bianco之外，来自流行的LineageOS定制rom团队的两位开发人员，XDA资深成员<a href="https://forum.xda-developers.com/member.php?u=5662620"> BadDaemon </a>和XDA认可的开发人员<a href="https://forum.xda-developers.com/member.php?u=5778309"> luca020400 </a>，也提出了解决该问题的独特方案。你可以通过点击<a href="https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/276907">这个链接</a>和<a href="https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/276909">这个链接</a>在LineageOS Gerrit上查看补丁描述。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_8"><p>我们强烈建议在任何情况下都不要使用这张图片作为你的壁纸。如果您已经使用了它，并且您的设备卡在引导循环中，请查看下面的说明，了解如何能够恢复您的设备。</p> </div></section>
+<p>来自<em>9到5谷歌</em>T3关于此事的<a href="https://9to5google.com/2020/05/31/android-phone-wallpaper-soft-brick-bug-video/">报告进一步透露，该问题仅限于运行Android 10或更旧版本的设备，它不影响运行</a><a href="https://www.xda-developers.com/tag/android-11/"> Android 11 </a>开发者预览版的设备。这是因为在Android 11上，如果不支持，系统会转换色彩空间，但在Android 10上不会。这意味着这不是这个特定图像的问题，而可能是由使用RGB颜色空间的其他图像引起的。</p>
+
+<p>请注意，虽然这个问题不会影响所有的Android设备，但我们强烈建议不要在手机上尝试壁纸。如果您尝试使用它，您可以通过完全重置或进入安全模式并更改壁纸来恢复您的设备。但是由于Twitter上的一些用户无法使用上述方法恢复他们的设备，所以最好不要使用确切的图片作为壁纸。如果你真的喜欢这张壁纸，就把它截图下来作为你的壁纸。</p>
+
+<hr/>
+
+
+<h2 id="update-1-new-explanation-response-from-google">更新1:新的解释，谷歌的回应</h2>
+<p>根据XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=5662620"> BadDaemon </a>和XDA公认开发者<a href="https://forum.xda-developers.com/member.php?u=5778309"> luca020400 </a>对bug原因的解释，被“诅咒”的壁纸被编码在一个特殊的颜色空间中，这个颜色空间被称为“Google/Skia/E3 cadab 7 BD 3 de 5e 3436874 D2 a9 dee 126”(这是颜色空间的全称，Skia指的是Google 制作的<a href="https://skia.org/"> 2D图形库)。)相比之下，大多数其他壁纸图像是在称为“sRGB”的色彩空间中编码的。</a></p>
+
+<p>在Android版本10和更老的版本中，所有图像都被转换成sRGB，除非开发者另有说明。将图像转换为sRGB时会出现一个罕见的错误，其中计算每个像素的“亮度”值的代码设法超过了255的最大限制。</p>
+
+<p>使用以下公式计算亮度:</p>
+
+<p/><p>亮度= .2126f * r + .7152f * g + .0722f * b</p>
+
+<p>这里“r”、“g”和“b”是红色、绿色和蓝色值，用从0到255的8位值表示。</p>
+
+<p>这种计算的问题是，在最后求和之前，每个部分总是被四舍五入。“被诅咒的”壁纸中的一个像素，在将图像从sRGB转换到灰度的过程中，具有以下RGB值:255，255，243，当插入上面的等式时，看起来像:</p>
+
+<p/><p>r: .2126 * 255 = 54.213 =&gt; 55</p>
+
+<p/><p>g: .7152 * 255 = 182.376 =&gt; 183</p>
+
+<p/><p>b: .0722 * 255 = 18.411 =&gt; 19</p>
+
+<p/><p>亮度= r+ g + b = 257</p>
+
+<p>这个值导致SystemUI，基本上是整个OS崩溃，因为它超过了最大值。这是一个非常特殊的错误，因为它涉及到舍入误差和色彩空间转换误差的组合。</p>
+
+<p>这个错误不会影响Android 11，因为图像的“Skia”色彩空间在默认情况下不会转换为sRGB。因此，这种色彩空间转换错误和舍入错误不会在Android 11上出现。</p>
+
+<p>然而，谷歌Android Toolkit团队的Romain Guy认为，这个问题的根本原因只在于亮度的计算方式，而不是任何色彩空间转换问题。<a href="https://android-review.googlesource.com/c/platform/frameworks/base/+/1321017/1#message-0cca806c0e467116956512548ee16cede6758903">谷歌正在进行自己的内部测试，所以我们很快就会看到他们的成果。</a></p>
+
+<p><em>更新了此解释，以澄清“被诅咒的”壁纸中的一个像素是此特定亮度舍入计算错误的原因。我们还澄清了舍入发生在亮度计算的每个步骤中，而不是在最后。</em></p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="update-2-fixed-in-august-2020-patches">更新2:2020年8月修复补丁</h2>
+<p>8月份的Android安全补丁刚刚上线，XDA认可的开发者在AOSP发现了一个修复壁纸漏洞的提交。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

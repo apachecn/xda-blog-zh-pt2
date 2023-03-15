@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Play Store won't allow apps to scan for other apps without a good reason</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如果没有充分的理由，Play Store不会允许应用程序扫描其他应用程序</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-play-store-query-all-packages-rule/#0001-01-01">https://www.xda-developers.com/google-play-store-query-all-packages-rule/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">没有充分的理由，谷歌Play商店不会允许应用程序扫描其他应用程序</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">谷歌将从6月1日开始从Play Store中移除使用QUERY_ALL_PACKAGES而没有合理理由的应用。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>Android应用程序可以使用QUERY_ALL_PACKAGES权限检查安装了哪些其他应用程序，但鉴于安全和隐私风险，该功能仅适用于<em>实际上</em>需要它的应用程序(如应用程序启动器或备份工具)。谷歌去年表示，它将开始从Play Store中删除没有合理理由使用许可的应用程序，现在这条规则已经生效。</p>
+
+  
+<p>据报道，谷歌已经向使用QUERY_ALL_PACKAGES权限发布应用的开发者发送了一封电子邮件，通知他们需要在Play控制台中填写相关的权限声明。声明包括解释为什么“你的应用中的核心功能”需要许可，包括书面描述和简短的视频演示。从2022年6月1日开始，没有声明的应用程序有被从谷歌Play商店移除的风险。</p>
+
+<p>Android 10和更早的版本允许任何应用程序获得已安装应用程序的完整列表，没有任何权限提示或障碍。这对隐私和安全来说是一个重大问题(例如，应用程序可以根据安装的应用程序来定向广告)，所以从Android 11开始，<a href="https://medium.com/androiddevelopers/package-visibility-in-android-11-cc857f221cd9">应用程序列表默认被过滤</a>。应用程序仍然可以通过QUERY_ALL_PACKAGES权限绕过新的过滤器，但<a href="https://www.xda-developers.com/google-is-restricting-which-apps-can-see-the-other-installed-apps-on-your-device/">谷歌去年表示</a>它不会允许Play Store上的应用程序使用非必要功能的权限。</p>
+
+<p>Play Store政策变化的原定日期是2021年5月5日，首批不符合规定的应用程序将于2021年11月开始下架。出于“新冠肺炎相关的考虑”，谷歌后来推迟了开始日期</p>
+
+<p>谷歌为使用辅助服务的<a href="https://www.xda-developers.com/google-trying-limit-apps-accessibility-service/">应用程序创建了类似的规则，因为它试图平衡应用程序的要求与安全措施。如果应用程序开发人员能够解释为什么他们的应用程序没有QUERY_ALL_PACKAGES就无法运行，他们就可以留在Play Store上——假设谷歌的支持人员反应灵敏、乐于助人，而</a><a href="https://www.xda-developers.com/google-developer-account-ban-raya-games/">并不总是这样</a>。</p>
+
+<p><strong>来源:</strong> <a href="https://www.reddit.com/r/android_devs/comments/tw0pbc/query_all_packages_permission_declaration/"> Reddit </a></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

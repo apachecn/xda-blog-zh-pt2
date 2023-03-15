@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>In Android 13, Google is cracking down on malware that uses Accessibility APIs</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在Android 13中，谷歌正在打击使用可访问性API的恶意软件</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-13-google-malware-crackdown-accessibility-api/#0001-01-01">https://www.xda-developers.com/android-13-google-malware-crackdown-accessibility-api/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>长期以来，恶意软件一直是Android上的一个问题，最突出的攻击载体之一是通过用户手机上的可访问性服务。辅助功能API是开发人员用来帮助残障用户的强大工具，因为他们可以阅读屏幕、输入内容等等。不幸的是，这也使它们容易被滥用，FluBot等恶意软件会欺骗用户为恶意应用程序启用这些API，而这些API又无法卸载。这在Android 13中正在改变，因为谷歌将阻止从应用商店外下载的应用被授予这些权限。</p>
+
+  
+<p>正如斯珀最初报道的那样，谷歌将阻止从应用商店外下载的应用访问可访问API。易访问性API对于残疾用户来说是必要的，但是它们对设备也有着难以置信的控制力。这就是为什么用户需要手动启用每个应用程序的服务，但一些用户可能会被骗去启用它，如果他们不知道他们在做什么的话。因此，谷歌的这一变化将完全阻止用户通过浏览器或短信应用下载应用。</p>
+
+<p>谷歌长期以来一直在努力解决如何处理利用辅助功能服务的应用程序的问题。2017年，谷歌<a href="https://www.xda-developers.com/google-threatening-removal-accessibility-services-play-store/">威胁</a>从谷歌Play商店移除那些利用可访问性API做任何不是帮助残疾用户的应用。虽然该公司最终放弃了，但谷歌在2021年更新了政策。现在，除了帮助针对Android 12或更高版本的残疾用户之外，开发人员如果想在应用程序中使用辅助功能服务，必须在完成权限声明表后获得Google Play的批准。</p>
+
+<p>然而现在，在Android 13中，事情又发生了变化。任何从app store外部加载的应用程序都将无法启用其辅助功能服务。当轻按该选项以启用它时，您的手机将显示一个弹出窗口，说明“为了您的安全，此设置目前不可用”。起初，这可能会让其他应用商店感到担忧，但谷歌向斯珀证实，这一变化不会影响预装或侧装应用商店，只是为了限制从不太合法的来源下载的应用。</p>
+
+
+
+
+
+<p>简而言之，为通过<a href="https://developer.android.com/reference/android/content/pm/PackageInstaller.Session" target="_blank" rel="noreferrer noopener">基于会话的包安装API </a>安装的侧装应用程序启用可访问性服务不会有任何问题。这种安装方法通常由第三方应用商店使用。至于使用非会话包安装API的应用，那些会被限制。对于开发人员来说，这是一个更容易实现的方法，因为安装可以交给系统软件包安装程序，这就是文本应用程序、邮件客户端和浏览器处理APK安装的方式。如果你想了解更多关于这个实现的技术细节，那么一定要看看<em>斯珀</em>的完整文章。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://blog.esper.io/android-13-sideloading-restriction-harder-malware-abuse-accessibility-apis/">斯珀</a>T3】</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

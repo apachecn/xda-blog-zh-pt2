@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Developer dual-boots Windows 11 on the Microsoft Surface Duo</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Developer dual-boots Windows 11 on the Microsoft Surface Duo</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/windows-11-dual-boot-on-microsoft-surface-duo/#0001-01-01">https://www.xda-developers.com/windows-11-dual-boot-on-microsoft-surface-duo/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>Many of you probably dual-boot your PCs - be it to <a href="https://www.xda-developers.com/dual-boot-windows-11-linux/">run a Linux distribution alongside Windows</a> or because you have a Mac and want to play some games through Windows. On traditional x86 computers, the process has gotten relatively simpler over time. On Android, however, the story is different.</p>
+
+  
+<p>The modern x86 platform usually provides a truly OS-independent boot solution in the form of the Unified Extensible Firmware Interface (UEFI), which replaces the legacy Basic Input/Output System (BIOS). This is why you can simply take a bootable installation media and boot from it on your PC to install a new OS. However, when it comes to the Android ecosystem, the boot solutions (UBoot, Little Kernel, etc.) are coupled to the OS. As a result, there is no one-click solution for multi-booting and you must hack around the low-level bootloader stuff to be able to boot a non-Android OS like Windows on an Android device.</p>
+
+<p>Lucky for us, there are extremely talented people who are relentlessly trying to simplify the quest. The first-generation <a href="https://www.xda-developers.com/microsoft-surface-duo-review/">Microsoft Surface Duo</a> is the latest hurdle cleared by the modding community, as you can now install Windows 11 besides the factory-installed Android OS on this foldable.</p>
+
+ 
+<h2 id="install-windows-11-on-the-microsoft-surface-duo"> Install Windows 11 on the Microsoft Surface Duo </h2>
+<p>Gustave Monce, aka XDA Senior Member <a href="https://forum.xda-developers.com/m/gus33000.7651894/">gus33000</a> is the lead developer behind this impressive achievement. Monce, who has a long-standing reputation for <a href="https://www.xda-developers.com/windows-11-on-lumia-950-xl-raspberry-pi-4/">booting Windows on otherwise incompatible devices</a>, gave us the first glimpse of booting Windows on the OG Surface Duo back in February. Thanks to his formidable skills and open-sourced development, anyone can now boot Windows on Microsoft's inaugural Android-powered foldable smartphone.</p>
+
+<p>Keep in mind that the steps described below are intended for both the unlocked and the AT&amp;T models of the Surface Duo. The Qualcomm Snapdragon 888-powered Surface Duo 2 isn't at all compatible with this mod.</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_6"><p><strong>Warning:</strong> Before we get into how to dual-boot Windows 11 on the Microsoft Surface Duo, remember to take an off-device backup. That’s because the process <strong>requires wiping all the data on your phone, including the files on the internal storage</strong>. You may <strong>permanently brick your device</strong>, so only attempt this if you know what you're doing.</p> </div></section>
+<hr/>
+
+<h3 id="step-1-download-windows-11">Step 1 – Download Windows 11</h3>
+<p>The Microsoft Surface Duo uses an ARM64 processor, hence we need to get our hands on an ARM64 variant of the Windows 11 installer. Unfortunately, Microsoft doesn't offer an official ARM64 ISO, while the <a href="https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewARM64" data-lnk="" data-lnkorig="https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewARM64">official VHDX release for Insider Preview users</a> isn't suitable for installation on a physical device.</p>
+
+<p>Don't worry, though, as we can use third-party tools to download Microsoft's Unified Update Platform files and prepare the ARM64 installer ourselves. The <a href="https://uupdump.net/">UUP dump project</a> provides extensive resources to get started with this domain. Alternatively, use Monce's cross-platform <a href="https://github.com/gus33000/UUPMediaCreator" class="norewrite noskim" rel="sponsored nofollow">UUP Media Creator</a> tool to create the ISO.</p>
+
+<hr/>
+
+<h3 id="step-2-unlock-the-bootloader-of-the-surface-duo-and-perform-partitioning">Step 2 – Unlock the bootloader of the Surface Duo and perform partitioning</h3>
+<ol> <li> On the Surface Duo, go to <em>Settings</em> =&gt; <em>About</em>=&gt; click on the <em>Build number</em> until Developer options are enabled. </li> <li> Go back and select <em>System</em> =&gt; <em>Developer options</em>. Next, enable the OEM unlocking toggle. </li> <li> Boot to the bootloader interface.  <ul> <li> You can do so by <a href="https://support.microsoft.com/en-us/surface/recover-surface-duo-if-it-won-t-start-1e6fb3cf-4e24-92a8-bc05-4984274bc6a4#ID0EDD=Surface_Duo">booting to the recovery mode</a> and then choosing the <em>Reboot to bootloader</em> option. </li> <li> If USB debugging is turned on, then execute the following command on your PC while the Surface Duo is connected to force it to boot to the bootloader mode:<pre> <code class="hljs ">adb reboot bootloader</code> </pre> </li> </ul> </li> <li> Now that the device is in its bootloader mode, use the following Fastboot command to unlock the bootloader:<pre> <code class="hljs sql">fastboot flashing <span class="hljs-keyword">unlock</span></code> </pre> Note that <strong>this step will factory reset the device</strong>. </li> </ol>
+
+<p>The bootloader is now unlocked, which means we can manually change the partition layout of the device and make room for the Windows instance. The developer has compiled a semi-working TWRP image for the Duo, so that we can run the <code>parted</code> binary from TWRP's internal shell to modify the partitions. Click on the link below to go through the most up-to-date partitioning guide.</p>
+
+<p/><p><strong><a href="https://github.com/WOA-Project/SurfaceDuo-Guides/blob/main/InstallWindows.md#making-the-partitions">Making the required partitions on the Surface Duo</a></strong></p>
+
+<p>Notably, the initial version of the guide only targets 128GB devices. You must calculate the partition size values yourself for the 256GB variant.</p>
+
+<hr/>
+
+<h3 id="step-3---boot-the-custom-uefi">Step 3 - Boot the custom UEFI</h3>
+<p>If everything goes correctly during partitioning, you can now boot a specially crafted custom UEFI image (internally referred to as "SurfaceDuoPkg") that helps you to boot Windows.</p>
+
+<ol> <li> Download the precompiled boot.img from the <a href="https://github.com/WOA-Project/SurfaceDuoPkg/releases/latest">latest release section of the project's Github repo</a>. </li> <li> Boot the UEFI image:fastboot boot boot.imgThis step will be needed every time you'll want to boot Windows. </li> <li> You should see the Developer Menu. Navigate with the volume up/down buttons to Mass Storage Mode, and press the Power Button to confirm. </li> </ol>
+
+<hr/>
+
+<h3 id="step-4---install-windows-and-drivers">Step 4 - Install Windows and drivers</h3>
+<p>The Mass Storage Mode exposes the internal partitions of the Surface Duo's internal flash storage to the host PC's OS, hence we can easily mount them using the Disk Management console and prepare for Windows installation.</p>
+
+<p>Make sure the target Surface Duo device is in Mass Storage Mode and you have prepared the Windows 11 ISO beforehand. Next, click on the links below to view the most up-to-date guides from the developer on how to apply the Windows image and subsequently install the drivers using the Deployment Image Servicing and Management (DISM) tool.</p>
+
+<p/><p><strong><a href="https://github.com/WOA-Project/SurfaceDuo-Guides/blob/main/InstallWindows.md#installing-windows">Applying the Windows image using DISM</a> || <a href="https://github.com/WOA-Project/SurfaceDuo-Guides/blob/main/InstallWindows.md#installing-the-drivers">Installing drivers using DISM</a></strong></p>
+
+<hr/>
+
+<h3 id="step-5---boot-windows-on-the-surface-duo">Step 5 - Boot Windows on the Surface Duo</h3>
+<p>At this point, Windows 11 has been successfully installed on the Surface Duo, but the default boot path always leads to the Android OS. If you want to start Windows, boot to the bootloader mode, start the custom UEFI (from Step 3), and Windows should start loading instead of Android.</p>
+
+ 
+
+
+
+<p>According to Gustave, the current set of drivers is merely mature to handle the CPU frequency, side buttons, and the sleep/wake events (depending on the folding position). Everything else, including the touch interface, isn't working. The custom UEFI image, on the other hand, is capable enough to boot mainline Linux after necessary adjustments.</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="conclusion"> Conclusion </h2>
+<p>Dual-booting makes sense on a computer, but does it on a phone like the Microsoft Surface Duo? Not for the general user. Even experienced users might call it an answer without a question, and it does come with some fair annoyances too. But to us at XDA, the additional freedom and choice mean that, if used right, dual booting can be a power user’s Holy Grail.</p>
+
+<hr/>
+
+<p><strong>Source:</strong> <a href="https://twitter.com/gus33000/status/1501990271436967941">Gustave Monce on Twitter</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

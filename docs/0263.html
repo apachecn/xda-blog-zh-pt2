@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Wyze found out about a camera security flaw in 2019 and didn't tell anyone</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Wyze在2019年发现了一个摄像头安全漏洞，但没有告诉任何人</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/wyze-security-vulnerability-2022/#0001-01-01">https://www.xda-developers.com/wyze-security-vulnerability-2022/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>自2017年第一款Wyze Cam以来，Wyze一直在销售廉价的智能安全摄像头，并已扩展到其他产品类别(<a href="https://www.xda-developers.com/wyze-buds-pro-active-noise-cancellation-wireless-charging/">如耳塞</a>)。然而，该公司也有自己的问题，另一个重大问题已经曝光——黑客可以获得Wyze Cams的视频反馈。</p>
+
+  
+<p>Bitdefender周二公开披露了Wyze的安全摄像头的一系列安全漏洞，这些漏洞影响了Wyze Cam Pan v2(4 . 49 . 1 . 47之前)、Wyze Cam v2(4 . 9 . 8 . 1002之前)、Wyze Cam v3(4 . 36 . 8 . 32之前)以及所有固件版本上的原始Wyze Cam。第一个漏洞名为<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9564"> CVE-2019-9564 </a>，允许黑客绕过Wyze设备的登录，获得摄像头控制的权限。Bitdefender还发现了一个堆栈缓冲区溢出漏洞(<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12266"> CVE-2019-12266 </a>)，当与第一个安全漏洞结合使用时，可以用来远程访问摄像头的视频馈送。</p>
+
+<p>利用这一安全缺陷需要知道初始摄像机ID，这是一个随机字符串，只能通过加入与摄像机相同的局域网来记录。这极大地限制了安全漏洞的范围，因为黑客必须先进入你的家庭网络，然后才能访问Wyze摄像头的视频。</p>
+
+<p>这里的主要问题实际上不是安全漏洞，而是Wyze <em>如何处理</em>这个漏洞。Bitdefender表示，它联系了Wyze两次，第一次是在2019年3月6日，第二次是在2019年3月15日，显然没有收到任何回应。在接下来的几个月里，Wyze更新了一些摄像头，部分修复了登录漏洞，但仍然没有回应Bitdefender。直到2020年11月，Wyze才最终与Bitdefender沟通，最终的修复程序直到2022年1月才部署。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2022/03/cdn.vox-cdn.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Email sent to Wyze customers on January 6, 2022 (Source: The Verge)&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2022/03/cdn.vox-cdn.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2022/03/cdn.vox-cdn.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2022/03/cdn.vox-cdn.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2022/03/cdn.vox-cdn.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Screenshot of an email from Wyze: &quot;Protecting you and your security is always top of mind, and for us to do that, we'll need you to update your Wyze app and update your Wyze Cam firmware. This will make sure your devices are in tip-top shape so you can breathe easy and know Wyze has your back.&quot;" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2022/03/cdn.vox-cdn.jpg" src="../Images/1c21f6646f737f8e4cae25b75035984a.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2022/03/cdn.vox-cdn.jpg"/> </picture> <figcaption class="body-img-caption">Email sent to Wyze customers on January 6, 2022 (Source: The Verge)</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>Wyze不仅没有迅速采取行动，与Bitdefender合作解决安全问题，而且该公司也从未向其客户承认该漏洞。Wyze告诉《The Verge》,该公司一直对其客户保持透明，并“完全纠正了这个问题”，但最初的Wyze Cam从未得到修复，该公司似乎从未告诉客户这个具体问题。</p>
+
+<p>截至本文发表时，Wyze尚未在其Twitter账户或其他社交媒体账户上发布关于安全漏洞的公开声明。</p>
+
+<p><strong>来源:</strong> <a href="https://www.theverge.com/23003418/wyze-cam-v1-vulnerability-no-patch-bitdefender-responsible-disclosure"> The Verge </a>，<a href="https://www.bitdefender.com/blog/labs/vulnerabilities-identified-in-wyze-cam-iot-device/" data-lnk="" data-lnkorig="https://www.bitdefender.com/blog/labs/vulnerabilities-identified-in-wyze-cam-iot-device/"> Bitdefender </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

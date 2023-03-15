@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>How to enable VoLTE on Qualcomm devices running GSIs</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在运行GSIs的高通设备上启用VoLTE</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-enable-volte-qualcomm-devices-running-generic-system-images-gsis/#0001-01-01">https://www.xda-developers.com/how-to-enable-volte-qualcomm-devices-running-generic-system-images-gsis/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">如何在运行通用系统映像(GSI)的高通设备上启用VoLTE</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">VoLTE-Fix mod可用于恢复运行通用系统映像的大多数Project Treble兼容高通设备对LTE语音的支持。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>谷歌的<a href="https://forum.xda-developers.com/project-treble">项目Treble </a>无疑是Android OS自诞生以来最大的一次重组。山景城巨人完全修改了Android操作系统框架和供应商驱动程序Linux内核相互交互的方式，以减少Android平台版本碎片。最重要的是，Project Treble还使得<a href="https://www.xda-developers.com/flash-generic-system-image-project-treble-device/">在任何支持的设备上启动AOSP通用系统镜像</a> (GSI)成为可能。XDA的开发者社区长期以来一直在<a href="https://www.xda-developers.com/phh-custom-android-10-gsi-adds-better-support-razer-phone-new-my-device-settings/">发布自己的定制GSI</a>和额外的设备特定补丁，但是在这些版本中有一些已知的限制。例如，高级蜂窝服务，如LTE语音(VoLTE)和Wi-Fi通话(VoWiFi)通常在GSIs上中断。</p>
+
+  
+<p>与传统的电路交换式网络不同，VoLTE和VoWiFi由IP多媒体子系统(IMS)提供支持。一个典型的带有高通调制解调器的Android设备带有一个特殊的特权应用程序，作为无线电接口层(RIL)和这些IMS服务之间的联系。理论上，在安装GSIs以使VoLTE工作之后，可以从库存固件中提取适当的IMS APK以及必要的共享对象，并将其推送到各自的目的地。这正是<strong> VoLTE-Fix </strong> mod的用武之地。</p>
+
+<p>由Khushraj Rathod 开发的这款mod在本质上是相当通用的。你可以安装它从一个自定义的恢复像TWRP在一个flashable ZIP文件的形式或选择安装程序外壳脚本来做你的工作。开发人员还描述了一个手动安装过程，在安装GSI后，您需要手动移动文件并设置所需的属性值。如果你想知道的话，请注意IMS APK是闭源的。</p>
+
+<p/><p><strong> VoLTE-Fix在运行GSIs的高通设备上启用VoLTE:<a href="https://github.com/KhushrajRathod/VoLTE-Fix/releases">下载</a> || <a href="https://github.com/KhushrajRathod/VoLTE-Fix/">来源</a> </strong></p>
+
+<p>请记住，某些原始设备制造商(如三星)不喜欢遵循多媒体电话服务(MMTel)标准。他们的IMS实现是完全专有的，因此你不能在使用这种模式的设备上启用VoLTE。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

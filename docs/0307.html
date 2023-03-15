@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Android could soon start warning users when they run 32-bit apps</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>当用户运行32位应用程序时，Android可能很快就会开始警告用户</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-warning-users-32-bit-apps/#0001-01-01">https://www.xda-developers.com/android-warning-users-32-bit-apps/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">当用户运行32位应用程序时，Android可能很快就会开始警告用户</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">最近提交给AOSP Gerrit的一份代码变更强调，当用户运行32位应用程序时，Android可能会开始警告用户。请继续阅读，了解更多信息。</p>
+
+
+<p class="img-description heading-img-desc">鸣谢:米沙·拉赫曼</p>
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>虽然谷歌在过去几年里一直在努力放弃Android上的32位应用支持，但32位应用成为过去可能还需要一段时间。然而，为了加快这一过程，谷歌可能很快就会在Android中实施一项新的变化，当用户在64位系统上运行32位应用程序时，它会发出警告。</p>
+
+  
+<p>提交给AOSP·格里特的一份代码变更(被<em>米沙·拉赫曼</em>发现)强调了一个新的警告，每当用户在64位系统上运行32位应用程序时，就会弹出一个新的警告。正如你在附上的截图中看到的，警告消息将告诉用户<em>“应用需要由其开发者更新以提高兼容性”</em>，并敦促他们检查更新或联系开发者。此举背后的想法是促使开发者构建64位版本的应用程序，但我们目前没有关于谷歌何时可能实施这一变化的信息。</p>
+
+ 
+
+
+
+<p>值得注意的是，当用户试图运行不符合最低targetSDK要求的应用程序时，Android已经显示了类似的警告。谷歌<a href="https://www.xda-developers.com/android-q-warn-apps-target-android-lollipop/">在Android 10 </a>中实现了这一变化，该公司现在正计划将支持的最低targetSDK级别更新为28。根据更新后的要求，当用户试图运行针对Android 8.1 Oreo或更旧版本的应用程序时，Android将开始警告用户。然而，这一变化也尚未进入当前的<a href="https://www.xda-developers.com/android-13/"> Android 13 </a>版本。</p>
+
+ 
+
+
+
+<p>鉴于ARM计划从明年开始取消未来移动CPU对32位应用程序的支持，这一警告可能会迫使开发者及时更新他们的应用程序以适应这一变化。不知道的是，Android目前支持32位和64位应用程序。因此，开发人员必须为他们的应用程序维护两个二进制文件，ARM必须提供支持传统32位的CPU。由于64位处理器在本质上比32位处理器更强大，因此整个生态系统采用这种变化是有意义的。早在2017年，苹果就在iOS 11中转向仅支持64位，现在是安卓效仿的时候了。</p>
+
+<hr/>
+
+<p><strong>来源:</strong><a href="https://android-review.googlesource.com/c/platform/frameworks/base/+/2003790/">AOSP·格里特</a></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

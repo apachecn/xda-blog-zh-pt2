@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>WhatsApp may soon let you send messages via Facebook Assistant on Ray-Ban Stories</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>WhatsApp可能很快会让你通过脸书助手发送关于雷朋故事的信息</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/apk-teardown-whatsapp-send-messages-facebook-assistant-ray-ban-stories/#0001-01-01">https://www.xda-developers.com/apk-teardown-whatsapp-send-messages-facebook-assistant-ray-ban-stories/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>WhatsApp是目前最受欢迎的即时通讯应用。尽管它很受欢迎，但在引入新功能方面却进展缓慢。例如，<a href="https://www.xda-developers.com/whatsapp-new-community-feature-apk-teardown/">社区功能早在2021年10月就被我们首次发现</a>，直到昨天<a href="https://www.xda-developers.com/whatsapp-making-group-chats-better/">才正式宣布</a>。WhatsApp的一个痛点仍然是它与语音助手的不集成——你不能要求谷歌助手在WhatsApp上给某人发送消息。Meta可能正在努力让这一切发生，但不是用谷歌助手，而是用脸书助手和它的<a href="https://www.xda-developers.com/facebook-ray-ban-stories/">雷朋故事智能眼镜</a>。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>最新的WhatsApp测试版2.22.9.13包括一些字符串和资产，表明这家Meta拥有的即时通讯应用程序可能正在努力让用户通过其Ray-Ban Stories智能眼镜上的脸书助手发送消息。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_complete_bullet_one"</span>&gt;</span>Tell Assistant who you want to contact. Be sure to say “on WhatsApp” after their name so Assistant knows to open a WhatsApp message secured with end-to-end encryption.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_complete_bullet_three"</span>&gt;</span>"Wait to say your message after Assistant asks you, so you know you're speaking into WhatsApp."<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_complete_bullet_two"</span>&gt;</span>For example, “Hey Facebook, message Anna on WhatsApp.”<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_complete_button"</span>&gt;</span>Connect with Ray-Ban Stories<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_complete_link"</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>a href=\"%1$s\"&gt;Learn how your voice information is kept private on Ray-Ban Stories.<span class="hljs-symbol">&amp;lt;</span>/a&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_complete_title"</span>&gt;</span>Send a WhatsApp Message With Assistant<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_perm_button"</span>&gt;</span>Next<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"instrumentation_auth_perm_paragraph_one"</span>&gt;When you use WhatsApp <span class="hljs-keyword">with</span> Ray-Ban Stories, the contents <span class="hljs-keyword">of</span> your personal messages and calls are always secured <span class="hljs-keyword">with</span> end-to-end encryption. Not even WhatsApp can read or listen to them.&lt;<span class="hljs-regexp">/string&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_perm_paragraph_two"</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>a href=\"%1$s\"&gt;Learn more about your privacy on WhatsApp.<span class="hljs-symbol">&amp;lt;</span>/a&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_perm_title"</span>&gt;</span>Use WhatsApp with Ray-Ban Stories<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"instrumentation_auth_title"</span>&gt;</span>Link with WhatsApp<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>一些字符串只是提到了“助手”，但在你抱有希望之前，这些字符串的上下文表明它可能是指脸书助手而不是谷歌助手。雷朋故事智能眼镜包括脸书助手作为语音助手的选择，让用户通过语音命令在智能眼镜上拍摄照片和视频。上面的字符串变得不言自明。智能眼镜用户将能够把他们的智能眼镜与手机上的WhatsApp连接起来，然后说出类似“嘿，脸书，在WhatsApp上给安娜发消息”的命令，就可以继续发送消息，而无需从口袋中拿出手机。</p>
+
+<p>除了字符串之外，APK还包含以下两种图形资源(和一些其他较小的图标):</p>
+
+
+
+
+
+<p>第一个图形巩固了我们从弦乐中学到的东西。第二个图形用于突出显示端到端加密，当通过脸书助手使用基于语音的命令时，该加密可能仍然有效。</p>
+
+<p>目前还不清楚该功能何时推出。但它应该只会让一小部分用户受益——那些拥有雷朋Stories智能眼镜、也使用WhatsApp、希望利用语音命令在该平台上发送信息的用户。目前，没有迹象表明语音命令支持会扩展到其他虚拟助手，也没有迹象表明它会扩展到智能眼镜用例之外。所以保持你的期望。</p>
+
+ 
+
+
+
+<p><em>感谢PNF软件为我们提供了使用</em> <em> <a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB反编译</a> </em> <em>的许可，这是一款针对Android应用的专业级逆向工程工具。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

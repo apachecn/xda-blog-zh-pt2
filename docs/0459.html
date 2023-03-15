@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Android 13 adds HDR video and "stream use cases" support in Camera2 API</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 13在Camera2 API中增加了HDR视频和“流用例”支持</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-13-hdr-vide-stream-use-case-camera2-api/#0001-01-01">https://www.xda-developers.com/android-13-hdr-vide-stream-use-case-camera2-api/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>在Android 5.0中引入了<a href="https://www.xda-developers.com/camera2-api/#whatiscamera2api"> Camera2 API </a>，作为原始相机API的继承者。该API允许开发人员检查设备上有哪些相机功能，并向应用程序展示粒度相机功能，包括曝光和白平衡增益的每帧控制、锐化、去噪等。这也是安装<a href="https://www.xda-developers.com/google-camera-port-hub/">谷歌摄像头端口</a>的先决条件。随着<a href="https://www.xda-developers.com/tag/android13/"> Android 13 </a>，谷歌给Camera2 API增加了一些新功能。</p>
+
+  
+<p>正如斯珀发现的那样，Android 13的HAL允许智能手机制造商向Camera2 API展示10位视频输出。如果OEM选择公开10位相机输出，它必须至少支持HLG10配置文件。如果设备支持其他HDR格式，如HDR10+和Dolby Vision，设备制造商可以使用<a href="https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#REQUEST_RECOMMENDED_TEN_BIT_DYNAMIC_RANGE_PROFILE">camera characteristics # REQUEST _ RECOMMENDED _ TEN _ BIT _ DYNAMIC _ RANGE _ PROFILE</a>常量向应用程序发布推荐的配置文件。同时，支持Camera2 API的应用程序可以使用output configuration . setdynamicrangeprofile API设置特定设备支持的动态范围配置文件。</p>
+
+<p>除了HDR视频支持，Camera2 API还增加了对“流用例”的支持，允许OEM在不同的流场景中优化相机性能。</p>
+
+<blockquote>
+<p>流用例从最终用户的角度说明了特定摄像机流的目的。相机使用案例的一些示例包括:向用户显示的实时取景器的预览流、用于生成高质量照片捕捉的静态捕捉、用于对相机输出进行编码以便将来回放的视频记录，以及用于实时视频会议的视频通话。</p>
+ </blockquote>
+<p>如果设备制造商选择实现这一功能，则需要实现以下流用例:</p>
+
+<ul> <li>实时取景器预览和应用内图像分析</li> <li>静态照片捕捉的静态_捕捉</li> <li>VIDEO_RECORD用于录制视频片段</li> <li>PREVIEW_VIDEO_STILL用于取景器、视频录制和静态图像捕捉的单个视频流。</li> <li>用于长时间视频通话的VIDEO_CALL</li> </ul>
+
+<p>当流用例支持可用时，相机设备可以使用Camera2 API执行诸如选择最佳相机传感器模式、选择调谐参数和构建图像处理流水线之类的配置。应用程序可以使用<a href="https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#SCALER_AVAILABLE_STREAM_USE_CASES">camera characteristics # SCALER _ AVAILABLE _ STREAM _ USE _ CASES</a>字段来查询设备上支持的steam用例列表。</p>
+
+<hr/>
+
+<p><strong>来源</strong> : <a href="https://blog.esper.io/android-13-deep-dive/#camera2_hdr_video">斯珀</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

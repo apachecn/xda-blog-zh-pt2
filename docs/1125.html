@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Google releases Flutter 1.20 stable with new features and developer tools</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌发布Flutter 1.20稳定版，增加了新功能和开发者工具</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-flutter-1-20-stable/#0001-01-01">https://www.xda-developers.com/google-flutter-1-20-stable/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Google的跨平台UI工具包Flutter已经到了1.20版本稳定。在<a href="https://www.xda-developers.com/google-flutter-117-dart-2-8-stable-sdk-app-development/">之前的稳定版本</a>中，谷歌引入了实质性的性能改进，改善了iOS对Metal的支持，以及新的材料小部件。今天的Flutter 1.20稳定版包括更多的性能改进、几个UI增强、Visual Studio代码扩展的更新、移动文本字段的自动填充等等。</p>
+
+  
+<p>Flutter 1.20包括来自全球359个贡献者的3029个合并的PRs和5485个关闭的问题，是迄今为止任何Flutter版本贡献者数量最多的。谷歌还夸口说，现在Google Play上有超过90，000个用Flutter开发的应用程序，比4月份的50，000个有所增加。这种增长很大一部分来自印度，谷歌称印度现在是Flutter开发者的首选地区。</p>
+
+<p><strong>性能提升</strong></p>
+
+<p>以下是谷歌提高颤振1.20性能的一些方法:</p>
+
+<ul> <li>谷歌包含了对<a href="https://github.com/flutter/flutter/pull/55417">树摇图标</a>的性能修复，该图标现在是构建非网络应用时<a href="https://github.com/flutter/flutter/pull/56633">的默认图标</a>。此功能通过移除任何不使用的图标来减小应用程序的大小。图标字体树抖动目前仅限于TrueType字体，但谷歌表示，这一限制将在未来取消。</li> <li>如果一个应用程序在第一次运行时有janky动画，后来在随后的启动中变得平滑，这可能是由于着色器编译jank。通过<a href="https://github.com/flutter/flutter/wiki/Reduce-shader-compilation-jank-using-SkSL-warm-up"> Skia着色语言着色器预热</a>，着色器编译jank最多可减少2倍。</li> <li>Google重构了鼠标点击测试，将基于web的微基准测试的性能提高了15倍。因此，Google已经能够添加对鼠标光标的支持，鼠标光标将显示在几个常用的小部件中。</li> <li>谷歌在Dart 2.9中提高了Dart的UTF-8解码器的解码速度。在UTF-8解码基准测试中，该公司测量了低端ARM设备上英文文本近200%的改善和中文文本400%的改善。</li> </ul>
+
+<p><strong>自动填充移动文本字段</strong></p>
+
+<p>开发人员强烈要求的一个功能是支持Flutter应用程序中的文本自动填充。在Flutter 1.20中，已经添加了基本的自动填充功能<a href="https://github.com/flutter/flutter/pull/52126"/>，尽管不支持一些特定于平台的配置(如iOS上的passwordRules)。谷歌也为网络应用程序的文本字段支持带来了自动填充功能。</p>
+
+
+
+<p><strong>互动查看器小工具</strong></p>
+
+<p>这个新的小部件是为在你的应用中构建交互元素而设计的，比如平移、缩放、拖放等等。API文档可在<a href="https://api.flutter.dev/flutter/widgets/InteractiveViewer-class.html">这里</a>获得，而上传的演示文稿<a href="https://www.youtube.com/watch?v=ChFa0A72Uto">在</a>这里深入研究这个新部件的开发过程。</p>
+
+<p><strong>嵌入Visual Studio代码的Dart dev tools</strong></p>
+
+<p>Google增加了新的Visual Studio代码扩展，将Dart DevTools直接引入Visual Studio代码编码工作区。这可以通过dart.previewEmbeddedDevTools设置来启用。</p>
+
+
+
+<p><strong>其他变化</strong></p>
+
+<p>在Flutter 1.20中有很多其他的新特性和开发者工具。仅举几个例子:更新的Slider、RangeSlider、TimePicker和DatePicker小部件；“关于”对话框中提供了一个新的“响应许可证”页面；发布新的或更新的Flutter插件的新的pubspec.yaml格式要求；Dart DevTools中更新的网页，支持web socket配置文件；支持在Visual Studio代码中移动或重命名文件时自动更新导入语句；还有更多。</p>
+
+<p>谷歌表示，Flutter 1.20是该框架迄今为止最大的版本，但还有很多尚未推出。该公司表示，他们仍在努力实现<a href="https://www.xda-developers.com/google-flutter-117-dart-2-8-stable-sdk-app-development/">声音零安全支持</a>，新版本的广告、地图和WebView插件，更多的工具支持，等等。他们还致力于更好的网络和桌面支持，特别是在Linux上，他们刚刚<a href="https://www.xda-developers.com/google-partners-canonical-bring-flutter-apps-linux-ubuntu-snap-store/">宣布与Canonical </a>合作。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

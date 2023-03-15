@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Dirty Pipe root vulnerability can be abused on Galaxy S22 and Pixel 6 Pro</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>脏管道根漏洞可以在Galaxy S22和Pixel 6 Pro上滥用</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/dirty-pipe-root-demo-samsung-galaxy-s22-google-pixel-6-pro/#0001-01-01">https://www.xda-developers.com/dirty-pipe-root-demo-samsung-galaxy-s22-google-pixel-6-pro/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">PSA: Dirty Pipe，Linux内核根漏洞，可以在三星Galaxy S22和谷歌Pixel 6 Pro上被滥用</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">三星Galaxy S22和谷歌Pixel 6 Pro上臭名昭著的“Dirty Pipe”漏洞可被利用来获得根外壳访问权限。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>当一个同样影响Android的Linux特权提升漏洞被公开时会发生什么？你猜对了！世界各地的安全研究人员和Android爱好者试图利用新发现的问题来创建一个漏洞，该漏洞可用于获得对您设备的高级访问权限(如root或刷新自定义图像的能力)。另一方面，设备制造商和少数坚定的第三方开发商迅速承担起尽快修补后门的责任。</p>
+
+  
+<p>这正是发生在<strong> CVE-2022-0847 </strong>身上的事情，这是一个在Linux内核版本5.8及更高版本中被称为“脏管道”的漏洞。我们<a href="https://www.xda-developers.com/dirty-pipe-linux-vulnerability-root-android/">上周详细讨论了漏洞利用</a>，但没有明确涵盖Android上的潜在滥用场景。现在，XDA成员<a href="https://forum.xda-developers.com/m/fire30.5311830/"> Fire30 </a>展示了一个围绕内核缺陷的漏洞实现，该漏洞可以给攻击者一个三星Galaxy S22 和谷歌Pixel 6 Pro的根外壳。</p>
+
+ 
+
+
+
+<p>这里的关键点是，您不需要任何类型的解锁或其他欺骗来使其工作Dirty Pipe漏洞利用允许攻击者通过特制的流氓应用程序，通过反向外壳获得目标设备上的根级别访问权限。在撰写本文时，谷歌Pixel 6 Pro和三星Galaxy S22等旗舰产品即使在最新的软件版本上也容易受到攻击，这表明了该漏洞的潜力。因为它还可以将SELinux设置为许可，所以对设备的未授权控制几乎没有障碍。</p>
+
+<p>从Android修改场景的角度来看，Dirty Pipe可能有助于在其他难以找到根的Android智能手机上获得临时根访问权限，例如，三星Galaxy旗舰产品的一些区域骁龙变体。然而，这个窗口不会持续很长时间，因为该漏洞已经在主线Linux内核中得到修补，OEM可能会在即将到来的每月安全更新中推出该修补程序。尽管如此，为了保护自己，暂时不要安装来自随机来源的应用程序。与此同时，我们预计谷歌将对Play Protect进行更新，以防止该漏洞被流氓应用程序利用。</p>
+
+<hr/>
+
+<p><strong>来源:</strong> <a href="https://twitter.com/Fire30_/status/1503422980612923404">推特上的fire 30</a></p>
+
+<p><strong> Via: </strong> <a href="https://twitter.com/MishaalRahman/status/1503454863434338305">米沙·拉赫曼</a></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

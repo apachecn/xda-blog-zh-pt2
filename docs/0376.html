@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Google and Samsung start to patch 'Dirty Pipe' vulnerability</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌和三星开始修补“脏管道”漏洞</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-samsung-dirty-patch-fix/#0001-01-01">https://www.xda-developers.com/google-samsung-dirty-patch-fix/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>本周早些时候，谷歌发布了4月份的Android安全更新，但该补丁不包括对上个月广为人知的“肮脏管道”安全漏洞的修复。尽管我们可能要等到5月份的更新才能修复大多数设备，但一些制造商已经开始为他们自己的设备打补丁，包括谷歌自己。</p>
+
+  
+<p>脏管道(CVE-2022-0847)是在Linux内核中发现的一个漏洞，该漏洞允许某人在只读进程中注入和覆盖数据，而无需任何root或管理员权限。该漏洞已被用于实现Android上的临时root访问，但它也可能允许恶意软件和其他未知软件获得系统访问权限。</p>
+
+<p>脏管道现已在Linux内核(版本5.16.11、5.15.25和5.10.102)、<a href="https://android-review.googlesource.com/c/kernel/common/+/1998671">以及Android版本的Linux内核</a>中得到修复，但该补丁未包含在4月的安全更新中。它大概会在五月更新，但不是每个人都想等那么久。Pixel 6和Pixel 6 Pro的一些定制内核包含该补丁，包括<a href="https://github.com/freak07/Kirisakura_Raviole/blob/346abdb69c9dde80b84efec417215972a3abe3af/lib/iov_iter.c#L408"> Kirisakura内核</a>。谷歌的Android QPR3 Beta 2用于Pixel 6和Pixel 6 Pro，于周四在<a href="https://www.xda-developers.com/android-12-qpr3-beta-2-released-pixel/">发布，有一个</a><a href="https://android.googlesource.com/kernel/gs/+/refs/heads/android-gs-raviole-5.10-s-qpr3-beta-2/lib/iov_iter.c#410">补丁内核版本</a>。</p>
+
+<p>三星似乎是唯一一家在稳定软件上推出手机修复程序的制造商，作为2022年4月Galaxy设备更新的一部分——该公司的安全公告提到了CVE-2022-0847，该更新已经过<a href="https://github.com/polygraphene/DirtyPipe-Android/issues/3#issuecomment-1086676632">验证</a>以阻止脏管道攻击。小米12/12 Pro仍然<a href="https://github.com/MiCode/Xiaomi_Kernel_OpenSource/blob/7d10d738b2c4299f3b8549c61a01ece39f19c788/lib/iov_iter.c#L409">似乎容易受到攻击</a>，因为这些手机到目前为止还没有在任何地区获得2022年4月的安全更新。一加既没有发布10 Pro的内核源代码，也没有推出4月份的更新。</p>
+
+<p>我们将不得不等待，看看哪些制造商等待5月份的更新，哪些公司会提前推出更新(就像三星正在做的那样)。不管怎样，你应该暂时避免安装粗略的apk。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Windows 11 is getting new security improvements for the hybrid work era</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Windows 11在混合工作时代获得了新的安全改进</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/windows-11-security-improvements-hybrid-work/#0001-01-01">https://www.xda-developers.com/windows-11-security-improvements-hybrid-work/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>微软宣布了Windows 11的一系列安全改进，以消除混合工作的担忧。这些功能旨在帮助企业和用户对他们运行的软件更有信心，无论是操作系统本身还是其应用程序，这在许多用户离开办公室工作的时候尤为重要。这些东西中有许多并不是全新的，但它们要么即将推出，要么最近才推出。</p>
+
+ 
+<h2 id="microsoft-pluton">微软富豪</h2>
+<p>微软Pluton安全处理器是捆绑到新设备中的一种新硬件，它直接与CPU和Windows 11集成。事实上，它是唯一一款可通过Windows Update直接更新固件的安全处理器，使得在企业环境中无需复杂的手动更新即可轻松添加新特性和功能。可以像管理Windows 11的任何其他更新一样管理更新。这种紧密集成也意味着微软Pluton的设计可以很好地与Windows 11中的BitLocker和Windows Hello等功能配合使用。Pluton的固件是由Windows团队中的同一批人开发的，所以一切都可以协同工作。</p>
+
+<p>与CPU的集成还可以保护设备免受物理攻击，因此这是一种广泛的企业安全解决方案，并且简化了配置。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="hypervisor-protected-code-integrity">受虚拟机管理程序保护的代码完整性</h2>
+<p>从下一个Windows 11版本开始，微软将在更多Windows 11设备上启用虚拟机管理程序保护的代码完整性(HVCI)。该功能旨在保护用户免受驱动程序漏洞的攻击，而驱动程序漏洞是恶意软件攻击的主要来源。HVCI防止恶意软件被加载到驱动程序包中，并验证已安装的驱动程序是否可信。它使用来自微软易受攻击和恶意驱动程序报告中心的数据来自动阻止已知易受攻击的驱动程序，并阻止Windows内核中易受攻击的驱动程序，因此它们永远没有机会被利用。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="smart-app-control">智能应用程序控制</h2>
+
+
+<p>智能应用程序控制首次出现在Windows 11 build 22567中，允许Windows自动阻止潜在危险的应用程序运行。当然，在某种程度上，这已经存在了，但这次还有更多。SAC使用代码签名和人工智能来预测应用程序的潜在恶意行为，然后决定这些应用程序是否可以运行。它使用不断更新的推理模型，通过最新的威胁情报和代码证书来确定应用程序的安全性，以确保应用程序在运行前是安全的。这样，用户就不必担心在不知情的情况下运行有潜在危险的应用程序。</p>
+
+<p>智能应用程序控制将在下一版本Windows 11附带的新设备上提供。如果你从当前版本升级，你必须重置你的电脑或使用ISO来全新安装Windows 11。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="credential-and-account-security">凭证和帐户安全性</h2>
+<p>微软还在Windows 11中对整体账户安全进行了一些增强。首先，它通过微软Defender的SmartScreen功能将钓鱼检测直接植入Windows 11。微软表示，它已经阻止了超过256亿次对Aure Active Directory的暴力攻击，并通过Microsoft Defender for Office 365拦截了357亿封钓鱼电子邮件——这还只是去年的事情——现在这种保护将在操作系统级别提供。</p>
+
+
+
+<p>微软还在Windows 11企业版上默认启用凭据保护。此功能有助于使用诸如传递哈希之类的技术来保护设备免受凭据窃取，此外，它还可以防止恶意软件访问系统机密，即使其进程是以管理员权限运行的。</p>
+
+<p>最后，微软正在对本地安全机构(LSA)进行改进，以打击利用该功能窃取用户凭据的攻击。具体来说，该公司正在使LSA只能加载可信和签名的代码，因此恶意程序无法潜入该进程并窃取通过LSA的凭据。这种额外的保护将在未来默认为新的企业加入的Windows 11设备启用。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="personal-data-encryption">个人数据加密</h2>
+<p>这个特性的名字是不言自明的。本质上，个人数据加密将确保用户数据受到加密的保护，只有当相应的用户登录时，加密才会解除。这是一种平台功能，应用程序和IT部门可以使用它来确保数据在设备被盗时得到保护。加密与Windows Hello for Business相关联，因此用户必须使用无密码凭据登录才能访问数据，这使得实际接触设备的人更难窃取所述数据。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="config-lock">配置锁</h2>
+<p>最后，还有配置锁，这是一个更针对组织内部IT部门的功能，它实际上已经可用了。据微软称，企业面临的一个普遍问题是，一旦设备被员工使用，他们对设备的控制就很有限。借助Config Lock，IT管理员可以使用MDM策略来监控每台设备上的注册表项，如果进行了任何更改，Config Lock会“在几秒钟内”自动恢复这些更改，从而不断确保设备符合所需的安全策略。</p>
+
+<hr/>
+
+<p>正如您所料，这些特性中有许多是面向企业的，但它们确实很重要。随着混合工作成为许多公司的标准，这些步骤对于保护用户和企业安全至关重要，尤其是考虑到网络攻击在过去几年中也有所增加。</p>
+
+<p>微软今天还宣布了Windows 11的新功能<a href="https://www.xda-developers.com/microsoft-unveils-tabbed-file-explorer/">，包括一个标签式文件浏览器</a>。Windows 365 也有<a href="https://www.xda-developers.com/microsoft-windows-365-boot-switch-offline/">的新功能，包括离线模式。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

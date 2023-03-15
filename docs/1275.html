@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>KTweak is a new Magisk Module for Android kernel adjustment</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>KTweak是一个新的Magisk模块，用于Android内核调整</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/ktweak-is-a-new-kernel-adjustment-mod-that-optimizes-the-performance-of-android-devices/#0001-01-01">https://www.xda-developers.com/ktweak-is-a-new-kernel-adjustment-mod-that-optimizes-the-performance-of-android-devices/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在XDA，我们喜欢<a href="https://www.xda-developers.com/tag/kernel-sources/">关注各个Android OEMs厂商的内核源代码发布事件</a>。这种实践的操作方式在于，我们优秀的售后市场开发社区经常修补那些库存内核源代码，以<a href="https://www.xda-developers.com/custom-kernel-fix-green-tinting-issues-google-pixel-4-xl-units/">修复现有的bug</a>，甚至<a href="https://www.xda-developers.com/kirisakura-custom-kernel-for-the-oneplus-8-pro-enables-control-flow-integrity-cfi-for-better-security/">添加某种新特性</a>。通用内核映像(GKI)的概念仍然像<a href="https://www.xda-developers.com/flash-generic-system-image-project-treble-device/">通用系统映像</a> (GSI)一样成熟，这就是为什么这种特定于设备的定制内核是在Android生态系统中<a href="https://www.xda-developers.com/unleash-true-performance-red-magic-5g-mod-custom-kernel/">操作低级硬件参数</a>的首选方法。</p>
+
+  
+<p>事实上，Linux内核本身通过类似于<em> sysfs </em>和<em> procfs </em>的伪文件系统公开了许多可调参数。如果你曾经使用过一个<a href="https://www.xda-developers.com/fk-kernel-manager-becomes-franco-kernel-manager-downloading-any-custom-kernel/">“内核管理器”应用</a>来调整你的Android设备的内核，你基本上是在使用一个漂亮的前端<em> sysfs </em>(或者<em> procfs </em>，这取决于参数)。基于Android内核的这一方面，XDA公认的开发者<a href="https://forum.xda-developers.com/member.php?u=8155542">tydraco</a>提出了一个独特的Magisk模块，名为<strong> KTweak </strong>，可以作为一个通用的内核微调器。</p>
+
+<p>据开发者称，Android内核通常用<code>CONFIG_SCHED_DEBUG</code>以及设置为true的其他调试选项进行编译，如果你有root访问权限，这足以动态调整内核参数。谷歌最终将<a href="https://android-review.googlesource.com/q/GKI+status:merged">为大众带来通用内核映像</a>，因此从长远来看，切换到设备无关的解决方案，而不是从头开始重新编译特定于设备的内核源代码来达到相同的结果，确实是可行的。</p>
+
+<p>与一些流行的“一闪而过的内核优化器”不同，KTweak是由<a href="https://en.wikipedia.org/wiki/KISS_principle"> KISS原理</a>驱动的。没有一个单独的编译组件，而<a href="https://github.com/tytydraco/ktweak/blob/master/system/bin/ktweak">实际的代码库</a>(不过是一个shell脚本)不到250行长。展开下面的列表，查看KTweak应用的所有调整:</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_4"><h3 id="list-of-modifications-done-by-ktweak">KTweak完成的修改列表</h3><ul> <li>kernel.perf _ cpu _时间_最大百分比:25 - &gt; 5</li> <li>kernel . sched _ auto group _ enabled:0-&gt; 1</li> <li>kernel . sched _ enable _ thread _ grouping:0-&gt; 1</li> <li>kernel . sched _ child _ runs _ first:0-&gt; 1</li> <li>kernel.sched_downmigrate: 20</li> <li>kernel.sched_upmigrate: 80 80</li> <li>kernel . sched _ group _ down migrate:20</li> <li>kernel . sched _ group _ up migrate:80</li> <li>kernel . sched _ tuned _ scaling:0</li> <li>kernel . sched _ latency _ ns:1000000(10ms)</li> <li>kernel . sched _ min _ granularity _ ns:1000000(1毫秒)</li> <li>kernel . sched _ migration _ cost _ ns:500000(0.5毫秒)-&gt; 1000000(1毫秒)</li> <li>kernel . sched _ min _ task _ util _ for _ boost:25</li> <li>kernel . sched _ min _ task _ util _ for _ co location:50</li> <li>内核迁移:32 - &gt; 64</li> <li>kernel.sched_schedstats: 1 - &gt; 0</li> <li>kernel . sched _ wake up _ granularity _ ns:1000000(1毫秒)-&gt; 5000000(5毫秒)</li> <li>kernel.timer_migration: 1 - &gt; 0</li> <li>net.ipv4.tcp_ecn: 2 - &gt; 1</li> <li>net.ipv4.tcp_fastopen: 3</li> <li>net.ipv4.tcp_syncookies: 1 - &gt; 0</li> <li>VM . compact _ unevictable _ allowed:1-&gt; 0</li> <li>VM . dirty _ background _ ratio:5-&gt; 10</li> <li>vm.dirty_ratio: 20 - &gt; 30</li> <li>VM . dirty _ expire _ centisecs:300(3秒)-&gt; 1000(10秒)</li> <li>VM . dirty _ write back _ centi secs:500(5s)-&gt; 0(0s)</li> <li>vm.extfrag_threshold: 500 - &gt; 750</li> <li>vm.oom_dump_tasks: 1 - &gt; 0</li> <li>vm.page-cluster: 3 - &gt; 0</li> <li>vm.reap_mem_on_sigkill: 0 - &gt; 1</li> <li>vm.stat_interval: 1 - &gt; 10</li> <li>vm.swappiness: 100 - &gt; 80</li> <li>vm.vfs_cache_pressure: 100 - &gt; 200</li> <li>下一个伙伴</li> <li>没有严格的跳过伙伴</li> <li>没有非任务能力</li> <li>TTWU队列</li> <li>调速器微调<ul> <li>hispeed_load: 90 - &gt; 80</li> <li>hispeed_freq</li> </ul> </li> <li>CAF CPU加速调整<ul> <li>输入升压频率:1.4 GHz</li> <li>输入升压毫秒:250毫秒</li> </ul> </li> <li>输入－输出<ul> <li>iostats: 1 - &gt; 0</li> <li>预读:0</li> <li>请求数量:128 - &gt; 512</li> <li>无/无</li> </ul> </li> <li>ZRAM</li> </ul> </div></section>
+<p>如果你需要深入了解所有上述调整以及它们如何提高你的Android智能手机或平板电脑的性能水平，请前往下面链接的模块讨论线程。所有可调参数和相应的强制值都是由开发人员根据它们对实际使用场景的影响精心选择的，所以您知道这不是骗人的。也欢迎您通过向<a href="https://github.com/tytydraco/ktweak">模块的GitHub repo </a>提交pull请求来为项目做出贡献。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/android/software/module-ktweak-evidence-t4148447/"> KTweak内核调整Magisk模块— XDA下载讨论线程</a> </strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Magic ToolFlash lets you flash ZIP packages directly from your Android device</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Magic ToolFlash可让您直接从Android设备中刷新ZIP包</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/magic-toolflash-magisk-module/#0001-01-01">https://www.xda-developers.com/magic-toolflash-magisk-module/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>当大多数人安装<a href="https://www.xda-developers.com/best-magisk-modules/"> Magisk模块</a>时，他们只是通过Magisk应用程序刷新它，然后重新启动进入Android。说到安装常规的flash ZIP包，有像TWRP这样的定制恢复项目可以完成这项工作。然而，如果你打算开发和修补你的设备，你应该习惯命令行界面。除了知道一些shell命令很有用这一显而易见的事实之外，学习使用它们可能意味着除非绝对必要，否则不必通过另一个应用程序刷新或者将智能手机连接到PC进行侧加载。这就是<strong>神奇工具Flash </strong>项目的用武之地。</p>
+
+  
+<p>由XDA资深会员<a href="https://forum.xda-developers.com/m/huskydg.11455139/"> huskydg </a>创建的Magic ToolFlash是对Android闪烁机制的独特采用。这是一个命令行闪存工具，不需要定制的恢复环境。你所需要做的就是在你的设备上下载一个可闪存的压缩文件。接下来，通过任何具有root权限的终端仿真器app调用该工具，执行刷机操作。</p>
+
+
+
+<p>除了为安全起见创建一个隔离的命名空间，Magic ToolFlash还向最终用户显示详细的Flash日志。安装Magisk模块后，您可以使用<code>flash</code>命令从手机的CLI窗口刷新不同的Magisk模块、Magisk应用程序本身以及其他mod ZIP文件。然而，该工具还不能用于从运行的Android系统安装ROM。</p>
+
+<p>请记住，<code>/tmp</code>目录不存在于Android根文件系统中。因此，在使用Magic ToolFlash时，您可能需要修改更新程序脚本并使用<code>/dev/tmp</code>作为临时目录。此外，如果目标flashable zip包含硬编码的<code>/sbin</code>命令，它可能会在Android 11及以上操作系统上失败。</p>
+
+<p>如果你是一名开发人员，并且想探索Magic ToolFlash的代码库，那么看看该项目的GitHub库。在repo的<em>版本</em>部分，还可以下载一个现成的Magisk模块版本。</p>
+
+<p/><p><strong>魔法工具Flash: <a href="https://github.com/Magisk-Modules-Alt-Repo/magic-flash/releases">下载</a> || <a href="https://github.com/Magisk-Modules-Alt-Repo/magic-flash"> GitHub资源库</a> </strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

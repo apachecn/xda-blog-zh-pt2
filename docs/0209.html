@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Teardown: Google Duo might get Meet's Companion Mode soon</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>拆卸:谷歌二人组可能很快就会获得会议的同伴模式</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-duo-preps-meet-companion-mode/#0001-01-01">https://www.xda-developers.com/google-duo-preps-meet-companion-mode/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>去年6月，谷歌为Google Meet预演了一个新的第二屏幕体验，名为伴侣模式。谷歌随后在9月份分享了更多关于该模式的细节，透露参与者可以使用他们的笔记本电脑或智能家居设备作为视频通话的第二个屏幕。今年1月早些时候，该功能终于开始向用户推出，支持谷歌Nest Hub Max，谷歌现在准备将伴侣模式引入其另一款视频通话应用Google Duo。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>最新版本的谷歌Android Duo应用程序(版本162 . 0 . 434856097 . Duo . Android _ 20220306.14 _ p2 . s)的拆解显示了指向即将推出的功能的新字符串。这些字符串表明，视频通话应用程序可能会在未来的更新中获得陪伴模式。请查看下面的部分，查看与同伴模式相关的所有新字符串。</p>
+
+<pre> <code class="hljs xml">string name=<span class="hljs-string">"companion_indicator_text"</span>&gt;Companion mode&lt;<span class="hljs-regexp">/string&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"conf_companion_badge_education"</span>&gt;</span>The Companion mode badge means people are using Companion mode. You can see them in the people list.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"conf_companion_content_description"</span>&gt;</span>Companion<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"conf_companion_participant_joined_notification"</span>&gt;</span>{NUMBER_OF_OTHER_PARTICIPANTS, plural, =0 {{PARTICIPANT_NAME} is using Companion mode} =1 {{PARTICIPANT_NAME} and {NUMBER_OF_OTHER_PARTICIPANTS} more are using Companion mode} other {{PARTICIPANT_NAME} and {NUMBER_OF_OTHER_PARTICIPANTS} more are using Companion mode} }<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"conf_companion_participant_left_notification"</span>&gt;</span>{NUMBER_OF_OTHER_PARTICIPANTS, plural, =0 {{PARTICIPANT_NAME} stopped using Companion mode} =1 {{PARTICIPANT_NAME} and {NUMBER_OF_OTHER_PARTICIPANTS} more stopped using Companion mode} other {{PARTICIPANT_NAME} and {NUMBER_OF_OTHER_PARTICIPANTS} more stopped using Companion mode} }<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"conf_companion_usage_got_it"</span>&gt;</span>Got it<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"conf_companion_user_display_name"</span>&gt;</span>{DISPLAY_NAME} (Companion)<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"conf_find_companion_users"</span>&gt;</span>"To find who's using Companion mode, go to the people list"<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"conf_people_using_companion"</span>&gt;</span>People are using Companion mode<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"host_and_companion_indicator_text"</span>&gt;</span>Meeting host • Companion mode<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>如果你不熟悉谷歌会议的同伴模式，这里有一个快速复习。Google Meet中的同伴模式允许您使用第二个设备加入会议，以获得更好的多任务处理体验。使用陪伴模式，您可以在一台设备上加入音频和视频会议，如Google Nest Hub Max，并使用您的主要设备进行其他会议功能，如聊天、提问、投票、屏幕共享等。</p>
+
+<p>值得注意的是，陪伴模式并不是Google Duo即将推出的唯一Google Meet功能。在最近的一次拆解中，我们发现一些字符串表明，谷歌也在努力将Meet的分会场引入谷歌二人组，以及广播和记录会议的能力。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

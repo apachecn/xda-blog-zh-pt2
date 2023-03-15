@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title data-rh="itemprop,lang" itemprop="name" lang="en">Page not found</title>
+<meta name="viewport" data-rh="true" content="width=device-width, user-scalable=yes, initial-scale=1" />
+<meta data-rh="true" name="title" content="Page not found" />
+<link data-rh="true" rel="canonical" href="https://www.qualcomm.com/errorpages/404" />
+<meta data-rh="true" name="robots" content="noindex, nofollow" />
+<meta data-rh="true" name="twitter:title" content="Page not found" />
+<meta data-rh="true" property="og:title" content="Page not found" />
+<meta data-rh="true" property="og:type" content="website" />
+<meta data-rh="true" property="og:url" content="https://www.qualcomm.com/errorpages/404" />
+<meta data-rh="true" name="twitter:image" content="https://s7d1.scene7.com/is/image/dmqualcommprod/twitter-social-img-lab" />
+<meta data-rh="true" name="twitter:card" content="photo" />
+<meta data-rh="true" name="twitter:image:width" content="507" />
+<meta data-rh="true" name="twitter:image:height" content="265" />
+<meta data-rh="true" property="og:image" content="https://s7d1.scene7.com/is/image/dmqualcommprod/twitter-social-img-lab" />
+<script data-rh="true" type="text/javascript" src="https://tags.tiqcdn.com/utag/qualcomm/qualcomm-react/prod/utag.sync.js"></script>
+<script type="text/javascript" src="https://tags.tiqcdn.com/utag/qualcomm/qualcomm-react/prod/utag.js"></script>
+<meta name="Environment" content="prod" />
+<meta name="Stakeholder Tags" content="none" />
+<meta name="Techtopic Tags" content="none" />
+<meta name="Promotion Tags" content="none" />
+<meta name="globalheader-endurl" content="/content/qcomm-martech/us/en/jcr:content/content/globalheader.model.globalheader.json" />
+<meta name="globalfooter-endurl" content="/content/qcomm-martech/us/en/jcr:content/content/globalfooter.model.globalfooter.json" />
+<meta name="commonconfiguration-endurl" content="/content/qcomm-martech/us/en/jcr:content/content/commonconfiguration.model.commonconfiguration.json" />
+<meta name="contentaccess" content="public" />
+<meta name="template" content="qualcomm-spa-base-page-template" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="/etc.clientlibs/qcomm-martech/clientlibs/clientlib-react/resources/favicon.ico" />
+<link rel="apple-touch-icon" href="/etc.clientlibs/qcomm-martech/clientlibs/clientlib-react/resources/favicon.png" />
+<link rel="manifest" href="/etc.clientlibs/qcomm-martech/clientlibs/clientlib-react/resources/manifest.json" />
+<meta property="cq:pagemodel_root_url" content="/content/qcomm-martech/us/en.model.json" />
+<meta property="cq:errorpages" content="/content/qcomm-martech/us/en/home/errorpages" />
+<link rel="stylesheet" href="/etc.clientlibs/qcomm-martech/clientlibs/clientlib-react.min.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/qcomm-martech/clientlibs/clientlib-grid.min.css" type="text/css">
+<meta name="loginEndpointUrl" content="https://myid.qualcomm.com/api/login?state=" />
+<meta name="logoutEndpointUrl" content="https://myid.qualcomm.com/api/logout?targetUrl=" />
+<meta name="graphqlEndpointUrl" content="https://www.qualcomm.com/graphql" />
+<meta name="registerEndpointUrl" content="https://myaccount.qualcomm.com/signup" />
+<meta name="profileEndpointUrl" content="https://myaccount.qualcomm.com/profile" />
+</head>
+<body class="page-base page basicpage">
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="spa-root"></div>
+<script src="/etc.clientlibs/qcomm-martech/clientlibs/clientlib-react.min.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"7a7d418bca21fa36","token":"2c04059d06a541278516fbe750a0bcce","version":"2023.2.0","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

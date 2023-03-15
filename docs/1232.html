@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Sony Xperia 1 and Xperia 5 get temp root access on a locked bootloader with an exploit</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>索尼Xperia 1和Xperia 5通过利用漏洞在锁定的引导加载程序上获得临时root访问权限</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/sony-xperia-1-and-xperia-5-get-temp-root-access-on-a-locked-bootloader-with-an-exploit/#0001-01-01">https://www.xda-developers.com/sony-xperia-1-and-xperia-5-get-temp-root-access-on-a-locked-bootloader-with-an-exploit/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>当谈到bootloader解锁和定制开发时，索尼不可否认是对开发者最友好的原始设备制造商之一。该公司维持着一项名为<a href="https://www.xda-developers.com/tag/sony-open-device-program/">开放设备计划</a>的计划，通过该计划，他们向开发社区提供工具和指南，帮助他们在选定的Xperia设备上编译Android开源项目(AOSP)。此外，索尼为<a href="https://www.xda-developers.com/sony-xperia-bootloader-unlock-video/">引导程序解锁</a>提供了一个专用的在线门户，但是有一个问题。</p>
+
+  
+<p>解锁任何索尼Xperia设备的引导加载程序都会同时清除一个名为“trim area”(TA)的分区的某个部分。该特定段包含一串DRM密钥，用于索尼专有的音频和视频功能(例如，X-Reality视频增强、DSEE HX、ClearAudio+等)。)上股票ROM。那些唯一的密钥只能在解锁引导程序之前<a href="https://www.xda-developers.com/easily-backup-the-ta-partition-on-your-sony-xperia-device/">备份</a>当你已经有根访问权限的时候。(通常，您需要一个解锁的引导加载程序才能首先获得root访问权限。)现在，找到一个权限提升漏洞，可以在不解锁引导加载程序的情况下给你稳定的根访问权限可能很棘手，但XDA公认的开发人员<a href="https://forum.xda-developers.com/member.php?u=4418980"> j4nn </a>可以提供帮助。他和XDA的初级成员<a href="https://forum.xda-developers.com/member.php?u=579057"> bb-qq </a>一起，致力于利用现有的漏洞在索尼Xperia 1和Xperia 5上生成根外壳——尽管是暂时的。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/xperia-1">索尼Xperia 1 XDA论坛</a> ||| <a href="https://forum.xda-developers.com/xperia-5">索尼Xperia 5 XDA论坛</a>T5】</strong></p>
+
+<p>开发者二人组决定重用<a href="https://github.com/bluefrostsecurity/CVE-2020-0041/tree/master/lpe"> CVE-2020-0041 </a>，它最初是在运行Linux内核4.9的谷歌Pixel 3 上发现的<a href="https://labs.bluefrostsecurity.de/blog/2020/04/08/cve-2020-0041-part-2-escalating-to-root/">。有趣的是，</a><a href="https://forum.xda-developers.com/member.php?u=4418980"> j4nn </a>确实利用了相同的漏洞来<a href="https://www.xda-developers.com/lg-v50-thinq-root-locked-bootloader-exploit/">在锁定LG V50 ThinQ单元的引导程序上实现临时root访问</a>。使漏洞兼容LG V50 ThinQ所需的所有修改或多或少都有助于将其移植到索尼Xperia 1和Xperia 5上，部分原因是这些手机基于相同的高通骁龙855芯片组，运行在Linux内核4.14上。</p>
+
+<p><a href="https://github.com/j4nn/CVE-2020-0041/tree/x1x5-mroot">漏洞利用的最新迭代</a>还支持从临时根shell调用Magisk Manager，这对于没有经验的用户来说是一大利好。对于那些对如何在不解锁引导程序的情况下在索尼Xperia 1或Xperia 5上获得root感兴趣的人，请访问下面的链接。仔细阅读所有内容，确保您运行的是兼容版本的股票ROM，并按照详细说明执行脚本。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/xperia-1/development/xperia-1-5-temp-root-exploit-via-cve-t4146103">索尼Xperia 1/5 Temp Root Exploit — XDA下载讨论线程</a> </strong></p>
+
+<p>值得一提的是，使用此漏洞访问根shell确实可以让您完全转储Xperia 1和Xperia 5上的TA分区。然而，我们还没有看到通过在这些手机上恢复这样的转储来获得所有DRM密钥的确认报告。对于对技术更感兴趣的人来说，有一个正在进行的关于这个主题的讨论，你可能想看看并参与进来。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Android 13 Beta 1 is here with better media file permissions</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 13 Beta 1在这里有更好的媒体文件权限</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-13-beta-1-released/#0001-01-01">https://www.xda-developers.com/android-13-beta-1-released/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>二月份发布了第一个<a href="https://www.xda-developers.com/android-13/"> Android 13 </a>开发者预览版，随之而来的是世界上最大的操作系统的下一次迭代的基础。它带来了许多有益于开发者的变化，并对隐私、材料、语言控制等方面进行了改进。随后出现了第二个开发者预览版，它包含了通知权限请求和其他对开发者有益的变化。现在，随着Android 13 Beta 1的首次发布，我们正在退出“开发者预览”阶段。</p>
+
+  
+<p>与仅面向开发者的“开发者预览”版本不同，Android 13的测试版面向希望尝试下一版本Android的普通用户。谷歌特别关注普通用户对新版安卓系统的普遍反馈。因此，虽然你可能仍然应该对在你的日常驱动中安装它保持警惕，但是这个版本应该比以前的版本更稳定一点。</p>
+
+<p>Android 13 beta 1最显著的特性包括:</p>
+
+<ul> <li>更精细地访问媒体文件</li> <li>更好的错误报告</li> <li>预期音频路由</li> </ul>
+
+<hr/>
+
+
+<h2 id="when-will-android-13-release">Android 13什么时候发布？</h2>
+
+
+<p>对于Android更新，谷歌通常会揭示一个“平台稳定性”里程碑，以便开发者可以知道谷歌打算何时交付最终的SDK/NDK API，以及最终的内部API和面向应用的系统行为。谷歌打算在2022年6月达到平台稳定，在正式发布前至少计划几周。Android 12于2021年8月达到平台稳定性，最终版本于当年10月发布<a href="https://www.xda-developers.com/android-12-launched/">。谷歌发布了</a><a href="https://developer.android.com/about/versions/13/overview">更多关于发布时间表</a>的细节，你可以查看一下。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="what-s-new-in-android-13-beta-1">Android 13 Beta 1有什么新功能？</h2>
+
+<p>目前，当一个应用程序想要访问手机存储上的文件时，它需要请求READ_EXTERNAL_STORAGE权限。不过，该权限授予对所有类型的媒体文件的访问权限，这并不总是必要的。举个例子，为什么一个音频播放应用程序可以访问你的照片？在Android 13中，谷歌引入了三个新的权限:</p>
+
+
+
+
+
+<p>谷歌表示，为了简化用户体验，如果一个应用程序同时请求READ_MEDIA_IMAGE和READ_MEDIA_VIDEO，系统会显示一个对话框来授予这两种权限。</p>
+
+<h3 id="better-error-reporting-in-keystore-and-keymint">Keystore和KeyMint中更好的错误报告</h3>
+<p>对于生成密钥的开发人员来说，Keystore和KeyMint提供了更好的错误。现在在<a href="https://developer.android.com/reference/java/security/ProviderException" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://developer.android.com/reference/java/security/ProviderException&amp;source=gmail&amp;ust=1651065952298000&amp;usg=AOvVaw28y-73MEM3VrKH6HEQd7Rz"> java.security. <wbr/> </a>下有一个异常类层次结构</p>
+
+<p>ProviderException，Android特有的异常包括<a href="https://developer.android.com/reference/android/security/KeyStoreException" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://developer.android.com/reference/android/security/KeyStoreException&amp;source=gmail&amp;ust=1651065952298000&amp;usg=AOvVaw1vfknhiWl3-2aA7mHf34is"> Keystore/KeyMint错误代码</a>。用于密钥生成、签名和加密的方法也可以修改，以抛出那些新的异常。</p>
+
+<h3 id="anticipatory-audio-routing">预期音频路由</h3>
+<p>为了让媒体应用程序可以识别它们的音频将被路由到哪里，谷歌在<a href="https://developer.android.com/reference/android/media/AudioManager" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://developer.android.com/reference/android/media/AudioManager&amp;source=gmail&amp;ust=1651065952298000&amp;usg=AOvVaw3vGVahtBhTJcfKd2p2tl7F"> AudioManager </a>类中添加了一组新的音频路由API。第一个是<a href="https://developer.android.com/reference/android/media/AudioManager#getAudioDevicesForAttributes(android.media.AudioAttributes)" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://developer.android.com/reference/android/media/AudioManager%23getAudioDevicesForAttributes(android.media.AudioAttributes)&amp;source=gmail&amp;ust=1651065952298000&amp;usg=AOvVaw1xT5eSlrymXFwbHF2hXHSb">getAudioDevicesForAttributes()</a>API，它允许您检索可能用于播放指定音频的设备列表。其次，Google还增加了<a href="https://developer.android.com/reference/android/media/AudioManager#getDirectProfilesForAttributes(android.media.AudioAttributes)" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://developer.android.com/reference/android/media/AudioManager%23getDirectProfilesForAttributes(android.media.AudioAttributes)&amp;source=gmail&amp;ust=1651065952298000&amp;usg=AOvVaw1nxpMj8aG8qv93qZAh54h1">getDirectProfilesForAttributes<wbr/></a></p>
+
+<p>()API，帮助你了解你的音频流是否可以直接播放。然后，这些新的API可以用于确定最佳的<a href="https://developer.android.com/reference/android/media/AudioFormat" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://developer.android.com/reference/android/media/AudioFormat&amp;source=gmail&amp;ust=1651065952298000&amp;usg=AOvVaw37YPa3RLWWi2SRAbbSHrvY">音频格式</a>以用于正在播放的音轨。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="how-to-download-and-install-android-13-beta-1-on-your-google-pixel-device">如何在你的谷歌Pixel设备上下载并安装Android 13 Beta 1</h2>
+<p>你可以很容易地<a href="https://www.xda-developers.com/how-to-download-android-13/#beta1">下载Android开发者测试版1 </a>，如果你不确定如何安装Android 13 ，请务必查看我们关于<a href="https://www.xda-developers.com/how-to-install-android-13/">如何安装Android 13</a>的指南。</p>
+
+<p>谷歌正式发布了Pixel 6 Pro、Pixel 6、Pixel 5a 5G、Pixel 5、Pixel 4a (5G)、Pixel 4a、Pixel 4 XL或Pixel 4的测试版更新。您可以在Android Studio的Android模拟器中使用64位系统映像，也可以使用GSI。</p>
+
+<hr/>
+
+<p>你对最新的测试版有什么想法？你会在你的设备上安装它吗？你的体验如何？请在下面的评论中告诉我们！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

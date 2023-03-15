@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Google Chrome tests throttling background JavaScript timers to improve battery life</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Chrome测试调节后台JavaScript定时器以延长电池寿命</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-chrome-tests-throttling-background-javascript-timers-improve-battery-life/#0001-01-01">https://www.xda-developers.com/google-chrome-tests-throttling-background-javascript-timers-improve-battery-life/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>为了减少谷歌Chrome对笔记本电脑电池寿命的影响，谷歌正在研究一种可以显著减少浏览器电池使用量的方法。根据最近来自<a href="https://news.thewindowsclub.com/google-chrome-ships-a-new-feature-to-increase-the-battery-life-101417/"> <em> TheWindowsClub </em> </a>的报道，该公司已经开始测试<a href="https://www.xda-developers.com/chrome-64-bit-support-android-10/"> Chrome 86 </a>的一项实验性功能，该功能可以限制后台网页中的JavaScript定时器唤醒，并有可能将电池寿命延长两个小时。</p>
+
+  
+<p>该报告引用了谷歌的一份<a href="https://docs.google.com/document/d/1sd9EVERCtRWKvnJXnP3iZ83fM3FLwDbjiyfMkaKWEYk/edit#">技术文件，其中详细介绍了这项新功能，以及几个强调预期电池节省的实验。该文件透露，新的</a><a href="https://www.xda-developers.com/tag/chrome-flags/"> Chrome标志</a>将JavaScript定时器唤醒限制为每分钟1次，很像苹果的Safari浏览器，并有助于在不破坏用户体验的情况下延长电池寿命。然而，节流将只针对那些不停止visibilitychange事件计时器的网页，以及那些没有切换到现代API(如MutationObserver、IntersectionObserver或requestAnimationFrame)的网页。</p>
+
+
+
+<p> </p>
+
+<p>在使用2018款MacBook Pro 15英寸的测试中，谷歌Chrome开发者观察到，在没有启用标记的情况下，笔记本电脑在Chrome中浏览时放电6.4小时。同一台笔记本电脑在使用Safari时放电了9.3小时。然而，一旦启用了该标志，开发人员发现该笔记本电脑使用Chrome总共持续了8.2小时。在所有情况下，开发人员在前台打开一个空白标签，在后台打开36个标签。</p>
+
+
+
+<p>在另一项实验中，开发人员用全屏播放的YouTube视频取代了空白标签，笔记本电脑在Chrome的当前状态下持续了4.6小时。启用JavaScript节流标志后，同一台笔记本电脑持续了5.3小时。</p>
+
+
+
+<p>这个名为“在后台节流Javascript计时器”的实验性标志已经在谷歌Chrome Canary 86中可用，并且可以在Windows，Mac，Linux，Android和<a href="https://www.xda-developers.com/tag/chrome-os/"> Chrome OS </a>的Chrome上启用。根据<a href="https://www.bleepingcomputer.com/news/google/new-google-chrome-feature-to-drastically-reduce-battery-usage/"><em>bleeding computer</em></a>的消息，该功能计划在不久的将来与谷歌Chrome 86的稳定版本一起推出，并将默认启用。然而，Chrome Enterprise用户将可以选择禁用该功能，一旦它成为默认行为。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

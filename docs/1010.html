@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>How to enable the hidden 160Hz refresh rate on the ASUS ROG Phone 3</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在华硕ROG手机3上启用隐藏的160赫兹刷新率</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/asus-rog-phone-3-hidden-160hz-refresh-rate-mode/#0001-01-01">https://www.xda-developers.com/asus-rog-phone-3-hidden-160hz-refresh-rate-mode/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>上周三，华硕发布了ROG手机3，这是这家台湾公司旗下ROG游戏子品牌的第三款智能手机。这款手机的规格表与手机本身一样庞大，可能会成为<a href="https://www.xda-developers.com/best-android-phones/">最佳安卓手机</a>之一的竞争者，其功能包括高通骁龙865+，高达16GB的内存，6,000mAh电池，两个USB-C端口，144Hz刷新率显示屏。在手机的显示设置中，您可以选择默认的“自动”刷新率模式，让系统决定显示器的刷新率应该是多少，或者您可以选择以60Hz，90Hz，120Hz或144Hz运行手机。有趣的是，似乎华硕一直在测试一个隐藏的第6刷新率模式:160Hz。</p>
+
+  
+<p/><p><strong> <a href="https://forum.xda-developers.com/asus-rog-phone-3">华硕ROG手机3论坛</a> </strong></p>
+
+<p><strong> XDA回顾:</strong> <a href="https://www.xda-developers.com/asus-rog-phone-3-review/">华硕ROG Phone 3回顾:游戏智能手机之王回来了</a></p>
+
+<p>当我在调查ROG Phone 3如何处理其刷新率切换时，我发现在设置应用程序中提到了隐藏的160Hz刷新率模式。深入挖掘，我发现了一个调试命令，可以用来在设置表面160赫兹模式！你所要做的就是在你的电脑上设置Android调试桥(ADB )(我们<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/">在这里</a>有关于如何做的指南),然后从命令提示符或终端窗口运行以下命令:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">setprop</span> <span class="hljs-selector-tag">debug</span><span class="hljs-selector-class">.vendor</span><span class="hljs-selector-class">.asus</span><span class="hljs-selector-class">.fps</span><span class="hljs-selector-class">.eng</span> 1</code> </pre>
+<p>一旦你输入这个命令，重启你的手机。手机重启后，您可以在“设置”&gt;“显示”&gt;“刷新率”或“刷新率快速设置”磁贴中切换160Hz显示模式。</p>
+
+<p>如果你怀疑这是否真的有效，你可以用几种方法中的一种来测试刷新率。首先，你可以去<a href="https://testufo.com/">testufo.com</a>看UFO在太空中循环的帧速率。第二，你可以试试<a href="https://play.google.com/store/apps/details?id=games.paveldogreat.fluidsimfree">流体模拟app </a>，在app的设置里把刷新率设为160。(这是我个人最喜欢的测试方式，因为随着流体运动变得更加平滑，您可以真正看到更高刷新率的影响。)最后，你可以尝试在ROG手机3上支持144fps播放的众多游戏之一的<a href="https://www.xda-developers.com/asus-rog-phone-3-144hz-high-refresh-rate-display-games-support/">——如果游戏在设备上支持144fps播放，那么它的帧速率很有可能实际上是“解锁的”，也可以以160fps运行。例如，Pac-Man应用程序对我来说运行速度是160fps，我相信许多其他人也会这样。</a></p>
+
+
+
+<p>现在，我肯定你在想这样做是否安全。如果对面板不安全的话，我想华硕是不会测试这个更高的刷新率的。我已经用160赫兹的频率运行我的ROG Phone 3好几天了，没有遇到任何稳定性问题。然而，很明显，华硕没有完成这种显示模式，因为它似乎没有在这种模式下正确校准显示器。您可以在“设置”&gt;“显示”&gt;“精彩”中调整一些显示参数，直到您找到一个看起来对您有吸引力的配置，但这种刷新率模式被隐藏是有原因的——它不是最终用户级别的。由于手机和显示器能够处理160Hz的2340x1080，我希望华硕重新考虑这种显示模式，并在适当校准后在未来的软件更新中启用它。ROG Phone 3当然有足够的能量(高通骁龙865+)和电池(6000毫安时)来处理它，为什么不呢？</p>
+
+<p>如果您想禁用此功能并将显示设置恢复正常，只需从您的PC输入以下ADB命令，然后重启手机:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">setprop</span> <span class="hljs-selector-tag">debug</span><span class="hljs-selector-class">.vendor</span><span class="hljs-selector-class">.asus</span><span class="hljs-selector-class">.fps</span><span class="hljs-selector-class">.eng</span> 0</code> </pre>
+<p><em>感谢PNF软件为我们提供了使用</em> <em> <a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB反编译</a> </em> <em>的许可，这是一款针对Android应用的专业级逆向工程工具。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

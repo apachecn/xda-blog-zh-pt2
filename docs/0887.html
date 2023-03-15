@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>HMS Core 5.0 introduces an AR Engine, Computer Graphics Kit, Accelerate Kit and more improvements</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>HMS Core 5.0引入了AR引擎、计算机图形工具包、加速工具包和更多改进</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/hms-core-5-0-introduces-an-ar-engine-computer-graphics-kit-accelerate-kit-and-more-improvements/#0001-01-01">https://www.xda-developers.com/hms-core-5-0-introduces-an-ar-engine-computer-graphics-kit-accelerate-kit-and-more-improvements/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>华为移动服务(HMS)是华为对GMS的替代，它同样由面向用户的应用程序和核心后台服务组成。HMS提供跨设备一致的体验，并且独立于平台版本。HMS生态系统由HMS应用程序、<a href="https://www.xda-developers.com/huawei-hms-core-android-alternative-google-play-services-gms/"> HMS核心</a>以及核心通过其可用API实现的HMS功能组成。HMS Core 5.0的最新里程碑更新引入了几个API和对现有API的改进。</p>
+
+  
+<p>华为加倍努力改善HMS Core及其相关服务。毕竟，这些服务和服务框架构成了华为和Honor当前体验的支柱。截至2020年3月，华为全球月活跃用户已达6.5亿，同比增长25%。华为平台上的注册开发者数量也达到了140万，同比增长115%。全球HMS核心应用的总数也超过了60，000个，同比增长67%。华为将所有赌注都押在了自己的生态系统上，HMS Core的不断改进证明了它对HMS愿景的长期承诺。</p>
+
+<p>HMS Core 4.0于2020年1月15日推出，以地图工具包、机器学习工具包、扫描工具包、WisePlay DRM等形式引入了新的API。现在，随着HMS Core 5.0的推出，华为正在引入更多新的API:AR引擎、计算机图形工具包、Accelerate Kit。</p>
+
+ 
+<h2 id="ar-engine">arcengine</h2>
+<p><a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050130900">华为AR引擎</a>相当于Google Play的ARCore服务。HMS Core中的蒂耶AR引擎是一个平台，用于在采用海思麒麟芯片的Android智能手机上构建增强现实(AR)应用。它集成了AR的核心算法，以提供基本的AR功能，如运动跟踪、环境跟踪以及身体和面部跟踪。使用AR引擎，您可以构建连接虚拟世界和现实世界的应用程序。</p>
+
+<p>简而言之，华为AR引擎持续跟踪设备位置和姿态，以便提供运动跟踪和环境跟踪能力。它利用设备摄像头来识别给定空间中的特征点，然后跟踪相对于这些点的移动，随后将这些变化与设备上的惯性传感器报告的数据相结合。它还可以识别平面，如地板和墙壁，并且在识别特征点时，它还可以估计它们周围的光照强度。</p>
+
+<p>华为AR引擎的特别之处在于它还能够为人类实现运动跟踪。它可以定位手的位置并识别特定的手势。API中还有一个深度组件，它可以让API跟踪多达21个手部骨骼点，以实现精确的交互控制和特殊效果叠加。它还可以跟踪23个身体骨骼点，以实时检测人体姿势，华为设想，你也可以使用这些数据来构建关于健身和健康的创新应用程序。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="computer-graphics-kit">计算机图形工具包</h2>
+<p>华为计算机图形套件是一个基于Vulkan的高性能计算机图形渲染框架。这个框架由PBR(基于物理的渲染)材质、模型、纹理、灯光、组件系统等等组成。rending框架背后的想法是在使用海思麒麟芯片的华为设备上提供最佳的3D渲染能力。该框架还支持二次开发，降低了难度和复杂性，华为声称这有助于显著提高开发效率。</p>
+
+<p>华为计算机图形套件可用于3D应用用例，因为它封装了必要的Vulkan API调用方法，还在华为GPU上实现了专用优化。这大大减少了开发高质量3D静态模型的工作量。该套件还提供高性能多线程渲染模块，集成了华为专用Vulkan增强和扩展的最佳实践。从本质上说，计算机图形套件通过为开发人员提供将计算机图形集成到他们的软件中所需的尖端工具，帮助加速应用程序中计算机图形的采用。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="accelerate-kit">加速套件</h2>
+<p><a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050980807">华为加速套件</a>提供多线程加速功能，据称可以有效提高多线程的并发执行，从而优化应用。该工具包以一组C语言API的形式向开发人员开放了这一功能。这将使开发人员在运行于多核系统上的当代Android设备上拥有更大的灵活性。多线程编程一般是通过管理线程控制任务执行来实现的。借助Accelerate Kit，开发人员可以从线程管理的细节中解放出来，因此他们可以在提高效率的同时将更多精力放在自己的应用上。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="audio-kit-image-kit-video-kit-within-hms-core">HMS核心中的音频套件、图像套件和视频套件</h2>
+<p>HMS Core 5.0还增加了三个与手机音频、视频和图像功能相关的新套件。<a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050749665">音频套件</a>支持基于HMS核心生态系统的音频播放能力，包括硬件层和系统底层的音频编码、解码能力。<a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/service-introduction-0000001050199011">图像工具包</a>允许你将场景特定的设计和动画制作功能整合到你的应用程序中。<a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050439577">视频工具包</a>目前提供视频播放功能，并且正在努力在以后的版本中加入视频编辑甚至视频托管API。这将让你轻松构建应用程序，可以从第三方提供的地址播放流媒体。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="other-upgrades-to-hms-core">HMS核心的其他升级</h2>
+<p>虽然版本发布的主要焦点是新的API，但是几个新的API也获得了新的特性。例如，扫描套件现在具有基于深度学习的扫描代码，以更高的响应速度在更具挑战性的情况下提高扫描精度。该地图工具包已经获得了公交和地铁路线规划信息，因此开发者现在可以使用这些信息来改进他们应用程序中的功能。定位套件现在支持围栏管理功能。</p>
+
+<hr/>
+
+<p>HMS将自己展示为一个机会之窗，可以减少你的应用程序对谷歌服务的依赖，并打开华为和Honor的设备生态系统，该生态系统仍然构成了市场的一个重要和不可忽视的部分。华为处于一个罕见的位置，能够提供一套强大的替代API，为开发者和用户提供类似的预期功能。华为打算在其设备中推进HMS核心集成，因此作为一名开发人员，您真的可以忽略市场的这一重要部分吗？</p>
+
+<p/><p><strong> <a href="https://developer.huawei.com/consumer/en/hms">查看华为移动服务</a> </strong>中的所有API套件</p>
+
+<hr/>
+
+<p/><h6>我们感谢华为赞助这篇文章。我们的赞助商帮助我们支付与运行XDA相关的许多费用，包括服务器成本、全职开发人员、新闻撰稿人等等。虽然您可能会在门户内容旁边看到赞助内容(这些内容将始终被标记为赞助内容),但门户团队对这些帖子不承担任何责任。赞助内容、广告和XDA仓库完全由一个独立的团队管理。XDA绝不会通过接受金钱来赞扬一家公司，或以任何方式改变我们的观点或看法，从而损害其新闻诚信。我们的意见不能被收买。</h6>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

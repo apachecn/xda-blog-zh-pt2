@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Google Chrome's latest experiments are designed to improve battery life and performance</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌浏览器的最新实验旨在提高电池寿命和性能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-chromes-experiments-designed-improve-battery-life-performance/#0001-01-01">https://www.xda-developers.com/google-chromes-experiments-designed-improve-battery-life-performance/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>为了提高谷歌Chrome的性能，减少其对电池寿命的影响，谷歌正在测试这款浏览器的两个新功能。第一个功能是在Chromium bug tracker页面上发现的，它添加了一个新的节省电池的meta标签，该标签将优化已知具有高CPU或电池成本的网站。一个关于新meta标签的解释者说:</p>
+
+  
+<p><em>“节省电池或CPU对于没有连接到电源的计算设备来说很重要，或者对于在运行的进程之间更好地共享公共CPU &amp; GPU资源来说也很重要...已知具有高CPU或电池成本的网站可能想要请求UA针对CPU或电池进行优化，即使用户没有请求...大多数现代操作系统还具有电池节省功能，当电池电量低或用户希望节省电池时，这些功能就会发挥作用。理想情况下，网站应该能够尊重这些设置。营业点可能希望向UA建议在这些情况下哪种策略对该方最有效。”</em></p>
+
+<p>谷歌Chrome中的新meta标签将允许网站添加meta标签以降低帧速率，允许一般的脚本执行减速，并根据电池节能设置改变行为以延长电池寿命。为了做到这一点，网站将能够添加类似<meta name="battery-savings" content="allow-reduced-framerate"/>的标签。meta标签将允许视频或视频会议网站减少CPU使用并延长电池寿命，减慢不会直接影响UX的JavaScript任务，并在用户希望时切换到电池节省模式。</p>
+
+<p>解释者进一步强调了电池节能功能将包含以下组件:</p>
+
+<ul> <li>允许站点指示首选模式的meta标签。</li> <li>媒体查询允许网站根据电池电量的节省来调整它们的样式表。</li> <li>规范文本说明，如果用户或操作系统进入了电池节能模式，那么用户代理应该将一个或多个电池节能应用到站点。</li> <li>规范文本说明UAs应该尊重站点上的meta标签，除非它与用户或操作系统设置冲突。</li> </ul>
+
+<p>第二个功能旨在提高谷歌Chrome的性能，仅限于Android设备。该功能已被添加到浏览器的一个新标志下，名为<em>CPU-affinity-restrict-to-LITTLE-cores，</em>，其描述如下:“将Chrome线程限制在大内核设备的小内核上。很少或相似的CPU架构。”</p>
+
+<p>根据最近来自<em> Chrome Story </em> 的<a href="https://www.chromestory.com/2020/08/big-little-processor-chrome/#:~:text=Restrict%20to%20LITTLE%20cores%20%E2%80%93%20Chrome&amp;text=%E2%80%9CRestrict%20to%20LITTLE%20cores%3A%20Restricts,other%20system%20health%20metrics%20etc.">报道，该功能有望使Chrome在ARM设备上更加节能，并提高其性能。这项功能目前处于试验阶段，谷歌正在研究它对功耗、流畅度和其他系统健康指标的影响。因此，我们可能需要等待相当长的时间，才能在浏览器的稳定版本中实现这一功能。</a></p>
+
+<p>值得注意的是，这些并不是谷歌为Chrome增加的唯一功能，以提高其性能并减少对电池寿命的影响。该公司预计将在Android版Chrome 86中添加一个<a href="https://www.xda-developers.com/back-forward-google-chrome-faster-bfcache/">后退前进缓存功能</a>，这将允许用户在浏览器中更快地后退和前进。谷歌也在测试<a href="https://www.xda-developers.com/google-chrome-tests-throttling-background-javascript-timers-improve-battery-life/">节流后台JavaScript定时器</a>，以改善Chrome对电池寿命的影响。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1114184"> Chromium bug追踪器</a>，<a href="https://github.com/chrishtr/battery-savings/blob/master/explainer.md"> GitHub </a>，<a href="https://chromium-review.googlesource.com/c/chromium/src/+/2348774"> Chromium Gerrit </a> </strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

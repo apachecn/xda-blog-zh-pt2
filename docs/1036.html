@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>This developer made a tool to schedule Google Assistant commands</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>这位开发者制作了一个工具来安排谷歌助手的命令</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/timer-for-google-assistant-schedule-google-assistant-commands-smart-home/#0001-01-01">https://www.xda-developers.com/timer-for-google-assistant-schedule-google-assistant-commands-smart-home/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌助理作为数字助理提供了许多功能，其中相当一部分扩展到了智能家居和自动化领域。谷歌通过<a href="https://www.xda-developers.com/google-home-scheduled-routines/">例程</a>为智能家居提供了一些日程安排功能，允许用户在满足特定条件的任何时候例行启动特定任务。多年来，<a href="https://www.xda-developers.com/google-assistant-clock-routines-broadcast-replies/">例程下的功能已经扩展了</a>，但在智能家居自动化的背景下，谷歌助手到底能实现什么，仍有很大的改进空间。现在，一名开发者开发了一款开源工具，可以让你安排谷歌助手的命令，为智能家居和其他领域开辟了一系列功能和用例。</p>
+
+  
+<p>wiseindy的Google Assistant计时器允许你向Google Assistant发送命令，这些命令将在特定时间后执行，或者延长特定的持续时间。该项目利用IFTTT和一个面向互联网的网络服务器与谷歌助手和你的智能设备进行通信。一旦设置好，你可以发送类似“<em>嘿谷歌，10分钟后关灯</em>”的命令，在特定的持续时间后执行一个动作。该项目已经扩展了这个指令集，使其可以使用持续时间命令，如<em>“嘿，谷歌，打开风扇25分钟”</em>，这将立即发送一个命令，并在持续时间后发送最后一个命令。</p>
+
+<p>该应用程序不直接与您的本地设备通信，而是使用IFTTT作为这种通信的连接媒介。当您要求Google Assistant“在5分钟后关闭设备”时，它会将该命令发送给IFTTT，if TTT又会使用设备名称和参数“5分钟”向您的服务器发出HTTP请求。服务器打开设备并等待指定的时间。一旦时间过去，服务器将向IFTTT发出web请求，该请求将告诉Google Assistant关闭设备。因此，您需要一个始终运行的Node.js服务器，IFTTT可以与之对话，尽管它不需要运行在同一个网络上。</p>
+
+<p/><p><strong> <a href="https://github.com/wiseindy/timer-for-google-assistant">谷歌助手的计时器——Github</a></strong></p>
+
+<p>设置项目需要几个步骤，但是附带的readme很方便，将为您提供足够的指导。该项目也是开源的，因此您可以自己检查代码并做出贡献。目前的应用和用例是在智能家居的背景下设想的，但也许社区可以将其扩展到其他新颖的用途。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

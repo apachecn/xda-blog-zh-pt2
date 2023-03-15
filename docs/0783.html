@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>[Update: Coming to Chrome 86] Going back and forward in Google Chrome will get a lot faster with bfcache</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>【更新:即将推出Chrome 86】使用bfcache在谷歌Chrome中来回切换会快很多</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/back-forward-google-chrome-faster-bfcache/#0001-01-01">https://www.xda-developers.com/back-forward-google-chrome-faster-bfcache/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><b>更新1(</b><b>07/24/2020</b><b>@</b><b>08:28am</b><b>ET):</b>。滚动到底部了解更多信息。下面保留了2019年2月28日发表的文章。</p> </div></section>
+<p/><p>谷歌浏览器是世界上最受欢迎的网络浏览器，无论是在手机上还是在桌面上。多年来，它面临着相当多的批评，因为它占用了过多的内存，并且在大小和功能方面变得臃肿，但它也因其真实世界的速度和可用性而受到称赞。现在，谷歌宣布它正在开发一项新功能，使用bfcache(向后-向前缓存)来改善网络浏览器中的向后-向前导航。</p>
+
+  
+<p>Google声明，当导航离开一个页面时，后退/前进缓存(bfcache)会缓存整个页面，包括JavaScript堆。这样做是为了在用户向后导航时可以恢复页面的完整状态。该公司给出了一个用户离开时暂停页面，用户返回时播放页面的类比。它在向后导航和向前导航到先前访问的页面时都有效。</p>
+
+<p>谷歌指出，这一功能在访问新网站时不会有帮助。但是，这并不意味着它没有用。据该公司称，在谷歌Android版Chrome浏览器上，有19%的页面被浏览，在PC版Chrome浏览器上，有10%的页面被浏览。据谷歌称，bfcache将使导航“极快”。该公司指出，实现这一目标绝非易事。</p>
+
+ 
+<p class="w-rich w-youtube" id="cuPsdRckkF0">  </p>
+
+
+<p>谷歌指出，Mozilla Firefox和Apple Safari对这种缓存技术的实现略有不同。然而，由于与Chrome的多进程架构不兼容，Chrome选择不使用WebKit的bfcache实现。</p>
+
+<p>Chrome团队的工程经理Addy Osmani告诉<em>CNET</em>Chrome的棘手之处在于重写浏览器的某些部分以保护隐私和安全。谷歌的网络浏览器必须确保它能阻止基于网络的JavaScript程序运行，即使这些程序还在内存中。他承认，在用户看来不存在的页面上运行JavaScript是“一个很大的潜在隐私问题”，因此，该公司将改变Chrome的架构，以确保隐私问题不会发生。</p>
+
+<p>坏处呢？bfcache不会很快出现在Chrome上。据奥斯马尼说，谷歌希望在2019年测试bfcache，并在2020年将其内置到Chrome中。</p>
+
+<p>另一个限制是保存网页状态以备后用会消耗内存，<a href="https://www.xda-developers.com/site-isolation-roll-out-google-chrome-67/">这已经是Chrome面临的主要问题之一</a>。奥斯马尼表示，谷歌仍在试图找出最佳规则，以决定哪些页面应该保留，何时应该从内存中删除。他还表示，该功能可以帮助解决其他情况，例如当标签在后台时需要暂停的标签的更好性能，特别是在移动设备上。这种情况通常会节省内存，但它也有一个很大的缺点，因为页面在返回后必须重新加载。</p>
+
+<p>Chrome上的bfcache听起来肯定很有前景，但它目前还处于早期阶段。我们希望在接下来的几个月里了解更多信息。</p>
+
+<p><strong>来源:<a href="https://developers.google.com/web/updates/2019/02/back-forward-cache">谷歌开发者</a>T3】</strong></p>
+
+<p><strong>故事Via:<a href="https://www.cnet.com/news/chrome-should-get-extremely-fast-at-loading-a-whole-lot-of-web-pages/">CNET</a>T3】</strong></p>
+
+<hr/>
+
+
+<h2 id="update-google-s-back-forward-cache-feature-is-coming-to-chrome-for-android-v86">更新:谷歌的“后退前进缓存”功能即将登陆Chrome Android v 86</h2>
+<p>关于谷歌Chrome上的后退缓存功能的信息上一次成为新闻是在一年前，而即将推出的功能在此期间基本上被遗忘了。事实证明，随着Android v86版Chrome的推出，该功能已经越来越接近于在稳定发布渠道中发布。这可能会使在网站之间来回导航的速度更快。</p>
+
+<p><strong>来源:<a href="https://groups.google.com/a/chromium.org/g/blink-dev/c/S9qRFx4ozXk/m/DNT8tiR3BAAJ?pli=1">铬</a>T3】</strong></p>
+
+<p><strong>故事Via:<a href="https://techdows.com/2020/07/chrome-android-back-forward-cache.html">Techdows</a>T3】</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

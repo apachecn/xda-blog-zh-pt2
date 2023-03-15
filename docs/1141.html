@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Amazon Prime Video preps random episode button and choosing audio language for downloads</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>亚马逊Prime视频准备随机集按钮和选择下载的音频语言</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/amazon-prime-video-preps-random-episode-button-shuffled-playlist-choosing-audio-language-downloads/#0001-01-01">https://www.xda-developers.com/amazon-prime-video-preps-random-episode-button-shuffled-playlist-choosing-audio-language-downloads/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Amazon Prime Video是世界上最受欢迎的流媒体服务之一，这部分归功于它与Amazon Prime的捆绑，部分归功于它提供的内容。在过去的几个月里，该服务增加了新的功能，以保留其用户群并获得更多的用户。例如，<a href="https://www.xda-developers.com/amazon-prime-video-watch-party/">观看聚会功能可以让你和你的朋友一起观看内容</a>，而<a href="https://www.xda-developers.com/amazon-prime-video-netflix-profiles/">个人资料可以让多个用户使用同一个账户</a>，并且仍然有独立的内容提要。现在，<a href="https://play.google.com/store/apps/details?id=com.amazon.avod.thirdpartyclient">亚马逊Prime Video </a>正准备让用户随机播放一集，还可以选择一种音频语言进行下载。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>我们在适用于Android的亚马逊Prime Video 3 . 0 . 227 . 35447应用中发现了以下字符串:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"AV_MOBILE_ANDROID_ACTION_BAR_SHUFFLE_EPISODES"</span>&gt;</span>Shuffle episodes<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"AV_MOBILE_ANDROID_ACTION_BAR_SHUFFLE_EPISODES_TOOLTIP"</span>&gt;</span>Love every episode? Shuffle the entire series for a playlist of random episodes.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>随机剧集功能类似于为网飞准备的随机剧集选项(但还没有推出)。我们认为这一功能背后的动机是模仿有线电视的怀旧情绪，用户可以经常看到他们可以观看或重温的随机剧集。这对于不遵循严格时间表的轻松节目来说效果最好，因此用户可以简单地观看一些内容，而不必花力气选择内容。根据字符串描述，随机播放剧集按钮会创建一个随机播放列表，其功能类似于仅仅选择一串随机的剧集。</p>
+
+<p>此外，该应用还允许用户选择下载内容的音频语言:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"AV_MOBILE_ANDROID_DOWNLOAD_BOTTOM_SHEET_DIALOG_ALWAYS_ASK_CHECKBOX"</span>&gt;</span>Always Ask<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"AV_MOBILE_ANDROID_DOWNLOAD_BOTTOM_SHEET_DIALOG_AUDIO_LANGUAGE_TITLE"</span>&gt;</span>Audio Language<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"AV_MOBILE_ANDROID_DOWNLOAD_BOTTOM_SHEET_DIALOG_CHOOSE_AUDIO_LANGUAGE_TO_DOWNLOAD"</span>&gt;</span>Choose an audio language to download<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"AV_MOBILE_ANDROID_DOWNLOAD_BOTTOM_SHEET_DIALOG_PREFERRED_LANGUAGE_UNAVAILABLE"</span>&gt;</span>Your preferred audio language is unavailable for this video. Choose audio language to download<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>这项即将推出的功能将主要针对具有多种语言选项的电视节目和电影，这对于在多语言地区发布的内容来说非常常见。从描述来看，这款应用似乎会显示一个底部的表格，询问你想要下载哪种音频语言。</p>
+
+<p>我们不知道这些功能何时会向所有用户推出，但我们希望能很快看到它们上线。</p>
+
+<hr/>
+
+ 
+
+
+
+<p><em>感谢PNF软件为我们提供了使用</em> <em> <a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB反编译</a> </em> <em>的许可，这是一款针对Android应用的专业级逆向工程工具。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>
