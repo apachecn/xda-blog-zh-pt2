@@ -1,0 +1,11 @@
+# Galaxy Note 10.1 接收官方 CM10.1 Nightlies
+
+> 原文：<https://www.xda-developers.com/galaxy-note-10-1-receives-official-cm10-1-nightlies/>
+
+任何在 XDA 或 Android 社区呆过的人都知道，当一个设备被包含在 CyanogenMod 的设备树中时，这是美好的一天。这是因为 CM 支持可以确保设备的使用寿命比制造商预期的要长。这当然取决于制造商提供开发所需的工具和文档[。在许多情况下，原始设备制造商在发布文档方面做得很好，因为他们偏离了设备电路板的参考设计。然而，其他时候，制造商似乎进入大脑放屁模式，当谈到这一点。](http://www.xda-developers.com/android/an-official-alpha-release-with-kernel-source-who-does-this-sort-of-thing/ "An Official Alpha Release WITH Kernel Source? Who Does This Sort of Thing?")
+
+三星在其[*有限*智慧](http://www.xda-developers.com/android/samsung-aware-of-exynos-documentation-issue/ "Samsung Aware of Exynos Documentation Issue")中，使得基于 Exynos 4 参考设计的设备极难接收 CyanogenMod 10.x 夜生活。这并不是什么新消息，因为[已经被广泛报道过](http://www.xda-developers.com/xda-tv-2/samsung-what-did-we-do-to-make-you-hate-us-xda-developer-tv/ "Samsung, What Did We Do to Make You Hate Us? – XDA Developer TV")三星在基于其 Exynos 4x12 设备的设备方面继续让社区失望( [Galaxy S3](http://forum.xda-developers.com/forumdisplay.php?f=1563) 、 [Galaxy Note 10.1](http://forum.xda-developers.com/forumdisplay.php?f=1735) 、 [Galaxy Note 2](http://forum.xda-developers.com/forumdisplay.php?f=1790) 、 [Galaxy 摄像头](http://forum.xda-developers.com/forumdisplay.php?f=1938)、[魅族 MX](http://forum.xda-developers.com/forumdisplay.php?f=1899) )。为了符合[GPL](http://www.xda-developers.com/android/xda-developers-and-the-gpl/ "XDA-Developers and the GPL")，来自三星的信号源一直缺少所需的部分，最近的调查发现他们的 ICS 信号源中有姜饼残留物。
+
+所有这一切都没有阻止 XDA 知名开发商 [espenfjo](http://forum.xda-developers.com/member.php?u=1102227) 和 [Entropy512](http://forum.xda-developers.com/member.php?u=591147) 努力将 CM10.1 体验带到 Galaxy Note 10.1 中。障碍是有的，但他们已经克服了。由于他们的工作，Note 10.1 (N80o0 GSM 和 N8010/N8013 WiFi)最近[开始接收](http://forum.xda-developers.com/showthread.php?t=1854841) CyanogenMod 夜生活。截至本文发布之时，网飞在 CM10.1 上的工作仍有问题，但 Entropy512 已经通过 [Xposed 框架](http://forum.xda-developers.com/showthread.php?t=1574401)为所有 Exynos 4 设备提供了一个[解决方案。](http://forum.xda-developers.com/showthread.php?t=2101525)
+
+通常情况下，典型的免责声明适用于 CM10.1 是一项正在进行中的工作，尤其是在这些设备上。因此，如果你有一个 bug 要报告，请确保在线程中发布一个日志，详细描述你在做什么以及发生了什么。为了刷新构建，你将需要使用 [TWRP](http://forum.xda-developers.com/showthread.php?t=1851548) 或者[熵的 CWM 构建](http://forum.xda-developers.com/showpost.php?p=30816047&postcount=59)，因为他们是目前唯一被确认有效的*构建。如果您收到“ *assert failed* ”错误消息，您应该首先确认您确实在使用上述两种恢复方法之一。*

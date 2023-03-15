@@ -1,0 +1,7 @@
+# 专业提示 1:安卓 XBMC 遥控器- XDA 电视
+
+> 原文：<https://www.xda-developers.com/pro-tip-1-android-xbmc-remote-control-xda-tv/>
+
+在 XDA 专业技巧系列的第一篇中，XDA 精英认可的开发者 [AdamOutler](http://forum.xda-developers.com/member.php?u=3682533 "AdamOutler") 向我们展示了如何利用 [XBMC](http://xbmc.org/ "XBMC") 将 Android 设备重新用作电视遥控器。他演示了从 Android 手机上的 YouTube 应用程序向电视发送 YouTube 视频。然后，他谈到了运行这种设置所需的硬件，以及如何设置一个与 Android 集成的成熟的媒体中心。
+
+一定要看看其他在 [XDA 电视台](http://www.xda-developers.com/xda-tv/ "XDA TV")上的精彩视频，比如由 XDA 论坛主持人和公认的开发者[神野](http://forum.xda-developers.com/member.php?u=2118392)制作的[如何扎根 HTC One X](http://www.xda-developers.com/xda-tv-2/how-to-root-the-htc-one-x-xda-tv/ "How to Root the HTC One X – XDA TV") 。也可以看看精英公认开发人员 [AdamOutler 的](http://forum.xda-developers.com/member.php?u=3682533 "AdamOutler")文章[如何构建一个 Android 应用](http://www.xda-developers.com/xda-tv-2/how-to-build-an-android-app-part-1-setting-up-eclipse-and-android-sdk-xda-tv/ "How to Build an Android App Part 1: Setting up Eclipse and Android SDK – XDA TV")的第 1 部分。一旦你理解了第一部分，看看第二部分。此外，一定要看看 XDA 电视台[的其他精彩和信息丰富的剧集，并关注更多专业技巧。请务必参加](http://www.xda-developers.com/xda-tv/ "XDA TV")[2012 三星智能应用挑战赛](http://www.xda-developers.com/android/samsung-smart-app-challenge-2012/ "Samsung Smart App Challenge 2012")！

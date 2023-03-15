@@ -1,0 +1,22 @@
+# 在 Lollipop 上使用暴露的模块
+
+> 原文：<https://www.xda-developers.com/xposed-modules-to-install-right-now-on-lollipop/>
+
+除非你昨天一整天都在引导，否则你可能听说过[exposed 终于获得棒棒糖支持](http://www.xda-developers.com/xposed-framework-for-android-lollipop-is-here/)。这对于超级明星 XDA 资深公认开发者 [rovo89](http://forum.xda-developers.com/member.php?u=4419114) 来说不是一件容易的事情，自从最新的 Android 版本发布以来，我们几乎没有关于开发的信息，这促使许多人相信它可能永远不会成为我们最新的 Android，或者我们不会很快看到任何类似的东西。但是 rovo89 证明了好事不一定会结束，他上周用一个预告片让我们所有人都感到惊讶，这个预告片现在已经成为 Android 开发历史上的一个新突破。
+
+**PSA: Xposed for 棒棒糖还在起步阶段。因此，您可能会在这里或那里发现问题。如果你这样做了，请在发帖投诉或问题之前阅读[论坛](http://forum.xda-developers.com/xposed)，通过阅读指定的帖子可能很容易找到答案。如果你对你的设备或 ROM 的兼容性有疑问，快速搜索应该会通知你，并且[这个线程](http://forum.xda-developers.com/xposed/list-devices-able-to-run-xposed-lollipop-t3030993)正在更新兼容性信息。让我们努力保持论坛的清洁，共同努力，使每个人的采纳过程高效！**
+
+对于那些不知情的人来说，Xposed 是一个框架，它充当下载和安装模块(就像它们是应用程序一样)的基础系统，这些模块可以将新的行为注入到您的系统或其他应用程序的部分中。这个过程需要安装 root，目前棒棒糖支持**只在 ARM v7 设备**上可用；因此，如果你有一个罕见的带有 ARMv8-A 指令集的 64 位芯片(如 Exynos Note 4 变体中的 Exynos 5433)，你必须通过。那些使用三星 Lollipop rom(touch wiz)的用户也必须坐下来等待，因为 rovo 遇到了一个文件格式问题，导致启动失败。
+
+Xposed 能为我做什么？嗯，你们中的许多人可能已经知道了这一点，但是对那些不知道的人来说:可能性太多了，无法一一列举。它可以消除应用程序的烦恼，修复错误或阻止工具提示消息，它可以改变系统及其应用程序的用户界面，它可以为你提供新的导航方法，它可以让你对视野中的几乎任何东西进行主题化，它可以通过某些修改(祝福你，放大和 DFVS 禁用器)潜在地为你提供更好的电池或性能，等等。所有这些都假设有人为它编写了一个模块，并且你的设备与该模块兼容。但在大多数情况下，像 Gravity Box 这样的大模块为许多设备和 rom 提供支持，即使不是所有的功能。然而，Lollipop 中的很多东西都发生了变化，导致许多模块(尤其是那些修改系统的模块)被破坏。然而，有些仍然完全正常或部分正常工作。
+
+这个是一个 XDA 用户报告他们对“旧”模块的测试的帖子，看看哪些可以，哪些不行，在什么条件下。以下是一些我们认为会让你今天的棒棒糖体验更加甜蜜的选择。
+
+*   [应用设置](http://forum.xda-developers.com/xposed/modules/mod-app-settings-v1-9-2014-05-14-t2437377)[【rovo 89 的棒棒糖替代品】](http://forum.xda-developers.com/showpost.php?p=58843003&postcount=1581)[【1】](http://forum.xda-developers.com/xposed/modules/mod-app-settings-v1-9-2014-05-14-t2437377):这是*我不运行棒棒糖时最喜欢的一个模块，当然也是我最想念的一个。有了这个宝贝，你可以根据应用改变 DPI **(这允许你在 SystemUI 的其余部分保持任何你想要的 DPI)，以及应用的字体比例、沉浸式模式、RAM 锁定和坚持通知，这些都是为了那些不想错过他们的情人节短信(并为此失去理智)的人。***
+**   [【1】](http://forum.xda-developers.com/showpost.php?p=58843131&postcount=24)[【2】](http://forum.xda-developers.com/showpost.php?p=58840690&postcount=16):对于那些“纯谷歌体验”的粉丝来说，这个模块可以让你进一步定制你的谷歌启动器，让你隐藏搜索栏或单个应用程序，改变网格，图标和文本大小，删除标签等等。它不像 Nova 那样灵活，但对于那些喜欢谷歌集成他们的启动器，以及它的干净和优化的人来说，它绝对是一个很好的模块。*   根斗篷[【1】](http://forum.xda-developers.com/showpost.php?p=58841781&postcount=23):一些应用程序会检测到根，然后阻止访问或限制你的功能，作为一种安全的先发制人的方法。虽然可以理解一些人可能希望进一步加强他们的应用，但美国 XDA 修补程序可能会因此被排除在服务之外。这个模块为你选择的应用程序隐藏根，就这么简单。我们不能明确地告诉你这个模块的用途，但是如果你以前遇到过类似的问题，就不要再找了。*   [高级电源菜单+](http://forum.xda-developers.com/showpost.php?p=58843282&postcount=25)[【1】](http://forum.xda-developers.com/showpost.php?p=58843282&postcount=25):这个模块可以让你自定义手机的电源菜单，以你想要的任何顺序添加或删除项目。有额外的重启选项(软启动，恢复启动，引导加载程序)，一个截图选项，一个快速拨号呼叫任何人，一些连接切换和一个方便的手电筒。我的手机上总是有高级电源菜单，一个暴露的模块替代物比闪烁附加的 zip's 要容易得多。如果这对你不起作用，新的[棒棒糖电源菜单](http://forum.xda-developers.com/xposed/modules/xposed-lollipop-power-menu-t3030510)模块可能会起作用。*   XToast[【1】](http://forum.xda-developers.com/showpost.php?p=58841781&postcount=23):这是我当时最喜欢的一个，因为它可以让你通过添加相应的应用程序图标来将 Toast 通知的应用程序来源添加到消息框中。这本身就很有用，但是你也可以自定义图标并添加名称，或者将 toast 风格改回旧版本。持续时间，透明度和它出现的地方也可以选择。基本上，祝酒是在你的控制之下，让他们更有知识性和个性化。你不试试就不知道有多牛逼了！*   [棒棒糖通知滚动条](http://repo.xposed.info/module/com.mohammadag.enablenotificationtickeronlollipop)[【1】](http://forum.xda-developers.com/showpost.php?p=58844102&postcount=31):这个用来恢复状态栏上的滚动条，通知你最新通知的内容。它是在《棒棒糖曝光》问世之前制作的，这是一个成功的大胆举措...部分地。据报道，它打破了抬头通知，同时修复了股票。不过，如果你一开始就不喜欢这些，你可能想试一试。*   [原生剪贴板](http://repo.xposed.info/module/com.dhm47.nativeclipboard)[【1】](http://forum.xda-developers.com/showpost.php?p=58840321&postcount=13):在智能手机上复制粘贴从来都不是最流畅的事情，也不是最一致的。这个模块将剪贴板管理直接添加到文本选择菜单中，它允许你对新菜单、黑名单应用程序进行主题化并进一步定制。如果你碰巧在手机上工作，因为你可能需要在公交车上编辑一份文件，这将证明是有用的。*   [boot manager](http://repo.xposed.info/module/de.defim.apk.bootmanager)[【1】](http://forum.xda-developers.com/showpost.php?p=58844074&postcount=30):对于那些希望自己的设备在开机时纤薄高效的人来说，这是一款必备软件。这个模块允许你选择当你启动你的设备时运行哪些应用程序，而那些不允许这样做的应用程序通常会保持休眠状态，直到你启动它们。如果你有很多你并不马上需要的东西，但是犹豫要不要绿色化，这可以缓解你的用户体验的困境。*
+
+ *这份名单到此为止。还有许多其他模块也可能有效。我们建议你查看[主题](http://forum.xda-developers.com/xposed/unofficial-list-modules-xposed-lollipop-t3030515/post58839862#post58839862)的更新和更多的证词，还有一个电子表格会定期更新更多的资源。如果您遇到错误消息，比如说框架没有安装，那么无论如何模块都可以工作。如果你有任何疑问，搜索以前链接的线程，因为许多人已经报告了无害错误的快速修复。然而，请记住，**这仍然是一个阿尔法版本**和**模块不能保证工作**。上面列出的所有方法都只有少数的证词声称它们有效，因此，我们建议你小心谨慎地进行。
+
+我们希望您喜欢这一新产品，并通过反馈或开发支持 Xposed 和 XDA 的未来！
+
+你现在运行的是什么模块？下面告诉我们！*

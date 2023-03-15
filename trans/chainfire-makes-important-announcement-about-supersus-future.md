@@ -1,0 +1,9 @@
+# Chainfire 发布了关于 SuperSU 未来的重要公告
+
+> 原文：<https://www.xda-developers.com/chainfire-makes-important-announcement-about-supersus-future/>
+
+XDA Recognized Developer [Chainfire](http://forum.xda-developers.com/member.php?u=631273), a superstar of XDA and the development scene, has just announced that his monolithic [SuperSU](http://forum.xda-developers.com/showthread.php?t=1538053) project will be moving to the hands of Coding Code Mobile Technology, LLC. This marks a new beginning for SuperSU, the most popular and essential root application in existence.*In his [G+ post](https://plus.google.com/+Chainfire/posts/XJYJFPtS9Qb) , Chainfire discusses why this decision was made: his passion for SuperSU brought us some of the most amazing developments, and SuperSU remains one of the most influential pieces of software in our development scene. However, over the years his passion for SuperSU development dwindled due to the immense complexity of the project and the stress it caused. Chainfire still committed throughout the years - three and a half, at that - but he now feels it’s time to move on.* **这就是 Coding Code Mobile Technology LLC(CCMT)接手项目的地方。通过 XDA 的领导，Chainfire 被介绍给 CCMT 背后的人们，我们相信 SuperSU 将在新的维护下继续改进。此外，Chainfire 不会立即退出——相反，他会在接下来的两年里慢慢退出。必须指出的是，CCMT 已经投资了各种流行的根应用程序，其中一些你可能正在运行。这种转移也将给予 Chainfire 他所需要的时间来开展新的项目，这些项目可能会证明对整个社区有益。*
+
+ **根据 Chainfire 的说法，非 pro SuperSU APKs、zip 等安装包在未修改的 from 中仍将保持免费再分发，所以不要绝望。目前来看，你的体验不会改变，但一定会不断进步。*
+
+**XDA thanks Chainfire for his amazing contributions to XDA, millions of root users and the Android development scene at large, and we believe this transfer will benefit all parties and all users. We’ll keep you posted on any changes regarding [SuperSU](http://forum.xda-developers.com/apps/supersu) , so stay tuned!****
