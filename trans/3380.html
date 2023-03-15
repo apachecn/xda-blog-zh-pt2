@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Vulkan API Means More Control and Alternative to OpenGL [UPDATED]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Vulkan API意味着对OpenGL的更多控制和替代[更新]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/vulkan-api-means-more-control-but-not-outright-replacement-of-opengl/#0001-01-01">https://www.xda-developers.com/vulkan-api-means-more-control-but-not-outright-replacement-of-opengl/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>在<a href="https://www.khronos.org/news/permalink/vulkan-working-group-update">错过了在2015年底</a>发布初始Vulkan API规范的目标之后，<a href="https://www.khronos.org"> Khronos group </a>现在已经完成了API的1.0发布。到目前为止，我们的大多数读者也知道<a href="http://android-developers.blogspot.com/2015/08/low-overhead-rendering-with-vulkan.html"> Android是支持的平台之一</a>。但是这对开发者和用户意味着什么呢？</p>
+
+  
+<p>令人欣慰的是，Vulkan网站上的新闻稿和材料给了我们大量的信息，让我们开始回答一些可能存在的基本问题。</p>
+
+<p>首先，Vulkan不是OpenGL或OpenGL ES的替代品。这是图形开发的另一种方法，更多的控制权在开发人员手中。关于Vulkan的另一件值得注意的事情是，它被设计成在整个生命周期中保持统一的规范——这在OpenGL中是做不到的。当然，实现在硬件和驱动程序级别会有差异，但是API的目标是尽可能保持它在所有平台上的通用性。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanChart1-1024x523.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Courtesy Khronos Group&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanChart1-1024x523.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanChart1-1024x523.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanChart1-1024x523.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanChart1-1024x523.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Courtesy Khronos Group" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanChart1-1024x523.jpg" src="../Images/6de37cec010ddbb0a5f2c76a28c121aa.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanChart1-1024x523.jpg"/> </picture> <figcaption class="body-img-caption">Courtesy Khronos Group</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>上面的图形有助于显示这两种控制之间的关键权衡。在OpenGL中，开发人员将图形处理的更多控制权让给了OpenGL驱动程序和API。Vulkan提供了一种替代方案，它让您在较低的级别上对硬件进行更多的控制，这也意味着消除了可能会发现的开销。如果这听起来很熟悉，那是因为你已经听说过AMD的Mantle API和现在的Microsoft DirectX 12中的类似努力，也称为“更接近金属”Vulkan提供了在移动领域获得更多控制权的机会。当我们谈论移动场景中的开销时，我们也在谈论可以在比桌面或更大规模使用更有限的设置中运行并消耗电池或性能的东西。</p>
+
+<p>显然，SDK刚刚推出，没有任何真实世界的例子来进行比较；但这并不意味着我们看不到移动场景的精彩。仅仅回顾一下今天的新闻稿就可以发现几条值得强调的引言。我用粗体字强调了读者可能特别感兴趣的内容。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanImg1-266x300.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Image courtesy Khronos Group&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanImg1-266x300.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanImg1-266x300.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanImg1-266x300.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanImg1-266x300.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="Image courtesy Khronos Group" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanImg1-266x300.jpg" src="../Images/4d972b559c8da4d44d6a65fa87982fe2.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/02/VulkanImg1-266x300.jpg"/> </picture> <figcaption class="body-img-caption">Image courtesy Khronos Group</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>高通的产品管理总监Micah Knapp:</p>
+
+<p/><p>我们很高兴能够为Khronos新Vulkan API的定义做出贡献。高通科技公司将是首批发布符合Vulkan驱动程序的公司之一，<strong>首先是我们的高通骁龙820嵌入式高通Adreno 530 GPU，随后是我们的Adreno 4xx系列GPU</strong>。Vulkan通过在adre no GPU中添加<strong>多线程命令缓冲生成和高级图形功能的显式控制，实现了下一代图形性能。我们希望在骁龙开发者工具中支持Vulkan，包括骁龙Profiler和Adreno SDK，以帮助应用开发者在为智能手机、平板电脑、VR HMDs和各种使用骁龙处理器的其他类型的设备创建图形和计算应用时利用这一出色的新API。</strong></p>
+
+<p/><p><strong>美国东部时间2017年2月2日上午9:45更新:</strong>4xx系列包括骁龙805/808/810系列，这是当今市场上的大量设备。</p>
+
+<p>NVIDIA内容与技术高级副总裁Tony Tamasi:</p>
+
+<p/><p>Vulkan API使开发人员能够充分利用NVIDIA GPUs，我们为自己在开发过程中发挥的作用感到自豪。我们正在为Windows、Linux、<strong>和Android平台提供Vulkan驱动程序，就在规范发布</strong>的同一天，我们将继续在Khronos内开展工作，以确保Vulkan不断发展，满足行业需求。</p>
+
+<p/><p><strong>更新2/17上午9:45 CT:</strong>说到做到，支持Vulkan的开发者OS镜像可以在<a href="https://developer.nvidia.com/shield-developer-os-images">这里</a>获得。该网站称，支持Vulkan的公共在线旅行社有...正在进行最终验证，但应该很快就可以使用了。”</p>
+
+<p>三星电子移动通信业务副总裁金泰勇:</p>
+
+<p/><p><em>三星对Vulkan今天的发布感到兴奋，这将有助于跨平台扩展游戏生态系统。我们在Khronos内部一直致力于支持一个开放标准，以实现高性能和尖端技术。<strong> Vulkan将为移动游戏提供更加激动人心的沉浸式用户体验。</strong>T3】</em></p>
+
+<p>自然地，Khronos集团的许多成员都对这个新版本发表了声明，所以请前往<a href="https://www.khronos.org/news/press/khronos-releases-vulkan-1-0-specification">查看新闻稿</a>了解所有的好东西。虽然这可能需要一点时间才能到达您选择的设备，但为开发人员提供其他图形选项看起来确实是一个明智的选择。同样重要的是要注意，即使Khronos小组也认为许多开发人员使用OpenGL ES会更好。这是有意义的，因为从初学者的角度来看，这是一个更稳定的标准，更容易实现。但我知道我会期待看到这对消费者有什么影响。谁知道呢？如果Vulkan为移动设备的基本使用提供了更低的开销，我们最终可能会看到基于Vulkan的ui。</p>
+
+<p>火山Github Repos:</p>
+
+
+
+<p>那么，随着这款面向开发者的新工具问世，你认为它会改变游戏规则吗？或者更多的是打哈欠？请在下面的评论中告诉我们！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

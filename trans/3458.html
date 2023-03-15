@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Tasker Pro: Always Control Media Volume with Volume Keys</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Tasker Pro:始终用音量键控制媒体音量</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/control-media-volume-using-volume-keys/#0001-01-01">https://www.xda-developers.com/control-media-volume-using-volume-keys/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>自动化应该是简化日常任务，让你有更多宝贵的时间做自己喜欢的事情。在XDA，我们已经向你展示了如何使用Tasker来<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-send-sms-address-speed-url-map-pin-t3330371">保护你的设备</a>、<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-read-google-calendar-events-day-t3332783">提高生产力</a>或<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-driving-mode-answer-calls-texts-t3332004">让驾驶更安全</a>，这些都是我们系列的一部分，叫做“<strong> <a href="http://www.xda-developers.com/xda-tasker-week-in-review/"> Tasker Week </a> </strong>。”</p>
+
+  
+<p>但是乐趣并没有就此结束。如果你一直渴望<strong>一些非常棒的Tasker任务</strong>(并且厌倦了<em>无聊的</em>东西，比如告诉你如何重启手机或者摇动手机来唤醒显示屏)，那么我们新的<a href="http://xda-developers.com/tag/tasker-pro"> Tasker Pro系列</a>就是为你准备的。</p>
+
+<p>我们将发布一系列<strong>高度先进的</strong> Tasker简介，向你展示Tasker有多强大，如果你愿意跳出框框思考的话。虽然我们已经为您做了大部分艰苦的工作，您当然可以自由地导入我的个人资料并按原样使用它们，但如果您想自己定制这些任务，我强烈建议您尝试一下如何使用Tasker。在我们的<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-automatically-check-md5-sum-t3365590/post66531924#post66531924"> Tasker Tips &amp; Tricks </a>论坛上或者在Reddit的/r/Tasker subredit上，你可以与他人分享和合作如何实现你可能有的想法(正如<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-automatically-check-md5-sum-t3365590/post66531924#post66531924">我已经做了很多次</a>)。</p>
+
+<p>这是Tasker pro的第<strong>周第7 </strong>。上周，我们向您展示了如何使用Tasker通过Android设备上的指纹传感器解锁Windows PC。本周，我们将向你展示如何<strong>重新映射你的音量摇杆，使它只控制媒体音量而不是铃声音量。</strong></p>
+
+<hr/>
+
+<p><strong> Tasker Pro #7:锁定你的音量摇杆</strong></p>
+
+
+
+<p>默认情况下，Android设备上的音量摇杆被设置为控制通知/铃声音量。只有当应用程序请求通过媒体音量通道播放音频时，才会使用媒体音量。不幸的是，有时这会导致奇怪的情况，当你试图在开始媒体播放之前设置音量，而Android只是在按下音量键时不允许你这样做。</p>
+
+<p>Reddit上的许多用户发现这是....<em>微怒</em>。对于这些用户中的许多人来说，他们使用音量摇杆的主要原因是控制媒体音量。当他们中的大多数在振动和一个单独的音量级别之间切换时，为什么要费事用一种精确的方法来控制铃声的音量呢？这是各种用户对Android的抱怨，但对大多数人来说，解决方案要么不容易获得，要么半生不熟，不能正常工作，要么根本不能在他们的手机上工作。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/1-5.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Media Control Option from a Custom ROM&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/1-5.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/1-5.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/1-5.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/1-5.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="1" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/1-5.jpg" src="../Images/077190a58763c71985ed2a20bf704f33.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/1-5.jpg"/> </picture> <figcaption class="body-img-caption">Media Control Option from a Custom ROM</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>例如，定制ROM用户已经有能力用音量摇杆控制媒体音量<em>年</em>了。这个特性几乎在每一个定制的ROM中都可以找到。但是可以理解的是，许多用户不想使用定制的ROM。root用户可以安装Xposed框架并运行一个模块<a href="http://forum.xda-developers.com/xposed/modules/mod-volume-keys-change-music-volume-t3238473">专门实现这个特性</a>，但是有很多手机的root访问是不可用的。另一个选择是使用非根应用程序来<a href="https://play.google.com/store/apps/details?id=com.irishin.buttonsremapper">重新映射你的按钮</a>，但这并不支持每一个设备。一种支持每种设备的方法是使用<a href="https://play.google.com/store/apps/details?id=com.tomwandroid.rockerlocker">摇杆锁定应用</a>，然而，这款应用使用了一种非常糟糕的方法来保持你的音量摇杆锁定媒体控制:它实际上<em>不断从你的扬声器</em>播放音频(严重地说)，这可能导致巨大的电池消耗。</p>
+
+<p>使用Tasker，我们可以创建一个<strong>不需要root，不在后台运行，</strong>和<strong>在所有设备</strong>上工作的方法。它将防止铃声音量<strong>的步进变化，除非有一个呼入/呼出电话正在进行</strong>，但是<strong>静音/振动模式仍将正常工作。</strong>请注意，更改音量时会有微小的延迟，即使您会在音量条出现时看到铃声音量降低，Tasker也会自动撤消您的更改，并将音量更改应用到媒体音量。这是因为没有root用户，你实际上无法<em>阻止</em> Android在你按下音量键时改变铃声音量，所以相反，我们在音量改变发生时立即拦截它，并重定向它以应用于媒体音量。</p>
+
+ 
+<p class="w-rich w-youtube" id="z2wBqD2aqeA">  </p>
+
+
+<hr/>
+
+<p><strong>要求</strong></p>
+
+
+
+<hr/>
+
+<p><strong>指令</strong></p>
+
+<p><em>免责声明:多年来，各种Tasker论坛上已经出现了许多这种设置的变体。它每隔几个月就会重新浮出水面，但除了利基论坛之外，很少被用户看到。虽然我是从零开始创建这个设置的，但是这个方法使用了相当简单/基本的Tasker逻辑，所以它很可能类似于其他人过去所做的工作。</em></p>
+
+<p>你需要做的第一件事是创建一个新的配置文件，并将其命名为类似于<strong> Media Volume。</strong>名字绝对不要紧，但是挑一些描述性的。我们将为此任务使用两个触发器，一个状态上下文和一个事件上下文。对于<strong>事件上下文</strong>，您需要转到<strong>变量</strong>并选择<strong>变量集。</strong>对于变量，让它监控<strong> %VOLR的变化。</strong>不要指定值，因为我们希望Tasker检测%VOLR(振铃音量)动态全局变量的任何变化。对于<strong>状态上下文</strong>，您将需要转到<strong>电话</strong>并选择<strong>呼叫。</strong>在下拉框中选择<strong>任意</strong>然后勾选底部的<strong>反转</strong>。这样一来，只有当您不在通话中时，该档案才会被激活。</p>
+
+<p>* <em>注意:为了向此配置文件添加第二个触发器，您首先必须至少向任务添加一个操作(或者直接按照下面的说明来完成它)。然后，您可以长按第一个触发器，并选择“添加上下文”选项</em></p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/4-4.jpg"/></p>
+
+
+
+<p/>
+
+<p>接下来，我们将创建任务本身。这是每当Tasker检测到振铃音量发生变化(事件)并且您不在通话中(状态)时将运行的一系列操作。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/5-2.jpg"/></p>
+
+
+
+<p/>
+
+<ol> <li>变量-&gt;变量集。名字:<strong> %VolRing </strong>到<strong> %VOLR。</strong>勾选底部的If，设置为if <strong> %VolRing！设置</strong>。此操作将在您第一次运行此脚本时运行，以后不会再运行。每当%VolRing没有值(尚未设置)时，它就会运行。</li> <li>变量-&gt;变量集。名称:<strong> %volmedia </strong>到<strong> %VOLM。</strong>这将在本地变量中保存当前媒体卷。</li> <li>任务-&gt;如果。如果<strong> %VOLR &gt; %VolRing。</strong>如果当前铃声的音量大于先前铃声的音量，这意味着您刚刚按下了音量调高按钮。</li> <li>变量-&gt;变量集。名称:<strong> %VolRing </strong>到<strong> %VOLR-1 </strong>。检查<strong>做数学。</strong>将响铃音量变量设置为之前的响铃音量(实质上是反向更改)。</li> <li>变量-&gt;变量集。名称:<strong> %volmedia </strong>到<strong> %VOLM+1。</strong>查<strong> <strong>做数学题。</strong> </strong>增加媒体音量变量(因为你按了音量增大键)。</li> <li>任务-&gt;否则如果。如果<strong> %VOLR &lt; %VolRing。</strong>此保护套在您按下音量键时会覆盖。</li> <li>变量-&gt;变量集。名称:<strong> %VolRing </strong>到<strong> %VOLR+1 </strong>。检查<strong>做数学。</strong>将响铃音量变量设置为之前的响铃音量(实质上是反向更改)。</li> <li>变量-&gt;变量集。名称:<strong> %volmedia </strong>到<strong> %VOLM-1。</strong>检查<strong>做数学。</strong>减小媒体音量变量(因为您按下了音量键)。</li> <li>任务-&gt;其他。</li> <li>任务-&gt;停止。我们在此放置了一个停止操作，以便在%VOLR中的当前振铃器音量与%VolRing中的相匹配时停止运行该任务。我们需要考虑这种情况，以防止在动作13期间发生无限循环，因为当您更改铃声音量时(即使是在Tasker中，而不是通过硬件按钮)，任务将再次运行。但是当它再次运行时，如果你没有这个动作，它会继续运行任务。或者，您可以在下面的操作13中设置检查，使其仅在%VolRing =/= %VOLR时运行。</li> <li>任务-&gt;如果结束。</li> <li>音频-&gt;媒体音量。按双箭头图标允许您在此设置变量，而不是使用滑块。如果您看不到此按钮，那么您需要在Tasker的首选项中禁用初学者模式。对于<strong>级别</strong>，将其设置为<strong> %volmedia。</strong>这将改变媒体音量。</li> <li>音频-&gt;铃声音量。再次按下双箭头图标，允许变量输入。对于<strong>电平</strong>，将其设置为<strong> %VolRing。</strong>这将改变铃声音量。</li> </ol>
+
+<hr/>
+
+<p>瞧，瞧！如果你能理解这一点，那么恭喜你，你已经是一个任务大师了！迷茫于一个步骤，只想导入脚本，继续自己的生活？</p>
+
+<p><strong>如果你想导入这个Tasker脚本，可以从<a href="https://www.androidfilehost.com/?fid=24591023225177387"> Android文件主机</a>下载。</strong>为了导入任务，您需要首先在Tasker中禁用初学者模式，进入菜单- &gt;偏好设置。在UI选项卡下，取消选中“初学者模式”然后回到主任务菜单，点击“个人资料”标签。然后长按“配置文件”选项卡，并按“导入”导航到下载my .prf.xml文件的位置，并选择要导入的文件。一旦你导入了它，你就可以随意使用它了。该任务无需任何用户输入即可运行，因此您无需以任何方式启动该配置文件/任务。</p>
+
+<p><em>下周我将为Tasker Pro展示如何在屏幕关闭时使用音量键来<strong>控制你的音乐(甚至是Spotify)。</strong>T3】</em></p>
+
+<p/><center><a href="http://www.xda-developers.com/tag/tasker-pro/"><strong>Check out all Tasker Pro scripts!</strong></a></center>
+
+<hr/>
+
+<p>你想看我和Tasker一起做什么？请在下面告诉我们，我们可能会在未来的文章中重点介绍您的想法！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

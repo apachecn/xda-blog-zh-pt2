@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Official TWRP is Now Available for the OnePlus 5T</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>OnePlus 5T现已推出官方TWRP</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/official-twrp-oneplus-5t/#0001-01-01">https://www.xda-developers.com/official-twrp-oneplus-5t/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在OnePlus 5T发布后不久，我们为社区提供了TWRP的<a href="https://www.xda-developers.com/unofficial-twrp-oneplus-5t-released/">非官方版本。这个版本是通过将OnePlus 5的TWRP映像与OnePlus 5T的内核重新打包而成的，然而，这并不是一个完美的解决方案，因为并不是所有东西都保证可以工作。</a></p>
+
+  
+<p>然而，这一次，由于XDA认可的开发人员<a href="https://forum.xda-developers.com/member.php?u=4973732"> simonsickle </a>、XDA认可的高级开发人员<a href="https://forum.xda-developers.com/member.php?u=912474"> Dees_Troy </a>和XDA认可的高级开发人员<a href="https://forum.xda-developers.com/member.php?u=2638973"> bigbiff </a>的工作，TWRP的正式版本已经从源代码构建并发布。我们被告知一切正常，这意味着您可以开始刷新<a href="https://www.xda-developers.com/blu-spark-oneplus-5t/">自定义内核</a>和<a href="https://forum.xda-developers.com/oneplus-5t/development/rom-omnirom-8-x-t3713775">rom</a>，但是如果启用了基于文件的加密，从备份中恢复数据分区将会导致启动问题(这只是FBE工作方式的一个副作用)。</p>
+
+<p>对于一加设备，闪烁指示始终是相同的。首先，在开发者选项中启用OEM解锁。然后，重新启动引导程序，打开命令提示符或终端，并键入:</p>
+
+<pre> <code class="hljs sql">fastboot oem <span class="hljs-keyword">unlock</span></code> </pre>
+<p>根据提示解锁您的引导加载程序，这将擦除内部存储。下载一加5T 的<a href="https://dl.twrp.me/dumpling/">官方TWRP。最后，在命令提示符窗口或终端中将目录更改为存储该文件的位置，然后键入:</a></p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">fastboot</span> <span class="hljs-selector-tag">flash</span> <span class="hljs-selector-tag">recovery</span> <span class="hljs-selector-tag">twrp-3</span><span class="hljs-selector-class">.2</span><span class="hljs-selector-class">.0-0-dumpling</span><span class="hljs-selector-class">.img</span></code> </pre>
+<p>当你启动恢复，你应该看到TWRP弹出。要获得更详细的指南，包括一步一步的指导以及如何根化你的设备的指导，你应该看看XDA公认的贡献者Funk Wizard的这篇文章。</p>
+
+<p>请记住，如果您正在刷新一个<a href="https://www.xda-developers.com/oxygenos-v4-7-4-update-oneplus-5t/">oxygen OS OTA</a>，那么TWRP将被库存恢复覆盖，除非您随后立即再次刷新Magisk或TWRP。对于那些喜欢运行OxygenOS但拥有root访问权限的人来说，这是一个有用的技巧。</p>
+
+<hr/>
+
+<p><a href="https://forum.xda-developers.com/oneplus-5t/development/recovery-twrp-oneplus-5t-t3715834"> <strong>在我们的OnePlus 5T论坛</strong> </a>下载官方TWRP</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

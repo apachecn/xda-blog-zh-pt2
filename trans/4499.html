@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Guide: How to Get iPhone X-Like Gestures on Android</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>指南:如何在Android上获得类似iPhone X的手势</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/iphone-x-gestures-android-guide/#0001-01-01">https://www.xda-developers.com/iphone-x-gestures-android-guide/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>iPhone X是一款两极分化的智能手机，但苹果做对的一件事是放弃了物理Home键，代之以一系列基于软件的滑动手势。</p>
+
+  
+<p>虽然Android已经有软件导航多年了，但大多数原始设备制造商并没有像苹果公司在iPhone X上那样利用它。如果你像我一样拥有或使用iPhone X，你可能会有兴趣学习如何复制iOS的手势，这是一种非常自然和流畅的方式来导航带有小边框的18:9高显示屏上的应用程序。</p>
+
+<p>如果你足够幸运，拥有一台注册了Oxygen OS Open Beta计划的OnePlus 5T，那么升级到最新固件并启用导航手势就像<a href="https://www.xda-developers.com/oxygenos-open-beta-5-3-oneplus-5-5t/">一样简单。对于我们其他人来说，还需要几个步骤。这里有一个在你的Android手机上设置类似iPhone X的滑动手势的指南——这比你想象的要简单！</a></p>
+
+<hr/>
+
+<p>有三种方法可以在Android设备上设置滑动手势。一个需要<a href="http://xda-developers.com/tag/magisk"> Magisk </a>，另一个需要<a href="http://xda-developers.com/tag/substratum">底层</a>，后者可以与<a href="https://www.xda-developers.com/andromeda-substratum-custom-themes-oreo/">仙女座结合使用，实现无根方法</a>，但最简单的方法是使用我们的导航手势应用 。(注意仙女座是付费附加。)</p>
+
+<p>由于Android的安全措施，操作系统的一些部分会干扰自定义手势应用程序。例如，设置菜单中的权限屏幕和toast消息都会破坏使用Android“在其他应用上绘制”权限的手势应用。</p>
+
+<p>万一自定义手势不起作用，了解你在Android周围的方式是有帮助的。例如，您可以使用通知阴影中的设置按钮(齿轮图标)退出toast，或者点击应用程序设置页面中的<strong>应用程序详细信息</strong>按钮切换到不同的应用程序。</p>
+
+<hr/>
+
+
+<h2 id="option-1">选项1</h2>
+<p><strong>步骤1 -下载导航手势应用</strong></p>
+
+<p>我说过这很容易，不是吗？你所需要做的就是使用这个链接去<a href="https://play.google.com/store/apps/details?id=com.xda.nobar">谷歌Play商店并安装我们简单的应用程序。<strong> <em>你需要一台电脑在</em> </strong>附近，通过一个简单的ADB命令来启动应用程序，但是一旦你完成了，你就可以开始了。关于导航手势最好的部分是你不需要有根，你也不需要使用底层来隐藏导航条——这在Oreo上似乎不太可靠。此外，导航条从手机的功能中消失了，这意味着从底部向上滑动不会显示半隐藏的导航条。</a></p>
+
+ 
+<p class="w-rich w-youtube" id="H_kT-YoPjAU">  </p>
+
+
+<p>我们还包括了一系列可选的命令，您可以运行，并通过一个高级选项来增强，您可以控制音乐播放(对于大多数应用程序)等。我强烈建议使用这个应用程序，而不是下面列出的删除导航栏的方法，就我个人而言，我将这个应用程序与Edge手势结合使用，以使我的设置完全符合我的喜好。</p>
+
+<p>如果您对更多细节感兴趣，请查看<a href="https://www.xda-developers.com/navigation-gestures-iphone-x-app-xda/?preview=true">这个门户网站发布的</a>更多细节和我们的视频评论！</p>
+
+<p/><p><a href="https://play.google.com/store/apps/details?id=com.xda.nobar"> <strong>从谷歌Play商店</strong>下载导航手势</a></p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="option-2">选项2</h2>
+<h3 id="step-1---setting-up-gesture-controls">步骤1 -设置手势控制</h3>
+
+
+
+
+<p>你可以自己决定滑动手势的工作方式。在Play Store中快速搜索“edge手势”(不带引号)( T1 ),你会看到许多可供选择的应用程序——有些是付费的，有些是免费的，有些可以让导航条完全看不见，还有一些模仿iPhone X的滑动手势，一直到药丸形状的手柄。请随意尝试，找出最适合你的方式，不要担心性能影响——自从安装手势叠加功能后，我没有注意到明显的电池消耗，我同时运行了两个手势叠加功能。</p>
+
+<p>就我个人而言，我使用向上滑动手势回家，向左滑动手势调出多任务菜单，向右滑动手势启动最后打开的应用程序，向内滑动手势返回。</p>
+
+<p>不言而喻的一点是，在隐藏导航栏之前，您需要设置手势应用程序。你还需要确保在启用手势之前，你已经为USB调试配置了你的电脑，否则你必须进入Android的辅助功能菜单，暂时禁用你的自定义手势应用程序。由于这些应用程序使用Android Accessibility API的“Draw over other applications”，你将在Android Oreo上获得一个持久的通知，可以通过点击它并切换应用程序的警告通知来删除。</p>
+
+<hr/>
+
+<h3 id="step-2---removing-the-navigation-bar">步骤2 -删除导航栏</h3>
+<p>为什么不直接使用沉浸式模式？</p>
+
+<p>Android的沉浸式模式很棒，可以让你轻松隐藏导航栏。(<a href="https://www.xda-developers.com/how-to-enable-system-wide-immersive-mode-without-root/">下面介绍如何在没有root </a>的情况下启用全系统沉浸式模式。)但它也有缺点。</p>
+
+<p>如果你设置了一个向上滑动的手势来带你回到主屏幕，每次你从屏幕底部向上滑动，它都会带回来导航栏。此外，每当应用程序调用键盘时，导航栏就会出现，这可能会变得很烦人。</p>
+
+<p><strong>非根(需要付费的Andromeda附加软件用于底层)</strong></p>
+
+<p>如果你有一个与Substratum兼容的非根设备，Andromeda 为隐藏导航栏提供了一个很好的解决方案。(在三星设备上，你可以使用<a href="https://play.google.com/store/apps/details?id=projekt.sungstratum&amp;hl=en">三星插件，但要知道它目前只与基于牛轧糖的固件兼容。)从XDA论坛下载</a><a href="https://forum.xda-developers.com/nexus-6p/themes-apps/mod-navbar-height-changer-android-nougat-t3447956">导航条高度改变器v4 </a>应用程序，通过Substratum启用它，并将导航条高度设置为零——这非常简单，如果出错，撤销起来也很容易。</p>
+
+<p><strong>根</strong></p>
+
+<p>如果你的手机已经安装了Magisk，隐藏导航条就更容易了。你需要做的就是通过Magisk管理器下载并安装<strong>隐藏导航栏</strong> Magisk模块。重启手机后，你将看不到导航栏。不过，需要预先警告的是，包括<a href="http://forum.xda-developers.com/essential"> Essential PH-1 </a>在内的一些手机并不完全兼容这种方法，可能是由于SystemUI的修改。我个人在运行奥利奥beta 2的基本手机上经历过随机的系统界面崩溃。</p>
+
+
+
+
+
+<p>无论你使用哪种方法来隐藏导航栏，你一定会遇到一些奇怪的问题，就像任何一种模式一样。不过，在使用新系统一段时间后，你可能会比普通Android更喜欢它——我更喜欢去掉导航条带来的额外屏幕空间。</p>
+
+<p>mods在运行接近库存版本的Android的手机上工作得最好，如谷歌Pixel 2、Essential Phone和OnePlus 5T。我也强烈建议有一个后备计划，以防出现问题。</p>
+
+<p>关于这些模块最好的部分是它们是高度可定制的。在我的手机上，我使用一个手势控制应用程序，允许我从屏幕的右侧滑入，并上下移动手指来调整媒体音量。您还可以设置手势来打开通知阴影或一个喜爱的应用程序。</p>
+
+<p>手势控制是一个我真的希望谷歌带到股票Android的功能。一个合适的内置解决方案将解决诸如与“其他应用程序不兼容”的怪癖，并为应用程序省去必须使用Android辅助功能API的麻烦。不管是哪种方式，第三方解决方案让你制作满足你独特需求的定制手势，或者至少将iPhone X风格的手势带到你的手机上，这太棒了。</p>
+
+<hr/>
+
+<p><em> <strong>你喜欢手势控制吗？你在手机上用吗？如果是，请在下面评论你最喜欢的应用和控制方案。</strong>T3】</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

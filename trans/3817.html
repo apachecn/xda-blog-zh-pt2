@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Automatically Toggle Samsung's Always On Display When Charging [App]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>充电时自动切换三星的始终显示[App]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/automatically-toggle-samsungs-always-on-display-when-charging-app/#0001-01-01">https://www.xda-developers.com/automatically-toggle-samsungs-always-on-display-when-charging-app/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>三星因其软件的性能优化受到了很多批评(尽管这些批评有多少是合理的和/或准确的是另一个时间的争论)，但很难否认他们的软件带来了多少附加值。我可以继续讲述你在Samsung Experience(以前称为TouchWiz)上可以找到的所有功能，但今天我将专注于如何让一个功能稍微好一点:始终显示。具体来说，如何在充电时<strong>自动启用Always on Display，而在不充电时</strong>禁用。</p>
+
+  
+<p>对于那些不了解情况的人来说，三星的永远显示(AOD)功能是一种特殊的屏幕模式，在Android超时时显示。在这种模式下，你可以快速看到当前的日期、时间、消息、日历事件，以及更多的<a href="https://play.google.com/store/apps/details?id=com.samsung.android.app.aodservice">可定制功能</a>。AOD是三星Galaxy S7和S8系列智能手机的专属，是一种无需触摸手机就能快速浏览重要信息的有用方式。</p>
+
+
+
+<p>AOD可以根据设置中的时间表自动切换，但除此之外，没有多少其他上下文可以用来控制AOD何时激活。幸运的是，借助Tasker的强大功能，我们可以设置AOD开启/关闭时想要触发的任何上下文。我做了一个<strong>简单的应用程序，你可以在你的三星Galaxy S7、S7 Edge、S8或S8+上安装并忘记它，当只给</strong>充电时，它会打开AOD，但我也会告诉你如何设置你想要的任何其他上下文。</p>
+
+<p/><p><a href="https://labs.xda-developers.com/store/app/tasker.xda.aodcontrol"> <strong>从XDA实验室</strong>下载AOD充电App</a></p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p><strong>注:以上app是用Tasker配合Tasker App Factory制作的。它没有用户界面。请在安装后隐藏应用程序抽屉中的应用程序图标。你可以通过下面的步骤看到这个应用程序是如何制作的。</strong></p> </div></section>
+<hr/>
+
+
+<h2 id="tutorial---trigger-aod-mode-on-custom-contexts">教程-在自定义上下文中触发AOD模式</h2>
+<h3 id="requirements">要求</h3>
+
+
+<p>虽然我在这里使用Tasker，但你可以自由使用你选择的任何其他自动化应用程序。Tasker是目前最流行的，也是大多数人最熟悉的，所以我用的就是它。</p>
+
+<h3 id="option-1---toggle-aod-mode-when-connected-to-certain-wifi-networks">选项1 -连接到特定WiFi网络时切换AOD模式</h3>
+<p>以下是如何设置该脚本的分步说明。我将重点介绍当您连接/断开您的家庭/工作WiFi网络时启用/禁用AOD模式，但您可以设置任何其他您想要的触发器。</p>
+
+<ol> <li>打开Tasker，点击右下角的+按钮，创建一个新的配置文件。</li> <li>点击“状态”以添加状态上下文。</li> <li>选择“网络”，然后选择“WiFi已连接”</li> <li>在SSID下，点击放大镜以显示保存的SSID列表。在此选择您想要的WiFi网络。</li> <li>按下返回键，Tasker将要求您附加一个现有的任务或创建一个新的任务。选择“新任务”不用费心去命名了。</li> <li>进入任务编辑屏幕后，点击底部中间的+图标添加操作。</li> <li>选择“代码”，然后选择“Java函数”</li> <li>点击咖啡图标并选择上下文。</li> <li>点击Function附近的放大镜，搜索getContentResolver()。</li> <li>一个新的“返回”字段应该显示在顶部。在此输入“cr”。按back返回任务编辑屏幕。</li> <li>添加另一个Java函数动作(步骤6-7)。这一次，对于类别或对象字段，点击放大镜并查找Settings$System。对于功能字段，点击放大镜并选择输入。现在将出现一组参数。对于参数(ContentResolver ),点击咖啡杯并选择“cr”对象。对于参数(字符串),输入aod_mode。对于Param (int ),输入1。</li> <li>按back返回任务编辑屏幕。现在长按我们做的两个动作，点击剪贴板按钮来复制它们。按back退出Tasker的主屏幕。</li> <li>在Tasker的主屏幕上，长按我们刚刚创建的任务，点击“添加退出任务”不要为任务命名。</li> <li>当您在新任务的编辑屏幕中时，长按屏幕中间的任意位置，直到粘贴操作出现。点击以粘贴我们之前复制的两个操作。</li> <li>点击此处的操作#2并向下滚动。将Param (int)下的1更改为0。点击返回按钮，直到你回到Tasker的主屏幕，你就完成了！</li> </ol>
+
+
+
+
+
+<h3 id="option-2---trigger-aod-mode-when-device-is-face-up-on-table">选项2 -当设备面朝上放在桌子上时触发AOD模式</h3>
+<p>以下是如何设置该脚本的分步说明。我将重点介绍当您的设备正面朝上时启用/禁用AOD模式。</p>
+
+<ol> <li>打开Tasker，点击右下角的+按钮，创建一个新的配置文件。</li> <li>点击“状态”以添加状态上下文。</li> <li>选择“传感器”，然后选择“方向”</li> <li>在“是”下面，确保写着“面朝上”</li> <li>按下返回键，Tasker将要求您附加一个现有的任务或创建一个新的任务。选择“新任务”不用费心去命名了。</li> <li>进入任务编辑屏幕后，点击底部中间的+图标添加操作。</li> <li>选择“代码”，然后选择“Java函数”</li> <li>点击咖啡图标并选择上下文。</li> <li>点击Function附近的放大镜，搜索getContentResolver()。</li> <li>一个新的“返回”字段应该显示在顶部。在此输入“cr”。按back返回任务编辑屏幕。</li> <li>添加另一个Java函数动作(步骤6-7)。这一次，对于类别或对象字段，点击放大镜并查找Settings$System。对于功能字段，点击放大镜并选择输入。现在将出现一组参数。对于参数(ContentResolver ),点击咖啡杯并选择“cr”对象。对于参数(字符串),输入aod_mode。对于Param (int ),输入1。</li> <li>按back返回任务编辑屏幕。现在长按我们做的两个动作，点击剪贴板按钮来复制它们。按back退出Tasker的主屏幕。</li> <li>在Tasker的主屏幕上，长按我们刚刚创建的任务，点击“添加退出任务”不要为任务命名。</li> <li>当您在新任务的编辑屏幕中时，长按屏幕中间的任意位置，直到粘贴操作出现。点击以粘贴我们之前复制的两个操作。点击此处的操作#2并向下滚动。将Param (int)下的1更改为0。点击返回按钮，直到你回到Tasker的主屏幕，你就完成了！</li> </ol>
+
+
+
+
+
+<p/><p><em>注意:图片格式的其余步骤可以按照与选项#1中的前一组截图完全相同的方式进行。从第二行截图开始，继续往下看。</em></p>
+
+<hr/>
+
+<h3 id="conclusion">结论</h3>
+<p>正如你所看到的，你可以启用或禁用始终显示模式，基本上任何情况下，你想感谢Tasker。我做的这个简单的应用程序旨在涵盖AOD最常要求的功能版本，但如果你想在AOD之外有所不同，那么做出这些改变的权力就在你手中。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

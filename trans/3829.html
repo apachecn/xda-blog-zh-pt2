@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>It's Now Possible to Boot Android on i.MX6 Platforms Without Proprietary Blobs</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>现在可以在没有专有Blobs的i.MX6平台上启动Android了</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/its-now-possible-to-boot-android-on-i-mx6-platforms-without-proprietary-blobs/#0001-01-01">https://www.xda-developers.com/its-now-possible-to-boot-android-on-i-mx6-platforms-without-proprietary-blobs/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>为了让Android在大多数硬件平台上启动，开发人员通常不得不将开源代码与专有文件混合在一起。这些所谓的blobs由供应商分发，以支持某些特定于平台的功能。来自<em> Collabora </em> <a href="https://www.collabora.com/news-and-blog/blog/2017/06/05/android-nxp-imx6-buffer-modifier-support/">的Robert Foss报道</a>现在可以在i.MX6平台上完全不使用专有blobs来引导Android。</p>
+
+  
+<p>Mesa和gbm_gralloc中都增加了对缓冲区修饰符的支持。Mesa为许多缓冲区分配函数和GBM(GBM _ gralloc使用的Mesa提供的API)增加了支持。另一方面，gbm_gralloc又增加了对使用新的GBM API调用GBM_BO_IMPORT_FD_MODIFIER的支持，它导入一个缓冲区对象以及附带的信息，如所讨论的缓冲区对象使用的修饰符。</p>
+
+<p>恩智浦的i.MX6是众多嵌入式SOC之一，不再需要专有blobs来启动Android。这使得i.MX6作为开发平台更有吸引力，也为将来支持i.MX8平台打下了基础。</p>
+
+<p>当修改器就位时，它们用于表示缓冲区的不同属性。这些属性可以涵盖一系列关于缓冲区的不同信息，例如，压缩和<a href="https://github.com/laanwj/etna_viv/blob/master/doc/hardware.md#texture-tiling">平铺</a>。</p>
+
+<p>对于它配备的iMX6和Vivante GPU来说，修改器与平铺相关。原因是缓冲区可以以不同的方式平铺(平铺、超级平铺等。)或者根本没有(线性)。在将缓冲区发送到显示器之前，它们需要提供相关的平铺信息，以便实际发送的图像不会被平铺。</p>
+
+<p>为了更好地理解这一切是如何工作的，请看看下面的视频，看看ZII RDU2板(i.MX 6QuadPlus)使用Mesa开源图形堆栈启动Android。</p>
+
+ 
+<p class="w-rich w-youtube" id="Dn7hOa9WiYk">  </p>
+
+
+<p>虽然这对开源软件来说是一个巨大的胜利，但我们不应该期望许多原始设备制造商开始在他们的设备中使用这种SoC。该平台的一个主要缺点是它的年龄。该平台于2011年首次亮相。</p>
+
+<hr/>
+
+<p><a href="https://www.collabora.com/news-and-blog/blog/2017/06/05/android-nxp-imx6-buffer-modifier-support/"> <strong>来源:Robert Foss at Planet Collabora</strong></a><a href="http://news.softpedia.com/news/it-s-now-possible-to-boot-android-on-i-mx6-platforms-without-proprietary-blobs-516364.shtml"><strong>Via:Softpedia</strong></a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

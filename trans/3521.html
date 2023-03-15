@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>9 Year Old Linux Kernel bug dubbed 'Dirty Cow' can Root every version of Android</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>9岁的Linux内核错误被称为“肮脏的母牛”,可以扎根于每个版本的安卓系统</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/9-year-old-linux-kernel-bug-dubbed-dirty-cow-can-root-every-version-of-android/#0001-01-01">https://www.xda-developers.com/9-year-old-linux-kernel-bug-dubbed-dirty-cow-can-root-every-version-of-android/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>尽管事实上成千上万的用户积极地仔细研究Linux内核源代码，积极地寻找安全缺陷，但是严重的错误被忽视也不是没有听说过。毕竟，尽管通过让更多的人来审核代码，遗漏一些极其严重的事情的可能性降低了，但我们仍然是人，注定会犯错误。这次的错误似乎相当严重，很不幸。上周最近发现了一个<strong>权限提升漏洞</strong>，尽管它<a href="https://lkml.org/lkml/2016/10/19/860">已经在主线Linux内核中被修补了</a>，但该漏洞可能<strong>在市场上几乎每部Android手机上被利用</strong>，直到每台设备都收到合适的内核补丁。</p>
+
+ 
+<hr/>
+
+<p><strong>输入脏牛</strong></p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/screenshot-dirtycow.ninja-2016-10-26-11-23-31.png"/></p>
+
+
+
+<p/>
+
+<p>权限提升漏洞俗称脏牛漏洞，但它在Linux内核的漏洞跟踪器系统中被归类为CVE-2016-5195。尽管上周才被发现，但这个漏洞已经在Linux内核代码中存在了9年。此外，可利用的代码存在于Linux内核的一个部分中，几乎所有基于Linux内核的现代操作系统都搭载了这个部分——顺便说一下，包括Android。更糟糕的是，发现该漏洞的研究人员已经发现了该漏洞在现实世界中被恶意利用的证据<strong/>，因此他们建议所有发布基于Linux内核的软件的供应商立即修补该漏洞。</p>
+
+<p>Dirty Cow本身不是一个漏洞，而是一个漏洞。但是，此漏洞允许提升用户空间进程的权限，授予其超级用户权限。通过利用此漏洞，恶意用户空间进程可以在受害者的设备上获得不受限制的根用户访问权限。用更专业的术语来说，这个错误涉及到Linux内存复制技术的一种竞争情况，这种技术被称为写时复制。通过利用这种竞争条件，用户可以获得对通常设置为只读的内存映射的写访问权限。从这里的<a href="https://access.redhat.com/security/vulnerabilities/2706661"/>、这里的<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1384344#c16"/>和这里的<a href="https://github.com/dirtycow/dirtycow.github.io/wiki/VulnerabilityDetails"/>可以收集到更多关于这个漏洞的细节。</p>
+
+<p>据说这个安全漏洞很容易被利用，事实上，在这个漏洞被公开的几天内,<a href="https://github.com/timwr/CVE-2016-5195">一个概念验证特权提升利用</a>已经被展示给<strong>所有的Android设备</strong>。任何运行Linux内核版本高于2.6.22(阅读:<em> <strong>现有的每一个Android发行版</strong> </em>)的Android设备都可能成为这种概念验证漏洞的受害者。虽然概念验证利用实际上不会获得根用户访问权限，但利用此漏洞攻击系统会使这变得非常简单。在发给ArsTechnica的一封电子邮件中，Phil Oester，一个正在他的网站上对已知的Dirty Cow的真实攻击进行分类的Linux内核开发人员，对这个bug有这样的描述:</p>
+
+<blockquote>
+<p/><h4>在我的测试中，任何用户都可以在不到5秒的时间内成为root用户，非常可靠。可怕的东西。</h4>
+<p/><h4>对系统(如外壳帐户)的本地访问最容易利用此漏洞。更重要的是，任何允许攻击者将文件上传到受影响的系统并执行该文件的web服务器/应用程序漏洞也会起作用。</h4>
+<p/><h4>上传到我的系统的特定漏洞是用GCC 4.8.5发布的20150623编译的，尽管这并不意味着该漏洞在该日期之前不可用，因为它已经存在很长时间了。至于谁是目标，任何在面向web的服务器上运行Linux的人都是易受攻击的。</h4>
+<p/><h4>在过去的几年里，我一直在捕捉所有进入我的网络服务器的流量，以便进行取证分析。这种做法在许多场合下被证明是无价的，我会向所有管理员推荐它。在这种情况下，我能够从这些捕获中提取上传的二进制文件来分析其行为，并升级到适当的Linux内核维护人员。</h4>
+ </blockquote>
+<p>在开发人员进一步证明利用Android上的Dirty Cow的有效性后，一名开发人员能够通过利用该漏洞在几秒钟内成功地为他的HTC 设备找到根。在XDA，我们普遍欢迎用户获得root访问权限的能力，但我们不赞成存在这样的root漏洞，尤其是这种漏洞如此普遍，对最终用户具有难以置信的潜在危险。为了让你了解脏牛在野外有多危险，YouTuber Computerphile制作了一个快速视频，展示了黑客可以用来悄悄获得你的设备的root访问权限的潜在恶意攻击媒介。</p>
+
+ 
+<p class="w-rich w-youtube" id="1scGZDYsMAU">  </p>
+
+
+<hr/>
+
+<p><a href="http://arstechnica.com/security/2016/10/most-serious-linux-privilege-escalation-bug-ever-is-under-active-exploit/"> <strong>来源:ars technica【1】</strong></a></p>
+
+<p><a href="http://arstechnica.com/security/2016/10/android-phones-rooted-by-most-serious-linux-escalation-bug-ever/"> <strong>来源:ars technica【2】</strong></a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

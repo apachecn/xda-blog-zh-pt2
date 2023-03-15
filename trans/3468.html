@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Huawei Phones Disable Logcat, here's how to Restore Access</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>华为手机禁用Logcat，以下是恢复访问的方法</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/huawei-phones-disable-logcat-heres-how-to-restore-access/#0001-01-01">https://www.xda-developers.com/huawei-phones-disable-logcat-heres-how-to-restore-access/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>当我在帮助XDA公认的开发人员和门户作家同事GermainZ调试我们正在开发的一个新应用程序(我们认为你们会喜欢它)时，我需要T2收集和阅读一个日志来找出哪里出错了。在我的手机上，我安装了XDA初级会员<a href="http://forum.xda-developers.com/member.php?u=6820962">plusculused</a>的<a href="http://forum.xda-developers.com/android/apps-games/app-matlog-1-0-0-beta-material-logcat-t3155566"> MatLog </a>，这样我就可以开始调试过程了。我继续前进，授予了应用程序访问日志所需的权限，然后在我们一直在测试的应用程序中复制了一个错误。</p>
+
+  
+<p>当我仔细查看日志时，我注意到实际上几乎没有显示任何相关内容。通常，您会看到大量日志充斥屏幕，以至于您需要设置一个过滤器来开始调试，但是MatLog只向我显示了几行。我开始在网上寻找，发现许多其他用户想知道为什么他们不能收集任何日志——他们都在使用华为的手机。据推测，他们禁用日志记录的原因是为了略微提高性能(正如您将看到的一些自定义内核所做的那样)，但是在性能提升如此之小的情况下禁用这样一个主要的调试工具有点令人惊讶。<strong>下面是如何重新启用日志猫。</strong></p>
+
+<hr/>
+
+<p><strong>华为秘密调试菜单</strong></p>
+
+<p>显然，华为的安卓手机上有一个秘密的调试菜单...几年了。用户最初抱怨华为的Ideos x3 缺乏<a href="http://pzieye.centelia.net/blaze/viewtopic.php?pid=124#p124">日志记录，这是在2011年2月宣布的。最终有人找到了一个解决方案，这个方案被分享到了我们自己的论坛上...对于<em> <a href="http://forum.xda-developers.com/showpost.php?p=17774443&amp;postcount=8">三星Galaxy S </a> </em>...这个解决方案最终在2012年发展到了</a><a href="https://stackoverflow.com/questions/2250112/why-doesnt-logcat-show-anything-in-my-android">堆栈溢出</a>。然后在一年后的2013年，在<a href="https://stackoverflow.com/questions/18124334/huawei-logcat-not-showing-the-log-for-my-app">堆栈溢出</a>上再次引用<em/>。是啊。不管怎样，解决办法是这样的。</p>
+
+<p>打开您的拨号器应用程序，并输入以下代码:</p>
+
+<p/><p><code><span>*#*#</span><span>2846579</span><span>#*#*</span></code></p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/07/log1.png"/></p>
+
+
+
+<p>你不需要按拨号键，因为输入这个代码会立即显示一个名为<strong>项目菜单</strong>的设置页面。在这里，你有几个菜单可以浏览。</p>
+
+<p><code><span>Here's a brief explanation of each page:</span></code></p>
+
+<p/>
+
+<ol> <li><strong>背景设置</strong> -我们感兴趣的页面。在这里，您可以更改调试设置、USB连接设置和“设置UI主题颜色”(我不完全确定这个选项的功能是什么)。</li> <li><strong>单板信息</strong> -设备软硬件的详细信息</li> <li><strong>网络信息查询</strong> -关于设备和SIM卡网络功能的详细信息</li> <li><strong>软件升级</strong> -从SD卡应用更新</li> <li><strong>恢复工厂</strong> -工厂重置</li> <li><strong>电池充电</strong> -电池信息和长期电池寿命的建议充电水平</li> </ol>
+
+<p> </p>
+
+<p>进入后台设置页面，你会看到几个选项。点击“日志设置”,弹出一个对话框，提供选择日志级别的选项。选中所有3个选项以启用完整日志记录。您将看到一条提示消息，指出启用这些日志记录选项“会影响性能”，但是您可以安全地忽略这条警告。完成后，重启手机。您现在应该能够在您的华为手机上收集日志了。现在出去<a href="http://forum.xda-developers.com/android/apps-games">帮助我们的开发者</a>调试他们的应用程序吧！<a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/07/log4.png"/></p>
+
+
+
+<p/>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

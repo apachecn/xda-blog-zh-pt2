@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Nexus 5X Bootloop Fix Finally Lets You Boot the Phone</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Nexus 5X Bootloop修复终于让你启动手机</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/nexus-5x-bootloop-fix-boot-phone/#0001-01-01">https://www.xda-developers.com/nexus-5x-bootloop-fix-boot-phone/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>你的LG/谷歌Nexus 5X停止启动了吗，或者更确切地说，陷入了无休止的启动序列？这就是我们所说的“引导循环”,它可能因为各种原因而发生。大多数引导回路可以通过刷新固件或工厂重置来修复，但在硬件引导回路的情况下，除了对手机进行RMA之外，通常你什么也做不了。如果你的谷歌Nexus 5X一直拒绝启动，并且你尝试过的任何方法都无法修复它，你并不孤单。Nexus 5X bootloop问题在社区中臭名昭著，但直到最近才找到修复方法。</p>
+
+ 
+<h2 id="nexus-5x-bootloop-fix---context">Nexus 5X Bootloop修复-上下文</h2>
+<p>在过去的几年里，LG的智能手机因其bootloop问题获得了一些声誉。一个似乎始于LG G4的问题随着公司发布的每一款新设备变得越来越普遍。我们最近谈到了一种<a href="https://www.xda-developers.com/nexus-6p-bootloop-fix/" rel="noopener noreferrer" target="_blank">解决华为Nexus 6P</a>boot loop问题的方法，现在有一种适用于<a href="https://forum.xda-developers.com/nexus-5x/" rel="noopener noreferrer" target="_blank"> Nexus 5X </a>的解决方案，该方案源自我们之前写的指南。</p>
+
+<p>对这些修复的普遍共识似乎表明，骁龙808/810芯片组被高通匆忙淘汰，已经退化到部分损坏的地步。骁龙810 的<a href="https://www.xda-developers.com/opinion-the-810-held-back-a-generation-with-deliberate-apologism-damage-control/" rel="noopener noreferrer" target="_blank">发热问题并不是什么新鲜事，但当谈到是什么导致了引导错误时，808似乎也有类似的问题。LG最初声明</a><a href="https://www.xda-developers.com/xda-external-link/lg-admits-g4-bootloop-problem-is-a-hardware-fault-will-repair-affected-devices/" rel="noopener noreferrer" target="_blank">LG G4引导系统的问题确实与硬件有关</a>，但从未详细说明情况。</p>
+
+<p>一些人认为这是由于他们使用的焊料，在设备的寿命期间，它最终会因为加热和冷却次数过多而破裂。不管这是不是真的，<strong>我们仍然不确定问题背后的原因是什么，但这次对Nexus 5X引导循环的修复似乎确实解决了这个问题。因此，今天我们为您提供了一个指南，将带您了解如何修复Nexus 5X bootloop问题。虽然在这篇文章底部的链接论坛帖子的标题确实说它未经测试，但社区中的许多人都报告了这种方法的成功。</strong></p>
+
+<p>不过，与往常一样，您的收获可能会因这种变通办法而异。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="tutorial">辅导的</h2>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_8"><p><strong>要求</strong>:</p><ul> <li>在引导循环开始之前可解锁的引导加载程序，因为你不能引导到Android，也不能在之后启用解锁引导加载程序所需的设置。如果你能够简单地启动手机，那么进入开发者选项，勾选“启用OEM解锁”就可以了。</li> </ul> </div></section>
+<ol> <li>下载最新的<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/"> ADB和Fastboot二进制文件</a>，并将它们解压缩到计算机上一个易于访问的文件夹中。</li> <li>下载并安装<a href="https://developer.android.com/studio/run/win-usb.html">谷歌的USB驱动</a>(针对运行Windows的用户)。</li> <li>下载<a href="https://www.dropbox.com/s/tm7qt98r6d7q2a6/N2G47Z_4Cores.img?dl=0" rel="nofollow noopener noreferrer" target="_blank"> N2G47Z_4Cores.img </a>文件，并将其保存在ADB和Fastboot二进制文件所在的目录下。<ul> <li>可选:如果您想在您的固定Nexus 5X上使用TWRP恢复，这需要您使用TWRP的修改版本。所以下载<a href="https://www.dropbox.com/s/levla3p5npe24pw/TWRP3_1_1_5X.img?dl=0" rel="nofollow noopener noreferrer" target="_blank"> TWRP3_1_1_5X.img </a>并保存在ADB和Fastboot二进制文件所在的文件夹中。</li> <li>可选2:如果你想加速你的固定Nexus 5X，你可以刷新XDA认可的开发者<a href="https://forum.xda-developers.com/member.php?u=4684315"> flar2 </a>的Elemental X内核的修改版本。将<a href="https://www.dropbox.com/s/172ey8346e5du6l/EX4_10_5X.zip?dl=0" rel="nofollow noopener noreferrer" target="_blank"> EX4_10_5X.zip </a>文件下载到您的Nexus 5X上，这样它就会存储在默认的下载目录中。</li><p> </p> </ul> </li> <li>用USB线将Nexus 5X连接到电脑。</li> <li>继续，在保存ADB和Fastboot二进制文件的同一个目录中启动命令提示符或终端。Windows用户，您可以通过按住shift并右键单击，然后选择“在此打开命令提示符”来完成此操作Windows 10用户将看到一个PowerShell选项，取代了命令提示符选项。</li> <li>将Nexus 5X引导至快速引导模式(有些人也称之为引导装载模式)。</li> <li>在命令提示符下执行以下命令:<code>fastboot devices </code></li> <li>如果您看到您的设备的序列号，您就可以继续了。如果没有，那么由于某种原因，USB驱动程序没有完全安装。</li> <li>如果您的引导加载程序尚未解锁，但您之前已经在开发者选项中启用了OEM解锁，您现在可以通过输入:<code>fastboot flashing unlock</code>来解锁引导加载程序。然后，按照屏幕上的说明解锁引导加载程序。请注意，这将清除您手机上的所有数据。</li> <li>现在在命令提示符下输入以下命令来替换当前的引导映像:<code>fastboot flash boot N2G47Z_4Cores.img</code><ul> <li>可选:如果你想刷新修改后的TWRP，然后输入以下命令:<code>fastboot flash recovery TWRP3_1_1_5X.img</code></li><p> </p> </ul> </li> <li>通过输入<code>fastboot reboot </code>重启你的手机</li> <li>几分钟后(可能需要一段时间)，你应该会看到你的手机启动动画，最终锁屏。恭喜你，你救了你的手机！</li> <li>可选:如果你想提高性能，并且按照步骤安装了修改版的TWRP，将修改后的Elemental X内核复制到你手机的存储器中，启动进入TWRP，刷新自定义内核。你甚至可以选择在设置过程中对<strong>小集群</strong>进行超频，从而让你的手机获得更高的性能。</li> </ol>
+
+<hr/>
+
+<h3 id="explanation">说明</h3>
+<p>就像我们在Nexus 6P指南中向您展示的如何修复其bootloop问题一样，原因与SoC的大集群CPU核心有关。根据XDA成员<a href="https://forum.xda-developers.com/member.php?u=5288606"> XCnathan32 </a>在测试该进程期间的日志，该问题是由VLL无法获得A57内核的锁引起的。到目前为止，我们还不能100%确定是什么导致了这个问题，但我们的解决方法实际上是禁用这些损坏的A57内核，这样我们就可以完全绕过这个问题。</p>
+
+<p>一个更优雅的解决方案可能会在未来出现，但现在我们感谢开发人员社区提出一个允许人们的智能手机再次启动的解决方案。如果有人已经处理这个问题有一段时间了，至少他们可以有一个音乐播放器，dash cam等功能设备。那些还没有经历过这个问题的人至少在他们第一次经历bootloop时会有一个可用的解决方案。</p>
+
+<p>如上所述，我们已经看到社区中的许多人(在我们的官方XDA线程中)报告说，这个Nexus 5X bootloop解决方案确实有效。然而，我们也至少有一个人说它不适合他们。Nexus 5X bootloop问题可能有多种原因，因此本指南可能不适合所有人。如果你的Nexus 5X目前正在引导，尝试一下肯定没有坏处，因为如果你想恢复所有这些修改过的文件，你可以随时闪现谷歌提供的股票图像。</p>
+
+<hr/>
+
+<p><a href="https://forum.xda-developers.com/nexus-5x/general/untested-nexus-5x-bootloop-death-fix-t3641199"> <strong>在我们的Nexus 5X论坛</strong> </a>查看原帖</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

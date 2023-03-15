@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Hands-Free Bluetooth Devices will soon have Better Conversational Abilities with Google Assistant</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>有了谷歌助手，免提蓝牙设备将很快拥有更好的对话能力</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/hands-free-bluetooth-google-assistant-conversation/#0001-01-01">https://www.xda-developers.com/hands-free-bluetooth-google-assistant-conversation/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">有了谷歌助手，免提蓝牙设备将很快拥有更好的对话能力</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">谷歌正在增加对BVRA的支持，这是一种语音识别命令，是免提配置文件的一部分，因此设备可以很容易地与谷歌助理交谈。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>为了在特定设备上使用特定的蓝牙功能，该设备必须支持特定的蓝牙模式，具体取决于它想要做什么。对于免提设备，它们必须符合蓝牙免提模式(HFP ),该模式有时会更新以包括标准中的附加功能。例如，谷歌最近在安卓系统中增加了对音量同步和带内铃声的支持。现在，他们似乎增加了对BVRA的支持，这是蓝牙免提模式的语音识别命令部分。这意味着，你很快就能在装有HFP的设备上用谷歌助手发起对话，并完全用你的声音结束对话。</p>
+
+  
+<p>通过<a href="https://android-review.googlesource.com/#/q/topic:%22BVRA+Client%22+(status:open+OR+status:merged)">这些提交</a>，添加的新方法被称为startVoiceRecognition和stopVoiceRecognition。这将如何工作的一般流程可以总结如下:</p>
+
+<ol> <li>蓝牙配件向Android设备发送AT+BVRA=1命令。</li> <li>Android设备发送OK响应。</li> <li>Android设备启动Google Assistant会话，并为音频创建同步连接(SCO)。</li> <li>如果谷歌助理会话没有结束，配件必须发送AT+BVRA=1继续对话。这可能需要发生多次。</li> <li>当谷歌助手会话结束时，Android设备向配件发送一个+BVRA:0结果代码。Android设备断开SCO连接。</li> </ol>
+
+<p>上面的步骤非常严格，类似于苹果公司概述的使用蓝牙设备与Siri对话的步骤。谷歌的实现可能与苹果不会有太大区别。这可能与旧的蓝牙配件有关，这些配件只支持免提模式，允许你在开车时(例如问路时)与谷歌助手交谈。</p>
+
+<p>总的来说，这个附加功能是一个安全功能，允许用户在不停止他们正在做的事情的情况下从谷歌助手中受益。当然，它在其他场景中也很有用，但这些附加功能总是让司机受益最大，因为他们需要把手放在方向盘上，眼睛看着路面。希望不久我们能看到更多支持谷歌助手的免提蓝牙设备！</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

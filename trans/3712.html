@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Nav Bar Customization was Hidden in Stock Nougat All Along...and it never needed Root</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>导航条定制一直隐藏在库存牛轧糖中...它从来不需要根</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/nav-bar-customization-was-hidden-in-stock-nougat-all-along-and-it-never-needed-root/#0001-01-01">https://www.xda-developers.com/nav-bar-customization-was-hidden-in-stock-nougat-all-along-and-it-never-needed-root/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>请举手:你们中有多少人实际上正在运行第一个<a href="https://www.xda-developers.com/google-announces-android-o-developer-preview-1-available-for-supported-devices/"> Android O开发者预览版</a>？开发者预览版不仅仅对少数谷歌设备可用，而且真的不适合作为日常驱动。当然，它从来没有打算被普通用户使用，而是作为开发人员的测试平台，以确保他们的应用程序在Android O正式发布时能够工作。然而，这并不意味着我们不能为自己找点乐子，看看里面有什么。Android O设备最令人兴奋的功能之一是位于系统UI调谐器中的<a href="https://www.xda-developers.com/android-o-preview-brings-nav-bar-customization-under-system-ui-tuner/">导航条定制</a>。但是，如果我们告诉你，这个了不起的导航条定制不仅仅适用于Android O开发者预览版的用户呢？没错，这个功能其实<strong>已经在Android 7上运行了。x牛轧糖，而且也不需要root访问。</strong></p>
+
+  
+<p><em> Facepalm </em>。当我写关于在Android O上根据上下文修改导航条的<a href="https://www.xda-developers.com/category/tutorials/">教程时，我曾假设我发送的这些shell命令只能在Android O上运行。事实证明这不是真的——这些命令实际上在Android Nougat上运行得很好。现在，</a><a href="https://www.xda-developers.com/android-nougat-how-to-enable-hidden-navigation-bar-tweaks/">我们已经知道近9个月</a>可以在Android Nougat中启用导航条定制，然而，最初的发现要求用户<a href="https://forum.xda-developers.com/nexus-6p/themes-apps/mod-navbar-tuner-android-nougat-t3446791">修改系统界面APK </a>以<a href="https://forum.xda-developers.com/nexus-6p/themes-apps/mod-enable-navbar-tuner-nougat-t3447478">显示导航条调谐器偏好</a>。对于许多用户来说，这显然是一个需要克服的主要障碍，因为它不仅需要root访问权限，还需要对SystemUI APK进行反编译，并为每个更新打补丁。然而，你甚至不需要<em>修改SystemUI来暴露这个导航条调谐器活动，你可以通过shell命令手动修改导航条！</em></p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_2"><p>警告:我们从一些用户那里得知，在谷歌Pixel的最新Android 7.1.2测试版上，自定义导航条不起作用。尝试这些命令需要您自担风险。为了安全起见，我建议使用下面发布的paphonb 开发的应用程序而不是ADB命令来尝试这种定制<a href="https://forum.xda-developers.com/android/apps-games/app-custom-navigation-bar-customize-t3590967">。如果它不能与他的应用程序一起工作，那么不要尝试ADB命令！</a></p> </div></section>
+<p>我们可以确认Android Nougat中的隐藏导航条定制可以在以下设备上运行:</p>
+
+<ul> <li>谷歌Nexus 6</li> <li>谷歌Nexus 5X</li> <li>谷歌Nexus 6P</li> <li>谷歌像素</li> <li>谷歌像素XL</li> <li>一加3</li> <li>OnePlus 3T</li> <li>索尼Xperia手机</li> </ul>
+
+<p>导航栏定制器似乎可以在任何没有删除AOSP实现的设备或ROM上工作，因此大多数设备都有或接近有基于Android 7的固件。x牛轧糖应该有效果。</p>
+
+<hr/>
+
+
+<h2 id="nav-bar-customization-hidden-in-android-nougat">隐藏在Android牛轧糖中的导航条定制</h2>
+<p>在Android Nougat中手动修改导航栏的工作方式与它在Android O上的工作方式非常相似。您可以发送ADB shell命令来修改特定设置，或者将WRITE_SECURE_SETTINGS权限授予某个应用程序，如<a href="https://play.google.com/store/apps/details?id=com.balda.securetask&amp;hl=en"> SecureTask </a>或<a href="https://play.google.com/store/apps/details?id=com.joaomgcd.autotools&amp;hl=en"> AutoTools </a>，以便他们可以控制修改设置。控制导航栏按钮的安全首选项。使用<a href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&amp;hl=en">任务器</a>，你也可以根据上下文修改导航栏。</p>
+
+<p>向SecureTask或AutoTools授予WRITE_SECURE_SETTINGS非常简单，因为您所需要做的就是输入以下ADB shell命令之一，这不需要您成为rooted用户。</p>
+
+<p>对于SecureTask:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.balda</span><span class="hljs-selector-class">.securetask</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre>
+<p>对于自动工具:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.joaomgcd</span><span class="hljs-selector-class">.autotools</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre>
+<p>然后修改导航栏的语法如下:</p>
+
+<pre> <code class="hljs xml">settings put secure sysui_nav_bar <span class="hljs-string">"key(KEYCODE_CONSTANT:file:///path/to/icon.png),back;home;recent,key(KEYCODE_CONSTANT:file:///path/to/icon.png)"</span></code> </pre>
+<p>你可以重新安排按键布局，向左或向右添加空格来移动按钮(输入<code>space</code>会在导航条上添加一个空槽)，选择自定义图标，更改键码，等等。如你所愿，遵循这个语法。例如，下面是我用来在导航栏上添加一个<a href="https://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_MENU">键码_菜单</a>按钮和一个<a href="https://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_FORWARD">键码_前进</a>按钮来增强我的Chrome浏览体验的命令:</p>
+
+<pre> <code class="hljs xml">settings put secure sysui_nav_bar <span class="hljs-string">"key(82:file:///storage/emulated/0/NavIcons/menu.png),back;home;recent,key(125:file:///storage/emulated/0/NavIcons/forward.png)"</span></code> </pre>
+<p>命令引用的图标路径是我从<a href="http://www.iconsdb.com/"> IconsDB </a>下载的自定义图标。我通过在<a href="https://material.io/devices/"> Material.io </a>上查找我的设备的显示密度，然后使用参考图表将该密度与<a href="http://iconhandbook.co.uk/reference/chart/android/">适当的图标尺寸相关联，从而获得了适当的图标尺寸。</a></p>
+
+<p>如果我想将导航条恢复到默认布局，我可以输入以下命令:</p>
+
+<pre> <code class="hljs xml">settings put secure sysui_nav_bar <span class="hljs-string">"space,back;home;recent,space"</span></code> </pre>
+<p>如果你一直关注我的Android O教程，那么这个语法对你来说应该很熟悉。如果没有，那也不用担心。有一个应用程序可以解决这个问题。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="custom-navigation-bar">自定义导航栏</h2>
+
+
+<p>XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=6018897"> paphonb </a>开发了一款名为<a href="https://forum.xda-developers.com/android/apps-games/app-custom-navigation-bar-customize-t3590967">的定制导航条</a>的应用，它可以为你做所有的跑腿工作，并改变导航条按钮。这款应用非常容易使用，因为它基于Android O的导航栏定制器。然而，该应用程序已经被编码为允许你使用自定义图标(<a href="https://www.xda-developers.com/how-to-add-custom-icons-to-the-navigation-bar-in-android-o/">很像我的教程</a>)，包括创建可以快速切换的配置文件的能力，此外还有Tasker支持，所以你可以根据你想要的任何标准根据上下文改变导航栏。</p>
+
+<p>您只需安装应用程序，然后通过在ADB中发出以下命令授予其WRITE_SECURE_SETTINGS权限:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">xyz</span><span class="hljs-selector-class">.paphonb</span><span class="hljs-selector-class">.systemuituner</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre>
+<p>然后当你打开应用程序时，应用程序将确定你的设备是否支持修改导航栏。它会尝试在你的导航条中间显示一个“下一页”键。如果它出现了，那么你可以修改你的导航条。如果没有，应用程序会告诉你，你运气不好。</p>
+
+<p>该应用程序<strong>是免费的</strong>，但如果你想创建2个以上的个人资料，你需要购买一个专业版。这个应用程序当然可以更容易地修改你的导航栏，所以我个人认为这个价格是值得的，但如果你知道如何做，你可以通过Tasker和SecureTask/AutoTools执行这个应用程序提供的所有功能。</p>
+
+
+
+
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="customization-possibilities">定制可能性</h2>
+<p>用这个app + Tasker可以做很多事情。我已经在我的教程中概述了许多这样的案例<a href="https://www.xda-developers.com/category/tutorials/">，但是这里有一些你可以尝试的事情的快速列表:</a></p>
+
+
+
+<p>这些是我在玩Android O中的导航条调谐器时想到的，但它们应该与Android Nougat中隐藏的导航条调谐器一样工作。</p>
+
+<p>我真的很惊讶，花了这么长时间才有人发现这个导航条调谐器可以在没有root的Android Nougat上工作。回过头来想想，它在没有根的情况下工作是完全有道理的。毕竟，SystemUI mod只暴露了preferences片段来启动导航栏调谐器活动，这并不像mod实际上向SystemUI添加了该功能-它一直都在那里。shell命令只是允许我们改变导航条，而不暴露这个SystemUI活动，paphonb的应用程序只是让这一切变得更容易。</p>
+
+<hr/>
+
+<p>您希望如何自定义您的导航栏？请在下面的评论中告诉我们！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

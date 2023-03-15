@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Google Camera with HDR+ Ported to Snapdragon 820/821 and 835 Devices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>带有HDR+的谷歌相机移植到Snapdragon 820/821和835设备</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-camera-hdr-ported/#0001-01-01">https://www.xda-developers.com/google-camera-hdr-ported/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>尽管谷歌Nexus系列由于其开发的开放性而受到了广泛的好评，但智能手机因其拍照能力而受到了很多批评。然而，随着谷歌Pixel和<a href="https://www.xda-developers.com/google-pixel-xl-xda-review-a-foundational-release-for-google-post-nexus-android/"> Pixel XL </a>的发布，这种情况发生了变化(尽管<a href="https://www.xda-developers.com/vic-gundotra-iphone-android-photos/">有些人会说它没有发生</a>),因为谷歌对其智能手机采取了更加以消费者为导向的方法，结果显示在相机部门，智能手机获得了<a href="https://www.dxomark.com/"> DxOMark </a>的最高分。谷歌最近在图像质量方面取得的成功部分归功于其智能手机独有的令人惊叹的HDR+技术。对于普通用户来说，HDR+提供了一种令人难以置信的简单方法，无需学习<a href="https://www.xda-developers.com/using-manual-camera-controls-improving-the-quality-and-versatility-of-your-photography/">手动摄影</a>或<a href="https://www.xda-developers.com/a-guide-to-editing-raw-photography/">编辑原始图像</a>就能拍摄出令人惊叹的照片。现在，你可以利用<strong>谷歌相机的HDR+ </strong>，这要归功于APK的修改版本，该版本可移植到<strong>任何具有Hexagon 680 ISP的设备上(在Snapdragon 820、821和835 SoCs上找到)</strong>。</p>
+
+  
+<p>谷歌相机应用对改装并不陌生。该应用程序的一个受欢迎的<a href="https://forum.xda-developers.com/nexus-6p/themes-apps/mod-camera-nx-v4-google-camera-zsl-hdr-t3494435">零快门延迟(ZSL) HDR+ mod </a>将谷歌Pixel的拍照速度带到了谷歌Nexus 5X和Nexus 6P，我们做的一个<a href="https://www.xda-developers.com/google-camera-v4-2-from-the-pixel-system-dump-is-now-available-for-all-nougat-devices/">快速修改</a>将谷歌相机4.2(取自Pixel的Android 7.1牛轧糖系统转储)带到了上一代Nexus设备。但是，你很少看到谷歌摄像头被改装到其他非谷歌品牌的设备上。即使安装了Magisk的根用户也无法享受谷歌相机HDR+的全部优势，但由于最近的一些发展，这种情况将会改变。</p>
+
+<hr/>
+
+
+<h2 id="modded-google-camera-4-4-with-hdr">用HDR+修改了谷歌相机4.4</h2>
+<p>一个名为<a href="https://4pda.ru/forum/index.php?showuser=243055"> B-S-G </a>的乌克兰开发者在论坛4PDA上发布了一个谷歌相机v4.4.012.156195200的修改版本。这个谷歌相机应用程序与今年6月发布的第三个Android O开发者预览版中的应用程序相同。开发人员能够对其进行修改，以与任何使用Hexagon 680 ISP或更高版本的设备一起工作，包括那些使用Snapdragon 820、骁龙821或Snapdragon 835 SoCs的设备。</p>
+
+<p>我已经在以下设备上亲自测试了该应用程序，并确认其工作正常:</p>
+
+<ul> <li>LG G6</li> <li>一加3</li> <li>OnePlus 3T</li> <li>一加5</li> <li>三星Galaxy S8</li> </ul>
+
+<p>支持HDR+的修改后的谷歌相机应用程序似乎确实可以与谷歌的HDR+技术配合使用，因为该应用程序正在处理HDR的通知出现在每张照片之后，处理完成后的照片有明显的差异。</p>
+
+
+
+
+
+<p/><p><em>顶行:没有谷歌摄像头HDR+的OnePlus 3。最下面一行:带谷歌摄像头的HDR+ </em></p>
+
+
+
+
+
+<p/><p><em>用谷歌相机HDR+在OP3上拍摄的其他样本照片</em></p>
+
+<p>我们独立确认了APK文件的安全性，这要感谢阿米尔·扎伊迪，他是无根Pixel Launcher应用程序的开发者，该应用程序将Google Now面板带到了无根设备上。他使用APKTool发布了一个<a href="https://github.com/amirzaidi/gcam/commit/2d07ee9d2ea8a53882ca9bc2d9120b15d35fef7b">全差异图</a>，显示了对应用程序所做的微小更改，以查看是否有任何恶意插入APK文件的行为。我们没有发现这种情况，并且<strong>可以确认安装</strong>是安全的。有趣的是，你会看到开发者添加了大量对“muskie”和“Google Pixel XL 2”的引用，因此似乎他试图迫使Google Camera认为该应用程序正在下一代Google Pixel 2智能手机上运行。</p>
+
+<p>我们联系了B-S-G，并得到了开发者的直接许可，让他用HDR+重新托管他修改过的谷歌相机APK。我们已经将该文件上传到AndroidFileHost，因此您可以轻松下载并在自己的设备上安装相机应用程序。</p>
+
+<p/><p><a href="https://www.androidfilehost.com/?fid=889764386195922284"> <strong>用HDR+ </strong> </a>下载谷歌相机v4.4 Mod</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="mini-interview-with-b-s-g">与B-S-G的小型访谈</h2>
+<p>通过一名翻译(XDA资深成员)我们与乌克兰开发商谈论了这个项目。首先，我们问他是如何让这个谷歌相机HDR+修改工作的:</p>
+
+<blockquote>
+<p/><h4>我拿Nexus 6当入门设备来恶搞。然后，你只需从HDR支持的设备(如Nexus 5X/6P或像素)列表中选择所需的设备，并替换所有必要的东西，以获得不同的处理。</h4>
+<p/><h4>我花了大约6-8个小时让它工作。痛苦的两个晚上...</h4>
+ </blockquote>
+<p>接下来，我们询问了他对这款应用的未来计划:</p>
+
+<blockquote>
+<p/><h4>目前它只是测试版，我真的不知道哪个设备是最好的欺骗，以实现最令人印象深刻的HDR+处理结果。目前，我正试图让前置摄像头与禁用的手电筒配合使用。只有在我找到解决办法后，我才会深入研究如何提高照片质量。</h4>
+ </blockquote>
+<p>最后，我们询问了他对支持比Hexagon 680更老的设备的计划:</p>
+
+<blockquote>
+<p/><h4>我没有计划支持任何特定的设备，但我可能会用不同的欺骗设备做一些版本的修改。每个设备使用HDR+的效果都不一样，最好自己找到最喜欢的一个。我在论坛(4pda)上已经有了至少5个不同版本的处理算法(2个混合，Nexus 6P，Pixel XL，Pixel 2 XL)。</h4>
+ </blockquote>
+<p>所以你有它。这个精彩的修改是一个开发人员两个晚上的血汗和眼泪的结果。他努力让它工作在现在的位置，如果你喜欢这个修改，送他你所有的感谢！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

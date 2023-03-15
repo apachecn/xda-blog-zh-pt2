@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>TWRP v3.1.0 is now Rolling out with Support for ADB Backup, A/B OTA Zips, and More</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>TWRP 3 . 1 . 0版现在推出了对ADB备份、A/B OTA zip等的支持</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/twrp-v3-1-0-is-now-rolling-out-with-support-for-adb-backup-ab-ota-zips-and-more/#0001-01-01">https://www.xda-developers.com/twrp-v3-1-0-is-now-rolling-out-with-support-for-adb-backup-ab-ota-zips-and-more/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>大约两周前，我们被告知<a href="https://www.xda-developers.com/twrp-v3-1-0-will-bring-support-for-backing-up-directly-to-your-pc/">下一版本的TWRP </a>将支持通过一个被称为ADB backup的功能直接将文件备份到你的PC上。我们被告知，这个版本的TWRP将被标记为版本3.1.0，并将很快推出。那就是现在。3.1.0版本推出了前面提到的<strong> ADB备份</strong>功能以及几个值得注意的修复。</p>
+
+  
+<p>特别是，该更新支持在恢复过程中更新<strong> alpha/beta OTA。目前，这只会对谷歌Pixel或Pixel XL的用户有用，但随着更多设备开始搭载Android 7.1和A/B分区方案，更多用户可以利用这一功能。不过，某些HTC手机的用户现在可以高兴了，因为更新为一些手机上的数据分区解密提供了更好的支持。</strong></p>
+
+<p>另一个需要注意的重大修复是，TWRP将不再擦除为<a href="https://developer.android.com/training/articles/direct-boot.html">直接启动功能</a>设置的某些应用程序的数据，一些用户在试图备份和恢复他们最喜欢的消息应用程序时发现，他们所有的消息都丢失了。不涉及太多细节，这个问题的要点是为直接引导功能设置的应用程序使用了<a href="https://source.android.com/security/encryption/file-based.html">设备加密(DE) </a>存储，而不是凭证加密(ce)存储。Android 7.0开始将某些扩展属性(xattr)添加到存储在DE storage下的应用程序的数据文件夹中，但在此次更新之前，通过TWRP进行的备份并没有保存这些扩展属性。因此，当用户试图从缺少这些xattrs的备份中恢复数据文件夹时，Android会删除整个数据文件夹。</p>
+
+<p>最后，我们想指出的另一个变化是，TWRP现在会要求你在重启前安装官方应用。这个请求，如果被拒绝，可能会被永久禁用，是用户在他们的设备上保持TWRP最新的方式，并支持恢复背后的真棒团队。如果你还没有，<strong>在<a href="https://play.google.com/store/apps/details?id=me.twrp.twrpapp"> Play Store </a>上查看他们的应用程序！</strong></p>
+
+<p>还有一些其他的变化我们没有提到，但是你可以看看下面这个更新的(大规模)变化日志的摘要。</p>
+
+<hr/>
+
+<h3 id="twrp-v3-1-0-change-log">TWRP版本3.1.0变更日志</h3>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_7"><ol> <li><p>vold解密在一些选定的HTC设备上，TWRP现在将尝试使用系统分区的vold和vdc二进制文件和库来解密数据分区(nkk71和CaptainThrowback)</p> </li> <li><p>adb backup要将备份直接传输到您的PC或从您的PC传输，请参见此处的文档:https://github . com/omnirom/Android _ bootable _ recovery/commit/ce 8 f 83 c 48d 200106 ff 61 ad 530 c 863 b 15 c 16949d 9(big biff)</p> </li> <li><p>调整MTP启动程序(mdmower)</p> </li> <li><p>支持新的Android 7.x xattrs进行备份和恢复，以修复恢复后的数据丢失(Dees_Troy)</p> </li> <li><p>支持POSIX文件功能备份和恢复，以修复HTC设备上的VoLTE和其他可能的问题(Dees_Troy)</p> </li> <li><p>更好地向用户表明内部存储没有备份(Dees_Troy)</p> </li> <li><p>改进自动确定TW_THEME (mdmower)</p> </li> <li><p>最小的getcap和setcap支持(_that)</p> </li> <li><p>尝试在解密期间挂载ext4和f2fs(jcadduono和Dees_Troy)</p> </li> <li><p>用电源键关闭背光(mdmower)</p> </li> <li><p>FDE解密期间超时(Dees_Troy和nkk71)</p> </li> <li><p>支持FBE解密以及备份和恢复FBE政策(Dees_Troy)</p> </li> <li><p>启动插槽支持(Dees_Troy)</p> </li> <li><p>重启时出现TWRP应用安装提示(Dees_Troy)</p> </li> <li><p>支持AB OTA拉链(Dees_Troy)</p> </li> <li><p>支持新的Android 7.x日志命令(Dees_Troy)</p> </li> <li><p>将恢复源更新到AOSP 7.1 (Dees_Troy)</p> </li> <li><p>无数的错误修正和改进被太多人提及</p> </li> </ol> </div></section>
+<hr/>
+
+<p>否则，您可以在这里跟踪您的设备<a href="https://jenkins.twrp.me/">的TWRP版本的进度，或者在这里</a>查看您的设备<a href="https://twrp.me/Devices/">的最新版本是否已经可用。享受更新吧，一定要尽你所能为这个项目做贡献，因为TWRP完全是一个由少数优秀的开发人员自发组织的社区。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

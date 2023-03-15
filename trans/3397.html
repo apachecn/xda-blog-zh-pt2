@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Tasker Week: Theming and Design using Scripts and Scenes!</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>任务周:使用脚本和场景进行主题化和设计！</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/tasker-week-theming-and-design-using-scripts-and-scenes/#0001-01-01">https://www.xda-developers.com/tasker-week-theming-and-design-using-scripts-and-scenes/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>我们已经进入了一个时代，美学、布局和令人愉快的用户体验几乎与功能本身一样重要，用户的期望为设计标准设置了高标准。这如何适用于tasker？Tasker中的设计有两条切线——应用主题化和场景设计。</p>
+
+ 
+<blockquote>
+<p>两个都来看看吧！</p>
+ </blockquote>
+
+<h2 id="theming-apps">应用程序主题化</h2>
+<p/><h4>首选项编辑</h4>
+
+
+
+<p>如今，许多开发者在他们的应用程序中提供主题选项，大多数提供暗/亮主题，还有许多提供颜色调整。每当用户编辑这些内置设置之一时，例如在深色和浅色主题之间切换，或者为应用程序选择一种颜色，选定的首选项都会存储在应用程序的数据文件夹中的xml文件中，这种首选项存储方法称为SharedPreferences。使用运行脚本的配置文件，Tasker可用于动态编辑这些偏好设置，提供自动主题切换，这在某些情况下证明是有用的，例如在一天的特定时间后切换到应用程序的黑暗主题。智能主题(smart theme)就是这样一组脚本，它允许一些预设的应用程序通过上述方法进行主题化。由于修改了/data文件夹，这组脚本需要root访问权限。</p>
+
+<p/><h4>使用Tasker切换图层主题</h4>
+
+
+
+<p>运行时资源覆盖是索尼内部开发的一个解决方案，社区接受了挑战，将带有粒度控制的完美主题引入到定制rom中，stock Marshmallow甚至在某种程度上支持它。图层主题有巨大的受欢迎程度和潜力，使用Tasker自动切换它们的能力进一步发挥了这种潜力。你可能会问，如何使用Tasker切换图层？让我们开始吧:</p>
+
+<p>图层管理器应用程序将活动图层存储在/系统/供应商/覆盖图(或/供应商/覆盖图，具体取决于设备)中。因此，激活和取消激活层的任务看起来会像这样。</p>
+
+<ul> <li>将所有图层apk文件放在一个文件夹中，例如/sdcard/overlay/inactive/</li> <li>将当前活动层apk从/系统/供应商/覆盖移动到/SD card/覆盖/非活动/</li> <li>将所需层从/sdcard/overlay/inactive/移动到/system/vendor/overlay/</li> <li>将新复制的层的权限更改为755</li> <li>重启设备</li> <li>瞧，你的新层现在是活跃的。</li> </ul>
+<p class="ad-odd"> </p>
+
+
+<h2 id="scenes">景色</h2>
+
+
+<p>Tasker的场景是创建与tasker命令相关的用户界面的一种方便有效的方式，并且有各种形状和大小。开箱即用，用基本组件创建一个标准场景最终看起来相当乏味，但有一种方法可以通过使用形状、颜色和某些布局来实现越来越受欢迎的材质设计。这两个教程正是这样做的，引导观众创建和设置各种材质组件，如工具栏、抽屉、浮动动作按钮、文本字段等。</p>
+
+
+
+<p>虽然上述教程肯定以一种相当明确的方式建立了材料外观，但如果没有有意义的运动和令人愉快的动画，谷歌的视觉语言还远远不够完整。本教程介绍了使用元素位置属性制作tasker场景动画的基础，并提供了令人满意的结果。</p>
+
+
+
+<p/><h4>材料插件</h4>
+
+
+
+<p>创建和操作形状，随后进行细微的调整和更改是乏味和耗时的，违背了Tasker的初衷。为了避免不便并加快材质设计场景创建过程，创建了材质设计Tasker插件，允许用户轻松创建流行的材质组件，如工具栏、抽屉、溢出菜单和浮动动作按钮。</p>
+
+
+
+<p>使用Tasker进行设计相对容易，并能提供令人满意的结果。结合像Tasker场景和RRO层这样的强大框架，可能性实际上是无限的。最后，一定要看看<a href="http://forum.xda-developers.com/u/tasker-tips-tricks" target="_blank"> Tasker提示&amp;窍门会员主导的论坛</a>为更多的可怕的Tasker内容，由社区为社区！</p>
+
+<p> </p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

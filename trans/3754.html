@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>How to Automatically Change Gboard's Theme to Dark Mode at Night</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在晚上自动将Gboard的主题改为黑暗模式</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/automatically-change-gboard-theme-dark-mode-at-night/#0001-01-01">https://www.xda-developers.com/automatically-change-gboard-theme-dark-mode-at-night/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在XDA开发者论坛上，人们仍然喜欢扎根于他们的手机的一个最受欢迎的原因是，他们可以随心所欲地给他们的手机添加主题。多亏了Substratum，大多数系统UI元素和许多应用程序都可以主题化。如果你最喜欢的应用程序没有底层主题，那么在某些情况下，你可以寻找那些提供主题功能的应用程序的替代版本。虽然谷歌的键盘应用程序Gboard确实提供了改变主题的功能，但许多人失望地发现，没有办法根据一天中的时间自动改变主题。也许你喜欢在白天使用“材质光”主题，但是想在晚上切换到“材质暗”主题，这样你就不会被它的亮度所蒙蔽。在这种情况下，这里有一个关于如何根据你想要的任何标准自动改变Gboard主题的教程。</p>
+
+ 
+
+
+
+
+<p/><p><em> Gboard单色主题-目前共有17种</em></p>
+
+<hr/>
+
+<h3 id="requirements">要求</h3>
+
+
+<p>Tasker是我用来完成这个设置的自动化应用程序。你可以免费使用其他免费的自动化应用程序，但Tasker是我多年来一直使用的应用程序，所以它是我唯一一个足够熟悉来制作像这样的脚本的程序。</p>
+
+<p>至于需要root访问，不幸的是，这是无缝改变Gboard主题且无需用户干预的唯一方法。由于Gboard没有提供任何在主题之间快速切换的意图或快捷方式，我们需要root访问权限，这样我们就可以修改位于/data/data文件夹中的Gboard首选项文件。</p>
+
+<hr/>
+
+<h3 id="tutorial">辅导的</h3>
+<p>这个脚本有两个部分。第一个包括创建一个Tasker Profile——一个时间上下文，当它被满足时将触发我们的Tasker任务来改变我们的Gboard主题。第二个，正如您可以猜到的，是Tasker任务本身，当概要文件被激活时，它将被调用。我将一步一步地指导您创建Tasker配置文件，但是我将给出关于创建Tasker任务的不太详细的指导，因为它更高级一些。我建议当你到达Tasker任务部分时，你只需导入我将在下面链接的任务。</p>
+
+<p/><p><a href="https://www.androidfilehost.com/?fid=673368273298954408"> <strong>从AndroidFileHost </strong>下载Gboard变色任务</a></p>
+
+<p>下载上述Tasker任务，并将. tsk.xml文件保存在内部存储的任意位置。然后打开Tasker，点击顶部的“任务”标签。一旦你进入任务标签，长按“任务”直到你看到一个“导入”的选项点击导入并查找您之前保存的. tsk.xml文件。选择它以将其导入。您现在应该看到一个名为“Gboard颜色改变”的任务，带有Gboard图标。(注意:如果你从你的应用抽屉中隐藏了Gboard图标，那么这个图标可能会显示为一个错误。不过，您可以放心地忽略这一点。)</p>
+
+
+
+
+
+<p>接下来，我将指导您创建概要文件，它将利用我们刚刚导入的这个任务。</p>
+
+<ol> <li>打开Tasker，点击右下角的<strong> + </strong>按钮。</li> <li>选择<strong>时间</strong>上下文。</li> <li>对于“从”,选择您希望Gboard深色主题激活的开始时间。对于“到”,选择您希望Gboard Light主题开始活跃的结束时间。例如，我选择了从晚上7:00到早上7:00，这意味着我的黑暗主题在晚上7:00到早上7:00之间有效，而光明主题在早上7:01到6:59之间有效。</li> <li>点击back，Tasker将要求您要么附加一个任务，要么创建一个新任务。即使您导入了Gboard颜色更改任务，<strong>也不要选择它</strong>。相反，创建一个<strong>新任务</strong>。</li> <li>给概要文件起一个描述性的名字。我把它命名为“改变Gboard之夜主题”</li> <li>进入任务编辑界面后，按下底部中间的<strong> + </strong>按钮，添加一个新动作。</li> <li>选择<strong>变量</strong>-&gt;-<strong>变量设置</strong>。名称:<strong>%主题</strong>。至:<strong>材质_深色</strong>。</li> <li>添加另一个操作。选择<strong>任务</strong>-&gt;T2执行任务。对于名称，点击放大镜，现在选择<strong> Gboard颜色变化</strong>。在参数1下，输入<strong>%主题</strong>。</li> </ol>
+
+<p>现在退出回到Tasker的主屏幕。你已经完成了一半的设置，现在Tasker将在晚上7:00或者你设置的任何时间触发，并将Gboard的主题改为黑暗材质。现在我们需要完成第二部分，所以Tasker会在早上7:00或者你设定的任何时间将主题改回材质光。</p>
+
+<ol> <li>长按刚刚创建的任务。您应该会看到一个选项来选择<strong>添加退出任务</strong>。选择那个选项。</li> <li>无需命名任务，只需再次进入任务编辑屏幕。</li> <li>添加一个操作。<strong>变量</strong>-&gt;-<strong>变量组</strong>。名称:<strong>%主题</strong>。到:<strong>材质_灯光</strong>。</li> <li>添加另一个操作。<strong>任务</strong> - &gt; <strong>执行任务</strong>。名称:<strong> Gboard变色</strong>。在参数1下，输入<strong>%主题</strong>。</li> </ol>
+
+
+
+
+
+<p>你完了！Tasker现在会根据一天中的时间自动改变Gboard的主题。请注意，如果您还没有授予Tasker root访问权限，它会在该任务首次运行时要求您授予它root访问权限。通过进入Gboard颜色更改任务，长按Action #2，然后按左下角的run键，可以强制它现在就请求root访问权限。</p>
+
+<hr/>
+
+<h3 id="changing-to-other-colors-or-on-other-contexts">换成其他颜色，或者在其他环境下</h3>
+<p>使用我的任务，你可以将Gboard的主题更改为其他颜色，也可以基于其他上下文。您所要做的就是用不同的上下文(比如一个应用程序上下文)创建新的概要文件，然后添加我在上面定义的两个动作(变量集和执行任务)。如果您想要除“材质暗”或“材质亮”之外的颜色，以下是与您拥有的17种颜色选项相对应的所有字符串的列表:</p>
+
+<ul> <li>材质_深色</li> <li>材质_灯光</li> <li>谷歌蓝光</li> <li>谷歌_蓝色_深色</li> <li>colorref</li> <li>颜色_绿色</li> <li>颜色_青色</li> <li>颜色_蓝色</li> <li>颜色_青色</li> <li>颜色_深紫色</li> <li>颜色_粉色</li> <li>颜色_浅_粉色</li> <li>颜色_棕色</li> <li>颜色_蓝色_灰色</li> <li>颜色_黑色</li> <li>全息蓝</li> <li>全息白</li> </ul>
+
+<p>将<strong> %theme </strong>变量设置为这些字符串之一，以便将Gboard的主题设置为该颜色。</p>
+
+<hr/>
+
+<h3 id="explanation-of-how-this-works">这是如何工作的解释</h3>
+
+
+<p>如果你想知道这是如何工作的，这里有一个简单的解释。使用root，我复制了位于/data/data/com . Google . Android . input method . Latin/shared _ prefs/named com . Google . Android . input method . Latin _ preferences . XML中的Gboard使用的首选项文件。我使用%theme参数并替换已经设置好的颜色，然后将修改后的文件推回到Gboard的/data文件夹中，然后关闭Gboard应用程序。Boom -主题自动改变。</p>
+
+<hr/>
+
+<p>本教程到此为止！关注我们的<a href="https://www.xda-developers.com/category/tutorials/">教程类别</a>获取更多类似的内容。谢谢，请继续关注我们的下一个教程！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

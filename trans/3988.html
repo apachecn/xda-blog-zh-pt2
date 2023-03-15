@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Broken Push Notifications Fix for Android Devices on Custom ROMs</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>自定义rom上Android设备的坏推通知修复</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/broken-push-notifications-fix/#0001-01-01">https://www.xda-developers.com/broken-push-notifications-fix/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在XDA开发者中，我们都是定制rom、主题和其他各种修改的超级粉丝。我们中的一些人经常在不同的定制rom之间切换，因此使用app备份解决方案，如<a href="https://f-droid.org/packages/dk.jens.backup/"> oandbackup </a>或流行的Titanium Backup。许多用户报告了在干净的闪存或ROM切换后推送通知中断的问题，WhatsApp是最大的违规者之一。其他应用程序，如Tumblr，也成为不显示任何推送通知的受害者。这是为什么？你如何解决这个问题？</p>
+
+ 
+<hr/>
+
+
+<h2 id="the-problem">问题是</h2>
+
+
+<p>安装了Google Play服务的Android设备注册了Firebase Cloud Messaging (FCM)服务，以前称为Google Cloud Messaging (GCM)。这是为你计算一个唯一的设备令牌，然后当你安装一个支持FCM的应用程序(如WhatsApp)时，它会向FCM推送服务注册，这样它就可以向你发送推送通知。当您的设备处于休眠模式时，只要有高优先级的FCM通知推送到您的设备，您的设备就会被唤醒。例如，高优先级的FCM通知包括WhatsApp和其他即时消息应用程序。然而，如果你在设备上安装新的ROM时擦除系统，你的手机将注册一个新的<strong>FCM令牌，并且你用数据恢复的任何应用将无法再推送FCM通知，因为它们仍在使用旧令牌。</strong></p>
+
+<p>但是如果你的手机没有安装Google Play服务呢？您如何接收通知？嗯，支持FCM的应用通常会有自己的推送通知服务作为后备。例如，Facebook Messenger使用一项名为FBNS的服务，当谷歌Play服务未被检测到时，它会默认使用这项服务。这可以在隐藏在Facebook Messenger内部的“推送通知”部分旁边的截图中看到。我相信一些应用程序会检测到FCM何时不起作用，并在FCM中断时回退到自己的服务，但显然不是每个应用程序都这样做。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="solving-broken-push-notifications">解决中断的推送通知</h2>
+<p>避免遇到问题的最简单方法是<strong>正常安装应用程序</strong>，而不是在干净的闪存或ROM切换后通过Titanium Backup(或您选择的其他备份服务)进行恢复。对于一些应用程序来说，这可能很困难，但WhatsApp等许多应用程序允许你在应用程序中备份聊天记录。Tumblr等其他应用程序的所有数据都在云中，因此没有理由恢复这些数据。如果您在推送通知方面遇到问题，并且使用了备份服务来恢复您的应用程序，请尝试通过Play Store重新安装它们。我个人遇到的任何推送通知问题都已经通过正常方式(通过Play Store或直接通过APK)重新安装该应用程序得到了修复，所以请尝试一下，我希望它可以修复您的推送通知故障！</p>
+
+<hr/>
+
+<p><strong>建议阅读:</strong><a href="https://www.xda-developers.com/silence-annoying-work-emails-automatically-with-quiet-for-gmail/">Gmail自动静音烦人的工作邮件</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

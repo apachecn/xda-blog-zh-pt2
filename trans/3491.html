@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>Tapjacking Made a Return in Android Marshmallow, and Nobody Noticed</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Tapjacking在Android棉花糖中取得了回报，没有人注意到</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-tapjacking-made-a-return-with-android-marshmallow-and-nobody-noticed/#0001-01-01">https://www.xda-developers.com/how-tapjacking-made-a-return-with-android-marshmallow-and-nobody-noticed/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>虽然我们许多人都对新发布的用于Nexus设备的Android牛轧糖垂涎三尺，但绝大多数用户仍在使用Android棉花糖。自<a href="https://android-review.googlesource.com/#/c/157670/">以来就有记录的一个漏洞至少在2015年中期</a>仍在影响许多现代Android设备。</p>
+
+  
+<p>恶意应用程序能够<strong>将你的动作插入</strong>到<strong>中，授予它们你从未明确授予的权限。</strong>这是漏洞利用的工作原理。</p>
+
+<hr/>
+
+<p><strong>顶锤返回</strong></p>
+
+<p>想象一下，你打开Instagram，试着分享一张你最近度假时拍的照片。当您选择浏览图库中的图片时，Instagram会要求您授予它访问您的存储空间的权限。但是当你点击“是”时，你会看到一个错误信息。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/screen-overlay-detected.png"/></p>
+
+
+
+<p/>
+
+<p>你不能授予Instagram的存储权限，因为你启用了活动屏幕覆盖——在这种情况下，这是众多给你的屏幕着色的应用程序之一，因此可以在晚上使用你的手机而不会弄瞎你。这是一个Android权限系统<strong>按照预期</strong>工作的例子:为了授予应用程序一个敏感的权限，你需要禁用你设备上的任何屏幕覆盖。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/Screenshot_20160828-161720-169x300.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Marshmallow Permission Tapjacking. Tapping \&quot;Allow\&quot; will show all of my contacts.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/Screenshot_20160828-161720-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/Screenshot_20160828-161720-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/Screenshot_20160828-161720-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/Screenshot_20160828-161720-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="Marshmallow_Tapjacking_NextbitRobin" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/Screenshot_20160828-161720-169x300.png" src="../Images/46898db226d087bb6c74fbc8231ec265.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/Screenshot_20160828-161720-169x300.png"/> </picture> <figcaption class="body-img-caption">Marshmallow Permission Tapjacking. Tapping "Allow" will show all of my contacts.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p/><p>能够在你的屏幕上绘图的应用程序可能会欺骗你输入敏感数据。例如，一个屏幕覆盖可以在一个真实的登录屏幕上放置一个虚假的密码输入，以收集您的密码。像这样的漏洞被称为<strong>‘tap jacking’</strong>，多年来已经在各种Android版本上弹出并被修补，其中<a href="https://commonsware.com/Android/previews/tapjacking">是最糟糕的例子之一，一直持续到Android 4.0.3 </a>。但是最近，随着<a href="https://developer.android.com/training/permissions/requesting.html">安卓棉花糖的运行时许可模式</a>，这个漏洞又回来了。</p>
+
+<p/><p>一个名叫<a href="https://android-review.googlesource.com/#/q/owner:%22Iwo+Bana%25C5%259B%22+status:open">Iwo Banaú</a>的开发者创建了一个<a href="https://github.com/iwo/marshmallow-tapjacking">应用</a>来演示这个漏洞。它的工作方式相当简单——当应用程序显示许可对话框时，您安装的恶意应用程序将显示一个系统覆盖图，用它想要的任何文本来覆盖许可对话框的文本块。一个不知情的用户点击权限对话框上的“允许”将被欺骗授予他们被请求的权限——但是用户看不到请求。这样的利用彻底挫败了Android棉花糖许可系统的目的，因为新模型<strong>的引入是为了确保用户只许可他们明确同意的</strong>。</p>
+
+<p>我知道你在想什么。如果Android检测到系统覆盖，阻止我授予Instagram存储权限，难道不会阻止这种漏洞利用的发生吗？<strong>答案是否定的</strong>，在我的测试中，似乎在某些设备上，在许可对话框的顶部显示一个文本覆盖图不会触发安全机制。概念验证tapjacking应用程序的开发人员表示，该漏洞是有效的，因为它依赖于用户安装针对API级别22及以下(棉花糖之前)的二级恶意应用程序。这是由于在Android Marshmallow之前，所有应用程序在安装时都被授予了权限。</p>
+
+<p>好吧，所以如果你在棉花糖上，你需要做的就是避免安装任何你不信任的应用程序，这些程序会请求许可来绘制覆盖图，对吗？如果Android的许可模式像最初设计的那样工作，你可能是对的。但是自从发现这个漏洞以来，<strong>即使是针对API级别23 </strong>(棉花糖)的应用程序请求覆盖权限也是一个潜在的风险。</p>
+
+<hr/>
+
+<p><strong>权限模型的缺口？</strong></p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay_apps-1024x399.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;&lt;em&gt;Typical Apps using Overlays. Via: &lt;a href=\&quot;https:\/\/medium.com\/@rotxed\/drawing-over-other-apps-marshmallow-edition-987eff9f99a9#.itr2oah1y\&quot;&gt;Medium&lt;\/a&gt;&lt;\/em&gt;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay_apps-1024x399.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay_apps-1024x399.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay_apps-1024x399.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay_apps-1024x399.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Typical Apps using Overlays. Via: Medium" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay_apps-1024x399.png" src="../Images/d8e72d2c24de852af20ff5867db5a28b.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay_apps-1024x399.png"/> </picture> <figcaption class="body-img-caption"><em>Typical Apps using Overlays. Via: <a href="https://medium.com/@rotxed/drawing-over-other-apps-marshmallow-edition-987eff9f99a9#.itr2oah1y">Medium</a></em></figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>如果你是数百万使用Facebook Messenger与朋友聊天的人中的一员，那么你已经遇到了Android最好的功能之一——应用程序可以在其他屏幕上绘图。你可以在你最喜欢的脸书群聊中畅游，在用户打开的任何应用程序上关注他们，这有多酷？虽然脸书的Messenger将“浮动应用”的想法带入了主流，但这个概念在Android中已经存在了一段时间。由于Android的WindowManager中存在<a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#TYPE_SYSTEM_OVERLAY"> TYPE_SYSTEM_OVERLAY </a>，应用程序已经能够在你的应用程序上创建覆盖层一段时间了。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay-permission-screen-191x300.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;\&quot;Draw over other apps\&quot; Permission Menu&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay-permission-screen-191x300.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay-permission-screen-191x300.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay-permission-screen-191x300.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay-permission-screen-191x300.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="overlay permission screen" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay-permission-screen-191x300.jpg" src="../Images/cc7ff684f9dcdc27da1da1dd1baa7e2c.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/overlay-permission-screen-191x300.jpg"/> </picture> <figcaption class="body-img-caption">"Draw over other apps" Permission Menu</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>在Android Marshmallow之前，应用程序需要在安装期间请求一个名为<a href="https://developer.android.com/reference/android/Manifest.permission.html#SYSTEM_ALERT_WINDOW"> SYSTEM_ALERT_WINDOW </a>的权限，然后才能在屏幕上显示覆盖图。但是随着6.0的细粒度运行时权限模型的引入，这种情况发生了变化。用户现在必须在实际运行应用程序时授予应用程序权限，这有望刺激普通用户保护自己的私人数据，防止可疑的应用程序请求看似功能无关的权限。</p>
+
+<p>但是，SYSTEM_ALERT_WINDOW不同于其他权限。开发人员不能显示一个对话框，以编程方式请求最终用户授予权限，就像任何针对Marshmallow的应用程序上的大多数其他权限一样。相反，您必须手动导航到设置屏幕并自己启用权限。当然，一些应用程序如Facebook Messenger会在这个过程中帮助你。</p>
+
+
+
+
+
+<p>谷歌要求开发者这样做，因为他们认为这种许可是特别敏感的。</p>
+
+<p/><p><em> <strong>特殊权限</strong> </em></p>
+
+<p/><p>有几个权限的行为不像正常的和危险的权限。SYSTEM_ALERT_WINDOW和WRITE_SETTINGS特别敏感，大部分app不要用。如果一个应用程序需要这些权限之一，它必须在清单中声明该权限，并发送一个请求用户授权的意向。系统通过向用户显示详细的管理屏幕来响应该意图。</p>
+
+<p>考虑到我们上面所知道的关于偷东西的知识，这是有道理的。但问题是。谷歌甚至不遵循自己的规则。上面我给你看的Facebook Messenger指导你授予它SYSTEM_ALERT_WINDOW权限的截图？只有在谷歌Play商店之外安装APK时才会出现这种情况。如果您从谷歌Play商店安装应用程序，<strong> <a href="https://stackoverflow.com/questions/36016369/system-alert-window-how-to-get-this-permission-automatically-on-android-6-0-an"> SYSTEM_ALERT_WINDOW权限会自动授予</a>。</strong></p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/messenger-manifest-300x125.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Facebook Messenger's Manifest File. The app is automatically granted the overlay permission despite targeting API level 23.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/messenger-manifest-300x125.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/messenger-manifest-300x125.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/messenger-manifest-300x125.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/messenger-manifest-300x125.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Facebook Messenger's Manifest File. The app is automatically granted the overlay permission despite targeting API level 23." data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/messenger-manifest-300x125.jpg" src="../Images/e1f9613bf8bee496a094b1705fde8cce.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/messenger-manifest-300x125.jpg"/> </picture> <figcaption class="body-img-caption">Facebook Messenger's Manifest File. The app is automatically granted the overlay permission despite targeting API level 23.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<hr/>
+
+<p><strong>谷歌为了方便牺牲了安全</strong></p>
+
+<p>在安卓棉花糖之前很长一段时间，SYSTEM_ALERT_WINDOW都被认为是一个“<a href="https://developer.android.com/guide/topics/manifest/permission-element.html">危险</a>权限。在Android Marshmallow 6.0中，权限被更改为<em>签名|系统|应用</em>，这是最初要求开发人员引导用户到设置屏幕来授予权限的内容。但是在Android 6 . 0 . 1版本中，<a href="https://github.com/android/platform_frameworks_base/commit/01af6a42a6a008d4b208a92510537791b261168c">的SYSTEM_ALERT_WINDOW被修改</a>，这样谷歌Play商店<a href="https://github.com/android/platform_frameworks_base/commit/4ff3b614ab73539763343e0981869c7ab5ee9979">就可以自动授予权限</a> <strong>而无需通知用户。我们不清楚谷歌为什么做出这种改变。谷歌自己也没有站出来说明他们为什么做出这样的改变，考虑到他们的网页上仍然存在SYSTEM_ALERT_WINDOW的语言，这是非常奇怪的。</strong></p>
+
+<p>可能有足够多的开发人员被最初对SYSTEM_ALERT_WINDOW的修改激怒了，这些修改要求用户手动授予权限，而谷歌默默地屈服了，只是将其授予任何请求它的应用程序。但是这样做，谷歌<strong>为了方便</strong>牺牲了安全。长久以来，谷歌自己认为这种许可是危险的，这是有原因的，因为确实如此。棉花糖权限tapjacking漏洞的存在足以证明自动授予任何应用程序此权限的内在危险。</p>
+
+<p>这种tapjacking漏洞直到最近才引起我们的注意，尽管它已经存在了好几个月了。在我们对XDA门户网站团队的设备进行内部测试时，我们已经确认<strong>该漏洞可以在许多运行Android Marshmallow </strong>的现代设备上运行。下面是我们对每个设备的最新可用软件版本进行测试的设备的快速运行，以及tapjacking漏洞利用是否有效。标记为“易受攻击”的设备容易受到窃听攻击，而标记为“不易受攻击”的设备能够检测到显示覆盖图的应用程序，并要求您在继续操作之前将其禁用。</p>
+
+<ul> <li>next bit Robin-Android 6 . 0 . 1 6月安全补丁- <strong>易受攻击</strong></li> <li>Moto X Pure - Android 6.0带5月安全补丁- <strong>易受攻击</strong></li> <li>Honor 8 - Android 6.0.1带7月安全补丁- <strong>易受攻击</strong></li> <li>摩托罗拉G4 -安卓6.0.1五月安全补丁- <strong>易受攻击</strong></li> <li>OnePlus 2 - Android 6.0.1，带6月安全补丁- <strong>不易受攻击</strong></li> <li>三星Galaxy Note 7-Android 6 . 0 . 1 7月安全补丁- <strong>不易受攻击</strong></li> <li>谷歌Nexus 6 - Android 6.0.1带8月安全补丁- <strong>不易受攻击</strong></li> <li>谷歌Nexus 6P - Android 7.0安装了8月安全补丁- <strong>不容易受到攻击</strong></li> </ul>
+
+<p>到目前为止，这些都是我能让团队测试的设备。我找不到安全补丁版本和漏洞之间的任何关联。正如你可以从我们关于Android安全更新的<a href="http://www.xda-developers.com/what-android-security-patch-are-you-on-right-now-and-does-it-really-affectbother-you/">最新讨论</a>中了解到的，许多人无论如何都没有运行最新的安全补丁，因此可能容易受到这个漏洞以及其他在<a href="https://source.android.com/security/bulletin/"> Android安全公告</a>中概述的漏洞的攻击。</p>
+
+<hr/>
+
+<p><strong>向前移动</strong></p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/tapjacking_service_overlay-300x243.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Tapjacking Service Granted the Overlay Permission&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/tapjacking_service_overlay-300x243.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/tapjacking_service_overlay-300x243.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/tapjacking_service_overlay-300x243.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/tapjacking_service_overlay-300x243.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="tapjacking_service_overlay" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/tapjacking_service_overlay-300x243.png" src="../Images/85be5800319b0cd8e1329c64191f32f6.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/tapjacking_service_overlay-300x243.png"/> </picture> <figcaption class="body-img-caption">Tapjacking Service Granted the Overlay Permission</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p/><p><strong>我们建议您亲自在您的设备上测试这一漏洞，看看您是否容易受到攻击</strong>。我们已经从上面链接的<a href="https://github.com/iwo/marshmallow-tapjacking">源代码中编译了apk(你也可以自己做)，并且已经将它们上传到AndroidFileHost。为了测试这个漏洞，你需要安装</a><a href="https://www.androidfilehost.com/?fid=24651430732237150">主tapjacking应用程序</a>以及它的<a href="https://www.androidfilehost.com/?fid=24651430732237151">助手服务</a>。然后，只需运行主应用程序并单击“测试”按钮。如果一个文本框浮动在权限对话框的顶部，当你点击“允许”时，你的设备的联系人列表就会显示出来，那么你的设备很容易被点击劫持。不要担心浮动文本框不会完全覆盖权限对话框，这个概念验证应用程序并不打算完美地演示如何巧妙地劫持权限对话框，而是证明这确实是可能的。</p>
+
+<p>我们希望推出一个补丁，在所有棉花糖设备上修补这一漏洞，并希望原始设备制造商将其所有设备更新到最新的安全补丁。因为现实情况是，大多数承诺的设备需要好几个月才能获得牛轧糖，所以大多数用户远离伤害的唯一方法是要么安装最新的安全补丁，要么自己获取monitor app权限。但随着谷歌决定自动授予潜在危险的SYSTEM_ALERT_WINDOW权限，许多用户在不知不觉中运行着可能会劫持他们手机的应用程序，以授予越来越危险的权限。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

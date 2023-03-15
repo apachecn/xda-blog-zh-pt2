@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>How to set a Custom Screen Saver on Huawei and Honor devices running EMUI</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在运行EMUI的华为和Honor设备上设置自定义屏保</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-set-a-custom-screen-saver-on-huawei-and-honor-devices-running-emui/#0001-01-01">https://www.xda-developers.com/how-to-set-a-custom-screen-saver-on-huawei-and-honor-devices-running-emui/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android 4.2 Jelly Bean引入了一个名为daydream的功能，它本质上只是一个<a href="https://android-developers.googleblog.com/2012/12/daydream-interactive-screen-savers.html">交互式屏幕保护程序</a>，在设备对接和/或充电时激活。第三方开发者可以<a href="https://developer.android.com/reference/android/service/dreams/DreamService.html">制作自己的屏保</a>，用户可以在设置→显示中访问屏保。不幸的是，并不是每个OEM都允许他们的用户设置自定义屏幕保护程序。例如，华为及其子品牌Honor只给用户提供了一个单一的屏幕保护选项——可以播放幻灯片的照片表格选项。</p>
+
+ 
+
+
+
+
+<p><em>(注:从Android 7.0牛轧糖发布开始，谷歌将daydreams重命名为屏幕保护程序，这样用户就不会将该功能与Daydream VR平台混淆。然而，华为和Honor devices在设置中仍然将屏幕保护程序称为“白日梦”，所以我将这两个术语互换使用。)</em></p>
+
+<p>我不知道为什么EMUI(在华为和Honor的Android智能手机上运行的软件)不允许用户在设置中设置自定义的屏幕保护程序，但我知道可以手动设置自己的屏幕保护程序。以下是方法。</p>
+
+<hr/>
+
+
+<h2 id="tutorial---set-a-custom-screen-saver-manually-in-emui">教程-在EMUI中手动设置自定义屏幕保护程序</h2><p class="ad-odd"> </p>
+
+
+<h2 id="set-up-adb">建立亚洲开发银行</h2>
+<p>由于这种方法涉及到发送ADB命令，我们首先需要确保在接触其他任何东西之前我们已经设置好了。下载<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/">独立的ADB二进制文件</a>，并将其保存在你的台式机/笔记本电脑的存储器中的任何地方(专业提示:对于Windows，将所有内容放入<code>C:\Windows</code>中，以便ADB在系统范围内工作)。接下来运行<a href="http://consumer.huawei.com/minisite/HiSuite_en/index.html"> HiSuite </a>，看看它是否能识别你的手机，确保你已经为你的手机安装了合适的驱动程序。如果没有，让HiSuite为您安装驱动程序。</p>
+
+<p>现在，在你的手机上，进入设置→关于手机，点击“内部版本号”7次，直到你看到一个弹出窗口，说明你现在是一名开发人员。回到“设置”,会出现一个名为“开发者选项”的新菜单项。输入这个并查找“USB调试”启用它，然后将您的手机连接到您的PC。</p>
+
+<p>在PC上打开命令提示符/终端，输入以下命令:</p>
+
+<pre> <code class="hljs ">adb devices</code> </pre>
+<p>回到手机上，您应该会看到一个弹出窗口，要求您授权您的计算机使用USB调试。授权吧。现在，在您的计算机上，上述命令的输出应该显示您的手机的序列号。如果是这样，那么你已经准备好继续前进了。</p>
+
+<h3 id="setting-up-custom-screen-saver">设置自定义屏幕保护程序</h3>
+<p>接下来你需要做的是进入设置→显示，打开屏幕保护程序(在EMUI中称为白日梦)。不要担心它下面的任何设置，当我们设置自己的自定义屏幕保护程序时，所有这些都无关紧要。</p>
+
+<p>接下来，你需要从谷歌Play商店下载并安装一个定制的白日梦/屏幕保护程序。我在<a href="https://play.google.com/store/apps/details?id=com.google.android.deskclock">谷歌时钟</a>、<a href="https://play.google.com/store/apps/details?id=de.j4velin.ultimateDayDream">清醒白日梦屏保</a>和<a href="https://play.google.com/store/apps/details?id=com.firebirdberlin.nightdream">夜钟</a>上测试了这个方法。你还需要一些方法来手动找出你的自定义屏保应用程序的“梦想服务”的名字。这是你在设置→显示→白日梦中设置时，安卓系统启动的屏保服务的名称。然而，由于EMUI不显示提供这项服务的应用程序列表，我们必须挖掘应用程序的服务，找出它的名称。</p>
+
+<p>我将向您展示如何做到这一点的两种不同方法。方法1不太精确，但更容易做到。方法2将保证你得到正确的名字。</p>
+
+
+<p>从Play Store下载并安装<a href="https://play.google.com/store/apps/details?id=cn.wq.myandroidtools">我的Android工具</a>。打开应用程序，展开左侧的侧边栏。点击组件信息下的“服务”,调出已安装应用程序及其所有服务的列表。在列表中查找您安装的daydream/屏保应用程序。选择它，你会看到每个应用程序的服务列表。</p>
+
+
+
+
+
+<p>寻找一些听起来像是白日梦/屏保服务的东西。对于谷歌时钟来说，那将是<code>com.android.deskclock.Screensaver</code>。对于Lucid来说那就是<code>de.j4velin.ultimateDayDream.DreamWrapper</code>。对于夜钟来说那是<code>com.firebirdberlin.nightdream.NightDreamService</code>。一旦你有了这些信息，我们就可以设置自定义的屏幕保护程序了。跳过“发送ADB命令以设置自定义屏幕保护程序”部分。</p>
+
+<h3 id="method-2---inspecting-the-android-manifest-file">方法2 -检查Android清单文件</h3>
+<p>下载Play Store上能够检查应用程序的Android清单文件的任何应用程序。为此，我使用了<a href="https://play.google.com/store/apps/details?id=tursky.jan.settings">开发者</a>，但其他任何应用程序也可以。查看你的屏幕保护程序的清单文件，搜索包含权限“<code>android.permission.BIND_DREAM_SERVICE</code>”的&lt;服务&gt;标签</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004058-1024x166.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Snippet of Android Manifest file from Google Clock&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004058-1024x166.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004058-1024x166.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004058-1024x166.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004058-1024x166.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004058-1024x166.png" src="../Images/7f54e657b450491f1c1ce8237ee0fc87.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004058-1024x166.png"/> </picture> <figcaption class="body-img-caption">Snippet of Android Manifest file from Google Clock</figcaption> </figure> </div>
+
+
+ </div>
+
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004209-1024x110.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Snippet of Android Manifest file from Lucid DayDream&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004209-1024x110.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004209-1024x110.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004209-1024x110.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004209-1024x110.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004209-1024x110.png" src="../Images/4320569bbb4f648db2c07e88f5f9013e.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004209-1024x110.png"/> </picture> <figcaption class="body-img-caption">Snippet of Android Manifest file from Lucid DayDream</figcaption> </figure> </div>
+
+
+ </div>
+
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004431-1024x136.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Snippet of Android Manifest file from Night Clock&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004431-1024x136.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004431-1024x136.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004431-1024x136.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004431-1024x136.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004431-1024x136.png" src="../Images/84a72b7a6c257c7759591c260e2e0275.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/06/IMG_20170528_004431-1024x136.png"/> </picture> <figcaption class="body-img-caption">Snippet of Android Manifest file from Night Clock</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>找到之后，记下服务名。对于谷歌时钟来说，那将是<code>com.android.deskclock.Screensaver</code>。对于Lucid来说那就是<code>de.j4velin.ultimateDayDream.DreamWrapper</code>。对于夜钟来说那是<code>com.firebirdberlin.nightdream.NightDreamService</code>。</p>
+
+<h3 id="sending-the-adb-command-to-set-custom-screen-savers">发送ADB命令以设置自定义屏幕保护程序</h3>
+<p>在计算机上打开命令提示符或终端，输入以下命令:</p>
+
+<pre> <code class="hljs ">adb shell</code> </pre>
+<p>然后，输入以下命令:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">settings</span> <span class="hljs-selector-tag">put</span> <span class="hljs-selector-tag">secure</span> <span class="hljs-selector-tag">screensaver_components</span> <span class="hljs-selector-tag">YOUR</span><span class="hljs-selector-class">.CUSTOM</span><span class="hljs-selector-class">.SCREENSAVER</span><span class="hljs-selector-class">.COMPONENT</span></code> </pre>
+<p>你的。CUSTOM.SCREENSAVER.COMPONENT是屏幕保护程序的包名，后跟屏幕保护程序的服务名。包名和服务名应该用正斜杠分隔。</p>
+
+<p>例如，如果我想将谷歌时钟设置为我的屏幕保护程序:</p>
+
+<pre> <code class="hljs ">settings put secure screensaver_components com.android.deskclock/.Screensaver</code> </pre>
+<p>可以看到，组件的第一部分com.android.deskclock是Google Clock的包名。如果您遵循方法1，那么可以通过查看所有服务的公共前缀来找到包名。如果您遵循方法2，包名会列在清单文件的最顶端。无论哪种方式，你都可以假设在最后一个句点之前的是包名。</p>
+
+<p>对于组件名的第二部分，。屏幕保护程序，这实际上是一个快捷符号，允许我们跳过写出完整的组件名<code>com.android.deskclock/com.android.deskclock.Screensaver</code>。</p>
+
+<p>作为另一个例子，下面是我如何将Lucid设置为我的屏幕保护程序:</p>
+
+<pre> <code class="hljs ">settings put secure screensaver_components de.j4velin.ultimateDayDream/.DreamWrapper</code> </pre>
+<p>最后，下面是我如何将夜间时钟设置为屏幕保护程序:</p>
+
+<pre> <code class="hljs ">settings put secure screensaver_components com.firebirdberlin.nightdream/.NightDreamService</code> </pre>
+<p>一旦你通过ADB命令设置了你的自定义屏幕保护程序，你就可以开始了。只需将手机插入或对接，等待屏幕自行超时。你现在应该看到你的华为或Honor手机开始播放你的自定义屏保！如果你想自定义屏幕保护程序，你必须进入应用程序的设置。</p>
+
+<hr/>
+
+<p>关注<a href="https://www.xda-developers.com/category/tutorials/feed/"> XDA教程RSS源</a>获取更多类似的内容。下载<a href="https://www.xda-developers.com/xda-labs/"> XDA实验室</a>，快速了解XDA门户网站上发布的所有最新新闻和原创专题。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

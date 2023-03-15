@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Snoozing Reminders will finally return with Google Calendar v5.5.9</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>随着谷歌日历v5.5.9的发布，打盹提醒将最终回归</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/snooze-returns-in-google-calendar-v559/#0001-01-01">https://www.xda-developers.com/snooze-returns-in-google-calendar-v559/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>许多人使用并依赖谷歌日历来帮助组织他们的生活。然而，有许多事情我们想模糊地记录下来，但却不太适合在日历上标出。</p>
+
+  
+<p>每周提醒、目标或需要完成的次要任务最好与你的主日历分开处理，这就是为什么谷歌日历增加了<a href="https://support.google.com/calendar/answer/106237?hl=en">任务</a>和<a href="https://support.google.com/calendar/answer/6285327?co=GENIE.Platform%3DAndroid&amp;hl=en">提醒</a>来适应更多的用例。谷歌日历提醒功能的粉丝可能会注意到，你过去可以暂停提醒通知。</p>
+
+<p>不幸的是，由于某种原因，当谷歌日历升级到5.0版本时，<a href="https://www.reddit.com/r/androidapps/comments/2lhm9f/new_google_calendar_50_app_removed_the_snooze/">功能似乎已经消失了。我们不确定为什么当Calendar收到其完整的材料设计时，该功能不可用，但我们希望它最终会在未来的版本中回归。今天，谷歌日历v5.5.9正在推出，APK文件的拆除强烈暗示了<strong>提醒打盹功能</strong>的回归。</a></p>
+
+<p><em>免责声明:我们从一个应用程序的APK文件中挖掘出的证据并不确定。谷歌可能会选择在未来的版本中不加任何提示地推出这些功能。</em></p>
+
+<hr/>
+
+<p>嗯，我过会儿再做</p>
+
+<p>在APK的文件中，我们发现了字符串和实际代码，它们将用于实现该功能(这意味着，它不仅仅是为未来的版本做准备，而是应该已经完全发挥作用)，这些都是以前版本的谷歌日历应用程序中没有的。下面的字符串清楚地指向了该功能的回归，但它似乎不会像谷歌日历5.0之前那样发挥作用</p>
+
+<p><code>&lt;string name="task_snooze_failed_message"&gt;Failed to snooze the reminder&lt;/string&gt;</code></p>
+
+<p><string name="task_snooze_label">打盹</string></p>
+
+<p><string name="task_snooze_message" formatted="false">提醒因<g example="Today"> %s </g>、<g example="11:20am"> %s </g>、T5而暂停</string></p>
+
+<p><string name="task_snooze_next_week">下周</string></p>
+
+<p><string name="task_snooze_short">10分钟后</string></p>
+
+<p>本周晚些时候</p>
+
+<p><string name="task_snooze_title">小睡至……</string></p>
+
+<p><string name="task_snooze_today">今天晚些时候</string></p>
+
+<p><string name="task_snooze_tomorrow">明天</string></p>
+
+<p><string name="task_snooze_weekend">这个周末</string></p>
+
+<p>事实上，如果您注意到这些字符串中有迹象表明您将能够选择多次，直到通知将被暂停。以前，您只能在15分钟的默认时间内暂停通知(不幸的是，这是不可调整的)。该功能不仅会有回报，而且我们相信它会得到改进。</p>
+
+<p>此外，我们之所以相信这个特性会很快出现，是因为在反编译的APK中存在一些类和方法，比如<strong> SnoozeActivity.smali </strong>，尤其是<strong>snoozefindtimeasynctask . smali</strong>，它们都直接表明了手动选择暂停通知的时间的能力。</p>
+
+<p>然而不幸的是，日历中的返回暂停功能似乎没有谷歌收件箱中的<a href="https://gmail.googleblog.com/2015/01/snooze-in-inbox-because-not-everything.html">暂停功能强大，该功能允许你选择一个</a><a href="https://support.google.com/inbox/answer/6067583?hl=en">特定位置</a>，直到提醒被暂停。然而，对于那些仍然喜欢使用Gmail +谷歌日历而不是谷歌收件箱的人来说，这个更新绝对是受欢迎的。</p>
+
+<hr/>
+
+<p><em>谷歌日历v5.5.9可以在<a href="http://www.apkmirror.com/apk/google-inc/calendar/calendar-5-5-9-125657303-release-release/"> APKMirror </a>下载。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

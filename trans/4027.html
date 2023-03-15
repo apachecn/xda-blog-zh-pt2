@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Android Oreo Receives Noticeable ADB Backup Enhancements</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Oreo获得显著的ADB备份增强</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-oreo-adb-backup-better/#0001-01-01">https://www.xda-developers.com/android-oreo-adb-backup-better/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>取决于你问谁，你可能会听说<a href="https://www.xda-developers.com/set-up-adb-and-fastboot-on-linux-mac-os-x-and-chrome-os-with-a-single-command/"> Android Debug Bridge </a>的备份功能是天赐之物。这项功能是在冰淇淋三明治中推出的，它允许您在不使用root或其他应用程序的情况下，只需使用adb即可对您的设备进行完整备份。然而，这个工具确实有一些限制，这给了其他应用程序如钛备份的优势。Android Oreo旨在修复其中一些缺陷，以使其成为更好、更可靠的工具。因此，新的Android版本在adb备份和adb恢复方面获得了一些急需的增强功能。</p>
+
+ 
+<hr/>
+
+<p><strong>备份超时增加</strong></p>
+
+<p>在Android Oreo之前，共享存储(/sdcard内容)备份使用5分钟的超时，而恢复使用1分钟的超时。这意味着，如果sdcard上有任何大文件，例如长视频，备份/恢复总是会超时。更短的恢复超时意味着甚至一些更小的文件，如zip或大图像，也无法恢复。幸运的是，最新的Android版本不再是这种情况。</p>
+
+<p><a href="https://android.googlesource.com/platform/frameworks/base/+/3b03673d23784fb30d5fdf11ed4fa6e1619bef0f">从DP2 </a>开始，备份超时和恢复超时分别从5分钟和1分钟增加到60分钟。这12倍的备份增加应该给你足够的时间直接备份任何文件存储在你的手机上。此外，大规模恢复增加现在应该给你的能力，恢复你的手机上的一切。您可以使用以下方法测试此功能</p>
+
+<pre> <code class="hljs sql">adb <span class="hljs-keyword">backup</span> -<span class="hljs-keyword">shared</span> &amp;&amp; adb <span class="hljs-keyword">restore</span> backup.ab</code> </pre>
+<p>用你的奥利奥手机。这将对您手机的共享存储进行完整的备份/恢复。</p>
+
+<hr/>
+
+<p><strong>增加对键/值包的支持</strong></p>
+
+<p><a href="https://developer.android.com/guide/topics/data/keyvaluebackup.html">键/值备份</a>是Android 2.2 Froyo中引入的一个简洁的小功能。它们以前被称为备份API，是开发人员通过上传到Android备份服务将应用数据备份到云的一种方式。但是以前，有键/值备份代理的应用程序会被fullbackup命令跳过。然而，对于Android奥利奥来说，这不再是真的了。</p>
+
+<p><a href="https://android.googlesource.com/platform/frameworks/base/+/b59a4b85ade3f1f408def6a0dd3dbb146225bdd7">从DP1 </a>开始，通过向adb备份命令添加-includekeyvalue标志，所有支持键/值备份的包都将被添加到结果备份中。同样，如果备份包含键/值数据，它也将被还原。此功能为将来添加带有键/值备份代理的包的CTS测试做准备。您可以使用以下命令对此进行测试</p>
+
+<pre> <code class="hljs sql">adb <span class="hljs-keyword">backup</span> -includekeyvalue -<span class="hljs-keyword">all</span> &amp;&amp; adb <span class="hljs-keyword">restore</span> backup.ab</code> </pre>
+<p>在你的设备上。</p>
+
+<p>这两个功能应该允许adb备份在Android Oreo设备上更加可靠，并且是根备份应用程序的一个体面的替代方案。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>How to Access Facebook Messenger's Hidden Internal Menu</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何访问Facebook Messenger的隐藏内部菜单</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/facebook-messenger-internal-menu/#0001-01-01">https://www.xda-developers.com/facebook-messenger-internal-menu/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Facebook Messenger中隐藏的内部菜单被脸书的开发者用来在测试期间修改应用程序的某些方面。用户通常无法打开它，因为隐藏的菜单活动无法在应用程序中直接访问。然而，如果你的设备有root权限，那么就可以进入这个内部菜单，使用脸书工程师使用的一些隐藏的开发/调试工具。以前，访问内部菜单可以用来<a href="https://www.xda-developers.com/disable-facebook-messenger-day-android/">禁用信使日</a>，尽管脸书意识到人们正在这样做，因此禁用了关闭信使日的功能。</p>
+
+  <div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/failed-to-refresh-300x64.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Error message when attempting to disable Messenger Day in \&quot;MobileConfig\&quot;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/failed-to-refresh-300x64.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/failed-to-refresh-300x64.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/failed-to-refresh-300x64.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/failed-to-refresh-300x64.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/failed-to-refresh-300x64.png" src="../Images/9747f0435e251333f18e4ff95a574fb6.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/failed-to-refresh-300x64.png"/> </picture> <figcaption class="body-img-caption">Error message when attempting to disable Messenger Day in "MobileConfig"</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>尽管如此，该应用程序的其他方面并不在MobileConfig中，我们可以尝试一下。我们将向您展示如何访问该菜单，以便您可以查看可以更改的内容，我们还将提供一些示例，说明您可以在Facebook Messenger的内部菜单中执行的一些操作。</p>
+
+<p>您需要在设备上安装Android调试桥(ADB)或终端应用程序，如<a href="https://play.google.com/store/apps/details?id=com.termux&amp;hl=en"> Termux </a>才能继续。如果使用ADB，需要在手机上启用USB调试。要这样做，打开设置，然后导航到“关于手机”，并反复点击建立号码，直到它告诉你是一个开发者。按下返回按钮，你现在将有“开发者选项”在设置列表中。向下滚动并启用USB调试。</p>
+
+
+
+
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p>本指南需要root用户。解锁设备的引导程序后，你可以通过闪烁<a href="https://forum.xda-developers.com/apps/magisk"> Magisk </a>或<a href="https://forum.xda-developers.com/apps/supersu"> SuperSU </a>来获得root。如果你的设备没有root，你可以使用来自XDA成员<a href="https://forum.xda-developers.com/member.php?u=5029215"> evilwombat </a>的<a href="https://forum.xda-developers.com/android/apps-games/bullshified-version-facebook-okay-to-t3586318">这款修改过的APK </a>，它可以让你直接在应用程序中访问内部菜单。但是，如果你想使用的不仅仅是Messenger，这样做需要你卸载你已经安装的任何现有的脸书应用，而是使用来自同一个开发者的所有修改过的脸书应用。</p> </div></section>
+<hr/>
+
+<h3 id="using-adb">使用亚行</h3>
+<p>下载adb，要么在XDA下载"<a href="https://forum.xda-developers.com/showthread.php?t=2317790">最小ADB &amp; Fastboot </a>，要么下载谷歌发布的<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/">官方二进制文件</a>。提取它们，在包含adb的文件夹中，按住shift +右键单击文件夹，然后单击“在此打开命令窗口”。将您的电话连接到PC，并授予调试权限。</p>
+
+<p>接下来，在命令提示符下键入以下命令。</p>
+
+<pre> <code class="hljs ">adb shell</code> </pre>
+<pre> <code class="hljs ">su</code> </pre>
+<p>出现提示时授予超级用户访问权限。</p>
+
+<pre> <code class="hljs sql">am <span class="hljs-keyword">start</span> -n <span class="hljs-string">"com.facebook.orca/com.facebook.messaging.internalprefs.MessengerInternalPreferenceActivity"</span></code> </pre>
+<p>然后向下滚动。</p>
+
+<h3 id="using-terminal">使用终端</h3>
+<p>打开您选择的终端应用程序。我用的是<a href="https://play.google.com/store/apps/details?id=com.termux&amp;hl=en"> Termux </a>，但是任何能接入终端的都可以正常工作。接下来键入以下命令。</p>
+
+<pre> <code class="hljs ">su</code> </pre>
+<p>出现提示时授予超级用户访问权限。</p>
+
+<pre> <code class="hljs sql">am <span class="hljs-keyword">start</span> -n <span class="hljs-string">"com.facebook.orca/com.facebook.messaging.internalprefs.MessengerInternalPreferenceActivity"</span></code> </pre>
+<hr/>
+
+
+
+<p>执行完命令后,“内部菜单”应该会显示如下所示的菜单。</p>
+
+
+
+<p>向下滚动到“网关守护设备覆盖”点击它，在下面的菜单中点击“搜索门卫”。键入“<strong> internal </strong>”(不带引号)并点击显示“messenger _ internal _ prefs _ Android”的字段。它应该改变说是。</p>
+
+
+
+
+
+<p>就是这样！现在，您可以永久访问该菜单，位于下面的屏幕截图中。</p>
+
+
+
+<h3 id="explanation">说明</h3>
+<p>我们使用adb或终端来启动<code>MessengerInternalPreferenceActivity</code>，它是隐藏的内部菜单活动。然后，我们在内部菜单中编辑应用程序设置，以永久显示用于访问该活动的菜单项。我们需要root访问权限的原因是，这个活动是在Facebook Messenger应用程序的AndroidManifest中定义的未导出活动。未导出的活动需要提升权限才能启动，但一旦启动，我们就可以从菜单中启用它。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+
+<h3 id="crashes">猛撞</h3>
+<p>如果出于某种原因你想让应用程序崩溃(也许你正在测试你所做的一些系统编辑)，内部菜单在“<strong>性能和配置”下包含4种崩溃类型。</strong></p>
+
+
+
+<h3 id="language">语言</h3>
+<p>如果你想在Facebook Messenger中自己选择语言，在内部菜单根目录的“<strong>子系统</strong>”下有一个选项，可以将应用程序语言更改为你想要的任何语言。</p>
+
+
+
+<h3 id="always-enabled-chat-heads">总是启用聊天头</h3>
+<p>当您打开Facebook Messenger时，您当前打开的聊天标题会消失。如果您希望在已经使用Facebook Messenger的情况下也能使用聊天标题，您可以启用“功能”下的“<strong>不要隐藏messenger </strong>”。</p>
+
+
+
+<p>就是这样！浏览一下设置，看看你是否能在Facebook Messenger中找到一些东西，如果有，请在下面的评论中告诉我们！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>How to Disable Alexa and get "Ok Google" on the Amazon Fire 7, HD 8, or HD 10</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在亚马逊Fire 7、HD 8或HD 10上禁用Alexa并获得“Ok Google”</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/replace-alexa-google-assistant-amazon-fire-7-hd-8-hd-10/#0001-01-01">https://www.xda-developers.com/replace-alexa-google-assistant-amazon-fire-7-hd-8-hd-10/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>和谷歌助手一样，Alexa是一款基于云的语音助手，允许你使用自然语言识别与你的设备进行交互。这款助手为亚马逊的Echo系列、Fire TV和Fire平板电脑等设备提供支持。如果你购买了亚马逊Fire设备，你可能会意识到该操作系统实际上是基于Android的，这意味着你可以在其上运行常规的Android应用程序。正因为如此，实际上可以禁用亚马逊Alexa，并用谷歌助手取代它——嗯，至少是“Ok Google”检测部分！</p>
+
+ 
+<h2 id="background">背景</h2>
+<p>亚马逊设备运行的<a href="https://en.wikipedia.org/wiki/Fire_OS"> FireOS是Android </a>的大幅修改版本，最初基于Lollipop 5.1.1。一些较新的亚马逊Fire设备可能运行FireOS版本，这也是Android的一个重大修改版本，但基于Nougat 7.0。较老的设备，如<a href="https://forum.xda-developers.com/kindle-fire-hd"> Kindle 8.9，第二代</a>，运行的是安卓系统的一个重大修改版本，冰激凌三明治4.0。任何装有5.1.1版本的亚马逊设备都只能在“Ok Google”级别体验谷歌助手。这是谷歌而不是亚马逊设置的限制。</p>
+
+<p>目前完整的谷歌助手仅支持部分运行棉花糖6.0的设备，但在大多数运行牛轧糖7.0及以上版本的设备上可用。谷歌有望在今年的某个时候推出棒棒糖设备的全面助手应用。</p>
+
+<p>如果你拥有一台亚马逊平板电脑或设备，如<a href="https://forum.xda-developers.com/fire-phone"> Fire Phone </a>、<a href="https://forum.xda-developers.com/connected-home"> Echo </a>或<a href="https://forum.xda-developers.com/fire-tv"> Fire TV </a>，那么你可以使用本指南禁用Alexa，并代之以“Ok Google”语音检测。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="prerequisites">先决条件</h2>
+<p>要做到这一点，你至少需要安装谷歌应用程序，并能够将你的设备接入电脑，通过ADB运行命令。<a href="https://forum.xda-developers.com/amazon-fire/general/how-to-install-google-play-store-fire-t3486603">本指南适用于亚马逊Fire 7、HD 8和HD 10平板电脑</a>。如果你的设备运行Fire OS 5.6.0.0，你可以按照这个指南通过<a href="https://forum.xda-developers.com/hd8-hd10/general/tut-fire-hd-10-7th-gen-2017-root-box-t3726443">获得root权限。如果你足够幸运，拥有一台Kindle Fire HD 8.9，你将无法安装所需的Play Store APKs，但你可以获得root访问权限，安装</a><a href="https://twrp.me/about/"> TWRP </a>，并闪存一个定制的ROM。<a href="https://forum.xda-developers.com/kindle-fire-hd/8-9-inch-help/guide-root-custom-recovery-roms-jem-t3696244">跟随我的指导开始</a>。</p>
+
+<p>重要的是要一步一步地遵循特定于您的设备的指南。以下是安装Play Store所需的Google APKs的单独链接:</p>
+
+<ol> <li><a href="https://www.apkmirror.com/apk/google-inc/google-account-manager/google-account-manager-5-1-1743759-release/google-account-manager-5-1-1743759-android-apk-download/">谷歌客户经理</a></li> <li><a href="https://www.apkmirror.com/apk/google-inc/google-services-framework/google-services-framework-5-1-1743759-release/google-services-framework-5-1-1743759-android-apk-download/">谷歌服务框架</a></li> <li><a href="https://www.apkmirror.com/apk/google-inc/google-play-services/google-play-services-11-5-09-release/google-play-services-11-5-09-230-164803921-android-apk-download/"> Google Play服务</a> <strong>(如果你拥有HD 8或HD 10，2017版，<a href="https://www.apkmirror.com/apk/google-inc/google-play-services/google-play-services-11-5-09-release/google-play-services-11-5-09-240-164803921-android-apk-download/">你需要这个APK </a>。)</strong></li> <li><a href="https://www.apkmirror.com/apk/google-inc/google-play-store/google-play-store-8-3-41-release/google-play-store-8-3-41-u-all-0-fp-170066753-android-apk-download/">谷歌Play商店</a></li> </ol>
+
+<p>你不需要在这些设备上安装一个定制的启动器来成功完成本指南。</p>
+
+<p>有一个特定的权限，当放在应用程序的清单文件中时，允许应用程序更改Android平台中的三类设置。这个被称为<code>WRITE_SECURE_SETTINGS</code>的许可允许应用程序<a href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_SECURE_SETTINGS">读取或写入安全系统设置。</a>“这些设置也可以通过Android调试桥(ADB)进行编辑和修改。修改这些设置<strong>不需要root权限</strong>。</p>
+
+<p>下面是在你的亚马逊Fire设备上启用“Ok Google”支持的详细指南。如果您更喜欢手动方式，请参阅一般指南下面的“使用ADB手动设置助理应用程序”。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="how-to-enable-ok-google-on-the-amazon-fire-7-hd-8-and-hd-10">如何在亚马逊Fire 7、HD 8和HD 10上启用“Ok Google”</h2>
+<p>1.一旦你设置好Google APKs并安装了Google App，从Play Store下载并安装“设置数据库编辑器”。</p>
+
+ 
+
+
+
+<p>2.将设备插入PC，打开终端或命令提示符窗口。在下面键入以下命令。如果成功，您将不会看到任何文本:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">by4a</span><span class="hljs-selector-class">.setedit22</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre>
+<p>3.现在打开“设置数据库编辑器”并点击“安全”标签。在该选项卡中，找到以下代码行:</p>
+
+<pre> <code class="hljs ">voice_recognition_service</code> </pre>
+<p>该行右侧的值应为:</p>
+
+<pre> <code class="hljs ">com.google.android.googlequicksearchbox/com.google.android.com.google.android.voicesearch.serviceapi.GoogleRecognitionService</code> </pre>
+
+
+<p>4.现在我们要添加几行代码。在“设置数据库编辑器”中，滚动到“安全”选项卡的顶部。在顶部，点击“添加新设置”</p>
+
+<p>5.在第一个框中键入:</p>
+
+<pre> <code class="hljs ">assistant</code> </pre>
+<p>6.在第二个框中键入:</p>
+
+<pre> <code class="hljs ">com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService</code> </pre>
+<p>7.现在找到这行代码:</p>
+
+<pre> <code class="hljs ">alexa_enabled</code> </pre>
+<p>该行右边的值应该是<strong>‘1’</strong>。点击设置<strong>用<strong> 0 </strong>替换<strong> 1 </strong>中的</strong>，然后点击保存。这将<strong>禁用Alexa </strong>。参考:0 =禁用，1 =启用，2 =切换(尽管切换不太可能出现在您的设置菜单中。这是因为您的提供商和/或制造商禁止使用他们自己不添加的开关)。<strong/></p>
+
+
+
+<p/>
+
+<p>8.停留在“安全”标签，向下滚动靠近底部。查找代码行:</p>
+
+<pre> <code class="hljs ">voice_interaction_service</code> </pre>
+<p>它右边的值应该为空。点击设置，添加以下文本行(无空格)并点击保存:</p>
+
+<pre> <code class="hljs ">com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService</code> </pre>
+
+
+<p>9.确保您已登录谷歌，打开谷歌应用程序。如果您使用的是最新版本，请点击屏幕右下角的三个栏。轻按“设置”，然后轻按“语音”。在右边，点击“Ok Google detection ”如果可以的话，训练你的声音。您可能需要下载其他谷歌应用程序，如Gmail或地图，以便获得所有可用的语音选项。</p>
+
+<p>10.一旦你完成了所有这些，回到你的主屏幕。如果激活，只需说“好的谷歌。”如果搜索栏变得栩栩如生，只需说出你的搜索查询。您的助手现在处于活动状态！</p>
+
+
+
+<h3 id="disable-the-amazon-app-store">禁用亚马逊应用商店</h3>
+<p>为了让您的设备在推出棒棒糖设备时准备好接受完整的谷歌助手，您可以加入谷歌Play服务和谷歌应用程序测试计划。然而，为了做到这一点，你必须禁用亚马逊应用商店和OTA更新，但这<a href="https://forum.xda-developers.com/amazon-fire/general/root-required-remove-amazon-bloatware-t3636797">只能在FireOS版本</a><a href="https://forum.xda-developers.com/amazon-fire/general/root-required-remove-amazon-bloatware-t3636797">5 . 4 . 0 . 0和更低版本</a>上实现。以下步骤将指导您禁用亚马逊应用商店，但请注意，<strong>您将无法重新启用它，除非您进行工厂重置</strong>。</p>
+
+<p>要禁用亚马逊应用商店，请将您的设备插入PC，然后打开终端或命令提示符窗口。在下面键入命令。如果成功，您将在命令后看到“成功”:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">uninstall</span> <span class="hljs-selector-tag">-k</span> <span class="hljs-selector-tag">--user</span> 0 <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.amazon</span><span class="hljs-selector-class">.venezia</span></code> </pre>
+<p>要禁用OTA更新，请运行以下命令:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">uninstall</span> <span class="hljs-selector-tag">-k</span> <span class="hljs-selector-tag">--user</span> 0 <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.amazon</span><span class="hljs-selector-class">.device</span><span class="hljs-selector-class">.software</span><span class="hljs-selector-class">.ota</span><br/><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">uninstall</span> <span class="hljs-selector-tag">-k</span> <span class="hljs-selector-tag">--user</span> 0 <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.amazon</span><span class="hljs-selector-class">.kindle</span><span class="hljs-selector-class">.otter</span><span class="hljs-selector-class">.oobe</span><span class="hljs-selector-class">.forced</span><span class="hljs-selector-class">.ota</span></code> </pre>
+<p>完成后，<a href="https://play.google.com/apps/testing/com.google.android.gms">访问此链接加入Google Play服务测试计划</a>和<a href="https://play.google.com/apps/testing/com.google.android.googlequicksearchbox">访问此链接加入Google App测试计划。</a></p>
+
+<p>现在等几分钟，打开游戏商店。去谷歌应用页面看看你是否是一个测试者。如果你注册了该项目，你可能需要更新谷歌应用程序，但只有在你成功成为测试者后才能这样做。</p>
+
+
+
+<p>或者，您可以使用ADB添加和修改这些设置，以及您在设置数据库编辑器应用程序的三个选项卡中看到的任何其他设置。请注意，如果您更改了任何设置，而您不知道这些设置的作用，您可能会将您的设备砖化。建议使用上述方法来实现这一目标。对于更加手动的方法，请遵循以下步骤。如果您习惯使用ADB，请仅使用手动方法。</p>
+
+<h3 id="manually-set-assistant-application-using-adb"><strong>使用ADB手动设置助手应用</strong></h3>
+<p>将您的设备插入PC，打开命令提示符/终端窗口，键入以下命令，并在每个命令后按enter键。如果成功，当命令提示符返回时，您将看不到任何文本:</p>
+
+<pre> <code class="hljs ">adb shell settings put secure assistant com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService<br/>adb shell settings put secure voice_interaction_service com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService<br/>adb shell settings put secure voice_recognition_service com.google.android.googlequicksearchbox/com.google.android.voicesearch.serviceapi.GoogleRecognitionService<br/>adb shell settings put secure alexa_enabled 0</code> </pre>
+
+
+<p>有了这些设置，一旦Google Assistant部署到Lollipop设备上，您的设备就可以接收完整的Google Assistant了。在那之前，你可以用“Ok Google”语音命令享受同样多的乐趣。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

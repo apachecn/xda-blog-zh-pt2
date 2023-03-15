@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>APK Signature Scheme v3 is coming with support for Key Rotation</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>APK签名方案v3将支持密钥轮换</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/apk-signature-scheme-v3-key-rotation/#0001-01-01">https://www.xda-developers.com/apk-signature-scheme-v3-key-rotation/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如果您是一名开发人员，或者您熟悉反编译、修改和/或安装修改过的APK文件，那么您可能熟悉应用程序签名。简而言之，Android要求一个应用程序<strong>必须用同一个密钥签名，这样系统才能允许更新这个应用程序。Android通过检查APK签名来验证这一点。</strong></p>
+
+  
+<p>APK签名是Android中一个非常基本的安全措施，我们之前已经讨论过了。基本上，所有签名对于某个开发人员或开发人员组都是唯一的，因此如果APK中的签名/证书无效或与原始应用程序的签名/证书不匹配，安装将会失败，从而防止在您的Android设备上安装被篡改或伪造的APK文件。开发人员还必须安全保管签名密钥，因为它们对于验证和最终推出应用程序更新至关重要。幸运的是，用于签署apk的签名方案得到了另一个修订版——v3——它似乎增加了一个方便的特性，同时保持了较高的安全性标准。</p>
+
+<hr/>
+
+
+<h2 id="apk-signature-scheme-v1-and-v2">APK签名方案v1和v2</h2>
+<p>当前的APK签名方案版本v2<a href="https://www.xda-developers.com/android-7-0-compatibility-document-released-plenty-of-changes-in-tow/">面向开发者</a>发布还没多久。毕竟是随着2016年底安卓7.0牛轧糖的推出才勉强介绍给我们的。在Android 7.0+应用中使用v2签名方案受到了高度鼓励，因为它带来了一系列重要的补丁和安全改进:虽然v1只对JAR进行了签名，但v2采取了额外的步骤来保护整个文件的完整性。不过，签名方案不是向后兼容的，Android Marshmallow和更低版本的应用程序需要v1签名。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/apk-validation-process.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;APK Validation Process. Source: Google.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/apk-validation-process.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/apk-validation-process.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/apk-validation-process.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/apk-validation-process.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="APK Signature Scheme V3" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/apk-validation-process.png" src="../Images/94071330d974c1a8641f8dfccb76494a.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/apk-validation-process.png"/> </picture> <figcaption class="body-img-caption">APK Validation Process. Source: Google.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>除非您专门迎合Nougat或更高版本的用户，否则理想的情况是同时使用两种签名方案，首先用v1签名，然后用v2重新签名。这样牛轧糖和更高的会识别v2签名，棉花糖和更低的会识别v1签名。</p>
+
+<p>然而，由于一系列漏洞和其他安全问题，仅使用v1是非常不鼓励的，其中最值得注意的是<a href="https://www.xda-developers.com/janus-vulnerability-android-apps/">Janus漏洞</a>，它允许攻击者直接攻击和修改apk而不影响签名。Instagram或Snapchat等不常更新的流行应用程序仅使用v1签名进行签名，这意味着它们容易受到这些问题的影响。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/APKSignatureVersions.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Checking the APK signing versions of popular social media\/payment apps.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/APKSignatureVersions.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/APKSignatureVersions.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/APKSignatureVersions.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/APKSignatureVersions.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/APKSignatureVersions.png" src="../Images/736f86084b7332354456a9c1f61c3607.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/APKSignatureVersions.png"/> </picture> <figcaption class="body-img-caption">Checking the APK signing versions of popular social media/payment apps.</figcaption> </figure> </div>
+
+
+ </div>
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="apk-signature-scheme-v3">APK签名方案v3</h2>
+<p>v3最大的亮点是对v2的修正，将是<strong>键旋转支持</strong>。<a href="https://android-review.googlesource.com/#/c/platform/tools/apksig/+/587834/"> v3签名方案</a>引入了APK签名者血统，根据提交之一的<a href="https://android-review.googlesource.com/#/c/platform/tools/apksig/+/589594/">，它“包含了与每个祖先签署证书的历史，以证明其后代的有效性。每个额外的后代代表一个新的身份，可用于签署APK。以这种方式，血统包含轮换的证明，通过该证明，包含血统的APK可以向其他方证明，它能够被信任其当前的签名证书，就好像它是由它的旧证书之一签名的一样。”</a></p>
+
+<p>从几个方面来看，密钥轮换对开发人员来说是一个很好的特性。首先，这对于开发单个应用程序的团队中的开发人员非常有用，因此开发人员不必与团队共享他们的签名密钥。由于应用程序需要完全相同的签名来更新，因此目前所有应用程序都需要由同一个开发人员或一组开发人员使用相同的密钥来编译，这降低了安全性(密钥被盗的可能性更大)并降低了开发速度。</p>
+
+<p>此外，在开发人员的签名密钥被盗/丢失的情况下，这也很有用，这通常意味着应用程序必须以不同的包名重新加载到Play Store。这种情况并不少见，因为很久以前，甚至谷歌也丢失了Google Authenticator应用程序的签名密钥，导致他们以不同的包名重新发布它。从那以后，谷歌提供了安全地将你的签名密钥存储在云中的方法，使用<a href="https://www.xda-developers.com/google-play-console-new-features/"> Google Play应用签名</a>，但是密钥轮换将允许你在假设的混乱情况下继续更新你的应用。</p>
+
+<h3 id="when-is-it-rolling-out">它什么时候推出？</h3>
+<p>虽然您可能急于尝试它以获得更多的便利，但是v3签名方案被发现在AOSP Gerrit代码审查网站上到处流传，并且提交本身现在还没有被合并到主分支中，所以它还没有准备好。如果之前发布的带有Android牛轧糖的v2告诉我们什么的话，我们应该期待v3签名方案随着即将发布的Android P到达开发者手中。</p>
+
+<p>我们还应该注意到，密钥轮换很可能不是v2的唯一区别。APK签名方案v3仍然是一个进行中的工作，所以当将来完整的文档出来时，我们将看到v3签名方案的实际改进。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

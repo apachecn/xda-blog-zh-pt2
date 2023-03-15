@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Xposed Installer v3.15 &amp; Xposed Framework v90-beta2 are out with Android Oreo Fixes and Optimizations</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Xposed Installer v3.15和Xposed Framework v90-beta2发布了Android Oreo修复和优化</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/xposed-installer-v3-15-android-oreo-fixes/#0001-01-01">https://www.xda-developers.com/xposed-installer-v3-15-android-oreo-fixes/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Xposed Installer v3.15和Xposed Framework v90-beta2发布了Android Oreo修复和优化</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">本月早些时候，我们看到了为Android 8.0和Android 8.1 Oreo发布的Xposed Framework的第一个测试版，今天rovo89宣布了Xposed Installer v3.15和Xposed Framework v90-beta2，修复了一些测试版错误。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>让Xposed框架在Android Nougat上工作可能需要XDA资深公认开发人员<a href="https://forum.xda-developers.com/member.php?u=4419114"> rovo89 </a>一段时间，但Android Oreo不是这种情况。在Xposed为Nougat发布三个月后，【Android 8.0和Android 8.1 Oreo的首个测试版框架发布。今天，Xposed安装程序——x posed框架的前端安装和管理工具——已经更新到3.15版本。</p>
+
+  
+<p>正如我们所看到的，几乎每一个测试版都有一些工作要做，这个Android Oreo的Xposed框架的初始版本也不例外。随着Xposed Installer升级到3.15，我们有了一些小的变化和一些更重要的变化。以下是完整的<a href="https://forum.xda-developers.com/showthread.php?p=75248580#post75248580">变更日志</a>:</p>
+
+ 
+<h2 id="xposed-installer-v3-15-change-log">已发布的安装程序3.15版更改日志</h2>
+<ul> <li>修正了奥利奥下载列表搜索的崩溃。</li> <li>修正了在奥利奥上发送日志时的崩溃。</li> <li>“立即优化应用程序”菜单项，将触发<code>cmd package bg-dexopt-job</code>。它从奥利奥开始提供，如果设备正在充电，它将开始通常每晚运行一次的工作。如果你在安装Xposed后感觉到性能下降，可能是因为所有的应用程序都纯粹运行在JIT和解释器上。这是因为Xposed需要额外的信息来标识它必须使之无效的方法，这些信息将在下一次编译时确定。如果您希望现在就实现，请使用这个新功能。我的像素花了大约20分钟。更多背景信息，请看<a href="https://source.android.com/devices/tech/dalvik/jit-compiler">这里</a>。</li> <li>检测<a href="https://source.android.com/security/verifiedboot/" target="_blank" rel="nofollow noopener">验证的引导</a> (dm-verity)是否激活。如果是，对系统分区的任何更改都将被检测到，您将进入引导循环。检测可能还不是100%完美，所以如果你注意到误报或漏报，请<a href="https://github.com/rovo89/XposedInstaller/issues" target="_blank" rel="nofollow noopener">报告一个错误</a>和<code>adb shell getprop</code>的输出。</li> </ul>
+
+
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="xposed-framework-v90-beta2">暴露的框架v90-beta2</h2>
+<p>rovo89还发布了<b> v90-beta2 </b>和<b>卸载程序20180117 </b>，你可以通过Xposed安装程序和<a href="http://dl-xda.xposed.info/framework/" target="_blank" rel="noopener">x posed网站</a>找到这些。这些支持通过TWRP在Google Pixel和其他“系统根映像”设备上安装(卸载)Xposed，rovo89将这些设备描述为系统分区作为根目录安装的设备，而/system实际上只是一个子目录。最后，以前的卸载程序有一个打字错误，这可能会导致所有设备的引导循环，所以一定要始终使用最新的卸载程序！</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

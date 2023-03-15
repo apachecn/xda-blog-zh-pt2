@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>What Project Treble Means for Future Custom ROM Development</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Treble项目对未来定制ROM的发展意味着什么</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/project-treble-custom-rom-development/#0001-01-01">https://www.xda-developers.com/project-treble-custom-rom-development/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在XDA这里，我们之前已经谈论过<a href="https://www.xda-developers.com/googles-project-treble-modularize-android-so-oems-can-update-devices-faster/"> Project Treble </a>，这是自近10年前第一个Android测试版发布以来，Android基础上引入的最大的底层变化，以及<a href="https://www.xda-developers.com/project-treble-android-oreo/">你如何判断你的设备是否有</a>。对于那些仍然不知道Project Treble是什么的人来说，它通过将供应商实现(专有blobs和软件、CPU和GPU驱动程序等)与主要的Android框架和系统分离，将Android的下层模块化。这通过模块化硬件抽象层(HALs)并将其与Android操作系统的其余部分分离，以及通过消除OEM对芯片制造商缓慢的驱动程序更新的依赖，从而加快了系统更新。最终目标是希望延长目前大多数设备制造商承诺的24个月主要软件更新支持期。</p>
+
+  
+<p>这应该有助于让Android手机能够接收类似苹果的更新，至少在旗舰手机上是如此。虽然Android旗舰产品平均在24个月内获得2次重大更新，但iPhone设备至少获得4年的iOS更新，包括次要更新。在支持Treble的Android手机上，这最终会成为现实，前提是手机制造商准备更新他们的手机。那些想要在相似的时间框架内保持他们的设备更新的人没有其他选择，只能求助于定制的rom。</p>
+
+<p>幸运的是，项目高音也应该让自定义ROM用户的草更绿。事实上，它有彻底改变定制ROM开发场景的潜力——而且是永久性的。</p>
+
+<hr/>
+
+<h3 id="how-can-custom-roms-take-advantage-of-treble">自定义rom如何利用高音？</h3>
+
+
+<p>为什么非官方的Android Oreo端口正在被慢慢开发，而不仅仅是开发人员可以编译、启动和运行的东西，原因很简单。为了在现有设备上运行新的Android版本，需要对内核和设备树进行大量修改，以使现有的Android手机能够与新的Android版本一起工作。这是因为当前的供应商实现，包括所有专有的二进制blobs，都是为了与单个Android版本一起工作，因此需要重新制作并移植到新的Android版本，以便设备正常工作。</p>
+
+<p>几乎手机内部的所有组件都使用一个独立的专有blob，并且需要独立地进行修补和工作，以便新的软件可以使用它，同时确保其他组件在此过程中不会中断。这确实是一项耗时的任务，也是大多数<em>稳定的</em>定制rom(如LineageOS weeklies或其他官方支持的rom)直到最终的Android版本在AOSP发布后2-3个月才出现的主要原因。所有这些努力也意味着最终的ROM只能在一种设备上工作，或者在最好的情况下，只能在少数相同或相似规格的设备上工作。</p>
+
+<p>据来自<em> ArsTechnica </em> 的<a href="https://arstechnica.com/gadgets/2017/09/android-8-0-oreo-thoroughly-reviewed/2/#h4"> Ron Amadeo称，这似乎正在随着Project Treble而改变，并得到了定制ROM开发商SultanXDA的独立证实。</a></p>
+
+<blockquote>
+<p/><h4>马尔切夫说，Treble将Android硬件支持标准化到如此程度，以至于从AOSP编译的通用Android版本可以在每台Treble设备上启动和运行。事实上，这些“原始AOSP”版本将被用于一些CTS测试，谷歌要求所有Android OEMs厂商通过这些测试以获得谷歌应用的许可——这不仅仅是因为<em>应该</em>工作，而是因为<em>需要</em>工作。</h4>
+ </blockquote>
+<p>为了说明这一点，这意味着由于Android下层的模块化方式，市场上所有的Treble设备都将能够启动一个通用股票，AOSP Android build 。这消除了将定制rom移植到旧设备的大部分麻烦，因为一个单一的通用Android版本可以在许多设备上运行。这使得Android设备更接近个人电脑，你可以在10-12岁的电脑上启动最新、最先进的Windows 10版本或任何Linux发行版。</p>
+
+<p>你还不能在你的Treble设备上完美地启动普通的Android 9.0版本，尽管设备树和内核仍然需要改进。这仍然是一个很好的开始:由于模块化的HALs，带来下一个Android版本的工作量应该会大大减少，我们可以在几天/几周而不是几个月内看到稳定的9.0版本。我们应该记住，Project Treble虽然现在已经推出，但仍是一项正在进行的工作，因为它仍在AOSP接受更改，供应商层最终可能会标准化，安装新的Android版本将与在计算机上安装Windows相同。</p>
+
+<p>这是一个巨大的技术进步，它有可能极大地改善我们论坛上基于AOSP的定制ROM开发。不过，这只适用于带有Project Treble的设备，目前市面上仅有的高音手机有谷歌Pixel、谷歌Pixel XL、索尼Xperia XZ1和XZ1紧凑型。现有的奥利奥之前的手机会发生什么变化？</p>
+
+<hr/>
+
+<h3 id="could-a-custom-rom-bring-treble-to-an-existing-phone">定制ROM能给现有手机带来高音吗？</h3>
+
+
+<p>我们已经有了现有手机的Android Oreo ROMs目录，包括Nexus、一加、小米和摩托罗拉手机。然而，这些rom中的一个能给你的手机带来Project Treble吗？答案:<strong>不太可能</strong>。</p>
+
+<p>对Android底层平台所做的改变非常复杂，不是你能在普通的定制ROM上就能完成的。它不是类似饼图控件或设备手势的东西，而是对供应商实现的全面重新设计。这需要高通和其他硅制造商的努力。谷歌目前正在与不同的原始设备制造商合作，为一些现有的旗舰手机带来三重功能，但即使如此，我们也不确定T2的原始设备制造商正在做什么，因为名单还没有公布。然而，我们已经看到一些高音相关的提交在LineageOS Gerrit中浮动，所以可以肯定地说它确实正在被尝试。</p>
+
+<p>最后，现在说还为时过早。我们之前已经在我们的论坛上看到了一些令人惊叹的开发壮举，包括像<a href="https://forum.xda-developers.com/apps/magisk">通用无系统接口</a>或<a href="https://www.xda-developers.com/nexus-5-hardware-modded-to-64gb-internal-storage-by-replacing-emmc/"> eMMC存储升级</a>这样令人敬畏的东西，所以谁知道呢？有人可能会以某种方式让Project Treble在传统手机上工作。</p>
+
+<p>但是我们只有大约两周的时间去挖掘安卓奥利奥来源，所以正如我们所说的，现在下结论还为时过早。不过，我们仍然对可能性感到兴奋，我们将在XDA门户网站上让您了解未来与高音相关的发展，最好通过XDA实验室应用程序访问！</p>
+
+<p><strong>感谢偏执的Android团队成员<a href="https://www.reddit.com/user/evan1123"> /u/evan1123 </a>澄清了文章中的一个错误！</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Add a Contacts Shortcut and an End Call Button to the Nav Bar during Phone Calls in Android O</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在Android O的手机通话中，在导航条上增加一个联系人快捷方式和一个结束通话按钮</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/add-contacts-shortcut-and-end-call-button-to-nav-bar-during-phone-calls-android-o/#0001-01-01">https://www.xda-developers.com/add-contacts-shortcut-and-end-call-button-to-nav-bar-during-phone-calls-android-o/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如果你一直在关注我们的<a href="https://www.xda-developers.com/category/tutorials/">教程提要</a>，那么你现在应该知道我们喜欢寻找利用Android O的新<a href="https://www.xda-developers.com/android-o-preview-brings-nav-bar-customization-under-system-ui-tuner/">导航条定制器</a>的方法。通过流行的自动化应用Tasker的强大功能，我们可以根据上下文更改导航条，以包含在特定上下文中有用的导航键。在本教程中，我们将演示如何在通话过程中向导航栏添加一个<strong>联系人快捷方式</strong>和一个<strong>结束通话快捷方式</strong>。</p>
+
+ 
+<p class="w-rich w-youtube" id="rFsu7weHEKU">  </p>
+
+
+<p>感谢Eli Irvin成为我的试验品并获得这个截屏。</p>
+
+<p>在上面的视频中，我的测试人员开始与我通话，这导致Tasker在导航栏中显示两个新图标。当联系人快捷方式被按下时，调用<a href="https://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_CONTACTS">键码_联系人</a>，而结束呼叫按钮调用<a href="https://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_ENDCALL">键码_结束呼叫</a>。</p>
+
+<p>我使用的图标不是Android O的导航栏定制器中常见的图标，而是我正在使用的自定义图标。你可以点击这里阅读我之前关于如何给Android O的导航条添加自定义图标的教程。为了这个教程，你需要根据你设备的DPI从<a href="http://www.iconsdb.com/">图标数据库</a>下载两个图标。第一个是<strong>联系人图标</strong>，你应该保存为/NavIcons/contacts.png，第二个是<strong>结束通话图标</strong>，需要保存为/NavIcons/endcall.png</p>
+
+<p>我们将向你展示如何在你自己的设备上复制这个设置，这样你就可以学习如何定制你自己的导航条配置，但是如果你想直接跳到那个，我们也会在文章的最后提供一个下载链接。</p>
+
+<hr/>
+
+
+<h2 id="custom-nav-bar-keys-while-in-a-phone-call">通话时自定义导航条键</h2>
+
+<p>Tasker是必要的，因为它是我们用来检测我们在什么应用程序中的自动化应用程序，并通过SecureTask插件发送命令，这将处理我们的导航栏的更改。安装完这两个应用程序后，我们需要设置SecureTask。</p>
+
+<p>我们需要授予SecureTask修改设备上的系统设置的能力。为此，我们必须授予SecureTask一个称为WRITE_SECURE_SETTINGS的特殊权限，通常常规应用程序无法访问该权限，但用户可以通过ADB手动授予该权限。因此，您需要在您的机器上安装并运行ADB来使其工作。幸运的是，授予这种权限只是一次性的，我们将在未来的Android O相关教程中使用SecureTask(还有几个教程)，所以绝对值得这么做。</p>
+
+<h3 id="setting-up-adb">建立亚洲开发银行</h3>
+<p>你需要做的第一件事是为你的操作系统下载ADB二进制文件。你可以在这里这样做。一旦你下载了它们，如果你用的是Windows，你需要确保你有合适的<a href="https://developer.android.com/studio/run/win-usb.html">驱动程序</a>。</p>
+
+<p>一旦你将二进制文件解压到一个单独的文件夹并安装了驱动程序，我们接下来需要在智能手机上启用USB调试。为此，请打开“设置”,然后进入“关于手机”。点击7次Build Number直到你得到一个对话框告诉你你已经解锁了开发者选项。您现在可以在“设置”中访问开发人员选项。显然在Android O中，你必须输入你的pin/密码才能打开开发者选项。这样做，并寻找USB调试，然后启用它。</p>
+
+<p>现在插上你的手机，在你解压ADB二进制文件的同一个目录下打开一个命令提示符。(Windows用户，按住shift键并右键单击该文件夹，然后选择“在此打开命令提示符”)在命令提示符下键入<code>adb devices</code>。你会看到一条消息，说亚行服务器正在启动，然后在你的手机上，你会看到一个提示，要求你授予你的计算机亚行访问。接受吧。现在，当您在命令提示符下输入<code>adb devices</code>时，您应该会看到您的设备的序列号，如果是这样，那么您就成功了。</p>
+
+<h3 id="granting-write-secure-settings-to-securetask">向SecureTask授予WRITE_SECURE_SETTINGS</h3>
+<p>打开ADB命令提示符后，输入以下命令授予SecureTask必需的权限。</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.balda</span><span class="hljs-selector-class">.securetask</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre>
+<p>SecureTask现在将能够在没有root访问权限的情况下修改系统设置！现在我们准备向Tasker前进。</p>
+
+<h3 id="setting-up-the-tasker-profiles">设置任务者配置文件</h3>
+<p>我们将需要设置两个不同的Tasker配置文件。一个会在你打电话时触发，另一个会在你挂机时触发。前者将显示两个导航条键，后者将禁用它们。非常简单。</p>
+
+
+
+<p>对于第一个配置文件，打开Tasker并按右下角的+按钮创建它。选择<strong>事件</strong>上下文，进入<strong>电话- &gt;电话摘机</strong>。按back返回Tasker的主屏幕。将其命名为“启用手机导航条键”</p>
+
+
+
+
+
+<p>Tasker将要求您附加一个现有任务或创建一个新任务。创建一个新的，进入任务编辑屏幕后，添加以下操作:</p>
+
+<ol> <li>插件-&gt;安全任务-&gt;安全设置。动作:<strong>写</strong>。设置:<code>secure sysui_nav_bar_left</code>。值:<code>key(207:file:///storage/emulated/0/NavIcons/contacts.png)</code></li> <li>插件-&gt;安全任务-&gt;安全设置。动作:<strong>写</strong>。设置:<code>secure sysui_nav_bar_right</code>。值:<code>key(6:file:///storage/emulated/0/NavIcons/endcall.png)</code></li> </ol>
+
+
+
+
+
+<p>退出回到Tasker的主菜单。创建一个新的配置文件并再次选择<strong>事件</strong>上下文，但这次选择<strong>电话- &gt;电话空闲</strong>。命名为“禁用手机导航条键。”</p>
+
+
+
+
+
+
+
+<p>再次创建一个新任务，当您进入任务编辑屏幕时，向它添加以下两个操作:</p>
+
+<ol> <li>插件-&gt;安全任务-&gt;安全设置。动作:<strong>写</strong>。设置:<code>secure sysui_nav_bar_left</code>。值:<code>null</code></li> <li>插件-&gt;安全任务-&gt;安全设置。动作:<strong>写</strong>。设置:<code>secure sysui_nav_bar_right</code>。值:<code>null</code></li> </ol>
+
+
+
+
+
+<p>现在你完成了。当您接受来电，或连接外拨电话，Tasker将显示一个接触快捷键，以及结束通话键。只要电话还在通话，你就可以在使用任何应用程序时使用这些按键。一旦电话结束，Tasker将禁用这些导航条键。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="download-and-import">下载并导入</h2>
+<p>与所有Tasker相关教程一样，我们将提供XML文件供您下载和导入。从下面的AndroidFileHost下载. prf.xml文件，并将其保存到您的内部存储。打开Tasker，长按顶部的Profiles标签，直到你看到一个导入按钮。点击它，查找您刚刚保存的XML文件，然后选择它们来导入它们，一次一个。确保你已经将WRITE_SECURE_SETTINGS授予了我文章中提到的SecureTask，否则配置文件将不会在你的手机上做任何事情！</p>
+
+<p><a href="https://www.androidfilehost.com/?fid=673368273298943972"> <strong>从AndroidFileHost </strong> </a>下载“启用手机导航键”配置文件</p>
+
+<p><a href="https://www.androidfilehost.com/?fid=673368273298943971"> <strong>从AndroidFileHost </strong> </a>下载“禁用手机导航键”配置文件</p>
+
+<p>虽然我们没有更多的Android O导航栏相关教程来分享，但我们确实还有一个关于Android O的教程悬而未决。敬请关注门户网站，获取更多教程！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

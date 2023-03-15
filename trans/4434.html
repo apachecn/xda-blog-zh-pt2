@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Here's Why Many Google Home and Chromecast Devices are Causing Network Issues</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>这就是为什么许多Google Home和Chromecast设备会导致网络问题</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-home-chromecast-connectivity-issues/#0001-01-01">https://www.xda-developers.com/google-home-chromecast-connectivity-issues/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>2017年1月18日更新:</strong>谷歌已经开始通过Google Play服务11.9.74测试版推出针对Cast Wi-Fi漏洞的补丁。如果你还没有注册Google Play服务测试版，你可以在<a href="https://developers.google.com/android/guides/beta-program">这里</a>注册——最新版本将自动安装在与你的Google账户相关的Android设备上。</p> </div></section>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p><strong>2017年1月17日更新:</strong>谷歌周三发布了一个<a href="https://support.google.com/googlehome/answer/7634752?hl=en&amp;ref_topic=7071995">支持页面</a>，详细说明了问题的原因。“在某些情况下，Android手机上的Cast软件中的一个错误可能会错误地发送大量网络流量，从而降低速度或暂时影响Wi-Fi网络，”该页面称。“对网络的具体影响因路由器而异。”这家搜索巨头将于1月18日发布一个修复程序，并建议在此期间，有问题的人应该尝试重启他们的Android手机，并检查以确保他们的路由器运行的是最新的固件版本。</p> </div></section>
+<hr/>
+
+<p/><p>如果你在拿起<a href="https://www.xda-developers.com/google-chromecast-apple-tv-amazon/">谷歌Chromecast </a>或<a href="https://www.xda-developers.com/google-home-sales-top-6-million/">谷歌Home </a>音箱的时候开始遇到Wi-Fi连接问题，你并不孤单。正如TP-Link的工程师最近详述的那样，谷歌的“<a href="https://developers.google.com/cast/"> Cast </a>协议和使用该协议的无线网络的不稳定性之间存在潜在的必然结果。</p>
+
+  
+<p>随着TP-Link Archer C1200路由器的新测试固件(硬件版本1、2和3)，TP-Link工程师发布了他们发现的Google Cast网络漏洞的完整解释。Android手机和平板电脑以及支持Cast的谷歌应用程序，如YouTube、Google Play Movies &amp; TV和Google Photos，通过所谓的MDNS数据包或“多播域名服务器”数据包与谷歌Home和谷歌Chromecast设备保持活跃的连接。MDNS将设备的主机名(即分配给这些设备的网络名称)解析为IP地址，通常用于没有DNS服务器的本地网络。它们通常每20秒左右发送一次，但当一些支持谷歌Cast的设备进入睡眠状态时，它们会继续排队发送新的数据包，直到被唤醒并解锁。这可能会在短时间内导致超过100，000个数据包的激增——发送的数据包数量与设备保持休眠状态的时间成正比。这当然会导致连接问题，但也会导致Wi-Fi路由器崩溃，并影响其许多核心服务。唯一的解决办法就是重启无线路由器。</p>
+
+<p>这个错误不仅限于Archer C1200用户。TP-Link Archer C7 <a href="https://productforums.google.com/forum/#!msg/googlehome/MmnsVnSxdQc/qBJF2KJ1AQAJ">用户</a>报告了同样的崩溃，Synology和Linksys路由器的<a href="https://www.reddit.com/r/Android/comments/7qb3k3/having_wifi_issues_lately_router_problems_linked/">所有者</a>也报告了同样的崩溃。</p>
+
+<p>如果你遇到了这个问题，TP-Link建议现在禁用Android手机和/或平板电脑上的Cast功能。或者，它建议断开所有支持Cast的设备与Wi-Fi网络的连接，直到谷歌发布修复程序。</p>
+
+<p>您可以在源链接上查看TP-Link的故障，以及用于Archer C1200的修复该问题的测试版固件更新。</p>
+
+<hr/>
+
+<p><a href="http://www.tp-link.com/us/faq-2050.html"> <strong>来源:TP-Link</strong></a><a href="https://www.reddit.com/r/Android/comments/7qk7rq/tplink_engineer_explains_wifi_disconnections_tied"><strong>Via:Reddit</strong></a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

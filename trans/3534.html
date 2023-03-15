@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>TWRP has been released for the Google Pixel and Pixel XL</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>TWRP发布了谷歌像素和像素XL</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/twrp-has-been-released-for-the-google-pixel-and-pixel-xl/#0001-01-01">https://www.xda-developers.com/twrp-has-been-released-for-the-google-pixel-and-pixel-xl/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>让自定义ROM开始刷新！用户来我们论坛的一个最常见的原因是刷新自定义模块、内核或rom。为了社区的利益，开发人员投入了无数的时间来定制他们的软件。但是如果没有安装这些修改的方法，这些工作都是不可行的。</p>
+
+  
+<p>在你进入Android改造世界之前，第一步是解锁你的引导程序。对于<a href="http://forum.xda-developers.com/pixel"> Pixel </a>和<a href="http://forum.xda-developers.com/pixel-xl"> Pixel XL </a>的用户来说，这一步已经可以在这两款设备的<a href="http://forum.xda-developers.com/pixel-xl/development/twrp-alpha1-pixel-devices-t3500312">所有变种</a>上实现。下一步是刷新自定义恢复映像，这将允许您刷新自定义ROM或内核映像，并允许您在出现任何问题时进行完整的系统备份。这就是非常受欢迎的<a href="https://twrp.me/">团队胜利恢复项目</a> (TWRP)的用武之地。</p>
+
+<p>几乎每个原始设备制造商的众多设备上都可以使用TWRP，它已经成为任何想要修改设备上软件的人的首选定制恢复。现在，这两款谷歌Pixel手机很快就可以加入这一乐趣了。XDA资深公认开发者<a href="http://forum.xda-developers.com/member.php?u=912474"> Dees_Troy </a>刚刚为谷歌<a href="http://forum.xda-developers.com/pixel/development/twrp-alpha1-pixel-devices-t3500314"> Pixel </a>和<a href="http://forum.xda-developers.com/pixel-xl/development/twrp-alpha1-pixel-devices-t3500312"> Pixel XL </a>发布了首款<strong>TWRP</strong>T4alpha。假设您已经解锁了引导加载程序，现在您可以将恢复刷新到您的设备上。尽管如此，我们应该注意到TWRP的安装方式有一些变化。</p>
+
+<hr/>
+
+<p><strong>安装</strong></p>
+
+<p>如果您曾经手动将TWRP安装到您的设备上，那么您可能熟悉将TWRP映像刷新到恢复分区所需的<em> fastboot </em>命令。<strong>由于分区的改变使得“无缝更新”可以在Android Nougat的Pixel和Pixel XL上运行，你将不会发出同样的命令。</strong>忘掉你认为你知道的一切，在行动前仔细阅读以下说明。本质上，你实际上要做的是安装TWRP的是<strong>引导</strong>TWRP镜像，然后使用<strong>自动安装脚本</strong>，它将处理两个引导分区的<strong>TWRP。</strong></p>
+
+<p>首先，如果你还没有，你需要获取<a href="https://developer.android.com/studio/run/win-usb.html">谷歌USB驱动</a>以及快速启动二进制文件(我们建议下载并解压<a href="http://forum.xda-developers.com/showthread.php?t=2317790">最小ADB &amp;快速启动</a>到你选择的目录)。接下来，为你的设备下载合适的TWRP安装文件(<a href="http://forum.xda-developers.com/pixel/development/twrp-alpha1-pixel-devices-t3500314"> Pixel </a>和<a href="http://forum.xda-developers.com/pixel-xl/development/twrp-alpha1-pixel-devices-t3500312"> Pixel XL </a>)。你需要移动。zip文件压缩到设备的内部存储中，但保留。img文件。然后，打开命令提示符，通过在命令提示符下输入<em>快速启动设备</em>来检查您的设备是否被识别。如果您看到设备的序列号，则快速启动协议会检测到您的设备。最后，您需要通过发出以下命令来临时启动TWRP映像:</p>
+
+<pre> <code class="hljs ">fastboot boot path/to/twrp.img</code> </pre>
+<p>注意“path/to/”指的是下载的TWRP <strong>镜像</strong>文件所在的实际目录。确保你发出的是<em><strong>fastboot</strong><strong>boot</strong></em>和<strong>而不是</strong> fastboot <strong> flash </strong>，并且你引导的文件是<strong>而不是</strong>zip文件。发出启动命令后，您的设备将从您的计算机中检索TWRP映像，并临时启动到TWRP。至此，您差不多完成了。</p>
+
+<p>你现在需要做的就是通过将TWRP刷新到你设备的两个引导分区来让它在重启后存活下来。幸运的是，所有的工作都由您之前下载的自动安装脚本来处理。只需使用TWRP界面导航并安装TWRP安装zip文件<strong>，就像你安装任何定制的ROM、mod或内核zip文件</strong>一样。此后，无论使用哪个活动分区插槽，您都可以访问TWRP。</p>
+
+<hr/>
+
+<p><strong> TWRP阿尔法v1 </strong></p>
+
+<p>因为这是一个<strong> alpha </strong>版本，所以肯定会有问题。现在，迪斯·特洛伊概述了<strong>需要注意的三个问题</strong>。首先，由于Nougat引入了基于文件的加密(FBE ),数据恢复可能会造成问题。</p>
+
+<blockquote>
+<p/><h4>基于文件的加密(FBE)可能比较棘手。如果恢复工作不正常，它会触发数据的自动擦除。我在我的Pixel XL上进行了一点测试，但还没有时间进行广泛的测试。有时，TWRP将无法提示您输入密码，或者无法正确设置解密。如果发生这种情况，重新启动TWRP。这似乎是某种时间问题，我还没有时间去追踪它。</h4>
+ </blockquote>
+<p>没人说这可能会发生在你身上，但它可能会发生在你身上。如果你不经常离线或在云上备份你的数据，那么当出现问题并且你的全部数据被删除时，不要感到震惊。我以前也遇到过这种事，很糟糕。</p>
+
+<p>更新#2: Dees_Troy对可能出现的问题提供了更技术性的解释，以及他计划如何解决这个问题。更多细节见文末第二个补遗。</p>
+
+<p>接下来，如果您当前正在您的设备上使用多用户功能(包括访客功能)，那么您将需要<strong>暂时避免使用TWRP</strong>。</p>
+
+<blockquote>
+<p/><h4 data-tooltip="November 5, 2016 at 6:59:19 PM UTC-5"><span dir="ltr">基于文件的加密意味着每个用户的文件夹都单独加密。</span>为了进行正确的备份、工厂重置等，我们必须让用户解密设备上的每个帐户。</h4>
+ </blockquote>
+<p>目前，TWRP仅支持单用户设置，即使您碰巧知道设备上其他用户的加密密码。Dees_Troy告诉我们，他已经使用命令行工具成功地解密了更多的用户，但在TWRP实现这一功能现在不是一个高优先级，而是可能会在未来的更新中发布。上周，我们的XDA Twitter账户代表Dees_Troy对用户进行了调查，询问他们是否使用多用户功能，绝大多数人表示他们不使用多用户功能，因此我们不认为这一限制会影响很多人。</p>
+
+ 
+
+
+
+<p>但是还有一个问题与大多数将要安装TWRP的用户更相关。目前,<strong> SuperSU将不会与TWRP并肩作战。</strong></p>
+
+<blockquote>
+<p/><h4>如果您目前是根用户，此时安装TWRP将删除根用户。需要升级超级苏才能让TWRP和超级苏共存。</h4>
+ </blockquote>
+<p>更新#1:如果你目前正在使用SuperSU，并计划使用闪光TWRP，请参见Chainfire在文章末尾的附录。 Dees_Troy向XDA开发商解释了这种干扰的原因:</p>
+
+<blockquote>
+<p/><h4>Chainfire使用bootimage的ramdisk来做他的无系统根。这是谷歌打算用于恢复的同一个内存盘。我很确定Chainfire能够想出一个办法让它和TWRP一起工作，但是TWRP需要对init二进制文件做一个小的改动来让decrypt正常工作，Chainfire需要对他的init二进制文件做一个不同的改动来让他的ramdisk正常启动和恢复。</h4>
+ </blockquote>
+<p>换句话说，Chainfire的无系统根方法修改了TWRP需要修改的同一个二进制文件，以便让数据解密工作。因此，当您刷新TWRP时，您正在覆盖由Chainfire的无系统根方法对init二进制文件所做的更改。虽然这是一个小挫折，但由于Pixel的双分区性质(以及未来的牛轧糖设备)，TWRP有一些漂亮的新功能。</p>
+
+<blockquote>
+<p/><h4>像素设备有2个ROMs固件“插槽”。TWRP将检测当前活动的插槽，并使用该插槽进行备份和还原。在“重新启动”页面和“备份-&gt;选项”下有按钮来更改插槽。更改活动插槽将导致TWRP切换TWRP正在备份或还原的插槽。您可以备份插槽A，切换到B，然后恢复备份，这样会将A的备份恢复到插槽B。在TWRP更改插槽也会告诉引导加载程序引导该插槽。</h4>
+ </blockquote>
+<p>这实质上意味着你很快就能在你的设备上双启动。不幸的是，由于定制恢复刚刚<em>发布</em>，你最喜欢的定制ROM开发者需要一些时间在厨房里为你的Pixel手机做些什么。</p>
+
+<hr/>
+
+<p><strong>附录1 -与TWRP一起的SuperSU】</strong></p>
+
+<p>我们被Chainfire告知，任何目前在谷歌Pixel或Pixel XL上使用SuperSU的人<strong>强烈建议</strong>在安装TWRP之前，将普通启动映像刷新到两个分区。为了做到这一点，您需要为您的设备下载<a href="https://developers.google.com/android/images">工厂镜像</a>，并手动从档案中提取股票启动镜像。然后，您需要使用fastboot将引导映像刷新到两个分区，如下所示:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">fastboot</span> <span class="hljs-selector-tag">flash</span> <span class="hljs-selector-tag">boot_a</span> <span class="hljs-selector-tag">boot</span><span class="hljs-selector-class">.img</span><br/><span class="hljs-selector-tag">fastboot</span> <span class="hljs-selector-tag">flash</span> <span class="hljs-selector-tag">boot_b</span> <span class="hljs-selector-tag">boot</span><span class="hljs-selector-class">.img</span></code> </pre>
+<p> </p>
+
+<p>发出这两个命令会将出厂映像中的普通启动映像刷新到设备上的两个启动分区中。然后，您可以继续安装TWRP。</p>
+
+<hr/>
+
+<p><strong>附录2 -基于文件的TWRP加密</strong></p>
+
+<p>在与Dees_Troy的交谈中，他就恢复何时可能出错并导致全部数据擦除给出了以下解释:</p>
+
+<blockquote>
+<p/><h4 data-tooltip="November 15, 2016 at 10:36:38 AM UTC-6">基于ext4文件的加密不允许你对一个*非*空的文件夹应用加密策略。目前，我们正在通过不删除选定的文件夹列表来解决这个问题(我们可以删除文件夹中的内容，但不能删除文件夹本身)。如果出于某种原因，需要加密的文件夹被删除，恢复可能会创建一个未加密的文件夹，然后用一些东西填充它。一旦文件夹为非空，就不能对其设置加密。当设备再次启动Android时，init二进制文件会尝试设置加密策略，如果在设置策略时发现错误，它会强制执行擦除操作。<a href="https://android.googlesource.com/platform/system/core/+/android-7.1.0_r7/init/builtins.cpp#341">这正是</a>抛出错误和开始擦除的地方，如果你关心这类事情的话。</h4>
+ </blockquote>
+<p>用不太专业的术语来说，在还原NANDroid备份的过程中，恢复需要覆盖备份中保存的分区中所有必要的现有文件。为了访问数据分区中的文件，恢复需要使用您的解密密码解密该分区。虽然恢复能够简单地删除和覆盖数据和系统分区中的每个文件夹，但这样做可能会导致加密策略出错。</p>
+
+<p>通过删除一个本应加密的文件夹，TWRP将在其位置创建一个未加密的文件夹，并从这个新目录中的备份恢复所有文件。但是，由于基于文件的加密将使用不同的加密密钥对不同的文件和文件夹进行加密，而不是对整个分区进行加密，因此对设备上单个文件夹的这种单个更改破坏加密将导致整个链抛出错误。Android的政策是随后启动一次全面的数据擦除，导致Android擦除你内部存储中的所有数据。</p>
+
+<p>幸运的是，Dees_Troy已经<strong>确定了需要从TWRP的删除过程中排除的文件夹列表</strong>，这样就不会触发这个错误。他替换了init二进制文件，这样它会在恢复过程中触发错误，但不会擦除设备，从而允许他准确记录哪些文件夹不能删除。我们收到了一份完整的文件夹列表，但由于篇幅原因，我们在此不再赘述。</p>
+
+<hr/>
+
+<p><a href="http://forum.xda-developers.com/pixel/development/twrp-alpha1-pixel-devices-t3500314"> <strong>谷歌像素</strong>下载TWRP T3】</a></p>
+
+<p><a href="http://forum.xda-developers.com/pixel-xl/development/twrp-alpha1-pixel-devices-t3500312"> <strong>谷歌像素XL </strong>下载TWRP T3】</a></p>
+
+<p>你打算在你的设备上运行定制的ROM或内核，还是继续使用现有的固件？请在下面的评论中告诉我们！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Here's How to Enable Google Lens in Google Assistant on Any Device [Root]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>以下是如何在任何设备上启用Google Assistant中的Google Lens[Root]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/enable-google-lens-in-google-assistant-right-now/#0001-01-01">https://www.xda-developers.com/enable-google-lens-in-google-assistant-right-now/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p>更新:看起来谷歌抓住了这个小技巧，并在他们的终端上禁用了对Lens的访问。希望你能在它持续的时候好好利用它！虽然本教程不再工作，我会留下下面的文章未经编辑。</p> </div></section>
+<p/><p>本周，谷歌宣布了期待已久的第二代Pixel智能手机——谷歌Pixel 2和谷歌Pixel 2 XL。与任何新的智能手机一样，通常会有该设备独有的新功能(至少目前如此)。一个这样的功能是谷歌镜头，据说<a href="https://www.xda-developers.com/google-lens-preview-state-pixel-2/">将在Pixel 2和Pixel 2 XL上的预览状态</a>中推出。Google Lens是一套基于视觉的计算能力，可以分析你正在看的东西——可以把它想象成Google Goggles的继任者。</p>
+
+  
+<p><a href="https://www.xda-developers.com/google-lens-introduced-at-io-allows-you-to-connect-to-a-wifi-network-by-pointing-your-camera/">最初在Google I/O 2017 </a>上宣布，该功能被承诺最终将与另外两款谷歌产品集成:谷歌助手和谷歌照片。尽管在新的Pixel手机上推出了独家预览状态，但人们发现，谷歌助手中的谷歌镜头集成现在可以在任何植根于Android的设备上启用<strong>。</strong></p>
+
+<p>不久前，我们发现谷歌镜头集成在谷歌照片中功能齐全，尽管谷歌很快就为我们使用的方法打了补丁，当时我们<a href="https://www.xda-developers.com/try-google-lens-launcher-google-photos/">分享了一种访问谷歌镜头的简单方法。</a></p>
+
+
+
+
+
+<p>但是XDA资深成员<a href="https://forum.xda-developers.com/member.php?u=7538540"> ani_me_sh </a>发现了一种<a href="https://forum.xda-developers.com/redmi-note-3/themes/google-lens-t3684637">新方法</a>，允许根设备在谷歌助手中启用谷歌镜头。这个方法<a href="https://forum.xda-developers.com/android/software/guide-how-to-enable-google-assistant-t3477879">类似于去年使用的一个技巧</a>在非谷歌设备上启用谷歌助手。我们将逐步指导您如何将谷歌镜头与谷歌助手集成。</p>
+
+
+
+
+
+<hr/>
+
+
+<h2 id="tutorial---how-to-enable-google-lens-in-google-assistant">教程-如何在谷歌助手中启用谷歌镜头</h2>
+<p>在我们开始之前，您需要有一个使用SuperSU或Magisk的<strong>根</strong>设备。然后，你需要一个根文件浏览器，比如我们论坛上的MiXplorer。或者，您可以从Play Store下载BuildProp Editor。</p>
+
+ 
+
+
+
+<p>然后，按照以下步骤启用Google Lens:</p>
+
+<ol> <li>安装最新的谷歌应用程序(版本<a href="https://www.apkmirror.com/apk/google-inc/google-search/google-search-7-13-21-release/"> 7.13.21测试版</a></li> <li>打开BuildProp编辑器，点击右上角的<strong>铅笔图标</strong>。这将允许您编辑/system中的build.prop文件。</li> <li>找到(或添加，如果它不在那里)<code>ro.product.manufacturer</code>并改变任何有等于'<strong>谷歌【T2]'</strong></li> <li>找到<code>ro.product.model</code>并将其更改为“<strong> Pixel 2 XL </strong>”</li> <li>最后，在任意位置添加下面一行:<code>ro.opa.eligible_device=true</code></li> <li>点击<strong>保存按钮</strong>保存您的所有更改</li> <li><strong>重启</strong>手机</li> <li>按下home键打开Google Assistant，你现在应该会在右下角看到Google Lens按钮(如之前的截图所示！)</li> </ol>
+
+
+
+
+
+<p>基本上，你是在欺骗谷歌应用程序，让它认为你的设备实际上是谷歌Pixel 2 XL。似乎谷歌应用程序读取这些系统属性值来确定它在什么设备上运行，如果它返回Pixel 2 XL，则启用谷歌镜头。</p>
+
+<p>考虑到谷歌关闭先前方法的速度，我们并不指望这种变通办法永远有效，所以如果你现在想试用Lens，我们建议你尽快试用它！我在运行最新OxygenOS的OnePlus 5上简单测试了一下，可以确认它确实有效。</p>
+
+<h3 id="what-can-google-lens-do">Google Lens能做什么？</h3>
+<p>提醒一下，根据我们之前在APK对Google相册的拆除，Lens应该能做些什么。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_18"><p><strong>可以识别</strong>:</p><ul> <li>艺术品</li> <li>条形码</li> <li>书</li> <li>建筑物</li> <li>陆标</li> <li>媒体封面</li> <li>电影</li> <li>音乐专辑</li> <li>涂漆</li> <li>地方</li> <li>兴趣点</li> <li>状态</li> <li>视频游戏</li> </ul><p><strong>可以执行:</strong></p><ul> <li>从名片添加联系人</li> <li>语言翻译</li> <li>查找产品信息</li> <li>在浏览器中打开网址</li> <li>植物和动物识别</li> <li>将海报中的日期保存到日历中</li> </ul> </div></section>
+<p>考虑到谷歌镜头是谷歌展示其机器学习技术的一个途径，我们推测谷歌将在久而久之添加更多功能。我们只是希望他们不要让这项功能成为Pixel 2的独家功能太久。目前，这种非官方的变通方法是你试用谷歌眼镜的最好机会！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

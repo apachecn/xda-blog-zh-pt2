@@ -1,0 +1,200 @@
+<html>
+<head>
+<title>How to Create Custom Fingerprint Actions with Tasker</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何使用Tasker创建自定义指纹操作</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-create-custom-fingerprint-actions-with-tasker/#0001-01-01">https://www.xda-developers.com/how-to-create-custom-fingerprint-actions-with-tasker/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如果你的智能手机或平板电脑有指纹识别器，它的用途很可能是有限的。除了谷歌Pixel或华为智能手机系列中的一些额外好处，Android上的大多数指纹识别器只能解锁你的设备。幸运的是，借助Tasker的强大功能和一些插件，我们能够显著扩展指纹扫描仪的功能。之前，我做过一个关于如何<a href="https://www.xda-developers.com/create-a-context-aware-fingerprint-reader-in-tasker/">分配自定义指纹动作</a>并使其依赖于上下文的教程。当时，我只演示了如何将当前标签转换到您的PC上。在本教程中，我将提供一些额外的例子来说明如何利用上下文感知的指纹识别器。</p>
+
+  
+<p/><p>但是如果你的手机没有指纹识别器呢？即使你的手机上没有，也不要担心，因为我们可以通过屏幕上的按钮来调整脚本。我甚至会演示如何用一个完全透明的屏幕按钮来复制这个设置！XDA资深会员<a href="http://forum.xda-developers.com/member.php?u=4642185" target="_blank"> Flextrick </a>更新了指纹扫描工具，更好地集成了Tasker，所以这里是我最喜欢的自定义指纹操作。在每一节的最后，我将为那些想要自己复制该设置(并在此过程中学习)的人提供Tasker摘要，但是如果您想简单地下载本文中提到的所有脚本，我在最后提供了一个下载链接。</p>
+
+
+
+
+
+
+<hr/>
+
+
+<h2 id="cast-the-current-chrome-window-updated"><em>施放当前Chrome窗口(已更新)</em></h2>
+<p/><p>在上一篇文章中，我演示了如何使用Join将当前打开的Chrome网页投射到您的PC上。自从我发表了那篇文章后，我想出了一些我认为会改进其功能的变化。虽然单独的配置文件做完全相同的事情，但我已经更新了任务，根据连接的WiFi或从对话框中选择的输入将页面投射到选定的PC。我还添加了一个开关来启用然后禁用<strong>自动输入</strong>辅助功能服务，因为这些<a href="https://www.xda-developers.com/working-as-intended-an-exploration-into-androids-accessibility-lag/">辅助功能服务会降低你手机的速度</a>。为此，我添加了一个<strong>安全设置</strong>可访问性切换动作作为任务中的第一个和最后一个动作。如果你在Android 7.0+上努力让<strong>安全设置</strong>插件工作，看看我这里的<a href="http://www.notenoughtech.com/tasker/secure-settings-nougat/">解决方案</a>或者检查这里<a href="http://www.notenoughtech.com/tasker/tasker-run-shell-commands/">的<strong>运行shell </strong>选项</a>。</p>
+
+<h3 id="wifi-connected-context">WiFi连接上下文</h3><div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151215-169x300.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;WiFi context&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151215-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151215-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151215-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151215-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="WIFI context" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151215-169x300.png" src="../Images/010142de4d894541c4ea3551e855d751.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151215-169x300.png"/> </picture> <figcaption class="body-img-caption">WiFi context</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p/><p>除非您可以从另一个配置文件获取位置值，否则您将需要创建两个附加配置文件。一个将变量<strong>%位置</strong>设置为<em>家</em>，另一个设置为<em>工作</em>。创建配置文件，连接WiFi，填写您的家庭SSID，并链接任务，该任务将变量<strong> %Location </strong>设置为<em> home </em>。为你的工作WiFi做同样的事情。</p>
+
+<p/><p>现在我们已经准备好了这个部分，我们可以通过简单地向<strong> Join Send Push </strong>动作添加一个IF条件来更新我们的原始任务。根据我们的<strong> %Location </strong>变量，将会发布对正确设备的推送，这是我们根据如上所述的WiFi连接配置文件设置的。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_11"><h3 id="chrome-profile">铬型材</h3><p/><pre>Profile: Connected Home<p>状态:Wifi已连接[SSID:FASTBERRY/slow frog MAC:* IP:*]</p><p>进入:连接的家庭</p><p>A1:变量集[名称:% Location To:home Do Maths:Off Append:Off]</p><p>简介:关联工作</p><p>状态:Wifi已连接[ SSID:ITC-STAFF MAC:* IP:* ]</p><p>输入:连接工作</p><p>A1:变量集[名称:% Location To:work Do Maths:Off Append:Off]</p><p>简介:电脑上的Chrome</p><p>应用:铬合金</p><p>事件:变量值[ %FingerScanned eq 1 ]</p><p>回车:Chrome</p><p>A1:安全设置[配置:自动输入:服务。启用ServiceAccessibility的超时(秒):0 ]</p><p>A2:等待[毫秒:0秒:1分钟:0小时:0天:0 ]</p><p>A3:自动输入UI查询[配置:仅可见:真</p><p>仅可点击:false</p><p>App包:com.android.chrome</p><p>检查屏幕状态:假</p><p>正文:((？&lt; = http:\/\/| https:\/\/| https:\/\/www。|http:\/\/www。|www。))?。*</p><p>对</p><p>变量:地址超时(秒):20 ]</p><p>A4:加入发送推送[配置:设备:Chrome@Home</p><p>URL:%地址超时(秒):60 ]如果[ %Location ~ home ]</p><p>A5:加入发送推送[配置:设备:Chrome@work</p><p>URL:%地址超时(秒):60 ]如果[ %Location ~ work ]</p><p>A6:安全设置[配置:自动输入:服务。ServiceAccessibility -禁用超时(秒):0 ]</p></pre> </div></section>
+<h3 id="dialog-context">对话上下文</h3><div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151219-169x300.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Dialog&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151219-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151219-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151219-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151219-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="Dialog" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151219-169x300.png" src="../Images/0183eaaa59233709cacf29991cdc21b9.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151219-169x300.png"/> </picture> <figcaption class="body-img-caption">Dialog</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p/><p>如果你想在一个网络中拥有多台电脑，也许对话会是一个更好的选择。我将使用<strong>自动工具</strong>来生成一个对话框，其中将包含您可以将当前Chrome网页转换到的PC的名称。一旦点击-网站将只发送到那台电脑。如果您打算只使用对话框，您不需要从上面重新创建概要文件。你所需要做的就是将<strong>自动工具</strong>对话框动作添加到你的任务中。用您的家庭设备填充名称，并为每个选项分配命令。这些命令将存储在变量<strong> %atcommand </strong>中。一旦按下，变量将被设置，我们可以触发正确的<strong>加入推</strong>动作。每个<strong>加入推动</strong>动作将有一个匹配的IF条件(<strong> %atcommand </strong> ~ home或work等)。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_15"><h3 id="chrome-dialog-profile">Chrome对话框配置文件</h3><p/><pre>Profile: Chrome On PC<p>应用:铬合金</p><p>事件:变量值[ %FingerScanned eq 1 ]</p><p>进入:Chrome对话框</p><p>A1:安全设置[配置:自动输入:服务。启用ServiceAccessibility的超时(秒):0 ]</p><p>A2:等待[毫秒:0秒:1分钟:0小时:0天:0 ]</p><p>A3:自动输入UI查询[配置:仅可见:真</p><p>仅可点击:假</p><p>App包:com.android.chrome</p><p>检查屏幕状态:假</p><p>正文:((？&lt; = http:\/\/| https:\/\/| https:\/\/www。|http:\/\/www。|www。))?。*</p><p>对</p><p>变量:地址超时(秒):20 ]</p><p>A4:自动工具对话框[配置:对话框类型:列表</p><p>标题:选择您的电脑</p><p>icon:Android . resource://net . dinglisch . Android . taskerm/HD _ hardware _ dock</p><p>列表类型:0</p><p>短信:家庭，工作</p><p>文本大小:20</p><p>图像宽度:100</p><p>命令:家庭、工作</p><p>暗淡背景:真</p><p>上边距:16</p><p>下边距:16</p><p>底部按钮上边距:16</p><p>底部按钮下边距:16</p><p>选择时关闭:真</p><p>分隔符:，</p><p>命令变量:atcommand</p><p>可取消:真</p><p>打开屏幕:真实超时(秒):60 ]</p><p>A5:加入发送推送[配置:设备:Chrome@Home</p><p>URL:%地址超时(秒):60 ] If [ %atcommand ~ home ]</p><p>A6:加入发送推送【配置:设备:Chrome@work</p><p>URL:%地址超时(秒):60 ]如果[ %atcommand ~ work ]</p><p>A7:安全设置[配置:自动输入:服务。ServiceAccessibility -禁用超时(秒):0 ]</p><p/></pre> </div></section>
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="whatsapp---continue-conversation-on-the-pc"><em> WhatsApp -在PC上继续对话</em></h2>
+<p/><p>这是我们在实验室里做的一个新的。在手机上进行Whatsapp对话对于快速回复信息非常有用，但有时你更愿意跳到电脑上打出更长的回复。因此，我创建了一个非常简单但非常有用的个人资料，它可以让<a href="https://web.whatsapp.com/"> WhatsApp的在线界面</a>在你的电脑上运行，这样你就可以继续你的对话。如果您有多台PC，请随意将其链接到WiFIi连接的上下文或创建一个对话框，就像我们在前面的示例中所做的那样。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_19"><h3 id="whatsapp-profile">WhatsApp个人资料</h3><p/><pre>Profile: WhatsApp On PC<p>事件:变量值[ %FingerScanned eq 1 ]</p><p>应用程序:WhatsApp</p><p>输入:Whatsapp</p><p>A1:加入发送推送[配置:设备:Chrome@Home</p><p>URL:https://web.whatsapp.com/超时(秒):60 ]如果[ %Location ~ home ]</p><p>A2:加入发送推送[配置:设备:Chrome@work</p><p>URL:https://web.whatsapp.com/超时(秒):60 ]如果[ %Location ~ work ]</p></pre> </div></section>
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="facebook---open-facebook-on-a-pc"><em>脸书-在电脑上打开脸书</em></h2>
+<p/><p>类似地，如果你厌倦了在移动设备上滚动订阅源，我们可以继续在电脑上浏览脸书。和以前一样，我们将通过加入推送将我们的PC指向脸书桌面网站的<a href="https://www.facebook.com"> URL。当然，您可以通过添加WiFi连接上下文或多个设备的对话框来随意修改它。</a></p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_23"><h3 id="facebook-profile">脸书简介</h3><p/><pre>Profile: Facebook On PC<p>事件:变量值[ %FingerScanned eq 1 ]</p><p>申请:脸书</p><p>输入:脸书</p><p>A1:加入发送推送[配置:设备:Chrome@Home</p><p>URL:https://www.facebook.com/超时(秒):60 ]如果[ %Location ~ home ]</p><p>A2:加入发送推送[配置:设备:Chrome@work</p><p>URL:https://www.facebook.com/超时(秒):60 ]如果[ %Location ~ work ]</p><p/></pre> </div></section>
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="maps---navigate-home-or-to-your-favorite-location"><em>地图——导航回家，或前往您最喜爱的地点</em></h2>
+<p/><p>一键“带我回家”按钮可以节省一些时间和挫折，特别是当你很匆忙的时候。虽然你可以创建一个启动器快捷方式来启动谷歌地图导航，但有些用户不喜欢在主屏幕上添加额外的图标。当Google Maps打开时，我们可以传递一个请求Google带我们回家的意图(需要设置Google Maps中的“家”位置或变量中的硬编码地址)。如果你想有几个喜欢的选择，如“工作”或“拉斯维加斯”，我们也可以链接一个对话框。</p>
+
+<h3 id="navigate-home">导航回家</h3>
+<p>只要快速按下按钮，就会发送一个意图动作。这将打开谷歌地图，并将“家”设置为目的地。简单！</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_29"><h3 id="maps-profile">地图配置文件</h3><p/><pre>Profile: Maps Go Home<p>事件:变量值[ %FingerScanned eq 1 ]</p><p>应用:地图</p><p>输入:地图</p><p>A1:发送意图[Action:Android . Intent . Action . view Cat:None Mime类型:Data:Google . navigation:q = home Extra:Extra:Extra:Package:Class:Target:Activity]</p><p/></pre> </div></section>
+<h3 id="favorite-locations">最喜欢的地点</h3>
+<p/><p><img class="size-medium wp-image-159237 aligncenter" src="../Images/e479d3d262f969a9c7cd320e34af9045.png" alt="screenshot_20161204-151503" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/12/Screenshot_20161204-151503-169x300.png"/>用<strong>自动工具</strong>创建一个对话框，并填写一个位置列表。你可以用家或工作的地方，城市，或特定的地址。用逗号分隔列出它们。按下该选项时，自动工具对话框将填充变量<strong> %attext </strong>。这个选项将被传递给intent，在<strong>数据</strong>字段:<em>Google . navigation:q =<strong>% at text</strong></em>。目的:<em>Android . intent . action . view</em>带你去目的地。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_32"><h3 id="maps-fav-profile">地图收藏配置文件</h3><p/><pre>Profile: Maps Go Home <p>事件:变量值[ %FingerScanned eq 1 ]</p><p>应用:地图</p><p>进入:地图对话框</p><p>A1:自动工具对话框[配置:对话框类型:列表</p><p>标题:选择位置</p><p>icon:app-icon:com . Google . Android . apps . maps</p><p>列表类型:0</p><p>短信:家，工作，拉斯维加斯</p><p>文本大小:20</p><p>图像宽度:100</p><p>暗淡背景:真</p><p>上边距:16</p><p>下边距:16</p><p>底部按钮上边距:16</p><p>底部按钮下边距:16</p><p>选择时关闭:真</p><p>分隔符:，</p><p>命令变量:atcommand</p><p>可取消:真</p><p>打开屏幕:真实超时(秒):60 ]</p><p>A2:发送意图[Action:Android . Intent . Action . view Cat:None Mime类型:Data:Google . navigation:q = % attext Extra:Extra:Extra:Package:Class:Target:Activity]</p><p/></pre> </div></section>
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="hangouts---quick-reply-templates"><em> Hangouts -快速回复模板</em></h2>
+<p/><p>我知道我似乎很喜欢<strong>自动工具对话框</strong>的动作，但那是因为它提供了一个非常有用的功能，可以应用于各种Tasker脚本。在这种情况下，我们将使用一个对话框用快速回复模板快速填充剪贴板。一旦做出选择，你可以粘贴你的文本信息或在几秒钟内回复。不需要打字。</p>
+
+<p/><p>我们将使用一个数组来存储我们的消息模板。要创建一个数组，使用<strong>变量集</strong>并以逗号分隔列出您的选项。然后你将执行一个由逗号分隔的<strong>变量</strong>，然后你将能够在一个自动工具对话框中列出数组！确保它是一个全局数组(名称中包含大写字母),因为局部数组将会消失。自动工具对话框将在文本字段中使用<strong> %Templates() </strong>数组，并用选项填充您的列表。您现在需要做的就是使用<strong>设置剪贴板</strong>动作来存储<strong> %attext </strong>的值。</p>
+
+<p/><p>为了帮助您，我在描述中为您保留了数组操作。一旦创建了一系列模板响应，您就可以从任务中删除A1和A2操作。如果您希望将来修改您的模板响应数组，只需转到Tasker中的“Variables”选项卡并查找<strong> %Templates </strong>变量。</p>
+
+<p/><p/><div class="emaki-custom expandable"><h3>Hangouts配置文件</h3>
+
+<p/><pre>Profile: Hangout Template 
+
+<p>事件:变量值[ %FingerScanned eq 1 ]</p>
+
+<p>应用:悬挂物</p>
+
+<p>输入:Hangout (16)</p>
+
+<p>A1: [X]变量集[ Name:%Templates To:option 1，option 2，option 3 Do Maths:Off Append:Off ]</p>
+
+<p>A2: [X]变量Split [ Name:%Templates Splitter:，Delete Base:Off ]</p>
+
+<p>A3:自动工具对话框[配置:对话框类型:列表</p>
+
+<p>标题:选择您的模板</p>
+
+<p>icon:Android . resource://net . ding lisch . Android . task erm/HD _ content _ edit</p>
+
+<p>列表类型:0</p>
+
+<p>文本:%Templates()</p>
+
+<p>文本大小:20</p>
+
+<p>图像宽度:100</p>
+
+<p>暗淡背景:真</p>
+
+<p>上边距:16</p>
+
+<p>下边距:16</p>
+
+<p>底部按钮上边距:16</p>
+
+<p>底部按钮下边距:16</p>
+
+<p>选择时关闭:真</p>
+
+<p>分隔符:，</p>
+
+<p>命令变量:atcommand</p>
+
+<p>可取消:真</p>
+
+<p>打开屏幕:真实超时(秒):60 ]</p>
+
+<p>A4:设置剪贴板[ Text:%attext Add:Off ]</p>
+
+<p>A5: Flash [文本:剪贴板设置为:%attext Long:On ]</p>
+
+<p/></pre>
+
+<p/></div>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="camera---delayed-shutter"><em>相机延时快门</em></h2>
+<p/><p>我总是觉得用相机自拍很不舒服。扫描你的手指拍照也许不是最好的解决办法，但是你可以设置一个定时器，让你的手到位，拍出更好的照片。</p>
+
+<p/><p>为了给我们自己一个警告，Android语音引擎将通过动作<strong>说</strong>为我们倒计时。之后-使用动作<strong>按钮-相机</strong>用主相机拍照。没有必要玩计时器或伸手去按按钮。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_70"><h3 id="camera-profile">相机配置文件</h3><p/><pre>Profile: Camera Seflie Main<p>事件:变量值[ %FingerScanned eq 1 ]</p><p>应用:照相机</p><p>输入:相机</p><p>A1:说[文本:在3，2，1...engine:Voice:com . Google . Android . TTS:eng-GBR Stream:2 Pitch:6 Speed:6 Respect Audio Focus:On Network:On立即继续任务:Off ]</p><p>A2:等待[毫秒:0秒:1分钟:0小时:0天:0 ]</p><p>A3:按钮[按钮:照相机]</p><p/></pre> </div></section>
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="youtube---cast-video-to-pc"><em> YouTube -将视频传送到电脑</em></h2>
+<p/><p>拥有一台智能电视让我意识到将YouTube视频传输到电脑上是不必要的困难。除非您的电脑在电视模式下打开了YouTube页面，否则cast选项不可用。幸运的是，我们可以使用指纹扫描仪启用该选项。这是另一个简单但有用的概要文件。我们所要做的就是通过加入推送在我们的电脑上打开<a href="https://www.youtube.com/tv"> YouTube电视页面</a>，然后你就可以将你当前的视频传送到你的电脑上了！这么简单！</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_74"><h3 id="youtube-profile">YouTube个人资料</h3><p/><pre>Profile: Youtube PC (21)<p>事件:变量值[ %FingerScanned eq 1 ]</p><p>应用:YouTube</p><p>输入:Youtube (20)</p><p>A1:加入发送推送[配置:设备:Chrome@Home</p><p>URL:https://www.youtube.com/tv超时(秒):60 ]</p><p/></pre> </div></section>
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="fingerprint-sensor-alternative"><em>指纹传感器替代品</em></h2>
+
+
+<p>如果你没有传感器，同样的行为可以通过叠加来再现，通过制作一个不可见的场景，其行为方式与扫描你的手指完全相同。将它放在一个固定的位置，这样您就知道在哪里点击(或长时间点击)并执行以下操作:</p>
+
+<p/><pre>Scanned Finger
+
+<p>A1:变量集[名称:% finger scanned To:1 Do Maths:Off Append:Off]</p>
+
+<p>A2:等待[毫秒:0秒:2分钟:0小时:0天:0 ]</p>
+
+<p>A3:变量集[名称:% finger scanned To:0 Do Maths:Off Append:Off]</p>
+
+<p/></pre>
+
+<p>你可以让按钮可见，但我发现它有点分散注意力，尤其是在观看视频时。通过创建显示和销毁场景的配置文件，选择所有支持使用该按钮的应用程序。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_85"><h3 id="fake-button">假按钮</h3><p/><pre>Profile: Fake Button<p>应用:铬，相机，Hangouts...</p><p>回车:假按钮</p><p>A1:创建场景[名称:假手指]</p><p>A2:显示场景[名称:假手指显示为:覆盖，阻挡水平位置:200垂直位置:100动画:系统显示退出按钮:on立即继续任务:On ]</p><p>退出:假按钮-</p><p>A1:破坏现场[姓名:假手指]</p><p/></pre> </div></section>
+<hr/>
+
+<p>您可以通过下面的下载链接下载整个项目。下载完项目XML文件后，您可以打开Tasker，然后长按左下角的Home图标来导入它。这将打开Tasker项目菜单，允许您导入位于内部存储器上的项目。</p>
+
+<p><a href="https://www.androidfilehost.com/?fid=529152257862686778"> <strong>下载上下文感知指纹识别器项目</strong> </a></p>
+
+<p>我很想看看你还能想出什么其他的用途。让我知道，我会更新这个职位。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

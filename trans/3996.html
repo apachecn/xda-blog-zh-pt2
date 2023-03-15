@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>How to Access the Facebook Hidden Settings Menu on Android</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何访问Android上的脸书隐藏设置菜单</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/access-facebook-hidden-settings/#0001-01-01">https://www.xda-developers.com/access-facebook-hidden-settings/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>脸书的应用程序<a href="https://www.xda-developers.com/facebook-messenger-internal-menu/">很像它的对手Facebook Messenger应用程序</a>，也有自己隐藏的内部菜单，供脸书的工程师用于调试和测试。这个脸书隐藏设置菜单<strong>不能</strong>永久启用，不像Messenger的内部菜单。很像Messenger你<strong>需要root权限</strong>或者XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=5029215"> evilwombat </a>修改的<a href="https://forum.xda-developers.com/android/apps-games/bullshified-version-facebook-okay-to-t3586318">APK</a>才能进入这个菜单。正如在Messenger教程中一样，您还需要使用Android调试桥(ADB)或终端应用程序，如<a href="https://www.xda-developers.com/termux-the-ultimate-linux-terminal-emulator-for-android-xda-spotlight/"> Termux </a>。如果您使用ADB，需要启用USB调试，这可以在您设备上的开发者选项中找到。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>您将需要在您的手机上的root访问权限，以遵循本教程。解锁设备的引导程序后，你可以通过闪烁<a href="https://forum.xda-developers.com/apps/magisk"> Magisk </a>或<a href="https://forum.xda-developers.com/apps/supersu"> SuperSU </a>来获得root权限。请注意，使用上面链接的修改后的APK需要您卸载任何现有的脸书应用程序，而是使用来自您计划使用的同一开发商的所有修改后的脸书应用程序的<em/>。</p> </div></section>
+<hr/>
+
+
+
+<h3 id="using-adb">使用亚行</h3>
+<p>下载您选择的亚行工具。这些可以是来自我们论坛的"<a href="https://forum.xda-developers.com/showthread.php?t=2317790">最小亚行&amp;快速启动</a>或者是谷歌发布的<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/">官方二进制文件</a>。安装或解压后，在包含ADB二进制文件的文件夹中，按住shift +右键并点击“在此打开命令窗口”(如果你在Windows上)。如果你在Mac或Linux上，那么你需要在下面的“adb shell”命令前加上adb二进制文件的目录。</p>
+
+<p>将电话连接到计算机，并授予调试访问权限。接下来，在命令提示符下键入以下命令:</p>
+
+<pre> <code class="hljs ">adb shell</code> </pre>
+<pre> <code class="hljs ">su</code> </pre>
+<p>当手机提示时，授予超级用户访问“shell”的权限。</p>
+
+<pre> <code class="hljs sql">am <span class="hljs-keyword">start</span> -n <span class="hljs-string">"com.facebook.katana/com.facebook.katana.internsettingsactivity.InternSettingsActivity"</span></code> </pre>
+<p>现在，您将看到手机上的内部菜单打开。</p>
+
+<h3 id="using-terminal">使用终端</h3>
+<p>打开您选择的终端应用程序。我个人使用Termux，但任何可以访问终端的设备都可以正常工作。键入以下命令。</p>
+
+ 
+
+
+
+<pre> <code class="hljs ">su</code> </pre>
+<p>当设备上出现提示时，授予超级用户访问权限。</p>
+
+<pre> <code class="hljs sql">am <span class="hljs-keyword">start</span> -n <span class="hljs-string">"com.facebook.katana/com.facebook.katana.internsettingsactivity.InternSettingsActivity"</span></code> </pre>
+<p>内部菜单将在您的设备上打开。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="explanation">说明</h2>
+<p>我们使用adb或终端来启动<code>InternSettingsActivity</code>，它是隐藏的内部菜单活动的名称。这是在AndroidManifest文件中定义的未导出的活动；这意味着它不能从第三方应用程序正常访问。这个内部菜单中有一些设置和调整，脸书应用程序的用户可能会从中受益。这个菜单只允许脸书应用的开发者和测试者使用，所以你可以做很多事情。向下滚动查看一些示例。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+
+<h3 id="data-saver">数据保护程序</h3>
+
+
+<p>这是我在内部设置中最喜欢的功能。您可以启用数据使用监视器，一旦达到特定限制，它将停止应用程序传输数据。这对那些使用计量连接的人来说是件好事，因为脸书的数据非常密集。它充满了视频和图片，所以这并不奇怪。有了这个菜单，你可以简单地设置应用程序允许的最大数据量，如果你想允许自己使用更多的数据，也可以重置计数器。这个限制器适用于WiFi或移动数据，所以那些在WiFi上使用限制性数据上限的人也可以利用这一点。</p>
+
+<h3 id="force-app-update">强制应用更新</h3>
+
+
+<p>另一个有趣的功能是“强制应用程序更新”功能。它似乎下载了最新版本的应用程序和更新，虽然我没有得到一个软件包安装的尝试，即使一个toast告诉我它正在下载。这个特性可能被破坏了，但是看起来仍然很有趣。</p>
+
+<h3 id="video-stats">视频统计</h3>
+
+
+<p>在内部菜单中，您可以启用播放视频的视频规格，以便在观看视频时显示元数据(文件信息)。您还可以启用日志记录、静音播放视频和强制自动播放视频。自动播放设置已经在应用程序中了，但在这里看到它们稍微高级一点还是很有趣的。</p>
+
+<p> </p>
+
+<p>仅此而已，如果你发现脸书应用程序中隐藏的任何其他有用的功能，请在下面的评论中告诉我们！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

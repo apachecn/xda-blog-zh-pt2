@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Play Store will Require New and Updated Apps to Target Newer API Levels and Distribute Native Code with 64-bit Support</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Play Store将要求新的和更新的应用程序以更新的API级别为目标，并分发支持64位的本机代码</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/play-store-updated-requirements-api-level-64-bit/#0001-01-01">https://www.xda-developers.com/play-store-updated-requirements-api-level-64-bit/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在今天的一篇博客文章中，谷歌宣布了提交到Play Store的应用程序即将发生的重大变化。这些变化旨在通过要求开发人员以更新的API级别为目标来提高最终用户的安全性。此外，Google还将开始要求发布本地库的应用程序也提供这些库的64位版本。不过，这些变化分别要到2018年中期和2019年中期才会生效，因此开发人员将有足够的时间进行更新，以满足这些新要求。让我们更深入地了解一下这些变化对开发人员和最终用户意味着什么。</p>
+
+ 
+<hr/>
+
+
+<h2 id="change-1-targeting-a-newer-api-level">变化#1:瞄准更新的API级别</h2>
+<p>最新的API级别是27，对应的是<a href="https://www.xda-developers.com/android-8-1-oreo-final-release-imminent/"> Android 8.1版本</a>。在那之前是对应安卓8.0奥利奥的API级。从【2018年8月开始，任何提交到Play Store <strong>的<strong>新应用</strong>必须至少针对API级别26 </strong>。此外，从2018年11月<strong>开始</strong>，对现有应用的<strong>更新也必须<strong>以API级别26或更高</strong>为目标。</strong></p>
+
+<p>然而，这些要求并不是一成不变的。2019年，谷歌将在每个主要Android版本发布一年后<strong>增加targetSdkVersion要求。例如，Android P发布一年后，应用程序必须以API级别28或更高为目标。</strong></p>
+
+<p>请记住，这些要求<strong>仅针对目标API级别</strong>，而非最低要求。这意味着你仍然可以构建在旧版本Android上运行的应用程序，比如Android Lollipop。这很重要，因为仍有数百万用户在他们的设备上运行旧版本的Android。您应该实现什么样的最低API级别？在Twitter上关注<a href="https://twitter.com/minsdkversion?lang=en"> @minSdkVersion </a>，及时了解你应该何时改变现状。</p>
+
+<p>至于在可预见的将来不会收到任何更新的应用程序，什么都不会改变。这些应用程序将继续存在，尽管它们当然不能利用新SDK中引入的任何新功能。如果这种应用程序的开发者出于任何原因希望更新他们的应用程序，那么他们将不得不更新他们的应用程序以满足更高API级别的要求。</p>
+
+<p>这对用户安全来说是一个福音。Android 6.0 Marshmallow引入了运行时权限，在用户必须接受的对话框后面保护某些敏感权限，如位置或联系人访问。然而，应用程序可以通过定位旧的API级别来避开运行时权限。如果应用程序以这个较旧的API级别为目标，则在安装过程中会授予权限。</p>
+
+<p>此外，Android Oreo对后台应用程序执行、隐式广播接收器和后台位置限制的新限制只是对以API级为目标的应用程序的要求。由于这种API水平将是未来的一项要求，这意味着任何运行Android Oreo的用户都不必担心应用程序不会因Android Oreo的新限制而优化。</p>
+
+<h3 id="a-note-on-future-android-versions">关于未来Android版本的说明</h3>
+<p>这个新要求中有一个条款很有趣。引用这篇博文:</p>
+
+<blockquote>
+<p/><h4>未来的Android版本还将限制不针对最新API级别并对性能或安全性产生负面影响的应用程序。</h4>
+ </blockquote>
+<p>鉴于之前的要求只影响提交到Play Store的新应用程序或更新的应用程序，这句话似乎<strong>暗示未来版本的Android也将对不能跟上最新API水平的应用程序</strong>进行限制。Android 8.0 Oreo引入了<a href="https://www.xda-developers.com/runtime-only-permissions-android-oreo/">仅运行时权限</a>，要求应用程序目标API级别为23，因此谷歌可以开始在这些限制背后增加新功能。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="change-2-64-bit-support-for-native-code">变化#2:对本机代码的64位支持</h2>
+<p>大多数旗舰Android设备都采用基于64位架构的芯片。据谷歌称，超过40%的设备支持64位。分发本地库的应用程序目前只能基于32位代码，由于向后兼容，64位设备仍将工作。</p>
+
+<p>然而，由于64位代码可以提供更好的性能，谷歌将<strong>要求应用程序利用原生库的开发人员必须有64位替代产品</strong>才能在仅64位设备上运行。应用程序可以同时包含32位和64位库，或者使用开发人员控制台中的<a href="https://developer.android.com/google/play/publishing/multiple-apks.html">多APK </a>功能，使用任一库分发多个版本的APK。这一要求将于2019年8月开始生效，不影响不运行任何本机代码的应用程序。</p>
+<p class="ad-even"> </p>
+
+
+
+<p>这最后一个变化不需要开发人员采取任何行动。相反，这将由Google Play自动处理。Play Store将开始向每个APK 添加<strong>少量元数据，这将验证应用程序是否由谷歌Play商店正式发布。Google Play的最大APK大小将会增加，以考虑这些新的元数据，但开发者的应用程序中不应有任何改变。</strong></p>
+
+<hr/>
+
+<p><a href="https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html"> <strong>来源:谷歌</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

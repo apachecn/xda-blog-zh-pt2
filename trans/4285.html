@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Unofficial TWRP for the OnePlus 5T Released—Make Backups and Root the Phone</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>OnePlus 5T发布的非官方TWRP——制作备份和手机Root</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/unofficial-twrp-oneplus-5t-released/#0001-01-01">https://www.xda-developers.com/unofficial-twrp-oneplus-5t-released/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>OnePlus 5T今天刚刚<a href="https://www.xda-developers.com/oneplus-5t-official-launch/">公布。除了显示屏，它与OnePlus 5相比并没有太大的不同。我们还不能确定OnePlus 5/5T是否可能实现统一构建，但感谢内核源代码发布，我们知道</a><a href="https://www.xda-developers.com/oneplus-5t-no-jelly-scrolling/">果冻滚动问题很可能已经消失</a>。尽管这款手机本身还没有到达任何消费者手中(它将于11月21日发布)，但我们已经为这款手机在TWRP制造了。</p>
+
+  
+
+
+<p>由于OnePlus 5的TWRP版本无法启动，我们只是用OnePlus 5T的内核重新打包了OnePlus 5的TWRP版本。它的工作方式与您预期的一样——您可以擦除分区、制作备份和闪存zip文件。当然，还没有任何rom，内核，或其他修改实际上可用于手机，但这是很好的已经提供给那些你第一天的闪存爱好者。</p>
+
+<p/><p><a href="https://www.androidfilehost.com/?fid=745849072291689244"> <strong>下载一加5T的TWRP</strong></a></p>
+
+<p>你可以通过上面的链接下载我们制作的TWRP版本。解锁OnePlus 5T的引导加载程序后，您可以通过发送以下命令之一来引导或刷新它。</p>
+
+<p><strong>开机</strong>:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">fastboot</span> <span class="hljs-selector-tag">boot</span> <span class="hljs-selector-tag">o5ttwrp</span><span class="hljs-selector-class">.img</span></code> </pre>
+<p><strong>闪光</strong>:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">fastboot</span> <span class="hljs-selector-tag">flash</span> <span class="hljs-selector-tag">recovery</span> <span class="hljs-selector-tag">o5ttwrp</span><span class="hljs-selector-class">.img</span></code> </pre>
+<p>请记住，这是一个<strong>非官方版本</strong>，我们是为了自己的测试目的而制作的。现在这个设备的<a href="https://github.com/OnePlusOSS/android_kernel_oneplus_msm8998/commit/bed1ab9e043f7b182e7b352fbe827ccab9efb389">内核源代码</a>已经发布，开发者可以创建一个合适的TWRP版本了。我们的OnePlus 5T论坛将很快开放，因此一旦论坛上线，您可以在那里关注未来的发展。</p>
+
+<p>我们希望能够很快确定是否有可能进行统一构建。这样的开发将大大提高OnePlus 5T的可定制性，因为开发工作将不必分散在我们已经很受欢迎的OnePlus 5论坛和新的OnePlus 5T论坛上。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

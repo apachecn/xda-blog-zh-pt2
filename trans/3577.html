@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>arkTube is a Light Weight, Feature-Filled YouTube Audio and Video Downloader [XDA Spotlight]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>arkTube是一个轻量级、功能丰富的YouTube音频和视频下载器[XDA聚焦]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/arktube-is-a-light-weight-feature-filled-youtube-downloader/#0001-01-01">https://www.xda-developers.com/arktube-is-a-light-weight-feature-filled-youtube-downloader/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>XDA公认的开发者<a href="https://forum.xda-developers.com/member.php?u=4898097"> arter97 </a>，一个多产的ROM、内核和root mods开发者，在我们的论坛上非常活跃，他还开发了一个最<a href="https://forum.xda-developers.com/general/paid-software/app-arktube-ultimate-youtube-downloader-t3321818">功能齐全且易于使用的YouTube视频和音频下载</a>应用程序，可用于Android - <strong> arkTube </strong>。</p>
+
+  
+<p><strong> <em>更新:</em> </strong> <em>新版本也已经推出，以解决一些用户遇到的“不支持视频”的错误。</em></p>
+
+<p>虽然允许你从YouTube上下载的应用程序并不新鲜，但大多数都有一些限制。从YouTube下载的一些更受欢迎的方法包括安装YouTube应用程序的修改版本或使用Xposed模块，但这两种方法都需要频繁更新，因为Google对YouTube应用程序进行了许多更改。此外，使用Xposed模块必然需要root访问权限和框架支持的Android版本，所以我们中的许多运行Android Nougat的人运气不好。</p>
+
+<p>如果你熟悉python脚本，你可能听说过<a href="https://rg3.github.io/youtube-dl/">youtube-dl</a>——从YouTube下载视频或音频的最流行的命令行程序之一。它提供了过多的选项来获取任何分辨率或格式的源视频以及任何嵌入的元数据。一些应用程序，如Videoder或Tubemate，使用了youtube-dl，但它们主要是作为youtube应用程序的包装器。对于那些正在寻找更简单的替代品(但是拥有youtube-dl的所有强大功能)的人来说，我们想让<strong> arkTube </strong>引起你的注意。</p>
+
+<hr/>
+
+
+<h2 id="arktube---a-youtube-downloader-without-the-bloat">arkTube -一个没有膨胀的YouTube下载器</h2>
+<p>一旦你安装了应用程序并启用了你想要的设置，这个极简的YouTube下载器就会通过分享任何视频或播放列表YouTube URL到应用程序而被召唤。您可以选择从共享菜单中直接下载视频或音频。如果您选择下载视频，会出现一个对话框，询问您想要获得哪种分辨率和帧速率质量。如果您选择下载音频，下载将根据您的预设偏好自动开始。</p>
+
+
+
+
+
+<p>虽然免费版将为您提供基本的支持和一些最有用的功能，但付费版(只需<strong> $1.99 </strong>！)是应用程序真正闪光的地方。(注意，与任何YouTube下载应用一样，arkTube在Play Store上找不到——但在那里可以找到<a href="https://play.google.com/store/apps/details?id=com.arter97.donation"> pro版解锁器</a>。)</p>
+
+<p>该应用程序为输出分辨率质量和音频/视频编解码器提供了多个详细的选项。arkTube会根据原始视频编解码器是VP9还是H.264来自动决定是将视频导出为MP4还是mkv。音频有三个编解码器选项，Vorbis或Opus OGG编解码器以保证兼容性为代价提供较小的文件大小，AAC/M4A是默认选择。</p>
+
+<p>导出分辨率质量选项的范围从240p到8k @60fps(尽管免费版本被限制为最大720p @ 60fps)，每个分辨率都提供默认帧速率或每秒50/60帧(如果视频支持)的选择。还有一个自动分辨率选择选项，这将允许您更快地下载所需分辨率的视频，而不是问你想要的质量。请注意，要下载视频播放列表，需要启用自动选择分辨率功能。</p>
+
+
+
+
+
+<p>然而，这只是arkTube的冰山一角。我们将根据我们使用该应用程序的经验列出一些重要的特性。</p>
+
+<ul> <li>下载整个播放列表，并按最近的先下载或最早的先下载排序。添加播放列表编号的选项，以便对播放列表中的每个项目进行排序。</li> <li>为每种不同的可用质量提供了文件大小估计。</li> <li>多种存储选项(内部和外部存储支持)</li> <li>元数据自动填充所有音频(免费和付费)，提供标题和频道。视频元数据需要专业版。</li> <li>多达8个同步下载，支持下载线程(下载速度更快)。</li> <li>暂停/继续下载</li> <li>圆滑的材料设计实现。</li> </ul>
+
+<p>我们在许多流行的YouTube视频上测试了arkTube，看看它是如何处理元数据的，我们留下了深刻的印象。首先，字幕和其他元数据(如YouTube视频描述)被适当地存储起来。在我使用其他YouTube下载应用的经验中，很少有人能够像arkTube那样干净地存储元数据。</p>
+
+
+
+
+
+<p>正如你在上面的截图中所看到的，这段视频的所有元数据都是从YouTube页面上正确抓取而来的<a href="https://www.youtube.com/watch?v=hRfHcp2GjVI">。考虑到需要获取大量元数据，这就产生了一个输出视频，本质上是你在YouTube上看到的内容的翻版。</a></p>
+
+<p>接下来，我们还对arkTube轻松处理YouTube播放列表的方式印象深刻。当您选择下载播放列表时，您可以下载视频或音频形式的每个项目。你也可以选择按时间顺序向前或向后下载。初始化后，您可以在状态栏中看到视频下载的进度。尽管有许多视频正在下载，请放心，arkTube不会阻塞你的状态栏-你的下载通知是折叠的，直到你展开它们。</p>
+
+
+
+
+
+<p>正如你在第三个截图中看到的，我选择下载文件为。ogg文件，此外，播放列表按时间顺序列出了曲目编号。虽然我选择将这些视频保存在内部存储器上，但正如上面的功能列表中提到的，你可以选择设备上的任何目录进行存储。</p>
+
+
+
+
+
+<p>例如，您可以选择保存到外部SD卡，这样，如果您发现自己保存了数千兆字节的视频，就不会那么担心空间问题。选择外部存储器作为保存点的过程只有几步，但是非常简单，arkTube本身会指导用户完成这个过程。</p>
+
+<p>如果你正在下载许多千兆字节的视频或音频，通常下载完成会很痛苦。但是arkTube提供了一些漂亮的下载加速选项来加速这个过程。您可以启用同步下载和多个下载线程，以大大缩短下载时间，但代价是使用额外的带宽。</p>
+
+
+
+
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="conclusion">结论</h2>
+<p>arkTube作为YouTube下载应用的主要优势是它的轻量级和不引人注目的方式，允许你从YouTube上抓取音频或视频。将这一事实与其许多强大的定制选项相结合，很容易理解为什么这个应用程序迅速成为我从YouTube下载的首选。我将不再需要依赖其他试图模仿YouTube用户界面或摆弄python脚本的应用程序——ark tube将最好的youtube-dl特性包装在一个极简的用户界面中。</p>
+
+<p>arkTube的应用程序制作得如此之好，确实没有得到应有的重视，我想对arter97的出色工作表示感谢！</p>
+
+<p>从我们的论坛查看arkTube！T3】</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

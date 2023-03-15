@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Use Android Pay with Xposed Without Rebooting with Magisk</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用Android Pay with Xposed无需重启Magisk</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/use-android-pay-with-xposed-without-rebooting-with-magisk/#0001-01-01">https://www.xda-developers.com/use-android-pay-with-xposed-without-rebooting-with-magisk/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在许多第一世界的问题中，有一个问题引起了许多XDA居民的共鸣。一方面，Android着眼于未来，推出了类似Android Pay的解决方案——允许你用手机在物理终端上支付，而不需要你的钱包。这很方便，也很有效(如果你在受支持的地区)。</p>
+
+  
+<p>另一方面，像Xposed这样的修改和允许提升应用程序的SU权限的能力允许大量的定制。对我们来说，Android是让你的手机成为我们自己的，而像这样的修改才是真正可能的。因此，Android Pay和Xposed很难共存。我们知道为什么，但这并不能阻止人们去尝试。</p>
+
+<p>以前，如果你想使用Android Pay，你必须保持完全库存和无根。然后出现了SuperSU和Xposed的无系统版本，如果用户禁用Xposed并重启，他们就可以使用Android Pay。里程确实因手机、安卓版本和更多变量而异。但这无疑是从零兼容性的前几个阶段的进步。</p>
+
+<p>今天的新闻更进了一步。公认的贡献者<a href="http://forum.xda-developers.com/member.php?u=4470081">topjohnwu</a>,<a href="http://www.xda-developers.com/unoffical-systemless-xposed-is-now-available-otas-and-pay-unaffected/">非官方无系统曝光改装</a>的开发者，创造了<a href="http://forum.xda-developers.com/android/software/mod-magisk-v1-universal-systemless-t3432382">Magisk</a>——通用无系统接口。正如dev所说:</p>
+
+<blockquote>
+<p>Magisk是一个无系统改变系统的魔术面具。</p>
+ </blockquote>
+<p>Magisk本身有很大的潜力。它挖掘了进行无系统修改的潜力，同时消除了与之相关的复杂性。无系统的mods很复杂，很难维护，并且在一般使用中有局限性和不可行性。Magisk消除了这些困难，并为每个人，包括开发者和用户，创建了一个通用的界面来使用和开发无系统mods。</p>
+
+<p>Magisk有很多超越Android Pay兼容性的功能。其中之一是Magic Mount，它不仅允许你替换/system中的文件，甚至允许你添加新的文件和目录。这本身就为所有现有的暴露的mod打开了无系统工作的可能性。如果这不符合您的意愿，Magisk还承诺在引导期间为脚本运行提供多个入口点。Magisk Manager允许您管理您的root挂载状态，这将我们带到第一个问题的解决方案:使用Android Pay和root和Xposed！</p>
+
+<p>要安装Magisk，开发人员建议从100%的库存系统和引导映像状态开始。然后你需要闪Magisk就大功告成了。如果你不是100%的股票系统和启动图像，开发人员已经制定了一些指示，你可以按照成功安装。</p>
+
+<p>想了解更多的特性，想了解更多关于mod本身的信息，请前往<a href="http://forum.xda-developers.com/android/software/mod-magisk-v1-universal-systemless-t3432382">论坛主题</a>。</p>
+
+<h3 id="so-how-do-you-get-around-to-using-android-pay-with-root-and-xposed">那么，如何在root和Xposed下使用Android Pay呢？</h3>
+<p>首先，你需要安装Magisk。然后，您需要确保您使用的是兼容Magisk的phh开源超级用户(可以从Magisk线程下载)。对于Xposed，您需要Magisk兼容的systemless Xposed(在Magisk线程中链接)。然后，您需要打开随Magisk自动安装的Magisk管理器，并单击unmount root。你瞧，Android Pay现在应该可以工作了，你甚至不需要重启！这是因为这个选项实际上是暂时<strong>完全解除你的设备的root</strong>，所以任何需要root的东西都没有root，结果是使用安全网检查的应用程序也无法检测到root。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/Magisk-Manager.png"/></p>
+
+
+
+<p/>
+
+<p>要恢复root，只需重新安装root，就可以了。简单易行，无需重启。</p>
+
+<p>如果您选择的超级用户权限管理工具是Chainfire的SuperSU，则不能保证100%的兼容性。开发人员已经创建了一个方便的图表，它会告诉您如果您偏离了推荐的操作过程，可以做什么和不可以做什么。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/08/http-2F2Fi.imgur_.com2FHXgzA52.png"/></p>
+
+
+
+<p/>
+
+<blockquote>
+<p>如果你因为想让Android Pay与Xposed一起工作而被迫使用phh的root，但你也想使用不兼容的应用程序(需要secontext live patching)，这里我在“Magisk Manager”中提供了一个开关，让你将SELinux设置为许可。这将提供最大的兼容性(这将允许任何事情发生)。请注意，我不建议让SELinux永久切换到许可模式。仅在必要时使用！</p>
+ </blockquote>
+<p>Magisk还有很多内容超出了本文的范围。开发者在他的<a href="http://forum.xda-developers.com/android/software/mod-magisk-v1-universal-systemless-t3432382">论坛线程</a>中已经涵盖了很多信息，建议大家去看看。开发人员也要求用户不要在SuperSU与Magisk的兼容性请求上出现问题，因为开发人员会在适当的时候自己处理。</p>
+
+<p>现在，是时候回到#BackToStock，然后进行无系统的修改。如果你试用过Magisk，请在下面的评论中告诉我们你的体验！请在下面的评论中确认Android Pay是否可以在你的设备上使用！<strong>闪了！</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

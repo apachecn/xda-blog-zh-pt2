@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Replicate the Google Dialer's Floating Bubble Feature with Tasker and AutoTools</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>用Tasker和AutoTools复制Google Dialer的浮动气泡功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/replicate-google-dialer-floating-bubble-feature/#0001-01-01">https://www.xda-developers.com/replicate-google-dialer-floating-bubble-feature/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>之前，我们已经分享了如何通过修改Android设备上的文件来<a href="https://www.xda-developers.com/enable-google-dialer-floating-bubble/">启用谷歌手机应用程序的新浮动拨号气泡</a>。从那以后，我们最喜欢的Tasker插件开发者，<a href="https://plus.google.com/+Jo%C3%A3oDias">joo Dias</a>，想出了一个自己的解决方案，用他的AutoTools应用程序来重现同样的浮动泡泡。他的视频很酷，但附带的<a href="http://forum.joaoapps.com/index.php?resources/create-google-dialer%E2%80%99s-floating-bubble-feature-with-a-web-screen.294/" target="_blank" rel="noopener">帖子</a>在其描述中略有欠缺，所以我想我应该创建一个单独的教程，并通过在拨号器浮动气泡中的切换添加视觉反馈来改进joo的设计。</p>
+
+ 
+<p class="w-rich w-youtube" id="5dQjmjJHuvw">  </p>
+
+
+<p>像往常一样，我们将首先跟随一个教程，然后在最后你可以找到关于导入项目的下载链接和说明。</p>
+
+<hr/>
+
+
+<h2 id="replicate-google-dialer-s-floating-bubble">复制谷歌拨号器的浮动气泡</h2>
+<p>[app box Google play com . joaomgcd . autotools]</p>
+
+<p>AutoTools插件带有一个新的网页预设:浮动栏。使用这个预设，我们可以在任何手机上重新创建谷歌拨号器浮动气泡。如果你熟悉Tasker，你会发现它很容易重新创建，但如果你不熟悉Tasker和AutoTools，那么请继续阅读，我们会告诉你如何做。</p>
+
+<p>我所做的更改包括删除音量和麦克风图标的路径，并替换为变量。我对这些选项的命令做了同样的操作。这样，当按钮被按下时，我们可以创建一个可视的切换。它特别有助于静音选项，所以你可以看到麦克风是否启用。</p>
+
+
+
+
+<p class="ad-odd"> </p>
+
+
+
+<h3 id="incoming-call">呼入</h3>
+<p><a href="http://www.notenoughtech.com/wp-content/uploads/2017/10/Screenshot_20171024-150401.png"/></p>
+
+
+
+<p/>
+
+
+
+<p>当电话被接听时，该情景模式会被激活。将显示AutoTool WebScreen:浮动栏预设。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_16"><h3 id="tasker-profile---call-in-progress">TASKER配置文件-通话进行中</h3><p/><pre>Profile: Call In Progress <p>事件:电话摘机</p><p>输入:通话进行中</p><p>A1: Flash [ Text:Calling...龙:关]</p><p>A2:变量集[ Name:%callMute To:mute</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>A3:变量集[名称:%callSpeaker To:speaker</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>A4:变量集[名称:%mutePath</p><p>To:/pathto/micoff.png</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>A5:变量集[名称:%volPath</p><p>To:/pathto/voloff.png</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>A6: AutoTools网页屏幕[配置:屏幕预设:浮动栏</p><p>显示模式:覆盖</p><p>关闭覆盖ID:调用ui</p><p>Source: /pathto/page.html</p><p>烤面包持续时间:5000</p><p>背景色:# 00咖啡蜂</p><p>宽度:75</p><p>身高:75</p><p>重力:左侧</p><p>偏移X: 50</p><p>Y偏移:-100</p><p>动画:放大</p><p>覆盖Id:调用ui</p><p>显示持续时间:500</p><p>隐藏持续时间:250</p><p>拖动:可拖动到任何地方</p><p>拖动运动:所有方向</p><p>抛弃:没有抛弃的抛弃</p><p>更新:真的</p><p>图标:%volPath，%mutePath，</p><p>/pathto/endcall.png，</p><p>命令:%callSpeaker，%callMute，结束</p><p>命令前缀:phonecall</p><p>可见项目:3</p><p>第一项:3、4、2、5</p><p>物品填充物:24</p><p>动画时间:400</p><p>折叠时画圈:真</p><p>自定义展开图标:</p><p>/pathto/call.png</p><p>贴齐项目:true</p><p>浮动条颜色:#1565C0</p><p>扩展器颜色:黑色</p><p>扩展器背景颜色:#0D47A1超时(秒):30 ]</p><p/></pre> </div></section>
+<p>我使用变量<strong> %mutePath </strong>和<strong> %volPath </strong>，而不是麦克风和音量的预定义路径以及它们各自的命令。这些将随后根据发出的命令而改变。</p>
+
+<p><strong> %callMute </strong>和<strong> %callSpeaker </strong>持有分配给现有按钮的实际命令。当按下按钮时，命令会改变，拨号器浮动气泡会显示正确的图标。</p>
+
+<p>创建(或者修改这个气泡，如果你使用了Joao的教程)有点痛苦，但是好消息是我们可以稍后复制并粘贴这个动作。确保分配WebScreen ID，因为我们稍后将需要它来取消气泡。</p>
+
+<h3 id="call-ended">通话结束</h3>
+<p><a href="http://www.notenoughtech.com/wp-content/uploads/2017/10/Screenshot_20171024-150409.png"/></p>
+
+
+
+<p/>
+
+
+
+<p>它由命令触发:<strong> phonecall=:=end </strong>并运行任务Call Ended。在关闭显示模式下使用AutoTools WebScreen。使用与来电配置文件中相同的WebScreen ID。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_26"><h3 id="tasker-profile---call-ended">TASKER个人资料-通话结束</h3><p/><pre>Profile: Call Ended <p>事件:电话空闲</p><p>输入:通话结束</p><p>A1: Flash [ Text:通话结束....龙:关]</p><p>A2:自动工具网页屏幕[配置:显示模式:关闭</p><p>关闭覆盖ID:调用ui</p><p>烤面包持续时间:5000</p><p>身高:400</p><p>重力:中心</p><p>动画:从顶部滑入</p><p>显示持续时间:500</p><p>隐藏持续时间:250超时(秒):30 ]</p><p/></pre> </div></section>
+<h3 id="commands">命令</h3>
+
+
+
+
+<p>此配置文件控制拨号器浮动气泡发送的所有操作。每个触发器都以前缀<strong> phonecall=:= </strong>开始，并根据截取的输入触发其中一个切换/动作。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_30"><h3 id="tasker-profile---call-commands">TASKER配置文件-调用命令</h3><p/><pre>Profile: Call Commands <p>事件:AutoApps命令[配置:命令筛选器:phonecall=:=</p><p>变量名:命令]</p><p>回车:调用命令</p><p>A1:如果[ %command ~ *speaker ]</p><p>A2:变量集[名称:%callSpeaker To:unspeaker</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>If [ %command ~ speaker ]</p><p>A3:变量集[名称:%volPath To:/pathto/volon.png</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>If [ %command ~ speaker ]</p><p>A4:变量集[ Name:%callSpeaker To:speaker</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>如果[%命令~取消标记]</p><p>A5:变量集[名称:%volPath To:/pathto/voloff.png</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>如果[%命令~取消标记]</p><p>A6:自动工具网页屏幕</p><p>[浮动条-与通话进行中相同]</p><p>A7:免提电话[设置:切换]</p><p>A8: Else If [ %command ~ *mute ]</p><p>A9:变量集[ Name:%callMute To:mute</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>如果[%命令~取消静音]</p><p>A10:变量集[名称:%mutePath To:/pathto/micoff.png</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>如果[%命令~取消静音]</p><p>A11:变量集[名称:%callMute To:unmute</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>如果[%命令~静音]</p><p>A12:变量集[名称:%mutePath To:/pathto/micon.png</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>如果[%命令~静音]</p><p>A13:自动工具网页屏幕</p><p>[浮动条-与通话进行中相同]</p><p>A14:麦克风静音[设置:切换]</p><p>A15: Else If [ %command ~ end ]</p><p>A16:结束通话</p><p>A17:结束If</p><p/></pre> </div></section>
+<p>我知道这个描述一开始看起来令人生畏，但这是重复两次的同一套动作。当静音或扬声器被按下时，我们必须创建一个替代的网页屏幕，向用户显示相反的图标和命令。</p>
+
+<p/><h4>A1，A8</h4>
+
+<p>如果命令= speaker/mute，将会出现一系列动作。我稍微修改了一下命令，以便更容易处理所有的动作。我们通过这些动作捕捉静音/取消静音和扬声器/非扬声器命令。这就是我在IF条件中使用*通配符的原因。</p>
+
+<p/><h4>A2、A4和A9、A11</h4>
+
+<p>根据发出的命令(静音/取消静音|扬声器/取消扬声器),我设置了一个正确的命令，该命令将在我下次按下开关时分配。例如，如果我按下静音按钮(command=:=mute)，我希望更新网页屏幕，并确保下次按下此按钮时通话将被取消静音(command=:=unmute)。扬声器动作也是如此。</p>
+
+<p/><h4>A3，A5和A10，A12</h4>
+
+<p>以类似的方式，我想确保一旦发出按钮，到相应图标的路径就会改变。如果我按下静音图标，我希望取消静音图标被替换，因此必须更新路径。</p>
+
+<p/><h4>A15</h4>
+
+<p>如果命令显示end—结束通话。</p>
+
+<p/><h4>A7，A14</h4>
+
+<p>只需使用操作静音和扬声器来切换设置。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="conclusion-and-download">结论和下载</h2>
+<p>现在你知道如何用Tasker和AutoTools来做这件事了。新的拨号器浮动气泡项目为您提供了一个很好的，可视化的反馈，使您在打电话时与您的电话互动更容易一点。请随意进一步修改这个Tasker项目。</p>
+
+<p/><p><a href="https://www.androidfilehost.com/?fid=817906626617941690"> <strong>下载Tasker拨号器浮动按钮项目</strong> </a></p>
+
+<p>下载上面的ZIP文件，并将内容解压缩到您的Android设备的内部存储中。<strong>将文件夹callui解压到Tasker/icons目录</strong>。打开Tasker，在首选项中禁用“初学者模式”。然后，回到Tasker的主页，长按左下角的home图标。您将看到一个“导入”项目的选项。点击该选项，然后找到您之前提取的. prj.xml文件。导入后，您将会在Tasker的默认主页图标旁边的底部看到一个新标签。它包含这个助手项目的概要文件和任务。</p>
+
+<p>跟随<a href="https://www.xda-developers.com/category/tutorials/"> XDA开发者教程</a>获取更多这样的帖子。此外，查看我们的<a href="https://forum.xda-developers.com/u/tasker-tips-tricks"> Tasker Tips &amp; Tricks </a>论坛，了解我们社区中自动化爱好者的最新创造。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

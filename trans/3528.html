@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>How Google Detects and Warns about Premium SMS Messages</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌如何检测和警告优质短信</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-google-detects-and-warns-about-premium-sms-messages/#0001-01-01">https://www.xda-developers.com/how-google-detects-and-warns-about-premium-sms-messages/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>每年发送数十亿条短信。尽管以现代技术标准来看，这项服务已经令人难以置信地过时了，但短信仍然是最受欢迎的通信方式之一。谷歌正在努力推动运营商采用被称为丰富通信服务(RCS)的新标准，但由于有这么多相互竞争的消息接口，无处不在的文本消息被搁置还需要一段时间。</p>
+
+  
+<p>由于每天有如此多的用户发送和接收短信，这是一个利润丰厚的市场，不择手段的演员想赚快钱。<a href="https://en.wikipedia.org/wiki/Short_Message_Service#Premium-rated_short_messages">优质短信</a>短信在很长一段时间内被滥用，向不知情的用户发送垃圾短信，这些用户不知道他们收到的每条短信都计入了他们的月账单。谢天谢地，<a href="http://www.fiercewireless.com/wireless/at-t-sprint-t-mobile-agree-to-stop-billing-for-premium-sms-messages">运营商联合起来</a>做了正确的事情(仅此一次)，拒绝向反向短信诈骗的客户收费。今天，尽管大多数人并没有真正使用高级短信服务，但某些服务，如<a href="https://en.wikipedia.org/wiki/Mobile_ticketing">移动票务</a>为用户提供了一种通过短信支付某些账单的简单方式。在Android设备上，每当你发送第一条短信给一个收取短信费用的接收者时，你都会收到一条警告。</p>
+
+
+
+
+
+<p>谷歌会在你向某些收件人发送付费短信之前警告你。就像设置其他默认选项一样，你可以设置Android记住你的选择，以便将来给同一个收件人发送信息。如果您不小心设置了需要撤销的默认设置，您可以通过进入设置-&gt;应用-&gt;权限(点击齿轮图标)-&gt;特殊访问-&gt;高级短信访问来控制短信应用处理高级短信的权限。但是Android <em>到底是如何知道</em>何时警告你正在向一个高级短信服务发送信息的呢？我们决定研究这个显然非常重要的问题来找出答案。</p>
+
+<hr/>
+
+<p><strong>谷歌的短信黑名单</strong></p>
+
+<p>事实证明，谷歌维护着一个公开可见的被列入黑名单的短信短代码数据库。该列表按国家排序，因此它只检查您所在国家实际使用的高级短信服务。例如，以下是英国的列表:</p>
+
+<pre> <code class="hljs java"> &lt;!<span class="hljs-selector-tag">--</span> <span class="hljs-selector-tag">United</span> <span class="hljs-selector-tag">Kingdom</span> (<span class="hljs-selector-tag">Great</span> <span class="hljs-selector-tag">Britain</span>): 4<span class="hljs-selector-tag">-6</span> <span class="hljs-selector-tag">digits</span>, <span class="hljs-selector-tag">common</span> <span class="hljs-selector-tag">codes</span> <span class="hljs-selector-attr">[5-8]</span><span class="hljs-selector-tag">xxxx</span>, <span class="hljs-selector-tag">plus</span> <span class="hljs-selector-tag">EU</span>:<br/>         http:<br/>         visual voicemail code for EE: 887 <br/>    <span class="hljs-tag">&lt;<span class="hljs-name">shortcode</span> <span class="hljs-attr">country</span>=<span class="hljs-string">"gb"</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">"\d{4,6}"</span> <span class="hljs-attr">premium</span>=<span class="hljs-string">"[5-8]\d{4}"</span> <span class="hljs-attr">free</span>=<span class="hljs-string">"116\d{3}|2020|35890|61002|61202|887|83669|34664|40406"</span> /&gt;</span><br/></code> </pre>
+<p>在每个国家下面列出的是一个<a href="https://en.wikipedia.org/wiki/Regular_expression">正则表达式</a>,在发送每条短信之前都会对其进行检查。如果你要发送的号码与这个正则表达式中的一个号码相匹配，那么你会被警告，你要发送消息的服务可能会对你的消息收费。您会注意到，在列出的每个国家/地区下，并没有列出所有的高级短信服务。取而代之的是，谷歌人根据他们能找到的每个国家的最新参考信息，不断更新这个数据库。作为证据，这个数据库的最后一次更新是在<strong>2016年10月14日。</strong>尽管这个列表并不全面，但谷歌仍然保留了一个列表，以确保你确实打算发送那条优质短信。</p>
+
+<hr/>
+
+<p>今天到此为止。我们希望您学到了一些新东西，如果您有任何需要我们研究的东西，请随时通过我们个人资料页面上列出的电子邮件地址联系门户团队！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

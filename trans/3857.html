@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Android O Introducing an Animated Clock Icon, Soon Available in Custom Launchers</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android O引入了一个动画时钟图标，很快就可以在定制发布中使用</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/clock-icon-android-o-custom-launchers/#0001-01-01">https://www.xda-developers.com/clock-icon-android-o-custom-launchers/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌可能即将在Android O中推出一项新功能——备受推崇的Action Launcher的作者克里斯·莱西(Chris Lacy)发现，时钟应用程序将在启动器中有一个动画图标。</p>
+
+  
+<p>据开发者称，Pixel Launcher将很快支持谷歌时钟应用程序的动画时钟图标。几年前，谷歌日历也增加了类似的功能，但这次的更新明显有点不同。时钟图标要求的间隔要短得多，Google找到了实现的方法。</p>
+
+<p>克里斯·莱西(Chris Lacy)在谷歌时钟应用的<code>AndroidManifest.xml</code>文件中发现了以下几行。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_3"><h3 id="androidmanifest-xml">AndroidManifest.xml</h3><pre> <code class="hljs xml">&lt;meta-data <br/>  android:name=<span class="hljs-string">"com.google.android.apps.nexuslauncher.LEVEL_PER_TICK_ICON_ROUND"</span> <br/>  android:resource=<span class="hljs-string">"@mipmap/launcher_clock"</span>/&gt;<br/>&lt;meta-data <br/>  android:name="com.google.android.apps.nexuslauncher.HOUR_LAYER_INDEX <br/>  android:value=<span class="hljs-string">"1"</span>/&gt;<br/>&lt;meta-data <br/>  android:name=<span class="hljs-string">"com.google.android.apps.nexuslauncher.MINUTE_LAYER_INDEX"</span><br/>  android:value=<span class="hljs-string">"2"</span>/&gt;<br/>&lt;meta-data <br/>  android:name=<span class="hljs-string">"com.google.android.apps.nexuslauncher.SECOND_LAYER_INDEX"</span><br/>  android:value=<span class="hljs-string">"3"</span>/&gt;<br/>&lt;meta-data <br/>  android:name=<span class="hljs-string">"com.google.android.apps.nexuslauncher.DEFAULT_HOUR"</span> <br/>  android:value=<span class="hljs-string">"10"</span>/&gt;<br/>&lt;meta-data <br/>  android:name=<span class="hljs-string">"com.google.android.apps.nexuslauncher.DEFAULT_MINUTE"</span> <br/>  android:value=<span class="hljs-string">"10"</span>/&gt;<br/>&lt;meta-data <br/>  android:name=<span class="hljs-string">"com.google.android.apps.nexuslauncher.DEFAULT_SECOND"</span> <br/>  android:value=<span class="hljs-string">"30"</span>/&gt;</code> </pre> </div></section>
+<p>APK包含以下图像:</p>
+
+<p><a href="https://www.xda-developers.com/?attachment_id=178019" rel="attachment wp-att-178019"/></p>
+
+
+
+<p/>
+
+<p>当然，这些元素组合在一起就成了一个动画时钟图标！从已经发布的版本25.0开始，此功能将在Action Launcher中实现和提供。此外，动画时钟将作为一个独立的小工具。</p>
+
+<p><a href="https://www.xda-developers.com/?attachment_id=178020" rel="attachment wp-att-178020"/></p>
+
+
+
+<p/>
+
+<p>动画时钟图标在移动世界中并不新鲜。这一功能在苹果iOS的早期版本中可用，谷歌需要几年时间才能将这一功能引入Android。不是什么大事情，但是离让安卓更一致更美观又近了一步。此外，动画钟面应该很快就会找到第三方时钟应用程序。</p>
+
+<p>希望目前大多数可用的发射器都有这个特性。如果你现在渴望在你的设备上拥有它，去Google Play并获得<a href="https://play.google.com/store/apps/details?id=com.actionlauncher.playstore">动作启动器</a>。</p>
+
+<hr/>
+
+<p><a href="http://theblerg.net/post/2017/6/24/android-o-will-see-the-introduction-of-an-animated-clock-icon-in-launchers"> <strong>来源:布莱格</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

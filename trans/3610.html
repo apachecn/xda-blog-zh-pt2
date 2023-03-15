@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>How to Hide the Navigation Bar in EMUI 5.0 [No Root]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何隐藏EMUI 5.0中的导航栏【无根】</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-hide-the-navigation-bar-in-emui-5-0/#0001-01-01">https://www.xda-developers.com/how-to-hide-the-navigation-bar-in-emui-5-0/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>随着大屏幕手机继续席卷智能手机市场，曾经被认为是小众的类别现在实际上已经成为主流。</p>
+
+  
+<p>华为最新的旗舰智能手机<a href="https://forum.xda-developers.com/mate-9">华为Mate 9 </a>采用了6.0英寸的大屏幕，如果不是由于华为巧妙实现了单手模式，自然会使单手使用手机更加困难。</p>
+
+<p>但是，尽管华为很容易缩小屏幕，以轻松触及所有UI元素，但他们没有提供相反的方法。一些用户更喜欢能够利用Mate 9漂亮的6.0英寸屏幕上更多的屏幕空间，华为甚至似乎乐于提供包含所有标准导航键的“浮动码头”功能。不幸的是，当这个浮动码头被激活时，他们没有提供隐藏导航栏的本地方法。</p>
+
+<p>如果您熟悉build.prop编辑，您可能会看到将qemu.hw.mainkeys=1添加到build.prop的建议，以便只隐藏导航栏。这是一个相当古老的技巧，但是它需要您拥有root访问权限才能实现。即使你有超级用户权限，EMUI 5.0目前也有一个错误，如果你把这一行添加到你的build.prop中，会导致你启动到黑屏。</p>
+
+<p>但是有一个简单的技巧可以用来<strong>只隐藏EMUI 5.0 </strong>上的导航栏，最棒的是它不需要build.prop编辑(这意味着它没有根<strong/>)。这样，你仍然可以显示状态栏，但使用你喜欢的任何其他导航方法(如华为的浮动码头)。</p>
+
+<hr/>
+
+
+<h2 id="hide-your-navigation-bar-on-emui-5-0">在EMUI 5.0上隐藏导航栏</h2>
+<p>要实现这个技巧，你只需要一台装有<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/"> ADB二进制文件</a>和适合你的华为设备的驱动程序的电脑(下载<a href="http://consumer.huawei.com/minisite/HiSuite_en/index.html"> HiSuite </a>以方便安装驱动程序)。一旦设置好ADB(并在开发人员选项中启用USB调试)，只需输入以下命令:</p>
+
+<p><code>adb shell settings put global navigationbar_is_min 1</code></p>
+
+<p>重启，你手机的导航条会完全隐藏。如果没有导航条，你会希望使用第三方应用程序或华为的浮动基座来实际使用你的手机。</p>
+
+
+
+
+
+<p>由于这是<strong>而不是沉浸式模式</strong>(我们稍后会制作一个关于如何使用无根沉浸式模式的教程)，导航栏将<strong>保持隐藏</strong>，直到你<strong>撤销这个命令</strong>。如果您希望撤销该命令，只需输入以下命令即可:</p>
+
+<p><code>adb shell settings put global navigationbar_is_min 0</code></p>
+
+<p>我们希望你喜欢这个为你的非根华为设备的俏皮把戏！如果我们遇到更多这样的把戏，我们一定会很快让我们的读者知道。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

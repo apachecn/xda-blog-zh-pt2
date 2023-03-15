@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Android Nougat’s Freeform Window Mode: What It Is and How Developers Can Utilize It</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android牛轧糖的自由形式窗口模式:它是什么以及开发者如何利用它</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-nougats-freeform-window-mode-what-it-is-and-how-developers-can-utilize-it/#0001-01-01">https://www.xda-developers.com/android-nougats-freeform-window-mode-what-it-is-and-how-developers-can-utilize-it/#0001-01-01</a></blockquote><div><div class="content-block-regular"><div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/2016-03-20-19.26.55-300x225.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Freeform window mode, as first demonstrated by &lt;a href=\&quot;http:\/\/arstechnica.com\/gadgets\/2016\/03\/this-is-android-ns-freeform-window-mode\/\&quot;&gt;Ars Technica&lt;\/a&gt;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/2016-03-20-19.26.55-300x225.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/2016-03-20-19.26.55-300x225.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/2016-03-20-19.26.55-300x225.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/2016-03-20-19.26.55-300x225.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/2016-03-20-19.26.55-300x225.png" src="../Images/071f2be601e6cff563b1e08d56a4d1c2.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/2016-03-20-19.26.55-300x225.png"/> </picture> <figcaption class="body-img-caption">Freeform window mode, as first demonstrated by <a href="http://arstechnica.com/gadgets/2016/03/this-is-android-ns-freeform-window-mode/">Ars Technica</a></figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>当Android 7.0牛轧糖在2016年初首次发布时，它为Android平台带来了一个备受期待的功能——多窗口支持。大多数人都知道所有Android牛轧糖手机和平板电脑默认启用的分屏多窗口支持。安装了Android Nougat的Android电视设备支持画中画多窗口支持。</p>
+
+  
+<p>然而，Android Nougat中还有第三种多窗口模式，没有多少人知道:<strong>自由形式窗口模式</strong>。这种模式允许Android将应用程序呈现为浮动窗口，用户可以随意移动和调整大小。它本质上是Android的一个<a href="https://en.wikipedia.org/wiki/Stacking_window_manager">堆叠窗口管理器</a>的实现。</p>
+
+<p> </p>
+
+<p>在<a href="https://developer.android.com/guide/topics/ui/multi-window.html"> Android SDK文档</a>中，它指出:</p>
+
+<blockquote>
+<p/><h4>大型设备的制造商可以选择启用自由模式，在这种模式下，用户可以自由调整每个活动的大小。如果制造商启用此功能，则除了分屏模式之外，设备还提供自由形式模式。</h4>
+ </blockquote>
+<p>还有，在<a href="https://static.googleusercontent.com/media/source.android.com/en//compatibility/7.0/android-7.0-cdd.pdf">安卓7.0 CDD </a>:</p>
+
+<blockquote>
+<p/><h4>屏幕尺寸为xlarge的设备实现应该支持自由模式。</h4>
+ </blockquote>
+<p>这表明，任何搭载Android 7.0的新大屏幕Android设备都可能有制造商支持的自由形式窗口模式。</p>
+
+<p>但是，这绝对不是硬性要求。可以使用两种不同方法中的一种来强制任何Android牛轧糖设备(启用了开发人员选项)支持自由形式窗口模式:</p>
+
+<hr/>
+
+
+<h2 id="enabling-freeform-window-mode-on-any-android-nougat-device">在任何Android牛轧糖设备上启用自由形式窗口模式</h2><div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/Screenshot_20170105-122539-300x169.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Turning on the \u201cForce activities to be resizable\u201d option allows apps to run in freeform mode on any device&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/Screenshot_20170105-122539-300x169.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/Screenshot_20170105-122539-300x169.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/Screenshot_20170105-122539-300x169.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/Screenshot_20170105-122539-300x169.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/Screenshot_20170105-122539-300x169.png" src="../Images/23cc927c505bf992c37307ea47ee14d4.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/Screenshot_20170105-122539-300x169.png"/> </picture> <figcaption class="body-img-caption">Turning on the “Force activities to be resizable” option allows apps to run in freeform mode on any device</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<h3 id="method-1-a-computer-with-adb-is-required">方法1(需要一台带adb的计算机)</h3>
+<p>确保在开发人员选项中启用了USB调试。然后，将您的设备连接到安装了adb的计算机，并执行以下命令:</p>
+
+<pre> <code class="hljs php">adb shell settings put <span class="hljs-keyword">global</span> enable_freeform_support <span class="hljs-number">1</span></code> </pre>
+<h3 id="method-2-no-additional-requirements">方法2(无额外要求)</h3>
+<p>启用开发者选项底部的“强制活动可调整大小”选项。</p>
+
+<p><strong>这两种方法都需要重启系统UI才能生效。</strong>最简单的方法是重启你的设备(或者，如果你的设备是根设备，你可以简单地终止<code>com.android.systemui</code>进程)</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="ok-so-freeform-mode-is-enabled-now-what">好了，自由模式被启用了…现在做什么？</h2>
+<p>如果您使用方法1启用了自由形式模式，那么在总览菜单中的应用条目上将有一个新按钮，用于将应用启动到自由形式窗口模式。</p>
+
+<p>然而，使用方法2，无法通过Android本身将应用程序启动到自由模式。幸运的是，<strong>任何第三方启动器都可以使用作为API级别24的一部分最终确定的标准Android APIs将应用程序启动到自由形式窗口模式</strong>。</p>
+
+<p>在自由模式下启动应用程序的关键是调用<a href="https://developer.android.com/reference/android/app/ActivityOptions.html#setLaunchBounds%28android.graphics.Rect%29"> <code>ActivityOptions.setLaunchBounds()</code> </a>方法。该方法将一个<a href="https://developer.android.com/reference/android/graphics/Rect.html"> <code>Rect</code> </a>作为参数，包含应用程序启动时使用的窗口边界。</p>
+
+<p>然后可以用<a href="https://developer.android.com/reference/android/content/Context.html#startActivity%28android.content.Intent,%20android.os.Bundle%29"> <code>startActivity(Intent, Bundle)</code> </a>启动app。如果您还没有一个<code>ActivityOptions</code>包，您可以使用<a href="https://developer.android.com/reference/android/app/ActivityOptions.html#makeBasic%28%29"> <code>ActivityOptions.makeBasic()</code> </a>创建一个包，然后在新创建的包上调用<code>setLaunchBounds()</code>。</p>
+
+<p>请注意，默认情况下，如果概览屏幕中已经有应用程序的任务，那么Android会简单地将您重定向到用户之前启动的现有(全屏)任务。在尝试将应用程序启动到自由形式窗口之前，您需要在概览中清除该应用程序的任何任务。(对于具有以<code>standard</code>或<code>singleTop</code>模式启动的活动的应用程序，您可以在调用<code>startActivity()</code>之前，通过将<a href="https://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_MULTIPLE_TASK"> <code>Intent.FLAG_ACTIVITY_MULTIPLE_TASK</code> </a>标志添加到意图来强制打开一个新窗口。)</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="how-does-freeform-mode-work-under-the-hood">自由模式是如何工作的？</h2>
+<p>有一篇<a href="http://qiangbo.space/2016-09-26/AndroidAnatomy_Multi-Window/">写的很棒的文章</a>解释了多窗口模式，包括自由形式模式，是如何在Android Nougat中实现的。(注意:文章是用中文写的，所以一定要通过谷歌翻译来运行)</p>
+
+<p>简而言之，自由模式下的应用程序运行在一个独立于系统其余部分的堆栈中(想象一下:虚拟桌面)。因此，自由形式的应用程序不可能在启动程序或另一个全屏应用程序上运行。</p>
+
+<p>在自由模式下运行的应用程序(没有将<code>android:windowIsFloating</code>设置为true)有一个<a href="https://android.googlesource.com/platform/frameworks/base/+/android-7.1.1_r6/core/java/com/android/internal/widget/DecorCaptionView.java"> <code>DecorCaptionView</code> </a>作为顶层<code>DecorView</code>的子节点。这个视图包含一个<code>LinearLayout</code>，定义了移动、最大化和关闭窗口的标题栏。虽然我个人并不推荐，但是可以通过使用<a href="https://developer.android.com/reference/android/view/Window.html#getDecorView%28%29"> <code>Window.getDecorView()</code> </a>获得<code>DecorView</code>，将其转换为<code>ViewGroup</code>，然后访问其子视图，来访问和定制这个视图。</p>
+
+<p>任何设计为在Android标准分屏多窗口模式下表现良好的应用程序都可以在自由模式下工作。对于在自由模式下运行的应用程序，<a href="https://developer.android.com/reference/android/app/Activity.html#isInMultiWindowMode%28%29"> <code>isInMultiWindowMode()</code> </a>将返回true。还有一些其他公开可用的类和方法，应用程序可以使用，它们专门与自由形式模式相关:</p>
+
+
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="examples-of-freeform-window-mode-in-action">自由形式窗口模式的实例</h2><div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/unnamed-300x211.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Taskbar adds a start menu and recent apps tray to compliment freeform window mode&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/unnamed-300x211.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/unnamed-300x211.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/unnamed-300x211.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/unnamed-300x211.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/unnamed-300x211.png" src="../Images/25560096f83fa4e9c9eaa3948fff7722.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/01/unnamed-300x211.png"/> </picture> <figcaption class="body-img-caption">Taskbar adds a start menu and recent apps tray to compliment freeform window mode</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>2016年夏天，当Android Nougat仍然是开发者预览版时，我发布了一个名为<strong> Taskbar </strong>的应用程序，它在系统叠层中提供了一个类似Windows的开始菜单和最近的应用程序列表。它允许Nougat上的用户以自由形式窗口模式启动应用程序——而且，由于任务栏使用覆盖，它可以在自由形式窗口环境中停留在屏幕上。任务栏和自由形式模式的结合给任何Android设备，尤其是平板电脑，一种类似PC的感觉。</p>
+
+<p>你可以<a href="https://play.google.com/store/apps/details?id=com.farmerbb.taskbar">在Google Play上下载任务栏</a>，或者<a href="https://github.com/farmerbb/Taskbar/">自己在GitHub上查看源代码</a>。除了本文中提到的概念之外，我还使用了一些技巧来保持自由模式环境活动，即使屏幕上没有显示自由模式窗口。用户还可以选择将任务栏设置为他们的默认启动器，以允许他们的设备自动引导到自由模式环境。</p>
+
+<p>由于还没有任何设备正式提供OEM支持的自由形式窗口，我建议开发人员使用任务栏作为工具，在不支持自由形式窗口的设备上测试他们的应用程序。</p>
+
+<p>除了任务栏，我还修改了AOSP的Launcher3源代码，让它可以以自由模式启动应用程序。这是对Android 7.1.1启动器的直接克隆，只做了最少的必要修改，就可以启动自由形式的应用程序。我提供了这个修改过的启动器，希望其他开发人员能够在他们的定制启动器中实现对启动自由形式窗口的支持。你可以<a href="https://github.com/farmerbb/Launcher3-Freeform">在GitHub上查看源代码</a>，或者<a href="https://github.com/farmerbb/Launcher3-Freeform/raw/freeform-mode-example/Launcher3-Freeform-aosp-debug.apk">下载一个样本APK </a>。</p>
+
+<p>我希望自定义启动器的开发人员可以利用这些代码，并支持为那些希望在大屏幕设备上更灵活地管理窗口的用户启动自由形式的窗口应用程序。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

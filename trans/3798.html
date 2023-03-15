@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Here's how to get Google Assistant on Android 5.0+ Tablets WITHOUT Root</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>以下是如何在没有Root的Android 5.0+平板电脑上获得谷歌助手</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/get-google-assistant-on-android-lollipop-marshmallow-nougat-tablets-without-root/#0001-01-01">https://www.xda-developers.com/get-google-assistant-on-android-lollipop-marshmallow-nougat-tablets-without-root/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌助手是谷歌对亚马逊Alexa的回应——一种智能的个人服务，自去年谷歌I/O期间首次推出以来，已经以多种方式发展，并扩展到多个新平台。虽然最初是谷歌Pixel和Pixel XL手机独有的(在谷歌Allo应用程序中以更有限的方式提供)，但我们论坛上的优秀用户能够让助手<a href="https://www.xda-developers.com/google-assistant-summary-what-we-know-and-dont-know/">在任何植根于牛轧糖的手机</a>上运行。早在三月份，谷歌宣布他们将为<a href="https://www.xda-developers.com/google-assistant-now-available-for-all-android-6-0-devices/">某些国家</a>所有运行Android 6.0+的智能手机提供Assistant。毫无疑问，这是一个惊喜，但也是受欢迎的。</p>
+
+  <div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/02/assistantphones.width-1458-1024x638.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Google Assistant on Android Smartphones&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/02/assistantphones.width-1458-1024x638.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/02/assistantphones.width-1458-1024x638.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/02/assistantphones.width-1458-1024x638.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/02/assistantphones.width-1458-1024x638.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/02/assistantphones.width-1458-1024x638.png" src="../Images/ad2881b3261df68292761c60fe1cb1d3.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/02/assistantphones.width-1458-1024x638.png"/> </picture> <figcaption class="body-img-caption">Google Assistant on Android Smartphones</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>从那以后，<a href="https://www.xda-developers.com/how-to-get-google-assistant-on-your-windows-mac-or-linux-machine/">由于官方SDK的发布，即使是台式机和笔记本电脑</a>也可以利用Assistant。我们当中那些拥有<a href="https://www.xda-developers.com/android-wear-2-0-is-official-with-support-for-android-pay-and-google-assistant/"> Android Wear 2.0兼容</a>智能手表、某些<a href="https://www.xda-developers.com/google-assistant-is-coming-to-android-tv-android-wear-2-0-and-more-devices/"> Android TV型号</a>以及一些装有Android Auto的车辆的人也可以利用Assistant。但是有一种设备在这个越来越长的谷歌祝福设备列表中明显不见了——平板电脑。谷歌发言人证实，3月份推出的更广泛的助手<a href="https://www.xda-developers.com/google-confirms-assistant-rollout-will-not-extend-to-tablets/">将不包括运行6.0+ </a>的Android平板电脑。</p>
+
+<p>这从未阻止我们在XDA试图找出绕过(在我们看来)这些武断限制的方法。多亏了XDA成员<a href="https://forum.xda-developers.com/member.php?u=7475042"> Nikhilkumar038 </a>，我们现在有办法<strong>在任何运行棒棒糖、棉花糖或牛轧糖的安卓平板电脑上使用谷歌助手，而不需要root！</strong></p>
+
+
+
+
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p>我在两台不同的设备上进行了测试——一台运行Android 5.1.1 Lollipop的三星Galaxy Tab Pro 12.2和一台运行Android 6.0.1 Marshmallow的三星Galaxy Tab S 10.5。这在理论上应该也适用于运行Android Lollipop的智能手机。</p> </div></section>
+<hr/>
+
+
+<h2 id="google-assistant-for-tablets-tutorial">平板电脑谷歌助手教程</h2>
+<p>这种方法的工作方式是通过在<a href="https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox">谷歌应用</a>中启动一个隐藏的(但幸运的是可访问的)活动，名为com . Google . Android . apps . GSA . static plugins . opa . HQ . opahqactivity。这可以通过使用一个应用程序来轻松完成，该应用程序可以列出并启动您安装的应用程序中所有可用的活动。<a href="https://play.google.com/store/apps/details?id=de.szalkowski.activitylauncher"> Activity Launcher </a>是一款专门用于此目的的应用，尽管众所周知的<a href="https://play.google.com/store/apps/details?id=com.teslacoilsw.launcher"> Nova Launcher </a>有一个内置功能，可以在你已经安装了这个启动器的情况下启动活动。如果你还没有更新你的谷歌应用到最新的稳定版本。</p>
+
+<h3 id="method-1---using-activity-launcher">方法1 -使用活动启动器</h3>
+<ol> <li>打开活动启动器</li> <li>点击顶部的“最近活动”标签，选择“所有活动”等待所有活动加载。</li> <li>向下滚动，直到找到谷歌应用程序。点击它，展开谷歌应用下所有可用的活动。</li> <li>找到com . Google . Android . apps . GSA . static plugins . opa . HQ . opahqactivity，你可以点击一次或者在你的启动器上创建一个快捷方式。</li> <li>现在，你会发现自己在新的助手“探索”屏幕中，谷歌对可用的集成进行分类，如何使用它们，以及快速访问自定义快捷方式。</li> <li>滑动到顶部的“你的东西”标签。</li> <li>点击“添加提醒”来触发谷歌助手。这个动作的作用是启动activity com . Google . Android . apps . GSA . static plugins . opa . opa activity——它通常不能在非根设备上访问。</li> <li>现在，您将完成hotword设置过程。教它识别你的声音，就大功告成了！现在你可以通过说“好的谷歌！”来访问谷歌助手</li> </ol>
+
+
+
+
+
+<h3 id="method-2---using-nova-launcher">方法2 -使用Nova启动器</h3>
+<ol> <li>在主屏幕上找到一个空白点，长按以添加新内容。</li> <li>点击“Widgets”</li> <li>在“Nova Launcher”下，点击并按住“Activities ”,将其拖至主屏幕。</li> <li>向下滚动，找到“谷歌应用”</li> <li>点击展开，选择com . Google . Android . apps . GSA . static plugins . opa . HQ . opahqactivity。</li> <li>这将在您的主屏幕上添加一个新的“Google Assistant”图标，这是此活动的快捷方式。点击此图标。</li> <li>现在，你会发现自己在新的助手“探索”屏幕中，谷歌对可用的集成进行分类，如何使用它们，以及快速访问自定义快捷方式。</li> <li>滑动到顶部的“你的东西”标签。</li> <li>点击“添加提醒”来触发谷歌助手。这个动作的作用是启动activity com . Google . Android . apps . GSA . static plugins . opa . opa activity——它通常不能在非根设备上访问。</li> <li>现在，您将完成hotword设置过程。教它识别你的声音，就大功告成了！现在你可以通过说“好的谷歌！”来访问谷歌助手</li> </ol>
+
+
+
+
+
+<h3 id="caveats">警告</h3>
+<p>首先，也是最明显的警告是，你不能通过长按home键来访问OK Google。长按home键反而会在Tap上启动Google Now。我知道你们中的许多人实际上更喜欢有现成的助手，所以我不能为此扣掉太多分。不过，这确实意味着你必须使用你的声音来访问助手，考虑到大多数人在哪里存放和使用他们的平板电脑(在家里)，我想这不是太大的问题。如果你愿意，你可以保留我们在本教程中制作的主屏幕快捷方式，随时点击“添加提醒”来手动调出助手，但这种方式不太方便。</p>
+
+<p>接下来，不幸的是，谷歌可能会在谷歌应用的未来更新中修补这种方法。这并不是第一次有公司在我们公布了非官方功能后删除了它，所以我建议你尽快设置好。幸运的是，如果你真的想更新谷歌应用程序，你可以拒绝更新，这比如果你打算使用<a href="https://www.xda-developers.com/how-to-remap-the-bixby-button-on-the-galaxy-s8-s8-to-launch-google-assistant/">原始Bixby remap方法</a>永远不更新你的三星Galaxy S8要现实得多。</p>
+
+<hr/>
+
+<p>请继续关注XDA门户网站，了解更多类似的教程。再次感谢XDA会员Nikhilkumar038】在我们的论坛上发布这个方法！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

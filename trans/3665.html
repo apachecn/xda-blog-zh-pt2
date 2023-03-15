@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>How to Automatically Enhance your Photos in Snapseed</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在Snapseed中自动增强照片</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-automatically-enhance-your-photos-in-snapseed/#0001-01-01">https://www.xda-developers.com/how-to-automatically-enhance-your-photos-in-snapseed/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>我不擅长照片编辑(和一般的摄影)，我不羞于承认这一点。我没有像我的一些同事那样费心去学习如何使用<a href="https://www.xda-developers.com/using-manual-camera-controls-improving-the-quality-and-versatility-of-your-photography/">手动相机控制</a>或<a href="https://www.xda-developers.com/a-guide-to-editing-raw-photography/">编辑原始图像</a>。像大多数人一样，我使用相机的默认功能，所有选项都设置为自动，让软件决定最佳的白平衡、对焦、亮度等。应设置为。</p>
+
+  
+<p>有时，如果我最初的照片没有像我希望的那样出来，我会通过<a href="https://play.google.com/store/apps/details?id=com.niksoftware.snapseed&amp;hl=en"> Snapseed的</a>自动调谐功能运行它。但如果我想对大量照片(比如说，&gt; 50张)执行这个操作，这将很快变成一个麻烦，因为我必须在Snapseed中手动打开、调整、然后保存每张照片。鉴于我在Android自动化方面的背景，我对自己说:为什么不把这个过程自动化呢？于是我照做了。认识一下<strong>自动快照种子任务脚本</strong>。</p>
+
+ 
+<p class="w-rich w-youtube" id="SMfuifcHiFY">  </p>
+
+
+<hr/>
+
+
+<h2 id="automatically-enhance-your-photos-with-auto-snapseed-for-tasker">使用Tasker的自动快照种子自动增强您的照片</h2>
+
+<p>这个项目显然需要Snapseed，因为这是我们用来微调照片的应用程序。Tasker是必需的，因为我们将使用这个自动化应用程序与两个插件进行交互:AutoInput和AutoShare。AutoShare是在Android的共享菜单中创建新项目所必需的，这样你就可以快速增强照片，并共享那些将在Snapseed中打开的照片。AutoInput然后自动进行必要的点击，以自动增强照片。</p>
+
+<p>一旦你安装了这些应用程序，我们必须设置一些东西。首先，您需要授予AutoInput启动其辅助功能服务的能力，一旦您打开它，该应用程序就会提醒您这样做。接下来，我们需要创建一个新的AutoShare命令，这样当我们打开图像共享对话框时，我们将有一个菜单选项来选择AutoShare。打开AutoShare，向下滚动到“AutoShare设置”,确保选中“AutoShare命令”。然后，向上选择“管理命令”点击+图标添加一个新命令，并将其命名为“自动快照种子”选择您想要的任何图标，但是我建议使用Snapseed图标来清楚地说明这是做什么的。</p>
+
+
+
+
+
+<p>现在我们准备开始在Tasker中制作我们的脚本。打开Tasker，按右下角的+创建一个新的配置文件。将其命名为“Auto-Snapseed ”,并选择<strong>事件</strong>上下文。进入插件- &gt;自动共享- &gt;自动共享命令。按铅笔图标打开配置，然后选择您之前创建的“Auto-Snapseed”命令。</p>
+
+
+
+<p>退出概要文件配置，Tasker将要求您创建一个新任务。您可以选择命名任务，但这不是必需的。点击复选标记打开任务编辑屏幕。我将一步一步地指导你需要做什么，但是对于那些已经熟悉Tasker的人来说，你可以展开下面的开关来查看脚本的描述。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_12"><h3 id="auto-snapseed-tasker-description">自动快照种子任务描述</h3><pre> <code class="hljs sql"><br/>Profile: Auto-Snapseed (208)<br/>Event: AutoShare [ Configuration:Command: Auto-Snapseed<br/>Sender: all<br/>Subject: all<br/>Text: all<br/>File: all ]<br/>Enter: Auto-Snapseed (207)<br/><span class="hljs-selector-tag">A1</span>: <span class="hljs-selector-tag">For</span> <span class="hljs-selector-attr">[ Variable:%image Items:%asfile() ]</span><br/>A2: AutoShare [ Configuration:Package: com.niksoftware.snapseed<br/><span class="hljs-selector-tag">Class</span>: <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.google</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.apps</span><span class="hljs-selector-class">.snapseed</span><span class="hljs-selector-class">.EditActivity</span><br/>App: AutoShare<br/>Action: Share<br/>MimeType: image/jpeg<br/><span class="hljs-selector-tag">File</span>: %<span class="hljs-selector-tag">image</span> <span class="hljs-selector-tag">Timeout</span> (<span class="hljs-selector-tag">Seconds</span>)<span class="hljs-selector-pseudo">:10</span> ]<br/>A3: AutoInput Action [ Configuration:Type: Text<br/>Value: Add filter<br/><span class="hljs-selector-tag">Action</span> : <span class="hljs-selector-tag">Click</span> <span class="hljs-selector-tag">Timeout</span> (<span class="hljs-selector-tag">Seconds</span>)<span class="hljs-selector-pseudo">:20</span> ]<br/><span class="hljs-selector-tag">A4</span>: <span class="hljs-selector-tag">Wait</span> <span class="hljs-selector-attr">[ MS:0 Seconds:1 Minutes:0 Hours:0 Days:0 ]</span><br/>A5: AutoInput Action [ Configuration:Type: Text<br/>Value: Tune Image<br/><span class="hljs-selector-tag">Action</span> : <span class="hljs-selector-tag">Click</span> <span class="hljs-selector-tag">Timeout</span> (<span class="hljs-selector-tag">Seconds</span>)<span class="hljs-selector-pseudo">:20</span> ]<br/><span class="hljs-selector-tag">A6</span>: <span class="hljs-selector-tag">Wait</span> <span class="hljs-selector-attr">[ MS:0 Seconds:1 Minutes:0 Hours:0 Days:0 ]</span><br/>A7: AutoInput Action [ Configuration:Type: Text<br/>Value: Auto Adjust<br/><span class="hljs-selector-tag">Action</span> : <span class="hljs-selector-tag">Click</span> <span class="hljs-selector-tag">Timeout</span> (<span class="hljs-selector-tag">Seconds</span>)<span class="hljs-selector-pseudo">:20</span> ]<br/><span class="hljs-selector-tag">A8</span>: <span class="hljs-selector-tag">Wait</span> <span class="hljs-selector-attr">[ MS:0 Seconds:1 Minutes:0 Hours:0 Days:0 ]</span><br/>A9: AutoInput Action [ Configuration:Type: Text<br/>Value: Apply<br/><span class="hljs-selector-tag">Action</span> : <span class="hljs-selector-tag">Click</span> <span class="hljs-selector-tag">Timeout</span> (<span class="hljs-selector-tag">Seconds</span>)<span class="hljs-selector-pseudo">:20</span> ]<br/><span class="hljs-selector-tag">A10</span>: <span class="hljs-selector-tag">Wait</span> <span class="hljs-selector-attr">[ MS:0 Seconds:1 Minutes:0 Hours:0 Days:0 ]</span><br/>A11: AutoInput Action [ Configuration:Type: Text<br/>Value: DONE<br/><span class="hljs-selector-tag">Action</span> : <span class="hljs-selector-tag">Click</span> <span class="hljs-selector-tag">Timeout</span> (<span class="hljs-selector-tag">Seconds</span>)<span class="hljs-selector-pseudo">:20</span> ]<br/><span class="hljs-selector-tag">A12</span>: <span class="hljs-selector-tag">Wait</span> <span class="hljs-selector-attr">[ MS:0 Seconds:3 Minutes:0 Hours:0 Days:0 ]</span><br/>A13: <span class="hljs-keyword">End</span> <span class="hljs-keyword">For</span></code> </pre> </div></section>
+
+
+<ol> <li><strong>任务- &gt;为。</strong>变量:<strong>%图像</strong>。项目:<strong> %asfile() </strong>。这将使变量%image在您通过共享对话框共享的图像中循环。</li> <li><strong>插件- &gt;自动共享- &gt;自动共享。</strong>包:<strong> com.niksoftware.snapseed </strong>。class:<strong>com . Google . Android . apps . snapseed . edit activity</strong>。App: <strong>自动分享</strong>。动作:<strong>分享</strong>。MimeType: <strong> image/jpeg </strong>。文件:<strong>%图像</strong>。此操作会将%image引用的共享图像逐个发送到Snapseed进行编辑。</li> <li><strong>插件</strong>-&gt;-<strong>自动输入</strong>-&gt;-<strong>动作。</strong>按“简易设置”,然后打开您的图库应用程序，选择任何要分享到Snapseed的图片。拉下通知阴影，展开自动输入通知，并按下“添加”按钮。现在按下浮动铅笔图标按钮，允许AutoInput记录/捕获此输入。AutoShare将自动打开“最近使用的应用程序”菜单，并要求您返回Tasker。这样做，当您返回时，应该会看到一个弹出窗口，询问您选择什么值。选择"<strong>添加过滤器"</strong>文本类型并选择<strong>点击</strong>动作。</li> <li><strong>任务</strong>-&gt;-<strong>等待</strong>。等待1秒钟。</li> <li><strong>插件- &gt;自动输入- &gt;动作。</strong>再次按“简易设置”并返回Snapseed。这一次，在开始自动输入的记录之前，按下浮动铅笔图标。您应该会看到Snapseed提供的所有图像增强选项。现在拉下通知并按“添加”选择“调整图像”选项，让AutoInput记录它。返回Tasker，选择<strong>【调谐图像】</strong>文本类型，选择<strong>点击</strong>动作。</li> <li>任务- &gt;等待。等待1秒钟。</li> <li><strong>插件- &gt;自动输入- &gt;动作。</strong>希望你现在已经明白了。我们正在逐步推进手动图像调整过程，并让AutoInput记录我们的操作，以便我们可以自动播放它们。回到Snapseed，这次按下“调整图像”选项，调出亮度/饱和度等。选项。下拉自动输入通知，选择“添加”按钮，现在按下Snapseed中的“<strong>自动</strong>(魔杖)”按钮来记录该动作。返回Tasker，选择<strong>“自动调整</strong>”文本类型，选择<strong>点击</strong>动作。</li> <li>任务- &gt;等待。等待1秒钟。</li> <li><strong>插件- &gt; </strong> <strong>自动输入- &gt;动作。</strong>打开Snapseed，拉下通知遮光板，然后按“添加”现在图像已经自动调整，选择右下角的勾号图标让AutoInput记录下来。返回Tasker，选择<strong>“应用”</strong>文本类型，选择<strong>点击</strong>动作。</li> <li>任务- &gt;等待。等待1秒钟。</li> <li><strong>插件- &gt;自动输入- &gt;动作。</strong>最后一次打开Snapseed，开始自动输入记录，然后按左上角的“完成”按钮记录该输入。返回Tasker，选择<strong>【完成】</strong>文本类型，选择<strong>点击</strong>动作。</li> <li>任务- &gt;等待。等待3秒钟。我们需要这个3秒钟的计时器来确保Snapseed有足够的时间来保存照片，然后再继续下一张照片。</li> <li><strong>任务- &gt;结束。</strong>结束for循环！</li> </ol>
+
+
+
+
+
+<p>就是这样！这里的麻烦是设置for循环，这需要您手动记录应用Snapseed的自动图像调整功能所涉及的步骤。但是一旦你做了一次，你就再也不用手动做了！额外的好处是，你现在可以通过共享菜单向Snapseed发送2、3甚至几十张照片，它会自动增强每一张照片！你所要做的就是坐以待毙。您编辑过的照片将位于内部存储器的<strong> Snapseed文件夹</strong>中。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="download-and-import">下载并导入</h2>
+<p>一如既往，我们提供Tasker脚本，以便您可以快速下载和导入它。从下面下载. prf.xml文件，并将其保存在内部存储的任何位置。打开Tasker，在首选项中禁用初学者模式。然后，返回主菜单，长按顶部的个人资料选项卡。您应该会看到一个导入概要文件的选项。选择它并找到您下载的XML文件。</p>
+
+<p><a href="https://www.androidfilehost.com/?fid=457095661767148532"> <strong>下载自动快照脚本</strong> </a></p>
+
+<p>一旦您导入了它，请确保您仍然返回并如前所述设置自动输入和自动共享。否则，AutoShare将不会显示在您的共享菜单中，AutoInput将无法在您的手机上发送输入点击！</p>
+
+<p>让我知道你是否喜欢这个项目，以及你希望在下面的未来教程中看到什么样的自动化！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

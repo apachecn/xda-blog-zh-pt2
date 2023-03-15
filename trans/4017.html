@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Android Oreo System Apps Can Set Volume Key Long-Press Listeners</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>安卓奥利奥系统应用可以设置音量键长按监听器</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-oreo-volume-key-long-press/#0001-01-01">https://www.xda-developers.com/android-oreo-volume-key-long-press/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">安卓奥利奥系统应用可以设置音量键长按监听器</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">由于Android Oreo实现了新的权限，系统应用程序现在可以设置监听器来检测音量键的长按。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>为我们设备上的各种硬件和软件按钮添加额外的功能是Android爱好者已经做了一段时间的事情。大多数人都知道诸如来自XDA的<a href="https://play.google.com/store/apps/details?id=flar2.homebutton" target="_blank" rel="noopener">按钮映射器</a>这样的应用程序，公认的开发者<a href="https://forum.xda-developers.com/member.php?u=4684315" target="_blank" rel="noopener"> flar2 </a>，当Galaxy S8发布时，我们甚至谈到了<a href="https://www.xda-developers.com/3-applications-bypass-bixby-restriction/" target="_blank" rel="noopener">其他的remapper解决方案。虽然这些解决方案以某种方式处理这些动作，但谷歌似乎在Android Oreo中实现了一个长按音量键的监听器。这意味着，未来的应用程序可能能够对长时间按下音量键做出反应，即使在屏幕关闭的情况下，这可以用来从定制的rom中带来一个经常被请求的功能——用音量键控制音乐曲目。</a></p>
+
+  
+<p>我们确实想提一下，这个功能实际上并没有在我们现在可用的面向用户的版本中启用。不过，对它的支持是存在的，正如我们发现的提交所证明的那样，这意味着OEM可以为您的特定设备启用它。如上所述，传统的重新映射应用程序通过检测是否发送了按键事件来工作(长时间按下，这些应用程序测量按键按下和按键向上事件之间的时间，而双击它们测量按键按下之间的时间)，但这些按键事件仅在屏幕打开时发送。此外，它们通常还需要使用可访问性服务，这会增加性能负担。</p>
+
+<p>您的典型按钮重映射解决方案可以被认为是一种工作区，用于打开或关闭手电筒、打开应用程序、下拉通知面板等等。然而，谷歌在Android Oreo中实现的功能更进了一步，让系统应用程序自己设置这些音量按钮长按监听器。一旦平台检测到音量按钮被按住了几秒钟，这可以允许用户触发应用程序本身中的某些东西。</p>
+
+<p>谷歌在Android Oreo中包含了对这种支持的方式，这将只适用于开箱即用的“特权”(又名预装系统)应用程序。OEM只需要允许特权应用程序拥有<code>android.permission.SET_VOLUME_KEY_LONG_PRESS_LISTENER</code> <a href="https://android.googlesource.com/platform/frameworks/base/+/android-8.0.0_r4/core/res/AndroidManifest.xml#2794">权限</a>就可以设置监听器。然而，我们已经能够使用ADB命令授予类似的权限，因此我们这些知情人士也可以为第三方应用程序手动设置此权限。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

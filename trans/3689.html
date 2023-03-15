@@ -1,0 +1,276 @@
+<html>
+<head>
+<title>XDA Takes on Ryzen: In-Depth Look of AMD's AM4 Processors On Linux</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>XDA挑战锐龙:深入了解AMD在Linux上的AM4处理器</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/xda-takes-on-ryzen-in-depth-look-of-amds-new-processors-on-the-linux-side/#0001-01-01">https://www.xda-developers.com/xda-takes-on-ryzen-in-depth-look-of-amds-new-processors-on-the-linux-side/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>2016年，读者想知道AMD的FX处理器在构建Linux和Android时表现如何——感谢AMD的人员<a href="https://www.xda-developers.com/you-asked-we-answer-aosp-build-times-on-amd-processors/">，我们很高兴找到并与你们分享结果</a>。我们从那篇文章中学到的经验帮助我们了解如何更好地配置我们的系统，并更好地实现构建时间——由于您的提示，我们的FX-8350构建时间减少了50%以上！但即便如此，我们还是碰到了一堵墙。AMD的表现虽然好于预期，但与英特尔的竞争对手相比，它仍有提升的空间。</p>
+
+  
+<p>一段时间以来，AMD一直告诉我们，一些新的东西即将出现:与当前的产品线相比，处理器的性能提高了40%或更多。现在，随着锐龙系列产品走向大众，我们也开始接触这些处理器。他们的表现是否像AMD宣称的那样好？是时候找出答案了。</p>
+
+<p><a name="IndexTop"/></p>
+
+<h1>索引</h1>
+
+
+
+<h2 id="background">背景</h2>
+<p>在x86领域，Advanced Micro Devices是英特尔为数不多的竞争对手之一，这在很大程度上是由于专利授权。我仍然记得在90年代后期，AMD、Intel甚至一些同学都使用Cyrix CPUs。不幸的是，到21世纪初，Cyrix作为一个品牌已经从舞台上消失了。在新千年的最初几年，AMD和英特尔之间的竞争有助于健康的竞争和创新。AMD在2004年通过将x86-64架构引入主流CPU扰乱了市场。这需要几年的时间才能成熟，并让竞争保持强劲。两者都在同一时间框架内创新了多核架构，突破了频率障碍。</p>
+
+<p>随着英特尔在多核同步多线程(品牌为超线程)方面的表现越来越出色，AMD开始努力追赶其竞争对手。2011年，推土机架构被认为有助于缩小这一差距，并使AMD对英特尔更具竞争力。虽然推土机和它的相关打桩机确实提供了改进，但它未能让AMD到他们想去的地方。这开始了对他们的处理器进行“自下而上”的重新设计的漫长过程，他们实现了同步多线程，这成为了Zen架构和锐龙CPU系列。鉴于他们几年来没有对他们的AM3+阵容进行太多更新，锐龙提供了巨大回报的机会。</p>
+
+<p>在过去的一年中，他们一直在慢慢地详细说明技术细节，Anandtech在解释AMD自己的技术幻灯片和演示文稿之外的内容时非常有帮助。正如北极星架构在图形技术领域证明了与英伟达的竞争能力一样，锐龙的目标很简单:确保他们完成他们派出推土机的任务，并再次成为英特尔的真正竞争者。许多分析师和合作伙伴甚至提前对锐龙采取了看跌立场。在体验了挖掘机和打桩机之后，他们希望它能和它的前辈做得一样好。现在是时候让猜测靠边站了，基准测试继续这个故事的剩余部分。</p>
+
+<p/>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/Ryzen_Samples-1024x954.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Everything AMD sent to put Ryzen to the Test&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/Ryzen_Samples-1024x954.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/Ryzen_Samples-1024x954.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/Ryzen_Samples-1024x954.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/Ryzen_Samples-1024x954.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/Ryzen_Samples-1024x954.jpg" src="../Images/79d244461650dae75cc8b6f3816d2a8b.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/Ryzen_Samples-1024x954.jpg"/> </picture> <figcaption class="body-img-caption">Everything AMD sent to put Ryzen to the Test</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p><a name="Unboxing"/></p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="unboxing">拆箱</h2>
+<p>如果看起来这是一大堆东西，那就是。AMD实际上分多个批次发送了所有这些内容。背后的原因是为了在锐龙7和锐龙5上市前及时提供测试样品。不过，这些审查大多是在Windows环境下进行的。但是如果我们想测试从源代码中构建Android，我们仍然会关注Linux，所以这是我们评论的重点。这也是一次有趣的旅程，最终给我们上了非常宝贵的一课。</p>
+
+<p><a name="Gigabyte"/></p>
+<p class="ad-even"> </p>
+
+
+<h2 id="gigabyte-am4-motherboards-and-linux">千兆字节AM4主板和Linux</h2>
+<p>不幸的是，这导致了图中的两个千兆字节主板的问题。两者都拒绝在不使用noacpi标志的情况下启动任何版本的Ubuntu。因为这剥夺了锐龙的许多增强功能——包括同步多线程——我们开始寻找答案。通过其他评论者、Phoronix创始人Michael Larabel和一些在第一天就跑出去购买锐龙的XDA读者的合作，我们能够确认这是一个针对Gigabyte的问题。已经发布的微星主板和华硕主板似乎没有这些问题。因此，在联系AMD之后，我们收到了MSI X370 XPower Gaming Titanium，并最终使用它来测试收到的一切。</p>
+
+<p>因为我们没有在Linux上测试千兆字节的主板，所以我们在Windows上简单使用了一下。如果你不担心Linux，似乎提供了三种主板中最稳定的超频，Geil RAM达到了3.9 GHz，达到了3200 MHz的全时钟速度，并且由于幽灵Spire cooler而保持凉爽，这是AMD与锐龙发布的两种新的LED风扇冷却解决方案之一。技嘉的X370主板还提供声霸MB5支持，以获得更好的环绕体验。两者都具有一些很棒的LED照明功能，并带有额外的接头来连接外围设备，以匹配主板的照明模式。</p>
+
+<p>我们感谢许多人的共同努力，帮助我们快速解决了这个问题。AMD也应该感谢它在问题被确认后的快速反应。如果说有什么不同的话，那就是这强化了一个事实:对于Linux用户来说，从第一天开始就非常需要对PC硬件进行更多的审查。我们还计划评估并通知用户，如果使用Gigabyte和Linux的情况有所改善。</p>
+
+<p><strong>CDT时间4月25日上午12:30更新:</strong> Redditors迅速发布消息称<a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1671360">问题已经作为bug </a>出现在Ubuntu的Launchpad中。该问题似乎是由于配置_ <wbr/>造成的</p>
+
+<p>PINCTRL_ <wbr/></p>
+
+<p>AMD启用了一个正式的解决方案，同时，<a href="http://www.nextized.net/repo/linux/ubuntu-linux-4.10.3_ryzen01_amd64_generic.tar.gz">一个工作区内核(根据用户反馈声明工作)被构建并发布在线程</a>中。Ubuntu和OpenSuSE已被确认存在此问题，其他在其内核中不支持此功能的发行版可能不会出现问题。我们感谢Linux社区中努力解决这些问题的人们。随着更多信息的发布，我们将继续关注和更新。</p>
+
+<p/>
+
+<p><a name="Photos"/></p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="photos">照片</h2>
+
+
+
+
+<p/>
+
+<p><a name="TestSpec"/></p>
+<p class="ad-even"> </p>
+
+
+<h2 id="testing-specifications">测试规格</h2>
+<p>虽然测试平台在穿越半个世界的危险旅程中幸存下来，但AMD镭龙HD6450不是我们想要测试的显卡。于是，镭龙问世了，而现有的最好的显卡——NVIDIA GeForce GTX 1080也随之问世。原因很简单:虽然AMD知道它有自己的显卡粉丝群，但它也知道许多其他人会选择NVIDIA。</p>
+
+<p>由于最低的锐龙处理器是一个4核8线程的CPU，我还使用我的个人电脑进行了基准测试。我在下面列出了规格和测试方法。</p>
+
+
+
+<p/><h4><span> FX-8350测试平台</span></h4>
+
+
+
+
+
+<p/><h4><span> AMD锐龙(AM4)测试平台</span></h4>
+
+<p/><h4/>
+
+
+
+
+
+<p/><h4><span>英特尔酷睿i7-6700K测试平台</span></h4>
+
+
+
+<p><strong>注:</strong>未提及由第三方提供的物品是自己购买的。此外，在每个平台上实际安装了额外的驱动器，但没有用于测试目的。</p>
+
+<p/><h4><span>软件</span></h4>
+
+<ul> <li>包含所有最新更新的Ubuntu 17.04 。<ul> <li>锐龙注:锐龙用更新的4.10内核和4.11内核进行了测试，因为它有锐龙同步多线程的代码实现。AMD和NVIDIA GPUs的用户将希望暂时避开4.11内核，因为这两个专有软件包目前都没有合并代码来轻松安装和运行专有软件包。</li> </ul> </li> <li><a href="http://phoronix-test-suite.com/"> Phoronix测试套件v7.0 </a></li> <li><a href="https://unigine.com/products/benchmarks/heaven/">宇宙天空v4.0 </a></li> <li><a href="https://unigine.com/en/products/benchmarks/valley"> Unigine Valley v1.0 </a></li> </ul>
+
+<p/>
+
+<p><a name="Methodology"/></p>
+
+<p/><h4><span>测试方法</span></h4>
+
+<p>为了尽量减少测试变量的数量，所有RAM都保持在2133 MHz进行测试。例外情况是FX-8350和AM3+平台，因为其最大频率为1600 MHz。CPU速度被超频为1800X、1700X至3.9 GHz和1600X至4.025 GHz，以尽可能接近(或者，在1600X的情况下，额外25 MHz以测试可行性)FX-8350和i7-6700K的4.0 GHz的库存速度。1700和1500X曾试图超频到这些速度，但无法保持稳定。因此，它们以最高稳定速度进行了测试:锐龙7 1700的速度为3.7 GHz，锐龙5 1500X的速度为3.8 GHz。对于英特尔来说，i-6700K在4.0 GHz下的简短测试和基于构建时间轻松实现的4.2 GHz超频为英特尔带来了略好的数字，但不足以改变本次审查的结果(一个构建更快，另一个则不是。)基于这些发现，我决定在4.2版上运行Phoronix测试套件。所有提到的超频调整仅通过时钟倍增器。</p>
+
+<p><strong> Android构建时间是Nexus 6P (angler) </strong>的Lineage OS branch cm-14.1的平均3次构建。所有构建都是使用ccache和make 3.82基于以前的发现完成的。应该注意的是，我们也用make 4.1做了一些测试，并没有注意到我们在FX处理器测试期间所做的当前构建过程的性能问题。由于我们的样本测试的时间与3.82的时间相匹配，所以没有包括在测试中。</p>
+
+<p/>
+
+<p><a name="Benchmarks"/></p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="benchmarks">基准</h2>
+<p/><h5><strong>基准测试注释:</strong> Phoronix测试套件的CPU套件提供了大量的测试，并不是所有的测试都包括在本文中。Phoronix测试套件的完整测试结果可在Openbenchmarking.org网站上获得。<a href="http://openbenchmarking.org/result/1704211-GARW-FX8350647,1704202-GARW-1700XST61,1704209-GARW-1700X0135,1704206-GARW-1700OC348,1704207-GARW-1700STO37,1704186-GARW-R51600X02,1704188-GARW-R51500X80,1704181-GARW-6700KV299,1704181-GARW-2C6788452">我在这里添加了一个链接，用于所有结果的比较。</a></h5>
+
+<p/><h4><strong>FFTW 3 . 3 . 4版</strong></h4>
+
+<p>FFTW是快速傅立叶变换的单线程基准。就像我们在Windows性能指标评测中看到的一样，锐龙的单线程性能在所有变体中似乎都是相似的，主要区别在于频率。与上一代FX-8350相比，这是一个重大改进，性能提高了一倍以上，但即使与Skylake i7相比，仍显不足。</p>
+
+
+
+<p>在新闻发布会上，AMD承认锐龙“赢得了一些，也失去了一些”，在这里我们可以看到为什么。虽然在Windows中，许多测试都停留在英特尔的15%以内，但AMD的锐龙处理器的性能似乎比Skylake i7-6700K低20%以上。</p>
+
+<p/><h4><strong> GMP基准v0.2 </strong></h4>
+
+<p><a href="https://gmplib.org/"> GMP的基准测试</a>是算术运算的组合，虽然是多线程的，但CPU频率在这里有很大的不同。我们再次看到，即使是锐龙5 1500X与FX-8350相比也有明显的差异。令人惊讶的是，在我们的基准测试中，我们最高的两个CPU是最高时钟的CPU，这表明内核和线程数量似乎对测试中的原始速度没有太大影响。</p>
+
+
+
+<p><strong> SciMark 2 (Java) v1.1.1复合版</strong></p>
+
+<p><a href="http://math.nist.gov/scimark2/">SciMark 2性能指标评测</a>利用Java进行算术运算，然后根据各种运算的组合进行评分。AMD的锐龙CPU在这里大放异彩。即使1500X的速度比英特尔的同类产品慢，但也比它高出大约12%。</p>
+
+
+
+<p/><h4><strong>博克文件加密器v1.4 </strong></h4>
+
+<p>Bork 用Java测试加密文件，测量加密一个样本文件需要多长时间。在这里，我们看到AMD的锐龙确实比它自己以前的架构有所改进，但英特尔显然赢得了这一轮。</p>
+
+
+
+<p/><h4><strong> CacheBench </strong></h4>
+
+<p><a href="http://icl.cs.utk.edu/llcbench/cachebench.html"> Cachebench </a>是一款帮助测量给定架构的底层缓存性能的工具。值得注意的是，从表面上看，额外的L1高速缓存似乎有助于AMD在这方面取得优势，即使是在较旧的FX-8350上。但仅此并不能说明全部情况；我们在其他基准测试中看到，这并不总是转化为现实世界中的全面胜利。</p>
+
+
+
+<p/><h4><strong>开膛手约翰</strong></h4>
+
+<p>对于想了解密码学性能的读者来说，<a href="http://www.openwall.com/john/">开膛手约翰</a>有一些好消息要告诉你。该性能指标评测的多线程特性使其能够充分利用额外的内核和线程来实现最高性能。锐龙的额外内核无疑使它在这里看起来很有吸引力——与英特尔相比，如果将成本作为一个额外因素考虑，就更是如此。</p>
+
+
+
+<p/><h4><strong> GraphicsMagick v1.3.19锐化</strong></h4>
+
+<p>GraphicsMagick是市场上最强大的开源图像工具之一；作为一名IBM i RPG程序员，我甚至发现了它的用处。这里的锐化结果似乎有点偏向英特尔CPU，我不得不相信这部分是由于GPU的差异。我将它包含在此，因为将1600X、1700、1700X和1800X的结果放在一起比较是值得的。这4款处理器的定价不同，表明在某些情况下，额外的马力可能不会带来太多好处。</p>
+
+
+
+<p/><h4><strong> C射线1.1版</strong></h4>
+
+<p>C-Ray 是同一主题的另一个例子:从8个线程到12个线程的跳跃带来了巨大的改进，并且很好地证明了1600X的地位。但这些回报在6核锐龙5 1600X和锐龙7之间逐渐减少。</p>
+
+
+
+<p/><h4><strong> 7-Zip v9.20.1 </strong></h4>
+
+<p>7-Zip测试是为了压缩一个文件，但更清楚地定义了四、六和八个锐龙核心变量之间的区别。有点令人失望的是，它的性能比它的前辈FX-8350低1500倍。谢天谢地，这可以用它们之间200 MHz的时钟差异来解释。PBZip基准遵循类似的趋势。</p>
+
+
+
+<p/><h4><strong> GZip 1.1.0 </strong></h4>
+
+<p>并不是所有的压缩程序在锐龙都能做得更好。以<a href="http://www.gzip.org/"> GZip </a>为例，它见证了英特尔i7-6700K超越所有处理器。在LZMA基准测试中也发现了类似的结果。在这两种情况下，所有锐龙模型之间的差异是微不足道的。当我们意识到这些都是典型的单线程操作时，我们就可以理解这一点，因为它符合其他基准中单线程性能的趋势。</p>
+
+
+
+<p/>
+
+<p><a name="BenchBuild"/></p>
+<p class="ad-even"> </p>
+
+
+<h2 id="benchmarks-build-performance">基准:构建性能</h2>
+<p>基准测试的最后一页关注的是构建——包括一些(但不是全部)案例中的Android构建。我们还提供了2个显卡性能指标评测，帮助您了解锐龙对整体显卡性能的影响。</p>
+
+<p/><h4><strong>构建测试:ImageMagick </strong></h4>
+
+<p>虽然i7-6700K比整个锐龙做得更好，但差距很容易就落在200到500 MHz时钟速度差异之内。在这里，1500X的编译时间比FX-8350减少了25%,但是当我们跨越到6和8个内核阈值时，我们看到了收益递减。</p>
+
+
+
+<p/><h4><strong>构建测试:Linux内核4.9 </strong></h4>
+
+<p>当我们进入Linux内核时，上述情况不再适用，这里的额外内核有机会展示它们的肌肉。我们还看到四核、六核和八核型号之间的性能有了更明确的定义。CPU时钟速度在这个构建测试中也很重要。</p>
+
+
+
+<p/><h4><strong>构建时间:linegeos cm-14.1 ccache</strong></h4>
+
+<p>正如我们在基准测试中注意到的那样，当以相同的时钟速度工作时，锐龙7处理器似乎表现相似。因此，我们把最好的每一个测试我们的LineageOS建设。FX-8350构建时间随着cm-14.1分支而增加，并且是每个较新版本的Android的典型特征。我们看到1500X在这方面有了巨大的改进，但是当我们跨越到6核阈值时，CPU瓶颈就消除了。8核的时间有所改善，但回报很快减少，可能会更好地投资于I/O性能，就像我们在RAID5阵列和i7-6700K的至强处理器中观察到的一样。</p>
+
+
+
+<p/><h4><strong>图形基准测试:Unigine Heaven 4.0 </strong></h4>
+
+<p>Unigine的图形基准是评测中经常使用的一个众所周知的基准。我们希望限制构建配置中的变量，以便更好地了解锐龙在FX-8350上的改进程度。然后，通过只改变CPU，我们可以了解内核是否提供了额外的提升。在天堂的例子中，我们看到从FX-8350到1500X的显著改进，然后随着我们添加更多的核心和线程，略有提升。</p>
+
+
+
+<p/><h4><strong>图形基准测试:Unigine Valley 1.0 </strong></h4>
+
+<p>Valley是较新的基准，我们再次看到从FX-8350到锐龙5 1500X的改进。但是一旦我们跨过这个门槛，似乎就不再是关于额外的内核和线程，而是关于原始速度。我们的1800X比1500X提高了100 MHz，但被运行在4.025 GHz的1600X击败。</p>
+
+
+
+<p/>
+
+<p><a name="Coreboot"/></p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="ryzen-and-coreboot">锐龙和Coreboot</h2>
+<p>锐龙发布后不久，AMD在AMA上Reddit回答了关于其新产品T1的问题。在那次讨论中，一些Linux和开源用户提出了请求，要求AMD向开源社区发布其平台安全处理器(PSP)代码。这样做的原因是为了支持Coreboot和Libreboot等选项。就连爱德华·斯诺登也通过推特对此事发表了看法:</p>
+
+ 
+
+
+
+<p>AMD的产品经理James Prior在AMA上回答说，他们正在对此进行调查，<a href="https://www.reddit.com/r/Amd/comments/636831/dear_amd_dont_think_weve_forgotten_about_this/">在本月早些时候提供了关于调查状态的进一步更新。在AMD </a><a href="https://www.xda-developers.com/robert-hallock-gpuopen-is-amds-long-term-open-source-strategy/">向社区</a>发布GPUOpen时，我们曾向他们提供支持，并希望他们通过支持这一请求向前迈出一大步。我们将继续关注此事，并在有其他更新时提供。</p>
+
+<p/>
+
+<p><a name="Close"/></p>
+<p class="ad-even"> </p>
+
+
+<h2 id="final-thoughts">最后的想法</h2>
+<p>有几种方式来思考锐龙以及它如何融入新的生态系统。首先，也是许多人讨论过的，它在核心/线程比赛中与英特尔的竞争情况如何。从FX-8350到锐龙5 1500X有明显的改进。<strong>如果单看性能，我们认为它并不总能跟上英特尔酷睿i7-6700K。但是AMD的策略从来不仅仅是原始性能。相反，AMD的商业策略在很大程度上是以其产品的价格提供最佳价值。</strong>他们在处理器和图形技术方面一直遵循这一总体战略。当考虑到个人电脑的整体成本时，这一点变得更加重要。</p>
+
+<p>当想要对英特尔主板进行超频时，目前的选择通常仅限于Z系列，尽管有些人已经找到了绕过这一障碍的方法。AMD采取了另一种方法，提供3个支持超频的主板芯片组，然后在每个AM4处理器上启用乘数超频。 <strong>这里以较低的价格提供了大量的选择。</strong>我发现提供所有处理器的挑战是，一旦XFR不再是一个因素，所有处理器型号的行为都类似。</p>
+
+<p>接下来就是你能超频多好的那个处理器了。你可能会不时听说这是“硅彩票”,因为不是每个处理器都会像其他处理器一样超频。例如，我可以增加乘数，或者在所有3块主板上以XMP配置文件的速度运行RAM。最近的BIOS更新有助于改善这个问题，但它并没有解决这个问题。以锐龙7 1700为例。更高的时钟速度可以启动，例如3.9 GHz，但最终会因为过热以外的原因而失败。</p>
+
+<p>当我们看库存速度时，选择是非常清楚的。AMD现在以其竞争对手一半的成本提供了英特尔极端消费者阵容的替代产品。随着我们进入超频阶段，只要处理器允许，即使是锐龙7 1700也可以实现同样的目标。比英特尔的i7-5960X或i7-6900X低66%的成本节约甚至足以购买一个非常高端的显卡或额外的SSD存储。锐龙1600也是如此。与酷睿i5相比，它的定价极具竞争力，并且它提供了超越酷睿i7的许多消费者使用体验。希望从锐龙获得最大价值的消费者不应立即放弃这些“非X”选项。<strong>如果他们打算给自己的电脑超频，这一点怎么强调都不为过。</strong></p>
+
+<p>不过，在目前的一些情况下，英特尔仍然可以证明其价格是合理的。其中一个例子是PCI Express通道，Broadwell-E和即将推出的Skylake-E提供了AMD没有的额外PCI-E通道。这意味着在一些高端应用中还没有替代品。AMD公司预计将宣布X390主板和那不勒斯，锐龙的企业阵容。我完全期待在这里看到对X99的挑战，不仅是额外的PCI Express通道，还有内存容量。</p>
+
+<p>AMD自己在这个市场的挑战意味着通过牺牲许多短期销售来赌上一把。有时这种回报甚至更大——芝加哥小熊队和克利夫兰骑士队就是体育界的见证。如果AMD的目标是实现这种竞争姿态，我相信他们已经实现了他们的目标。但这并不是故事的结尾；变革和创新需要继续。英特尔已经通过在2019年退役核心品牌暗示了这样的变化。这会损害AMD在2020年之前继续使用AM4平台的承诺吗？只有时间能证明一切。与此同时，把爆米花递过来；一个有竞争力的AMD回到了他们的旧形式，这意味着一个令人兴奋的竞争你辛苦赚来的美元。在这种情况下谁赢了？我们，消费者，需要。是时候了。</p>
+
+<hr/>
+
+<p/>
+
+<p><strong> <em> <span>重要提示:我们想知道:你喜欢这篇评论吗？</span>您希望看到更多关于XDA的报道吗？或者你认为这与我们的网站无关？请在下面的评论中，脸书、推特或谷歌+上发表评论。我们期待您的反馈！</em> </strong></p>
+
+<p><em>本文已从其原始内容更新如下:</em></p>
+
+<ul> <li>4/25/2017上午12:30 CDT-添加了有关Gigabyte/Ubuntu问题和解决方法的更新信息。</li> </ul>
+</div>
+
+
+</div>    
+</body>
+</html>

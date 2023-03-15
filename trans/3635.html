@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>How to Add Third-Party Music Apps to EMUI's Music Lock Screen [Root]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何将第三方音乐应用添加到EMUI的音乐锁屏[Root]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-add-third-party-music-apps-emui-lock-screen/#0001-01-01">https://www.xda-developers.com/how-to-add-third-party-music-apps-emui-lock-screen/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>像许多OEM皮肤一样，EMUI修改了股票锁定屏幕以适应其主题，并加入了公司认为其用户需要快速访问的功能。</p>
+
+  
+<p>EMUI的锁定屏幕提供的功能之一是能够以美丽的全屏专辑封面和大轨道控制按钮显示当前播放的音乐轨道，如功能图像所示。然而，该功能仅限于华为/Honor选择的少数预定义应用。该列表*包括:</p>
+
+
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_3"><p>*可能有其他应用程序可以与EMUI的音乐锁屏配合使用。这个列表直接来自华为的应用白名单，我将在下面详细描述。</p> </div></section>
+<p>如果你不使用EMUI中某个被认可的应用，比如<a href="https://play.google.com/store/apps/details?id=com.kabouzeid.gramophone">留声机</a>或者<a href="https://play.google.com/store/apps/details?id=com.fastbootmobile.encore.app">安可</a>，会怎么样？如果你想展示美丽的艺术，并为一些播客应用程序(如<a href="https://play.google.com/store/apps/details?id=com.bambuna.podcastaddict">播客上瘾</a>)提供大的轨道控制按钮，该怎么办？在这些情况下，当您开始一个轨道或podcast时，您的锁定屏幕将如下所示:</p>
+
+
+
+<p>大屏幕的华为/Honor设备可能会觉得处理起来很烦人，因为按钮相对于整个屏幕来说太小了。这让你很难控制你的音乐，而且用这种方式展示你的音乐也很难看。幸运的是，有一种方法可以将你选择的应用程序加入白名单，这样音乐曲目就会像普通音乐播放器一样显示在锁定屏幕上。</p>
+
+<hr/>
+
+
+<h2 id="add-third-party-music-apps-to-emui-s-music-lock-screen">将第三方音乐应用添加到EMUI的音乐锁定屏幕</h2>
+<p>有一个系统设置包含EMUI用来确定哪些应用程序获得特殊音乐锁屏待遇的软件包列表。如果您发送以下ADB命令，那么您可以看到自己的包列表:</p>
+
+<pre> <code class="hljs javascript">adb shell settings <span class="hljs-keyword">get</span> system white_music_for_keyguard</code> </pre>
+<p>不幸的是，通过ADB命令修改这个列表没有任何作用。然而，当我开始研究如何解决这个问题时，我在我们自己的XDA论坛上发现了一个解决方案。</p>
+
+<p>这一招<a href="https://forum.xda-developers.com/mate-8/general/adding-apps-to-music-lockscreen-root-t3442538/page2">最初是由XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=4832449"> superior8888 </a>在华为Mate 8论坛上发现</a>的，但这应该在大多数华为和Honor设备上都有这个功能。不幸的是，这种方法<strong>要求你拥有root权限</strong>，因为你需要修改一个系统偏好文件来将你最喜欢的音乐应用添加到白名单包列表中。</p>
+
+<p>从Play Store下载一个根文件浏览器(任何app都可以)。如果您知道如何使用命令行，那么您也可以使用终端模拟器。在任何情况下，根据您的设备型号，您必须编辑<strong> hw_defaults.xml </strong>，它位于不同的目录中，这取决于您设备的区域设置。这是因为华为/Honor根据您设备的区域设置使用不同的EMUI配置文件。</p>
+
+<p>对于国际型号，您需要编辑的文件位于:</p>
+
+<pre> <code class="hljs ">/system/emui/oversea/xml/</code> </pre>
+<p>对于中国模型，您需要编辑的文件位于:</p>
+
+<pre> <code class="hljs ">/system/emui/china/xml/</code> </pre>
+<p>一旦你打开这个文件，你将需要编辑或添加某一行，以便将你的应用程序列入白名单。有一个你将要编辑/添加的字符串，叫做<strong> white_music_for_keyguard </strong>，它包含一个<strong>包名</strong>的<strong>分号分隔列表</strong>。因此，您需要知道想要加入白名单的应用程序的包名。</p>
+
+<p>有多种方法可以找到应用程序的包名。您可以从Play Store下载<a href="https://play.google.com/store/apps/details?id=com.ubqsoft.sec01"> App Inspector </a>，通过选择您的应用并查看数据目录的名称来找到包名称。或者您可以查看Play Store列表的URL来查找包名，如下所示:</p>
+
+ 
+
+<p>请注意，URL的粗体部分是包名。一旦您获得了想要的包列表，我们现在就可以修改hw_defaults.xml了。</p>
+
+<p>首先，对于国际车型:</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_23"><h3 id="before-edit">编辑前</h3><pre> <code class="hljs xml"><br/><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">settings.secure.default_input_method</span>=<span class="hljs-string">"com.nuance.swype.emui/com.nuance.swype.input.HuaweiIME"</span>/&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">integer</span> <span class="hljs-attr">settings.secure.fingerprint_gallery_slide</span>=<span class="hljs-string">"0"</span>/&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">white_languages</span>=<span class="hljs-string">"en_US,ar_EG,de_DE,bs_BA,es_ES,uk_UA,fr_FR,pt_PT,ru_RU,zh_CN,zh_TW,zh_HK,es_US,cs_CZ,da_DK,el_GR,hu_HU,pt_BR,it_IT,ja_JP,lt_LT,lv_LV,bg_BG,nb_NO,pl_PL,ro_RO,et_EE,sk_SK,sr_Latn,sv_SE,tr_TR,th_TH,fi_FI,in_ID,mk_MK,sl_SI,ms_MY,vi_VN,hr_HR,nl_NL,ca_ES,hi_IN,ko_KR,en_GB,iw_IL,my_ZG,my_MM,eu_ES,gl_ES,ka_GE,az_AZ,uz_UZ,km_KH,si_LK,ur_PK,kk_KZ,lo_LA,be_BY,bn_BD,ne_NP,tl_PH,jv_Latn"</span>/&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">white_music_for_keyguard</span>=<span class="hljs-string">"deezer.android.app;com.maxmpz.audioplayer;com.qobuz.music;com.soundcloud.android;com.spotify.music"</span>/&gt;</span><br/><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">hw_invert_txtclr_packages</span>=<span class="hljs-string">"google*;facebook*"</span>/&gt;</span><br/><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">integer</span> <span class="hljs-attr">hw_displayafterfirstring</span>=<span class="hljs-string">"0"</span>/&gt;</span><br/><br/><span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br/></code> </pre> </div></section>
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_24"><h3 id="after-edit">编辑后</h3><pre> <code class="hljs xml"><br/><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">settings.secure.default_input_method</span>=<span class="hljs-string">"com.nuance.swype.emui/com.nuance.swype.input.HuaweiIME"</span>/&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">integer</span> <span class="hljs-attr">settings.secure.fingerprint_gallery_slide</span>=<span class="hljs-string">"0"</span>/&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">white_languages</span>=<span class="hljs-string">"en_US,ar_EG,de_DE,bs_BA,es_ES,uk_UA,fr_FR,pt_PT,ru_RU,zh_CN,zh_TW,zh_HK,es_US,cs_CZ,da_DK,el_GR,hu_HU,pt_BR,it_IT,ja_JP,lt_LT,lv_LV,bg_BG,nb_NO,pl_PL,ro_RO,et_EE,sk_SK,sr_Latn,sv_SE,tr_TR,th_TH,fi_FI,in_ID,mk_MK,sl_SI,ms_MY,vi_VN,hr_HR,nl_NL,ca_ES,hi_IN,ko_KR,en_GB,iw_IL,my_ZG,my_MM,eu_ES,gl_ES,ka_GE,az_AZ,uz_UZ,km_KH,si_LK,ur_PK,kk_KZ,lo_LA,be_BY,bn_BD,ne_NP,tl_PH,jv_Latn"</span>/&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">white_music_for_keyguard</span>=<span class="hljs-string">"deezer.android.app;com.maxmpz.audioplayer;com.qobuz.music;com.soundcloud.android;com.spotify.music;&lt;strong&gt;YOUR.MUSIC.PACKAGE.HERE&lt;/strong&gt;"</span>/&gt;</span><br/><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">hw_invert_txtclr_packages</span>=<span class="hljs-string">"google*;facebook*"</span>/&gt;</span><br/><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">integer</span> <span class="hljs-attr">hw_displayafterfirstring</span>=<span class="hljs-string">"0"</span>/&gt;</span><br/><br/><span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br/></code> </pre> </div></section>
+<p>对于中国车型:</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_26"><h3 id="before-edit">编辑前</h3><pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">default_input_method</span>=<span class="hljs-string">"com.baidu.input_huawei/.ImeService"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">custom_certify_picture</span>=<span class="hljs-string">"/system/emui/china/media/certify_infor.png"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">white_languages</span>=<span class="hljs-string">"en_US,ar_EG,de_DE,bs_BA,es_ES,uk_UA,fr_FR,pt_PT,ru_RU,zh_CN,zh_TW,zh_HK,es_US,cs_CZ,da_DK,el_GR,hu_HU,pt_BR,it_IT,ja_JP,lt_LT,lv_LV,bg_BG,nb_NO,pl_PL,ro_RO,et_EE,sk_SK,sr_Latn,sv_SE,tr_TR,th_TH,fi_FI,in_ID,mk_MK,sl_SI,ms_MY,vi_VN,hr_HR,nl_NL,ca_ES,hi_IN,ko_KR,en_GB,iw_IL,eu_ES,gl_ES,bo_CN,ka_GE,az_AZ,uz_UZ,km_KH,si_LK,ur_PK,kk_KZ,lo_LA,be_BY,bn_BD,ne_NP,tl_PH,jv_Latn"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">hw_theme_support_hw</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">hw_theme_support_pay</span>=<span class="hljs-string">"true"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">integer</span> <span class="hljs-attr">is_show_google</span>=<span class="hljs-string">"0"</span>/&gt;</span><br/><span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br/></code> </pre> </div></section>
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_27"><h3 id="after-edit">编辑后</h3><pre> <code class="hljs xml"><br/><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">default_input_method</span>=<span class="hljs-string">"com.baidu.input_huawei/.ImeService"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">custom_certify_picture</span>=<span class="hljs-string">"/system/emui/china/media/certify_infor.png"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">white_languages</span>=<span class="hljs-string">"en_US,ar_EG,de_DE,bs_BA,es_ES,uk_UA,fr_FR,pt_PT,ru_RU,zh_CN,zh_TW,zh_HK,es_US,cs_CZ,da_DK,el_GR,hu_HU,pt_BR,it_IT,ja_JP,lt_LT,lv_LV,bg_BG,nb_NO,pl_PL,ro_RO,et_EE,sk_SK,sr_Latn,sv_SE,tr_TR,th_TH,fi_FI,in_ID,mk_MK,sl_SI,ms_MY,vi_VN,hr_HR,nl_NL,ca_ES,hi_IN,ko_KR,en_GB,iw_IL,eu_ES,gl_ES,bo_CN,ka_GE,az_AZ,uz_UZ,km_KH,si_LK,ur_PK,kk_KZ,lo_LA,be_BY,bn_BD,ne_NP,tl_PH,jv_Latn"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">hw_theme_support_hw</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">hw_theme_support_pay</span>=<span class="hljs-string">"true"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">white_music_for_keyguard</span>=<span class="hljs-string">"&lt;strong&gt;YOUR.LIST.OF.PACKAGES.SEPARATED.BY.SEMI.COLON.HERE&lt;/strong&gt;"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">integer</span> <span class="hljs-attr">is_show_google</span>=<span class="hljs-string">"0"</span>/&gt;</span><br/><span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br/></code> </pre> </div></section>
+<p>完成编辑后，重新启动您的设备。你应该很有希望在锁定屏幕上看到带有大音轨控制按钮的全屏专辑封面。然而，我不能保证这一调整将适用于所有的多媒体应用，但我相信它将适用于大多数应用。</p>
+
+
+
+
+
+<hr/>
+
+<p><strong>试试这个技巧，</strong> <strong>让我们知道它对你的荣誉/华为设备是否有效！</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Magisk Receives an Update to v11, Introduces MagiskSU and More</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Magisk收到了v11的更新，介绍了MagiskSU等</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/magisk-receives-an-update-to-v11-introduces-magisksu-and-more/#0001-01-01">https://www.xda-developers.com/magisk-receives-an-update-to-v11-introduces-magisksu-and-more/#0001-01-01</a></blockquote><div><section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>XDA公认的开发者和贡献者<a href="https://forum.xda-developers.com/member.php?u=4470081" target="_blank"> topjohnwu </a>最近一直在努力工作，刚刚推出了Magisk Android mod的重大更新。这里最大的新特性是增加了MagiskSU，因为这将Magisk变成了自己的根解决方案。这个新特性的代码是基于phh更新CM超级用户的方法，但是据说其重要性足以成为它自己的解决方案。这里的目标是实现SuperSU标准，开发者认为功能应该与<i>几乎等同。</i></p>
+
+ <div><div><p>现在唯一担心的是兼容性，这将在未来的后续更新中解决。对于那些仍然想坚持</p><a href="https://forum.xda-developers.com/member.php?u=631273" target="_blank">Chainfire's</a><p>根解决方案，Magisk 11仍将与SuperSU一起工作(并已通过SuperSU v2.79-SR3测试)。为了配合新的MagiskSU根解决方案，topjohnwu说他们已经重新分解了Magisk的sepolicy-inject工具。在Chainfire文档的帮助下，Magisk现在应该遵循与SuperSU的supolicy工具相同的语法。</p></div>
+
+
+<p/>
+</div>
+
+<p>为了增加Magisk与定制rom的兼容性，并为社区提供额外的选项，Magisk v11提供了topjohnwu所说的伪SELinux Enforce模式。这将是设置菜单中的一个选项，它将SELinux设置为许可，同时使状态显示为强制。尽管有些人认为将此设置为permissive是一种不好的做法，但一些自定义rom要求这样设置。所以现在用户可以选择将SELinux设置为强制，或者假装它设置为强制。</p>
+
+
+<p/>
+<p>回到Magisk的第4版，topjohnwu删除了使用通用引导脚本的能力，因为他们希望人们使用每个模块的脚本。这个特性现在已经恢复，脚本应该放在/magisk/中。core/post-fs-data.d和/magisk/。对于那些感兴趣的人，这里是Magisk版本11的完整变更日志。。。</p>
+
+
+<ul> <li>[魔法坐骑]支持替换符号链接。符号链接不能作为绑定装载的目标，因此它们被视为新文件</li> <li>[魔法挂载]修正了文件/文件夹名包含空格的问题</li> <li>[BusyBox]更新到1.26.2版。应该可以修复FlashFire的黑屏问题</li> <li>[resetprop]支持读取属性值中包含空格的属性文件</li> <li>[MagiskSU]使通信适应Magisk管理器；剥离未使用的数据传输</li> <li>[MagiskSU]实现超级用户访问选项(Disable，APP only，ADB Only，APP &amp; ADB) phh超级用户应用程序有此选项，但该功能不在SU二进制文件中实现</li> <li>[MagiskSU]修复了su -c“命令”(使用root运行命令)的所有问题。该功能应该只允许一个选项，但显然adb shell su -c“命令”不能以这种方式工作</li> <li>许多根应用程序不遵守规则。su二进制文件现在会将-c之后的所有内容都视为命令的一部分。</li> <li>[MagiskSU]移除了TiBack的传统上下文攻击，它目前所做的是减慢调用速度</li> <li>[MagiskSU]调用SU后保留当前工作目录以前phh超级用户在获得root shell后会将路径更改为/data/data。现在，它将保留在您</li> <li>苏</li> <li>[MagiskSU]守护进程现在也可以在u:r:su:s0上下文中运行</li> <li>[MagiskSU]删除了一个不必要的分支，减少了运行过程并加快了调用速度</li> <li>[MagiskSU]将-cn选项添加到二进制文件中不确定这是否仍然相关，也不确定是否正确实现，但是嘿，它在这里</li> <li>[sepolicy-inject]完全重写命令行选项，现在几乎匹配supolicy语法</li> <li>[sepolicy-inject]支持几乎每个操作的所有匹配模式(使伪强制成为可能)</li> <li>[sepolicy-inject]修复了一个古老的错误，即分配的内存不会重置</li> <li>[uninstaller]现在作为一个独立的脚本运行，可以在启动时执行完全支持恢复，无需/数据访问，使用Magisk Manager卸载Magisk</li> <li>【附加】Busybox、MagiskHide、hosts设置现在可以即时应用；不需要重启</li> <li>[添加]添加post-fs-data.d和service.d</li> <li>[附加]添加禁用Magisk的选项(MagiskSU仍将启动)</li> </ul>
+
+<p><a href="https://forum.xda-developers.com/showpost.php?p=70897029&amp;postcount=12"> <strong>来源:XDA </strong> </a></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

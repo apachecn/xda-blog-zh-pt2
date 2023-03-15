@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Ryzen 3 1300X Review: A Budget Friendly 4 Core CPU from AMD!</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>锐龙3 1300X审查:AMD公司的预算友好的4核CPU！</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/ryzen-3-1300x-review-benchmarks/#0001-01-01">https://www.xda-developers.com/ryzen-3-1300x-review-benchmarks/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>鉴于我们已经测试了几乎剩余的AMD<a href="https://www.xda-developers.com/xda-takes-on-ryzen-in-depth-look-of-amds-new-processors-on-the-linux-side/">和锐龙</a>阵容，包括现在的<a href="https://www.xda-developers.com/test-ryzen-intel-amd-core-x-threadripper/"> Threadripper 1950X </a>，我们想看看《锐龙3》会是什么样子。因此，我们联系了AMD，并收到了一台锐龙3 1300X进行测试。目前在Newegg上市的价格为124.99美元，该处理器包含4个内核/线程，在这个价格上似乎是无与伦比的。预算紧张的开发人员能完成他们的构建吗？它的表现有多好？目前使用旧平台的人是否值得考虑升级？让我们对它进行一些测试，看看我们能发现什么。</p>
+
+  
+<p><em> <strong>编者按:</strong>锐龙3 1300x是AMD提供给XDA的，用于审查目的。</em></p>
+
+ 
+<h2 id="unboxing-installation-amp-test-setup">拆箱、安装和测试设置</h2>
+<p>锐龙1300X是一个AM4插座，但就其价格而言，其受众与锐龙5或7不同。购买该产品的消费者更有可能升级现有系统，因此我们测试了该场景的实用性。我们使用了宏碁Aspire M5621的外壳，因此这款机箱仅支持mATX主板。目前，这一领域的选择不如ATX的产品丰富，但微星的B350M Bazooka仍保持在89.99美元的合理价格范围内(在亚马逊上)，并延续了个人电脑是渐进升级的说法。再加上一套旧的DDR4-2400 RAM，升级到锐龙的价格不到400美元，但仍有很大的发展空间。一点也不差。</p>
+
+<p>当我们在相同的配置中开始基准测试时，很快就发现我们需要另一个临时测试平台来进行即将到来的GPU审查。因此，我们改用这种配置，因为与宏碁的情况相比，这种配置在户外环境中更容易切换CPU。</p>
+
+<p>平台配置</p>
+
+
+
+<p>软件/操作系统</p>
+
+<ul> <li>Ubuntu 17.10</li> <li>Phoronix测试套件—使用apt的电流</li> </ul>
+
+<p><strong>测试方法</strong></p>
+
+<p>鉴于<a href="https://www.xda-developers.com/test-ryzen-intel-amd-core-x-threadripper/">我们最近一批完整的测试是基于库存速度</a> s，我们现在可以通过保持库存来将这两个CPU包括在该批中。一个简单的测试表明，锐龙1300X可以轻松超频到3.8倍，但3.9倍是不可能的。但是我们特别关注1300倍和1500倍之间，因为它们在许多方面是相同的。两者的主要区别是在1500X中增加了同步多线程(SMT)。两者都有相同的股票速度，并将为我们提供一个很好的机会来看看SMT在性能上有多大的差异。</p>
+
+<p><em> <strong>更新2018年2月9日凌晨1:13 JST:</strong>在撰写本文时，我们仍在禁运之下，说我们甚至收到了镭龙·维加的锐龙样品。我没有包括前面的图表，因为我真的想在这里强调1300X和1500X之间的纯粹差异——尽管我们多次引用1700X的结果。随着镭龙·维加对锐龙的评论，我们将在2月12日为读者提供一个更全面的图表。</em></p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="non-build-benchmarks">非构建基准</h2>
+<p><strong>基准测试注释</strong> : Phoronix Test Suite的CPU套件提供了大量的测试，并不是所有的测试都包括在本文中。Phoronix测试套件的完整测试结果可在OpenBenchmarking.org的<a href="http://openbenchmarking.org/result/1711179-GARW-SHANNON77,1711195-GARW-HEDTAVA34,1711207-GARW-7700KST25,1711222-GARW-HEDTAVA66,1711235-GARW-6950XST29,1711257-GARW-7920XST63,1712045-GARW-7940XST31,1712109-GARW-7960XST74,1712119-GARW-7980XES26,1712134-GARW-7800XST08,1712170-GARW-7900XST88">获得。基准测试分别按照锐龙/Threadripper、英特尔7700K/8700K和英特尔高端台式机CPU进行颜色分组，颜色方案更接近XDA的其他图表。</a></p>
+
+<p><strong> FFTW </strong></p>
+
+<p>FFTW是快速傅立叶变换的单线程基准。相互比较没有太大的差别，我们预计这是基于单线程性能。</p>
+
+
+
+<p><strong> GZip压缩</strong></p>
+
+<p>GZip是一种常见的压缩方法，因此在这里检查一下性能是有意义的。由于两者在速度方面的表现应该是一致的，我们不得不怀疑SMT在1500倍的下降中确实扮演了一个微小的角色。</p>
+
+
+
+<p><strong> SciMark 2 (Java) v1.3.0 </strong>的缩写形式</p>
+
+<p><a href="http://math.nist.gov/scimark2/">SciMark 2性能指标评测</a>利用Java进行算术运算，然后根据这些结果进行评分。在这里，我们看到这些浮动在与库存的1700X相同的范围内，这作为单线程测试也不足为奇。</p>
+
+
+
+<p><strong>开膛手约翰</strong></p>
+
+<p>在密码学方面，<a href="http://www.openwall.com/john/">开膛手约翰</a>有点令人惊讶。在我们的HEDT CPU评测中，1500X的性能几乎是1700X的一半。值得注意的是，如果把SMT从等式中去掉，情况就不一样了。在这种情况下，降幅接近三分之一。</p>
+
+
+
+<p><strong> C射线1.1版</strong></p>
+
+<p>这组的<a href="https://openbenchmarking.org/test/pts/c-ray-1.1.0"> C射线</a>结果遵循从1700倍到1500倍的类似趋势——性能降低了近50%。但是1300倍和1500倍的差距甚至比开膛手约翰还要小。在这里，我们看到的是在没有SMT的情况下减少了不到10%。相当可观！</p>
+
+
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="benchmarks-build-performance">基准:构建性能</h2>
+<p><strong>构建测试:ImageMagick </strong></p>
+
+<p>在锐龙，构建测试确实开始混淆内核和线程数量的伸缩。作为参考，我们的1700X最近以44.03秒的速度执行了这项测试。使用一半的内核和线程，我们预计这个数字会翻倍，但实际上只增加了50%。仅4个内核就将构建时间从1700倍增加了近一倍，这表明在构建中，更高的内核和线程数量确实在这一级别产生了更大的影响。</p>
+
+
+
+<p><strong>造模试验:GCC </strong></p>
+
+<p>我们在这里发现了类似的结果。与902.06的1700倍结果相比，1500倍大约长50%，1300倍几乎是两倍。</p>
+
+
+
+<p><strong>构建测试:<a href="https://forum.xda-developers.com/lineage">lineage OS</a>cm-14.1<a href="https://forum.xda-developers.com/pixel-xl">Pixel XL</a>T5】</strong></p>
+
+<p>我们继续使用Pixel XL进行定时构建基准测试。根据读者的要求，图表将显示有缓存和没有缓存的构建时间。但是没有缓存的结果与其他两个构建测试的趋势相似。</p>
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="conclusion">结论</h2>
+<p>那么，1300X能给你带来什么？花将近三分之一的成本，你就能得到一半的性能。单线程性能在很大程度上是相同的，主要取决于时钟速度。一旦进入缓存构建，在35分钟内获得一个缓存构建一点也不差。您将需要查看构建之外的用例，看看是否会使用这些额外的内核和线程。即使您决定再高一点，1500X也能以大约一半的价格提供75%的性能。</p>
+
+<p>总而言之，当我们审视整个锐龙阵容时，我们看到他们确实取得了长足的进步。AMD在几乎每一个价格水平上都取得了巨大的进步，1300X也不例外。这将是更有趣的是，看看这两个特别是如何对待他们即将推出的与RX Vega图形集成到CPU的同行。我们也期待着他们的第二代产品，预计将于今年晚些时候推出。但是对于第一年的重新设计？AMD做得很好——在所有级别！</p>
+
+<p>你觉得锐龙3 1300X怎么样？还在犹豫要不要去锐龙？AMD将在下周发布两个集成了镭龙·维加显卡的处理器，届时他们会给出更多的理由。寻找我们在2月12日对此的评论，你可以在这里查看原始拆箱视频！</p>
+
+ 
+<p class="w-rich w-youtube" id="XxpJoAWU_Y4">  </p>
+
+</div>
+
+
+</div>    
+</body>
+</html>

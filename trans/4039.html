@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Broken Navigation Bar, Lock Screen, or Status Bar after an Update? Here's a Fix.</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>更新后导航栏、锁屏或状态栏损坏？这里有一个解决办法。</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/broken-navigation-bar-lock-screen-ota-update/#0001-01-01">https://www.xda-developers.com/broken-navigation-bar-lock-screen-ota-update/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>有一个罕见的bug，在OTA更新后发生在少数用户身上。我们不知道它为什么会发生，但当它发生时，它会破坏你的导航栏、锁屏和状态栏。您无法使用主屏幕或最近通话按钮，无法查看您的锁定屏幕，也无法下拉以查看您的通知。这是令人难以置信的恼人的和个人的，已经导致我在过去工厂重置。然而，有一种方法你可以尝试，它包括重新设置你的手机——或者至少欺骗你的手机以为你已经这样做了。</p>
+
+  
+<p/><p>https://www.youtube.com/watch?v=Xun2x6e0i00</p>
+
+<p/><p><em>运行中的bug视频</em></p>
+
+<hr/>
+
+
+<h2 id="how-to-fix-the-broken-ui-after-an-ota-update">如何在OTA更新后修复损坏的UI</h2>
+<p>因此，虽然我们仍然不知道<strong>为什么</strong>它看起来是一个错误，但我们知道它可以通过再次完成Android设置向导来修复。发生的情况是，Android设置向导存储的告诉系统设置过程已经完成的设置已经被重置。在第一次启动后，这些设置应该永远不会改变，但是，它似乎可能会在OTA更新后随机重置。</p>
+
+<p>有两种方法可以解决这个问题。如果您已经解锁了开发人员选项并启用了USB调试，那么您将能够使用一个保证修复的<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/"> adb </a>方法。如果你没有启用USB调试并且不能访问它，那么你将不得不尝试另一种不保证有效的方法。</p>
+
+<h3 id="adb-method">亚行方法</h3>
+<p>打开命令提示符或终端窗口，输入以下内容:</p>
+
+<pre> <code class="hljs ">adb shell</code> </pre>
+<pre> <code class="hljs php">settings put <span class="hljs-keyword">global</span> device_provisioned <span class="hljs-number">1</span></code> </pre>
+<p>然后等待命令完成。这花了我大约10秒钟。</p>
+
+<pre> <code class="hljs ">settings put secure user_setup_complete 1</code> </pre>
+
+
+<p>现在你完了！运行这些命令后，您应该能够立即再次控制您的设备。</p>
+
+<p>您也可以从设备上的终端应用程序(如Termux)运行这些命令。如果您选择这样做，请确保您的设备是以Magisk或SuperSU为根，而不是键入“adb shell ”,而是键入“SU”。</p>
+
+<p>[appbox googleplay com.termux]</p>
+
+<h3 id="activity-launch-method">活动启动方法</h3>
+<p>如果你还没有建立亚行，这个过程会更棘手。下载一个叫Activity Launcher的app。</p>
+
+ 
+
+
+
+<p>打开它，并点击顶部，以查看手机上的所有活动。滚动列表并搜索“安装向导”浏览并点击设置向导下面列出的每个活动，查看它是否会为您再次启动设置过程。希望其中一个有用。否则，您剩下的最后一个选择就是恢复出厂设置。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="explanation">说明</h2>
+<p>这只是简单地编辑安全设置值，告诉Android你已经完成了初始设置过程。你可能想知道为什么如果设备认为你没有完成设置，或者为什么设置应用程序没有启动。发生的情况是，设备拒绝访问UI元素，这将让用户逃避设置过程。通常这是一件好事，但是，在这种情况下，它拒绝您访问您的设备，即使您已经设置好了一切。当您完成设置过程时，我们在上面的“adb方法”中编辑的这两个设置被更改为1，但谢天谢地，通过我们自己做的更改，我们可以绕过这个愚蠢的错误。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

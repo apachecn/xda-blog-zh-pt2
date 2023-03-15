@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Sultanxda Bypasses New SafetyNet Unlocked Bootloader Check</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Sultanxda绕过新的SafetyNet解锁引导程序检查</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/sultanxda-bypasses-new-safetynet-unlocked-bootloader-check-on-latest-cm13-builds-for-op3/#0001-01-01">https://www.xda-developers.com/sultanxda-bypasses-new-safetynet-unlocked-bootloader-check-on-latest-cm13-builds-for-op3/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>对于那些想使用Android Pay同时完全控制自己手机的人来说，谷歌的安全网是一个巨大的眼中钉。直到最近，它主要是关于禁用根  <span>的</span> <a href="http://www.xda-developers.com/google-security-engineer-explains-issues-with-root-and-android-pay-in-the-xda-forums/"> <span>设备上的Android Pay，但几天前，谷歌更进了一步——他们甚至在带有</span> </a><a href="http://www.xda-developers.com/android-safetynet-now-reportedly-tripped-by-unlocked-bootloaders/"> <span>解锁引导加载器</span> </a> <span>的设备上触发安全网。</span></p>
+
+  
+<p><span>谢天谢地，就像Chainfire的systemless Root有</span> <a href="http://www.xda-developers.com/android-pay-no-longer-working-with-systemless-root/"> <span>暂时绕过了</span></a><span>safety net a</span><a href="http://www.xda-developers.com/xda-external-link/suhide-updated-to-bypass-safetynet-update/"><span>施加的Root限制几次</span> </a> <span>(就像有topjohnwu的开源<a href="http://www.xda-developers.com/magisk-updated-to-v7-now-completely-open-source/"> Magisk </a>，一个用于systemless modding和<a href="http://www.xda-developers.com/unoffical-systemless-xposed-is-now-available-otas-and-pay-unaffected/"> Xposed </a> </span> <span>的接口)，Sultanxda找到了一个</span> <a href="https://github.com/sultanxda/android_kernel_oneplus_msm8996/commit/abc05b16bbd33521c2fffaf491c5657a94bfcfc5"> <span>临时</span></a></p>
+
+<p/>
+
+<p><span>它的工作原理是，SafetyNet通常会通过使用</span> <a href="https://source.android.com/security/verifiedboot/"> <span>验证引导</span> </a> <span>来检查引导加载程序是否解锁，这是一个自KitKat以来仅在Android中出现的功能，但尚未被每个设备支持(这个功能在Android 7.0 Nougat中变得越来越激进</span><a href="http://www.xda-developers.com/strictly-enforced-verified-boot-with-error-correction-to-come-with-android-7-0-nougat/"><span/></a><span>，甚至</span> <a href="http://www.xda-developers.com/pixel-phones-not-yet-rootable-with-current-methods/"> <span>在Pixel上阻止传统的根方法</span> </a> <span>为了支持那些没有支持验证启动所需硬件的旧手机，如果安全网没有从验证启动测试中获得任何响应，它将不会变绿。</span></p>
+
+<p>但俗话说，XDA总能找到办法:</p>
+
+<p>为了绕过这一点，Sultanxda从他修改后的内核中移除了对验证引导标志的支持，从而阻止引导加载程序将标志传递给SafetyNet。这使得SafetyNet得到了与不支持硬件级验证启动的设备相同的响应，因此SafetyNet允许设备通过测试。</p>
+
+<p>虽然这不是一个永久的解决方案(之前也没有被证明是)，但它应该允许人们绕过SafetyNet，直到谷歌找到修补这个安全漏洞的方法。令人欣慰的是，这个特殊的安全漏洞看起来可能需要谷歌花一段时间来修复，但对于我们的爱好者和开发者社区来说，谷歌首先采取这些措施是一种耻辱。</p>
+
+<p>对于Linux和macOS世界来说，人们对自己的电脑拥有根支持是标准的(Windows个人电脑的管理员访问权限也是如此，尽管这并不是完全相同的事情)，但谷歌认为我们不能信任我们对自己设备的控制(默认情况下不附带它，并采取措施防止人们使用它)。他们表现得好像这是一台由他们管理的设备，而不是从他们那里购买的设备。谢天谢地，像Sultanxda、Chainfire和topjohnwu这样的人今天在这里帮助恢复从我们这里夺走的特征，但未来会发生什么呢？</p>
+
+<p>传播这个补丁，让其他人也能在他们的设备上享受它！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

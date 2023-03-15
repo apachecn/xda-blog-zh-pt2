@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>How to Double the WiFi Speed of your OnePlus 3/3T (Under Certain Conditions)</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何让你的OnePlus 3/3T的WiFi速度翻倍(在特定条件下)</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-double-the-wifi-speed-on-your-oneplus-3-3t/#0001-01-01">https://www.xda-developers.com/how-to-double-the-wifi-speed-on-your-oneplus-3-3t/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>当调整新智能手机的软件时，有时公司必须做出他们认为最符合大多数客户利益的决定。</p>
+
+  
+<p>有时这些决定是不明智的，在被指出后会在OTA更新中被修复。其他时候，默认设置保持原样是有正当理由的，但是修改的好处是我们可以<em>选择</em>来定制设置以满足我们的需求。我们在这里讨论后一种情况。</p>
+
+<p>在我们的论坛上，流传着一个窍门，即<strong>在<a href="https://forum.xda-developers.com/oneplus-3"> OnePlus 3 </a>和<a href="https://forum.xda-developers.com/oneplus-3t"> OnePlus 3T </a>上几乎将你的WiFi速度</strong>提高一倍——这当然有效，但只是在特定条件下<strong>。</strong>请注意，我们将在下面讨论的技巧<strong>需要root访问权限</strong>才能实现。</p>
+
+<hr/>
+
+
+<h2 id="double-your-oneplus-3-3t-wifi-speed">将OnePlus 3/3T WiFi速度提高一倍</h2>
+<p>据XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=7053867"> dreinulldrei </a>透露，OnePlus 3和3T使用的WiFi配置文件是高通提供的默认文件。这本身并不是一个问题，但用户发现默认配置<strong>在2.4GHz频率下禁用</strong> <strong>信道绑定。</strong> 5GHz频率网络启用了信道绑定(如果您可以访问该频率，那么建议您连接到它)，但是如果您的路由器只支持2.4GHz频率，那么这个技巧可能对您有用。</p>
+
+<p>随着信道宽度从<strong> 20MHz </strong>增加到<strong> 40MHz </strong>，启用信道绑定理论上应该会使您的无线吞吐量翻倍(只要您的路由器支持信道绑定)。这个技巧很容易实现，因为你只需要<strong>修改WCNSS_qcom_cfg.ini </strong>(位于<strong> /system/etc/wifi) </strong>中的一行。</p>
+
+<p>只是改变</p>
+
+<p><code>gChannelBondingMode24GHz=0</code></p>
+
+<p>到</p>
+
+<p><code>gChannelBondingMode24GHz=1</code></p>
+
+<p>或者，您可以简单地使用Magisk模块来实现这个补丁，该模块可以在官方存储库中找到。这个补丁适用于所有版本的Oxygen操作系统，前提是你拥有之前提到的T2根权限。</p>
+
+<p>我们论坛上的用户发现，修改这条线路确实会使他们的无线速度翻倍。下面的截图是从详细描述这个修复的<a href="https://forum.xda-developers.com/apps/magisk/magisk-oneplus-3t-wifi-channel-bonding-t3520885"> XDA线程中截取的，所以测试这个的功劳属于那些用户。</a></p>
+
+
+
+
+
+<p>正如你所看到的，很明显这个修复<em>可以让你的WiFi速度翻倍。然而，如果你对无线网络有所了解，那么你可能知道为什么一加没有默认启用这个功能。这是因为<strong>无线干扰</strong>的可能性。引用一个<a href="http://www.linksys.com/in/support-article?articleNum=139627"> Linksys支持页面</a>关于此功能的内容:</em></p>
+
+<blockquote>
+<p/><h4>Linksys双频带路由器的无线网络模式将因您选择启用的频带而异。在2.4 GHz频率下，Wi-Fi信号范围被划分为每个间隔为5 MHz的信道。相邻频道重叠，在20 MHz频段会相互干扰。将频道宽度设置为40 MHz网络将允许您使用整个Wi-Fi频段的2/3。因此更有可能与其他无线网络重叠和干扰。同时，如果将信道宽度设置为20 MHz，网络将只与该频率前后的两个信道重叠。</h4>
+ </blockquote>
+<p>本质上，如果启用40MHz的信道宽度，无线干扰的可能性更大。它增加干扰的确切原因是<a href="http://www.networkcomputing.com/wireless/channel-bonding-wifi-rules-and-regulations/199326059">比本文需要涵盖的更复杂</a>，但一般来说，引用XDA知名开发商<a href="https://forum.xda-developers.com/member.php?u=4800121"> SultanXDA </a>的话说，“2.4GHz以上的40MHz宽信道<strong>在WiFi接入点密度高的城市地区</strong>不是一个好主意”。</p>
+
+<p>然而，如果你是在一个更农村或郊区的地区，那里很少有无线网络干扰你自己的，这个修复提供了一个免费的方法来加倍你的手机的网络速度。试试看，让我们知道它是否适合你！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

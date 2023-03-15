@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Speed up 2 Factor Authentication on Android with Tasker</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用Tasker加速Android上的双因素身份验证</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/2-factor-authentication-tasker-android/#0001-01-01">https://www.xda-developers.com/2-factor-authentication-tasker-android/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>我们都知道在线安全非常重要，所以我们中的许多人已经开始使用各种双因素身份认证方法。</p>
+
+ 
+<blockquote>
+<p>“您的谷歌验证码是431973”</p>
+ </blockquote>
+<p>但是每次我想登录的时候收到这条消息，我就想:哦，拜托！我想要安全，但是我要告诉你多少次:<em>‘是我谷歌！’</em>有了保障，通常就不能鱼与熊掌兼得了...还是可以？这就是Tasker认证助手的用武之地！虽然我知道谷歌的电话登录功能，这个项目超出了这一点，应该与任何类型的短信为基础的2因素认证。我们要做的是从文本消息中检索令牌，并使用Join将其发送到其他设备。</p>
+
+ 
+
+
+
+ 
+
+
+
+<hr/>
+
+
+<h2 id="tasker-2-factor-authentication-helper">Tasker 2因素身份验证助手</h2>
+<p>我不得不承认，通常最简单的概要文件可以解决最烦人的问题。Tasker身份验证助手非常简单，尽管我花了一段时间在正则表达式(regex)上惨败。我还没有找到一个单一的正则表达式公式在一个步骤中做到这一切，但该配置文件可以很好地与2正则过滤器一起工作。如果你是regex的专业人员，请随时将这两个公式结合在一起，并告诉我！</p>
+
+
+
+<p>如果你真的关心你共享剪贴板的设备，你可以限制接收代码的设备为Tasker 中的<a href="http://www.notenoughtech.com/tasker/tasker-active-pc/" target="_blank" rel="noopener noreferrer">活动PC。</a></p>
+
+<h3 id="vanilla-tasker-trigger">普通任务触发器</h3>
+<p>虽然就我个人而言，我更喜欢使用付费的自动通知任务插件来拦截短信通知，但你只需使用<a href="https://www.xda-developers.com/tasker-sale-1-dollar-right-now/">任务插件</a>就可以完成整个设置，无需任何付费插件。vanilla设置检查收到的每条消息(收到的文本消息事件)，尝试解析其内容。文本消息存储在系统变量<strong> %SMSRB中。</strong></p>
+
+
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_13"><h3 id="authentication-helper-profile---vanilla-tasker">身份验证助手配置文件-普通任务器</h3><p/><pre>Profile: Pin Code Vanilla <p>事件:收到的文本[类型:任何发件人:*内容:* ]</p><p>回车:抓取一个代码Txt</p><p/></pre> </div></section>
+<h3 id="autonotification-trigger">自动通知触发器</h3>
+ 
+
+
+
+<p>与普通的Tasker触发器不同，使用AutoNotification intercept，我们可以仅在文本消息包含单词“pin”或“code”时运行任务。这样，Tasker配置文件就不会在收到的每条短信上都运行。我正在使用自动通知拦截触发器来拦截消息。在上下文中设置一个简单的通知文本过滤器:<strong> %antext (pin|code) </strong>将确保我不会无缘无故地开始分配任何值。如果没有必要，我们就不要运行该任务。</p>
+
+
+
+<p> </p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_19"><h3 id="authentication-helper-profile">身份验证助手配置文件</h3><p/><pre>Profile: Pin Code Txt <p>事件:自动通知拦截[配置:事件行为:真</p><p>通知类型:仅创建的通知</p><p>通知应用程序:信号</p><p>通知文本:pin |代码(正则表达式)(大小写)</p><p>包名:org.thoughtcrime.securesms ]</p><p>回车:抓取一个代码</p><p/></pre> </div></section>
+<h3 id="getting-the-2-factor-authentication-code">获取双因素身份验证代码</h3>
+<p>为了从文本消息中找出代码，我们将使用2个正则表达式过滤器。这应该可以防止分配不正确的值:</p>
+
+<ul> <li>有数字的文本，但没有pin或代码字。</li> <li>带有非pin或代码的数字的文本。</li> <li>有多个数字的文本。捕捉代码/pin后的第一个匹配。</li> <li>包含多个数字的文本，其中代码/pin字位于代码之后。</li> </ul>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_23"><p>如果您使用普通的Tasker触发器，请用<strong> %SMSRB </strong>替换<strong> %antext </strong>。</p> </div></section>
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_24"><h3 id="grab-a-code-task">抓住一个代码任务</h3><p/><pre>Grab A Code <p>A1:变量搜索替换[变量:%antext搜索:(code|pin)。*?\d+</p><p>忽略大小写:在多行上:仅在一个匹配项上:开</p><p>将匹配项存储在:%code替换匹配项:Off替换为:]</p><p>A2:变量搜索替换[变量:%antext Search:^(.*?)\d+</p><p>忽略大小写:在多行上:仅在一个匹配项上:开</p><p>将匹配项存储在:% code Replace Matches:Off Replace With:]If[% code 1！设置]</p><p>A3:变量搜索替换[变量:%code1搜索:\d+</p><p>忽略大小写:在多行上:仅在一个匹配项上:开</p><p>将匹配存储在:% auth Replace Matches:Off Replace With:]</p><p>A4:设置剪贴板[ Text:%auth1 Add:Off ]</p><p/></pre> </div></section>
+<p>请测试邮件，以确保您的邮件得到相应的过滤。</p>
+
+<p/><h4>Tasker身份验证助手- regex</h4>
+
+<p>为了捕获实际的代码，我将使用Regex。我的手机里储存了几个不同的版本，我将以它为例。我试图涵盖尽可能多的场景，但是如果您的验证文本超出了我的正则表达式过滤器的范围，您将不得不根据您的需要修改它。</p>
+
+
+
+
+
+<p>让我们从捕捉单词pin/code后面的数字开始(不区分大小写)。我用www.regex101.com来帮助解决这个问题。</p>
+
+<p/><pre>(code|pin).*?\d+</pre>
+
+
+
+<p>结果是好的，但是最后一个例子我失败了。我们的比赛是:</p>
+
+<p/><pre>code is 431973
+
+<p>编码:895941</p>
+
+<p>PIN是4044</p></pre>
+
+<p>使用搜索/替换动作，我将把匹配存储在数组<strong> %code </strong>中。我们的匹配将放在第一个元素:<strong> %code1 </strong>。如果验证文本遵循上一个示例，则不会设置<strong> %code1 </strong>。如果是这种情况，我可以设置另一个正则表达式过滤器:</p>
+
+<p/><pre>^(.*?)\d+</pre>
+
+
+
+<p>我将再次过滤结果，而不是构建一个非常复杂的正则表达式过滤器(主要是因为这个任务远远超出了我对正则表达式的理解)。在这两种情况下，第二个过滤器是相同的:</p>
+
+<p/><pre>\d+</pre>
+
+
+
+<p>第二次过滤的结果作为第一个元素<strong> %auth1 </strong>存储在<strong> %auth </strong>数组中。此变量用于设置剪贴板，并通过Join应用程序与其他设备共享。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="conclusion">结论</h2>
+<p>Tasker认证助手项目工作迅速，有助于加快登录时间。我想我太老了，记不住那些短号码，或者我太老了，每次我想在不危及安全的情况下登录任何地方的时候都找不到我的手机。下面的项目文件包含两种设置(普通和自动通知)。请选择一个并禁用另一个配置文件。</p>
+
+<p/><p><a href="https://www.androidfilehost.com/?fid=673368273298979231"> <strong>下载Tasker 2因子认证助手项目</strong> </a></p>
+
+<p>下载上面的ZIP文件，并将内容解压缩到您的Android设备的内部存储中。打开Tasker，在首选项中禁用“初学者模式”。然后，回到Tasker的主页，长按左下角的home图标。您将看到一个“导入”项目的选项。点击该选项，然后找到您之前提取的. prj.xml文件。导入后，您将会在Tasker的默认主页图标旁边的底部看到一个新标签。它包含这个助手项目的概要文件和任务。</p>
+
+<p>跟随<a href="https://www.xda-developers.com/category/tutorials/"> XDA开发者教程</a>获取更多这样的帖子。此外，查看我们的<a href="https://forum.xda-developers.com/u/tasker-tips-tricks"> Tasker Tips &amp; Tricks </a>论坛，了解我们社区中自动化爱好者的最新创造。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

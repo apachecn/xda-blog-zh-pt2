@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Bypass AMP Links with DeAMPify by João Dias</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>joo Dias设计的旁路放大器链接</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/bypass-amp-links-deampify/#0001-01-01">https://www.xda-developers.com/bypass-amp-links-deampify/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>早在2015年末，谷歌<a href="https://googleblog.blogspot.com/2015/10/introducing-accelerated-mobile-pages.html">推出了</a><a href="https://www.ampproject.org/">加速移动页面</a> (AMP)项目，以彻底改变移动网络用户消费网络内容的速度。从那以后，许多网络出口(包括<a href="https://www.xda-developers.com/accelerated-mobile-pages-what-are-they-and-how-do-i-implement-them/">我们自己的门户</a>)都集成了AMP，这样用户就可以通过有限或较慢的数据连接快速访问他们的内容。虽然有些人对谷歌向出版商推行AMP 的方式感到不安，但其他人则哀叹这种新标准被强加到他们的移动设备上。对于那些使用快速连接的用户来说，加载一个AMP页面与加载原始页面在速度上没有明显的差别，但仍然会导致屏幕上显示的内容减少。然而，除非您使用的特定移动应用程序有一个选项禁止加载其AMP版本的页面，否则检索原始URL的唯一方法是<a href="https://www.xda-developers.com/google-to-make-it-easier-to-share-the-original-url-on-an-amp-site/">手动执行</a> -添加两个额外的点击。多亏了我向AutoApps开发者joo Dias提出的一个想法，终于有了一种完全绕过放大器链接的方法。</p>
+
+ 
+
+
+
+
+<p>这款应用名为<strong> DeAMPify </strong>，它的工作速度非常非常快。这是我做的一个样本屏幕记录。请注意，从我点击DeAMPify打开URL到原始URL在浏览器中打开之间的时间有多短。</p>
+
+ 
+<p class="w-rich w-youtube" id="_h2BM3hZLbk">  </p>
+
+
+<hr/>
+
+
+<h2 id="how-it-works">它是如何工作的</h2>
+<p>应用程序将自己注册为AMP样式URL的默认URL处理程序。当用户选择在DeAMPify中打开一个链接(或者选择它作为默认处理程序，绕过对话框)时，应用程序会抓取AMP页面的HTML源代码来查找文章的原始URL。一旦找到了原始的URL，它就会获取该URL并将其传递给默认的浏览器应用程序。这个过程非常非常快，即使从技术上来说，您仍然在下载AMP页面的HTML源代码，但是在足够快的连接上，这几乎没有区别，因为AMP页面需要解析的数据量相对很小。然而，对于最终用户来说，结果是AMP链接被完全绕过，而是在该URL的默认应用程序中打开，无论是你的浏览器还是其他应用程序，如官方的Reddit应用程序或XDA实验室。</p>
+
+<p>更详细地说，该应用程序专门通过查找HTML链接标签来抓取AMP页面中的“规范”(原始)文档，如下所示:</p>
+
+<pre> <code class="hljs javascript"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"canonical"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.example.com/url/to/canonical/document.html"</span>&gt;</span></code> </pre>
+<p>每个AMP页面都在它的HTML源代码中嵌入了这个标签，作为官方规范的一部分。这使得AMP pages能够首先检测并向最终用户显示原始URL，但我们可以利用这种嵌入式链接来绕过向用户显示移动优化页面的需要。这种方法击败了我们在网上找到的所有其他重定向工具，它们只是试图通过对AMP URL执行regex操作来检索原始内容URL。由于AMP页面没有一致的URL方案，这种方法对于很多很多奇怪的页面来说都会失败。但这不会。</p>
+
+<p>我们在制作这个应用程序时发现的一个警告是，当通过移动用户代理检索源时，规范链接没有嵌入到HTML源中，因此DeAMPify作为桌面浏览器用户代理运行。这对最终用户(你)来说并没有什么影响，但是对于任何想知道这个应用程序如何工作的人来说，这是一件有趣的事情。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="bypass-amp-links-with-deampify">带去放大器的旁路放大器链接</h2>
+<p>实际的应用程序本身。DeAMPify做的比<em>多一点，只是</em>旁路放大器链接。我的意思是，这是95%的应用程序，但它不会有趣，如果它<em>只有</em>这样做，不是吗？为了让这款应用更有用，迪亚斯给它增加了一些额外的功能(不过要使用它们，都需要在应用内购买):</p>
+
+<ul> <li>网址例外:黑名单网址，你总是想打开的AMP网页，可以使用正则表达式进行这项工作</li> <li>Tasker集成:选择何时运行bypass AMP服务</li> </ul>
+
+
+
+
+
+<p>Tasker集成是我确信许多用户会发现有用的部分，例如，只有当连接到您的家庭WiFi时，您才能自动绕过AMP链接。如果有一两个特定的网站，你总是想加载链接，URL例外可能是有用的，但就我个人而言，我还没有真正使用过这个功能。</p>
+
+<p>从今天开始,<a href="https://play.google.com/store/apps/details?id=com.joaomgcd.deampify">在谷歌Play商店</a>可以买到DeAMPify。对于那些讨厌网络上无处不在的AMP页面膨胀的用户，你终于有了一个对AMP说不的解决方案。今天就摧毁你的网站！</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_18"><p>如果你尝试在Chrome浏览器中打开谷歌搜索的AMP链接，这个应用将无法运行。不过，这并不是这款应用的错，因为当你在谷歌搜索中点击一个链接时，谷歌Chrome不会发送你的意图。</p> </div></section></div>
+
+
+</div>    
+</body>
+</html>

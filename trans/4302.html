@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>I Booted Stock Android Oreo on the Huawei Mate 9 thanks to Project Treble</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>由于Project Treble，我在华为Mate 9上启动了Android Oreo</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/stock-android-oreo-huawei-mate-9-project-treble/#0001-01-01">https://www.xda-developers.com/stock-android-oreo-huawei-mate-9-project-treble/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>就在今年谷歌I/O的一周前，谷歌公布了对安卓操作系统框架最根本、最底层的改变之一:<a href="https://www.xda-developers.com/googles-project-treble-modularize-android-so-oems-can-update-devices-faster/"> Project Treble </a>。Project Treble将Android OS框架模块化，使其与供应商代码分离，允许原始设备制造商开发新的软件更新，而不必等待供应商(如高通)更新他们的代码。作为供应商测试套件(VTS)的一部分，所有支持三重功能的设备必须能够引导一个<a href="https://www.xda-developers.com/project-treble-custom-rom-development/">原始、通用AOSP版本</a>。任何搭载Android Oreo的设备都需要Project Treble支持，因此，尽管有几款设备符合这一标准，但没有人测试过我们是否真的可以直接从源代码编译ROM。但最终，由于Project Treble的支持，我能够在华为Mate 9上启动一个普通的AOSP制造的Android 8.0 Oreo ROM(T4)。</p>
+
+ 
+
+
+
+
+<p>你在上面看到的是AOSP安卓8.0奥利奥在华为Mate 9上运行的截图。华为Mate 9于去年<a href="https://www.xda-developers.com/android-oreo-emui-6-huawei-mate-9/">发布</a>，搭载安卓7.0牛轧糖。特别是，它在顶层运行一个名为Emotion UI的自定义皮肤。与你可能在谷歌Pixel手机上找到的东西相比，它的软件非常不同。</p>
+
+<p>目前，该设备还没有公开的Android 8.0 Oreo版本。我们上个月早些时候获得的一个泄露的Android Oreo版本显示，华为确实在努力满足Project Treble的要求，尽管它<a href="https://www.xda-developers.com/project-treble-android-o-exist-flagship/">没有推出Android 8.0 </a>。Mate 9的软件与现有的Android有很大不同，这使得它成为测试Project Treble是否真的允许我们将现有的Android Oreo引导到任何支持Treble的设备上的完美候选。</p>
+
+ 
+<h2 id="booting-stock-android-oreo-on-project-treble-enabled-devices">在支持三重功能的设备上引导库存Android Oreo</h2>
+<p>最近，我们的基本手机论坛<a href="https://forum.xda-developers.com/essential-phone/development/dev-using-project-treble-to-boot-t3705253">上的一个成员发了一个帖子</a>来看看他们的手机是否能启动通用的AOSP奥利奥版本。Essential手机本身刚刚在Project Treble的支持下获得了Android 8.0的第一个正式测试版，所以它看起来似乎是可信的。XDA资深成员<a href="https://forum.xda-developers.com/member.php?u=1915408"> phhusson </a>，因其在<a href="https://forum.xda-developers.com/android/software-hacking/wip-selinux-capable-superuser-t3216394">开源超级用户分叉</a>上的工作而闻名，准备接受挑战。由于谷歌出于认证目的与原始设备制造商共享的原始AOSP构建并不公开，phhusson不得不构建自己的通用AOSP映像，并找到测试人员在他们的设备上进行测试。</p>
+
+<p>尽管取得了进展，但还没有人成功地将AOSP的版本安装到他们的基本手机上。我决定在我的华为Mate 9上试一试，它完全符合Project Treble的要求。由于Android Oreo在Mate 9上没有公开，我使用了<a href="https://funkyhuawei.club/"> FunkyHuawei.club </a>服务将Mate 9上的固件更新为Oreo的封闭测试版。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/11/Huawei-Mate-9-Project-Treble-300x249.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Snippet from \/vendor\/manifest.xml on the Mate 9&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/11/Huawei-Mate-9-Project-Treble-300x249.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/11/Huawei-Mate-9-Project-Treble-300x249.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/11/Huawei-Mate-9-Project-Treble-300x249.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/11/Huawei-Mate-9-Project-Treble-300x249.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Huawei Mate 9 Project Treble" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/11/Huawei-Mate-9-Project-Treble-300x249.png" src="../Images/cde84182eb873b9188d371477abd7ede.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/11/Huawei-Mate-9-Project-Treble-300x249.png"/> </picture> <figcaption class="body-img-caption">Snippet from /vendor/manifest.xml on the Mate 9</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>在大量的用户数据分区擦除、系统映像刷新和日志转储之后，我们终于在Mate 9上启动了通用的8.0版本。我们<strong>也没有做任何内核修改</strong>来让它启动。这不仅是<strong>第一次华为Mate 9设备启动AOSP ROM </strong>，也是第一次有人在谷歌和原始设备制造商之外测试Project Treble-enabled设备是否真的可以启动通用AOSP版本。</p>
+
+<p>不过，在你兴奋之前，这个构建还不完美。一堆应用程序现在崩溃了，可能是由于一些解密错误，但我相信经过一点工作就可以解决。事实上，AOSP 8.0奥利奥在所有设备中的华为Mate 9上启动，这本身就是一个奇迹。一旦我们的新<strong>项目Treble Device Development forum</strong>开放，我们将完善这项工作并寻求开发者的投入，因此如果你对这种开发感兴趣，请继续关注这方面的新闻。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="conclusion">结论</h2>
+<p>关于Project Treble将在多大程度上帮助加快智能手机的软件更新，有很多猜测。原始设备制造商推出软件更新的当前过程<a href="https://www.xda-developers.com/how-android-software-update-sony/">相当漫长</a>，尽管Treble加快这一过程很好，但我们还没有看到这种情况发生。不过，这很有意义，因为只有少数设备支持Project Treble，我们需要等到Android P发布后才能真正看到Treble对整个Android生态系统的好处。</p>
+
+<p>但由于Project Treble的认证测试要求，设备制造商被要求发运可以启动通用AOSP版本的设备。直到今天，还没有人测试这在现有的高音设备上是否可行。然而，现在我们已经证明了这种可能性存在于华为Mate 9上，我们希望打开基于三重功能设备的定制ROM开发的闸门。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="update-video-demonstration-of-nearly-fully-working-oreo">更新:视频演示几乎完全正常工作的奥利奥</h2>
+<p>我们发表了一篇后续文章，详细解释了什么是Treble项目，以及为什么它对定制rom如此重要。我们在视频中展示了一个Android Oreo ROM，它在华为Mate 9上基本上功能齐全。我们还宣布了一个新项目Treble forum的开幕。点击此处查看<a href="https://www.xda-developers.com/how-project-treble-revolutionizes-custom-roms-android-oreo/">后续文章，了解所有细节</a>。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

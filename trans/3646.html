@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>How to Enable a Location-based Smart Lock Feature on Huawei/Honor Devices Running EMUI</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在运行EMUI的华为/Honor设备上启用基于位置的智能锁功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/smart-lock-on-huawei-honor-devices-emui/#0001-01-01">https://www.xda-developers.com/smart-lock-on-huawei-honor-devices-emui/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>如果你从未拥有过华为或Honor设备，那么你可能会看着标题说“嗯？”毕竟，智能锁是在<em> Android 5.0 Lollipop </em>中引入的一项功能，可以在特定条件下更容易地快速访问您的设备<a href="https://support.google.com/nexus/answer/6093922?hl=en"/>，例如位置、连接到特定设备、在口袋中或识别您的声音。</p>
+
+  
+<p>考虑到Lollipop已经发布两年多了，以及大约65%的Android设备运行Android 5.0+的事实，这样的功能通常不值得讨论。我们怀疑在我们的论坛上至少运行Lollipop的用户比例要高得多，尽管我们没有任何确切的统计数据。无论如何，谷歌的智能锁功能在Android设备中已经变得如此普遍，以至于提供这一功能的第三方应用程序<a href="https://play.google.com/store/apps/details?id=info.dodata.unlock">已经在很大程度上</a>被<a href="https://play.google.com/store/apps/details?id=com.benhirashima.skiplock&amp;hl=en">放弃</a>，因为他们看不到与这一功能竞争的意义。</p>
+
+<p>但是有一类用户只剩下一个<strong>中性版本的智能锁</strong>:拥有<strong>华为或者</strong> <strong>荣誉设备运行EMUI的用户。</strong>不管出于什么原因，EMUI并没有提供大多数其他Android 5.0+设备提供的相同智能锁功能。相反，EMUI只允许您在连接到某些蓝牙设备时自动解锁设备。</p>
+
+
+
+
+
+<p>如果你有一个蓝牙可穿戴设备，如智能手表或健身带，这当然很有用，但不是每个人都有一个始终连接到智能手机的可穿戴设备。华为排除谷歌的智能锁功能显然是故意的，因为即使你在Android中启用智能锁作为“可信代理”，你也无法实际使用该功能。</p>
+
+
+
+
+
+<p>基本上，你只能使用华为的“智能”锁功能，它提供的功能比谷歌的智能锁少。作为华为/Honor设备所有者，你唯一的选择是尝试Play Store上声称添加该功能的众多选项中的一个(没有一个在我的设备上工作过)，或者root你的手机并<a href="https://forum.xda-developers.com/xposed/modules/mod-lock-home-v0-1-wifi-unlock-t2799087">下载一个x曝光的模块</a>。EMUI缺少合适的选项，这当然促使我写了这篇教程。通过一点Tasker的魔法和一个名为AutoTools的插件，我们可以根据位置自动解锁任何华为或Honor设备，而不需要root。</p>
+
+<hr/>
+
+
+<h2 id="smart-lock-for-huawei-honor-devices">华为/Honor设备的智能锁</h2>
+<p>只需要两个应用程序就可以启动并运行这个特性。第一个是<a href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&amp;hl=en"> Tasker </a>，这是一个非常受欢迎的Android自动化工具，我们在XDA经常使用它来解决从最普通到非常复杂的问题。售价2.99美元，似乎没有必要为如此简单的东西购买这个应用程序，但这个应用程序可以提供的价值是巨大的，如果你愿意<a href="https://www.xda-developers.com/tag/tasker/">耐着性子看完几个教程</a>。接下来，你需要一个名为<a href="https://joaoapps.com/beta-testing/">自动工具</a>的Tasker插件的测试版。这个插件为Tasker的本地工具包增加了大量有用的功能，特别是我们需要一个称为安全设置的自动工具功能来实现我们的目标。</p>
+
+<p>我们要做的是修改设备上的一个属性，该属性控制Android用来确定手机超时后何时显示锁屏的定时器。这里的“超时”指的是当你的手机屏幕在X分钟不活动后关闭，或者当用户按下电源按钮手动关闭显示屏。经过一段设定的时间后(从设备进入睡眠后立即到进入睡眠模式后30分钟)，Android将显示锁屏。</p>
+
+
+
+
+
+<p>这两个功能的问题是，在默认情况下，增加“自动锁定”计时器可能会成为一个安全问题，因为如果你的设备在锁定屏幕尚未激活的时间窗口内被盗，小偷将可以访问你设备的全部内容。为了减轻这一点，Android提供了一个“电源按钮立即锁定设备”选项，因此你可以通过按下电源按钮立即激活锁定屏幕。然而，特别是如果你设置了短屏幕超时，很容易忘记这样做，所以如果你不小心让设备在桌子上或口袋里超时而没有手动按下电源按钮，你的设备仍然有可能被恶意第三方访问。</p>
+
+<p>因此，我们对这个问题的解决方案是将一个更长的“自动锁定”计时器绑在需要手动干预的电源按钮上，而不是绑在位置/WiFi上。这样，你可以在自己家里舒适地使用没有锁屏的设备，但请放心，锁屏pin/密码在外出时总是可见的。现在我们已经解释了我们在做什么，下面是它实际上是如何做的。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="tutorial">辅导的</h2>
+<p>如前所述，我们将修改某个系统属性。该属性在<a href="https://developer.android.com/reference/android/provider/Settings.Secure.html">设置下定义。名为<strong>lock _ screen _ lock _ after _ time out</strong>的安全类</a>，它接受以毫秒为单位的整数值。为了修改这个值，我们需要授予自动工具特定的权限，这样它就可以写入这些设置，而不需要root访问权限。</p>
+
+
+<p>在Android的权限管理系统下，应用程序在清单文件中定义它们希望被授予的权限。然后，用户可以授予或拒绝安装权限(前棉花糖)或按需权限(棉花糖+)。但是，有些权限是应用程序即使在清单中请求也不能被授予的，比如<a href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_SECURE_SETTINGS"> WRITE_SECURE_SETTINGS </a>。这是因为授予任何应用程序如此强大的权限都会让该应用程序对您的设备进行大量控制。</p>
+
+<p>但是有一个解决方法，我们可以使用它来授予任何我们想要的应用程序WRITE_SECURE_SETTINGS权限。通过使用ADB的<a href="https://developer.android.com/studio/command-line/adb.html#pm">包管理器(pm) </a>工具，我们可以向任何我们想要的应用程序授予几乎任何权限(假设应用程序在清单文件中请求该权限)。</p>
+
+<p>你需要做的第一件事是<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/">将ADB二进制文件</a>安装到你的电脑上，然后为你的设备安装<a href="https://developer.android.com/studio/run/oem-usb.html">正确的驱动程序。然后，在开发者选项中启用USB调试(进入设置- &gt;关于手机，如果你还没有的话，点击7次内部版本号)，将手机连接到电脑上。最后，打开终端后，发送以下命令:</a></p>
+
+<p><code>adb shell pm grant com.joaomgcd.autotools android.permission.WRITE_SECURE_SETTINGS</code></p>
+
+<p>现在，自动工具将能够更改您设备上的任何全局、安全或系统设置。有各种方法可以使用这些设置，每个类别中的可用设置列表完全取决于您的设备和软件版本，但这一讨论将在其他时间进行。无论如何，我们将继续向您展示如何使用自动工具来控制锁屏超时。</p>
+
+<h3 id="step-2---setting-up-tasker">步骤2 -设置Tasker</h3>
+
+
+<p>打开Tasker，按右下角的<strong> + </strong>图标，创建一个新的个人资料。给你的新档案起个名字，比如“自动锁定”或者随便你想叫什么，真的。对于我们将使用的上下文类型，选择<strong>状态</strong>。进入<strong>网- &gt; WiFi连接</strong>。在这里，我们将选择要列入白名单以自动解锁设备的WiFi网络。点击<strong>放大镜</strong>图标，选择所有你想列入白名单的WiFi网络。</p>
+
+<p><em>可选:</em>如果你想做一个真正基于位置的智能锁(而不仅仅是基于WiFi网络)，那么你可以使用Tasker中的“位置”上下文，而不是状态- &gt;网络- &gt; WiFi连接功能。请注意，Tasker不会创建地理围栏，因此这种方法会导致电池消耗更严重。如果你想让Tasker对电池效率更高的地理围栏做出反应，那么你需要安装<a href="https://play.google.com/store/apps/details?id=com.joaomgcd.autolocation&amp;hl=en">自动定位</a>插件。</p>
+
+<p>退出，接下来将要求您创建一个任务。输入任意名称(或者不输入名称也可以)进入任务创建屏幕。按下底部中间的<strong> + </strong>图标，添加新动作。进入<strong>插件- &gt;自动工具- &gt;安全设置。</strong>点击<strong>铅笔</strong>图标，打开自动工具安全设置配置屏幕。转到<strong>锁定屏幕</strong> <strong> - &gt; </strong> <strong>自动锁定</strong>，并为该值输入任何足够高的值，如“<a href="https://www.youtube.com/watch?v=SiMHTK15Pik"> 9001 </a>”。这是AutoTools将自动锁屏计时器设置为的值，以秒为单位。幸运的是，我们不必手动设置命令来修改lock_screen_lock_after_timeout值，因为AutoTools的开发人员已经在一个漂亮的GUI中为我们实现了这个功能。</p>
+
+
+
+
+
+<p>通过按顶部的复选标记图标，然后在Tasker中按一次back键，最后退出任务创建屏幕来保存此设置。一旦你做到这一点，Tasker现在会自动保持你的设备解锁很长一段时间，而你在家里。请确保“<strong>电源按钮立即锁定设备</strong>”在安全锁定设置中<strong>被禁用</strong>，否则当您在家按下电源按钮时，您手机的锁屏将被激活，这不是您想要的！</p>
+
+<p>最后，我们需要添加另一个任务，当我们离开任何一个白名单中的WiFi网络时就会触发这个任务。在Tasker主页面上，<strong>长按刚刚创建的<strong>任务</strong>上的</strong>，点击弹出菜单中的<strong>添加退出任务</strong>。将该任务命名为任意名称，并再次进入任务创建屏幕。在这里，点击<strong> + </strong>图标，再次进入<strong>插件- &gt;自动工具- &gt;安全设置</strong>。在同一个自动锁定选项中，这次输入一个值<strong> 0。</strong>一旦你离开你的WiFi网络，Tasker将不再延迟手机超时后锁屏显示。</p>
+
+<p><em>可选:</em>通过按下<strong> + </strong>图标添加第二个动作，但这次转到<strong>显示- &gt;系统锁定</strong>。当您退出白名单WiFi网络的范围时，此操作将自动锁定您的手机，以防您的手机显示超时很长时间，并且您离家时手机从未进入睡眠状态。如果您这样做，您必须通过转到“设置”使Tasker成为设备管理员。只需搜索选项并授予Tasker权限。</p>
+
+
+
+
+
+<p>就是这样！虽然本教程看起来很长，但实际上Tasker脚本本身非常简单。启用此功能总共需要3个动作。试试这个，让我们知道它对你有什么用！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Audio Focus Fix for Pokemon Go (and other apps) Without Root</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>音频焦点修复口袋妖怪Go(和其他应用程序)没有根</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/pokemon-go-audio-focus/#0001-01-01">https://www.xda-developers.com/pokemon-go-audio-focus/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>尽管人气下降,《口袋妖怪Go 》( Pokemon Go )( T1)仍有大量T2粉丝(T3)每天玩这款游戏。虽然游戏的大部分问题都与作弊有关<a href="https://www.xda-developers.com/a-look-at-pokemon-go-at-its-first-anniversary-how-the-record-breaking-game-should-have-been-released/"/>，但是还有其他更小的问题困扰着现有用户。其中一个问题与Android中的音频焦点有关。喜欢在玩Pokemon Go时听音乐或播客的用户发现，当他们启动游戏时，音频播放会立即停止。这需要用户手动重启他们最喜欢的媒体应用程序的播放，如Google Play Music、Spotify或PocketCasts。今天，我将向你展示如何阻止Pokemon Go(或任何其他应用程序)窃取永久音频焦点- <strong>无根</strong>。</p>
+
+  
+<p>当Pokemon Go启动时，它会向系统请求音频焦点，这意味着相同音量流上的任何现有媒体播放都将被<a href="https://en.wikipedia.org/wiki/Ducking">回避</a>。这里的问题是，Android的音频焦点依赖于应用程序之间的荣誉系统。Android并不挑选哪些应用程序应该优先获得焦点，相反，它依赖于应用程序根据需要请求和释放焦点。因此，因为Pokemon Go在启动时会请求音频焦点，所以其他应用程序无法阻止它接管媒体卷。</p>
+
+<p>一些应用程序，如Poweramp或T2 Podcast Addict有实验性的设置来保持音频焦点，以防止其他应用程序窃取它，但显然许多媒体应用程序没有这样做。一些用户想出了他们自己的方法，通过使用Tasker配置文件来保持音频焦点，如果没有更好的方法，我可能会尝试这样做——但谢天谢地有。它涉及到使用一个隐藏的ADB命令来访问Android权限管理系统appops的命令行界面。只需一个简单的命令，你就可以阻止口袋妖怪Go(或任何其他应用程序)再次获得音频焦点！</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_3"><p>我们在这里使用的方法是针对没有运行任何定制ROM的普通用户。定制ROM用户，比如LineageOS上的用户，可以访问一个更强大的权限控制方法，让他们绕过对这个命令的需求。</p> </div></section>
+<hr/>
+
+
+<h2 id="stop-pokemon-go-from-taking-audio-focus---tutorial">停止口袋妖怪Go采取音频焦点-教程</h2>
+<ol> <li>为你的<a href="https://developer.android.com/studio/run/oem-usb.html">设备</a>下载然后安装USB驱动程序——很可能只有在Windows上才有必要。</li> <li>为您的操作系统下载<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/"> ADB二进制文件</a>,并将文件解压到您电脑上的任意文件夹。</li> <li>在您的手机上，打开设置，然后找到“关于手机”选项。</li> <li>向下滚动找到“Build Number”值，点击7次，启用开发者模式。</li> <li>回到主菜单中的设置，进入开发者选项。</li> <li>在这里启用USB调试模式，如下图所示。</li> <li>将手机插入电脑，将手机的USB模式从“仅充电”模式改为“文件传输(MTP)”模式。</li> <li>回到PC，导航到您提取ADB二进制文件的位置。</li> <li>在这个ADB目录中打开一个命令提示符。在Windows上，最简单的方法是按Shift+右键。在上下文菜单中，选择“在此打开命令窗口”选项。Mac或Linux用户，打开终端。</li> <li>输入以下命令:<code><span>adb devices</span></code></li> <li>这将启动ADB守护程序。如果这是您第一次运行ADB，您将看到一个提示，要求您授权连接。允许它。</li> <li>从步骤10重新运行命令，您将在输出中看到设备的序列号。如果是，继续下一步。如果没有，请重新安装您的驱动程序。</li> <li>(<em>可选</em>):如果你想限制Pokemon Go之外的某个应用有音频聚焦，那么安装<a href="https://play.google.com/store/apps/details?id=com.ubqsoft.sec01">应用检查器</a>应用，找到该应用名称下列出的包。</li> <li>发送以下命令:<code>adb shell</code></li> <li>然后执行这个命令:<code>cmd appops set &lt;package&gt; TAKE_AUDIO_FOCUS ignore</code>。例如，对于Pokemon Go，命令将是:<code>cmd appops set com.nianticlabs.pokemongo TAKE_AUDIO_FOCUS ignore</code><div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/Pokemon-Go-Audio-Focus.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Example: Command used for Pokemon Go&quot;"><figure><picture><source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/Pokemon-Go-Audio-Focus.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/><source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/Pokemon-Go-Audio-Focus.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/><source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/Pokemon-Go-Audio-Focus.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/><source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/Pokemon-Go-Audio-Focus.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/><img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/Pokemon-Go-Audio-Focus.png" src="../Images/a3dde588135f8a2af8ad1b925f9cadc1.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/Pokemon-Go-Audio-Focus.png"/></picture><figcaption class="body-img-caption">例如:用于Pokemon Go的命令</figcaption></figure></div></div><section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id=""><p>更新:如果以上命令对您不起作用，请尝试从命令中排除“cmd”。我一直听说，如果你运行的是Android 6.0棉花糖或更早的版本，这可能是需要的。</p> </div> </section></li> <li>只要你没有在窗口中得到一个错误消息，它应该已经工作了。恭喜你！现在Pokemon Go不会阻止Google Play音乐、Spotify、PocketCasts或任何其他应用程序在它上面播放！</li> </ol>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="explanation">说明</h2>
+<p>正如开头提到的，我们使用命令行与appops接口，appops是Android面向用户的处理应用权限的系统。默认情况下，用户可以通过设置UI切换的权限很少。某些自定义rom(如带有隐私保护的LineageOS)暴露了更多您可以限制的权限，但对于非ROMs用户，处理这些权限的唯一方法是通过命令行。</p>
+
+<p>不管怎样，我们限制的特定权限是<code>android.permission.TAKE_AUDIO_FOCUS</code>，任何在<code>AndroidManifest.xml</code>文件中请求它的应用程序在安装时都会自动被授予。多亏了上面的appops命令，我们可以从Pokemon Go中取消这一权限，这意味着它不能再请求音频焦点，从而不能再阻止你手机上的其他音乐或播客应用程序播放。</p>
+
+<p>虽然上面的教程是针对Pokemon Go用户的，但从技术上来说，你可以对任何其他app做同样的事情。只需在第15步中用你想要的任何其他应用程序修改包的名称。只是要小心，不要随意限制这种权限，因为谷歌有意隐藏这种权限，以免用户把事情搞砸。</p>
+
+<p>在我们的<a href="https://www.xda-developers.com/category/tutorials/">教程类别</a>中查看其他类似的优秀教程。通过XDA实验室应用程序了解最新消息。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

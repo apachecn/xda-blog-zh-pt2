@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Get "Turn on WiFi Automatically" Feature for Nexus 5X/6P on Android Oreo</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在Android Oreo上获得Nexus 5X/6P的“自动打开WiFi”功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/turn-on-wifi-automatically-nexus5x-nexus6p/#0001-01-01">https://www.xda-developers.com/turn-on-wifi-automatically-nexus5x-nexus6p/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android Oreo推出了一项新功能，让你在靠近“高质量的保存网络”时自动打开WiFi，比如在办公室或家里。这项功能可以在谷歌Pixel和谷歌Pixel XL的Android 8.0官方版本中找到，但在谷歌Nexus 5X或谷歌Nexus 6P上不可用。然而，情况并非总是如此。当Android O开发者预览版2推出时，这两款Nexus手机实际上具有WiFi自动唤醒功能，但出于某种未知的原因，谷歌<strong>在Nexus 5X/6P </strong>的最终Android 8.0 Oreo版本中删除了这一功能。</p>
+
+  
+<p>如今智能手机中的WiFi模块在电池寿命方面非常有效，所以这对大多数人来说不会节省很多电池寿命。然而，如果你所在的区域有大量网络连接质量不一的WiFi接入点，那么你可能会经历一些与智能手机不断连接和断开低质量开放WiFi网络相关的电池消耗。</p>
+
+<p>这就是自动打开WiFi的功能发挥作用的地方。发生的情况是，当连接到WiFi网络的能力被关闭时，扫描WiFi网络的功能保持启用。在后台，谷歌扫描网络，然后使用自己的推荐服务来确定是否应该打开WiFi连接到网络。谷歌的推荐服务根据WiFi网络是否是您经常连接的已保存网络，以及该网络是否提供稳定的高速连接来做出这一决定。</p>
+
+<p>您可以通过启动设置应用程序，点击顶部的网络和互联网选项，点击WiFi，然后点击列表底部的WiFi首选项选项来找到此功能。切换本身可以在上面的特征图像中看到。</p>
+
+<p>如果你问我的话，这是一个非常漂亮的功能。但是在Nexus 5X和Nexus 6P上它被移除了，原因我们不知道，也许它在这两款手机上并不那么好用。与许多其他没有面向用户切换的Android功能一样，我们实际上可以通过几个ADB命令恢复这个功能。因此，让我们深入了解一下让<strong>恢复谷歌Nexus 5X和谷歌Nexus 6P </strong>的“自动打开WiFi”功能所需的步骤。</p>
+
+<hr/>
+
+
+<h2 id="enable-the-turn-on-wifi-automatically-feature-on-the-nexus-5x-and-nexus-6p">在Nexus 5X和Nexus 6P上启用“自动打开WiFi”功能</h2>
+<ol> <li>首先，你需要在你的台式机或笔记本电脑上安装ADB。</li> <li>将Nexus 5X或Nexus 6P连接到电脑，启用USB调试，然后打开命令提示符。</li> <li>在命令提示符下执行以下命令:<code>adb shell</code></li> <li>然后在命令提示符下执行以下命令来恢复切换:<code>settings put global wifi_wakeup_available 1</code></li> <li>最后，在命令提示符下执行下面的命令来实际启用这个特性:<code>settings put global wifi_wakeup_enabled 1</code></li> </ol>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="explanation">说明</h2>
+<p>我们最近已经做了<a href="https://www.xda-developers.com/tag/tutorial/" target="_blank" rel="noopener">许多这样的教程</a>，让你可以访问你正在运行的Android软件中包含的功能。这些都是内置在Android操作系统中的功能，但用户不容易使用。</p>
+
+<p>由于谷歌在Pixel和Pixel XL上保留了这一自动WiFi功能，我们只能想象它完全按照他们的希望工作。然而，他们已经移除了Nexus 5X和Nexus 6P上的切换，因为这一功能可能无法与这两款设备中使用的WiFi模块兼容，或者谷歌可能只是想将其限制在他们的新Pixel手机上。无论哪种方式，我们都可以把它带回来，它已经被测试工作。</p>
+
+<p>在我们的计算机上打开ADB shell提示符后，我们将在这里发出两个命令。第一个命令实际上将自动WiFi切换带回设置应用程序。如果操作正确，第一个选项将使“自动打开WiFi”开关再次出现。</p>
+
+<p>但是，当我们在ADB shell中时，我们可以发出步骤5中所示的命令来实际启用它。更改这些选项不会阻止你将来接受来自Google的官方OTA更新(我们不会对系统文件进行未经授权的修改),这也是为什么它也不需要root访问权限。</p>
+
+<p>如果您想将这些更改恢复到原来的样子，您可以启动命令提示符或终端，并再次打开ADB shell。只需将本指南最后两步中命令末尾的1改为0。这些标志最初被设置为0，这就是为什么我们无法在这两款Nexus设备上使用自动WiFi功能。因此，将这些从1改回0将禁用该功能，并从设置菜单中移除切换。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

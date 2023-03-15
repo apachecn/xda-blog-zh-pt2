@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>How to Cast ANY Video/Playlist from the YouTube App to your Google Home</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何将YouTube应用程序中的任何视频/播放列表发送到您的Google Home</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-cast-any-video-from-the-youtube-app-to-your-google-home/#0001-01-01">https://www.xda-developers.com/how-to-cast-any-video-from-the-youtube-app-to-your-google-home/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>与任何谷歌新产品打交道时，最令人沮丧的地方之一是缺乏人们会认为是显而易见的功能。</p>
+
+  
+<p>那些已经购买了Google Home的人可能会很兴奋，因为这款设备可以充当Google Cast接收器，使你能够在智能手机上选择你最喜欢的歌曲，并开始在Google Home上播放。但是有一个应用程序已经失去了对谷歌主页的支持，这就是Android应用程序的官方YouTube。</p>
+
+<p>似乎没有任何技术障碍阻止Google Home播放YouTube视频的音频——毕竟，这个完全相同的功能<strong>存在于桌面YouTube页面上。</strong>但是，当你试图在智能手机上浏览同一视频时，你会注意到在谷歌主页上播放的选项明显不见了。</p>
+
+
+
+
+
+<p>虽然我们只能猜测为什么Android应用程序中缺少这一看似显而易见的功能(也许是为了推动用户使用YouTube音乐——碰巧的是，它允许你转换到Google Home ),但我们不能肯定为什么它不在那里。YouTube上有很多内容，只听音频更好，但YouTube音乐上没有这些内容，所以我们想找到一种方法来解决这个问题。</p>
+
+<p>虽然从技术上来说，可以通过进入Google Home应用程序并选择边栏中的“播放屏幕/音频”选项来播放智能手机上生成的任何和所有音频，但我个人不喜欢这个选项，因为它要求你每次想播放视频时都要手动启用这个选项，还要求你的手机继续播放视频，这使你无法使用其他应用程序。因此，我想到了一个更干净的解决方案，它利用了Google Home的原生Google Cast功能，但不需要你的手机被扣为人质。</p>
+
+<hr/>
+
+
+<h2 id="cast-any-video-from-the-youtube-app-to-google-home">将任何视频从YouTube应用程序上传到Google Home</h2>
+<p>这个把戏背后的想法很简单。我们将把YouTube视频或播放列表URL发送到Google Home，这样它就可以独立处理播放。为此，我们将利用两个不同的Tasker插件:AutoShare和AutoCast。AutoShare将允许我们从<strong> Android的内置共享菜单</strong>中<strong>共享YouTube视频/播放列表的URL，而AutoCast将通过Google Cast协议</strong>将该链接发送到Google Home，这样它就可以开始播放了。在谷歌最终更新YouTube应用程序以支持向谷歌主页发布内容之前，这是最干净、最简单的选择。这是怎么做的。</p>
+
+
+<p>我们需要做的第一件事是设置AutoShare和AutoCast。打开自动共享，确保“自动共享设置”下面的<strong>自动共享命令</strong>被<strong>选中</strong>然后，点击<strong>管理命令</strong>。现在，您应该进入命令创建屏幕。在顶部，点击<strong> + </strong>图标创建一个新命令。把它命名为<strong> Cast to Home。</strong> AutoShare会要求你给命令一个图标。使用一个“内置”图标或者选择任何你喜欢的图标——这真的没关系。</p>
+
+
+
+
+
+<p>一旦你做到了这一点，下一步我们将继续设置自动成本。打开AutoCast应用程序，点击<strong>管理演职人员设备。</strong>点击顶部的<strong> + </strong>图标，等待AutoCast检测到你的Google Home。将您喜欢的Google Home设备添加到列表中。如果您的Google Home设备没有出现，请仔细检查您使用的是AutoCast的测试版，因为稳定的Play Store版本还不支持Google Home！</p>
+
+
+
+
+
+<p>现在，我们将通过Tasker连接这两个插件。这里是任务的描述，供那些对Tasker比较了解的人参考。如果您不熟悉Tasker，请继续阅读分步说明。</p>
+
+<pre> <code class="hljs ">Profile: Home - Play Youtube Audio (156)<br/>Event: AutoShare [ Configuration:Command: Cast to Home<br/>Sender: all<br/>Subject: all<br/>Text: all<br/>Image: all ]<br/>Enter: Anon (157)<br/>A1: AutoCast Best Guess [ Configuration:Cast Device: Bedroom Home<br/><span class="hljs-selector-tag">Value</span> <span class="hljs-selector-tag">to</span> <span class="hljs-selector-tag">Cast</span>: %<span class="hljs-selector-tag">astext</span> <span class="hljs-selector-tag">Timeout</span> (<span class="hljs-selector-tag">Seconds</span>)<span class="hljs-selector-pseudo">:0</span> ]</code> </pre>
+<p>打开Tasker，点击右下角的<strong> + </strong>图标，创建一个新的<strong>档案</strong>。点击<strong>事件</strong>-&gt;-<strong>插件- &gt;自动共享</strong>，然后在弹出时再次点击自动共享。点击铅笔图标，调出自动共享配置。在<strong>命令过滤器</strong>下，选择<strong> Cast to Home </strong>，这是我们之前创建的命令。按下<strong>复选标记</strong>图标，然后点击左上方的返回箭头退出配置文件配置。</p>
+
+
+
+
+
+<p>接下来，将要求您命名一项任务。你可以选择命名，也可以不命名，都无所谓。点击复选标记进入任务创建屏幕。在屏幕底部中间，再次点击<strong> + </strong>图标，为该任务创建一个新动作。点击<strong>插件- &gt;自动预测- &gt;自动预测最佳猜测。</strong>点击铅笔图标打开AutoCast的配置屏幕。在<strong> Cast Device </strong>下选择你的Google Home设备。对于要转换为的<strong>值，请键入<strong> %astext。</strong>该变量将包含我们将从YouTube共享到Google Home的URL。点击顶部的复选标记以完成编辑此操作，并返回到Tasker的主屏幕。</strong></p>
+
+
+
+
+
+<p>你完了！就像我说的，这是一个相当简单的解决方案，因为它只需要在Tasker中运行一个动作。但是，您实际上是如何让它运行的呢？只需找到任何YouTube视频或播放列表URL(无论是在网络上还是从YouTube应用程序中共享)，在Android的共享菜单中选择<strong> AutoShare命令</strong>，然后最后选择<strong> Cast to Home </strong>，让AutoCast在您的Google Home上开始播放。</p>
+
+
+
+
+
+<p>您的Google Home设备应该会很快开始播放。播放列表将自动逐个循环播放每个视频。如果你想停止播放，你可以通过点击智能手机上的自动播放通知或使用常用的Google Home命令来强制停止播放。我更喜欢“嘿，谷歌，闭嘴。”而是每个人自己的。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="importing-the-profile-in-tasker">在Tasker中导入配置文件</h2>
+<p>和往常一样，我们提供了一个链接，可以让那些只想导入并开始使用的人下载这个概要文件。为了导入此配置文件，首先从下面的链接下载. prf.xml文件。将其保存在内部存储器的任何位置。打开Tasker，在首选项中禁用初学者模式。然后，回到主屏幕，长按“个人资料”轻触顶部。一个弹出窗口应该显示一个“导入”配置文件的选项。点击它，浏览到保存XML文件的位置，并选择要导入的文件。请注意，导入此配置文件仍需要您设置AutoShare和AutoCast，并且您还需要编辑“AutoCast Best Guess”操作下的“Cast Device ”,以便它将指向您的特定Google Home。</p>
+
+<p><a href="https://www.androidfilehost.com/?fid=745425885120708473"> <strong>从AndroidFileHost下载“Cast to Google Home”配置文件！</strong>T3】</a></p>
+
+<hr/>
+
+<p>如果这对你有用，请在下面的评论中告诉我们！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

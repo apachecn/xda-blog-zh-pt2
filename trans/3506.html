@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>More than a Meme: Google uses TheVerge.com to Benchmark Nexus Devices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>不仅仅是一个迷因:谷歌用TheVerge.com来测试Nexus设备</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/more-than-a-meme-google-uses-theverge-com-to-benchmark-nexus-devices/#0001-01-01">https://www.xda-developers.com/more-than-a-meme-google-uses-theverge-com-to-benchmark-nexus-devices/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在AOSP四处挖掘是对Android有新发现的一个好方法，这次我们遇到了一些相当有趣的事情。一段时间以来，<a href="https://blog.lmorchard.com/2015/07/22/the-verge-web-sucks/">用户报告称，</a>TheVerge.com<a href="http://www.theverge.com/">科技网站</a>在移动设备上运行缓慢。</p>
+
+  
+<p>根据我的经验，他们的网站性能随着时间的推移已经有所提高，这是值得肯定的。另外，并不是说其他网站(包括我们自己的网站)没有我们可以努力解决的问题，但尽管如此，我发现在其官方的工作负载基准测试中，谷歌决定在他们的测试中使用Verge非常有趣。</p>
+
+<hr/>
+
+<p><strong> Android工作负载自动化</strong></p>
+
+<p><a href="https://github.com/ARM-software/workload-automation">工作负载自动化</a> (WA)是由<a href="https://www.arm.com/"> ARM </a>开发的一个框架，用于通过执行一套许多可重复的工作负载来收集Android设备上的性能数据。谷歌通过进行许多这样的工作负载测试和收集电力使用情况的总结来对他们的设备进行性能基准测试，然后他们将这些数据导入到电子表格中，以查看他们的优化如何随着时间的推移提高了性能。该公司挑选测试套件中包含哪些应用，但一般来说，他们仅限于大多数流行的谷歌应用。这是它如何工作的要点，但我们将展示来自源代码的证据，并更详细地描述测试套件，以便您可以更好地了解Google为测量性能所做的自动化测试。</p>
+
+<p>在AOSP，有一个专用于工作负载自动化测试的目录。用于测试的应用程序在<a href="https://android.googlesource.com/platform/system/extras/+/master/tests/workloads/defs.sh"> defs.sh </a>中定义，通常分为两类:默认、预装的谷歌应用程序或第三方网络浏览器。一个基准测试应用程序脱颖而出，我假设它是指基于虚幻引擎4的基准测试。</p>
+
+<pre> <code class="hljs php"><br/>gmailActivity=<span class="hljs-string">'com.google.android.gm/com.google.android.gm.ConversationListActivityGmail'</span><br/>clockActivity=<span class="hljs-string">'com.google.android.deskclock/com.android.deskclock.DeskClock'</span><br/>hangoutsActivity=<span class="hljs-string">'com.google.android.talk/com.google.android.talk.SigningInActivity'</span><br/>chromeActivity=<span class="hljs-string">'com.android.chrome/_not_used'</span><br/>contactsActivity=<span class="hljs-string">'com.google.android.contacts/com.android.contacts.activities.PeopleActivity'</span><br/>youtubeActivity=<span class="hljs-string">'com.google.android.youtube/com.google.android.apps.youtube.app.WatchWhileActivity'</span><br/>cameraActivity=<span class="hljs-string">'com.google.android.GoogleCamera/com.android.camera.CameraActivity'</span><br/>playActivity=<span class="hljs-string">'com.android.vending/com.google.android.finsky.activities.MainActivity'</span><br/>feedlyActivity=<span class="hljs-string">'com.devhd.feedly/com.devhd.feedly.Main'</span><br/>photosActivity=<span class="hljs-string">'com.google.android.apps.photos/com.google.android.apps.photos.home.HomeActivity'</span><br/>mapsActivity=<span class="hljs-string">'com.google.android.apps.maps/com.google.android.maps.MapsActivity'</span><br/>calendarActivity=<span class="hljs-string">'com.google.android.calendar/com.android.calendar.AllInOneActivity'</span><br/>earthActivity=<span class="hljs-string">'com.google.earth/com.google.earth.EarthActivity'</span><br/>calculatorActivity=<span class="hljs-string">'com.google.android.calculator/com.android.calculator2.Calculator'</span><br/>calculatorLActivity=<span class="hljs-string">'com.android.calculator2/com.android.calculator2.Calculator'</span><br/>sheetsActivity=<span class="hljs-string">'com.google.android.apps.docs.editors.sheets/com.google.android.apps.docs.app.NewMainProxyActivity'</span><br/>docsActivity=<span class="hljs-string">'com.google.android.apps.docs.editors.docs/com.google.android.apps.docs.app.NewMainProxyActivity'</span><br/>operaActivity=<span class="hljs-string">'com.opera.mini.native/com.opera.mini.android.Browser'</span><br/>firefoxActivity=<span class="hljs-string">'org.mozilla.firefox/org.mozilla.firefox.App'</span><br/>suntempleActivity=<span class="hljs-string">'com.BrueComputing.SunTemple/com.epicgames.ue4.GameActivity'</span><br/>homeActivity=<span class="hljs-string">'com.google.android.googlequicksearchbox/com.google.android.launcher.GEL'</span></code> </pre>
+<p>这些活动通过ADB命令行启动，使用以下<a href="https://developer.android.com/studio/profile/systrace-commandline.html"> Systrace </a>选项来衡量应用性能:</p>
+
+<pre> <code class="hljs javascript">dflttracecategories=<span class="hljs-string">"gfx input view am rs power sched freq idle load memreclaim"</span></code> </pre>
+<p>特别是Chrome应用程序启动时带有一个加载边缘的标志:</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/09/theverge.png"/></p>
+
+
+
+<p/>
+
+<p>至于为什么测试似乎对<em> volantis </em> (Nexus 9)有所不同，我不是很确定。无论如何，至于这个Chrome-activity-with-The-Verge实际上通过了哪些测试，我们可以通过查看工作负载自动化测试的源代码来确定。</p>
+
+<hr/>
+
+<p><strong>测试套件</strong></p>
+
+<p>首先，有一个<strong> <a href="https://android.googlesource.com/platform/system/extras/+/master/tests/workloads/recentfling.sh"> systemapps.sh </a> </strong>测试，谷歌声明它是这样工作的:</p>
+
+<pre> <code class="hljs php"><br/><br/><br/><br/><br/></code> </pre>
+<p>接下来是<a href="https://android.googlesource.com/platform/system/extras/+/master/tests/workloads/recentfling.sh"> <strong> recentfling.sh </strong> </a>测试，工作原理是这样的:</p>
+
+<pre> <code class="hljs php"><br/></code> </pre>
+<p>然后还有<strong> <a href="https://android.googlesource.com/platform/system/extras/+/master/tests/workloads/chromefling.sh"> chromefling.sh </a>，</strong>测试Chrome的性能相当简单:</p>
+
+<pre> <code class="hljs php"><br/></code> </pre>
+<p>工作负载自动化套件中另一个有趣的测试是<a href="https://android.googlesource.com/platform/system/extras/+/master/tests/workloads/youtube.sh"> <strong> youtube.sh </strong> </a>性能测试，它测量UI jank</p>
+
+<pre> <code class="hljs sql"><br/><br/><br/><br/><br/><br/>iterations=10<br/>app=youtube<br/>searchText="last week tonight <span class="hljs-keyword">with</span> john oliver: <span class="hljs-keyword">online</span> harassment<span class="hljs-string">"</span><br/>vidMinutes=15</code> </pre>
+<p>最后，这些测试中的每一个都用于通过在一定时间内循环来测量真实世界的用电量，如<a href="https://android.googlesource.com/platform/system/extras/+/master/tests/workloads/pwrtest.sh"> <strong> pwrtest.sh </strong> </a>中所定义:</p>
+
+<pre> <code class="hljs php"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></code> </pre>
+<p>然后，谷歌可以使用<a href="https://android.googlesource.com/platform/system/extras/+/master/tests/workloads/pwrsummary.sh"> <strong> pwrsummary.sh </strong> </a>收集这些数据，并将它们导入电子表格:</p>
+
+<pre> <code class="hljs php"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></code> </pre>
+<p>这些都是相当常见的真实世界的UI性能测试，与你在我们自己的测试中看到的类型没有什么不同。打开Chrome时加载Verge主页的变化似乎是最近才发生的，因为去年谷歌在这些测试中只会在Chrome中打开一个新标签。然而，<a href="https://android.googlesource.com/platform/system/extras/+/4d31f7f%5E!/">2015年5月28日</a>的一项改变是在测试Chrome时引入了Verge的使用。有趣的是，谷歌在执行工作负载自动化测试时使用了所有地方的边缘，请记住，这并不意味着边缘是web性能的最大障碍。</p>
+
+<p>事实上，远非如此，由于越来越多的广告扩散以弥补广告拦截器的增加，许多其他网页表现平平。事实上，考虑到普通谷歌员工对技术的精通程度，以及许多爱好者对Verge网页性能的内部玩笑，使用Verge的决定很可能只是出于方便。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

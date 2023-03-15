@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>How to see the Boot Count of your Android Nougat or Android Oreo Device</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何查看您的安卓牛轧糖或安卓奥利奥设备的启动次数</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/boot-count-android-nougat-oreo-device/#0001-01-01">https://www.xda-developers.com/boot-count-android-nougat-oreo-device/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>我们热爱统计。即使是平凡的或者基本上无用的统计数据也会引起人们极大的兴趣。与adb，或根和一个终端应用程序，有可能查看你的手机启动计数，这是多少次你已经启动了你的设备！显然，这个计数器只有在你的手机最后一次恢复出厂设置后才会被记录。该数据存储在设置数据库中，因此在工厂重置中擦除数据意味着该启动计数器丢失。如果遵循下面的根方法，您将需要Magisk或SuperSU。读取的值<a href="https://developer.android.com/reference/android/provider/Settings.Global.html#BOOT_COUNT">“BOOT _ COUNT”</a>仅在SDK24或Android Nougat中添加，因此Android Nougat或Android Oreo上的任何设备都将具有该计数器。<strong>安卓棉花糖或更低版本不能使用本教程，因为字符串不存在。</strong></p>
+
+  
+<p>不过，你也没错过什么。</p>
+
+<hr/>
+
+
+<h2 id="see-your-boot-count-on-any-android-7-0-device-no-root">在任何Android 7.0以上设备上查看您的启动计数(无Root)</h2>
+
+
+<p>首先，按照本教程在你的设备上设置adb。它拥有您在Windows、Mac或Linux上启动和运行所需的一切！一旦您完成了所有的设置，您将需要通过adb运行以下两个命令。您可以检查您的设备是否也与“adb设备”连接。右图向您展示了它应该是什么样子。</p>
+
+<pre> <code class="hljs ">adb shell</code> </pre>
+<pre> <code class="hljs javascript">settings <span class="hljs-keyword">get</span> global boot_count</code> </pre>
+<p>这应该会给你一个整数值，也就是你的设备已经启动了多少次。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="see-your-boot-count-on-any-android-7-0-device-root">查看您在任何Android 7.0以上设备上的启动次数(Root)</h2>
+
+
+<p>您需要root用户，因此在<a href="https://play.google.com/store/apps/details?id=com.termux"> Termux </a>(或任何终端应用程序)中键入以下命令。右图向您展示了它应该是什么样子。</p>
+
+<pre> <code class="hljs ">su</code> </pre>
+<p>接受授予超级用户访问权限的提示。</p>
+
+<pre> <code class="hljs javascript">settings <span class="hljs-keyword">get</span> global boot_count</code> </pre>
+<p>仅此而已！</p>
+
+<hr/>
+
+<p>用安卓牛轧糖，增加了字符串“BOOT_COUNT”。这是一个记录设备启动次数的字符串。如上所述，如果您恢复出厂设置，该字符串将被清除。如果您关心这个次要的引导统计，我建议不要擦除/data分区。但你可能真的不在乎。也许吧。</p>
+
+<p>你的靴子数是多少？下面就让我们知道吧！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

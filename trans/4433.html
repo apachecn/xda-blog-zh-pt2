@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Download the Android One Launcher from the Xiaomi Mi A1 with Google Feed Enabled</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在启用Google Feed的情况下，从小米Mi A1下载Android One启动器</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/download-android-one-launcher-xiaomi-mi-a1/#0001-01-01">https://www.xda-developers.com/download-android-one-launcher-xiaomi-mi-a1/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>2017年年中，安卓开发者阿米尔·扎伊迪(在Reddit上被称为<a href="https://www.reddit.com/user/AmirZ">阿米尔兹</a>)发布了谷歌像素启动器的<a href="https://www.xda-developers.com/developer-ports-the-pixel-launcher-with-the-google-now-panel-for-unrooted-devices/">无根端口，将谷歌Now面板添加到无根设备的主屏幕上。它是同类产品中第一个这样做的，并带来了新一波第三方发射器，如与Google Now集成的</a><a href="https://www.xda-developers.com/lawnchair-launcher-free-play-store/"> Lawnchair </a>和新版<a href="https://play.google.com/store/apps/details?id=com.teslacoilsw.launcher&amp;hl=en"> Nova Launcher </a>。本周，AmirZ从小米Mi A1上提取了Android One启动器(预装在Android One<a href="https://www.android.com/one/">设备上的Android主屏幕)，并分享了他如何做到这一点的细节。</a></p>
+
+ 
+
+
+
+
+<p>Android One Launcher和谷歌Pixel Launcher没有太多区别。前者有一些用户界面的变化，包括外观略有不同的应用程序dock，重新设计的应用程序抽屉，以及位于新位置的谷歌搜索栏。但差异主要是审美上的。</p>
+
+<p>至于AmirZ如何做出改变，方法非常简单，基本上与XDA资深成员<a href="https://forum.xda-developers.com/member.php?u=6018897"> paphonb </a>如何让谷歌Pixel Launcher与Google Now面板一起工作的方法相同。因为Android One Launcher保留了与原始版本相同的包名，所以它可以从<a href="https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox&amp;hl=en">谷歌应用</a>接收信息，这允许它访问和显示Google Now面板。问题是，它不能在任何设备上工作——如果没有Android系统作为可调试应用程序构建的启动器，它就不能工作。所以AmirZ的修改版本做了一些事情，包括允许应用程序由Android自己管理日志。这是在<a href="https://developer.android.com/guide/topics/manifest/manifest-intro.html"> AndroidManifest.xml </a>文件中定义的，该文件包含了应用程序的许多参数:</p>
+
+<pre> <code class="hljs javascript">&lt;<span class="hljs-selector-tag">manifest</span> <span class="hljs-selector-tag">xmlns</span><span class="hljs-selector-pseudo">:andro</span><br/>    ...<br/>    &lt;application android:icon=<span class="hljs-string">"@drawable/icon"</span><br/>        android:debuggable=<span class="hljs-string">"true"</span></code> </pre>
+<p>一旦做出了改变，AmirZsimply就用一个新的密钥(因为他无法获得谷歌的Android One Launcher原始密钥)重新签署了应用程序，并对其进行了重新打包。</p>
+
+<p>你可以从下面下载修改过的启动器，但是你需要确保你的设备上没有安装谷歌Pixel启动器或者Android One启动器。</p>
+
+<hr/>
+
+<p><a href="https://www.androidfilehost.com/?fid=817906626617958389"> <strong>下载Android One Launcher port by AmirZ</strong></a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>How to Block Heads Up Notifications While Gaming or Watching Videos</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在玩游戏或观看视频时阻止抬头通知</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/block-heads-up-notifications-gaming-videos/#0001-01-01">https://www.xda-developers.com/block-heads-up-notifications-gaming-videos/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>几年前，Android从滚动条式通知系统转变为抬头通知。Android 5.0 Lollipop中的抬头通知将在任何屏幕的状态栏顶部弹出，而不是在通知到来时只在状态栏上滚动信息。有些人喜欢这种风格，因为它允许你快速查看和回复重要信息，但其他人讨厌它打断你正在做的事情，如游戏或观看视频。这里有一个关于如何在你选择的任何应用程序中自动阻止抬头通知的教程。</p>
+
+  
+<p>目前，定制rom上的一些用户能够为单个应用定制通知偏好。这样的特征正在向所有用户(...最终)随着<a href="https://www.xda-developers.com/google-announces-android-o-developer-preview-1-available-for-supported-devices/"> Android O及其通知通道</a>的发布，虽然上述功能允许你禁用某些应用程序的抬头通知，但没有办法指定你不想在玩游戏或观看视频时被打断。你可以永久禁止应用程序显示中断平视通知，或处理他们现有的。</p>
+
+<p>但多亏了Tasker的强大功能和一个名为SecureTask的插件，我们可以在任何时候全局禁用或阻止抬头通知，例如在玩游戏或观看视频时。现在你可以在Android上玩游戏或看视频，再也不会被烦人的下拉通知打断了！</p>
+
+ 
+
+
+
+ 
+
+
+
+<hr/>
+
+<h3 id="block-heads-up-notifications---tutorial">阻止抬头通知-教程</h3>
+<ol> <li>为您的特定设备OEM安装USB驱动程序(Google在这里提供了一些通用USB驱动程序的列表<a href="https://developer.android.com/studio/run/oem-usb.html" target="_blank" rel="noopener noreferrer"/>)。可能只有Windows用户需要。</li> <li>为你的特定操作系统下载<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/"> ADB二进制</a>(<a href="https://dl.google.com/android/repository/platform-tools-latest-windows.zip">Windows</a>、<a href="https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"> Mac </a>、<a href="https://dl.google.com/android/repository/platform-tools-latest-linux.zip"> Linux </a>)。</li> <li>将上面ZIP文件的内容解压到您电脑上一个容易访问的文件夹中(如下载)。</li> <li>进入手机上的设置应用程序，点击关于手机选项。根据OEM的不同，这可能位于单独的选项卡中。如有疑问，只需使用设置中的搜索功能即可找到。</li> <li>在“关于手机”中找到“内部版本号”值，点击7次以启用开发者模式。</li> <li>回到设置主菜单，进入开发者选项，这样你就可以启用USB调试模式。找到它并启用它。</li> <li>将手机插入电脑，从“仅充电”模式切换到“文件传输(MTP)”模式。这并不总是必要的，但在你的设备上可能是必需的，但这样做没有坏处。</li> <li>回到PC并导航到之前解压ADB二进制文件的目录。</li> <li>在这个ADB目录中启动命令提示符/终端。对于Windows用户，你可以很容易地做到这一点，按住Shift键，然后右键单击，然后选择“在这里打开命令提示符”选项。</li> <li>一旦进入命令提示符/终端环境，输入以下命令:<code><span>adb devices</span></code></li> <li>这将启动ADB守护程序。如果这是您第一次运行ADB，您还会看到一个提示，要求您授权与计算机的连接。允许它。</li> <li>现在从步骤10重新运行adb devices命令，您将在输出中看到您的设备的序列号。如果是这样，那么你已经准备好继续前进了。如果没有，那么需要重新安装USB驱动程序。</li> <li>启动设置应用程序并转到辅助功能服务页面，然后授予Tasker辅助功能权限。您需要这样做，以便Tasker可以监控您正在使用的游戏或媒体应用程序何时处于活动状态。</li> <li>启动SecureTask，接受许可协议，并授予所请求的权限。</li> <li>在命令提示符或终端中执行以下命令:<code>adb shell</code></li> <li>然后执行以下命令，让SecureTask在这里正常工作:<code>pm grant com.balda.securetask android.permission.WRITE_SECURE_SETTINGS</code></li> <li>启动Tasker应用程序。</li> <li>在配置文件选项卡中，点击加号(+)图标</li> <li>点击应用程序选项</li> <li>选择您想要隐藏恼人通知的媒体/视频应用程序或游戏。完成后点击后退按钮。</li> <li>点击新任务并为其命名(如“阻止抬头通知”)</li> <li>点击复选标记以确认名称选择</li> <li>在任务编辑屏幕中，点击屏幕底部的加号图标(+)。</li> <li>点击插件-&gt;安全任务-&gt;安全设置。</li> <li>点击单词“配置”旁边的铅笔图标。</li> <li>将操作选项从读取更改为写入。将以下内容作为设置文本:<code>global heads_up_notifications_enabled</code>。并输入以下内容作为值:0。轻按右上角的“完成”，然后返回Tasker的主屏幕。</li> <li>长按我们刚刚创建的新任务，然后点击添加退出任务选项。</li> <li>重复步骤23-26，但将SecureTask中的<code>global heads_up_notifications_enabled</code>值从0改为1。</li> </ol>
+
+<hr/>
+
+<h3 id="explanation">说明</h3>
+<p>好了，我们在这里所做的是创建一个Tasker配置文件，应用程序将查看您是否启动了一个应用程序或游戏(您在步骤20中选择的任何应用程序或游戏)。在我的截图中，我只是选择了Chrome和时钟应用程序作为例子。如果你选择了一个游戏，那么Tasker会随时关注你是否已经启动了这个游戏。当Tasker看到你已经启动了任何选定的应用程序，它会踢在我们刚刚设置的任务，并阻止全球抬头通知。</p>
+
+<p>所以这个任务只是在我们的设备上执行几个命令。因为我们已经将它绑定到应用程序/游戏，所以我们输入的第一个命令只有在游戏或应用程序启动时才会执行。正是这个值为0的命令“global heads _ up _ notifications _ enabled”实际上完全禁用了抬头通知。因此，如果您愿意的话，您可以在ADB shell中执行此操作，并完全关闭提醒通知。</p>
+
+<p>虽然这不是大多数人想要的，因为他们实际上只是想在游戏或视频观看过程中阻止这些入侵通知。因此，当我们进入不想被打扰的应用程序或游戏时，我们将执行值为0的命令，退出任务将执行值为1的相同命令，以便在我们退出游戏或视频应用程序时重新启用抬头通知。</p>
+
+<p>因此，这种设置允许我们在启动我们选择的任何应用程序(如游戏或视频)时阻止抬头通知，然后在我们退出该游戏或视频应用程序时再次启用它。设置非常简单，但如果你在玩游戏时处于最佳状态，或者只是不想在看电影或电视节目时被打扰，这是非常有用的。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Google's Fuchsia is a Smartphone OS with a New UI But No Linux Kernel</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌的Fuchsia是一款智能手机操作系统，有新的用户界面，但没有Linux内核</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/googles-fuchsia-is-a-smartphone-os-with-a-new-ui-but-no-linux-kernel/#0001-01-01">https://www.xda-developers.com/googles-fuchsia-is-a-smartphone-os-with-a-new-ui-but-no-linux-kernel/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>按照谷歌的惯例，如果它存在，<a href="https://www.xda-developers.com/how-allo-and-duo-want-to-complicate-messaging-by-fracturing-the-market/">肯定不止一个。玩笑归玩笑，谷歌似乎不仅对开发和维护Android和Chrome操作系统作为可行的主流操作系统非常感兴趣，而且他们也在考虑以</a><a href="https://fuchsia.googlesource.com/"> Fuchsia </a>的形式开发另一个操作系统。</p>
+
+  
+<p>Fuchsia最后一次被谈论是在2016年8月，但是这个操作系统还处于雏形，刚刚成型。从那以后，谷歌一直在努力工作，尽管是小心翼翼地，赋予这个羽翼未丰的操作系统更多的内容。</p>
+
+<p>Fuchsia是谷歌的新开源操作系统，不使用Linux内核。相反，Fuchsia使用谷歌开发的名为<a href="https://github.com/fuchsia-mirror/magenta"> Magenta </a>的微内核。<a href="https://github.com/fuchsia-mirror/magenta/blob/master/LICENSE"> Magenta内核遵循</a>一个麻省理工风格的许可，允许其他人对代码做任何他们想做的事情(包括修改、分发和保持所述修改的私有性)，只要原始许可在衍生产品中的某个地方可用。</p>
+
+<p/><p>Magenta是支持Fuchsia操作系统的核心平台。Magenta由一个微内核(内核中的源代码/...)以及一小组用户空间服务、驱动程序和库(来源于system/...)是系统引导、与硬件对话、加载用户空间进程并运行它们等所必需的。Fuchsia在此基础上构建了一个更大的操作系统。Magenta的目标是现代手机和现代个人电脑，它们配有快速处理器、大量ram以及进行开放式计算的任意外设。</p>
+
+<p>这与Android Linux内核上的GPL v2相比是一个明显的变化，如果修改者(通常是原始设备制造商)修改和发布代码的任何部分，他们就有义务开放源代码。根据你站在哪一边，你可以争论选择许可和背离Linux内核是好是坏。</p>
+
+<p>操作系统的其他部分是单独许可的，通常是根据BSD License 2.0、Apache 2.0和MIT单独许可的。</p>
+
+<p><a href="https://arstechnica.com/gadgets/2017/05/googles-fuchsia-smartphone-os-dumps-linux-has-a-wild-new-ui/"> <em> Ars Technica </em>指出</a>Fuchsia上的界面和应用程序是使用谷歌的<a href="https://flutter.io/"> Flutter SDK </a>编写的，该项目能够生成可以在Android和iOS上运行的跨平台代码。Flutter应用程序是用Dart编写的，Dart是谷歌的内部Web开发语言，专注于移动设备上的高性能应用程序。Fuchsia也有一个基于Vulkan的图形渲染，名为<a href="https://github.com/fuchsia-mirror/escher"> Escher </a>，Ars Technica 提到它似乎是为运行谷歌的阴影重材质设计UX而定制的。</p>
+
+<p>由于Fuchsia的界面是用跨平台的Flutter SDK编写的，因此可以在Android设备上运行Fuchsia的部分功能。<em><a href="http://www.hotfixit.net/single-post/2017/05/03/How-to-build-Armadillo"/></em>揭示了<a href="http://www.hotfixit.net/single-post/2017/05/03/How-to-build-Armadillo">如何构建犰狳</a>，基本上是一个演示应用程序，展示Fuchsia的SystemUI是什么样子。你可以下载Fuchsia的源代码，将Fuchsia的SystemUI编译成Android apk，并安装在你的设备上。如果你不想走那条路，也不想等人来编译和发布它，<em>Hotfix.net</em>很友好地提供了一个界面演示视频:</p>
+
+ 
+<p class="w-rich w-youtube" id="_7rRK4S9uk0">  </p>
+
+
+<p>由于SystemUI由许多处于不同开发阶段的组件的占位符组成，到目前为止，您还不能对SystemUI做太多事情。Fuchsia的主屏幕目前由一个垂直滚动的列表组成，中间有一个信息窗口，显示日期、你所在的城市和你的个人资料图片。这个小部件上面是最近的应用程序，滚动到这个小部件下面会显示类似Google Now的建议，这些建议目前只是占位符。点击这个小工具会在一定程度上引发对Android快速切换的重新想象。</p>
+
+<p>Armadillo UI还具有多任务功能，比目前在Android上看到的窗口管理更好。有很多方法可以排列应用程序，包括同时打开四个应用程序，甚至采用选项卡式界面。犰狳UI还采用了Fuchsia的键盘和新的黑暗主题。</p>
+
+
+
+
+
+<hr/>
+
+<p>显而易见，Fuchsia作为一个操作系统仍然处于初级阶段。人们只需要看一眼Android就可以意识到制作一个操作系统并对其进行改进需要付出多少努力，这反过来会让你估计Fuchsia作为一种“大众产品”在未来有多远。</p>
+
+<p>由于谷歌也对整个操作系统及其进展保持沉默，因此很难估计这个操作系统的未来，如果它真的有未来的话。Ars Technica 援引Fuchsia开发商Travis Geiselbrecht的话说:</p>
+
+<blockquote>
+<p>[Fuchsia]不是一个玩具，不是一个20%的项目，不是一个我们不再关心的死东西的垃圾场。</p>
+ </blockquote>
+<p>虽然开发者坚持认为Fuchsia不仅仅是暂时的，但不幸的是，谷歌(和Alphabet)的善变本性是众所周知的。</p>
+
+<p>Ars Technica 推测，该操作系统在目前的状态下似乎很像Android的一个新分支，谷歌正在修复其早期和基础错误，并利用其多年来获得的大量经验来构建世界上最受欢迎的智能手机操作系统。有了Fuchsia，Google可以从一开始就成功地将自己从Linux内核和Java中分离出来——这在目前的Android中是非常非常困难的任务。</p>
+
+<p>倒挂金钟的未来令人兴奋。这可能是下一件大事，你可以在它成为下一件大事之前体验它。关于如何构建Fuchsia的Armadillo UI以在Android上试用的说明，请跟随<a href="http://www.hotfixit.net/single-post/2017/05/03/How-to-build-Armadillo"><em>Hotfix.net</em>的简要指南</a>。你也可以在<a href="https://github.com/fuchsia-mirror"> Github </a>或<a href="https://fuchsia.googlesource.com/"> GoogleSource </a>查看Fuchsia的源代码。</p>
+
+<p><strong>你对Fuchsia和它的Armadillo UI有什么想法？你认为Fuchsia、Android和Chrome操作系统的未来会怎样？请在下面的评论中告诉我们你的想法！</strong></p>
+
+<p><a href="http://www.hotfixit.net/single-post/2017/05/03/How-to-build-Armadillo"> <strong>来源1:Hotfix.net</strong></a><a href="https://arstechnica.com/gadgets/2017/05/googles-fuchsia-smartphone-os-dumps-linux-has-a-wild-new-ui/"><strong>来源2: Ars Technica </strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

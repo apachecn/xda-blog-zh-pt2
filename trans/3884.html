@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Opus 1.2 Codec Arrives on Your Phone: High Quality Audio at 32 kbps</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Opus 1.2编解码器到达您的手机:32 kbps的高质量音频</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/opus-codec-high-quality-audio-32-kbps/#0001-01-01">https://www.xda-developers.com/opus-codec-high-quality-audio-32-kbps/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Xiph.Org基金会刚刚宣布了他们对Opus音频编解码器的最新改进，发布了他们的<a href="https://opus-codec.org/release/stable/2017/06/20/libopus-1_2.html"> libopus 1.2编码器</a>。通过这一最新的改进，Xiph.Org已经成功地使Opus可以以32 kb/s的速度用于全波段立体声音频，这将与WebM容器中即将推出的免版税<a href="https://www.xda-developers.com/av1-future-video-codecs-google-hevc/"> AV1视频格式</a>很好地配对，以在较慢的连接上带来更高质量的音频和视频。</p>
+
+  
+<p>对于那些不熟悉这种格式的人来说，Opus是一种IETF标准的免版税音频编解码器，它是由Xiph.Org基金会的CELT编解码器和Skype的SILK编解码器合并而成的，旨在为所有有损音频创建一种免版税的格式。它旨在随着比特率的变化而良好扩展，要求极低的吞吐量，并且能够以极低的处理能力进行编码和解码，所有这些对于视频会议、移动流媒体和任何其他实时音频应用都至关重要。在Opus标准化后的5年里，它已经在网络上被广泛采用，包括流媒体服务、IP电话、媒体播放器等。</p>
+
+<p>Opus 1.2对音乐质量和语音质量都带来了一些实质性的改进。如上所述，Opus现已达到可用于<strong>全波段立体声音频的32 kb/s </strong>，这在几年前还被认为是无法实现的。libopus 1.2带来的增强功能支持使用32 kb/s的VBR编码，这是以前避免的，因为它会损害极低比特率区域的音频质量，这是opus能够避免的。</p>
+
+<p>[playlist ids="179434,179437,179435,179436,179438,179514"]</p>
+
+<p>Opus 1.2还将语音质量提升到仅14 kb/s即可用于全频带语音的水平，低于Opus 1.1中的21 kb/s和Opus 1.0中的29 kb/s。这在一定程度上要归功于Opus混合模式的改进，该模式对8 kHz以下的频率使用SILK，对8 kHz至20 kHz的频率使用CELT。libopus 1.2中所做的调整允许它以低至16 kb/s的比特率同时使用CELT和SILK，这是以前32 kb/s限制的一半。</p>
+
+<p>[playlist ids="179445,179447,179446,179448,179444,179443,179442,179518"]</p>
+
+<p>值得注意的一点是，这种改进并不是由一个主要的变化引起的。虽然Opus 1.1的改进主要来自一小部分变化，但Opus 1.2是迭代开发和大量小调整的结果，最终形成了巨大的改进。</p>
+
+
+
+<p>尽管有这些实质性的质量改进，编码器方面的工作实际上使得Opus比以前需要更少的处理能力。就处理能力而言，Opus已经是市场领导者，但libopus的1.2更新将编码带到了这样一个地步:在浮点模式下，英特尔Haswell CPU的处理能力仅为约11 MHz(或在ARM Cortex-A53上仅为约33 MHz)，在浮点模式下，英特尔Haswell CPU的处理能力仅为约2 MHz(或在ARM Cortex-A5上仅为约6 MHz)，您可以实时解码128 kb/s的全波段立体声音乐同样，在大多数情况下，编码时间也有所减少，其中一些更极端的情况减少了一半(例如，在浮点模式下，英特尔Haswell CPU上128 kb/s全波段立体声音乐的编码复杂度5从libopus 1.0的约40 MHz降至libopus 1.2的约21 MHz)。</p>
+
+<p>opus在libopus 1.2中的持续发展令人兴奋，希望随着时间的推移，我们将看到Opus继续被采用。免版税的编解码器对于开发开放和互操作的互联网至关重要。它们是唯一可以在所有设备上实施的编解码器，因为受专利保护的编解码器经常会遇到各种各样的问题，从内容分销商和流媒体服务不愿支付一些人要求的高昂许可费，到开源软件经常无法代表用户保证适当的许可，甚至软件完全无法在不违反自己的许可条款的情况下集成它。受专利保护的编解码器的这些问题导致分裂而不是协作，因为不同的团体创建和实现他们自己的编解码器以避免受专利保护的编解码器带来的许可费用和各种其他问题。这导致一些团体创建他们自己的编解码器，需要使用特定的浏览器、操作系统和/或硬件，这可能会完全阻止大量用户使用某些内容。真正通用的编解码器出现的唯一方式是免版税，并且广泛采用正在使用的少数编解码器对于健康的互联网至关重要，在健康的互联网中，所有用户都有能力访问任何内容。开放标准是保证整个市场一致的用户体验的唯一途径，当免版税选项也是最好的选择时，那就太棒了。</p>
+
+<hr/>
+
+<p> </p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

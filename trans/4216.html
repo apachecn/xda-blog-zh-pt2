@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>The Google Pixel 2 has a Hidden Command that makes Rounded Screen Corner Apps Better</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Pixel 2有一个隐藏的命令，可以让圆角应用程序变得更好</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-pixel-2-rounded-screen-corners/#0001-01-01">https://www.xda-developers.com/google-pixel-2-rounded-screen-corners/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>随着LG G6和三星Galaxy S8的流行，圆角屏幕已经成为一种越来越流行的趋势。一些用户喜欢这些圆形边缘的外观，T2试图用Cornerfly等应用程序来模仿它。Cornerfly使用纯黑色覆盖层创建圆角屏幕，给人以圆角的错觉。但这些应用在Android Oreo上并不那么好用，所以在常规的谷歌Pixel 2上，我们可能会遇到问题。幸运的是，我们已经发现了一个隐藏的命令，你可以与Cornerfly等圆角屏幕应用结合使用，以获得Pixel 2 XL外观<a href="https://www.xda-developers.com/google-pixel-2-xl-announced-price/">，而无需支付额外的200美元</a>。</p>
+
+ 
+
+
+
+
+<p>现在的情况是，Android Oreo <a href="https://www.xda-developers.com/android-o-is-breaking-apps-that-overlay-on-top-of-the-status-bar/">对应用程序可以在</a>上绘制的内容进行了限制，比如导航栏、状态栏和其他系统用户界面元素。这意味着，如果你在角落里扩展圆的半径太远，状态栏时钟将会显示在它的上面。</p>
+
+<p>这意味着在Android Oreo上，像Cornerfly这样的应用程序并不真正工作，然而，我们发现的命令将在Google Pixel 2上解决这个问题。原来，在APK在谷歌Pixel 2和Pixel 2 XL中发现的最新SystemUI中，谷歌添加了一个名为“RoundedCorners”的新类，该类为某些SystemUI元素添加了填充。</p>
+
+<p>谷歌Pixel 2 XL上使用了这种方法，因为它实际上有一个圆形屏幕，所以SystemUI元素需要向内移动一点以适应这种情况。幸运的是，我们可以在普通的谷歌Pixel 2上利用这一点，让Cornerfly等应用程序再次正常工作。</p>
+
+<p>我们在XDA公认的贡献者<a href="https://forum.xda-developers.com/member.php?u=3563640"> Quinny898 </a>和<a href="https://twitter.com/asoep456"> Austin Greenlee </a>的帮助下对此进行了测试。</p>
+
+<hr/>
+
+
+<h2 id="get-rounded-screen-corners-on-the-google-pixel-2">在谷歌Pixel 2上获得圆角屏幕</h2>
+<h3 id="step-1---setting-up">步骤1 -设置</h3>
+<p>你只需要一个adb和一个谷歌Pixel 2。<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/">按照本教程为Windows、MacOS或Linux设置ADB</a>。一旦你设置好了，你就准备好了。</p>
+
+<h3 id="step-2---the-commands">步骤2 -命令</h3>
+<p>你可以简单地按照下面的命令！两者改变不同的方面。内容填充根据它的值将系统UI元素推向屏幕的中心，而圆角大小是这样的，所以系统知道角有多圆。</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">settings</span> <span class="hljs-selector-tag">put</span> <span class="hljs-selector-tag">secure</span> <span class="hljs-selector-tag">sysui_rounded_size</span> <span class="hljs-selector-tag">x</span><span class="hljs-selector-class">.x</span></code> </pre>
+<pre> <code class="hljs ">adb shell settings put secure sysui_rounded_content_padding x</code> </pre>
+<p>Google Pixel 2和Google Pixel 2 XL都将内容填充设置为默认值“8.0”。在Google Pixel 2 XL上舍入变量大小设置为“26.0”，在Google Pixel 2上设置为“0”。</p>
+
+<p><strong> Pro-tip: </strong>在Google Pixel 2上把sysui_rounded_content_padding改成0会去掉状态栏图标填充。</p>
+
+
+
+
+
+<p>你可以根据自己的喜好调整这两个变量，然后在谷歌Pixel 2上使用圆角屏幕应用程序来获得Pixel 2 XL效果。然而，谷歌Pixel 2 XL已经有了圆角，所以在那台设备上尝试这些命令没有什么实际好处。</p>
+
+<h3 id="step-3---set-up-cornerfly-for-rounded-screen-corners">步骤3 -设置圆角屏幕角</h3>
+ 
+
+
+
+<p>现在，您可以简单地打开Cornerfly并使用它。看看文章顶部的截图，看看你能让你的设备变成什么样子。如您所见，这是有区别的，应用程序现在工作正常。试试看，看你怎么想！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

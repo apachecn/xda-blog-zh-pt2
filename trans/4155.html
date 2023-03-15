@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Support for IPPS-Only Printers is coming to Android</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android将支持IPPS专用打印机</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/support-ipps-printer-coming-android/#0001-01-01">https://www.xda-developers.com/support-ipps-printer-coming-android/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>互联网打印协议，或称<a href="https://en.wikipedia.org/wiki/Internet_Printing_Protocol"> IPP </a>，<a href="https://www.xda-developers.com/android-oreo-print-service-ipp/">最初是由Android Oreo </a>支持的。Mopria与谷歌合作开发的，旨在使打印尽可能简单和通用。它允许设备发送多个打印作业，查询打印机的状态等。IPP还可以在互联网上运行，这意味着一些支持IPP的打印机将允许你在家里用自己的打印机打印，即使你不在身边。</p>
+
+  
+<p>然而，IPP是使用HTTP标准实现的，包括其所有的流和安全特性。众所周知，HTTP不是很安全，很容易被拦截，IPP也是如此。如果你在家或外出时想用你的打印机打印，你应该使用IPPS而不是IPP。IPPS是通过HTTPS实现的，这意味着安全连接。</p>
+
+<p>问题是安卓奥利奥不支持IPPS，<em>或者至少现在还不支持</em>。当连接到Android Oreo上的IPPS专用打印机时，它根本无法工作。它不能发现它们，也不能连接到它们，如果你担心你的数据的隐私，那么IPP的实现是没有用的。谢天谢地，<a href="https://android-review.googlesource.com/#/q/topic:ippsSupport+(status:open+OR+status:merged)">Mopria开发者的Android Gerrit中已经出现了一组提交</a>，他们声称要增加对IPPS的支持。它们被标记为合并，这意味着Android的下一个迭代版本(可能是Android 8.1)应该会支持更安全的IPPS。</p>
+
+<p>很高兴看到设备和打印机的统一，因为几年前设置打印机是一种可怕的体验，不管它是手机还是电脑。IPP以一种5到10年前不可能的方式统一了设备，很高兴看到我们将在不久的将来获得对更加安全的IPPS的支持。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

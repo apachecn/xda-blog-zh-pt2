@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>How to integrate OnePlus Face Unlock with App Lock using Xposed</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何使用Xposed将一加人脸解锁与App Lock整合</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/oneplus-face-unlock-app-lock/#0001-01-01">https://www.xda-developers.com/oneplus-face-unlock-app-lock/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">如何使用Xposed将一加人脸解锁与App Lock整合</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">下面介绍如何将OnePlus 3、OnePlus 3T、OnePlus 5和OnePlus 5T的面部解锁功能与OxygenOS中的App Lock功能集成在一起。需要root访问权限和Xposed框架。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>OnePlus 5T最受欢迎的功能之一是面部解锁功能。该功能如此受欢迎，以至于用户的需求促使一加将其引入<a href="https://www.xda-developers.com/oneplus-5-face-unlock-oxygenos/"> OnePlus 5 </a>以及后来的<a href="https://www.xda-developers.com/oxygenos-open-beta-30-face-unlock-rolling-out-oneplus-3-3t/"> OnePlus 3/3T </a>。</p>
+
+  
+<p>使用你的面部解锁最近的一加手机和安卓多年来一直拥有的可信面部功能之间的主要区别是，一加使用一种专有的软件算法，使其更快更方便，同时能够(在有限的程度上)区分真实的面部和照片。</p>
+
+<p>虽然只通过面部就能快速解锁你的一加手机很棒，但快速的<a href="https://www.google.com/search?q=oneplus+face+unlock+app+lock&amp;oq=oneplus+face+unlock+app+lock">谷歌搜索</a>显示，许多人希望将这一功能扩展到OxygenOS的应用锁定功能。对于那些不知道的人来说，应用程序锁是一种在pin/指纹扫描仪后面锁定特定应用程序的简单方法。这不是一个创新的功能，因为它的变体已经存在多年了，但内置它当然很好，因为这意味着你不必使用由<a href="https://www.xda-developers.com/working-as-intended-an-exploration-into-androids-accessibility-lag/">性能密集型辅助服务</a>或UsageStats API构建的第三方应用程序。</p>
+
+<p>多亏了一个新的<a href="https://github.com/Cyl18/OnePlus-5T-Applock-Tweaker">开源</a>exposed模块，你可以扩展一加的面部解锁功能，以配合应用程序锁定。你所需要做的就是使用OnePlus 3、OnePlus 3T、OnePlus 5或OnePlus 5T，这些设备都是OxygenOS版本，包含面部解锁功能，<a href="https://www.xda-developers.com/root/#oneplus">你是rooted用户</a>，并且你已经安装了<a href="https://www.xda-developers.com/xposed-framework-for-android-oreo-beta/"> Xposed框架</a>。如果您满足这些要求，您可以按照以下步骤启动并运行该模块:</p>
+
+<hr/>
+
+
+<h2 id="integrate-oneplus-face-unlock-with-the-app-lock-feature">将一加面部解锁与应用程序锁定功能集成在一起</h2>
+<ol> <li><a href="http://repo.xposed.info/module/com.cyl18.opapplocktweaker">下载</a>并从Xposed库安装Xposed模块。</li> <li>重启你的手机。</li> <li>在模块中启用面部解锁。</li> <li>如果您还没有在OxygenOS设置中激活面部解锁。</li> <li>激活应用程序锁定功能，并选择要锁定的应用程序。</li> </ol>
+
+
+
+<p>就是这样！享受在您的OnePlus 3、OnePlus 3T、OnePlus 5或OnePlus 5T上使用流行的面部解锁功能解锁特定应用程序的乐趣！</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

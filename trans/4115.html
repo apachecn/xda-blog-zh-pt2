@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Bring Back Notification Importance Controls for ALL Apps in Android Oreo with AutoNotification</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>为Android Oreo中所有带有自动通知功能的应用程序恢复通知重要性控制</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/notification-importance-controls-all-apps-android-oreo/#0001-01-01">https://www.xda-developers.com/notification-importance-controls-all-apps-android-oreo/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android 8.0 Oreo对我们与通知的交互方式进行了大量增强。通知中两个更令人兴奋的特性包括<a href="https://www.xda-developers.com/google-announces-android-o-developer-preview-1-available-for-supported-devices/">通知休眠和通知通道</a>。前者允许用户在未来的某个时间暂时取消通知，而后者允许应用程序对其通知进行分类，以便用户可以对他们看到的内容进行更细粒度的控制。任何针对Android Oreo设备的应用程序都需要实现通知通道，但当一个应用程序不针对Android 8.0时，麻烦就开始了。</p>
+
+  
+
+
+<p/><p><em>来源:<a href="https://plus.google.com/+RonAmadeo/posts/fS6RBAhdwRX">罗恩·阿马迪奥</a>T3】</em></p>
+
+<p>上图非常简洁地解释了这个问题。如果应用程序<strong>没有实现通知通道</strong>(即。不针对Android 8.0)，那么用户<strong>将无法访问通知重要性控件</strong>。许多人对这种功能的丧失感到不安，<a href="https://issuetracker.google.com/issues/62907528">在谷歌的问题跟踪器</a>上提交了一份错误报告，但当一名谷歌人结束了这个问题，声称这是“有意行为”时，他们的希望破灭了</p>
+
+<p>不管是不是“有意行为”，我们中的一些人不接受解决这个问题的唯一方法是说服开发者在应用更新中针对Android 8.0。毕竟，如果连谷歌自己的Hangouts都不实现通知通道，我们为什么要指望其他所有开发者都关心这个问题呢？</p>
+
+<p>幸运的是，我们不必等待开发人员更新他们的应用程序，因为只需要一个开发人员更新他的应用程序就可以完全解决这个问题。<a href="https://plus.google.com/u/0/+Jo%C3%A3oDias">joo Dias</a>,<a href="https://joaoapps.com/">auto apps</a>系列Tasker插件的开发者，发布了他的AutoNotification的新更新，增加了<strong>在任何应用</strong> <strong>上手动设置通知重要性控制的能力，即使它不支持通知通道</strong>。</p>
+
+
+
+
+
+<hr/>
+
+
+<h2 id="autonotification-brings-back-notification-importance-controls">自动通知恢复了通知重要性控制</h2>
+<p class="w-rich w-youtube" id="AcTVnop3M3s">  </p>
+
+
+<p>通常情况下，你可以通过进入设置-&gt;应用与通知-&gt;应用信息-&gt;应用-&gt;应用通知来访问应用的通知重要性控制。当然，这是在应用程序针对Android 8.0并实现通知通道的情况下。如果一个应用不针对Android 8.0，那么你就必须依靠自动通知来提供控制通知渠道的界面。</p>
+
+<p>在自动通知的最新更新中，在“独立功能”下有一个新的“<strong>通知类别</strong>”选项现在，AutoNotification作为Tasker应用程序的插件而闻名，但开发者决定<strong>将这一功能独立出来</strong>(即。你<strong>不需要安装Tasker </strong>所以更多的人可以享受它。</p>
+
+
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="how-to-set-notification-importance-controls">如何设置通知重要性控制</h2>
+<p>点击新的通知类别选项将打开两个对话框:第一个让你将应用程序设置为通知监听器，第二个允许应用程序管理其他应用程序的通知类别。完成这两项操作后，您可以快速开始设置通知。</p>
+
+<p>你所要做的就是在你的已安装应用列表中选择一个应用。如果你选择的应用程序不支持通知渠道，那么当你点击“让应用程序决定”让自动通知处理它的通知时，你会看到一个警告，自动通知将完全处理如何向用户显示通知。它警告说，恢复默认通知行为的唯一方法是卸载然后重新安装应用程序。但这没什么大不了的，因为这正是我们来这里的目的，对吗？</p>
+
+
+
+
+
+<p>一旦你启用了自动通知来修改应用程序的通知类别，这就是乐趣的开始。你有太多的选择:</p>
+
+<ul> <li>更改<strong>通知重要性</strong></li> <li>更改<strong>通知声音</strong>(系统或用户自定义)</li> <li>启用或禁用<strong>振动</strong></li> <li>如果启用振动，设置<strong>自定义振动模式</strong>。模式由对话框中屏幕点击的频率/强度决定。</li> <li>锁屏<strong>通知隐私</strong></li> <li>自定义<strong> LED通知颜色</strong>(比上面截图中显示的颜色更多)</li> <li>能够<strong>超越请勿打扰</strong></li> </ul>
+
+<p>如果你使用自动通知来控制已经实现通知通道的应用程序的通知，甚至还有一个好处:设置自定义振动模式也适用于这些应用程序！</p>
+
+
+
+
+
+<p>如果以上所有听起来对你都很有吸引力，那么准备好付钱吧，因为这个功能需要<strong>在应用内购买自动通知</strong>，这将花费你<strong>0.99美元</strong>。如果不是所有应用程序都有通知重要性控制真的困扰你，那么这笔钱花得值。</p>
+
+ 
+
+
+
+<hr/>
+
+
+<p>我们还将发布5个促销代码,用于解锁AutoNotification的pro版本。我们将在下面的评论中删除这些代码。这些促销代码<strong>必须通过AutoApps应用程序本身</strong>兑换，而不是通过谷歌Play商店。</p>
+
+ 
+
+
+
+<hr/>
+
+<p><strong> P.S </strong>被Android Oreo里那种持续的“app正在后台运行”通知烦到了？<a href="https://www.xda-developers.com/hide-app-running-background-notification-android-oreo/">我们也已经想好了</a>。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Ambient Lock Screen Music is a Root App that Shows any Music on the Pixel 2's Ambient Display</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>环境锁屏音乐是一个根应用程序，可以在Pixel 2的环境显示器上显示任何音乐</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/ambient-lock-screen-music-pixel-2/#0001-01-01">https://www.xda-developers.com/ambient-lock-screen-music-pixel-2/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌最新的<a href="https://www.xda-developers.com/google-pixel-2-xl-announced-price/"> Pixel 2和Pixel 2 XL </a>旗舰有一个令人敬畏的新功能，叫做“正在播放”。使用软件、硬件和机器学习的结合，Pixel 2使用离线数据库<a href="https://www.xda-developers.com/how-google-pixel-2-now-playing-works/">识别后台播放的数万首歌曲</a>。然后，它会将这些歌曲显示在手机的锁定屏幕上，一直显示，或者作为一个持续的通知。这个功能听起来有点噱头，但是在我自己使用后，我发现它真的很好用。话虽如此，这种功能并不是每个人都喜欢的，所以XDA认可的贡献者<a href="https://forum.xda-developers.com/member.php?u=3563640"> Quinny899 </a>开发了一款名为<strong> Ambient Lock Screen Music </strong>的应用程序，它允许你<strong>在你的设备上显示任何当前播放歌曲</strong>的名称和艺术家，而现在播放的文本通常会出现在那里。</p>
+
+ 
+<p class="w-rich w-youtube" id="uFgn2GYfGU4">  </p>
+
+
+<p>正如你在上面的视频中看到的，开发人员启用了应用程序，然后开始播放Google Play Music中的一首歌曲。当它们显示锁定屏幕时，您可以在底部看到当前播放的歌曲，而通常您会看到“正在播放”功能在识别歌曲时插入文本。</p>
+
+<p>应用程序<strong>仅在Pixel 2/2 XL </strong>上工作，因为它发送一个意图，其对应的意图接收器仅在Pixel 2上的SystemUIGoogle应用程序中可用。此外，应用程序<strong>需要root访问权限</strong>才能运行。你可以通过下面的链接从XDA实验室下载应用程序。</p>
+
+<p>[appbox xda com . Kieron Quinn . app . ambientlsmusic]</p>
+
+<p>它不仅免费(T1)，而且完全不含广告(T3)。它支持显示几乎任何音乐应用程序的歌曲名称/艺术家，如Google Play Music、Spotify、YouTube Red等。您还可以将应用程序列入黑名单，禁止其在环境显示器上显示文本。最后，该应用程序甚至允许您双击环境显示屏上显示的文本来启动音乐应用程序。</p>
+
+<p>我们应该注意，这并不一定会取代现在播放的功能，尽管它可能会与之冲突。如果与此同时启用了Now Playing，并且您正在听音乐，而Now Playing正在主动检测一首歌曲，则无论哪个向SystemUI发送意图，最新的将显示在环境显示屏上。无论如何，现在播放仍然会显示一个通知，无论它检测到什么歌曲，所以如果你使用环境锁定屏幕音乐，你不会错过这个功能。</p>
+
+<hr/>
+
+
+<h2 id="how-ambient-lock-screen-music-works">环境锁定屏幕音乐如何工作</h2>
+<h3 id="the-intent">意图</h3>
+<p>如前所述，该应用程序通过向SystemUIGoogle应用程序发送意图来工作。在Quinny899的应用中，这是负责发送意图的代码:</p>
+
+<pre> <code class="hljs javascript">Intent intent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-string">"com.google.android.ambientindication.action.AMBIENT_INDICATION_SHOW"</span>).putExtra(<span class="hljs-string">"com.google.android.ambientindication.extra.VERSION"</span>, <span class="hljs-number">1</span>).putExtra(<span class="hljs-string">"com.google.android.ambientindication.extra.TEXT"</span>, broadcastString).putExtra(<span class="hljs-string">"com.google.android.ambientindication.extra.TTL_MILLIS"</span>, time);<br/><span class="hljs-keyword">if</span>(clickIntent != <span class="hljs-literal">null</span>)intent.putExtra(<span class="hljs-string">"com.google.android.ambientindication.extra.OPEN_INTENT"</span>, clickIntent);<br/><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(packageName != <span class="hljs-literal">null</span>) intent.putExtra(<span class="hljs-string">"com.google.android.ambientindication.extra.OPEN_INTENT"</span>, PendingIntent.getActivity(context, <span class="hljs-number">1</span>, context.getPackageManager().getLaunchIntentForPackage(packageName), <span class="hljs-number">0</span>));<br/><span class="hljs-selector-tag">intent</span><span class="hljs-selector-class">.setPackage</span>(<span class="hljs-selector-tag">pName</span>);<br/><span class="hljs-selector-tag">context</span><span class="hljs-selector-class">.sendBroadcast</span>(<span class="hljs-selector-tag">intent</span>, "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.google</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.ambientindication</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.AMBIENT_INDICATION</span>");</code> </pre>
+<p>让我们分解一下。这个意图中的动作是“<code>com.google.android.ambientindication.action.AMBIENT_INDICATION_SHOW</code>”，它有几个可以随它一起发送的意图附加项。</p>
+
+<p>第一个额外的是“<code>com.google.android.ambientindication.extra.VERSION</code>”，它目前只取整数值1。下一个额外的是“<code>com.google.android.ambientindication.extra.TEXT</code>”，我们在这里设置想要在环境显示锁定屏幕上显示的字符串。第三个额外的是“<code>com.google.android.ambientindication.extra.OPEN_INTENT</code>”，它接受双击文本打开的PendingIntent。Quinny899设置PendingIntent以打开任何正在播放音乐的应用程序或<code>android.intent.action.MUSIC_PLAYER</code>的拾音器。</p>
+
+<p>最后，为了发送这个意图，调用应用程序必须拥有权限“<code>com.google.android.ambientindication.permission.AMBIENT_INDICATION</code>”此权限被定义为signature|privileged，这就是为什么此应用程序需要root访问权限。</p>
+
+<p>如果您想自己测试，可以打开一个根终端或ADB shell会话，并输入以下命令:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">am</span> <span class="hljs-selector-tag">broadcast</span> <span class="hljs-selector-tag">-a</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.google</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.ambientindication</span><span class="hljs-selector-class">.action</span><span class="hljs-selector-class">.AMBIENT_INDICATION_SHOW</span> <span class="hljs-selector-tag">--ei</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.google</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.ambientindication</span><span class="hljs-selector-class">.extra</span><span class="hljs-selector-class">.VERSION</span> 1 <span class="hljs-selector-tag">--es</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.google</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.ambientindication</span><span class="hljs-selector-class">.extra</span><span class="hljs-selector-class">.TEXT</span> "<span class="hljs-selector-tag">hello</span> <span class="hljs-selector-tag">world</span>"</code> </pre>
+<p>这将在环境显示器上显示文本“hello world”。但是，它不允许您双击，因为该命令不设置PendingIntent。</p>
+
+<h3 id="displaying-the-song">显示歌曲</h3>
+<p>该应用程序有两种方法来捕捉正在播放的歌曲。第一种是通过MediaController，它需要将应用程序绑定为通知侦听器(尽管这实际上并不意味着应用程序正在拦截通知以读取当前播放的歌曲)。第二种是通过广播接收器，它不需要通知监听器(因此消耗更少的内存)，但兼容性较差，因为一些音乐应用程序不发送该应用程序设置的广播意图。</p>
+
+<h3 id="other-applications">其他应用</h3>
+<p>使用同样的意图，您可以设置一个应用程序或Tasker，将您想要的任何文本发送到环境显示。这打开了新的定制选项，完全取决于你想看到什么。例如，你可以用天气来代替音乐。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

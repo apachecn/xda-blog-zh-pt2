@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>How to Restore the Mobile Data and Mobile Hotspot Quick Settings Toggles on Samsung Galaxy Devices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何恢复三星Galaxy设备上的移动数据和移动热点快速设置切换</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-restore-mobile-data-quick-settings-tile-toggle-on-samsung-galaxy-devices/#0001-01-01">https://www.xda-developers.com/how-to-restore-mobile-data-quick-settings-tile-toggle-on-samsung-galaxy-devices/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>不管你喜欢他们还是讨厌他们，三星是迄今为止世界上最具主导地位的安卓智能手机制造商。虽然我们大多数人只熟悉他们的旗舰产品阵容，但他们制造的Galaxy设备清单<a href="https://en.wikipedia.org/wiki/Samsung_Galaxy">简直令人咋舌</a>。三星在每一个可以想象的价格和规格类别以及几乎每一个市场都提供了多种型号。鉴于过多的网络运营商和他们在提供三星设备之前提出的具体要求，即使在完全相同的设备型号的区域变体中，看到如此多样的功能也不足为奇。</p>
+
+  
+<p>通过修改三星消费者软件定制文件(CSC)中启用的功能，三星能够在不同地区快速定制其设备的软件体验，该文件可在/system/csc中找到。即使你和你的朋友运行相同版本的Android和相同版本的Samsung Experience软件(以前称为TouchWiz ),如果你们拥有同一部手机的不同运营商版本，你们中的一个也可能无法使用与另一个相同的功能。</p>
+
+<p>并非每个三星Galaxy变种都有这样一个功能，那就是<strong>移动数据快速设置磁贴。</strong>此磁贴允许您快速启用或禁用移动数据，这在您试图节省电池电量或没有无限数据计划时非常有用。另一个缺失的磁贴是<strong>移动热点</strong>磁贴，它允许你从快速设置中快速切换热点。</p>
+
+<p>在我之前的教程中，我向三星Galaxy用户展示了如何<a href="https://www.xda-developers.com/customize-size-quick-settings-button-layout-samsung-galaxy/">在不需要root访问权限的情况下定制快速设置磁贴布局的大小</a>，一位用户指出了他们的设备缺乏这一功能。你瞧，我自己的AT &amp; T三星Galaxy S7也缺少这些移动数据和热点切换，所以我想看看能不能解决这个用户的请求。令人欣慰的是，我能够重新启用这个移动数据快速设置磁贴<strong>，而不需要root访问</strong>(后来想出了如何启用移动热点切换)——下面是方法！</p>
+
+
+
+
+
+<p/><p><em>感谢Milo Joseph的截图！</em></p>
+
+<hr/>
+
+
+<h2 id="how-to-enable-mobile-data-and-hotspot-quick-setting-tiles-on-samsung-galaxy-devices">如何在三星Galaxy设备上启用移动数据和热点快速设置磁贴</h2>
+<p>这个问题的第一个解决方案是由另一个用户在我的快速设置布局文章的评论部分引起我的注意的，但是那个方法需要root访问。它涉及到<a href="https://forum.xda-developers.com/note5/development/mod-add-mobile-data-toggle-to-quick-t3584355">修改<code>/system/csc/others.xml</code>文件，在<code>&lt;CscFeature_SystemUI_ConfigDefQuickSettingItem&gt;</code>下包含移动数据切换</a>。修改非常简单，因为您只需在XML文件中特定要素行的快速设置图块的逗号分隔列表中的某处添加字符串“MobileData”和“Hotspot”。</p>
+
+<p>尽管这种方法需要root访问权限(这使得绝大多数用户无法访问)，但它确实为如何解决这个问题提供了一些见解。首先，这个CSC修改似乎只是告诉系统在启动后<em>显示</em>这个快速设置磁贴，但实际上似乎<em>并没有添加</em>这个功能。这种修改在不修改任何其他系统文件的情况下起作用，这意味着这种快速设置磁贴存在于股票软件中，而不需要接触任何其他东西。<em>有没有可能三星所做的只是从快速设置磁贴菜单中隐藏磁贴？没错！</em></p>
+
+<p>要恢复它，我们只需要执行一个非常简单的ADB命令。如果您已经在机器上安装了ADB，那么您可以跳过下一部分。如果没有，这里有一个关于建立亚行的快速教程。</p>
+
+<h3 id="setting-up-adb">建立亚洲开发银行</h3>
+<p>首先，<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/">直接从Google </a>为您的特定操作系统下载ADB二进制文件，并将其解压缩到您计算机上的一个单独目录中。接下来，<a href="https://developer.android.com/studio/run/oem-usb.html">为你的手机安装合适的驱动</a>。然后，在设置- &gt;开发者选项中启用“USB调试”。如果你看不到开发者选项，那么你需要进入设置- &gt;关于手机，然后点击7次内部版本号来启用它。最后，通过在与ADB二进制文件相同的目录中启动命令提示符(右键单击-&gt;“open command prompt here”)并运行以下命令，确保ADB正在工作:</p>
+
+<pre> <code class="hljs ">adb devices</code> </pre>
+<p>如果你看到你的设备的序列号(它没有说未经授权)，你是黄金。如果你在手机上看到一个弹出窗口，要求你授予你的计算机ADB访问权限，那么就说是。如果你看不到这两种情况，那么试着重启你的电脑/手机，并重新连接到你的电脑上。否则，请尝试重新安装驱动程序。</p>
+
+<h3 id="sending-the-adb-command-to-enable-mobile-data-toggle">发送ADB命令以启用移动数据切换</h3>
+<p>一旦确认ADB正在工作，就该运行命令了。首先，输入以下命令进入ADB shell:</p>
+
+<pre> <code class="hljs ">adb shell</code> </pre>
+<p>您的终端/命令提示符现在应该显示您处于设备的shell环境中。一旦进入，输入下一个命令:</p>
+
+<pre> <code class="hljs javascript">settings <span class="hljs-keyword">get</span> secure sysui_qs_tiles</code> </pre>
+<p>这将输出一个逗号分隔的名称列表，代表您当前的快速设置图块。<strong>把这个列表复制下来</strong>(把它保存在你的剪贴板上，一个文本文件，无论什么。)<strong>如果你不保存这个列表，你现有的所有快速设置磁贴将在下一个命令中消失。</strong>接下来，输入以下命令:</p>
+
+<pre> <code class="hljs javascript">settings put secure sysui_qs_tiles <span class="hljs-string">"YOUROLDLIST,MobileData,Hotspot"</span></code> </pre>
+<p>其中，YOUROLDLIST表示您之前保存的以逗号分隔的快速设置图块列表，MobileData是移动数据开关的名称，附加到原始图块列表的末尾。热点是移动热点磁贴的名称。请注意旧列表和两个新增内容MobileData和Hotspot之间的逗号，还要注意引号的使用。基本上，我们所做的就是将移动数据和热点切换的名称附加到我们原始磁贴列表的末尾。</p>
+
+<p>输入此命令后，您应该会立即看到移动数据和热点切换显示在快速设置磁贴的末尾。然后你可以随意重新排列，这样它就会出现在第一页。这种切换会在重启后继续存在，但不会在工厂重置后继续存在。</p>
+
+<hr/>
+
+<p>希望这篇教程对你有用。我知道这个教程比其他一些教程更小众，但这似乎是一个流行的功能，在各种各样的三星Galaxy设备上都没有，所以我认为它值得分享。</p>
+
+<p>如果你遇到一个你希望我们XDA研究的问题，请随时<a href="https://www.xda-developers.com/tip-us/">给我们发送提示</a>或通过电子邮件或论坛直接联系我们中的一员，我们会研究它！我们将在未来<a href="https://www.xda-developers.com/category/tutorials/">发布更多教程</a>，所以请务必关注XDA门户网站，了解如何解决您的Android设备的一些常见和一些不太常见的问题！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

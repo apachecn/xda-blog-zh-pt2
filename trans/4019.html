@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>How to Enable Google Dialer's New Floating Bubble Feature</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何启用谷歌拨号器的新浮动气泡功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/enable-google-dialer-floating-bubble/#0001-01-01">https://www.xda-developers.com/enable-google-dialer-floating-bubble/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌拨号器是对AOSP拨号器的修改，增加了一些额外的小功能。您可以在应用程序中搜索本地电话号码，并接收通讯录中没有的电话号码信息。更重要的是，你还可以启用一个秘密功能！通过编辑shared_prefs文件夹中的一个Google Dialer XML文件，可以启用Google Dialer浮动气泡。当你在另一个应用程序中时，浮动气泡允许你打开扬声器电话、静音麦克风或挂断<strong>。下面是漂浮泡泡的视频演示。按照这个指南，你<strong>需要root访问权限</strong>和一个<strong>支持root的文件浏览器</strong>。我推荐免费的<a href="https://forum.xda-developers.com/showthread.php?t=1523691"> MiXplorer </a>，直接来自我们的应用&amp;游戏论坛！但是，如果您愿意，任何其他流行的、启用root的选项都应该可以正常工作。</strong></p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>更新:非根版本可用。更多细节见本文底部。</p> </div></section>
+<p>[appbox xda com.mixplorer]</p>
+
+ 
+<p class="w-rich w-youtube" id="StC6RjgfpFo">  </p>
+
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_4"><p>本指南仅适用于<strong>根设备</strong>。要获得root，请安装Magisk或SuperSU。您还需要一个根启用文件浏览器，因为我们将编辑一个谷歌拨号器的首选项文件位于其自己的/data文件夹。你也应该启用谷歌拨号器作为默认的电话应用。如果您卸载了手机自带的股票拨号器，这是必要的，否则您的手机会在拨打或接听电话时软重启。</p> </div></section>
+<hr/>
+
+
+<h2 id="enabling-google-dialer-s-floating-bubble">启用谷歌拨号器的浮动气泡</h2>
+<p>如果你还没有谷歌拨号器，你需要下载它。你可以在APKMirror上下载最新的。要将其作为默认的通话应用程序，请进入“设置”，然后“应用程序”，按顶部的设置按钮，然后点击“电话”。将默认的电话应用程序更改为谷歌拨号器。它也被称为“电话”,但如果你的手机上没有任何其他拨号应用程序，那么没有被标记为默认或系统的那个将是你刚刚安装的那个。</p>
+
+
+
+
+
+<p>一旦完成，请确保您的设备是根，并且您有一个根启用文件资源管理器。如果是的话，你已经准备好开始了！</p>
+
+<h3 id="step-1">第一步</h3>
+<p>打开你的文件浏览器，导航到<strong>/data/data/com . Google . Android . dialer/shared _ prefs</strong>。</p>
+
+
+
+
+
+<p>在这里，您将看到各种xml文件，其中包含应用程序的一些可修改部分。通常，当您更改应用程序中的设置时，该设置会以某种形式写入应用程序的shared_prefs文件夹中的文件中。Google Dialer包含我们需要编辑的名为“<strong>Dialer _表现型_flags.xml </strong>的字符串，所以在文本编辑器中打开它。</p>
+
+<h3 id="step-2">第二步</h3>
+<p>找到标题为“<strong>G _ enable _ return _ to _ call _ bubble</strong>的布尔字符串，将“false”改为“true”。它应该看起来像下面的截图。</p>
+
+
+
+<p>这就是你所需要的。现在保存并<strong>强制关闭</strong>谷歌拨号器。再次启动它，下次你拨打或接听电话，然后按下主页按钮，你会看到一个电话拨号器泡沫！在这一部分中，您还可以启用或禁用其他功能，但没有一个功能保证有效。请注意，此功能可能会因更新而随时中断，因此如果更新删除了气泡，您可能需要再次更改字符串。如果它不存在，那么很可能是谷歌删除了它。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="explanation">说明</h2>
+<p>我们正在做的事情相当简单。Google Dialer从位于/shared_prefs的文件中读取其各种偏好设置。其中一个可修改的首选项是我们在本教程中启用的谷歌拨号器气泡。这是一个谷歌目前正在测试的功能，或者是一个永远不会上线但已经在内部测试过的功能。泡泡和它的功能工作得非常好，没有不稳定，所以我们希望在未来的某个阶段能在应用程序中公开看到这个功能。如果我们发现任何其他秘密特征，我们会让你知道！</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="non-root-version">非根版本</h2>
+<p>这项功能已经被修补到谷歌手机应用程序的修改版本中，你可以从<a href="https://forum.xda-developers.com/android/apps-games/app-google-dialer-t3557412/post73477919#post73477919">这里</a>下载。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

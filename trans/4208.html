@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Wake up Gently with the Yeelight Smart RGB LED Bulb and Tasker</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用Yeelight智能RGB LED灯泡和Tasker轻轻唤醒</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/wake-up-gently-with-tasker-and-yeelight/#0001-01-01">https://www.xda-developers.com/wake-up-gently-with-tasker-and-yeelight/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在北半球，这里变得越来越暗，特别是在英国，自然光在下午6点后就消失了。由于这些条件不会很快得到改善(至少要到春天)，让我们使用Tasker和Yeelight智能RGB LED灯泡按需模拟日落和日出。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>Yeelight应用已更新。引入了新的Tasker选项，包括亮度、颜色和温度变量。不幸的是，更新打破了预定义的场景，使我的其他教程无关紧要。我已经联系了Yeelight的员工并传递了我的反馈。我希望我们能在下一次更新中看到功能的恢复！</p> </div></section>
+<p>听起来是个好计划！如果你想了解更多关于Yeelight智能RGB灯泡的信息，请查看本文。简而言之，这款WiFi灯集成了Tasker，因此无需黑客攻击。它也支持亚马逊Alexa和谷歌助手！我将向您展示如何在手机上下颠倒时触发人工日落，以及如何创建一个警报来逐渐打开您房间的灯。</p>
+
+ 
+<p class="w-rich w-youtube" id="VZv5vNdJ1QE">  </p>
+
+
+<hr/>
+
+
+<h2 id="tasker-and-yeelight-sunset-and-sunrise-behavior">Tasker和Yeelight日落和日出行为</h2>
+<p>[app box Google play com . yee light . cherry]</p>
+
+<p>[app box Google play com . joaomgcd . autotools]</p>
+
+<p>[app box Google play com . ter delle . twilight]</p>
+
+<p>为了省事，我用了暮光之城的Tasker插件，它能告诉Tasker现在是白天还是晚上。我有一个日夜触发器，它将变量<strong>%我要用这些来控制Tasker和Yeelight触发器。</strong></p>
+
+
+
+<p> </p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_12"><h3 id="tasker-profile-twilight-sunrise-sunset">TASKER个人资料黄昏日出/日落</h3><p/><pre>Profile: Sunlight Day <p>状态:暮光[配置:在设备位置从日出到日落。]</p><p>回车:阳光运算符+</p><p>A1:变量集[名称:%日光至:天</p><p>递归变量:Off做数学:Off追加:Off ]</p><p>简介:阳光之夜</p><p>状态:暮光[配置:在设备位置从日落到日出。]</p><p>输入:阳光操作员-</p><p>A1:变量集[ Name:%Sunlight To:night</p><p>递归变量:Off做数学:Off追加:Off ]</p><p/></pre> </div></section>
+<h3 id="sunset">日落</h3>
+
+
+<p>由于Yeelight应用程序带有非常简洁的预设，我们可以用它来创建日落行为。预设持续15分钟，从暖橙色/红色到暗淡的颜色，最后完全熄灭。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_16"><h3 id="tasker-profile---sunset">TASKER个人资料-日落</h3><p/><pre>Profile: Sunset <p>状态:方向[是:面朝下]</p><p>状态:Wifi已连接[ SSID:FASTBERRY MAC:* IP:*活动:是]</p><p>状态:变量值[%日光~夜晚]</p><p>进入:日落</p><p>A1: Yeelight设备[配置:设备:灯，动作:场景，参数:70超时(秒):0 ]</p><p/></pre> </div></section>
+
+
+<p>如果你想延长/缩短人造日落，你可以使用应用程序创建一对夫妇的颜色预设，并在Tasker混合使用等待和亮度动作的组合。</p>
+
+<p>在我的场景中，我使用了WiFi信息和<strong>%阳光</strong>的值来防止Yeelight智能灯泡意外切换日落模式。随意分配另一个触发器或语音命令。<a href="http://www.notenoughtech.com/wp-content/uploads/2017/10/Screenshot_20171020-132256.png"/></p>
+
+
+
+<p/>
+
+<h3 id="sunrise">日出</h3>
+
+
+<p>日出行为最好与设定的闹铃相结合。在我的场景中，我在闹钟响前5分钟开灯。一开始光线很暗，然后在接下来的15分钟内改变颜色和亮度，直到达到最大亮度。</p>
+
+<p/><h4>Tasker和Yeelight报警器</h4>
+
+<p><a href="http://www.notenoughtech.com/wp-content/uploads/2017/10/Screenshot_20171020-132421.png"/></p>
+
+
+
+<p>我使用自动工具来获得正确的时间选择器对话框。如果你想制造一个场景，请随意。你也可以把它和语音命令联系起来。无论什么适合你，只要你得到15:43格式的时间就很棒。</p>
+
+
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_30"><h3 id="tasker-task---alarm">TASKER任务-警报</h3><p/><pre>Alarm <p>A1:自动工具对话框[配置:对话框类型:日期和时间</p><p>选择时间:真</p><p>时间选择器标题:设置闹钟</p><p>格式:小时:分钟</p><p>日期格式分隔符:，超时(秒):60 ]</p><p>A2:变量集[Name:% sun rise 1 To:% at datetime seconds-300</p><p>递归变量:Off做数学:On追加:Off ]</p><p>A3:变量集[Name:% sun rise 2 To:% at datetime seconds-300</p><p>递归变量:Off做数学:On追加:Off ]</p><p>A4:变量Split[Name:% at datetime 1 Splitter::Delete Base:Off]</p><p>A5:设置闹钟[小时:%在日期时间11分钟:%在日期时间12</p><p>标签:带灯声音:振动:默认确认:关闭]</p><p/></pre> </div></section>
+<p> </p>
+
+
+
+<p/><h5>A2、A3</h5>
+
+<p>通过自动工具设置的时间以秒为单位，我们可以直接使用它来指定<strong> %Sunrise1 </strong>和<strong> %Sunrise2 </strong>的值(我们需要它来创建时间上下文并绕过任何<a href="http://www.notenoughtech.com/tasker/time-event-conditions-in-tasker/" target="_blank" rel="noopener">时间问题</a>)。</p>
+
+<p/><h5>A5号</h5>
+
+<p>但是，要设置闹钟，我们需要单独提供给我们的小时和分钟。我们可以用“:”拆分现有变量<strong> %atdatetime1 </strong>，如<strong> A4 </strong>所示。完成后，我们得到了小时的<strong> %atdatetime11 </strong>和分钟的<strong>%</strong></p>
+
+<p/><h4>日出轮廓</h4>
+
+<p><a href="http://www.notenoughtech.com/wp-content/uploads/2017/10/Screenshot_20171020-132350.png"/></p>
+
+
+
+<p/>
+
+
+
+<p>是时候(没有双关的意思)设置环境和触发Yeelight了。动作很简单，选择Yeelight动作，场景设置为日出。根据上下文，使用时间，并分配<strong> %Sunrise1 </strong>和<strong> %Sunrise2。</strong></p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_43"><h3 id="tasker-profile---sunrise">TASKER个人资料-日出</h3><p/><pre>Profile: Sunrise <p>时间:从% 1日出到% 2日出</p><p>状态:变量值[%日光~夜晚]</p><p>进入:日出</p><p>A1: Yeelight设备[配置:设备:灯，</p><p>动作:场景，参数:68超时(秒):0 ]</p><p/></pre> </div></section><p class="ad-odd"> </p>
+
+
+<h2 id="conclusion-and-download">结论和下载</h2>
+<p>如你所见，Tasker和Yeelight几乎是天作之合。当你入睡时，灯光看起来很棒，希望它能减轻早起的压力。我已经向Yeelight团队传达了关于支持Tasker变量的反馈。如果亮度、颜色和场景都可以用变量来表示就好了。</p>
+
+<p/><p><a href="https://www.androidfilehost.com/?fid=745849072291683200"> <strong>下载Tasker Yeelight轻轻唤醒项目</strong> </a></p>
+
+<p>下载上面的ZIP文件，并将内容解压缩到您的Android设备的内部存储中。打开Tasker，在首选项中禁用“初学者模式”。然后，回到Tasker的主页，长按左下角的home图标。您将看到一个“导入”项目的选项。点击该选项，然后找到您之前提取的. prj.xml文件。导入后，您将会在Tasker的默认主页图标旁边的底部看到一个新标签。它包含这个助手项目的概要文件和任务。</p>
+
+<p>跟随<a href="https://www.xda-developers.com/category/tutorials/"> XDA开发者教程</a>获取更多这样的帖子。此外，查看我们的<a href="https://forum.xda-developers.com/u/tasker-tips-tricks"> Tasker Tips &amp; Tricks </a>论坛，了解我们社区中自动化爱好者的最新创造。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

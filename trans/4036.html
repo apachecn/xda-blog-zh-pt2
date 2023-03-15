@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Setup ADB and Fastboot to be used anywhere on your Windows or Linux PC</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>将ADB和Fastboot设置为可在Windows或Linux PC上的任何地方使用</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/adb-fastboot-any-directory-windows-linux/#0001-01-01">https://www.xda-developers.com/adb-fastboot-any-directory-windows-linux/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如果你已经按照我们的教程学习了如何在你的电脑上设置adb和fastboot平台工具，那么每次都必须导航到该文件夹可能会很烦人，尤其是如果你非常频繁地使用这两个工具的话。每当你想在你的设备上闪存东西的时候，不得不将文件复制到平台工具文件夹也是令人讨厌的。对我来说，这是令人沮丧的，因为我使用固态硬盘，我不喜欢将我的文件复制到我的平台工具文件夹，然后删除它们。但是，可以从Windows或Linux PC上的任何目录运行adb或fastboot工具，因此您永远不必更改目录来运行任何命令。</p>
+
+ 
+<hr/>
+
+
+<h2 id="what-is-the-path-system-variable">什么是PATH系统变量？</h2>
+<p>Windows使用PATH来指定重要可执行文件的位置。通常，这些文件位于系统目录中，如C:\Windows和C:\Windows\system32。这就是为什么你可以在命令提示符下键入“calc”来启动计算器，而不是“chrome”来启动谷歌Chrome。这个变量有时会在您安装应用程序时被更改，例如Java。Java在安装时会将自己添加到PATH变量中，这意味着您可以从任何目录使用Java。这对使用Java应用程序的人很有用，这样程序就不必试图硬编码Java位置。</p>
+
+<p>我们将修改PATH系统变量，以允许我们在Windows计算机上的任何地方使用adb或Fastboot。路径也存在于Linux上，通常包含bin和sbin目录。我还将介绍如何将平台工具添加到Linux PATH变量中。</p>
+
+<p>注意:这两个教程都需要管理员/sudo访问权限。添加到Windows有两种方法。我强烈建议使用第一种方法，但是两种方法都可以，如果您计划大量使用PATH变量，第二种方法会更好。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="adding-adb-and-fastboot-to-the-windows-path-method-1">将adb和Fastboot添加到Windows路径(方法1)</h2>
+<p>这实际上并不是将它添加到Windows PATH变量中，而是将它添加到已经在PATH变量中的文件夹中。只需将你的adb.exe、fastboot.exe、AdbWinApi.dll和AdbWinUsbApi.dll拷贝到C:\Windows，你就可以开始了。现在，您应该能够从命令行运行adb和fastboot了。这是迄今为止最简单、最简单的设置方法。如果不管什么原因它不起作用，请遵循方法2。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="adding-adb-and-fastboot-to-the-windows-path-method-2">将adb和Fastboot添加到Windows路径(方法2)</h2>
+<h3 id="step-1">第一步</h3>
+<p>打开Windows资源管理器，右键单击“我的电脑”。选择“属性”，你会看到一个显示一些系统信息的屏幕。</p>
+
+
+
+<h3 id="step-2">第二步</h3>
+<p>选择“高级系统设置”。</p>
+
+
+
+<h3 id="step-3">第三步</h3>
+<p>选择“环境变量”</p>
+
+
+
+<h3 id="step-4">第四步</h3>
+<p>查找名为“Path”的变量，并双击它。</p>
+
+
+
+<h3 id="step-5">第五步</h3>
+<p>单击“浏览”并导航到您提取adb文件的文件夹。在你打开的所有窗口中，下一个“好的”。启动新的PowerShell或命令提示符，并键入“adb”以验证位置已被添加。如果没有，重启你的电脑再试一次。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_23"><p>请确保在您单击“浏览”之前没有突出显示任何字段。如果某个字段突出显示，您将最终替换它。单击列表中不包含条目的某处，以确保不会替换字段。</p> </div></section>
+
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="adding-adb-and-fastboot-to-the-linux-path">将adb和Fastboot添加到Linux路径</h2>
+<p>我将在本教程中使用Ubuntu，只通过命令行。您可以编辑。bashrc文件，但是您需要导航到您的主目录的根目录并按Ctrl+H。</p>
+
+<h3 id="step-1">第一步</h3>
+<p>请注意您提取的adb工具的路径。对我来说，我把它们提取到/home/adam/adb/platform-tools。</p>
+
+<h3 id="step-2">第二步</h3>
+<p>你需要编辑你的。bashrc文件。回到您的主目录并运行以下命令。</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">sudo</span> <span class="hljs-selector-tag">nano</span> <span class="hljs-selector-class">.bashrc</span></code> </pre>
+<p>如果您更喜欢使用vi或gedit，您也可以使用。</p>
+
+<h3 id="step-3">第三步</h3>
+<p>将下面一行添加到。bashrc文件。编辑该文件时要小心，不要添加或更改任何其他内容。</p>
+
+<pre> <code class="hljs javascript"><span class="hljs-keyword">export</span> PATH=${PATH}:<span class="hljs-regexp">/home/</span>YOUR-USERNAME/path/to/adb</code> </pre>
+<p>和类型</p>
+
+<pre> <code class="hljs ">adb</code> </pre>
+<p>检查它是否工作。如果它给你一个错误(通常在64位计算机上)，安装软件包<strong> glibc.i686 </strong>和<strong> libstdc++ </strong>，它应该可以工作了。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="done">搞定了。</h2>
+<p>现在已经完成了，您应该能够在Windows或Linux计算机上的任何地方简单地执行adb或fastboot命令。正如我所说的，这是非常有用的，也允许更好的组织，所以你不需要把所有的flash文件放在同一个文件夹中。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

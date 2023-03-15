@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Google May Remove Access To Undocumented/Hidden APIs In Android P</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌可能会删除Android P中未记录/隐藏的API</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-undocumented-hidden-apis-android-p/#0001-01-01">https://www.xda-developers.com/google-undocumented-hidden-apis-android-p/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>2018年2月28日</strong>更新:谷歌今天发布了一篇博客文章，证实了这些变化。更多详情在文末。</p> </div></section>
+<p/><p>当一些Android爱好者在猜测下一个版本的Android将以什么甜点命名时，一些有趣的发展正在幕后进行。我们已经在Android P中发现了<a href="https://www.xda-developers.com/tag/android-p/">几个值得注意的</a>即将推出的功能，但Android开源项目(AOSP)中一个更近的发现被证明要有趣得多。根据这些最近的提交，应用程序可能被限制访问Android SDK中未记录的API(例如由javadoc的属性@hide标记的API)。</p>
+
+ 
+<hr/>
+
+
+<h2 id="why-this-matters">为什么这很重要</h2>
+<p>Android软件开发工具包(SDK)为开发人员提供了测试和构建新的Android应用程序所需的API库和工具。随着Android的每一个新版本，开发人员都可以通过Android SDK获得大量新的API。应用程序可用的API取决于开发人员设置的编译器版本。这就是为什么谷歌的<a href="https://www.xda-developers.com/play-store-updated-requirements-api-level-64-bit/">新Play Store需求</a>如此重要——它将迫使应用程序更新并迁移到使用更新的API。</p>
+
+<p>Google为每个类和每个API级别中可用的所有方法托管了<a href="https://developer.android.com/reference/classes.html">文档页面</a>。这些是官方Android SDK中提供的一组有文档记录的API。你可以使用Android应用程序轻松浏览课程列表，例如Android工程师<a href="https://twitter.com/JakeWharton">杰克·沃顿</a>最近发布的Android SDK搜索应用程序。</p>
+
+ 
+
+
+
+<p>然而，并不是每个Android版本中可用的所有API都被Google记录在案，或者在官方Android SDK中可用。通常有一些有用的API是<a href="https://forum.xda-developers.com/showthread.php?t=1711653">未记录的</a>，但是仍然非常有用。不建议开发人员使用未记录的或隐藏的API来构建他们的应用程序，但许多人这样做是因为如果他们想提供某个特定的功能，他们没有其他选择。使用隐藏或未记录的API的开发人员也可以使自己处于竞争优势，因为他们可以提供他们的竞争对手——坚持Android SDK提供的API——无法提供的功能。</p>
+
+<p>虽然我无法提供使用未记录API的应用程序列表(开发人员可能不会分享他们使用的应用程序，因为这会让他们的竞争对手占上风)，但这个列表可能相当大。因此，我认为禁止访问隐藏的API意义重大。Commonsware 的创始人马克·墨菲对此表示赞同:</p>
+
+<blockquote>
+<p/><h4>我同意这样的评估:如果真的实现了，大规模禁止访问带@hide注释的项目将是一件大事。希望很少有应用程序将这些项目作为关键功能的一部分来访问。然而，我怀疑许多名牌应用有时会直接或通过图书馆使用它们。</h4>
+ </blockquote>
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="what-is-happening-in-android-p">Android P到底是怎么回事？</h2>
+<p>这些即将到来的变化首先被XDA资深公认开发者<a href="https://forum.xda-developers.com/member.php?u=4419114"> rovo89 </a>注意到，<a href="https://www.xda-developers.com/xposed-framework-for-android-oreo-beta/"> Xposed框架</a>的开发者。他向我指出了两个提交，其中一个是<a href="https://android-review.googlesource.com/#/c/platform/art/+/580003/">，它的</a>已经被<a href="https://android-review.googlesource.com/#/c/platform/art/+/565782/">合并了</a>，引入了一个新的构建工具‘hiddenapi’如果DEX文件中所有类成员的签名出现在输入灰名单或黑名单中，该工具将修改它们的访问标志，如果是这样，被标记的方法将被视为访问受限的内部API。另一个提交描述了API黑名单是如何工作的；它阻止对由前述‘hiddenapi’标记的<a href="https://forum.xda-developers.com/wiki/BOOTCLASSPATH">引导类</a>方法和字段的访问，开发者可以通过静态链接、反射和JNI来访问这些方法和字段。</p>
+
+<p>根据rovo89的说法，Android P的这两个变化的最终结果如下:</p>
+
+<blockquote>
+<p/><h4>如果这些提交被合并，这将意味着应用程序不能再使用/访问隐藏的API，即在AOSP用@hide注释的类、方法和字段，因此不是官方SDK的一部分。这对于Xposed模块来说不是问题，因为我可以很容易地恢复这些提交或者允许模块也访问这些API。但是有许多应用程序利用了隐藏的API，这些应用程序将来会失败。</h4>
+ </blockquote>
+<p>事实上，进一步的提交表明这可能是谷歌的计划。该<a href="https://android-review.googlesource.com/#/c/platform/external/doclava/+/586606/">提交</a>声明如下:</p>
+
+
+
+<p>虽然这个特定的提交没有被合并，因为它被放弃以支持3个更小的提交，但提交消息描述了这些更改的目的。另一组<a href="https://android-review.googlesource.com/#/q/topic:hiddenapi-doclava+(status:open+OR+status:merged)">提交</a>表明谷歌将向寻求使用非公共API的开发者建议替代方案:</p>
+
+
+
+<blockquote>
+<p/><h4/>
+ </blockquote>
+<p>然而，对于某些隐藏的API，通常没有替代方法。我们在XDA可以从经验上说，不幸的是，这种变化可能意味着一些创新应用的终结，或者它可能需要一些大牌应用来减少它们的功能。这一即将到来的变化似乎与最近<a href="https://www.xda-developers.com/google-threatening-removal-accessibility-services-play-store/">打击无障碍服务</a>的精神相似(谢天谢地<a href="https://www.xda-developers.com/google-pauses-accessibility-services-takedown/">在谷歌评估创新用途时暂停了</a>)。虽然大多数应用程序利用未记录的API是出于善意，但可能有一些应用程序出于恶意滥用了它们。</p>
+
+<p>正因为如此，谷歌可能会锁定对Android P中所有隐藏API的访问，以保护用户免受少数人的滥用。很难说这会对用户产生多大的影响，但是如果你是一个正在考虑浏览AOSP来寻找一个隐藏API的创新用法的开发者，那么你可能要重新考虑了。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="update-google-confirms">更新:谷歌证实</h2>
+<p>在今天(2月28日)发表的一篇博客文章中，谷歌证实了这些变化。谷歌表示，由于用户面临崩溃风险，随后迫使开发者推出紧急修复程序，该公司已逐渐转向劝阻开发者访问非SDK接口。从Android P开始，限制将扩展到SDK的Java语言接口。</p>
+
+<p>该公司声明“一些非SDK方法和领域将受到限制”，尽管他们没有详细说明哪些将受到限制。最初，限制将集中在很少使用的接口上，在一段时间内，公司将允许开发人员继续使用非SDK方法和领域，在这些领域中，过渡到SDK方法在技术上具有挑战性。然而，最终限制将会扩大，因此使用非SDK方法的应用程序开发者应该尽快过渡，为Android P做准备。至于没有SDK替代方法的方法，谷歌要求开发者在他们的<a href="https://issuetracker.google.com/issues/new?component=328403&amp;template=1027267"> bug追踪器</a>上发布更多信息。</p>
+
+<p>下一个开发者预览版，表面上很快就会到来，将允许开发者在最终发布之前根据黑名单或灰名单测试现有的应用。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

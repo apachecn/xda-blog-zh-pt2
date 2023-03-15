@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Chromebooks with Intel chips will soon finally be able to play HD Vudu &amp; Netflix over HDMI</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>采用英特尔芯片的Chromebooks很快将最终能够通过HDMI播放高清Vudu和网飞</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/chromebooks-intel-play-hd-vudu-netflix-hdmi-hdcp/#0001-01-01">https://www.xda-developers.com/chromebooks-intel-play-hd-vudu-netflix-hdmi-hdcp/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>为了防止盗版，网飞和Hulu等平台使用加密和数字版权管理方案来限制某些设备上的内容播放。然而，由于一些要求的严格性，一些野生设备无法从这些服务中输出高清视频。原因可能各不相同- <a href="https://www.xda-developers.com/android-netflix-hd-amazon-prime-video-hd-drm/">我们已经报道过</a>一加和中兴这样的制造商的手机是如何缺乏必要的<a href="https://www.xda-developers.com/android-netflix-hd-amazon-prime-video-hd-drm/"> Widevine L1 DRM </a>。但对于采用英特尔处理器的Chromebooks，高带宽数字内容保护(HDCP)是罪魁祸首。</p>
+
+  
+<p>HDCP是英特尔开发的一种版权保护形式，用于加密通过HDMI和DisplayPort连接传输的数字音频和视频信号。它使用一个认证密钥来防止不符合HDCP标准的显示器、电视、个人电脑和其他硬件发送或接收信号，这对英特尔驱动的Chromebooks构成了一个真正的问题。它们缺乏HDCP支持，因此无法传输来自网飞、Vudu和其他服务的高清视频。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/HD_vs_SD_resolutions-1024x586.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;A comparison of HD and SD resolutions. \/\/ &lt;a href=\&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/e\/e0\/HD_vs_SD_resolutions.png\&quot;&gt;Source: Wikimedia&lt;\/a&gt;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/HD_vs_SD_resolutions-1024x586.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/HD_vs_SD_resolutions-1024x586.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/HD_vs_SD_resolutions-1024x586.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/HD_vs_SD_resolutions-1024x586.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/HD_vs_SD_resolutions-1024x586.png" src="../Images/c4b551e59fcba448e0201bfdf21e13b0.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/HD_vs_SD_resolutions-1024x586.png"/> </picture> <figcaption class="body-img-caption">A comparison of HD and SD resolutions. // <a href="https://upload.wikimedia.org/wikipedia/commons/e/e0/HD_vs_SD_resolutions.png">Source: Wikimedia</a></figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>不过，对这些Chromebooks的修复正在进行中。Chromium Gerrit源代码审查页面中的新提交表明，谷歌正在为Chrome OS内核添加HDCP支持。</p>
+
+<p>事实上，有三个与hdcp相关的新提交:两个补丁通过实现<strong> intel_hdcp_shim </strong>添加了对HDMI和DisplayPort连接器的支持，一个补丁添加了在英特尔连接器上支持HDCP所需的框架。如果一切按计划进行，Chrome OS的未来版本将合并这些变化，并因此为基于英特尔的Chromebooks带来通过HDMI播放高清视频的支持。</p>
+
+<p>目前还不清楚Chrome OS多久会支持HDCP，但对于那些将Chromebooks连接到电视屏幕的人来说，这肯定是一个受欢迎的变化。如果你想自己看看代码，你可以在这里查看所有与HDCP相关的提交<a href="https://chromium-review.googlesource.com/#/c/chromiumos/third_party/kernel/+/849084/">，在这里</a>查看<a href="https://chromium-review.googlesource.com/#/c/chromiumos/third_party/kernel/+/849085/">，在这里</a>查看<a href="https://chromium-review.googlesource.com/#/c/chromiumos/third_party/kernel/+/849081/">。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

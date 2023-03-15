@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>How to Automatically Disable Do Not Disturb Mode during Phone Calls</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在打电话时自动禁用勿扰模式</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-automatically-disable-do-not-disturb-mode-during-phone-calls/#0001-01-01">https://www.xda-developers.com/how-to-automatically-disable-do-not-disturb-mode-during-phone-calls/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>对于像我们论坛上的用户这样的Android爱好者来说，收到一个重要的软件更新可能是一件令人兴奋的事情，因为它们通常会带来增强的性能和新功能。虽然一些勇敢的用户正在运行<a href="https://www.xda-developers.com/google-announces-android-o-developer-preview-1-available-for-supported-devices/">首个Android O开发者预览版</a>作为他们的日常驱动程序，但大多数Nexus 5X、Nexus 6P、谷歌Pixel和Pixel XL的用户可能仍然会使用Android 7.1，因为它很稳定。虽然Android 7.1引入了app快捷方式、键盘GIF插入支持、圆形图标框架支持等很多牛逼的新功能，但也引入了一个在一些人心目中相当讨厌的功能。随着Android 7.1的推出，出现了一个更新的谷歌手机应用程序，它可以在通话过程中自动将手机切换到<a href="https://support.google.com/pixelphone/answer/6111295?hl=en">勿扰模式</a>。</p>
+
+  <div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/nexus2cee_dnd-phone-1024x566.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Automatic Do Not Disturb Mode while in Calls. Screenshot Credits: Corbin Davenport\/\/&lt;a href=\&quot;http:\/\/www.androidpolice.com\/2016\/10\/21\/android-7-1-feature-spotlight-phone-app-switches-not-disturb-call-new-call-notification\/\&quot;&gt;Android Police&lt;\/a&gt;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/nexus2cee_dnd-phone-1024x566.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/nexus2cee_dnd-phone-1024x566.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/nexus2cee_dnd-phone-1024x566.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/nexus2cee_dnd-phone-1024x566.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/nexus2cee_dnd-phone-1024x566.png" src="../Images/0f69ce2b6735de25e24ca0364d8f12bf.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/04/nexus2cee_dnd-phone-1024x566.png"/> </picture> <figcaption class="body-img-caption">Automatic Do Not Disturb Mode while in Calls. Screenshot Credits: Corbin Davenport//<a href="http://www.androidpolice.com/2016/10/21/android-7-1-feature-spotlight-phone-app-switches-not-disturb-call-new-call-notification/">Android Police</a></figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>具体来说，拨号器应用程序似乎将手机设置为免打扰模式的“仅警报”模式，因此除了您设置的警报之外，没有任何干扰会在您的设备上产生噪音。虽然您确实可以在通话过程中手动关闭免打扰模式，但许多用户发现自动启用免打扰模式非常令人沮丧。事实上，在我上面链接的Android Police文章的<a href="http://www.androidpolice.com/2016/10/21/android-7-1-feature-spotlight-phone-app-switches-not-disturb-call-new-call-notification/#comments">评论部分，很多很多人立刻对这个功能产生了警惕。一位用户甚至</a><a href="https://code.google.com/p/android/issues/detail?id=226328">在谷歌的问题跟踪器上开了一个问题</a>谴责这一功能，许多其他用户也加入进来，表达他们对自动免打扰模式的不满。</p>
+
+<section class="emaki-custom-block emaki-custom-pullquote"><div class="emaki-custom pullquote" id="custom_block_3"><p>这个应该是可选的！！！！！我需要通知，即使我在打电话。有一天，当我儿子的保姆给我发短信时，我正在打电话，我需要立即收到那条短信！我本可以挂断电话来处理这件事，而不是在我悠闲地挂断电话的时候。这对那些想要的人来说是好事，但对那些不想要的人来说是无法忍受的。请将此作为一个选项，否则我将不得不把所有的电话都放在扬声器上，这样我就可以盯着屏幕看通知了。</p> </div></section>
+<p>谷歌最终在去年12月关闭了这个问题，将其标记为“按预期工作”，因此用户将不得不在谷歌手机应用程序中使用这个功能，或者切换到另一个应用程序。在我被XDA成员gruntyoldbag指派寻找这个问题的解决方案后，我决定使用我所知道的最好的工具:Tasker来解决这个问题。看起来修复实际上非常简单。</p>
+
+
+
+
+
+<p>正如你在上面的截图中所看到的，第一个截图显示了一个自动启用免打扰模式的电话，而第二个截图是我的测试人员启用我的Tasker配置文件后发生的事情。忽略截图中显示的toast消息，我用它来调试！</p>
+
+<p>无论如何，这里有一个快速的教程，你可以在打电话时自动禁用勿扰模式。与我以前的许多教程相比，这个教程复制起来相当简单，但是如果您更愿意导入Tasker概要文件并完成它，我们将像往常一样在本文末尾提供该文件。</p>
+
+<hr/>
+
+
+<h2 id="automatically-disable-do-not-disturb-mode-during-phone-calls">打电话时自动禁用免打扰模式</h2>
+
+
+
+<p>我的教程是基于使用Tasker，虽然也可能使用你选择的其他Android自动化应用程序(虽然我没有使用它们的经验，所以你只能靠自己了)。一旦你安装了Tasker，我们必须设置它，使Tasker可以切换请勿打扰模式。出于某种奇怪的原因，勿扰模式是通过授予应用程序通知访问权限来控制的(是的——这种权限使Pushbullet等应用程序能够镜像您的通知)，所以我们必须将该权限授予Tasker。</p>
+
+<p>只需打开设置应用程序，然后在搜索栏中搜索“通知访问”。在具有通知访问权限的应用程序列表中查找Tasker，然后点击它以启用它。</p>
+
+
+
+
+
+<p>一旦完成，是时候制作我们的Tasker档案了。对于你的任务专家来说，这是你可以用来复制自己的个人资料描述。如果你不熟悉Tasker，只需继续阅读一步一步的说明。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_16"><h3 id="disable-do-not-disturb-in-call">禁用来电免打扰功能</h3><pre> <code class="hljs sql">Profile: Disable <span class="hljs-keyword">Do</span> <span class="hljs-keyword">Not</span> Disturb <span class="hljs-keyword">In</span> <span class="hljs-keyword">Call</span> (<span class="hljs-number">62</span>)<br/>Event: Phone Offhook<br/>Enter: Anon (63)<br/><span class="hljs-selector-tag">A1</span>: <span class="hljs-selector-tag">Wait</span> <span class="hljs-selector-attr">[ MS:0 Seconds:5 Minutes:0 Hours:0 Days:0 ]</span><br/>A2: <span class="hljs-keyword">Do</span> <span class="hljs-keyword">Not</span> Disturb [ <span class="hljs-keyword">Mode</span>:<span class="hljs-keyword">All</span> ]</code> </pre> </div></section>
+<p>打开Tasker，点击右下角的<strong> + </strong>图标添加一个新的个人资料，创建一个新的个人资料。将此配置文件命名为“<strong>禁用来电时勿扰模式</strong>”选择<strong>事件</strong>上下文，然后转到<strong>电话- &gt;电话摘机</strong>。每当Tasker检测到我们已经发起了电话呼叫(呼入/呼出，您或接收者已经接受了电话呼叫)时，该事件上下文将触发一个任务。</p>
+
+
+
+
+
+<p>完成后，Tasker会要求我们创建一个新任务或将现有任务附加到此配置文件。选择创建一个新的任务，但是不要麻烦给它一个名字。进入任务创建屏幕后，您需要添加以下两个操作:</p>
+
+<ol> <li>任务-&gt;等待。等待<strong> 5 </strong>秒。</li> <li>音频-&gt;请勿打扰。模式:<strong>全部</strong>。</li> </ol>
+
+
+
+<p>它的作用是在Tasker识别出你在打电话后等待5秒钟，然后禁用“请勿打扰”模式。我发现你需要这个等待计时器，因为否则Tasker会在Google Phone应用程序启用免打扰模式之前禁用它，所以你需要添加这个延迟，以便在Google Phone应用程序打开免打扰模式后<em>禁用免打扰模式。</em></p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="download-and-import">下载并导入</h2>
+<p>像往常一样，下面您可以找到您可以下载和导入的配置文件。只需下载下面的. prf.xml文件，并将其保存在内部存储的任何位置。然后打开Tasker，在首选项中禁用初学者模式。回到Tasker的主屏幕，长按顶部操作栏中的Profiles选项卡。点击出现的“Import”按钮，导航到您保存XML文件的位置，并选择要导入的文件。</p>
+
+<p/><p><a href="https://www.androidfilehost.com/?fid=745425885120722217"> <strong>从AndroidFileHost </strong> </a>下载“禁用来电勿扰”配置文件</p>
+
+<p/><p>如果您确实导入了它，请确保返回并在设置中为Tasker授予通知访问权限，如本文前面所述。否则，这个配置文件什么也做不了！</p>
+
+<p/><p>试试这个，让我知道它是否适合你。老实说，在XDA成员gruntyoldbag给我提示之前，我根本不知道这种自动勿扰模式是什么东西。如果你遇到了这样一个恼人的问题，你希望能够得到解决，请随时在XDA论坛上给我发消息或者使用列出的电子邮件地址联系我。虽然我可能无法(也不会)帮助您解决个别技术支持问题，但我总是很乐意研究那些似乎影响大量用户的问题，以及那些似乎可以通过Tasker轻松解决的问题。</p>
+
+<p/><p>至于这个特殊的问题，尽管许多用户抱怨，谷歌似乎打算保持现状。三星体验软件似乎有一个开关，可以在通话时启用/禁用勿扰模式，所以你要么等待谷歌用这个功能更新手机应用程序，使用另一个拨号应用程序，记得手动禁用通话中的免打扰模式，或者使用我的Tasker解决方案。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

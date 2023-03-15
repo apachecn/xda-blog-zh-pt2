@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Modify Android Framework Values without needing APKTool using Privset</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用Privset修改Android框架值而不需要APKTool</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/modify-android-framework-values-privset/#0001-01-01">https://www.xda-developers.com/modify-android-framework-values-privset/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>你有没有想过在不使用APKTool反编译和重编译framework-res.apk的情况下，对你的Android设备的框架值进行修改？为了绕过可能需要的漫长时间，XDA资深成员莫德雷德爵士(sir mordred)创建了一个名为<a href="https://forum.xda-developers.com/android/apps-games/app-t3694602"> Privset </a>的应用程序，它允许你只需root访问权限就可以修改你的系统框架。</p>
+
+  
+
+
+<h2 id="what-privset-does">Privset做什么</h2>
+<p>该应用可在<a href="https://play.google.com/store/apps/details?id=com.mordred.privset"> Play Store </a>获得，你可以用它来让你的手机允许，例如，四向旋转(一些手机默认不允许你上下旋转显示屏)。其他可能性包括微调你的环境显示模式设置，强制你的手机为你的应用程序显示<a href="https://www.xda-developers.com/psa-android-7-1-circular-icon-support-is-determined-by-the-oem/">圆形图标</a>，或者当你双击电源按钮时改变你的手机的功能。您可以在开发人员发布的以下YouTube视频中了解更多有关如何使用Privset的信息:</p>
+
+ 
+<p class="w-rich w-youtube" id="NbjZuhqPGtM">  </p>
+
+
+<p><strong>推荐阅读:</strong> <a href="https://www.xda-developers.com/enable-google-pixel-2-always-on-display-on-nexus-6p-pixel-xl/">在Nexus 6P上启用谷歌Pixel 2的常亮显示</a>Pixel，&amp; Pixel XL无根</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="how-to-use-privset">如何使用女贞</h2>
+<p>您可以使用Privset对您的系统框架进行许多更改，这些更改按字母顺序列出并可搜索。即使您键入搜索词，搜索功能也能缩小可用设置的列表。当您找到想要更改的设置时，您可以将其更改为设置描述中指定的值，您需要在文本字段中键入该值，然后点击屏幕底部的“运行”按钮。</p>
+
+<p>如果应用程序没有提示您重新启动设备以应用更改，您仍需要手动进行，以使更改生效。您可以通过从溢出菜单中选择“列出修改的设置”来查看您更改的所有设置的列表。如果你想一次抹掉你所做的所有更改并重新开始，你可以在溢出菜单中的“应用程序设置”中这样做。</p>
+
+
+
+
+<p class="ad-even"> </p>
+
+
+<h2 id="how-privset-modifies-framework-values">女贞如何修改框架值</h2>
+<p>听说过流行的主题框架Substratum吗？Privset基于相同的底层API。它的工作原理是重定向Android，从它为系统的内置框架-res.apk创建的覆盖图中提取资源值。由于这些值是从覆盖图中读取的，而不是从原始的framework-res.apk中读取的，因此没有必要使用apktool或任何类似的实用程序对其进行反编译和重新编译。</p>
+
+<p><strong>推荐阅读:</strong><a href="https://www.xda-developers.com/andromeda-substratum-custom-themes-oreo/">Andromeda Add-on for substrate为Android Oreo带来定制主题</a></p>
+
+<p>Privset读取您设备上的现有系统属性，这意味着无论您使用的是Android的股票版本、定制ROM还是OEM ROM，Privset都将允许您基于您特定设备的framework-res.apk中存在的任何框架值来生成覆盖图。例如，您可能能够更改定制棉花糖或牛轧糖ROM中的框架设置，而您甚至不会在股票中看到这些设置，以Oreo为根。你可以在下面的图库中看到更多的例子:</p>
+
+
+
+
+
+<p>如果你的设备是根设备，你可以从<a href="https://play.google.com/store/apps/details?id=com.mordred.privset"> Play Store </a>下载Privset，并在我们的论坛中关注开发者的<a href="https://forum.xda-developers.com/android/apps-games/app-t3694602">主题，以给出反馈，建议新功能，或关注更多更新。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

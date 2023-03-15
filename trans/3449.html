@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Tasker Pro: Copy Two-Factor Authentication Codes without Changing Apps!</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Tasker Pro:复制双因素认证码，无需更换应用程序！</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/tasker-pro-copy-two-factor-authentication-codes/#0001-01-01">https://www.xda-developers.com/tasker-pro-copy-two-factor-authentication-codes/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>自动化应该是简化日常任务，让你有更多宝贵的时间做自己喜欢的事情。在XDA，我们已经向你展示了如何使用Tasker来<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-send-sms-address-speed-url-map-pin-t3330371">保护你的设备</a>、<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-read-google-calendar-events-day-t3332783">提高生产力</a>或<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-driving-mode-answer-calls-texts-t3332004">让驾驶更安全</a>，这些都是我们系列的一部分，叫做“<strong> <a href="http://www.xda-developers.com/xda-tasker-week-in-review/"> Tasker Week </a> </strong>。”</p>
+
+  
+<p>但是乐趣并没有就此结束。如果你一直渴望<strong>一些非常棒的Tasker任务</strong>(并且厌倦了<em>无聊的</em>东西，比如告诉你如何重启手机或者摇动手机来唤醒显示屏)，那么我们新的<a href="http://xda-developers.com/tag/tasker-pro"> Tasker Pro系列</a>就是为你准备的。</p>
+
+<p>我们将发布一系列<strong>高度先进的</strong> Tasker简介，向你展示Tasker有多强大，如果你愿意跳出框框思考的话。虽然我们已经为您做了大部分艰苦的工作，您当然可以自由地导入我的个人资料并按原样使用它们，但如果您想自己定制这些任务，我强烈建议您尝试一下如何使用Tasker。在我们的<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-automatically-check-md5-sum-t3365590/post66531924#post66531924"> Tasker Tips &amp; Tricks </a>论坛上或者在Reddit的/r/Tasker subredit上，你可以与他人分享和合作如何实现你可能有的想法(正如<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-automatically-check-md5-sum-t3365590/post66531924#post66531924">我已经做了很多次</a>)。</p>
+
+<p>这是Tasker pro的第<strong>周第4 </strong>。<a href="http://www.xda-developers.com/tasker-pro-tag-new-photos-with-the-current-calendar-event/">上周</a>，我们向您展示了如何使用Tasker自动为所有拍摄的新照片添加正在进行的日历事件的标题。本周，我们将向您展示如何在不离开您的应用程序的情况下<strong>复制通过短信发送的双因素认证码！</strong></p>
+
+<hr/>
+
+<p><strong> Tasker Pro #4:复制双因素认证码</strong></p>
+
+<p>如今，随着如此多的密码数据库被攻破，许多想让自己的在线账户更加安全的人选择在其服务中启用双因素身份认证。服务如何实现向您发送双因素认证码因服务而异(短信、电子邮件、认证应用等)。所以很不幸，你只能依靠你注册的服务所允许的任何方法。对于许多许多通过短信发送2FA代码的服务来说，必须打开你的短信应用程序来复制代码可能会有点麻烦(在糟糕的编码应用程序中，应用程序甚至可能在你可以粘贴2FA代码之前就关闭了！)</p>
+
+<p>在这种情况下，我们可以使用Tasker来<strong>拦截短信</strong>并在你当前使用的任何应用程序上显示一个<strong>短吐司或小吃条</strong>的代码！你可以按一个按钮让<strong>复制到你的剪贴板</strong>，在<strong> 15秒</strong>后你的剪贴板会自动清空。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/paypal1.jpg"/></p>
+
+
+
+<p/>
+
+<hr/>
+
+<p><strong>要求</strong></p>
+
+
+
+<p>以下是可选的，但是，如果您想要完全复制我的设置(或者只是导入我的脚本)，那么您需要安装这两个插件:</p>
+
+
+
+<hr/>
+
+<p><strong>指令</strong></p>
+
+<p>在我们开始之前，此脚本需要对您的联系人列表进行一些更改。为了让此脚本检测某些机构何时发送短信，您需要事先将他们命名为联系人。例如，如果你收到来自PayPal的2FA短信，那么你会想给那个联系人起个名字，这样Tasker就能识别出信息来自哪里。但是最重要的部分是:<strong>你需要在每个联系人的名字前加上同一个单词，这样对于Tasker来说就简单多了。</strong>在我的例子中，我将我的每个联系人命名为“<strong>验证*”</strong>，其中*是PayPal、LinkedIn等。这样，Tasker可以解析出名称的“验证”部分，以获得发送2FA SMS的实际机构。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/paypal2.jpg"/></p>
+
+
+
+<p/>
+
+<p>这是您将要制作的个人资料的概述。这实际上很简单，但是我们将为您更详细地分解它。你需要做的第一件事是创建一个新的<strong>事件配置文件</strong>，它在收到<strong>短信时触发。</strong>对于联系人姓名，将其设为<strong>验证* </strong>，这意味着任何包含“验证”一词的联系人都将触发此配置文件，因此这意味着任何您明确命名为“验证”的联系人。将正文部分留空，因为每个机构发送不同的正文，我们无法立即在档案中找到。</p>
+
+<p>现在，让我们来看看您需要为此档案采取的措施:</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/06/paypal3.jpg"/></p>
+
+
+
+<p/>
+
+<ol> <li><strong>可选</strong>:插件- &gt;自动通知- &gt;自动通知查询。将其设置为查询短信应用程序发送的通知。这并不是真正需要的，但它可以帮助我们拦截并自动取消您的短信应用程序发送的通知，从而节省您的一些时间，因为我们已经在与它进行交互了。</li> <li>变量-&gt;变量集。将<strong>%剪辑</strong>设置为<strong>%剪辑。</strong>将当前消息保存在剪贴板中，以防我们选择复制2FA代码。</li> <li>变量-&gt;变量集。将<strong> %text </strong>设置为<strong> %SMSRB。</strong>将文本消息正文保存在变量中。</li> <li>变量-&gt;变量集。将中的<strong>%设置为<strong> %SMSRN。</strong>将联系人姓名设置为变量。</strong></li> <li>变量-&gt;变量搜索替换。变量:<strong> %text </strong>。搜索:<strong> \d{3，} </strong>点击“<strong>多线</strong>”、“<strong>一次只匹配</strong>”，将匹配结果存储在<strong>%代码中。</strong>这将在文本消息正文中搜索长度为3个字符或更长的任何数字字符串，应该是2FA代码。它会将所有结果存储在一个变量中，该变量应该只有一个匹配项。</li> <li><strong>可选:</strong>插件- &gt;自动通知- &gt;自动通知取消。其他Id: <strong> %anid。</strong>包装:<strong>% an包装。</strong>标签:<strong> %antag。</strong>这将关闭来自你的短信应用程序的通知。</li> <li><strong>可选:</strong>插件- &gt; Snackbar Tasker插件- &gt;带按钮的Snackbar。消息:<strong>%发件人:%code1 </strong>。按钮:<strong>复制。</strong>命令:<strong>复制。</strong>检查是否设置了<strong> %code1。仅当找到2FA代码时，这将显示一个带有您的代码的snackbar，并给你一个复制文本的按钮。</strong></li> <li><strong>可选:</strong>系统- &gt;设置剪贴板。正文:<strong> %code1 </strong>。检查是否并使其<strong> %sb_command ~副本</strong>。如果您愿意，这将把代码复制到您的剪贴板。</li> <li><strong>可选:</strong>插件- &gt; Snackbar Tasker插件- &gt;无按钮Snackbar。消息:<strong>复制到剪贴板，15秒后清除...</strong></li> <li><strong>可选:</strong>任务- &gt;等待。等待15秒钟。等到你清空剪贴板的时间。</li> <li><strong>可选:</strong>系统- &gt;设置剪贴板。正文:<strong>%剪辑。</strong>这将恢复您的剪贴板。</li> <li><strong>可选:</strong>插件- &gt; Snackbar Tasker插件- &gt;无按钮Snackbar。消息:<strong>剪贴板恢复。</strong></li> </ol>
+
+<p>如果您不想使用Snackbar Tasker插件，那么您可以复制第7步中的消息，并使用Alert - &gt; Flash显示一条toast消息。</p>
+
+<hr/>
+
+<p>瞧，瞧！如果你能理解这一点，那么恭喜你，你已经是一个任务大师了！迷茫于一个步骤，只想导入脚本，继续自己的生活？我不能责怪你，这一次我花了很多时间才把它写好。</p>
+
+<p><strong>如果你想导入这个档案，你可以<a href="https://www.androidfilehost.com/?fid=24572369242685927">在这里</a>从Android文件主机下载。</strong>为了导入任务，您需要首先在Tasker中禁用初学者模式，进入菜单- &gt;偏好设置。在UI选项卡下，取消选中“初学者模式”然后回到主任务菜单，点击“任务”标签。然后长按“任务”标签并按“导入”导航到下载my .prf.xml文件的位置，并选择要导入的文件。一旦你导入了它，你就可以随意使用它了。</p>
+
+<p>在下周的Tasker Pro中，我将向你展示如何<strong>确保你在早上总是准备好闹钟，并禁用任何你不小心设置的闹钟，从而避免职场尴尬！</strong>T3】</p>
+
+<p/><center><a href="http://www.xda-developers.com/tag/tasker-pro/"><strong>Check out all Tasker Pro scripts!</strong></a></center>
+
+<hr/>
+
+<p>你想看我和Tasker一起做什么？请在下面告诉我们，我们可能会在未来的文章中重点介绍您的想法！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

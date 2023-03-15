@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Google Pixel 2 has a Hidden Easter Egg in Active Edge Settings</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Pixel 2在Active Edge设置中有一个隐藏的复活节彩蛋</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-pixel-2-hidden-easter-egg-active-edge/#0001-01-01">https://www.xda-developers.com/google-pixel-2-hidden-easter-egg-active-edge/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌最新的旗舰智能手机Pixel,<a href="https://www.xda-developers.com/google-pixel-2-xl-announced-price/">Pixel 2和Pixel 2 XL </a>最初推出时搭载了Android 8.0 Oreo，但后来收到了Android 8.1 的<a href="https://www.xda-developers.com/android-8-1-oreo-developer-preview-1/">开发者预览版。我们在版本中记录了很多</a><a href="https://www.xda-developers.com/android-8-1-oreo-developer-preview-features/">的细微变化，但是有些变化比其他的更隐蔽。我们发现的一个变化不是你真正所说的功能，但它符合谷歌给Android添加一些隐藏幽默的习惯。在运行Android 8.1开发者预览版1的谷歌Pixel 2和Pixel 2 XL的Active Edge设置屏幕中，有一个隐藏的复活节彩蛋迷你游戏，需要你挤压手机来弹出泡泡。</a></p>
+
+  
+<p>对于那些不熟悉的人，Pixel 2智能手机有一个名为Active Edge的功能，可以让你挤压手机的下半部分来启动谷歌助手或静音来电。你可以在设置中调整挤压灵敏度(或者用ADB命令微调<a href="https://www.xda-developers.com/customize-active-edge-squeeze-sensitivity-pixel-2/">)，但除此之外，没有太多定制Active Edge的方法，</a><a href="https://www.xda-developers.com/remap-active-edge-squeeze-google-pixel-2/">至少官方上是这样的</a>。</p>
+
+<p>当我们开始深入研究运行Android 8.1的谷歌Pixel 2 XL上的最新设置应用程序时，我们发现了一个与Active Edge相关的新行，我们认为这可能很有趣。首先，我们在设置中发现了一个名为“AssistGestureBubbleActivity”的新活动</p>
+
+<pre> <code class="hljs javascript"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:enabled</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">android:exported</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">android:hardwareAccelerated</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.google.android.settings.gestures.assist.bubble.AssistGestureBubbleActivity"</span> <span class="hljs-attr">android:resizeableActivity</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">android:screenOrientation</span>=<span class="hljs-string">"portrait"</span> <span class="hljs-attr">android:theme</span>=<span class="hljs-string">"@android:style/Theme.Material"</span>/&gt;</span></code> </pre>
+<p>接下来，我们为这个活动发现了一个相应的布局文件:</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_5"><h3 id="assist-gesture-bubble-activity-xml">assist _手势_气泡_活动. xml</h3><pre> <code class="hljs javascript"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br/>&lt;FrameLayout n1:layout_width=<span class="hljs-string">"fill_parent"</span> n1:layout_height=<span class="hljs-string">"fill_parent"</span><br/>xmlns:n1=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>&gt;<br/><span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span> <span class="hljs-attr">n1:</span> <span class="hljs-attr">n1:layout_width</span>=<span class="hljs-string">"fill_parent"</span> <span class="hljs-attr">n1:layout_height</span>=<span class="hljs-string">"fill_parent"</span> /&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span> <span class="hljs-attr">n1:</span> <span class="hljs-attr">n1:layout_width</span>=<span class="hljs-string">"fill_parent"</span> <span class="hljs-attr">n1:layout_height</span>=<span class="hljs-string">"fill_parent"</span> /&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">TextView</span> <span class="hljs-attr">n1:textColor</span>=<span class="hljs-string">"#ffffffff"</span> <span class="hljs-attr">n1:gravity</span>=<span class="hljs-string">"end"</span> <span class="hljs-attr">n1:layout_gravity</span>=<span class="hljs-string">"top"</span> <span class="hljs-attr">n1:</span> <span class="hljs-attr">n1:padding</span>=<span class="hljs-string">"12.0dip"</span> <span class="hljs-attr">n1:layout_width</span>=<span class="hljs-string">"fill_parent"</span> <span class="hljs-attr">n1:layout_height</span>=<span class="hljs-string">"wrap_content"</span> /&gt;</span><br/><span class="hljs-tag">&lt;/<span class="hljs-name">FrameLayout</span>&gt;</span></code> </pre> </div></section>
+<p>关键字“游戏视图”和“游戏视图”暗示这是某种复活节彩蛋。由于活动被定义为“未导出”，这意味着它不能在没有root用户的情况下从命令行运行，也不能从活动启动器中看到。</p>
+
+<p>但是在XDA公认的贡献者的帮助下，我们找到了如何得到这个隐藏的复活节彩蛋。他发现了以下代码:</p>
+
+
+
+<p>基本上，这个代码是监听在激活边缘设置下的挤压灵敏度设置的重复点击。如果用户没有禁用复活节彩蛋(<a href="https://developer.android.com/reference/android/os/UserManager.html#DISALLOW_FUN">通过管理配置文件</a>)，那么手机将启动一个隐藏的迷你游戏，在那里你挤压你的手机以在屏幕上弹出气泡。</p>
+
+ 
+<p class="w-rich w-youtube" id="mFpnvB31D_o">  </p>
+
+
+<p>上面的视频是由XDA初级成员<a href="https://forum.xda-developers.com/member.php?u=7322252"> InFlames03 </a>在他们运行Android 8.1 Oreo的Pixel 2 XL上拍摄的。如果你想知道他们的设置应用程序是如何黑暗的，那是因为他们正在运行<a href="https://www.xda-developers.com/custom-themes-android-oreo-substratum/">无根底层主题引擎</a>和他们自己的黑暗主题，称为赛的奥利奥主题(你可以在这里找到<a href="https://www.xda-developers.com/install-dark-theme-android-oreo-without-root/">如何安装</a>)。)</p>
+
+<p>我个人认为复活节彩蛋有点乏味。Quinny899将其描述为“再循环到游戏中的工程测试”公平地说，并不是每个复活节彩蛋都能和安卓棉花糖的flapphydroid相提并论，但不管怎样，你玩这个游戏也不会超过几秒钟。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

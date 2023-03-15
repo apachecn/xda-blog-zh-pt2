@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>How Android Go Can Help Older Android Phones Run Android 8.1 Oreo</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Go如何帮助旧的Android手机运行Android 8.1 Oreo</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-go-old-android-8-1-oreo/#0001-01-01">https://www.xda-developers.com/android-go-old-android-8-1-oreo/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android Go是谷歌基于Android 8.1 Oreo的精简版Android，它旨在成为针对1gb或更低RAM的低端设备的优化版Android。它是在去年五月的谷歌I/O开发者大会上宣布的，最终更多的细节在当年的12月底被披露。据说这是为下一代入门级设备制造的，以确保发展中国家的人们仍然可以使用功能正常的智能手机来访问互联网和使用应用程序。</p>
+
+  
+<p>Go有各种各样的性能优化和改进，包括比普通的Android Oreo安装少占用50%的存储空间。由于Android Runtime (ART)和内核优化，运行Android Go的设备平均比相同设备上安装的常规Android Oreo快15%。这些优化是通过Google的一些专门构建配置实现的，我们将在后面解释。</p>
+
+
+
+<p>Android Go还受益于特殊的“Go”应用，如<a href="https://www.xda-developers.com/google-go-smart-file-manager-leaked/">文件Go </a>、<a href="https://www.xda-developers.com/google-announces-youtube-go-in-india-the-data-friendly-way-to-youtube/"> YouTube Go </a>和<a href="https://www.xda-developers.com/google-maps-go/">谷歌地图Go </a>。这些是谷歌开发的应用程序的轻量级版本，降低了运行效率的要求。这意味着，那些拥有Android Go设备的人也可以享受普通Android Oreo用户可以享受的大部分好处，使用谷歌的应用程序套件，而不必花很多钱购买旗舰或甚至略贵的廉价设备。</p>
+
+<p>这都是为了谷歌扩大他们的市场。然而，它回避了一个问题，如果Android Go主要由一个构建配置和一套优化的谷歌应用程序组成，开发者可以制作自己的Android Go吗？简而言之，是的，我们可以。</p>
+
+ 
+<h2 id="a-few-lineageos-developers-are-already-building-android-go-optimized-custom-roms">一些LineageOS开发者已经在开发针对Android Go优化的定制rom</h2>
+<p>我们已经看到一些定制rom开发人员对Android Go有所吸收，例如XDA知名开发人员<a href="https://forum.xda-developers.com/member.php?u=2233641"> AdrianDC </a>，他在LineageOS 15.1上的工作为<a href="https://review.lineageos.org/#/q/%22Android+Go%22">几款旧索尼手机</a>构建了Android Go配置。有问题的设备是索尼Xperia SP、索尼Xperia T、索尼Xperia V和索尼Xperia TX。这些设备都可以追溯到2012年和2013年，但它们将使用Android Go构建配置接收基于Android 8.1 Oreo的LineageOS 15.1，这可能允许设备流畅地运行谷歌“Go”应用程序，如果Android Go gapp集最终发布的话。</p>
+
+<p>任何单独的LOS维护者都应该能够引入一个Android Go配置的构建，它是一组构建配置和其他优化。这意味着，那些可能已经购买了索尼Xperia T(例如，一款在发布时运行Android 4.0.4冰淇淋三明治的设备)的人，将能够在该设备上使用更优化的Android 8.1 Oreo版本，利用YouTube Go和谷歌地图Go等应用程序。它不会以旗舰级别的性能运行，但它应该<strong>可用</strong>——特别是对于一个可以追溯到2012年的设备。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="how-android-go-can-help-older-android-phones-run-android-oreo">Android Go如何帮助旧的Android手机运行Android Oreo</h2>
+<p>Android上的构建配置是一组参数，这些参数与Android系统的各个方面有关，在编译系统映像以便在设备上闪存时会应用这些参数。通常这些会改变系统的行为方式，Android Go的主要优化来自于这些构建配置。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/build-configs-android-go.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;The build configurations used for compiling Android Go.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/build-configs-android-go.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/build-configs-android-go.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/build-configs-android-go.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/build-configs-android-go.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="Android Go" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/build-configs-android-go.png" src="../Images/9e00f1c8e1229a0af3f56ae0803b7984.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/01/build-configs-android-go.png"/> </picture> <figcaption class="body-img-caption">The build configurations used for compiling Android Go.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>我与XDA知名开发人员joshuous进行了交谈，他极大地帮助了我理解正在发生的变化——是什么真正让Android Go工作。其中一些构建配置在没有重新编译的情况下无法更改，并且是ROM本身蓝图的一部分。这些是全大写的标志。</p>
+
+<p>然而，所有这些标志都与Android存储和内存使用的许多不同方面有关。其中包括<a href="https://github.com/aosp-mirror/platform_packages_apps_settings/commit/2156b26b2e38e1e92d33d1dba0a7c33fc2feeaea">自动存储管理</a>，Android的低内存杀手，dex ( <strong> d </strong>阿尔维克<strong> ex </strong>可执行文件)优化器和运行应用程序的RAM限制。APK文件由这些DEX文件组成，所以在某种程度上，可以把APK文件想象成一个包含大量。dex文件，这实际上是Android执行一个应用程序时运行的文件。自动存储管理将改为由Files Go应用程序控制，而不是Android系统。</p>
+
+<h3 id="android-go-utilities-android-s-low-ram-mode">Android Go实用程序Android的低内存模式</h3>
+<p>在Android 4.4 KitKat中，谷歌推出了一个名为“<a href="https://source.android.com/devices/tech/perf/low-ram">低ram </a>的新标志，旨在支持512 MB RAM的设备。它对系统进行了多项优化。这些变化对低RAM设备非常有益。</p>
+
+<p><strong>改进的内存管理</strong></p>
+
+<ul> <li>经验证的节省内存的内核配置:交换到ZRAM。</li> <li>如果要取消缓存并且太大，则终止缓存的进程。</li> <li>不允许大服务把自己放回A服务(这样就不会导致启动器被杀)。</li> <li>杀死在空闲维护中变得太大的进程(即使是通常无法杀死的进程，如当前的IME进程)。</li> <li>序列化后台服务的启动。</li> <li>调整低RAM设备的内存使用:更严格的内存不足(OOM)调整级别、更小的图形缓存等。</li> </ul>
+
+<p>上述这些变化基本上确保了系统通过使用ZRAM确保尽可能使用压缩内存。ZRAM基本上是一个RAMdisk(一种使用RAM的存储介质，比在设备上使用常规存储快得多)作为交换文件。当RAM使用率很高并且应用程序仍然需要内存时，使用交换文件。这比RAM慢得多，应该尽可能避免使用。本质上，它只是压缩了内存的内容。</p>
+
+<p><strong>减少系统内存</strong></p>
+
+<ul> <li>微调system_server和SystemUI进程(节省了几MB)。</li> <li>在Dalvik中预加载dex缓存(节省了几兆字节)。</li> <li>经过验证的JIT-off选项(每个进程最多节省1.5MB)。</li> <li>减少了每个进程的字体缓存开销。</li> <li>引入了ArrayMap/ArraySet，并在framework中作为HashMap/HashSet的轻量级替代广泛使用。</li> </ul>
+
+<p>尽可能保守地说，这里主要发生的只是减少设备上运行的各种进程的内存消耗。基本的系统服务已经被剥离，以在后台使用尽可能少的内存，因为每兆字节的RAM都很重要。</p>
+
+<h3 id="android-go-uses-a-modified-low-memory-killer-and-dex-optimizations">Android Go使用修改后的低内存黑仔和dex优化</h3>
+<p>鉴于Android Go主要面向1GB或更低内存的设备，因此需要更积极的内存管理。Android Go以几种不同的方式修改了低内存黑仔(LMK)。首先，当大量RAM用完时，低内存杀手进入“<a href="https://github.com/aosp-mirror/platform_system_core/commit/c47f2992b58bfcd1f5d75cd25dc8172eb4fb5cc9">临界压力</a>状态。这是因为当内存使用率较高时，系统会因为不断尝试访问设备存储上的交换文件而变得缓慢。保持RAM清空将防止系统需要使用这个交换文件，并防止内存抖动。当设备的内存已满时，会发生内存抖动，并且必须不断地在设备的存储上分页交换文件，从而严重降低性能。</p>
+
+<p>服务和WiFi服务被设置为“<a href="https://source.android.com/devices/tech/dalvik/configure"> speed-profile </a>”，这意味着这些服务中的选择方法是提前(AOT)编译的。(方法指的是一组代码，可以在任何时候通过名字调用。)这减少了RAM的使用和存储，因为Android系统将不需要不断地重新编译在设备上运行的基本服务。与此同时，共享apk被设置为“quicken”，旨在通过优化dex指令来获得更好的性能，从而提供额外的电池寿命和额外的CPU周期。</p>
+
+<p>在dex优化方面，Android Go做得相当多。首先，10天后，如果一个应用程序没有被用来节省空间，它将<a href="https://github.com/aosp-mirror/platform_frameworks_base/commit/3aeca17aa911394e7a4d2c1536b28423cb135b53">降级它。这里的降级不是指应用程序的实际版本号减少，而是指应用程序的dalvik_cache将被清除。Dalvik缓存的使用使得设备不需要重新编译应用程序，而是只编译最必要的部分并缓存。其余部分在应用程序运行时使用实时(JIT)编译器进行编译。然而，如果应用程序10天没有被使用，那么预编译的应用程序的必要部分也被删除。这样做是为了释放尽可能多的空间。另一个简单的变化是不允许应用程序的内存使用超过256MB，这样应用程序就不能使用设备上的所有内存。</a></p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="is-android-go-the-future-of-custom-rom-development-on-low-end-devices">Android Go是低端设备上定制ROM开发的未来吗？</h2>
+<p>目前，我们不知道这个问题的答案，但在旧设备上开发定制ROM的前景看起来很光明。在设备上运行新版本的Android可能会有其他问题，但理论上，基于Android Oreo <em>升级到更优化的Android Go应该会让旧的低端设备运行得更好。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

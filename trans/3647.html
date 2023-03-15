@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Termux - The Ultimate Linux Terminal Emulator for Android [XDA Spotlight]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>termux——Android的终极Linux终端仿真器[XDA聚焦]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/termux-the-ultimate-linux-terminal-emulator-for-android-xda-spotlight/#0001-01-01">https://www.xda-developers.com/termux-the-ultimate-linux-terminal-emulator-for-android-xda-spotlight/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>你曾经想要一个完整的Linux终端环境在你的安卓手机上吗？不仅仅是一个包含基本命令的终端模拟器，而是一个全面的Linux命令行环境，包含您已经习惯的所有实用程序和软件包？如果是，那么<a href="https://termux.com/"> Termux </a>就是答案。</p>
+
+  
+<p><a href="https://play.google.com/store/apps/details?id=com.termux"> Termux </a>是一款功能强大的终端仿真软件，类似于现在流行的<a href="https://play.google.com/store/apps/details?id=jackpal.androidterm">终端仿真器</a> app，但是还包含了一个<a href="https://github.com/termux/termux-packages">广泛的Linux包集合</a>。Termux的包管理系统很像Debians高级包工具(APT ),你可以用命令<em> apt </em>搜索、安装和卸载。Termux只安装一些开箱即用的基本软件包，以减少Play Store上APK的大小，但允许你安装任何你想要的额外软件包。虽然谷歌Play商店上有几个替代Termux的方案，但没有一个能提供像Termux那么多的套餐。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/03/termux-1024x608.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Left to Right: Apt, FFmpeg, Vim&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/03/termux-1024x608.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/03/termux-1024x608.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/03/termux-1024x608.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/03/termux-1024x608.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/03/termux-1024x608.jpg" src="../Images/83d0710f7dfc6c421461bcca4e125b49.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/03/termux-1024x608.jpg"/> </picture> <figcaption class="body-img-caption">Left to Right: Apt, FFmpeg, Vim</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p><strong>推荐阅读:</strong> <a href="https://www.xda-developers.com/guide-installing-and-running-a-gnulinux-environment-on-any-android-device/">了解如何在你的Android设备上安装完整的GNU/Linux环境。</a></p>
+
+<hr/>
+
+
+<h2 id="termux---the-linux-terminal-emulator-for-android">termux——Android的Linux终端仿真器</h2>
+<p>Termux软件包是使用Ubuntu 16.10构建的，因此这意味着开发人员可以从他们的机器上编译任何现有的软件，然后将其添加到软件包管理器中，供任何人下载。这是一个非常简单和优雅的解决方案，否则可能是一个复杂和困难的问题。一个令人惊奇的副作用是，一旦软件被编译，你就有了软件的完整版本，而不是不完整的移植版本的桌面Linux包。</p>
+
+<p>例如，我在Mac上使用命令行，因为我喜欢90%的时间把手放在键盘上。因此，我使用键盘快捷键和终端应用程序来完成大部分工作。我更喜欢使用Vim，因为它是一个很棒的文本编辑器，有包括微软在内的几乎所有插件。网！我有各种日常使用的插件，我已经在Termux中安装了Vim，并取得了巨大的成功。我尝试的一切都和我预期的一样有效。我最喜欢的插件之一是CtrlP，它是一个强大的文件查找工具，在Termux上的Vim中运行得非常好。</p>
+
+<p>Termux默认为您提供一个bash终端，但是如果您和我一样，喜欢Zsh的高级特性，也可以使用FISH shell。多种不同的外壳类型当然是受欢迎的。</p>
+
+<p>任何在Android上使用过终端模拟器应用程序的人都知道，当你需要输入特殊的键来控制终端(如CTRL或ESC)时会有多痛苦。这些键不会显示在android设备上使用的标准触摸键盘上(<a href="https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard">除了黑客键盘</a>)。不过，Termux开发商Fredrik Fornwall对此有一个非常新颖的解决方案。他将CTRL绑定到音量减小键，将ESC等其他特殊键绑定到音量增大键。因此，通过按下音量增大+触摸键盘“L ”,您可以输入终端命令CTRL+“L”来清除终端窗口。例如，通过按下音量增大+‘E’键来发送ESC键。你可以在<a href="https://termux.com/touch-keyboard.html">开发者网站</a>上查看Termux中所有可用的密钥。</p>
+
+
+
+
+
+<p>我还在Termux中使用SSH来连接我的个人VPS服务器。虽然存在其他Android应用程序，如<a href="https://play.google.com/store/apps/details?id=com.sonelli.juicessh&amp;hl=en">juice shh</a>和<a href="https://play.google.com/store/apps/details?id=org.connectbot&amp;hl=en"> ConnectBot </a>，但在我看来，在适当的终端环境中通过OpenSSH建立适当的SSH连接更好。Termux允许您创建多个会话，这样我就可以在一个会话上连接我的服务器，在另一个会话上连接我的本地环境。</p>
+
+<p>如果您喜欢在终端中开发，Termux也能满足您的需求。我用Termux的包管理器在我的手机上安装了python，并且编写了与我在远程服务器上完全一样的python代码。</p>
+
+
+
+<p>什么稍微重一点的东西，比如用NodeJS开发？Termux也支持NodeJS，它还支持流行的栈，比如Express。我能够安装一个完整的NodeJS/Express/Bootstrap环境，并在我的设备上托管一个简单的网站。</p>
+
+
+
+
+
+<p>我也能够安装和使用Ruby，但是我在最初安装Rails时确实遇到了问题。幸运的是，我能够在谷歌+社区的帮助下让Rails在我的设备上运行，这个社区非常活跃，如果你陷入困境，它是一个很好的帮助来源。说白了，我对Termux及其包管理系统印象深刻。它提供了一个惊人的包清单，这是不断增长；到目前为止，我没有错过任何我每天使用的包裹。然而，我确实注意到流行的屏幕终端多路复用器是不可用的，但是替代的(在我看来更好)TMUX是可用的。</p>
+
+
+
+<p>我测试所有这些的设备也不是旗舰手机。我用的是我的小米Max，配有4gb内存和骁龙650 SoC，还有一个苹果蓝牙键盘。我使用这款手机的主要原因是因为小米Mi Max有6.44英寸的屏幕，给了我一个不错的工作空间。有了上面显示的设置，我可以在旅途中舒适地做一些严肃的工作。</p>
+
+<p>关于Termux最令人惊奇的事情是它是完全免费的，没有T2的应用内购买和广告。尽管如此，您可以购买一些费用低廉的附加组件，以支持开发人员并改进Termux已经令人印象深刻的功能。迄今为止的插件包括:</p>
+
+<ul> <li><a href="https://play.google.com/store/apps/details?id=com.termux.tasker"> Termux:任务</a> -将Termux与Tasker集成</li> <li>Termux:API  -允许Termux与现有的Android APIs集成(比如在终端上阅读你的短信)</li> <li><a href="https://play.google.com/store/apps/details?id=com.termux.widget"> Termux:Widget </a> -从主屏幕执行Termux脚本</li> <li><a href="https://play.google.com/store/apps/details?id=com.termux.styling"> Termux:造型</a> -定制Termux的外观</li> <li><a href="https://play.google.com/store/apps/details?id=com.termux.window"> Termux:Float </a> -允许一个浮动的Termux窗口</li> </ul>
+
+<p>Termux现在是我所有Android设备上的永久安装；它允许我在本地设备上拥有一个全功能的终端和开发环境。我花了很多时间在远程服务器上开发，但是有时你会遇到无法连接到服务器的情况。最近，我去了趟新西兰，来回飞了11个小时。如果我当时安装了Termux，我的飞行可能会变成总共22小时的编码会话。</p>
+
+<hr/>
+
+<p><a href="https://play.google.com/store/apps/details?id=com.termux"> <strong>在Play Store </strong>上下载Termux</a></p>
+
+<p><a href="https://github.com/termux/termux-packages"> <strong>可用的Termux包列表(或自己构建)</strong> </a></p>
+
+<p><a href="https://plus.google.com/communities/101692629528551299417"> <strong>查看Termux Google+社区</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

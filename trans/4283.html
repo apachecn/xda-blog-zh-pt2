@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Google Details the Pixel 2's Tamper-Resistant Hardware Security Module</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌详细介绍了Pixel 2的防篡改硬件安全模块</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-details-tamper-resistant-hardware-security-module-pixel-2/#0001-01-01">https://www.xda-developers.com/google-details-tamper-resistant-hardware-security-module-pixel-2/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>随着Android的每一个新版本，谷歌都加大了对安全性的关注。Android 5.1棒棒糖增加了<a href="https://www.xda-developers.com/android-8-1-factory-reset-protection/">出厂重置保护</a>作为防盗措施。然后，该公司从Android 6.0棉花糖开始对高性能设备强制加密。在Nougat，谷歌转向了基于文件的加密技术<a href="https://www.xda-developers.com/file-based-encryption-vulnerability-reported-by-deestroy-is-fixed-in-mays-security-update/"/>。现在，谷歌已经详细介绍了Pixel 2的防篡改硬件安全模块，据该公司称，该模块提供了“企业级安全性”。</p>
+
+  
+<p>Pixel 2和Pixel 2 XL的硬件安全模块是安卓设备的首创。它加强了针对恶意软件和硬件攻击的锁定屏幕。这样做是为了更好地保护用户设备上存储的数据，包括联系人、电子邮件、照片、应用程序数据等。谷歌希望Pixel 2是众多配备专用安全模块的Android设备中的第一款。</p>
+
+<p>我们知道，锁定屏幕是保护用户数据免受攻击的第一道防线，因为它是暴力攻击的脆弱点。谷歌表示，搭载Android 7.0+的设备已经在安全的环境中验证了用户的锁屏密码，如可信执行环境(TEE)。</p>
+
+<p>这限制了恶意攻击者通过暴力反复尝试猜测密码的频率。关键步骤是当安全环境成功验证了用户的密码时。根据谷歌的说法，只有到那时，它才会透露一个设备和用户特定的秘密，该秘密用于导出磁盘加密密钥。该公司声明，如果没有磁盘加密密钥，用户的数据就无法解密。</p>
+
+<p>据谷歌称，这些保护措施的目标是防止攻击者在不知道用户密码的情况下解密用户数据。该公司承认，保护措施的强度取决于验证密码的安全环境——即使其他所有组件都是安全的，一个薄弱环节也可能危及整个安全系统。</p>
+
+<p>这就是硬件安全模块的用武之地。谷歌表示，当该设备“在防篡改硬件中执行安全关键操作”时，攻击者在攻击该设备时将面临更多困难。</p>
+
+<p>那么，防篡改硬件安全模块实际上意味着什么呢？在Pixel 2中，防篡改安全模块采用分立芯片的形式，与主SoC(Pixel 2中的高通骁龙835)分离。根据谷歌的说法，安全模块包括其自己的闪存、RAM、处理单元和单个包内的其他资源。因此，它可以控制自己的执行。这也有助于它拒绝外部试图篡改它。</p>
+
+
+
+<p>谷歌进一步指出:“<em>该包可以抵抗物理渗透，并设计为抵抗许多侧信道攻击，包括功率分析、定时分析和电磁嗅探。硬件还可以抵御许多物理故障注入技术，包括在正常工作条件之外运行的尝试，如错误的电压、错误的时钟速度或错误的温度。</em>“因此，基于上述事实，防篡改声明似乎成立。</p>
+
+<p>Pixel 2的防篡改硬件安全模块也有助于保护设备免受纯软件攻击。根据谷歌的说法，它的攻击面极小。这是因为它执行的功能非常少，因为它是仅用于特定目的的专用硬件，而不是通用硬件。</p>
+
+<p>该过程的关键步骤是在安全模块中进行密码验证。谷歌表示，即使在其他地方发生全面破坏，攻击者也无法在不首先破坏安全模块的情况下获得用户的磁盘加密密钥——这显示了硬件安全模块的主要优势之一。</p>
+
+<p>Google最后声明，安全模块的设计方式使得任何人(包括Google自己)都无法在事先不知道用户密码的情况下将密码验证更新为弱化版本。</p>
+
+<p>对我们来说，谷歌的博客文章无疑很有启发性。硬件安全模块并不是一个突破性的功能，但它加强了以前存在的软件保护。谷歌没有确定该模块的供应来源，但<a href="https://www.xda-developers.com/twrp-recovery-alpha-pixel-2-xl-available/"> XDA资深知名开发商Dees_troy表示该模块由恩智浦</a>提供。已经有人担心，像这样的安全功能可能会阻碍设备的开发，这表明关注安全性和设备开发能力之间的斗争仍然存在。</p>
+
+<p><a href="https://www.blog.google/products/android-enterprise/how-pixel-2s-security-module-delivers-enterprise-grade-security/"> <strong>来源:谷歌</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

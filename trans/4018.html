@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Android Oreo Introduces Command Line Interface for Themes</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Oreo为主题引入命令行界面</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-oreo-command-line-themes/#0001-01-01">https://www.xda-developers.com/android-oreo-command-line-themes/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>随着Android Oreo的推出，人们花了大量时间在源代码中寻找隐藏的好东西。过去，Android工程团队曾讨论过在Android O中启用主题化。<a href="https://www.xda-developers.com/google-preparing-enable-custom-themes-built-on-sony-rro-framework/">我们在5月</a>报道了Android O的第二个开发者预览版可能暗示了谷歌支持覆盖管理器服务(OMS)和运行时资源覆盖(RRO)，但现在我们可以肯定这是真的。Android Oreo now，<em>技术上的</em>，支持OMS/RRO主题，甚至提供了一个启用或禁用主题的界面，前提是你能忍受使用命令行。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>更新:Substratum已经在dev预览版中使用了这些命令，现在在Oreo中也使用了它们！</p> </div></section>
+<hr/>
+
+
+<h2 id="what-are-rro-and-oms">RRO和OMS是什么？</h2>
+<p>RRO由索尼内部开发，用于索尼Xperia系列的主题功能。认识到它的重要性的开发者努力将它的支持扩展到其他rom，随之而来的是在众多设备上的主题化——不仅仅是索尼设备。它巧妙地取代了应用程序运行时的资源，这种易用性在当时的其他主题化选项中是看不到的。这演变成了OMS，也是由索尼内部开发的。著名的<a href="https://play.google.com/store/apps/details?id=com.lovejoy777.rroandlayersmanager&amp;hl=en">图层管理器</a>最初使用RRO主题，但是OMS后来被改编成现在所知的Substratum，并且是现在我们论坛上用户最熟悉的主题框架。我们论坛上的OMs提交的rom意味着他们支持底层的标准主题引擎。底层中的“遗留模式”使用RRO主题化。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="android-oreo-introduces-theme-commands">安卓奥利奥推出主题命令</h2>
+<p>看起来Google现在希望在AOSP完全支持这种主题类型，可能会转向一个完全的、系统支持的主题管理器。在Android Gerrit上，Google在最近几个月(和Android Oreo)做了一些改变，建议在系统范围内启用主题引擎。下面是这些更改，以及它们各自提交的链接。</p>
+
+
+
+<p>所有这些变化都意味着Google朝着未来将包含的某种形式的系统主题化应用的方向发展。上面列出的权限需要系统特权，因此意味着只有系统应用程序(或具有root访问权限的应用程序)可以调用此权限。尽管如此，这还是很有趣，因为它表明谷歌终于朝着某个目标努力了。</p>
+
+<p>那么为什么Android Oreo只在技术上支持主题化呢？嗯，简单的答案是，虽然你可以调用安装主题的系统方法，但这样做将被证明是毫无意义的。这是因为，尽管您可以使用新的命令行界面来管理已安装的主题，但是如果没有root访问权限，您实际上无法安装新的主题，因为主题需要进入一个受用户空间限制的目录。有了root权限，你就可以简单地启用底层主题，所以没有必要用新的方式。谷歌还没有包括一个系统应用程序来主题化设备，所以在那之前，尝试用新包括的方式来做没有任何好处。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="the-command-line-theming-interface">命令行主题界面</h2>
+<p>我们在XDA测试了运行Android Oreo版本的谷歌Pixel上的命令。我们决定测试一些命令，并首先使用</p>
+
+<pre> <code class="hljs php">cmd overlays <span class="hljs-keyword">list</span></code> </pre>
+<p>查看所有预安装的覆盖图。我们注意到了一个“com.google.android.theme.pixel”的存在，通过运行以下命令禁用它并启用“android.auto_generated_rro__”。</p>
+
+
+
+<p>从这里可以看出，标准叠加被禁用，自动生成叠加被启用。再次运行我们的命令来查看我们安装的覆盖图，我们看到了下面的输出。</p>
+
+
+
+<p>这就在我们的Google Pixel上产生了一个新主题的Android系统设置应用程序。请注意，上面的覆盖列表也包括使用Substratum安装的主题，我们能够轻松地启用/禁用这些。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/rro_google_pixel_android_oreo-169x300.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;auto_generated_rro Theme&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/rro_google_pixel_android_oreo-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/rro_google_pixel_android_oreo-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/rro_google_pixel_android_oreo-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/rro_google_pixel_android_oreo-169x300.png?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/rro_google_pixel_android_oreo-169x300.png" src="../Images/9b12e9929ec9312e7fff71bfdf7eba55.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/08/rro_google_pixel_android_oreo-169x300.png"/> </picture> <figcaption class="body-img-caption">auto_generated_rro Theme</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>我们在挖掘源代码时还发现了另一个命令。该命令如下所示</p>
+
+<pre> <code class="hljs sql">cmd overlay dump </code> </pre>
+<p>给出了以下输出。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_23"><h3 id="output">输出</h3><p>设置</p><p>Android . auto _ generated _ rro _ _:0 {</p><p>mPackageName.......:android.auto_generated_rro__</p><p>穆瑟里德............: 0</p><p>mTargetPackageName。:安卓</p><p>mBaseCodePath......:/vendor/overlay/framework-RES _ _ auto _ generated _ rro . apk</p><p>mState.............:状态_已启用</p><p>误使能.........:正确</p><p>错误的..........:正确</p><p>}</p><p>com . Google . Android . theme . pixel:0 {</p><p>mPackageName.......:com.google.android.theme.pixel</p><p>穆瑟里德............: 0</p><p>mTargetPackageName。:安卓</p><p>mBaseCodePath......:/vendor/overlay/Pixel/pixelthemeoverlay . apk</p><p>mState.............:状态_禁用</p><p>误使能.........:错误</p><p>错误的..........:错误</p><p>}</p><p>默认覆盖图:com.google.android.theme.pixel</p><p>PackageInfo缓存</p><p>2个包装</p> </div></section>
+<p>因此，可以看出，谷歌已经投入了大量的工作，开发主题引擎，并将其集成到AOSP源。看起来如果在系统范围内添加，<a href="https://android.googlesource.com/platform/frameworks/base/+/97a06a12ed29fb72eb40d49b83333a9a6327222c/packages/SystemUI/src/com/android/systemui/tuner/ThemePreference.java">主题将在系统UI调谐器</a>中启用。谷歌<a href="https://android.googlesource.com/platform/frameworks/base/+/ea2f3be7aae9435ce21743c959b62731c87a36b8">也为原始设备制造商</a>提供了信息，所以有可能更多的原始设备制造商将来会在Android Oreo上启用基于AOSP版本的主题支持。</p>
+
+<p>总的来说，这是一个非常令人兴奋的发展。主题化是将Android定义为一个完全可定制的手机操作系统的众多部分之一，即使它目前需要root才能进行系统范围的主题化。将来，如果它能够在没有根用户访问的情况下工作，这将是朝着用户自由的方向迈出的重要一步。当然，它可能会在系统UI tuner中被锁定一段时间(因为破损的主题会破坏应用程序)，但允许用户甚至首先利用原生主题支持是对移动操作系统的巨大补充。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

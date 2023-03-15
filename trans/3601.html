@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Google's Project Zero Discovered how to Bypass Samsung's Knox Hypervisor (Fixed in January Patch)</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌的Project Zero发现了如何绕过三星的Knox虚拟机监控程序(在1月份的补丁中修复)</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/samsung-hypervisor-bypassing-hacking-samsung-knox/#0001-01-01">https://www.xda-developers.com/samsung-hypervisor-bypassing-hacking-samsung-knox/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌的Project Zero团队已经证实了一些漏洞，这些漏洞使得运行理应安全的三星Knox安全套件的三星手机受到攻击。该博客指出，所有漏洞都已传递给三星，三星实际上已在1月份的软件更新中发布了补丁。</p>
+
+ 
+<hr/>
+
+<h3 id="background">背景</h3>
+<p>作为三星推出的三星Knox安全软件套件的一部分，有一个软件位于Android应用程序和内核之间，称为<strong>管理程序</strong>。这可以用作进一步保护Android设备的附加层。Samsung Knox Hypervisor被称为“<strong>实时内核保护</strong>”或简称RKP，我将在本文的其余部分引用它。</p>
+
+<p>在Android软件栈中，内核位于RKP之下，运行在设备上的应用程序位于顶部。RKP背后的想法是为设备提供额外的安全层，因为应用程序向内核发出的所有请求(内存和其他资源)都必须首先通过Knox，Knox试图检测应用程序是否正在做它不应该做的事情。RKP还通过一个额外的层来隐藏应用程序可能用来危害设备的敏感信息，从而通过隐藏来提供安全性。</p>
+
+<p>博文<em> </em>深入探讨了Android内存、RKP和操作系统的一般工作方式，因此我对其进行了浓缩和简化，以快速概述所发现的内容。不过，如果你有时间，我鼓励你阅读全文，因为它很有启发性。</p>
+
+<hr/>
+
+<h3 id="exploit-1">漏洞#1:</h3>
+<p><strong> KASLR </strong>或内核地址空间布局随机化是在启动时随机改变内核代码在内存中的位置的过程。每次设备启动时，内核都被加载到不同的地址空间(内存区域)。这个想法是让找到内核代码的位置来攻击它变得更加困难，因为每次启动后，内核代码都会在内存中随机“移位”。这听起来像是防止潜在攻击者的一个伟大步骤，但最近的<a href="https://www.blackhat.com/docs/us-16/materials/us-16-Fogh-Using-Undocumented-CPU-Behaviour-To-See-Into-Kernel-Mode-And-Break-KASLR-In-The-Process.pdf">研究</a>表明，你实际上可以在不需要软件错误或漏洞的情况下击败这一点，因为KASLR实际上很难以一种健壮的方式实现来对抗本地攻击者。</p>
+
+<p>在RKP软件的情况下，绕过KASLR的能力实际上比上面提到的研究更简单。所有android设备的内存都是由指针引用的，为了保护设备免受攻击，每当android设备打印或输出(无论是筛选还是记录日志或调试)时，指针引用都是匿名的，这使得在读取输出时无法找到指针实际指向的位置。</p>
+
+<p>把内存指针想象成指向一个位置的路标，把匿名想象成模糊这个位置。就像电视一样，匿名是在拍摄后完成的，Android也在输出时应用这种匿名，并且只有在匿名配置正确的情况下，作者声明<em>他遇到的每个设备都正确配置了指针匿名</em>。这听起来似乎很难破解，但你需要做的只是找到一个指针(想想街道标志)，当指针被写入日志或其他位置(如屏幕或文件)时，它没有被内核开发人员匿名化(模糊化)(注意，这不是普通的Android应用程序开发人员)。</p>
+
+<p>所以如果你能找到一个没有被匿名化的指针，那么你就可以计算内核的随机地址偏移，作为两者之间的差值。有趣的是，作者在内核中找不到可利用的指针，但在RPK中找到了，开发者忘记在调试(日志)输出中匿名化一个指针，这是由于打字错误。为了匿名化Android中的指针，你必须使用一种特殊的代码，结果是RPK开发人员错误地使用了<strong>小写字母“K”</strong>，而不是<strong>大写字母“K”</strong>。因此，计算出内核代码的随机偏移量并攻击它是相对简单的。</p>
+
+<hr/>
+
+<h3 id="exploit-2">漏洞#2:</h3>
+<p>下一个漏洞有点复杂:Samsung Knox通过对设备内存应用一套规则来阻止恶意代码，从而保护您的设备。规则如下:</p>
+
+<ol> <li>除了内核代码之外，所有页面(内存中的代码)都被标记为“特权永不执行”(意味着这里的代码永远不能运行)</li> <li>内核数据页(程序在内存中使用的数据)永远不会被标记为可执行的(所以这里的代码永远不会运行)</li> <li>内核代码页(内存中的代码)从不被标记为可写的(因此没有恶意代码可以改变它)</li> <li>所有内核页面在阶段2转换表(位于应用程序和内核之间以进一步防止应用程序知道实际内存位置的表)中被标记为只读</li> <li>对于应用程序，所有内存转换条目都标记为只读。</li> </ol>
+
+<p>我们将把重点放在规则3上，因为这是作者发现上述规则的实现有问题的地方。RPK实际上将内核的内存标记为只读，但是由于KASL的疏忽，发现了一个漏洞，导致<strong>将代码写入所谓的“只读”部分</strong>。为了在启动时混淆内核的位置，内存被分配给内核，但是这个内存量比内核的文本段大得多。通过分配更大的内存量，很难找到可能在任何地方的实际内核代码，正如我们在上面看到的，它是在设备每次启动时随机移动的。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpresshttps://lh3.googleusercontent.com/ApuLiGpGGtTopCT7lTzJ7-bWa1-gN4xWQe0uzI78cXbKg62_lno_G0yX3M7XhOt4m7Tg7_nTCtPOEqNNR4BR4bDgHXi6yPdTec5QkgjvQq4CxQzNf9PbcxLGsvWDroYxCuadhkqS" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;_text and _etext mark the protected range&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://lh3.googleusercontent.com/ApuLiGpGGtTopCT7lTzJ7-bWa1-gN4xWQe0uzI78cXbKg62_lno_G0yX3M7XhOt4m7Tg7_nTCtPOEqNNR4BR4bDgHXi6yPdTec5QkgjvQq4CxQzNf9PbcxLGsvWDroYxCuadhkqS?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://lh3.googleusercontent.com/ApuLiGpGGtTopCT7lTzJ7-bWa1-gN4xWQe0uzI78cXbKg62_lno_G0yX3M7XhOt4m7Tg7_nTCtPOEqNNR4BR4bDgHXi6yPdTec5QkgjvQq4CxQzNf9PbcxLGsvWDroYxCuadhkqS?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://lh3.googleusercontent.com/ApuLiGpGGtTopCT7lTzJ7-bWa1-gN4xWQe0uzI78cXbKg62_lno_G0yX3M7XhOt4m7Tg7_nTCtPOEqNNR4BR4bDgHXi6yPdTec5QkgjvQq4CxQzNf9PbcxLGsvWDroYxCuadhkqS?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://lh3.googleusercontent.com/ApuLiGpGGtTopCT7lTzJ7-bWa1-gN4xWQe0uzI78cXbKg62_lno_G0yX3M7XhOt4m7Tg7_nTCtPOEqNNR4BR4bDgHXi6yPdTec5QkgjvQq4CxQzNf9PbcxLGsvWDroYxCuadhkqS?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="kaslr_rwx (1).png" data-img-url="https://lh3.googleusercontent.com/ApuLiGpGGtTopCT7lTzJ7-bWa1-gN4xWQe0uzI78cXbKg62_lno_G0yX3M7XhOt4m7Tg7_nTCtPOEqNNR4BR4bDgHXi6yPdTec5QkgjvQq4CxQzNf9PbcxLGsvWDroYxCuadhkqS" src="../Images/4aedaa5574c8bacf01c1e60b597a50ba.png" data-original-src="https://lh3.googleusercontent.com/ApuLiGpGGtTopCT7lTzJ7-bWa1-gN4xWQe0uzI78cXbKg62_lno_G0yX3M7XhOt4m7Tg7_nTCtPOEqNNR4BR4bDgHXi6yPdTec5QkgjvQq4CxQzNf9PbcxLGsvWDroYxCuadhkqS"/> </picture> <figcaption class="body-img-caption">_text and _etext mark the protected range</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>作者能够确认内核使用的内存确实被标记为“只读”，然而用于隐藏内核的大量内存的其余部分被<strong>而不是</strong>标记为“只读”。这是因为RKP仅在应用KASLR幻灯片后保护包含内核文本的区域。</p>
+
+<hr/>
+
+<h3 id="exploit-3">漏洞#3</h3>
+<p>在第三个漏洞中，作者能够访问另一个也应该限制为只读的内存区域。RKP保护内存，并使用<strong>虚拟机管理程序配置寄存器</strong> (HCR)来控制关键的内核操作。HCR的目的是允许有效和真实的内核操作访问寄存器并阻止恶意攻击。它通过检查对管理虚拟化特性的寄存器的调用来实现这一点。HCR被配置为阻止正常情况下处理的特定操作，允许RKP选择是允许还是不允许请求。</p>
+
+<p>在这个漏洞中，HCR控件<strong>没有覆盖两个寄存器</strong>，这两个寄存器后来被证明是非常重要的。作者深入研究了ARM参考手册，发现第一个寄存器允许他基本上关闭应用程序的RKP。EL1的<em>系统控制寄存器(SCTLR_EL1)提供对系统的顶级控制，包括存储器系统</em>在理想情况下，应用程序将使用通过RKP映射的内存，以便RKP可以控制应用程序可以访问的内容。然而，关闭该寄存器允许通过有效地将设备恢复到安装RKP之前的运行方式来禁用<strong>RKP</strong>，这意味着设备被映射到物理内存，而没有RKP提供的额外安全性。这反过来意味着作者可以读写最初被RKP软件正确阻止的内存。</p>
+
+<p>第二个被遗漏的注册表有一个更微妙的影响，但最终对安全性同样具有破坏性。EL1  (TCR_EL1)寄存器的<strong>转换控制寄存器直接与应用程序使用的内存量(称为页面)相关。RKP被硬编码为4kb的页面大小，因为AARCH64 Linux内核(如Android)使用4KB的转换大小。相关寄存器(TCR_EL1)将ARM芯片组设置为要返回的内存大小。原来<strong>这个寄存器不受HCR </strong>的保护，因此攻击者可以在作者将其更改为64kb页面大小时对其进行更改。</strong></p>
+
+<p>这意味着当RKP完成请求时，实际可访问的内存量现在是64kb，而不是4kb。原因是ARM芯片组仍然控制页面大小，它被漏洞设置为64kb。由于RKP保护内存不被写入，作为漏洞#2中列出的规则的一部分，内存实际上仍然受到保护。但是这里有一个问题——因为RKP被硬编码为4kb，所以当寄存器被更新时，它不会改变为64kb的页面大小，所以<strong>只有第一个4kb的内存受到保护</strong>,允许攻击者对剩余的60kb内存做<strong>他想做的任何事情</strong>。</p>
+
+<hr/>
+
+<h3 id="exploit-4">漏洞#4</h3>
+<p>作者展示的最后一个漏洞是引用RKP软件所在的内存，因此攻击者可以攻击RKP软件本身。阻止这种攻击的一个技巧是将你的程序从虚拟内存地址空间中取消映射，这样就没有应用程序能够攻击它，因为它们不能引用它。</p>
+
+<p>请记住，内存就是指针和表，它们将物理内存映射到虚拟内存。按照这种类型攻击的常规防御，RKP解除自身的映射，这样它就不会被攻击。然而，在内核没有提供这种能力的地方，RKP允许一块内存被映射并标记为读/写。唯一的检查是它不是底层内核本身，因为RKP不检查被请求映射的地址是否是RKP本身驻留在内存中的区域。基本上，RKP <strong>允许自己被重新映射</strong>回应用程序可以访问的地址空间，并且作为一个副作用，<strong>内存被自动标记为读/写</strong>，因此攻击者现在可以随心所欲地使用内存。</p>
+
+<hr/>
+
+
+<h2 id="conclusion">结论</h2>
+<p>上面列出的四个漏洞利用的最大问题之一是，作者提到了由于基本Android内核中缺乏功能，执行这些会有多困难。具有讽刺意味的是，安全的RKP虚拟机管理程序提供了执行攻击所需的所有工具。这表明，有时善意的软件导致的问题比它解决的问题更多，我们很幸运，我们有像Gal Beniamini这样的人愿意亲自动手，测试文档是否与软件实际做的相匹配。</p>
+
+<p>虽然这些漏洞看起来很可怕，让Knox听起来非常脆弱，但我想向大家保证，这些问题已经在三星的1月更新中得到解决。此外，这些漏洞需要对ARM处理器和编程有非常深刻的理解，因此使用这些漏洞的门槛非常高。</p>
+
+<hr/>
+
+<p><a href="https://googleprojectzero.blogspot.com/2017/02/lifting-hyper-visor-bypassing-samsungs.html"> <strong>资料来源:零项目</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

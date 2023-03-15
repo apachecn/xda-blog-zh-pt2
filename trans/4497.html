@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>New Samsung Galaxy S8, S8+, and Note8 Bootloader Prevents Flashing Out of Region Firmware</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>新的三星Galaxy S8、S8+和Note8引导程序防止刷新区域外固件</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/samsung-galaxy-s8-note8-bootloader-odin/#0001-01-01">https://www.xda-developers.com/samsung-galaxy-s8-note8-bootloader-odin/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>三星正在为Galaxy Note8推出新的更新。这些更新来自一月份的安全更新，它为Spectre和Meltdown漏洞带来了一些补丁，但它也带有一个新的引导加载程序。三星手机上的一个更新带来了一个新的引导程序，这意味着安装这个后，你<strong>不能降级你的手机。这个新的引导装载器还有一个更令人讨厌的秘密:它<b>修补了Comsy王子的改装奥丁</b>的使用。</strong></p>
+
+  
+<p>Odin是三星的一个工具，用来刷新和安装新的固件。三星在构建Android的时候，他们从bootloader中移除了一些类似fastboot的功能，取而代之的是Odin。我们拥有的Odin工具是从三星泄露的，它可以在所有现代三星手机上工作，但只能闪存到具有匹配型号的设备。这就是康西王子的改装奥丁的用武之地。Comsy王子的工具是Odin的一个版本，它被修改为支持非三星签名的三星软件或三星签名的固件的闪存版本，但用于具有相同SoC的不同地区。</p>
+
+
+
+
+
+<p>由于Comsy Odin王子不再与这个新的引导加载程序一起工作，这意味着任何未经三星官方签署的版本都不会刷新。这也意味着，如果你有一部加拿大手机，并想刷新美国固件，你不能再这样做了。这是因为即使它们是由三星签署的，型号也不匹配。不幸的是，这也意味着携带Note8设备的Note8用户不能刷新美国解锁的固件。如果你试图刷新运营商手机解锁固件，它会硬砖你的手机。目前，<strong>没有办法从新的引导装载器从Odin中的硬砖恢复。</strong></p>
+
+<p>如果您使用的是美国未锁定固件，并在发布时更新到新的引导加载程序，您应该仍然能够回到运营商版本，但我们将无法测试这一点，直到发布带有新引导加载程序的美国未锁定固件版本。</p>
+
+<p>虽然美国运营商今天刚刚发布了新的引导加载器版本，但Exynos Note8几周前才开始接收1月份的更新。这些补丁与给科斯米王子改装的奥丁打补丁的引导程序相同。尽管如此，官方签名的版本仍然适用于flashing。</p>
+
+<p>即使新的更新已经在Note8上推出，三星Galaxy S8和Galaxy S8+还没有收到它。然而，在Android Oreo测试版上，附带的引导程序也做了相同的更改。通过Comsy Odin王子闪烁仍然工作的原因是因为bootloader没有熔断，这意味着主板上的efuse已经入罪，不会允许任何程序降级。一旦这些构建获得了新的BLv3版本，它将是永久的并且不可降级，因此对于Galaxy S8用户来说，这将在T2修补根方法和刷新变化中产生相同的效果。</p>
+
+<p> </p>
+
+<p>编辑:经过XDA资深会员me2151的测试，跨区域闪烁确实有效。Comsy Odin王子正在工作，但我们无法测试工厂二进制闪烁是否会硬砖你的手机。所以把我们解锁闪到美国运营商设备上应该可以。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

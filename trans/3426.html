@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Radon Lets You Share Your Links with Friends using ... Ultrasound?</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Radon允许您使用与朋友分享您的链接...超声波？</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/new-app-shares-links-using-ultrasound/#0001-01-01">https://www.xda-developers.com/new-app-shares-links-using-ultrasound/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>我们都熟悉在各种设备之间传输数据的各种无线技术。最常见的是，我们在智能手机上使用WiFi、蓝牙或NFC。</p>
+
+  
+<p>在未来，它可能是紫蜂或者DECT。无论您使用何种技术，它们都有各自的优势。然而，所有这些通信技术的一个缺点是安全性。并不是因为它们都是不安全的通信方式——而是，<strong>它们<em>太</em>安全了！</strong></p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/share.png" rel="attachment wp-att-144469"/></p>
+
+
+
+<p>假设你和你的一群朋友在聚会上发现了一个很棒的链接，你想要分享。你没有和你的朋友分享一些超级机密的银行或投资账户信息，所以你并不在乎这些数据被截取。其实你<em>希望</em>身边的每个人都能收到这个链接！</p>
+
+<p>你是怎么做到的？使用WiFi需要您全部连接到同一个网络。蓝牙无法工作，因为一次只能配对几个设备。NFC只允许一对一的通信。在这种情况下，我们可以使用<strong> <em>超声波</em> </strong>来传输我们想要的数据。一款名为<a href="https://play.google.com/store/apps/details?id=com.nam.radon.app" target="_blank"> Radon </a>的新应用就是这么做的，它允许你自动向附近所有打开了该应用的安卓设备发送链接和文本。</p>
+
+<hr/>
+
+<p>它是如何工作的？</p>
+
+<p>人耳可以接收大约20Hz到20KHz范围内的频率。任何高于或低于这个范围的频率，绝大多数人都听不到(思想狗哨声)。大多数消费媒体设备(即我们的智能手机)被设计成传输该频率范围内的音频。事实上，许多设备的最大输出采样速率为44.1kHz，这意味着峰值频率理论上可以高达一半或22.05kHz。换句话说，几乎不在我们的听觉范围之外。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/frequency.png" rel="attachment wp-att-144470"/></p>
+
+
+
+<p/>
+
+<p>在现实世界中，许多人听不到高达20KHz的频率(这就是为什么许多孩子可以听到他们父母听不到的一些声音)，并且设备扬声器的频率输出没有达到理论上的最大值。但这最终对我们有利，因为我们可以在17kHz和18kHz之间传输数据，而大多数人根本听不到。这就是Azoft R&amp;D公司的研究人员的理论，他们开发了一个iOS移动应用程序来演示其用途。</p>
+
+ 
+<p class="w-rich w-youtube" id="GPntMT_8UuQ">  </p>
+
+
+<p>虽然他们的工作没有得到主流的关注(可能是因为超声波不是及时传输大量数据的合适方法)，但它引起了谷歌的注意，谷歌悄悄地在他们附近的API中实现了它。</p>
+
+<blockquote>
+<p>Nearby使用蓝牙、蓝牙低能耗、Wi-Fi和<strong>近超声波音频</strong>的组合，在设备之间传递唯一的时间配对代码。服务器促进检测到相同配对代码的装置之间的消息交换。当设备检测到来自附近设备的配对代码时，它会将配对代码发送到附近的“信息”服务器进行验证，并检查是否有任何信息要发送给应用程序的当前订阅集。</p>
+ </blockquote>
+<hr/>
+
+<p><strong>使用超声波共享</strong></p>
+
+<p>这些API在Google Play Services 7.8中对所有开发者开放，但直到现在，似乎还没有人真正利用这一能力来发送近超声波音频。</p>
+
+
+
+
+
+<p>当你打开应用程序时，它会要求你启用它来使用附近的API。然后，它将开始扫描任何通过近超声波频率传播的内容。</p>
+
+
+
+
+
+<p>你可以快速发送一个<strong>链接或一些文本</strong>，通过使用共享菜单并点击“Radon光束”来推送数据。在您想要接收数据的设备上打开Radon应用程序，它会自动接收数据，如果是URL，它会自动在浏览器中打开。我禁用了我的两个测试设备上的WiFi、蓝牙和NFC，它很好地共享了URL。</p>
+
+<p>由于超声波的限制，你将无法通过超声波共享图像或视频文件，但该应用程序将后退到WiFi或蓝牙来传输数据。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/Screenshot_20160424-160601.jpg" rel="attachment wp-att-144476"/></p>
+
+
+
+<p/>
+
+<p>没氡气？没问题！你可以将Radon分享给应用程序中的另一个设备。继续，扫描条形码。我知道你想)。无需再进行配对，只需安装应用程序，一切就绪。</p>
+
+<hr/>
+
+<p><strong>你觉得这个app怎么样？尝试一下，让我们知道它是如何为你工作的！</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

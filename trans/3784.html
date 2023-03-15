@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Google App v7.3 Prepares to Add a Notification Listener Service to Intercept Notifications</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Google App v7.3准备添加一个通知监听器服务来拦截通知</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-app-v7-3-prepares-to-add-a-notification-listener-service-to-intercept-notifications/#0001-01-01">https://www.xda-developers.com/google-app-v7-3-prepares-to-add-a-notification-listener-service-to-intercept-notifications/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌应用v7.3.16测试版正在Play Store上向用户推出，虽然我们传统的APK拆卸并没有透露太多我们认为有趣的信息，但有一个功能我认为值得分享。Android Manifest文件中的新字符串实现了一个<a href="https://developer.android.com/reference/android/service/notification/NotificationListenerService.html">通知监听器服务</a>,它暗示了谷歌应用程序可以拦截你的通知的可能性。具体出于什么目的，目前只能推测。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>虽然APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都有可能不会出现在未来的版本中。这是因为这些功能目前还没有在live build中实现，可能会在未来的版本中随时被Google拉出来。</p> </div></section>
+<hr/>
+
+
+<h2 id="google-app-v7-3-apk-teardown">谷歌应用7.3版APK拆卸</h2>
+<p>现在我知道你们中的一些人可能会想:“谷歌应用程序不是已经支持通知了吗？”是的，但这不是我们在这里谈论的。Google App支持的通知是针对Google Now发送给你的各种提醒和更新。通知监听器服务允许谷歌应用程序拦截由其他应用程序发布的通知。</p>
+
+
+
+
+
+<p>Android清单文件中包含了新的通知监听器服务。老实说，除了它确实存在这一事实之外，这里没什么可说的。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">service</span> <span class="hljs-attr">android:enabled</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">android:exported</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.google.android.apps.gsa.notificationlistener.GsaNotificationListenerService"</span> <span class="hljs-attr">android:permission</span>=<span class="hljs-string">"android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"</span> <span class="hljs-attr">android:process</span>=<span class="hljs-string">":interactor"</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.service.notification.NotificationListenerService"</span>/&gt;</span><br/><span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span><br/><span class="hljs-tag">&lt;/<span class="hljs-name">service</span>&gt;</span></code> </pre>
+<p>Google应用程序使用相应的显式广播接收器来对发布/移除通知做出反应。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">receiver</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.google.android.apps.gsa.staticplugins.ipa.notifications.IpaBroadcastReceiver"</span> <span class="hljs-attr">android:process</span>=<span class="hljs-string">":interactor"</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.google.android.apps.gsa.notificationlistener.NOTIFICATION_LISTENER_SERVICE_CONNECTED"</span>/&gt;</span><br/><span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span><br/><span class="hljs-tag">&lt;/<span class="hljs-name">receiver</span>&gt;</span></code> </pre>
+<p>在一个新的smali文件(位于com/Google/Android/apps/GSA/notification listener中的d.smali)中，有更多关于这一点的证据:</p>
+
+<pre> <code class="hljs javascript">invoke-virtual {p0}, Landroid/content/Context;-&gt;getContentResolver()Landroid/content/ContentResolver;<br/><br/>move-result-object v1<br/><br/><span class="hljs-keyword">const</span>-string v2, <span class="hljs-string">"enabled_notification_listeners"</span><br/><br/>invoke-<span class="hljs-keyword">static</span> {v1, v2}, Landroid/provider/Settings$Secure;-&gt;getString(Landroid/content/ContentResolver;Ljava/lang/<span class="hljs-built_in">String</span>;)Ljava/lang/<span class="hljs-built_in">String</span>;<br/><br/>move-result-object v1</code> </pre>
+<p>对字符串“enabled_notification_listeners”的引用是指设置。同名的安全首选项，包含以冒号分隔的已启用通知监听程序服务列表。</p>
+
+<p>此时，通知侦听器服务不能在实时构建中启用，所以我们不能确切地确认它将用于什么。然而，如果我们稍微推测一下，我们认为这可能是指我们上个月发现的<a href="https://www.xda-developers.com/google-app-7-0-4-prepares-for-multi-user-hotword-detection-rating-services-and-references-a-device-called-bisto/">“Bisto”设备类型</a>。当时，谷歌应用程序被拆除，显示Bisto将是一种耳机，你可以通过它收听通知。但监听你手机所有通知的唯一方法是，如果该应用程序启用了通知监听服务，那么这是我们最有可能的解释。</p>
+
+<hr/>
+
+<p>如果我在实时构建中或者通过APK的拆除发现了什么有趣的东西，我会继续挖掘并更新这篇文章。如果你正在寻找谷歌应用程序的最新版本，你现在就可以在<a href="https://www.apkmirror.com/apk/google-inc/google-search/google-search-7-3-16-release/"> APKMirror </a>下载。关注我们的<a href="https://www.xda-developers.com/tag/apk-teardown/"> APK拆卸标签</a>获取更多类似的文章！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

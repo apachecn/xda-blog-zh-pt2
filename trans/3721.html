@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>How to Add Left/Right Keyboard Cursors to the Nav Bar during Text Input</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在文本输入时将左/右键盘光标添加到导航条</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-add-leftright-keyboard-cursors-to-the-nav-bar-during-text-input/#0001-01-01">https://www.xda-developers.com/how-to-add-leftright-keyboard-cursors-to-the-nav-bar-during-text-input/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>自从谷歌推出搭载Android 4.0冰淇淋三明治的<a href="https://forum.xda-developers.com/galaxy-nexus"> Galaxy Nexus </a>以来，定制导航栏一直是定制rom的主要内容(我们不谈论摩托罗拉Xoom和蜂巢围绕这些部分)。虽然一些原始设备制造商在他们的手机上提供了某种软件按键定制，但只有在<a href="https://www.xda-developers.com/google-announces-android-o-developer-preview-1-available-for-supported-devices/">第一次Android O开发者预览版</a>中，谷歌才正式包括<a href="https://www.xda-developers.com/android-o-preview-brings-nav-bar-customization-under-system-ui-tuner/">导航条定制</a>。然而，我们论坛上的用户发现，自Android Nougat 以来，谷歌的导航条调谐器实际上<a href="https://forum.xda-developers.com/nexus-6p/themes-apps/mod-enable-navbar-tuner-nougat-t3447478">隐藏在AOSP，但直到本周我们才发现，这个隐藏的导航条调谐器可以通过shell命令</a><a href="https://www.xda-developers.com/nav-bar-customization-was-hidden-in-stock-nougat-all-along-and-it-never-needed-root/">访问，而不需要root、自定义rom或系统UI模块</a>。现在可以实现流行的自定义ROM功能了吗，比如在导航条上添加键盘光标？</p>
+
+  
+<p>没错，这一发现为无根的导航条定制打开了闸门，站在最前沿的是XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=6018897"> paphonb </a>，他开发了一个名为<a href="https://forum.xda-developers.com/android/apps-games/app-custom-navigation-bar-customize-t3590967">定制导航条</a>的应用程序，帮助用户修改导航条，而不必运行shell命令。他的应用程序功能丰富；例如，它提供了一个<a href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm">任务器</a>插件，所以你可以根据上下文改变导航条。由于许多用户不熟悉Tasker，我写这些教程来帮助用户利用导航条定制。</p>
+
+<p>在本教程中，我将向你展示如何<strong>在键盘显示时将左/右键盘光标添加到导航条(Android 7.0+，不需要root！)</strong>这个教程类似于我为<a href="https://www.xda-developers.com/how-to-add-leftright-cursors-to-the-nav-bar-during-text-input-on-android-o/"> Android O用户</a>写的那个，但是这个教程会更容易理解，因为它在Android牛轧糖上工作。</p>
+
+ 
+<p class="w-rich w-youtube" id="SKdWwwJC2S0">  </p>
+
+
+<p>是的，是的，我们知道快捷键和Gboard都有内置的键盘光标。然而，并不是每个键盘都这样做，在我看来，使用导航条上的按钮比使用Swiftkey(占用空间)或Gboard(需要不精确地滑过空格键或切换到特殊模式)中的按钮更方便。</p>
+
+<hr/>
+
+<p><strong>推荐阅读1 </strong> : <a href="https://www.xda-developers.com/how-to-change-your-nav-bar-icons-or-re-arrange-the-buttons-without-root/">如何改变你的导航条图标或者重新排列没有根的按钮</a></p>
+
+<p><strong>推荐阅读2: </strong> <a href="https://www.xda-developers.com/how-to-add-media-playback-controls-to-the-nav-bar-when-playing-music/">如何在播放音乐时给导航条添加媒体播放控件</a></p>
+
+<hr/>
+
+
+<h2 id="add-left-right-keyboard-cursors-to-the-nav-bar-during-text-input">在文本输入过程中向导航条添加左/右键盘光标</h2>
+<h3 id="requirements">要求</h3>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_11"><p><strong>系统</strong> <strong>需求</strong>:你需要一个兼容AOSP导航条定制器的Android 7.0+设备。已知谷歌Nexus、Pixel和一些索尼/HTC手机可以工作。大多数接近库存Android的设备很可能没有删除AOSP导航条定制器，应该可以工作。这意味着它可能无法在你的LG、三星或华为/Honor设备上运行。见本帖第一篇<a href="https://forum.xda-developers.com/android/apps-games/app-custom-navigation-bar-customize-t3590967">的“兼容性”部分。(注意:您设备的OEM可能没有列在该线程中。要确定你的设备是否兼容，唯一的方法就是试用这个应用程序，我们将在下面告诉你怎么做。)</a></p><p><strong> App需求:</strong></p> </div></section>
+<p>我们需要自定义导航条的原因很明显——这个应用程序允许我们修改导航条来显示这些媒体播放键。(从技术上来说，我们实际上并不需要这个应用程序来进行这些修改，因为我们可以使用shell命令或其他Tasker插件，但是为了让我们的用户更容易，我们将展示如何使用这个精彩的应用程序进行设置。)AutoInput Beta是一个Tasker插件，它将帮助我们检测键盘何时显示(从技术上讲，该插件将检测文本输入框何时显示，而不是键盘本身何时显示，但这是我们能够获得的最接近的结果)。最后，Tasker在AutoInput Beta和自定义导航栏之间架起了一座桥梁。</p>
+
+<h3 id="setup-custom-navigation-bar">设置:自定义导航栏</h3>
+<p>我们需要做的第一件事是确保你可以修改你设备上的导航条。如果你的设备是在<a href="https://forum.xda-developers.com/android/apps-games/app-custom-navigation-bar-customize-t3590967/">自定义导航栏线程</a>中列出的兼容设备之一，那么它很有可能是兼容的。我们可以通过运行这个应用程序附带的简短教程来验证。</p>
+
+<p>从谷歌Play商店安装应用<a href="https://play.google.com/store/apps/details?id=xyz.paphonb.systemuituner">，然后打开应用并继续进入介绍性屏幕。自定义导航栏将要求您授予它一个名为WRITE_SECURE_SETTINGS的特定权限，以便继续使用该应用程序。有两种方法可以做到这一点，如申请中所述。</a></p>
+
+<ol> <li>如果您有根设备，自定义导航栏将请求超级用户访问。授予它，应用程序将自动授予自己此权限。</li> <li>如果您的设备不是根设备，那么您需要通过ADB授予许可。在机器上打开命令提示符/终端，然后输入以下命令:<code>adb shell pm grant xyz.paphonb.systemuituner android.permission.WRITE_SECURE_SETTINGS</code></li> </ol>
+
+<p>一旦你通过上述两种方法中的任何一种授予应用程序此权限，那么应用程序将继续进行兼容性测试。如果你的导航条没有变化，那么你很不幸的不走运。如果你的导航条变成显示一个右箭头按钮，那么恭喜你的设备是受支持的！我们现在可以继续修改我们的导航栏。</p>
+
+
+
+
+
+<h3 id="setup-autoinput-beta">Setup: AutoInput Beta</h3>
+<p>为了让AutoInput Beta检测文本输入框何时显示，我们必须启用它的辅助功能服务。你只需进入设置-&gt;辅助功能(取决于你的设备，它可能在另一个子菜单中)并在服务列表中找到自动输入。点击它，然后点击切换到顶部，以启用辅助功能服务。</p>
+
+
+
+
+
+<hr/>
+
+<h3 id="tutorial">辅导的</h3>
+<p>一旦您确认自定义导航栏与您的设备兼容，并且为AutoInput Beta启用了辅助功能服务，就该进行设置了。我们需要做的第一件事是在自定义导航栏中创建一个新的配置文件，当启用时，会将左/右键添加到我们的导航栏中。以下是逐步说明:</p>
+
+<ol> <li>打开自定义导航栏应用程序，点击自动化部分下的<strong>个人资料</strong>。</li> <li>点击右上角的<strong> + </strong>图标，添加新的个人资料。</li> <li>点击刚刚创建的个人资料。</li> <li>在配置文件部分，点击名称，并将此配置文件命名为<strong>键盘光标</strong>。</li> <li>在“额外左按钮”下点击<strong>类型</strong>。将类型设置为<strong>键码</strong>。</li> <li>在“额外的左按钮”下应该有两个新的选项叫做键码和图标。点击<strong>键码</strong>。</li> <li>向下滚动并选择<strong> Dpad Left </strong>。</li> <li>现在点击“额外左按钮”部分下的<strong>图标</strong>。</li> <li>选择<strong>人字形左</strong>图标。</li> <li>对“额外的右按钮”重复步骤5-9但是，将键码设置为<strong> Dpad Right </strong>并将图标设置为<strong> chevron right </strong>。</li> <li>回到剖面图部分的顶部，点击<strong>启用</strong>来测试该剖面图。如果你看到导航条上弹出一个左右箭头，那么这是正常的。</li> </ol>
+
+
+
+
+
+<p>现在我们已经设置了自定义导航栏配置文件，我们准备设置Tasker配置文件，它将在检测到/消失文本输入时启用/禁用此配置文件。所有这些都将在一个概要文件中完成。以下是说明:</p>
+
+<ol> <li>打开Tasker，点击右下角的<strong> + </strong>图标创建一个新档案。</li> <li>选择<strong>事件</strong>上下文。</li> <li>选择<strong>插件- &gt;自动输入- &gt; UI动作</strong>。点击铅笔图标打开自动输入配置。</li> <li>一旦进入自动输入UI动作配置，点击<strong>动作类型</strong>。选择<strong>输入元素聚焦</strong>和<strong>输入元素聚焦丢失</strong>。忽略元素文本部分。完成后，点击顶部的勾号图标。</li> <li>返回Tasker的主屏幕，Tasker会要求您将任务附加到此配置文件。选择创建新任务。不要为任务命名。</li> <li>点击底部中间的<strong> + </strong>图标，为该任务添加一个操作。</li> <li>如果，则进入<strong>任务- &gt;。如果%aifocus ~ true </strong>，则设置为<strong>。～是“匹配”</strong></li> <li>第二个动作，进入<strong>插件- &gt;自定义导航栏</strong>。点击铅笔图标打开配置。对于该动作，选择<strong>启用配置文件</strong>。在选择配置文件下，选择我们之前制作的<strong>键盘光标</strong>配置文件。</li> <li>对于第三个动作，转到<strong>任务- &gt;其他</strong>。</li> <li>第四个动作，进入<strong>插件- &gt;自定义导航栏</strong>。点击铅笔图标打开配置。对于操作，选择<strong>禁用个人资料。</strong>在选择轮廓下，再次选择<strong>键盘光标</strong>轮廓。</li> <li>对于最后一个动作，转到<strong>任务- &gt;结束If。</strong></li> <li>按back，退出任务编辑屏幕。</li> </ol>
+
+
+
+
+
+<p>一旦你完成了上面所有的步骤，我们就完成了！继续尝试，打开任何文本输入框，看看你的导航条是否改变，以包括左/右键盘光标。如果它不起作用，请仔细检查AutoInput的辅助功能服务是否已启用。</p>
+
+<hr/>
+
+<h3 id="using-shell-commands">使用Shell命令</h3>
+<p>鉴于使用XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=6018897"> paphonb </a>的<a href="https://forum.xda-developers.com/android/apps-games/app-custom-navigation-bar-customize-t3590967">定制导航栏</a>应用程序是如此简单，我真的不认为有必要提供详细的分步说明，说明如何使用其他Tasker插件，如<a href="https://forum.xda-developers.com/android/apps-games/app-custom-navigation-bar-customize-t3590967"> SecureTask </a>或<a href="https://play.google.com/store/apps/details?id=com.joaomgcd.autotools&amp;hl=en">自动工具</a>(或Tasker中的run shell功能)。然而，这当然是可能的，至少我会提供一个不使用paphonb的应用程序复制这个设置所需的命令的摘要。</p>
+
+<p>您需要做的第一件事是安装SecureTask或AutoTools。您将需要授予WRITE_SECURE_SETTINGS权限来控制您选择的应用程序，以便控制导航栏调谐器。</p>
+
+<p>对于SecureTask:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.balda</span><span class="hljs-selector-class">.securetask</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre>
+<p>对于自动工具:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.joaomgcd</span><span class="hljs-selector-class">.autotools</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre>
+<p>接下来，您需要下载将用于上一个/下一个键的图标。你将需要PNG格式的图标，至于大小，你可以通过在Material.io 上查找你的<a href="https://material.io/devices/">设备的显示密度指标并将其与</a><a href="http://iconhandbook.co.uk/reference/chart/android/">图标大小参考图表</a>相关联来确定你需要的图标大小。IconsDB.com是免费图标的好资源。将您将要用作left.png和right.png的图标保存在存储根目录下的/NavIcons文件夹中。</p>
+
+<p>最后，您将输入以下命令来显示媒体控制按钮:</p>
+
+<pre> <code class="hljs xml">settings put secure sysui_nav_bar <span class="hljs-string">"key(21:file:///storage/emulated/0/NavIcons/left.png),back;home;recent,key(22:file:///storage/emulated/0/NavIcons/right.png)"</span></code> </pre>
+<p>其中键#21指<a href="https://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_DPAD_LEFT">键码_ DPAD _左</a>，键#22指<a href="https://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_DPAD_RIGHT">键码_ DPAD _右</a>。</p>
+
+<p>然后将导航条键恢复到默认布局(即文本输入焦点已丢失)，输入该命令:</p>
+
+<pre> <code class="hljs xml">settings put secure sysui_nav_bar <span class="hljs-string">"space,back;home;recent,menu_ime"</span></code> </pre>
+<p>本质上，Tasker配置文件的设置将与上面的设置完全相同，除了在两个自定义导航栏Tasker操作的位置，您将使用SecureTask/AutoTools/Run Shell。请注意，除非您是rooted用户并使用Tasker中的“run shell”操作，否则将这些命令导入SecureTask或AutoTools的过程完全由您决定。这真的不难做到，但许多用户发现只使用paphonb的应用程序更容易使用，所以我不会在这里进行更多的细节。</p>
+
+<hr/>
+
+<h3 id="conclusion">结论</h3>
+<p>本教程到此为止。当我发现改变你的导航条有更多的实际用途时，我会偶尔发布一些教程，特别是在使用Tasker这样的自动化应用程序时。如果你有任何聪明的想法，但不知道如何自己实现，请使用我们的<a href="https://www.xda-developers.com/tip-us/">提示表</a>给我们发消息，或者直接给我们发电子邮件，我们会尽最大努力解决它！</p>
+
+<p>请尽你所能支持XDA开发者！我们最近发现，有几个博客剪切、复制、粘贴了我们的原始教程和我们的用户在论坛上分享的其他内容。这些博客一直试图将我们在编写这些教程中所做的大量努力归功于自己，而不是自己提供高质量的内容。你不会在我们的<a href="https://www.xda-developers.com/category/tutorials/">教程类别</a>中找到这样的教程，也不会在其他地方找到来自我们论坛的教程。</p>
+
+<p>在推特、<a href="https://plus.google.com/+xda">谷歌+ </a>、<a href="https://www.facebook.com/xda.developers/">脸书</a>或<a href="https://www.youtube.com/user/xdadevelopers"> YouTube </a>上关注我们。查看我们的<a href="https://www.xda-developers.com/xda-labs/"> XDA实验室</a>应用程序，快速浏览我们的论坛(并考虑获得<a href="https://forum.xda-developers.com/ad-free/"> XDA无广告</a>！)上，如果你有一台OnePlus 3或OnePlus 3T，请查看我们最近发布的<a href="https://www.xda-developers.com/introducing-xda-feed/"> XDA Feed </a>应用程序！谢谢，请继续关注我们的下一个教程！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

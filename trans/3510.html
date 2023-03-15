@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>Sony IMX378: Comprehensive Breakdown of the Google Pixel's Sensor and its Features</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>索尼IMX378:谷歌Pixel的传感器及其功能的全面分解</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/sony-imx378-comprehensive-breakdown-of-the-google-pixels-sensor-and-its-features/#0001-01-01">https://www.xda-developers.com/sony-imx378-comprehensive-breakdown-of-the-google-pixels-sensor-and-its-features/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+
+<h2 id="imx378-overview">IMX378概述</h2>
+<p/><p>我们联系了索尼，试图了解更多关于即将推出的谷歌<a href="http://forum.xda-developers.com/pixel"> <span> Pixel </span> </a> <span>和</span> <a href="http://forum.xda-developers.com/pixel-xl"> <span> Pixel XL </span> </a> <span>手机以及</span> <a href="http://forum.xda-developers.com/mi-5s"> <span>小米Mi 5S </span> </a> <span>使用的IMX378传感器。不幸的是，索尼目前还不能分发Exmor RS IMX378传感器的数据手册，但他们非常有帮助，能够为我们提供一些以前未发布的关于IMX378的信息。</span></p>
+
+  
+<p>首先，这个名字本身就是错误的。尽管有传言称它将成为背面照明(BSI) CMOS传感器的一部分，就像之前用于5X<span/><a href="http://forum.xda-developers.com/nexus-6p"><span>Nexus 6P</span></a><span>的IMX377一样，但我们在索尼的联系人告诉我们，IMX378将被视为索尼</span>【T28】的一部分</p>
+
+<p>从IMX377到IMX378，许多东西都保持不变，包括像素尺寸(1.55微米)和传感器尺寸(7.81毫米)，但增加了一些关键功能。也就是说，它现在是一个堆叠的BSI CMOS设计，它有PDAF，它增加了索尼的SME-HDR技术，它对高帧率(慢动作)视频有更好的支持。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="stacked-bsi-cmos">堆叠BSI CMOS</h2>
+<p>从2010年的 <a href="http://forum.xda-developers.com/htc-evo-4g"> <span> HTC Evo 4G </span> </a> <span>开始，背面照明本身就是一个非常有用的功能，在过去几年里几乎已经成为旗舰智能手机的标准。它允许相机通过移动一些传统上位于前置照明传感器上的光电二极管前面的结构来捕捉更多的光(以更多噪声为代价)。</span></p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/Backside-Illumination-CMOS-Sensor-Design.jpg"/></p>
+
+
+
+<p/>
+
+<p>令人惊讶的是，与大多数相机技术不同，背面照明最初是在DSLRs之前出现在手机中的，这在很大程度上是因为难以制造更大的BSI传感器。第一个BSI APS-C传感器是2014年在他们的NX1相机中发现的三星S5KVB2，第一个全画幅传感器是去年在索尼α7R II中发现的索尼Exmor R IMX251。</p>
+
+<p><span>堆叠BSI CMOS技术将更多电路从前层移到光电二极管后面的支撑基板上，从而更进一步。这不仅允许索尼大幅减小图像传感器的尺寸(允许在相同的占地面积中使用更大的传感器)，还允许索尼单独印刷像素和电路(即使在不同的制造工艺上)，降低缺陷风险，提高产量，并允许光电二极管和支持电路之间更加专业化。</span></p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/Sony-Exmor-R-vs-Exmor-RS-BSI-vs-Stacked-BSI-CMOS-image-sensor.png"/></p>
+
+
+
+<p/>
+<p class="ad-even"> </p>
+
+
+<h2 id="pdaf">PDAF</h2>
+<p/><p><span><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/Phase-Detection-Autofocus-PDAF-Example-by-cmglee.png"><img class="alignright size-medium wp-image-155920" src="../Images/d2fe3352cf34aaa81865b2481bc41cee.png" alt="Phase Detection Autofocus PDAF Example by cmglee" data-original-src="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/Phase-Detection-Autofocus-PDAF-Example-by-cmglee-121x300.png"/></a>imx 378增加了相位检测自动对焦，而去年的Nexus手机和IMX377都不支持</span> <span>。它允许相机有效地利用传感器上不同点之间的光强差异来识别相机试图聚焦的对象是在焦点前面还是后面，并相应地调整传感器。与我们过去在许多相机上看到的传统的基于对比度的自动对焦相比，这在速度和精度上都是一个巨大的进步。因此，我们看到了使用PDAF的手机的绝对爆炸，它已经成为一个巨大的营销流行语，被视为整个行业相机营销的核心。</span></p>
+
+<p/><p><span>虽然不像</span> <a href="http://forum.xda-developers.com/galaxy-s7"> <span>三星Galaxy S7 </span> </a> <span>拥有的双光电二极管PDAF(也称为</span> <i> <span>【双像素PDAF】</span></i><span>和</span> <i> <span>【双像素自动对焦】</span> </i> <span>)那样快速对焦，但通过每个像素包括两个光电二极管，允许每个像素用于相位检测，PDAF和激光自动对焦的合并应该仍然是一个有力的组合。</span></p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="high-frame-rate">高帧速率</h2>
+<p>最近有很多关于高帧率相机的讨论(包括消费应用和专业电影制作)。能够以更高的帧速率拍摄既可以用来以常规速度创建令人难以置信的流畅视频(这对于体育和其他高速场景来说可能是梦幻般的)，也可以用来在放慢一切速度时创建一些真正 <a href="http://www.xda-developers.com/xda-external-link/showcase-of-240fps-slow-motion-video-on-the-nexus-6p/"> <span>有趣的视频</span> </a> <span>。</span></p>
+
+<p><span><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/Slow-Motion-Pineapple-Falling-Into-Water.jpg"/>T2】</span></p>
+
+
+
+<p>不幸的是，以更高的帧率拍摄视频极其困难，即使你的相机传感器可以以更高的帧率拍摄，手机的图像信号处理器也很难跟上。这就是为什么在Nexus 5X和6P中使用的IMX377可以拍摄300 Hz的720p视频和120 Hz的1080p视频，而我们在Nexus 5X中只能看到120 Hz的720p和240 Hz的720p。IMX377也能够播放60赫兹的4k视频，尽管Nexus设备被限制在30赫兹。</p>
+
+<p><span>Pixel手机都能够提供高达120 Hz的1080p视频和240 Hz的720p视频，这在一定程度上要归功于IMX378的改进，imx 378在1080p下的能力提高到了240 Hz。</span></p>
+
+<p><span>该传感器还能够更快地拍摄全分辨率连拍，在10位输出时步进至60赫兹，在12位输出时步进至40赫兹(分别从40赫兹和35赫兹上升)，这应有助于减少使用HDR+时的运动模糊和相机抖动。</span></p>
+<p class="ad-even"> </p>
+
+
+<h2 id="sme-hdr">SME-HDR</h2>
+<p>传统上，HDR对于视频一直是一种取舍。你要么把帧速率减半，要么把分辨率减半。因此，许多原始设备制造商甚至都不在乎它，三星和索尼是少数几个实施它的公司之一。即使是 <a href="http://forum.xda-developers.com/note-7"> <span>三星Galaxy Note 7 </span> </a> <span>也仅限于1080p 30 Hz录制，部分原因是HDR视频的计算成本很高。</span></p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/RED-HDRx-Demonstration.png"/></p>
+
+
+
+<p/>
+
+<p><span>HDR视频的两种主要传统方法中的第一种，Red Digital Cinema Camera Company称之为</span><span><a href="http://www.red.com/learn/red-101/hdrx-high-dynamic-range-video">【HDRx】</a>，Sony称之为数字重叠HDR ( <a href="http://www.sony-semicon.co.jp/products_en/IS/sensor2/technology/dol-hdr.html"> DOL-HDR </a> ) </span> <span>，通过拍摄两个连续的图像，一个曝光较暗，一个曝光较亮，并将它们合并在一起创建一个视频帧。虽然这允许您保持相机的全分辨率(并为两个单独的帧设置不同的快门速度)，但由于两帧之间的时间差(尤其是对于快速移动的对象)，这通常会导致问题。此外，处理器可能很难跟上，就像多尔HDR一样，手机的ISP负责将独立的帧合并在一起。</span></p>
+
+<p><span>另一种传统方法，索尼称之为宁滨多路曝光HDR (BME-HDR)，为传感器中两行像素的每对</span> <a href="http://developer.sonymobile.com/2013/01/22/shoot-great-videos-in-all-conditions-with-the-new-hdr-functionality-in-xperia-z/"> <span>设置不同的曝光设置，以同时创建两个半分辨率图像，然后将它们合并为一个HDR帧用于视频。虽然这种方法避免了与HDRx相关的问题，即帧速率的降低，但它也有其他问题，特别是分辨率的降低以及如何在两组线之间改变曝光的限制。</span></a></p>
+
+<p><span><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/BME-HDR-RGBG-Bayer-Filter-Example-Image.png"/>T2】</span></p>
+
+
+
+<p/>
+
+<p>空间复用曝光(SME-HDR)是索尼正在使用的一种新方法，允许他们以传感器能够支持的全分辨率和全帧速率拍摄HDR。它是<a href="http://www.cs.cmu.edu/~ILIM/projects/IM/assorted/">空间变化曝光</a>的变体，使用专有算法使索尼能够从暗像素和亮像素中捕捉信息，这些像素以棋盘风格的模式排列，并推断暗曝光和亮曝光图像的全分辨率图像。</p>
+
+<p>不幸的是，索尼无法向我们提供关于确切模式的更详细的解释，他们可能永远也不会透露它——当涉及到尖端技术时，公司往往会保守秘密，就像我们在HDR看到的那样，甚至谷歌也有自己的HDR照片专有算法，称为HDR+。尽管如此，仍然有一些公开的信息，我们可以用来拼凑如何实现它。哥伦比亚大学的Shree K. Nayar已经发表了几篇论文(<a href="https://scholar.google.ca/scholar?cluster=16720089453645910068&amp;hl=en&amp;as_sdt=0,5">其中一篇</a>是与索尼的Tomoo Mitsunaga合作的)，其中包含了使用空间变化曝光的不同方法，以及可以实现它的不同布局。下面是一个RGBG图像传感器的四级曝光布局示例。这种布局声称能够实现单次捕获全分辨率HDR图像，而空间分辨率只有大约20%的损失，这取决于场景(索尼声称为SME-HDR取得了相同的成就)。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/Spatially-Varying-Exposure-SME-HDR-RGBG-Example.jpg"/></p>
+
+
+
+<p/>
+
+<p><span>索尼已经在几个图像传感器中使用了SME-HDR，包括最近很受欢迎的IMX214(用于</span> <a href="http://forum.xda-developers.com/zenfone-3"> <span>华硕Zenfone 3 </span> </a> <span>激光，</span> <a href="http://forum.xda-developers.com/moto-z"> <span> Moto Z </span> </a> <span>，以及</span><a href="http://forum.xda-developers.com/xperia-x-performance"><span>Xperia X Performance</span></a><span>)，但与IMX377相比，它是IMX378的新成员它允许相机传感器在SME-HDR激活的情况下以60 Hz输出10位全分辨率和4k视频。虽然该过程中其他地方的瓶颈将导致更低的限制，但这是对IMX377能力的巨大改进，是未来好事情的迹象。</span></p>
+
+<p>与IMX377相比，IMX378的一大改进是它能够在片内处理更多的图像处理，减少了ISP的工作量(尽管ISP仍然能够请求原始图像数据，这取决于OEM如何决定使用传感器)。它可以处理许多小事情，如缺陷纠正和本地镜像，但更重要的是，它还可以处理BME-HDR或SME-HDR，而不必涉及ISP。这可能是未来的一个重大变化，为ISP在未来手机上节省了一些开销。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/Sony-Full-Frame-APS-C-and-12.322-Exmor-CMOS-Sensors.jpg"/></p>
+
+
+
+<p/>
+
+<p>我们要再次感谢索尼为创作这篇文章提供的所有帮助。我们非常感谢索尼在帮助确保这一功能的准确性和深度方面所做的努力，特别是让我们发现了一些以前未发布的关于IMX378的信息。</p>
+
+<p>话虽如此，但很难获得这些信息，甚至是基本的产品信息，这真的很遗憾。当公司试图在网站上发布信息时，这些信息往往是不可访问和不完整的，这在很大程度上是因为它往往被视为公司员工的次要问题，因为他们更专注于自己的主要工作。一个专门处理公共关系的人可以在向公众提供和获取这类信息方面发挥巨大作用，我们看到一些人在空闲时间试图这样做。甚至在 <a href="https://en.wikipedia.org/wiki/Exmor"> <span>索尼Exmor </span> </a> <span>维基百科的文章本身上，一个人在几个月的空闲时间里奠定了大部分基础，从一篇几乎无用的</span><a href="https://en.wikipedia.org/w/index.php?title=Exmor&amp;oldid=617031964"><span>1715字节的文章</span> </a> <span>几年来几乎相同，到我们今天看到的大约5万字节的文章，有185个不同的编辑。这篇文章可以说是网上关于索尼Exmor传感器系列的最佳信息库，我们可以在其他文章中看到非常相似的模式。一个专门的作家可以在消费者比较不同产品的难易程度以及感兴趣的消费者对该主题的了解程度方面产生重大影响，这可能会产生深远的影响。但这是另一个话题了。</span></p>
+
+<p>和往常一样，我们想知道这些硬件的变化会如何影响设备本身。我们很明显不会获得4k 60 Hz HDR视频(可能根本不会获得HDR视频，因为谷歌还没有提到它)，但更快的全分辨率拍摄可能会对HDR+有很大帮助，我们将看到新传感器的改进以其他类似的小而实质性的方式渗透到手机中。</p>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/10/Google-Pixel-Phones-EIS-On-and-Off-Comparison.jpg"/></p>
+
+
+
+<p/>
+
+<p>虽然DXOMark <a href="http://www.xda-developers.com/meet-the-new-google-pixel-and-google-pixel-xl/">将Pixel </a>手机列为表现略好于三星Galaxy S7和HTC 10，但让Pixel手机领先的许多因素都是重大的软件改进，如HDR+(它产生了绝对精彩的结果，DXOMark专门用了一整节的篇幅来评论它)和谷歌的特殊EIS系统(可以与OIS协同工作)，该系统每秒钟对陀螺仪进行200次采样，以提供我们见过的最好的电子图像稳定。是的，Pixel手机有一个很棒的摄像头，但如果加上OIS和双像素PDAF，它们会更好吗？绝对的。</p>
+
+<p>不要误会我的意思，正如我所说，Pixel手机有一个绝对令人惊叹的摄像头，但你不能真的责怪我想要更多，特别是当这些改进的道路如此清晰时(当手机定价为全旗舰定价时，你会期望最好的最好)。总有一部分的我想要更多，想要更好的电池寿命，更快的处理器，更好的电池寿命，更亮更生动的屏幕，更响的扬声器，更好的摄像头，更多的存储，更好的电池寿命，最重要的是，更好的电池寿命(再次)。也就是说，Pixel手机有许多奇妙的小功能，它们可以组合在一起，创造出一个真正有前途的设备，我很高兴看到这一点。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Google Adds Brotli Compression to Deliver Faster OTA Android Updates</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌增加了Brotli压缩，以提供更快的OTA Android更新</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-brotli-compression-faster-ota-updates/#0001-01-01">https://www.xda-developers.com/google-brotli-compression-faster-ota-updates/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>OTA更新的大小不是大多数人真正考虑的事情，因为更新通常会通过WiFi在后台自动下载，但它实际上是服务器后端的一个大问题。即使只保存几兆字节的数据也会产生巨大的影响，因为潜在的成千上万的用户会成倍地增加收益。为此，谷歌一直在努力将T4的Brotli压缩算法引入安卓系统，以加快OTA更新速度。</p>
+
+ 
+<h2 id="what-is-the-brotli-compression-algorithm">什么是Brotli压缩算法？</h2>
+<p>Brotli是一种由少数谷歌员工开发的压缩算法，与GZIP等其他算法相比，它显著提高了压缩率，同时也展示了令人印象深刻的解压缩速度。缺点是用Brotli算法压缩文件相当慢，所以在压缩动态内容时一般避免使用。</p>
+
+
+
+
+
+<p/><p><em>压缩基准。来源:<a href="https://www.opencpu.org/posts/brotli-benchmarks/">耶鲁安Ooms</a>T3】</em></p>
+
+<p>另一方面，任何静态内容，如<a href="https://www.xda-developers.com/xda-external-link/brotli-a-new-compression-algorithm-will-help-speed-up-chrome/">网页</a>都适合通过Brotli算法进行压缩。这包括从谷歌Play商店下载的应用程序文件。由于有超过20亿的安卓设备<a href="https://www.theverge.com/2017/5/17/15654454/android-reaches-2-billion-monthly-active-users"/>，当从Play Store提供补丁文件时，即使删除少量数据也会给谷歌带来巨大的收益。Brotli算法用于<a href="https://students.googleblog.com/2017/02/intern-impact-brotli-compression-for.html?m=1"> Play Store应用下载</a>时，每天为用户<strong>节省1.5 Pb(150万GB)的数据</strong>。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Brotli-Play-Store-1024x488.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Brotli Compression Algorithm versus GZIP for Play Store Downloads. Credits: &lt;a href=\&quot;https:\/\/students.googleblog.com\/2017\/02\/intern-impact-brotli-compression-for.html?m=1\&quot;&gt;Google Student Blog&lt;\/a&gt;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Brotli-Play-Store-1024x488.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Brotli-Play-Store-1024x488.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Brotli-Play-Store-1024x488.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Brotli-Play-Store-1024x488.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Brotli Compression Algorithm Play Store" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Brotli-Play-Store-1024x488.png" src="../Images/26a5988c4d07bc297ba3fb034dd0785f.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Brotli-Play-Store-1024x488.png"/> </picture> <figcaption class="body-img-caption">Brotli Compression Algorithm versus GZIP for Play Store Downloads. Credits: <a href="https://students.googleblog.com/2017/02/intern-impact-brotli-compression-for.html?m=1">Google Student Blog</a></figcaption> </figure> </div>
+
+
+ </div>
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="how-will-brotli-improve-ota-updates">Brotli将如何改进OTA更新？</h2>
+<p>现在，OTA更新不像Play Store应用程序更新那样频繁地提供给用户，但相比之下，它们往往要大得多。例如，压缩前的完整OTA包的大小可以是2gb。一个OTA包能保存多少数据？</p>
+
+<p>摩托罗拉Moto G4的LineageOS开发者报告说，他们能够在非官方版本上节省50兆字节。考虑到Moto G4 LineageOS的平均容量约为<a href="https://download.lineageos.org/athene"> 350兆字节</a>，这是一个相当大的改进。如果在每个OTA上节省了10 MBs的数据，那么带宽的总体减少可能是显著的，因为谷歌需要向成千上万的用户提供更新包。</p>
+
+<p>此外，由于Brotli还提高了解压缩速度，这也意味着OTA更新可以更快地应用。OTA更新作为档案发送到每个设备，因此在通过<a href="https://android-developers.googleblog.com/2016/07/improvements-for-smaller-app-downloads.html"> bsdiff </a>制作补丁之前，需要对档案进行解压缩。由于Brotli解压缩相当快，这意味着解压缩存档也将很快，从而更快地修补系统文件。</p>
+
+<p>然而，使用A/B分区方案的设备的用户，如谷歌Pixel/Pixel 2、Essential Phone、Razer Phone、<a href="https://www.xda-developers.com/moto-z2-force-ab-seamless-updates/"> Moto Z2 Force </a>和<a href="https://www.xda-developers.com/xiaomi-mi-a1-android-ab-partition/">小米Mi A1 </a>可能不会注意到这一特别的改进，因为更新无缝地应用于后台的非活动分区。尽管如此，即使对于这些设备，由于Brotli压缩，较小的OTA更新包也会导致用户带宽减少。</p>
+
+<hr/>
+
+<p><em>感谢XDA退休论坛版主/公认开发者<a href="https://forum.xda-developers.com/member.php?u=4584140"> cybojenix </a>的提示！</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

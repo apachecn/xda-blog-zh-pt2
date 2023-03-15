@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Freeze Background Processes without Root (Android 7.0+)</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>无根冻结后台进程(Android 7.0+)</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/freeze-app-background-processes-without-root-android-nougat/#0001-01-01">https://www.xda-developers.com/freeze-app-background-processes-without-root-android-nougat/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>与iOS相比，Android一直被认为是更“强大”的移动平台，因为它的第三方应用程序有很大的自由度。这使得许多自动化发生，仅仅因为Android应用程序可以在后台运行时执行更多的任务。然而，这也带来了负面影响，因为由于设备上运行的后台进程，它为潜在的更多电池消耗打开了大门。</p>
+
+  
+<p>知道你在后台加载应用程序是一回事，因为你愿意牺牲一些电池寿命来换取它们带来的好处。如果你只是下载没有经过优化的传统应用程序，那就另当别论了，这些应用程序会在你不希望甚至不需要的时候在后台执行任务。谷歌一直在努力解决这个问题，对应用程序在后台可以做的事情施加越来越多的限制，Android O的发布带来了迄今为止最多的后台进程/接收器限制。</p>
+
+<p>然而，绝大多数用户从现在起的许多个月内都不会在他们的设备上看到Android O(如果有的话)。但如果你运行的是<strong> Android 7.0或Android 7.1 </strong>，有一个简单的技巧可以让你手动<strong>阻止一个应用程序在后台运行</strong>——而且它<strong>不需要root </strong> <strong>或第三方应用程序</strong>。这比Greenify或Brevent等应用程序提供的功能更强大，因为没有root访问权限，这些应用程序的功能相当有限。但有了这个技巧，现在你可以<strong>阻止脸书或Hangouts </strong>等应用程序在后台运行——它们只有在被频繁使用时才会工作！</p>
+
+<hr/>
+
+<h3 id="restrict-background-processes-tutorial">限制后台进程教程</h3>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p><strong>要求:</strong></p><ul> <li><strong>安卓牛轧糖(7.0或7.1)设备</strong></li> </ul> </div></section>
+<ol> <li>为您的特定设备OEM安装USB驱动程序(谷歌在这里提供了一些通用USB驱动程序的列表)。</li> <li>为您的特定操作系统下载<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/"> ADB二进制文件</a>(<a href="https://dl.google.com/android/repository/platform-tools-latest-windows.zip">Windows</a>、<a href="https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"> Mac </a>、<a href="https://dl.google.com/android/repository/platform-tools-latest-linux.zip"> Linux </a>)。这些链接将始终指向二进制文件的最新版本。</li> <li>将ZIP文件的内容解压到您电脑上一个易于访问的文件夹中。</li> <li>进入手机上的设置应用程序，点击关于手机选项。</li> <li>找到内部版本号，点击7次以启用开发者模式。</li> <li>回到设置主菜单，进入开发者选项，这样你就可以启用USB调试模式。</li> <li>将手机插入电脑，从“仅充电”模式切换到“文件传输(MTP)”模式。这不是每个设备都必须的，但是许多设备在允许ADB工作之前都需要这作为一种安全措施。</li> <li>回到PC，浏览到解压ADB二进制文件的目录。</li> <li>在您的ADB目录中启动命令提示符或终端。对于Windows用户，这可以通过按住Shift并右键单击然后选择“在此打开命令提示符”选项来完成。(部分Windows 10用户可能会看到“命令提示符”被“PowerShell”取代。)</li> <li>进入命令提示符或终端环境后，输入以下命令:<code><span>adb devices</span></code></li> <li>这将启动ADB守护进程，如果它还没有启动，只需等待它完成。如果这是您第一次运行ADB，您还会在手机上看到一个提示，要求您授权与计算机的连接。在这里允许USB调试访问。</li> <li>现在，如果您从步骤10重新运行adb设备命令，命令提示符/终端将打印您的设备的序列号。如果是这样，那么你已经准备好继续前进了。如果没有，那么USB驱动程序可能没有正确安装。</li> <li>然后，您需要找到您想要冻结后台进程的应用程序的包名。你可以通过在手机上安装<a href="https://play.google.com/store/apps/details?id=com.ubqsoft.sec01"> App Inspector </a>应用来做到这一点。</li> <li>返回到命令提示符并输入以下命令:<code><span>adb shell</span></code></li> <li>现在执行以下命令来释放应用程序的后台进程:<code>cmd appops set &lt;package_name&gt; RUN_IN_BACKGROUND ignore</code></li> <li>如果你想恢复你刚才所做的更改，并允许应用程序的后台进程再次运行，请输入以下命令:<code>cmd appops set &lt;package_name&gt; RUN_IN_BACKGROUND allow</code></li> <li>如果它带你回到另一个ADB shell提示符，并且不给你一个错误消息，你就知道它工作了。</li> </ol>
+
+<hr/>
+
+<h3 id="explanation">说明</h3>
+<p>这个命令的具体工作原理是，它允许你限制一个隐藏的权限，这个权限通常是用户在设置应用程序中无法访问的。这种权限被称为RUN_IN_BACKGROUND权限，修改它的唯一方法是使用“cmd appops”，这是“appops”的命令行界面——谷歌面向用户的权限管理系统。</p>
+
+<p>Google添加了这个隐藏的ADB命令，使您能够限制任何应用程序接收隐含的广播意图(即该应用在后台唤醒)并且还防止那些应用在不使用JobScheduler(即应用在不恰当的时间醒来，耗尽你的电池)。这个命令实际上只供那些希望模拟他们的应用程序在低内存条件下如何运行的开发人员使用，但幸运的是，我们能够将它用于我们自己的用途。</p>
+
+<p>通过消除对应用程序后台服务和清单注册的隐式广播接收器的依赖，开发人员可以优化他们的应用程序，以便在低内存设备上更好地运行。谷歌表示，针对这类设备或低内存设备优化的应用程序可以改善性能和用户体验。在今年的谷歌I/O大会上，该公司宣布了一个名为Android Go的Android修改版本，该版本将用于内存非常低的智能手机，因此我们认为这个命令对瞄准该平台的开发人员会很有用。</p>
+
+<p>在任何情况下，这个命令对于普通用户来说都是相当有用的，但是要注意这里的限制。Hangouts或脸书等应用程序将完全停止在后台同步，直到你打开它们，如果这是你的目标，那么我相信你不会介意。但是，如果你在一个依赖后台接收器的应用程序上运行这个命令，当你的电子邮件或信息被延迟时，不要感到惊讶。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

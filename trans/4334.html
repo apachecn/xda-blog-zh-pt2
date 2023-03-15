@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Qualcomm's Hexagon 685 DSP is a Machine Learning Powerhouse</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>高通的Hexagon 685 DSP是一个机器学习发电站</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/qualcomm-snapdragon-845-hexagon-685-dsp/#0001-01-01">https://www.xda-developers.com/qualcomm-snapdragon-845-hexagon-685-dsp/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>骁龙845是高通骁龙家族中最新的片上系统，是一个强大的处理器。它拥有高速CPU内核、第三代Spectra图像信号处理器(ISP)和比上一代产品能效高30%的架构。但可以说它最令人印象深刻的组件是一个协处理器——Hexagon 685 DSP——它是为人工智能和机器学习量身定制的。</p>
+
+ 
+<h3 id="just-what-makes-qualcomm-s-hexagon-685-dsp-tick">到底是什么让高通的Hexagon 685 DSP脱颖而出？</h3><div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Hexagon1.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;The Hexagon DSP architecture in the Snapdragon 835. Source: Qualcomm&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Hexagon1.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Hexagon1.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Hexagon1.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Hexagon1.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="hexagon dsp" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Hexagon1.jpg" src="../Images/9bdac596a97706c4bf9fa0ad4418ee12.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/Hexagon1.jpg"/> </picture> <figcaption class="body-img-caption">The Hexagon DSP architecture in the Snapdragon 835. Source: Qualcomm</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p/><p><em>“向量数学是深度学习的基础。”——高通产品管理高级总监特拉维斯·拉尼尔</em></p>
+
+<p>要理解是什么让Hexagon DSP如此独特，有助于了解人工智能是由工程专业学生非常熟悉的那种数学学院驱动的。机器学习涉及大向量计算，这对智能手机、平板电脑和PC处理器构成了挑战。通用芯片很难快速有效地计算随机梯度下降这样的算法——这种算法是人工智能应用的核心。高通的Hexagon DSP的引入部分是为了解决这个问题:它在处理图像和传感器数据方面非常棒，尤其是摄影。</p>
+
+<p>但是Hexagon DSP不仅仅能够美化自拍。所包含的HVX上下文(稍后将详细介绍)使其兼具通用处理器和固定功能内核的优势；Hexagon 685 DSP在计算设备上机器学习背后的数学方面非常高效，但保留了更多可编程处理器的灵活性。</p>
+
+<p>像Hexagon 685 DSP这样的人工智能芯片，有时被称为“神经处理单元”、“神经引擎”或“机器学习核心”，是专门为人工智能算法的数学需求量身定制的。它们在设计上比传统的CPU更加严格，并且包含特殊的指令和安排(在Hexagon 685 DSP的情况下，前面提到的HVX架构)来加速某些标量和矢量运算，这在大规模实施中变得显而易见。</p>
+
+<p>骁龙845的Hexagon 685 DSP每个处理周期可以处理数千位的矢量单元，而平均CPU内核每个周期只能处理数百位。那是故意的。利用四个用于超长指令字(VLIW)操作的并行标量线程和多个HVX上下文，DSP能够在一条指令上处理多个执行单元，并快速完成整数和定点十进制操作。</p>
+
+<p>Hexagon 685的设计目标不是通过原始的MHz来提升性能，而是以较低的时钟速度实现每个周期的高水平工作。它包括适用于VLIW的硬件多线程，因为多线程隐藏了流水线延迟，可以更好地利用VLIW数据包。DSP的多线程意味着它可以服务多个卸载会话，即音频、相机、计算机视觉等的并发应用，并同时加速各种任务，避免应用争夺执行时间。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/S820_HVX_Apps-1024x753.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Source: Qualcomm&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/S820_HVX_Apps-1024x753.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/S820_HVX_Apps-1024x753.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/S820_HVX_Apps-1024x753.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/S820_HVX_Apps-1024x753.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/S820_HVX_Apps-1024x753.png" src="../Images/539e331fe2da6504af30f202bd20fd3f.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/S820_HVX_Apps-1024x753.png"/> </picture> <figcaption class="body-img-caption">Source: Qualcomm</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>但这些并不是Hexagon DSP的唯一优势。由于改进了控制代码，它的指令集架构(ISA)比传统的VLIW具有更高的效率，并且它采用了巧妙的技巧来从空闲和停滞的线程中恢复性能。它还实现了零延迟循环线程调度，这意味着DSP的线程在完成前一个数据包后会立即处理新指令。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/capture-lll-1024x539.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Source: Qualcomm&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/capture-lll-1024x539.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/capture-lll-1024x539.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/capture-lll-1024x539.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/capture-lll-1024x539.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="hexagon dsp" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/capture-lll-1024x539.png" src="../Images/3c3d7a9479d40afc288d1388683d461a.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/capture-lll-1024x539.png"/> </picture> <figcaption class="body-img-caption">Source: Qualcomm</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>明确地说，这些都不是新的。高通在2015年推出了“第一代”(或正确的)Hexagon DSP-Hexagon 680，或QDSP6 v6 -以及Snapdragon 820，Hexagon 680之后是略有改进的Hexagon 682。但最新一代是迄今为止最复杂的，其整体性能是Snapdragon 835 DSP的三倍。</p>
+
+<p>这在很大程度上要归功于HVX，它在图像处理方面非常出色(想想增强现实、计算机视觉、视频和图片)。DSP的HVX寄存器可以由任意两个标量寄存器控制，HVX单元和标量单元可以同时使用，从而显著提高性能和并发性。</p>
+
+<p>下面是<a href="https://developer.qualcomm.com/blog/qualcomm-hexagon-sdk-30-dsp-power-and-efficiency">高通的解释</a>:</p>
+
+<blockquote>
+<p/><h4>“假设您在移动CPU上以控制代码模式进行处理，然后切换到协处理器上的计算模式。如果你需要任何控制代码，你必须停下来，从协处理器回到主CPU。借助Hexagon，DSP上的控制代码处理器和HVX上的计算代码处理器可以同时运行，以实现控制和计算代码的紧密耦合。这使得DSP可以获得HVX计算的结果，并在下一个时钟周期用于控制代码决策。”</h4>
+ </blockquote>
+<p>HVX在图像传感器处理方面提供了另一大优势。采用Hexagon 685 DSP的骁龙设备可以绕过设备的DDR内存控制器，直接将数据从图像传感器传输到DSP的本地内存(L2缓存)。这当然减少了延迟，但也延长了电池寿命——骁龙处理器被设计成在整个操作过程中处于空闲状态。</p>
+
+<p>它是专门为16位浮点网络优化的，由高通的机器学习软件骁龙神经处理引擎控制。</p>
+
+<p>“我们非常严肃地对待这件事，”高通的一位发言人说。“过去三年来，我们一直在与合作伙伴合作，让他们利用[...]我们的人工智能和成像芯片。”</p>
+
+
+
+<p>这些合作伙伴包括谷歌，例如，谷歌使用Hexagon DSP的图像处理部分来支持Pixel和Pixel 2的HDR+算法。虽然谷歌也推出了自己的Pixel Core，但值得注意的是，Hexagon 685 DSP设备是使用著名的谷歌摄像头端口获得最佳结果的设备，部分原因是(正如我们已经证实的)HVX利用率。另一位合伙人脸书与高通密切合作，加速Messenger的实时相机滤镜和效果。</p>
+
+<p>Oppo为Hexagon 685 DSP优化了面部解锁技术，联想围绕它开发了标志性的检测功能。</p>
+
+<p>platform提供大量支持的一个原因是它的简单性。高通广泛的Hexagon SDK支持高性能图像处理的Halide语言，无需担心机器学习训练框架——在大多数情况下，实现模型就像进行API调用一样简单。</p>
+
+<p>“我们不是[...高通告诉XDA开发者:“我们(在人工智能方面)与IBM和Nvidia等公司竞争，但我们有开发者可以进入的领域，而且已经有了。</p>
+
+<h3 id="hexagon-vs-the-competition">Hexagon与竞争对手</h3>
+<p>随着越来越多的原始设备制造商(OEM)寻求自己的移动和设备上人工智能解决方案，骁龙845的Hexagon 685 DSP应运而生。华为的<a href="http://xda-developers.com/t/kirin-970">麒麟970</a>——<a href="http://xda-developers.com/t/mate-10">Mate 10</a>和<a href="http://xda-developers.com/t/mate-10-pro"> Mate 10 Pro </a>内部的片上系统——有一个“神经处理单元”(NPU)，据报道，它每秒可以识别2000多张图像，而功耗仅为普通智能手机CPU的1/50。iPhone 8、iPhone 8 Plus和iPhone X中的苹果A11仿生片上系统有一个“神经引擎”，可以进行实时面部建模和每秒钟高达6000亿次的运算。</p>
+
+<p>但是高通说六边形的平台不可知论给了它一个优势。与苹果和华为不同，它们在很大程度上迫使开发者使用专有的API，高通从一开始就寻求支持一些最受欢迎的开源框架。例如，它与谷歌合作，为Hexagon 685 DSP优化了谷歌的机器学习平台TensorFlow，高通表示，它的运行速度比非Hexagon设备快8倍，能效高25倍。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/tensorflow-dsp-feature.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Source: Qualcomm&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/tensorflow-dsp-feature.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/tensorflow-dsp-feature.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/tensorflow-dsp-feature.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/tensorflow-dsp-feature.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/tensorflow-dsp-feature.jpg" src="../Images/932f41377428db2f303541b9f1ff4afb.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/12/tensorflow-dsp-feature.jpg"/> </picture> <figcaption class="body-img-caption">Source: Qualcomm</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>在高通的DSP架构上，谷歌的<a href="https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf"> GoogLeNet Inception深度神经网络</a>——一种旨在评估对象检测和分类系统质量的机器学习算法——在一个演示中展示了收益，该演示显示了两台智能手机上的一个TensorFlow支持的图像识别应用程序:一台在CPU上运行该应用程序，另一台在高通的Hexagon DSP上运行。DSP加速的智能手机应用程序每秒钟捕捉更多图像，更快地识别物体，并对其关于物体是什么的结论具有更高的信心。</p>
+
+<p>谷歌还使用Hexagon 685 DSP来加速智能手机的增强现实平台Project Tango。联想的Phab 2 Pro、华硕的ZenFone AR和其他带有Tango深度感应红外模块和图像跟踪摄像头的设备利用了高通的异构处理架构，该架构将处理任务分配给骁龙芯片组的Hexagon 685 DSP、传感器中枢和图像信号处理器(ISP)。根据高通的说法，结果是片上系统的CPU开销“不到10%”。</p>
+
+<p>“据我们所知，我们是唯一一家在性能和能效方面进行优化的手机厂商，”高通的一位发言人说。</p>
+
+<p>当然，竞争对手也在努力扩大他们的影响范围，并在他们的平台上培养开发者的支持。麒麟970的神经芯片除了支持华为的麒麟API之外，还支持TensorFlow和<a href="http://xda-developers.com/tag/caffe"> Caffe </a>(脸书的开放API框架)，今年晚些时候还将集成<a href="http://xda-developers.com/tag/tensorflow-lite"> TensorFlow Lite </a>和<a href="http://xda-developers.com/tag/caffe2"> Caffe2 </a>。华为与微软合作，为Mate 10优化了人工智能翻译。</p>
+
+
+
+<p>但高通还有另一个优势:影响力。根据Strategy Analytics的数据，这家芯片制造商在2017年上半年占据了智能手机芯片市场42%的份额，其次是苹果和联发科技，各占18%。简单地说，它还没有开始动摇。</p>
+
+<p>高通预测它只会增长。该芯片制造商预计到2025年，通过计算机视觉等人工智能软件技术，收入将达到1600亿美元，并将智能手机市场视为最大的平台，预计到2021年智能手机出货量将达到86亿部。</p>
+
+<p>随着Hexagon 685 DSP和其他“第三代”改进不断向下游发展到中端硬件，在不久的将来，高通芯片也可以更容易地将设备上的机器学习引入各种设备。它们还为开发人员提供了方便的SDK(无需摆弄DSP汇编语言),以便在其应用和服务中利用Hexagon 685 DSP和HVX。</p>
+
+<p>“神经处理需要这些专用的处理单元，但你也需要扩展它，这样你就可以支持[开源]框架，”高通的一位发言人说。“如果你不创造那个生态系统，就没有办法[...]开发者可以在上面创作。”</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

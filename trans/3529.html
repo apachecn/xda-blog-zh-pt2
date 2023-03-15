@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>PSA: Android 7.1 Circular Icon Support is Determined by the OEM</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>PSA: Android 7.1圆形图标支持由OEM决定</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/psa-android-7-1-circular-icon-support-is-determined-by-the-oem/#0001-01-01">https://www.xda-developers.com/psa-android-7-1-circular-icon-support-is-determined-by-the-oem/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>自Android开始大规模流行以来，设计一致性一直是谷歌的主要障碍之一。最初，谷歌的理念是让原始设备制造商完全控制他们的设计理念。起初，这种开放程度诱使原始设备制造商投入大量资源制造Android智能手机和平板电脑。</p>
+
+  
+<p>然而，各种各样的OEM皮肤与严格控制的苹果iPhone体验形成了鲜明的对比。从Android Lollipop开始，谷歌进行了重大的设计变革(由当时的首席Android设计师马蒂亚斯·杜阿尔特(Matias Duarte)领导的材料设计UX)，并希望应用程序开发人员和原始设备制造商也能效仿。虽然摩托罗拉和索尼等一些原始设备制造商满足于跟随谷歌的脚步，但三星和华为等其他原始设备制造商仍在炫耀一种在很大程度上非物质化的设计语言。</p>
+
+<p>谷歌并没有放弃在各种Android设备上实施一致的设计，他们最新的努力之一是在Android 7.1牛轧糖中加入了<a href="http://www.xda-developers.com/android-7-1-developer-preview-is-now-available-for-the-nexus-5x6p-and-the-pixel-c/">圆形图标支持。圆形图标旨在解决图标大小不一致的问题，但这种方法有一系列问题，我会让Android Police的设计师</a><a href="http://www.androidpolice.com/2016/09/27/opinion-early-thoughts-googles-round-icons-consistency-sake/">利亚姆·斯普拉德林描述</a>。Android 7.1几乎没有进入Nexus设备，OEM厂商开始推出Nougat还需要相当长的时间，所以还不清楚圆形图标支持对设计一致性会产生什么影响。但是<em>清楚的是，圆形图标可能会在它们有机会茁壮成长之前死去:因为<strong>谷歌到目前为止完全由原始设备制造商决定他们是否希望他们的用户看到圆形图标。</strong></em></p>
+
+<hr/>
+
+
+
+
+
+<p><strong>圆形图标支持由框架决定</strong></p>
+
+<p>几乎谷歌像素的每一个功能都被各种博客提前泄露了。甚至圆形图标支持也被大量暗示，因为<a href="http://www.androidpolice.com/2016/09/20/pixel-launcher-sneak-peek-part-1-googles-new-circular-launcher-icons-apk-teardown/">泄露的Pixel Launcher </a>表示支持圆形图标，其他谷歌应用程序正在慢慢更新，在APK中嵌入圆形图标资产。然而，当时博客们做了一个<strong>错误的假设</strong>:圆形图标支持将被绑定到启动器上。然而，很难责怪他们，因为即使是谷歌在T4的官方声明也没有任何细节。</p>
+
+<p>幸运的是，资深Android开发者Commonsware深入研究了更多关于Android 7.1牛轧糖中如何实现圆形图标支持的细节。不是应用程序开发人员通过PackageManager暴露他们的圆形图标(允许启动器决定是否显示圆形图标)，<strong>系统框架决定是否向启动器返回常规图标或圆形图标。</strong></p>
+
+<blockquote>
+<p/><h4>当启动器请求一个应用图标时，框架返回<code>android:icon</code>或<code>android:roundIcon</code>，这取决于设备构建配置。</h4>
+ </blockquote>
+<p>这实际上意味着OEM可以决定是否在你的设备上显示圆形图标。如果三星、华为、LG或任何其他OEM决定放弃圆形图标，那么<strong>无论你安装什么第三方启动器，你的设备都不会看到任何圆形图标资产</strong>。为谷歌的设计一致性推一把。</p>
+
+<p>Commonsware还发现，该框架决定是否为任何请求应用程序图标的进程返回圆形或常规图标。换句话说，开发者需要小心，他们的圆形图标不仅在特定的设备/启动器配置中看起来很棒，而且在任何需要的地方看起来都很棒。</p>
+
+<p>圆形应用程序图标是一个很好的视觉变化，但很明显，他们的实现存在问题。十有八九，我们可能会看到，只有一些设备，如谷歌像素和<em>也许</em>一些摩托罗拉手机将实现圆形图标支持，而其他原始设备制造商将选择继续使用常规图标。如果这种情况发生，那么Pixel所有者可能会发现自己有一堆来自应用程序开发人员的非圆形应用程序，这些开发人员懒得更新他们的图标资产，以适应仅支持圆形图标的少数设备。在这种情况下，关于圆形图标一致性的争论就没有意义了。</p>
+
+<p><a href="https://commonsware.com/blog/2016/10/20/random-musings-7p1-developer-preview-1.html"> <strong>感谢Commonsware发现这一点！</strong>T3】</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

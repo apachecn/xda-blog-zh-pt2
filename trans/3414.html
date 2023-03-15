@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Android N Testers: Here's why your Root Apps Keep Failing</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android N测试人员:这就是为什么你的根应用程序总是失败</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-n-testers-heres-why-your-root-apps-keep-failing/#0001-01-01">https://www.xda-developers.com/android-n-testers-heres-why-your-root-apps-keep-failing/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>你喜欢生活在风口浪尖，所以你跳上船，安装了谷歌新的Android N预览版。如果你把这个软件作为你的日常驱动(也许你喜欢东西崩溃和燃烧，谁知道呢？)那么你可能已经注意到许多你最喜欢的应用程序根本就不工作。你刷新了Chainfire的SuperSU beta for Android N，通过更好的系统控制减轻了一些痛苦，但许多根应用程序也会崩溃。为什么？如何解决这些问题？<a href="https://plus.google.com/+Chainfire/posts/dGPQytapwe3" target="_blank">根据Chainfire </a>的说法，原因是因为谷歌正在从<em>工具箱</em>向<em>玩具盒</em>转移(而且从安卓棉花糖开始就有了)，并且已经<strong>现在</strong>T8】移除了<em>工具箱挂载</em>支持。如果你过去遇到过根应用的问题，你可能以前见过“工具箱”这个词。如果你没有，我会让Chainfire解释它是什么:</p>
+
+ 
+<blockquote>
+<p>Android上的三个盒子是工具箱、busybox和toybox。这些盒子提供了各种基本unix命令的实现——类似于GNU Core Utils在各种Linux发行版上提供的那些。</p>
+<p>直到最近，工具箱还是标准的Android实现。<i> busybox </i>几乎是Android之外的标准设备，GPL许可，已经被许多人移植到Android上。<i> toybox </i>是一个BSD许可的busybox 的替代品，由busybox<i>的前维护者创建。<i> toybox </i>最早出现在M的Android上，正在慢慢取代<i>工具箱</i>对各种命令的实现。</i></p>
+<p>这些命令主要由根应用程序、设备脚本和adb shell /终端仿真器用户使用。</p>
+ </blockquote>
+<p>至于为什么你以前可能会遇到来自于工具箱或busybox的问题，根据Chainfire:</p>
+
+<blockquote>
+<p>许多根应用程序需要执行这些盒子提供的命令。虽然基本命令通常是相同的，但是接受的参数、确切的工作和输出在不同的实现以及这些实现的不同版本之间会有所不同。</p>
+ </blockquote>
+<p>基本上，由于一些根应用程序需要一个特定的命令，可以在一个盒子中找到，但另一个应用程序可能需要另一个盒子中的另一个特定命令，许多用户在让某些根应用程序正常工作时遇到了问题，因为他们的盒子实现没有所有正确的命令。这让像Chainfire这样的开发者很头疼，他们不得不处理用户对他们的应用程序为什么不工作的疑惑。大多数用户可能已经安装了b <em> usybox </em>的一个实现，但是开发人员可以直接调用<em>工具箱</em>，而不是希望你的安装有正确的命令和正确的参数，这些命令和参数是根应用程序运行所必需的。然而，这种变通办法在Android N中被打破了。</p>
+
+<blockquote>
+<p>不幸的是，在N预览版上，<i> toybox挂载</i>已经取代了<i>工具箱挂载</i>成为默认实现，更糟糕的是，<i>工具箱挂载</i>已经被移除，所以你无法回退到它。虽然toybox mount 似乎已经摆脱了它的segfaults传奇，但它实际上仍然不能很好地工作。至少比不上它所取代的<i>工具箱</i>实现。</p>
+ </blockquote>
+<p>这就是你在Android N上的根应用失败的原因。Chainfire试图通过在SuperSU 2.70中应用一个修复程序来部分修复一些使用流行形式的mount命令的坏应用程序，但是，并不是所有的应用程序都将被修复。如果你是一个最终用户，你对此无能为力，直到你最喜欢的应用程序的开发者推送一个更新。如果你是一名开发者，想知道为什么Android N上的用户会有问题，你应该阅读Chainfire的完整帖子，了解如何修复你的应用。</p>
+
+<hr/>
+
+<p>在Android N上，你有没有遇到过根应用失败的情况？在下面的评论里让大家知道(特别要尽量联系开发者)！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

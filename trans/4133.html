@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Dirty COW Now Being Abused on Android by ZNIU</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>脏牛现在在安卓上被ZNIU虐</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/dirty-cow-exploit-linux-android-zniu/#0001-01-01">https://www.xda-developers.com/dirty-cow-exploit-linux-android-zniu/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Dirty COW(<a href="https://www.xda-developers.com/9-year-old-linux-kernel-bug-dubbed-dirty-cow-can-root-every-version-of-android/">Dirty Copy-On-Write)，或CVE-2016-5195 </a>，是一个9岁的Linux bug，于去年10月被发现。这是在Linux内核中发现的最严重的错误之一，现在被称为ZNIU的恶意软件已经在野外发现。该漏洞在2016年12月的安全更新中得到修补，但任何没有收到该漏洞的设备都容易受到攻击。有多少台设备？相当多。</p>
+
+  
+
+
+<p>正如你在上面看到的，实际上有相当数量的设备来自Android 4.4之前，当时谷歌开始制作安全补丁。更重要的是，任何Android 6.0或更低版本的设备实际上都将面临风险<strong>，除非他们在2016年12月之前收到任何安全补丁，</strong>，除非这些补丁正确地针对了漏洞<strong>。</strong>随着很多厂商对安全更新的疏忽，很难说大多数人真正得到了保护。由<em> TrendLabs </em>进行的一项分析揭示了许多关于ZNIU的信息。</p>
+
+ 
+<h2 id="zniu---the-first-malware-using-dirty-cow-on-android">ZNIU -第一个在Android上使用Dirty COW的恶意软件</h2>
+<p>首先让我们弄清楚一件事，ZNIU是<strong>而不是</strong>第一次记录脏牛在Android上的用法。事实上，我们论坛上的一个用户使用了Dirty COW exploit (DirtySanta基本上就是Dirty COW) <a href="https://www.xda-developers.com/dirtysanta-exploit-unlocks-the-bootloader-of-the-lg-v20-h990/">解锁了LG V20 </a>的引导加载程序。ZNIU只是该漏洞被用于恶意目的的第一次记录。这可能是因为应用程序非常复杂。在撰写本文时，它似乎活跃在40个国家，感染用户超过5000人。它伪装在色情和游戏应用程序中，存在于1200多个应用程序中。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="what-does-the-zniu-dirty-cow-malware-do">ZNIU脏牛恶意软件是做什么的？</h2>
+<p>首先，ZNIU的Dirty COW实现只在ARM和X86 64位架构上工作。这听起来不算太糟糕，因为大多数64位架构的旗舰通常至少会有2016年12月的安全补丁。然而，<strong>任何32位设备</strong> <strong>也可能会受到</strong>lovyroot或KingoRoot的影响，这是六个ZNIU rootkits中的两个使用的。</p>
+
+<p>但是ZNIU是做什么的呢？它大多以色情相关应用的形式出现，但也可以在游戏相关应用中找到。安装后，它会检查ZNIU有效负载的更新。然后，它将开始权限提升，获得根用户访问权限，绕过SELinux并在系统中安装后门，以备将来的远程攻击。</p>
+
+<p>一旦应用程序初始化并安装了后门程序，它就开始将设备和运营商信息发送回位于mainland China的服务器。然后，它开始通过运营商的支付服务向一个账户转账，但前提是被感染的用户有一个中国手机号码。确认交易的消息随后被拦截和删除。中国以外的用户将被记录数据并安装一个后门，但不会从他们的账户中进行支付。拿走的钱少得可笑，以至于没有引起注意，相当于一个月3美元。ZNIU为其SMS相关操作利用根访问，因为要与SMS进行交互，应用程序通常需要由用户授予访问权限。<strong>它还能感染设备上安装的其他应用程序。</strong>所有通信都经过加密，包括下载到设备上的rootkit有效载荷。</p>
+
+<p>尽管进行了上述加密，但混淆过程非常糟糕，以至于TrendLabs能够确定用于恶意软件和服务器之间通信的网络服务器的详细信息，包括位置。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="how-does-the-zniu-dirty-cow-malware-work">ZNIU脏牛恶意软件是如何工作的？</h2>
+<p>它的工作原理相当简单，从安全角度来看也很有趣。应用程序下载当前运行设备所需的有效载荷，并将其提取到一个文件中。该文件包含恶意软件运行所需的所有脚本或ELF文件。然后，它写入虚拟动态链接共享对象(vDSO ),这通常是一种在内核中为用户应用程序(即非根应用程序)提供工作空间的机制。这里没有SELinux限制，这才是脏牛的“魔力”真正发生的地方。它创建了一个“反向外壳”，简单地说，这意味着机器(在这种情况下，你的手机)正在执行命令给你的应用程序，而不是相反。这使得攻击者能够访问设备，ZNIU通过修补SELinux和安装后门根外壳来实现这一点。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="so-what-can-i-do">那么我能做什么呢？</h2>
+<p>真的，你能做的就是远离不在Play Store上的应用。谷歌已经向TrendLabs确认<strong> Google Play Protect现在可以识别应用程序</strong>。如果您的设备安装了2016年12月或更高版本的安全补丁，您也是完全安全的。</p>
+
+<hr/>
+
+<p><a href="http://blog.trendmicro.com/trendlabs-security-intelligence/zniu-first-android-malware-exploit-dirty-cow-vulnerability/"> <strong>来源:TrendLabs </strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

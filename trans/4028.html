@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>How to Hide the "App is Running in the Background" Persistent Notification on Android Oreo</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何隐藏Android Oreo上的“应用程序正在后台运行”持续通知</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/hide-app-running-background-notification-android-oreo/#0001-01-01">https://www.xda-developers.com/hide-app-running-background-notification-android-oreo/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在Android Oreo 上，一个一直困扰用户的通知是“应用程序正在后台运行”通知。每当某些应用程序在后台运行或覆盖在屏幕上时，它就会出现，如Facebook Messenger或Twilight。通知的原则是好的，但它的应用却不好。通知不能被删除也不能被禁用，所以你必须忍受它占用你的通知的屏幕空间。当然，前提是你不愿意绕过它。虽然没有root访问权限不可能永久禁用通知，但可以通过<strong>有效地永久暂停通知，这样你就再也看不到它了</strong>。</p>
+
+  <div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/07/android_o_persistent_notification-300x72.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Annoying persistent notification in Android Oreo that we want to hide&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/07/android_o_persistent_notification-300x72.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/07/android_o_persistent_notification-300x72.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/07/android_o_persistent_notification-300x72.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/07/android_o_persistent_notification-300x72.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/07/android_o_persistent_notification-300x72.png" src="../Images/f384e4643cf46c6e0fb3d0a3e8988927.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2017/07/android_o_persistent_notification-300x72.png"/> </picture> <figcaption class="body-img-caption">Annoying persistent notification in Android Oreo that we want to hide</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<hr/>
+
+
+<h2 id="hiding-the-app-is-running-in-the-background-notification-in-android-oreo">在Android Oreo中隐藏“应用程序正在后台运行”通知</h2>
+<h3 id="method-1---easy">方法1 -简单</h3>
+<p>一个名为iboalali的开发者发布了一个应用程序<strong>,专门用于阻止这个通知。</strong>app也是<a href="https://github.com/iboalali/sysnotifsnooze">完全开源</a>！它只在英语设备上工作，至少目前是这样，但是随着翻译的增加，开发者可能会增加对其他语言的支持。</p>
+
+<p>您所需要做的就是安装应用程序，启用通知监听器权限，它将保持通知被阻止！</p>
+
+ 
+
+
+
+<h3 id="method-2---recommended">方法2 -推荐</h3>
+<p>AutoApps的开发者，<a href="https://plus.google.com/u/0/101282964483894346750">若奥·迪亚斯</a>，通知我们他已经<a href="https://plus.google.com/+Jo%C3%A3oDias/posts/aPx4sgrhAWB">发布了他的自动通知应用</a>的更新，允许你屏蔽这个(和其他)通知<strong>而不需要Tasker </strong>。此外，他已经将这个新功能变成了他的应用程序中的一个免费功能，这样你不用花一分钱就可以享受不到“应用程序正在后台运行”的通知。</p>
+
+<p>你所要做的就是从谷歌Play商店下载自动通知。我们推荐这种方法，因为与上面的应用程序不同，这种方法适用于<strong>所有语言</strong>,也有助于删除<strong>任何其他您想要删除的Android系统通知</strong>,例如“在SystemUI one上绘图”或USB充电/调试通知。你只需要在标题/文本过滤器中指定你的目标关键字。</p>
+
+ 
+
+
+
+<p>最后，观看Dias先生提供的这个短视频教程，它将指导您如何使用他的应用程序阻止Android系统通知。</p>
+
+ 
+<p class="w-rich w-youtube" id="sUVmvqr5wnw">  </p>
+
+
+<h3 id="method-3---hard">方法3 -硬</h3>
+<p>这个补丁是由Marco Stornelli开发的，他是BaldApps家族下许多免费Tasker插件的开发者。正如在<a href="https://www.reddit.com/r/tasker/comments/6vs1oo/howto_hide_app_is_running_in_background/">这个Reddit线程</a>中发布的，并在他的许可下分享如下，这个修复需要使用Tasker automation应用程序以及Marco的Tasker插件之一Notification Listener。</p>
+
+<p>首先，下载这两个应用。您将需要Tasker，因为它是通知监听器完成其工作所必需的，在本例中，它将删除后台服务的持久通知。</p>
+
+ 
+
+
+
+<p>[app box Google play com . balda . notification listener]</p>
+
+<p>接下来，您需要导入Marco提供的Tasker概要文件。在这里下载<a href="https://drive.google.com/file/d/0B54blAHdXRJ6QmF5d1puOEdfNmM/view">，然后按照下面的截图学习如何导入和设置！</a></p>
+
+
+
+
+
+<p>任务导入后，您可以运行它来“暂停”通知。但是它不会在启动时运行，所以请按照下面的步骤学习如何在启动时运行此任务来自动阻止通知。</p>
+
+
+
+
+
+<p>现在，当你重启你的设备时，概要文件应该在启动时运行(嗯，不确切地说是在启动时运行，因为从技术上讲，它是在Tasker的监控服务启动时运行的，这是在其他启动接收器运行几秒钟之后)！</p>
+
+<p>如果它不起作用，有可能在任务已经运行后出现Android系统通知。在这种情况下，您可以在引导时手动运行该任务，但是开发人员Marco建议您修改查询操作以添加更长的超时，比如3分钟。或者，您可以在任务开始时添加一个“等待”动作，并使用类似的长超时。</p>
+
+<p>如果您<em>只想</em>阻止这个特定的Android系统通知(而不是它可能发布的任何其他内容)，您可以改为将配置文件更改为具有“已发布”条件的“通知监听器事件”，应用程序以“Android系统”为目标，标题匹配*background*。请注意星号的使用——这是一个通配符，匹配术语“背景”周围的任何文本，因此只有在Android系统是“应用程序正在后台运行”通知时才会匹配。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="explanation">说明</h2>
+<p>没有root，实际上没有办法<em>阻止</em> Android系统在Android 8.0 Oreo中显示持续的“app正在后台运行”通知。查看一下<a href="https://android.googlesource.com/platform/frameworks/base/+/android-8.0.0_r1/packages/SystemUI/src/com/android/systemui/ForegroundServiceController.java">ForegroundServiceController</a>的源代码，它的<a href="https://android.googlesource.com/platform/frameworks/base/+/android-8.0.0_r1/packages/SystemUI/src/com/android/systemui/ForegroundServiceControllerImpl.java">实现</a>，以及<a href="https://android.googlesource.com/platform/frameworks/base/+/android-8.0.0_r1/packages/SystemUI/src/com/android/systemui/ForegroundServicesDialog.java"> ForegroundServiceDialog </a>并没有真正揭示任何我们可以利用的东西。据我们所知，没有命令或系统属性编辑可以用来控制该服务是否运行。看起来“Dianne的地牢”(可能是Google inside的一个笑话，指的是高级Android工程师Dianne Hackborn)不是我们可以轻易逃脱的东西。</p>
+
+<p>但是，使用上述任何一种方法都是解决此问题的相对简单的方法。这些方法中的每一个都查询一个“android系统”通知，这是一个由Android框架应用程序(包名为“Android”)创建的持久通知。如果它存在，那么它<strong>会长时间</strong>监听来自安卓系统<strong>的通知</strong>。顺便说一下，这个修改是完全安全的，因为Android系统通常不提供任何其他通知。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

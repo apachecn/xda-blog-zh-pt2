@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Pair Android Wear Watches to New Phones Without Factory Resetting</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>将Android Wear手表与新手机配对，无需工厂重置</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/pair-android-wear-without-factory-reset/#0001-01-01">https://www.xda-developers.com/pair-android-wear-without-factory-reset/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android Wear作为一款智能手表操作系统并不是没有缺点，但遗憾的是，尽管越来越多的技术爱好者可能会使用它，但这些人也可能会在手机上安装定制的rom。在大多数情况下，这意味着每当你在设备上切换到另一种版本的Android时，都必须清除你的智能手表。然而，当你买了一部新的智能手机或在你的设备上闪存一个新的定制rom时，有一个简单的方法可以绕过从头开始设置你的智能手表。这种方法<strong>不需要手机或手表上的root </strong>，但它需要一些Android调试桥(ADB)命令。这已经在Android Wear 1.5和Android Wear 2.0上的华为手表上进行了测试，不过它也应该可以将Android Wear手表与任何新的智能手机配对。如果由于某种原因，你的手表已经根了，你可以忽略这个教程，只需使用<a href="https://forum.xda-developers.com/android-wear/development/app-reset-wear-client-switch-phones-t3058962">重置穿戴客户端</a>来配对Android Wear，而无需直接从你的智能手表进行工厂重置。</p>
+
+ 
+<hr/>
+
+
+<h2 id="pair-android-wear-to-new-same-phone-without-wiping">无需擦拭即可将Android Wear与新手机/同一部手机配对</h2>
+<p>首先，您需要下载亚行工具。我个人使用的是在XDA找到的“<a href="https://forum.xda-developers.com/showthread.php?t=2317790"> Minimal ADB和Fastboot Kit </a>”，但是如果你愿意，也欢迎你使用来自谷歌的<a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/">官方二进制文件。接下来，你需要在智能手表上启用ADB调试(有线或WiFi调试都可以，不过我觉得WiFi更方便)。这是通过智能手表上的开发者选项实现的，您也需要启用它。要做到这一点，只需在你的手表上进入设置→系统→关于，然后点击标有“内部版本号”的字段，直到你看到一条提示信息，说明“你现在是一名开发人员”。</a></p>
+
+
+
+<p>一旦你完成了这些步骤，你就可以开始了！</p>
+
+<h3 id="enabling-adb-debugging">启用ADB调试</h3>
+<p>打开开发者选项并启用“ADB调试”或“通过wifi调试”,如果你想无线调试的话。将Android Wear同步到智能手机的过程两种方式都可以正常工作，但它们需要的命令略有不同。</p>
+
+
+
+<p>同步Android Wear的初始设置将需要不同的命令，无论您是否通过WiFi进行同步。请打开adb工具，要么在Windows搜索栏中搜索adb，要么导航到包含adb的文件夹，按住shift，然后右键单击并选择“在此打开命令窗口”。然后输入以下命令。</p>
+
+<h3 id="over-wifi">通过WiFi</h3>
+<p>在我的例子中，我会键入:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">connect</span> 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-class">.100</span><span class="hljs-selector-pseudo">:5555</span></code> </pre>
+<p>来连接我的Android Wear手表。你需要输入的IP地址位于“通过WiFi调试”下，如上图截图所示。接受手表上的提示，允许电脑调试。如果成功，它将简单地返回到命令提示符，在那里您可以键入。现在有文本输出。</p>
+
+<h3 id="wired">有线的</h3>
+<p>命令简单得多，只需将设备连接到计算机，然后键入:</p>
+
+<pre> <code class="hljs ">adb devices</code> </pre>
+<p>如果您的设备出现，您就没事了。确保您接受了手表上的提示，允许它进行调试。</p>
+
+<h3 id="sending-the-commands">发送命令</h3>
+<p>要继续，首先<strong>禁用手机上的蓝牙</strong>，然后在电脑上键入:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> “<span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">clear</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.google</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.gms</span> &amp;&amp; <span class="hljs-selector-tag">reboot</span>”</code> </pre>
+<p>你的手表会重新启动，但不会发生Android Wear工厂重置。当它重新启动时，它应该不会再显示一个划叉的云形图标，表示它无法连接到你的手机。你现在想在手机上安装Android Wear应用程序(如果你还没有的话)，<strong>但是不要启用蓝牙</strong>。</p>
+
+<p>接下来，按照与之前完全相同的步骤，通过ADB再次连接到智能手表。但是，这一次您想要运行的命令是:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> “<span class="hljs-selector-tag">am</span> <span class="hljs-selector-tag">start</span> <span class="hljs-selector-tag">-a</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.bluetooth</span><span class="hljs-selector-class">.adapter</span><span class="hljs-selector-class">.action</span><span class="hljs-selector-class">.REQUEST_DISCOVERABLE</span>”</code> </pre>
+<p>然后在你的手表上允许它被其他设备发现，这样你就可以将Android Wear与智能手机同步。现在，您可以通过打开Wear应用程序、启用蓝牙和搜索设备，从智能手机连接到Android Wear。您的Android手表应该会显示出来，您的手机将与它同步。如果应用程序在“检查更新”时挂起，只需重新启动应用程序，它应该会开始连接到Android Wear。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="explanation">说明</h2>
+<p>关于这一点的简单解释是，所有智能手机和智能手表的配对数据都包含在Google Play服务中。该数据是特定于手机的，因为密钥存储在智能手表上的Play Services数据中。这就是为什么你不能简单地从智能手机上备份Android Wear应用程序的原因，因为你需要的密钥存储在智能手表上。当你试图配对一部新手机时(或者已经安装了一个新的定制ROM，手表认为这是一部新手机)，通常会通过Android Wear工厂重置来擦除按键。</p>
+
+<p>解决这个问题的唯一方法是删除关键数据，这样你就可以将Android Wear与新设备配对，而无需进行工厂重置，因为将它与手机配对的关键数据也会被清除。然后，我们请求通过adb发送的意向使智能手表的蓝牙可被发现，这将创建您需要接受的提示。这意味着您的手机现在可以找到您的手表，然后与设备创建新的配对密钥。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

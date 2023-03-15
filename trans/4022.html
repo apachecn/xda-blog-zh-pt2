@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Playback Audio Won't Pause for Notifications in Apps Built for Android 8.0</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在为Android 8.0构建的应用中，播放音频不会因通知而暂停</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/playback-audio-pause-notifications-android/#0001-01-01">https://www.xda-developers.com/playback-audio-pause-notifications-android/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">在为Android 8.0构建的应用中，播放音频不会因通知而暂停</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">播放音频可以通过Android上的通知来停止，在听音乐或看视频时可能会很烦人。奥利奥想要改变这种状况。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>Android上的音频闪避指的是当另一个音频源(通常是通知)开始播放时，音频的音量降低。当通知避开已经播放的音频源的音频时，它将音频焦点从应用程序上移开，就像Pokemon Go在音乐已经播放时启动它一样。顺便说一下，这里的详细介绍了一种解决方法。应用程序可以选择回避音频，甚至完全停止播放；例如，如果你在Spotify上播放一首歌曲，然后打开YouTube视频，Spotify会完全停止音乐播放。然而，对于任何以Android Oreo(SDK 26级)为目标的应用程序，这将发生变化，因为<strong>播放音频将不再因收到通知而暂停</strong>。</p>
+
+ 
+<hr/>
+
+
+<h2 id="android-oreo-has-changed-the-way-playback-audio-respond-to-notifications">Android Oreo改变了播放音频响应通知的方式</h2>
+<p>现在有了<a href="https://android.googlesource.com/platform/frameworks/base/+/461922fcfc8572415aa39c43c06afce685bd998d"> Android Oreo </a>，每当另一个应用程序或通知获得音频焦点时，针对最新版本的应用程序将不再停止播放。相反，这些应用程序会简单地默认避开音频。例如，Podcast Addict应用程序会在收到新通知时短暂停止媒体播放，然后恢复播放。如果Podcast Addict改为更新到目标SDK级别26(又名Android 8.0 Oreo)，那么它的音量将会降低(音频闪避)，而不是在收到通知时完全暂停。</p>
+
+<p>这与其他变化如<a href="https://www.xda-developers.com/android-oreo-rescue-party-bootloop/">救援队</a>和<a href="https://www.xda-developers.com/project-treble-android-o-exist-flagship/">项目三冠王</a>一样，表明Android Oreo更多的是优化和幕后改进，而不是大规模的变化。很高兴看到谷歌在较小的领域做出改进，并关注操作系统的小部分。多年来，Android的小漏洞一直是批评的对象。</p>
+
+<p>我们将继续寻找其他已经发生的变化。请使用我们的XDA实验室应用程序继续关注XDA门户网站，了解所有最新的Android 8.0和其他Android相关新闻。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>WPA2 WiFi Protocol Vulnerability KRACK Affects 41% of Android Devices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>WPA2 WiFi协议漏洞KRACK影响41%的安卓设备</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/wpa2-wifi-protocol-vulnerability-krack/#0001-01-01">https://www.xda-developers.com/wpa2-wifi-protocol-vulnerability-krack/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>安全性是近年来的一个主要话题，它可以应用于许多形式的技术。它可以指诸如心跳SSL错误、游戏控制台黑客攻击或数据安全之类的事情。在我们的设备上，安全性可能指的是获得root访问权限的容易程度，或者潜在的病毒，但是当然，安全性可以指广泛的主题。WPA2被视为最安全的消费者WiFi保护，而最广泛使用的网络安全协议已被KRACK打破，原因是WiFi标准技术本身的工作方式存在严重缺陷。</p>
+
+  
+<p>WPA2是标准的网络安全协议，主要用于替代WEP。它被认为是安全的，很大程度上是不可破解的，可以动态生成新的密钥来加密数据包。高级加密标准(AES)用于更多的安全屏障，当采取更长的密码、禁用WPS等通常的预防措施时，应该认为该协议是安全的。从技术上讲，问题根本不在WPA2。</p>
+
+<p>然而，Mathy Vanhoef在一篇研究论文中展示的一个概念证明表明，WPA2并不像看上去那么安全。11月1日，在达拉斯举行的ACM计算机和通信安全会议上，将展示一个名为密钥重装攻击(KRACK)的概念验证。概述的攻击适用于所有现代WiFi网络，如果您的设备支持WiFi，那么您可能已经受到影响。在他们的研究过程中，发现Android、Linux、苹果、Windows、OpenBSD、联发科、Linksys和其他设备都容易受到某种形式的漏洞的影响。</p>
+
+<p>更糟糕的是，<strong>41%的数字只是针对这种攻击最具破坏性的形式</strong>。这种攻击可以针对各种设备，但最糟糕的是Android 6.0或更高版本的设备，因为它们有2.4或更高版本的wpa_supplicant。它是如何工作的很简单，请随意观看下面的视频或阅读解释。</p>
+
+<p/><p>https://www.youtube.com/watch?v=Oh4WURZoR98</p>
+
+ 
+<h2 id="how-krack-works">克拉克是如何工作的</h2>
+<p>KRACK首先通过创建第二个WiFi网络来工作，复制原始网络的所有属性，除了在不同的频道上工作。然后，它试图联系它的目标设备，迫使它使用所谓的“CSA信标”或频道切换公告在一个单独的频道上连接到新的网络。这告诉设备它需要连接的信道已经改变，所以现在设备将连接到“流氓”网络。设备被迫连接的网络(流氓网络)将通过它将互联网转发到另一个连接。这使得攻击者能够在以后窃取解密的数据。</p>
+
+<p>接下来运行程序“sslstrip ”,它操纵所有不在端口80上的流量(HTTP请求)移动到端口10000(由修改数据的程序使用)。任何HTTPS请求(通常在端口443上，所以当sslstrip运行时，它们被重定向到端口10000)都将剥离安全数据请求，然后照常发送。这意味着，即使你访问一个HTTPS链接，sslstrip将删除请求中的所有加密数据，你将访问该网站的HTTP版本。未正确配置的网站会允许这种情况发生，而正确配置的网站会拒绝请求，并且在没有HTTPS的情况下无法工作。</p>
+
+<p>接下来，设置WireShark来监控通过计算机网卡的所有流量。当数据通过计算机转发时，连接设备的任何请求也会被看到。HTTPS请求无法在WireShark中查看，因为它们是加密的，但是HTTP很容易被攻击者读取。演示者展示了他输入网站的用户名和密码是如何被轻易读取的，其中“用户名”和“密码”清晰可见。这是因为演示者使用的网站(在这种情况下是Match.com)不会强迫用户使用HTTPS。</p>
+
+<p>这是可行的，因为攻击者可以简单地请求密钥生成过程中四次握手中的第三次握手。连接到WiFi网络需要在设备和网络之间进行四次握手。握手只是设备之间的连接和数据发送。只需一遍又一遍地重新发送第三次握手，就可以操纵加密密钥的生成。最终会生成一个全0密钥，这使得攻击者能够解密并查看数据。</p>
+
+<p>这是对WiFi协议的完美利用，可以应用于许多设备。这种攻击有许多变种，但最简单和最有效的是上面描述的一种，它影响Android 6.0以上的任何Android设备。希望很快会有一个安全更新来修复这个漏洞，但现在你能做的最好的事情是小心你正在连接的网络，如果可以的话，随时使用VPN。</p>
+
+<hr/>
+
+<p><a href="https://www.krackattacks.com/"> <strong>克拉克</strong>T3】</a></p>
+
+<p><em>Via:<a href="https://arstechnica.com/information-technology/2017/10/severe-flaw-in-wpa2-protocol-leaves-wi-fi-traffic-open-to-eavesdropping/">ars technica</a>T3】</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

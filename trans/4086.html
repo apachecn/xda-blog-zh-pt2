@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>OEMs are Required to Not Modify Dumpsys Commands in Android Oreo</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>OEM厂商不得修改Android Oreo中的Dumpsys命令</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-oreo-dumpsys-commands/#0001-01-01">https://www.xda-developers.com/android-oreo-dumpsys-commands/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">OEM厂商不得修改Android Oreo中的Dumpsys命令</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">谷歌声明，原始设备制造商不允许修改某些dumpsys命令的格式或内容，这些命令对新的Android Oreo更新的开发者很有用。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>每年，Google都会发布他们兼容性定义文档的更新版本。这些是每个原始设备制造商必须遵守的规则，如果他们想要发布自己的内置Google Play服务的Android版本。这意味着<a href="https://www.xda-developers.com/android-oreo-oem-background-app-limitations/">新的限制可以到位</a>但也意味着<a href="https://www.xda-developers.com/google-daydream-vr-6-3-display/" target="_blank" rel="noopener">以前的限制可以放松</a>。我们在Android Oreo中发现的另一个新变化是要求OEM厂商<strong>不能修改Dumpsys命令的格式或内容</strong>。</p>
+
+  
+<p>Dumpsys是ADB执行的一个命令，它输出与智能手机硬件和软件相关的各种信息。大多数Android的普通用户可能不知道Dumpsys的好处是什么，但有些人可能知道什么是电池历史记录。谷歌过去在电池统计方面更慷慨，但KitKat的发布使他们对第三方应用程序增加了一些限制。然而，随着Android 5.0 Lollipop的发布，该公司宣布了一项名为电池历史学家的功能，这在一定程度上有助于填补这一空白。</p>
+
+<p>我们能够通过ADB使用Dumpsys命令获得这种新型电池数据。对于那些好奇的人来说，这样做的命令是<code>adb shell dumpsys batterystats &gt; batterystats.txt</code>，然后你可以获取该文本文件并创建一个更容易阅读的HTML版本<a href="https://developer.android.com/studio/profile/battery-historian.html" target="_blank" rel="noopener">，这要感谢谷歌</a>提供的python脚本。这些数据需要以特定的方式进行格式化，这样脚本才能正常工作，谷歌现在禁止原始设备制造商在Android Oreo中修改这样的命令。</p>
+
+<p>开发人员可以通过ADB访问许多其他有用的Dumpsys命令。Google要求OEM厂商不要修改的Dumpsys命令的完整列表是batterystats、diskstats、fingerprint、graphicsstats、netstats、notification和procstats。在ADB shell中输入<code>dumpsys -l</code>可以找到任何Android设备上可用的dumpsys命令的完整列表。</p>
+
+<p>这些命令提供的数据在调试和优化代码时对一些应用程序开发人员来说至关重要，谷歌希望这些命令的输出在任何设备上都保持一致。有些dumpsys命令是特定设备独有的，但至少Google确保了不管在什么设备上都可以使用这些有用的命令。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

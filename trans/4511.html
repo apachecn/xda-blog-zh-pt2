@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Google's Material Design UI is Getting Revamped with New Colors, Iconography, and a Focus on Touch</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌的材料设计界面正在更新，增加了新的颜色、图标，并注重触摸</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/chromium-gerrit-material-design-2-colors/#0001-01-01">https://www.xda-developers.com/chromium-gerrit-material-design-2-colors/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Material Design是与Android Lollipop一起推出的统一设计语言，具有扁平、柔和的调色板、深度、柔和的灯光和逼真的物理效果。它的意思是模仿现实世界物体的触感，而不求助于skeuomorphism谷歌将其描述为“经典原则”与技术“创新和可能性”的综合体。</p>
+
+  
+<p>自从Material Design在2014年首次亮相以来，它就像野火一样在Android生态系统中蔓延开来——更不用说YouTube、Chrome、Gmail、Hangouts和谷歌日历等谷歌应用了。浮动动作按钮、令人愉快的颜色和提升技术已经成为GitHub上的<a href="https://www.xda-developers.com/a-closer-look-at-googles-material-design-components-library-and-how-to-get-started-with-it/">材料组件库</a>的一部分(Android的设计支持库和Google的web聚焦材料设计精简版的后续)，它以自定义视图的形式将材料的优点带到Android，并以可以像标准HTML标签一样导入和使用的捆绑包的形式带到web。</p>
+
+<p>现在，在材料设计四周年的前夕，谷歌似乎正在准备其下一代<a href="https://material.io/guidelines/#introduction-principles">纸和墨水启发的</a>美学:<b>材料设计2 </b>。关于Material Design 2的公开信息非常少，我们本周在Chromium Gerrit的新提交中发现了它的存在。我们没有声称它是最新材料设计框架的<em>真正的</em>继承者，但是承诺指出了调色板、图标和触摸屏行为的明显变化，如果微妙的话。</p>
+
+<hr/>
+
+
+<h2 id="material-design-2-shows-up-in-the-chromium-gerrit">材料设计2出现在Chromium Gerrit中</h2>
+<p>2月初，Chromium Gerrit上的新提交在Chrome的tabstrip中实现了“材料设计2”用户界面——包含网页标题、收藏夹图标和Chrome地址栏上方的“关闭标签”按钮的可拖动标签。</p>
+
+
+
+<p>提交并不激烈，但对Chrome标签的外观进行了修改。它们增加了tabstrip的高度；对标签的内容布局进行未指明的调整，特别是标题和警告指示器；并且在增加标签标准宽度的同时减小标签接触宽度。它们明确地<em>不</em>修改标签警告指示器颜色、标签分隔符颜色、“新标签”按钮或任何标签版式。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/chrome_tabs.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;A collection of Chrome tabs.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/chrome_tabs.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/chrome_tabs.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/chrome_tabs.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/chrome_tabs.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/chrome_tabs.png" src="../Images/d4b67471e8675cbc3247df6225700cb4.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/chrome_tabs.png"/> </picture> <figcaption class="body-img-caption">A collection of Chrome tabs.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>很明显，提交引用了“材料设计2”标签关闭按钮图标和“谷歌材料设计2所需的基本颜色常数”。</p>
+
+
+
+<p>深入挖掘commit代码，可以看到新的“Material Design 2”调色板，用于灰色、红色和红暗铬主题，以及标准Chrome工具栏和隐名工具栏的新颜色。我们使用十六进制查找表来生成RGB样本:</p>
+
+
+
+<p>材料设计2的红色<em>比当前材料设计的<strong>红色800 </strong> (#C62828)和<strong>红色600 </strong> (#E53935)略暗</em>，而新的灰色(#3C4043、#5F6368、#BDC1C6、#F1F3F4)具有更浅的蓝色色调。材料设计采用传统的灰色，其中R=G=B，而在这里，B &gt; G &gt; R在每一种色调(但在255种中只有1-4种)。</p>
+
+
+
+<p>Material Design 2兼容版本Chrome还将采用比当前版本更亮的工具栏——与当前的灰色配色方案相比，它几乎是白色的。</p>
+
+<p>下面是应用新颜色后工具栏外观的快速模型:</p>
+
+
+
+<p>最后，提交向<b> MaterialDesignController </b>添加新的<b>istouchoptimizedderial()</b>标志，该标志可能引用触摸优化的材料设计2元素。我们在1月初曾报道过谷歌努力改善Chrome操作系统设备上的<a href="https://www.xda-developers.com/google-chrome-browser-chrome-os-optimized-touch/"> Chrome网络浏览器的触摸屏支持，这似乎是它的延续。</a></p>
+
+<p>例如，该承诺显示，在触摸屏设备上，Chrome的SetStackedLayout将“始终启用”。默认情况下，当您打开许多选项卡时，其他选项卡的宽度会缩小以适应新的选项卡。Chrome的堆叠布局保留了原有的标签宽度，并在标签后面添加了新的标签。</p>
+
+
+
+
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="the-importance-of-color-in-material-design">色彩在材料设计中的重要性</h2>
+<p>那么，在材料设计的大背景下，新颜色意味着什么呢？</p>
+
+<p>材料设计不仅仅是关于层、组件和元素，以及它们之间的相互关系。谷歌设计主题的核心是高对比度的主题、明亮的颜色和大胆的亮点——它们使符合材料设计的应用程序脱颖而出。</p>
+
+<p>谷歌提供了样本调色板,旨在跨平台“协同工作”,并鼓励开发人员从500个不同的样本中选择一种主要的应用程序颜色——也称为“主要”颜色。(想想“蓝色”、“绿色”或“紫色”等基本颜色。)如果需要，他们从700种颜色的扩展集合中获取第二种颜色(最重要的UI元素使用互补色，不太重要的UI元素使用类似的颜色，第三种颜色来自300种颜色的子集)。</p>
+
+<p>色彩在材料设计层次中起着重要的作用。明亮的颜色暗示着重要性——它们是为突出的按钮和其他交互元素保留的。另一方面，微妙的颜色通过强调文本字段、进度条、链接和UI的其他部分来增加视觉趣味。</p>
+
+<p>从我们对Material Design 2的调色板的了解来看，谷歌“原色500”中至少有几个色板，像红色600和800，比它们的Material Design前辈更暗。但是其他的，比如灰色，得到了相反的处理-<strong>Chrome标签模型中显示的灰色和白色样本都有较冷的灰度和较高的蓝色值</strong>。</p>
+
+<hr/>
+
+<p>目前，这就是我们对材料设计2的全部了解。但提交可能是幕后发生事情的迹象，如果这是真的，我们可能会越早了解越好。谷歌预计最早将于3月发布Android的下一个主要版本Android P，谷歌I/O 2018将于5月8日开幕。两者都是揭开材料设计2的主要机会。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_30"><p><strong>2018年2月4日更新:</strong>这篇文章发表后不久，提交被保密，这可能意味着它应该保密。我们将继续检查Chromium Gerrit的变化，如果发现任何变化，我们将更新本文。</p> </div></section></div>
+
+
+</div>    
+</body>
+</html>

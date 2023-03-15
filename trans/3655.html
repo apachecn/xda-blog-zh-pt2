@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Decompile and Modify APKs on the go with APKTool for Android [XDA Spotlight]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用APKTool for Android随时随地反编译和修改apk[XDA聚焦]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/decompile-and-modify-apks-on-the-go-with-apktool-for-android/#0001-01-01">https://www.xda-developers.com/decompile-and-modify-apks-on-the-go-with-apktool-for-android/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>APKTool 是XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=3924617"> ibotpeaches </a>开发的一款功能强大的软件。该工具允许你<a href="https://ibotpeaches.github.io/Apktool/">逆向工程APK文件</a>，允许你解码资源文件，这样你可以修改它们，然后重新编译应用程序。</p>
+
+  
+<p>很难确定这个工具对Android社区有多重要，但是它的一些更受欢迎的用例列表应该会让你很好地理解为什么这个工具和它的开发者受到如此高的重视。APKTool用于将应用程序<a href="https://www.xda-developers.com/google-camera-v4-2-from-the-pixel-system-dump-is-now-available-for-all-nougat-devices/">移植到以前不支持的设备</a>，<a href="https://forum.xda-developers.com/showthread.php?t=2283828">主题化一些你最喜欢的应用程序</a>，查看APK文件的字符串以了解<a href="https://www.xda-developers.com/tag/apk-teardown/">在未来的更新中可能会有什么</a>，并为应用程序提供<a href="https://forum.xda-developers.com/android/apps-games/app-fleksy-language-packs-t3548347">翻译。另一方面，它也可以被恶意地用于隐藏和分发恶意软件，或者反过来用于Kali Linux中的Android应用渗透测试。</a></p>
+
+<p>APKTool自最初发布以来就可以在Linux/GNU发行版和微软Windows操作系统上使用，但是Android对该工具的支持已经消失了很长时间。对Android设备的有限支持持续了几个月，但对工具的<a href="https://code.google.com/archive/p/apktool/downloads">官方Android版本的更新在2013年停止，使得它无法对任何现代APK文件进行逆向工程。然而，一个名为</a><a href="https://www.androidfilehost.com/?w=profile&amp;uid=24562946973631820"> Andro Black </a>的开发者已经独立发布了用于Android 的APKTool的<a href="https://www.androidfilehost.com/?w=files&amp;flid=149532">更新版本，因此你可以在任何基于<strong>的Android设备</strong>上随时反编译和修改APK文件。</a></p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_3"><p>XDA-开发者不允许使用APKTool进行任何形式的应用盗版。使用APKTool的原因有很多，但出于盗版目的修改应用程序不应该是其中之一。</p> </div></section>
+<hr/>
+
+
+
+<p>该应用程序本身有点粗糙，因为它包含一些拼写错误和一个相当错误的主题切换器，但老实说，我不太在乎，因为Android上没有其他工具可以完成这一功能。APKTool for Android做的正是它的老大哥PC版本所做的——逆向工程APK文件。你可以直接在手机上反编译和重新编译应用程序，如果你想快速修改APK的资源而不需要在你的桌面前，这是很有用的。这对于那些经常编辑APK文件并把它发送到他们的设备上进行实时测试的人来说尤其有用。但是要注意，APKTool应用程序不能用于实际编辑反编译的文件，因为你需要在你的设备上安装一个文本编辑器。</p>
+
+
+
+
+
+<p>设置菜单允许你改变应用程序的主题，如前所述，但更重要的是你可以选择AAPT和APKtool版本，你想使用反编译APK文件。在设置中还有一个“root”的复选标记，没有这个复选标记你就不能正确编译应用程序(默认情况下它是不被选中的。)</p>
+
+
+
+
+
+<p>要使用应用程序，您有两个菜单，一个显示在短按上，另一个显示在长按上。如下所示的点击菜单显示了你可以用来处理APK文件的功能，主要的有<em>反编译所有</em>和<em>符号</em>。这里还有许多其他的函数，但是如果您以前有使用APKTool的经验，这些函数对您来说应该不会陌生。</p>
+
+<p>反编译一个APK后，你可以浏览它的内容，只需点击带有APK名字的文件夹来显示它的内容。点击一个文件将加载默认的Android行为，并询问你想用哪个应用程序打开该文件，此时如果你试图修改一个资源，你将使用你选择的文本或图像编辑器。</p>
+
+<p>一旦您完成了对APK的修改，您也可以从APKTool应用程序内部安装您修改过的版本。长按菜单允许您删除/重命名文件和文件夹，但它也是上下文感知的，所以当您长按一个文件夹时，您将获得选项来编译所有的资源和smalis到一个APK文件再次。</p>
+
+
+
+
+
+<p>我发现该工具对于快速更改现有应用程序非常有用，因为我能够反编译现有应用程序，更改strings.xml文件，并重新编译应用程序以查看更改。不过，该工具执行这些操作的速度取决于您的设备。在我的谷歌Nexus 6P上，反编译一个APK文件需要大约2分钟，而重新编译一个APK文件需要大约2分钟，所以我个人不希望经常在手机上使用APKTool。</p>
+
+<p>在你的手机上处理APK文件并不是最直接的过程，但是APKTool工具使它可行。我不建议开发人员在他们的Android手机上专门修改apk，因为它既慢又更难管理，但如果你拥有一台Android平板电脑，并且正在寻找一种更方便的方式来进行频繁的小修改并在实际设备上进行测试，那么APKTool for Android是你的最佳选择。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="resources">资源</h2>
+<p><a href="https://www.androidfilehost.com/?w=files&amp;flid=149532"> <strong>在你的根安卓设备上安装apk tool</strong></a></p>
+
+<p><a href="https://ibotpeaches.github.io/Apktool/install"> <strong>在你的Linux/Windows设备上安装apk tool</strong></a></p>
+
+<p> </p>
+
+<p><a href="https://forum.xda-developers.com/showthread.php?t=1755243"> <strong>顺着XDA的思路</strong> </a></p>
+
+<p><a href="https://ibotpeaches.github.io/Apktool/contribute/"> <strong>贡献给APKTool项目</strong> </a></p>
+
+<p> </p>
+
+<p><a href="https://gitter.im/iBotPeaches/Apktool"> <strong>在官方Gitter频道讨论apk tool</strong></a></p>
+
+<p><a href="https://webchat.freenode.net/?channels=apktool"> <strong>在官方IRC频道</strong> </a>讨论APKTool</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

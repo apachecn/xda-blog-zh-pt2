@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Here's a Quick Fix for the Nexus 6's Recent YouTube App Lag Issue</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>这里有一个快速修复Nexus 6最近的YouTube应用程序延迟问题的方法</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/fix-youtube-lag-on-the-nexus-6/#0001-01-01">https://www.xda-developers.com/fix-youtube-lag-on-the-nexus-6/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">这里有一个快速修复Nexus 6最近的YouTube应用程序延迟问题的方法</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">如果你在Nexus 6上观看视频和滚动浏览YouTube应用程序上的评论时遇到延迟，这里有一个快速简单的解决方法。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>众所周知，Android是一个通用的移动操作系统。即使你从一部Nexus手机跳到另一部，你的软件体验也会有细微的不同。理论上，你应该不会注意到Nexus 6和Nexus 6P之间的许多软件差异。</p>
+
+  
+<p>但在Nexus 6上，当你同时观看视频和浏览评论时，<a href="http://forum.xda-developers.com/nexus-6/help/youtube-lag-t3272824"> YouTube应用程序莫名其妙地滞后了</a>。许多Nexus 6用户报告说，这个问题是在跳转到Android 6.0棉花糖之后才开始的。这是怎么回事，你怎么解决？</p>
+
+<p>修理它很简单。你只需要打开开发者选项*下的<em> <strong>禁用硬件覆盖</strong> </em>选项。以下是更改选项对YouTube性能影响的前后对比。</p>
+
+ 
+<p class="w-rich w-youtube" id="DPetcrv5yU4">  </p>
+
+
+<p class="w-rich w-youtube" id="zbd6cEttpk8">  </p>
+
+
+<p>为什么这种修复有效？我们并不完全确定我们自己。甚至连Android工程团队都还没有弄清YouTube jank的真相:</p>
+
+<p/><h4><em> <strong>在运行Android M的Nexus 6上播放Youtube视频时，我们确实注意到一些首次加载的滚动评论时的jank。在强制GPU合成时，jank似乎有所改善。Android 6.0上的Youtube使用SurfaceViews进行视频播放，因为它比使用TextureViews耗电更少。强制GPU合成以功耗为代价提高了评论滚动的流畅度。敬请关注。</strong>T3】</em></h4>
+
+<p>如果你注意到在AMA会议期间发表的评论，这个团队确实提到，强制GPU合成可以提高YouTube应用程序的性能。禁用硬件覆盖基本上就完成了这个任务:通过启用此选项<a href="https://source.android.com/devices/graphics/"> SurfaceFlinger </a>将放弃使用硬件覆盖，而是始终使用GPU进行合成。不幸的是，禁用硬件覆盖确实会导致功耗增加，并且实际上只应该用于调试某些类型的媒体应用程序。<strong>解决这个问题的一种方法是将<a href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&amp;hl=en"> Tasker </a>等应用程序与<a href="https://play.google.com/store/apps/details?id=com.intangibleobject.securesettings.plugin&amp;hl=en">安全设置</a>插件配合使用，以便在您使用YouTube应用程序时自动切换“禁用硬件覆盖”选项。</strong></p>
+
+<hr/>
+
+<p>* <em>如何获得开发者选项？转到设置，然后转到关于设备，然后向下滚动到内部版本号，并点击内部版本号字段7次。你在XDA，你应该知道这一点！</em></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

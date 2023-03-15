@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>How to Automatically Check the MD5 Sum of a Download!</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何自动检查一个下载的MD5总和！</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-automatically-check-the-md5-sum-of-a-download/#0001-01-01">https://www.xda-developers.com/how-to-automatically-check-the-md5-sum-of-a-download/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>早在三月中旬，我们就花了<a href="http://www.xda-developers.com/xda-tasker-week-in-review/" target="_blank">整整一周</a>的时间来介绍许多你可能从未在其他地方见过的令人敬畏的Tasker提示和技巧，以最好地增强你的智能手机的效用。希望您已经通过一些真实的例子了解了如何使用Tasker。</p>
+
+  
+<p>今天，我给你们带来了一个我想出的新主意，这个主意应该会让我们论坛上的许多flash爱好者高兴。</p>
+
+<p>如果你是一个喜欢通过刷新自定义rom、内核等来控制自己设备的用户，那么你很可能是一个从AndroidFileHost.com等网站下载大量文件的人。你会注意到，像这样的托管网站上的每一个文件都包含MD5总和，供你下载完成后进行比较。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/Error-Flashing-Zip.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Oops&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/Error-Flashing-Zip.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/Error-Flashing-Zip.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/Error-Flashing-Zip.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/Error-Flashing-Zip.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Oops" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/Error-Flashing-Zip.png" src="../Images/65d73f37811f6ca58d04ddf4a56bed26.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/Error-Flashing-Zip.png"/> </picture> <figcaption class="body-img-caption">Oops</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>在闪存关键文件(如收音机或引导程序)之前，比较MD5和非常重要，以确保您没有闪存损坏的文件。但是在移动设备上这样做很麻烦，因为你需要在你的文件浏览器应用程序中手动找到该文件，并将MD5总和复制/粘贴到一个文本框中，以便比较总和。</p>
+
+
+
+
+
+<p>我停下来，心想，为什么不用Tasker来实现自动化呢？我查了一下，惊讶地发现在任何地方都没有提到这一点，但这是可能的，而且实际上很容易做到！</p>
+
+<p><strong>如何完成</strong></p>
+
+ 
+<p class="w-rich w-youtube" id="yDLcsZBNKNw">  </p>
+
+
+<p>工作原理:你在下载之前将md5和复制到你的剪贴板，然后当下载完成时，你被提示是否要比较值。如果您按“是”，Tasker将计算下载文件的MD5总和，并将其与您的剪贴板中的内容进行比较。</p>
+
+<hr/>
+
+<p><strong>先决条件</strong></p>
+
+<ul> <li><span> <span> <span> <a href="https://play.google.com/store/apps/details?id=com.balda.notificationlistener&amp;hl=en" target="_blank">通知监听器</a> </span> </span> </span>或<a href="https://play.google.com/store/apps/details?id=com.joaomgcd.autonotification&amp;hl=en" target="_blank">自动通知</a>。我个人使用自动通知，但为了本教程的缘故，我设置它使用通知监听器，因为它是免费使用的。</li> <li><a href="https://play.google.com/store/apps/details?id=com.nick.mowen.sceneplugin&amp;hl=en" target="_blank"> Snackbar Tasker插件</a>。不需要(虽然如果你导入我的个人资料，它会使用它)，但它比创建一个有按钮的场景要好。我已经将教程设置为只使用应用程序的免费功能。</li> </ul>
+
+<p><a href="http://static1.xdaimages.com/wordpress/wp-content/uploads/2016/04/Screenshot_20160424-180854.jpg" rel="attachment wp-att-144508"/></p>
+
+
+
+<p/>
+
+<hr/>
+
+<p><strong>指令</strong></p>
+
+<ul> <li>创建一个新的概要文件，并将其命名为'<strong> Check MD5 Sum </strong> s。'关于上下文，请转到<strong>事件- &gt;插件- &gt;通知监听器</strong>。选择“已发布”，向下滚动并选择您的浏览器应用。我个人使用Chrome Dev，所以我选择了它。</li> <li><strong>任务- &gt;如果</strong>。如果%nltext ~下载完成，则将其设置为。(或者当你的浏览器应用程序告诉你下载已经完成时，你的通知中的任何子文本。)这是为了当任务检测到下载已经完成时触发，如浏览器通知所指示的。</li> <li><strong>插件- &gt; Snackbar Tasker插件</strong>。选择“底部表单”对于标题，可以写成类似“检查MD5总和？”，对于项目，将其设为“是，否”，对于命令，将其设为“是，否”。</li> <li><strong>任务- &gt;如果</strong>。设置为If %bs_command ~ Y。</li> <li><strong>代码- &gt;运行外壳</strong>。对于代码make it <code>ls /sdcard/Download</code>设置它在%files中存储结果。(将/sdcard/后面的内容更改为下载文件夹的路径。/sdcard/Download是大多数人的默认)</li> <li><strong>变量- &gt;变量拆分</strong>。分割%个文件。</li> <li><strong>变量- &gt;数组弹出</strong>。弹出%files，位置1，并将其设置为%download。</li> <li><strong>代码- &gt;运行外壳</strong>。对于代码make it <code>md5sum /sdcard/Download/%download</code>将其设置为将结果存储在%md5中。同样，根据需要更改下载目录。</li> <li><strong>变量- &gt;变量拆分</strong>。分割%md5。不要设置分割器。</li> <li><strong>警报- &gt;闪光</strong>。文本:“MD5总和匹配！”检查If并将其设置为If %md51 ~ %CLIP。</li> <li><strong>警报- &gt;闪光</strong>。文本:“MD5总和不匹配！”检查If并将其设置为If %md51！~ %剪辑。</li> <li><strong>任务- &gt;结束如果。</strong></li> <li><strong>任务- &gt;如果</strong>结束。</li> </ul>
+
+<p>以下是任务编辑器屏幕截图，让您更好地了解操作顺序:</p>
+
+
+
+
+
+<p>对自己导入XML感兴趣吗？<a href="http://forum.xda-developers.com/u/tasker-tips-tricks/guide-automatically-check-md5-sum-t3365590/post66531924#post66531924" target="_blank">在我们的Tasker Tips &amp;技巧论坛中，点击链接</a>到我的帖子，滚动到文件的附件。要导入它，打开Tasker，长按顶部的profiles选项卡，按import，然后浏览到您下载的. prf.xml文件。</p>
+
+<hr/>
+
+<p>有一个你一直想在Tasker中实现但不知道如何实现的想法？请在下面告诉我们，我们将来可能会为您的想法提供解决方案！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

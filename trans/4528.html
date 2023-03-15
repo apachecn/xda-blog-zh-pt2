@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Google Play Store v8.9 Hints at Publicly Viewable Edit History in Reviews, Exchanging App Updates with Nearby Devices, and More</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Play商店8.9版在评论中暗示了公开可见的编辑历史，与附近的设备交换应用更新，等等</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-play-store-v8-9-edit-history-nearby-devices-more/#0001-01-01">https://www.xda-developers.com/google-play-store-v8-9-edit-history-nearby-devices-more/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌Play商店v8.9正在向Android设备推出，表面上看，没有任何重大变化。然而，我们在APK对该应用进行了拆解，发现了不少与尚未上线的新功能相关的字符串，包括新的应用审查历史，设备的点对点应用更新共享机制，“拆分安装”模块化apk等等。所以，事不宜迟，让我们开始吧。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些功能目前还没有在live build中实现，可能会在未来的版本中随时被Google拉出来。</p> </div></section>
+<hr/>
+
+
+<h2 id="publicly-viewable-edit-history-for-reviews">公开查看评论的编辑历史</h2>
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"edit_history_label"</span>&gt;</span>Edit History<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"edited_review_tag"</span>&gt;<span class="hljs-string">"· Edited"</span>&lt;<span class="hljs-regexp">/string</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"public_reviews_edit_history_message"</span>&gt;</span>Edit history is public to anyone who can see this review.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"review_edit_history_choice"</span>&gt;</span>View edit history<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"review_edit_history_timestamp"</span>&gt;%<span class="hljs-number">1</span>$s at %<span class="hljs-number">2</span>$s&lt;/string&gt;</code> </pre>
+<p>发布到谷歌Play商店的应用评论一直是公开的。然而，编辑历史<em>并不公开——目前，只有撰写评论的用户和应用程序的开发者才能查看。几个月前，Play Store开始区分编辑过的评论和未编辑过的评论，包括一个“编辑过”的标志，新的字符串显示评论编辑历史将很快被所有人公开查看。</em></p>
+
+<p>为什么这很重要？在Play Store上写评论的用户通常会在应用程序开发者做出回应后编辑评论。其他用户目前无法查看用户评论的过去版本，但一旦他们能够查看，他们将能够看到用户最初写的内容。用户对应用程序的看法经常会随着时间而改变，公开的编辑历史在这方面可能会有所帮助。</p>
+
+<p>另一方面，它们也可能带来隐私风险。用户可以编辑应用评论以删除任何个人身份信息，但如果编辑历史是公开可见的，这将意味着这些信息在一定程度上仍然可见。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="exchanging-app-updates-with-nearby-devices">与附近的设备交换应用更新</h2>
+<p>未来，Play Store用户将能够与附近的设备共享应用更新。这是点对点文件共享的一种形式，在数据连接不理想的地区可能很有用。用户只需在设备之间交换应用程序更新，就能更快地下载它们。</p>
+
+<p>不幸的是，字符串没有解释这个特性在技术层面上是如何工作的。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"mitosis_runtime_notification_message"</span>&gt;</span>Exchanging app updates with nearby devices.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"mitosis_runtime_notification_title"</span>&gt;</span>Checking for app updates<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre><p class="ad-even"> </p>
+
+
+<h2 id="modular-apps">模块化应用</h2>
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"split_install_confirmation_body_text"</span>&gt;</span>%1$s is requesting to download an additional module. This might incur extra data usage charges.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"split_install_confirmation_details_text"</span>&gt;</span>Download size: %1$s<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"split_install_confirmation_negative_button_text"</span>&gt;</span>Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"split_install_confirmation_positive_button_text"</span>&gt;</span>Download<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"split_install_confirmation_title_text"</span>&gt;Download <span class="hljs-keyword">new</span> <span class="hljs-built_in">module</span> <span class="hljs-keyword">for</span> %<span class="hljs-number">1</span>$s&lt;<span class="hljs-regexp">/string&gt;</span><br/>&lt;string name=<span class="hljs-string">"split_install_confirmation_title_text"</span>&gt;Download <span class="hljs-keyword">new</span> <span class="hljs-built_in">module</span> <span class="hljs-keyword">for</span> %<span class="hljs-number">1</span>$s&lt;<span class="hljs-regexp">/string&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"split_install_splash_screen_progress_message_text"</span>&gt;</span>Updating %1$s...<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>这些字符串表明，模块化应用程序可能很快就会出现在Play Store中。模块化应用与<a href="https://www.xda-developers.com/google-play-store-android-instant-apps/"> Android即时应用</a>相关，支持由应用的部分版本组成的“拆分安装”。一些模块化应用程序可能会提示用户下载额外的模块，此时用户可以选择是否下载它们。</p>
+
+<p>模块化应用程序还没有上线，也没有任何官方发布时间表的暗示。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="more-information-about-malware">关于恶意软件的更多信息</h2>
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"package_malware_learn_more"</span>&gt;</span>Learn more<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>谷歌的Play Protect会扫描应用程序中的恶意软件，如果发现任何恶意软件，就会向用户发出警告。目前，用户可以通过点击“无论如何安装”来选择忽略该消息，一个新的字符串显示谷歌将开始显示“了解更多”选项。它大概会链接到更多关于检测到的恶意软件的信息。</p>
+
+<hr/>
+
+<p><strong>如果你发现任何新的东西，请在评论</strong> <strong>中告诉我们，并关注我们的<a href="https://www.xda-developers.com/tag/apk-teardown/"> APK拆解标签</a>以获得更多类似的文章！</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>
