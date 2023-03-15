@@ -1,0 +1,9 @@
+# OPPO Reno 10x 倍变焦的 ColorOS 7.1 终于可以在所有相机上进行视频录制
+
+> 原文：<https://www.xda-developers.com/coloros-7-1-oppo-reno-10x-zoom-enables-video-recording-on-all-cameras/>
+
+OPPO Reno 10x Zoom [早在 2019 年 4 月](https://www.xda-developers.com/oppo-reno-10x-zoom-launch/)就被宣布为 OPPO Reno 系列的首款旗舰手机。它在当时拥有相当不错的规格，包括高通骁龙 855 SoC，6GB/8GB 内存和 128GB/256GB 存储空间，以及 6.6 英寸无凹槽全高清+ (2340x1080) AMOLED 显示屏。强大的三后置摄像头设置，包括 48MP 主摄像头、8MP 超广角摄像头和 13MP 潜望镜长焦摄像头。一个 1600 万像素的前置摄像头和一个 4000 毫安时的电池确保了它的规格呈现了正确的妥协质量。在设计方面，它有一个独特的鲨鱼鳍弹出式前置摄像头，没有后置摄像头。在软件方面，它在 Android 9 的基础上安装了 ColorOS 6。
+
+雷诺 10 倍变焦是有趣的，因为它实际上还没有收到继任者。OPPO Find X2 和 Find X2 Pro([first impressions](https://www.xda-developers.com/oppo-find-x2-pro-hands-on-first-impressions/))是更高端的手机，价格远高于 Reno 10x Zoom，后者在 2019 年被定位为相对实惠的旗舰产品。从那以后，雷诺系列过渡到了中端系列，包括 OPPO Reno2 ( [评论](https://www.xda-developers.com/oppo-reno2-review-a-solidly-mid-range-smartphone/))、Reno3 和 Reno3 Pro 以及即将推出的 [Reno4](https://www.xda-developers.com/oppo-reno4-reno4-pro-snapdragon-765g-65w-supervooc-2-charging/) 系列。有些人可能会说，Realme X50 Pro ( [review](https://www.xda-developers.com/realme-x50-pro-5g-review/) )的表现与 Reno 10x Zoom 的继任者类似，但 X50 Pro 没有潜望镜长焦相机，也有一个明显更小的显示屏。因此，在某些方面，雷诺 10 倍变焦是独一无二的。我在我的评论中称赞了它的多功能相机功能[。不过当时 OPPO 并没有让你把三个后置摄像头的镜头都拍下来。你可以从主相机和潜望镜长焦相机以 5 倍变焦拍摄视频，但不能用超广角相机或 2 倍变焦的数码相机。](https://www.xda-developers.com/oppo-reno-10x-zoom-review/)
+
+这非常令人失望，因为超广角视频录制是一个有趣、有用的功能，已经被三星、LG、一加等厂商采用。Reno 10x 变焦的 ColorOS 7 ( [review](https://www.xda-developers.com/oppo-coloros-7-review/) )更新没有修复这个限制，但现在，OPPO 已经开始推出 ColorOS 7.1 到 Reno 10x 变焦的中国版本。ColorOS 7.1 ( [评测](https://www.xda-developers.com/coloros-7-1-review-on-oppo-find-x2/))更新终于带来了对所有三个后置摄像头录制的支持。这意味着视频现在可以用超广角摄像机录制，也可以以 2 倍变焦、5 倍变焦(潜望镜长焦摄像机)和 10 倍变焦录制。2 倍变焦和 10 倍变焦是数码变焦级别。[XDA 青年成员](https://forum.xda-developers.com/reno-10x-zoom/how-to/finally-video-shooting-camera-lenses-t4129869) [Subzuda](https://forum.xda-developers.com/member.php?u=5810040) 证实了这一点，他们还发布了一个展示新视频录制功能的样本视频。该视频可在下面观看:

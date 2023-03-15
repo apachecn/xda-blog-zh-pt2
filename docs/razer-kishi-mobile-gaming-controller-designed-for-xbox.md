@@ -1,0 +1,13 @@
+# Razer Kishi 控制器现已推出“专为 Xbox 设计”版本
+
+> 原文：<https://www.xda-developers.com/razer-kishi-mobile-gaming-controller-designed-for-xbox/>
+
+回到 CES，Razer [发布了 Kishi](https://www.xda-developers.com/razer-kishi-extending-game-controller-android-ios/) ，一款用于智能手机的扩展游戏控制器。Kishi 是所谓的“伸缩式”游戏控制器，这意味着它可以扩展到安装各种尺寸的智能手机。与许多其他游戏控制器不同，Razer Kishi 不是无线的。相反，它连接到你的手机充电端口。正因为如此，Razer 制作了两个版本的 Kishi:一个用于带有 USB-C 端口的 Android 设备，一个用于带有 Lightning 端口的 iOS 设备。现在，Razer 正在为 Android 设备推出新版本的 Kishi 控制器。像标准版本一样，这款新的可以连接到你的 Android 的 USB-C 端口。然而，Razer 表示其新控制器是“为 Xbox 设计的”,为今年晚些时候推出的[微软 xCloud 和 Xbox Game Pass](https://www.xda-developers.com/microsoft-project-xcloud-cloud-gaming-service-september/) 做准备。
+
+Razer Kishi 的新“为 Xbox 设计”版本与 Android 手机的标准 Kishi 控制器几乎相同。它们都有 4 个面部按钮，2 个操纵杆，一个方向垫，4 个肩部按钮，一个用于充电的 USB-C 端口，以及一个连接到智能手机的 USB-C 连接器。“专为 Xbox 设计”版控制器的区别在于增加了 Xbox Nexus、视图和菜单按钮。这些按钮已被映射为发送与常规 Xbox 控制器上相应按钮相同的输入。这意味着当通过微软的 xCloud 云游戏服务玩 Xbox 游戏时，这款控制器可以完全模仿 Xbox 控制器的输入。
+
+*左:雷蛇岸本“专为 Xbox”版。右图:标准型号。*
+
+新的 Razer Kishi“Designed for Xbox”版控制器从今天开始在美国和欧洲的[Razer.com](https://razer.a9yw.net/c/2233363/642901/10229?subId1=UUxdaUeUpU29301&subId2=exda&u=https%3A%2F%2Fwww.razer.com%2F)、[Microsoft.com](http://www.microsoft.com)、亚马逊和其他零售商处出售，零售价为 99.99 美元/€109.99 美元。这比标准型号贵了 20 美元/€20 英镑，但 Razer 还提供了 Xbox 游戏 Pass Ultimate 的 14 天免费试用作为补偿。Razer 表示[微软 xCloud 将于 9 月 15 日推出 Xbox Game Pass Ultimate](https://www.xda-developers.com/microsoft-project-xcloud-cloud-gaming-service-september/) ，届时，它将需要一个兼容的控制器才能在 Android 上运行。你可以选择 Xbox 控制器和手机手柄，但 Razer 认为其 Kishi 是 Android 上 Xbox 游戏流媒体的最佳选择。
+
+当我[回顾 XDA](https://www.xda-developers.com/razer-kishi-review-google-stadia-nvidia-geforce-now-steam-link-emulators/) 的标准 Kishi 时，我发现当通过模拟器或云游戏服务玩游戏时，它是 Android 手机的优秀控制器。然而，我对它的尺寸限制感到失望。虽然你可以移除橡胶插件来为[腾出一些空间来容纳稍大的手机](https://www.xda-developers.com/razer-kishi-controller-modded-fit-larger-android-phones-cases/)，但 Kishi 仍然无法支持所有大型智能手机。此外，由于 Kishi 需要一个安装在中央的 USB-Type C 端口，一些罕见的设备如[华硕 ROG 手机 3](https://www.xda-developers.com/asus-rog-phone-3-review/) 将不适合。基于三星 Galaxy Note 20 Ultra 的[泄露尺寸，似乎即将推出的手机应该仅仅*勉强*适合，但前提是你像前面提到的那样移除橡胶插件。目前的传言表明，Galaxy Note 20 Ultra](https://www.xda-developers.com/samsung-galaxy-note-20-leaked-renders-massive-6-9-display-s-pen/) [将针对微软 xCloud 和 Xbox Game Pass](https://www.xda-developers.com/samsung-galaxy-note-20-ultra-leak-reveals-ultra-low-latency-s-pen-108mp-camera-120hz-display/) 进行优化，因此如果该设备不能适合 Kishi，那将是一个遗憾。不过，一旦明天手机的规格得到确认，我们就能确定了。
