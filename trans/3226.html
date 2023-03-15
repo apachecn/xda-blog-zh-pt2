@@ -1,0 +1,493 @@
+<html>
+<head>
+<title>How I Cracked Trivia Crack</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>我如何破解琐事裂缝</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-i-cracked-trivia-crack/#0001-01-01">https://www.xda-developers.com/how-i-cracked-trivia-crack/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>琐事裂纹是一个非常受欢迎的网络和移动平台的游戏，有点模仿琐碎的追求。这是社交游戏的最新热潮，允许用户与他们的朋友和陌生人竞争回答一系列类别的问题。尽管我对游戏从来都不感兴趣，但我妻子最近却成了《琐事破解》的超级粉丝。看了她玩了一会儿，我决定下载下来，仔细看看是怎么实现的。</p>
+
+  
+<p>我开始是在使用Android应用程序时监控网络上发出的web API请求。很快，我在游戏运行过程中注意到了一些有趣的事情。似乎在用户开始转动“类别”转盘之前，应用程序就已经收到了来自琐事破解服务器的类别、问题和答案。</p>
+
+<p><a href="http://i.imgur.com/PGtXbgi.png"/></p>
+
+
+
+<p/>
+
+<p>下面是应用程序在显示此屏幕之前获取的示例响应:</p>
+
+<p/><pre>{
+
+<p>【id】:2747994099，</p>
+
+<p>“对手”:{</p>
+
+<p>【id】:0，</p>
+
+<p>" alerts_count": 0，</p>
+
+<p>"用户名":" smartplay(tm)"</p>
+
+<p> },</p>
+
+<p>“游戏_状态”:“待定_批准”，</p>
+
+<p>《语》:“恩”，</p>
+
+<p>"已创建": "美国东部时间2015年3月23日08时58分29秒"，</p>
+
+<p>" last _ turn ":" 03/23/2015 08:58:29 EST "，</p>
+
+<p>“类型”:“正常”，</p>
+
+<p>"失效日期":" 2015年6月3日08:58:29东部"，</p>
+
+<p>“轮到我了”:真的，</p>
+
+<p>"统计数据":{</p>
+
+<p>"玩家_一个_统计":{</p>
+
+<p>"类别_问题":[</p>
+
+<p> {</p>
+
+<p>「类别」:「地理」，</p>
+
+<p>【正确】:1，</p>
+
+<p>“不正确”:0，</p>
+
+<p>“最差”:错误</p>
+
+<p> }</p>
+
+<p> ],</p>
+
+<p>「正确_答案」:1，</p>
+
+<p>“不正确的答案”:0，</p>
+
+<p>“挑战_胜利”:0，</p>
+
+<p>【问题_已回答】:1，</p>
+
+<p>“克朗_韩元”:0</p>
+
+<p> },</p>
+
+<p>"玩家二统计":{</p>
+
+<p>「正确答案」:0，</p>
+
+<p>“不正确的答案”:0，</p>
+
+<p>“挑战_胜利”:0，</p>
+
+<p>“问题_已回答”:0，</p>
+
+<p>“克朗_韩元”:0</p>
+
+<p> }</p>
+
+<p> },</p>
+
+<p>" dujemma type ":false，</p>
+
+<p>正常类型:true，</p>
+
+<p>" spins_data": {</p>
+
+<p>"旋转":[</p>
+
+<p> {</p>
+
+<p>“类型”:“正常”，</p>
+
+<p>"问题":[</p>
+
+<p> {</p>
+
+<p>"问题":{</p>
+
+<p>【id】:14996887，</p>
+
+<p>「品类」:「运动」，</p>
+
+<p>“text”:“谁是第一个在奥运会上获得满分10分的女子体操运动员？”,</p>
+
+<p>"答案":[</p>
+
+<p>"Nadia Comaneci",</p>
+
+<p>“莫慧兰”，</p>
+
+<p>“塔季扬娜·古楚”，</p>
+
+<p>爱格妮丝</p>
+
+<p> ],</p>
+
+<p>"作者":{</p>
+
+<p>【id】:71534267，</p>
+
+<p>【姓名】:“弗洛伦蒂娜·尤内拉·加利亚诺”，</p>
+
+<p>“用户名”:“florentina.gagliano”，</p>
+
+<p>" facebook_id": "100000030456122 "，</p>
+
+<p>" Facebook _ name ":" florent ina Ionela Gagliano "，</p>
+
+<p>“fb_show_picture”:真，</p>
+
+<p>" fb_show_name": true</p>
+
+<p> },</p>
+
+<p>「正确_答案」:0，</p>
+
+<p>" media_type ":"正常"</p>
+
+<p> },</p>
+
+<p>"通电问题":{</p>
+
+<p>【id】:8534934，</p>
+
+<p>「品类」:「运动」，</p>
+
+<p>" text ":"在篮球中，把它从玻璃上吻下来"是什么意思？",</p>
+
+<p>"答案":[</p>
+
+<p>“两罚全中”，</p>
+
+<p>“放过某人的后背”，</p>
+
+<p>“运球越过两个人”，</p>
+
+<p>"从篮板上击出一球"</p>
+
+<p> ],</p>
+
+<p>"作者":{</p>
+
+<p>【id】:41439403，</p>
+
+<p>【名称】:“tsan.819”，</p>
+
+<p>"用户名":" tsan.819 "，</p>
+
+<p>“fb_show_picture”:假，</p>
+
+<p>" fb_show_name": false</p>
+
+<p> },</p>
+
+<p>「正确_答案」:3，</p>
+
+<p>" media_type ":"正常"</p>
+
+<p> }</p>
+
+<p> }</p>
+
+<p> ]</p>
+
+<p> }</p>
+
+<p> ]</p>
+
+<p> },</p>
+
+<p>" available _ crown ":[</p>
+
+<p>“科学”，</p>
+
+<p>“艺术”，</p>
+
+<p>“历史”，</p>
+
+<p>“娱乐”，</p>
+
+<p>“运动”，</p>
+
+<p>“地理”</p>
+
+<p> ],</p>
+
+<p>“我的_玩家_号码”:1，</p>
+
+<p>“available _ extra _ shots”:1、</p>
+
+<p>"玩家一":{</p>
+
+<p>【收费】:1元</p>
+
+<p> },</p>
+
+<p>"玩家二":{</p>
+
+<p>【收费】:0</p>
+
+<p> },</p>
+
+<p>" round_number": 1，</p>
+
+<p>" sub _ status ":" P1 _玩_第一回合"，</p>
+
+<p>" previous _ sub _ status ":" P1 _等待_第一次_转弯"，</p>
+
+<p>“is_random”:真，</p>
+
+<p>“未读消息”:0，</p>
+
+<p>“状态_版本”:1，</p>
+
+<p>“新_成绩”:假，</p>
+
+<p>"我的级别数据":{</p>
+
+<p>【等级】:1、</p>
+
+<p>【要点】:1、</p>
+
+<p>【进步】:33，</p>
+
+<p>《goal _ points》:3、</p>
+
+<p>“level_up”:假</p>
+
+<p> }</p>
+
+<p>}</p></pre>
+
+<p>请注意，类别、问题、答案选项和正确答案都包含在回复中。这意味着当在应用程序中被要求作弊时，很容易识别答案。虽然对游戏使用来说不太道德或公平，但我认为这将是一项有趣的研究。</p>
+
+<p>我最初的计划是对Android应用程序进行逆向工程，并为用户提供一个答案的<a href="http://developer.android.com/guide/topics/ui/notifiers/toasts.html" target="_blank"> Toast </a>通知。我从<a href="http://www.decompileandroid.com/" target="_blank">反编译应用</a>和审查源代码开始。我使用grep在源代码中搜索一些关键字，希望这些关键字能帮助我追踪问答活动。在搜索一些可能的结果时，有几行引起了我的注意。</p>
+
+<p/><pre> v.setText(p);
+
+<p>字符串s1 =</p>
+
+<p>if(com . eter max . tools . f . a . a()&amp; &amp; h . a(" ANSWERS _ CHEAT "，true))</p>
+
+<p> {</p>
+
+<p>s1 = (new StringBuilder())。追加("(")。append(r . getcorrectsanswer())。追加(")")。toString()；</p>
+
+<p> }</p>
+
+<p>B.setText((new StringBuilder())。append(r.getText())。追加(s1)。toString())；</p>
+
+<p>a . setcontentdescription(r . gettext())；</p>
+
+<p>甲(乙)；</p>
+
+<p>u . set visibility(0)；</p>
+
+<p>c . start animation(com . eter max . preguntados . ui . a . c . b())；</p>
+
+<p>x . set image resource(com . eter max . preguntados . ui . game . duel mode . h . a(m))。a(g，r . get category())；</p>
+
+<p>LayoutInflater layoutinflater;</p>
+
+<p>列表列表；</p>
+
+<p>如果(l！= null &amp;&amp; l == GameType。决斗_游戏)</p>
+
+<p> {</p>
+
+<p>y . set visibility(0)；</p>
+
+<p>y.setText(c(c.x()。h()))；</p>
+
+<p>}否则</p>
+
+<p> {</p>
+
+<p>y . set visibility(8)；</p>
+
+<p> }</p>
+
+<p>h . set enabled(false)；</p>
+
+<p>layoutinflater = getLayoutInflater(getArguments());</p>
+
+<p>d . a(e . d)；</p>
+
+<p>list = r . getanswers()；</p></pre>
+
+<p>遵循代码，“ANSWERS_CHEAT”暗指游戏中隐藏的作弊模式。我决定找出它是如何工作的，而不是重新发明轮子。<span>使用grep，我找到了对“ANSWERS _ CHEAT”</span><span>字符串</span> <span>的所有引用，并很快</span> <span>发现了对主仪表板活动上隐藏菜单的</span><span/><span>引用。</span></p>
+
+<p/><pre> public boolean onOptionsItemSelected(MenuItem menuitem)
+
+<p> {</p>
+
+<p>if(com . eter max . tools . f . a . a()&amp; &amp; menuitem . getitemid()= = com . eter max . I . cheat)</p>
+
+<p> {</p>
+
+<p>if (j.a("ANSWERS_CHEAT "，真))</p>
+
+<p> {</p>
+
+<p>j.b("ANSWERS_CHEAT "，假)；</p>
+
+<p>menuitem.setTitle("启用答案作弊")；</p>
+
+<p>返回true</p>
+
+<p>}否则</p>
+
+<p> {</p>
+
+<p>j.b("ANSWERS_CHEAT "，真)；</p>
+
+<p>menuitem.setTitle("禁用答案作弊")；</p>
+
+<p>返回true</p>
+
+<p> }</p>
+
+<p>}否则</p>
+
+<p> {</p>
+
+<p>返回super . onoptionsitems elected(menuitem)；</p>
+
+<p> }</p>
+
+<p> }</p></pre>
+
+<p>这段代码似乎可以处理作弊模式选项的设置，但我仍然无法访问菜单本身。在同一活动中，我回顾了下面的OnCreateOptionsMenu方法:</p>
+
+<p/><pre> public boolean onCreateOptionsMenu(Menu menu)
+
+<p> {</p>
+
+<p>if (com.etermax.tools.f.a.a())</p>
+
+<p> {</p>
+
+<p>getMenuInflater()。inflate(com . eter max . l . preguntados _ debug _ menu，menu)；</p>
+
+<p>返回true</p>
+
+<p>}否则</p>
+
+<p> {</p>
+
+<p>return super . oncreateoptionsmenu(菜单)；</p>
+
+<p> }</p>
+
+<p> }</p></pre>
+
+<p>大多数作弊模式功能，包括隐藏菜单，看起来都依赖于<span>com . etermax . tools . f . a . a()</span>的返回值。该类的代码如下:</p>
+
+<p/><pre>public class a
+
+<p>{</p>
+
+<p>私有静态布尔a；</p>
+
+<p>私有静态字符串</p>
+
+<p>公共静态void a(application info application info)</p>
+
+<p> {</p>
+
+<p>a =假；</p>
+
+<p> }</p>
+
+<p>公共静态void a(字符串s)</p>
+
+<p> {</p>
+
+<p>b = s；</p>
+
+<p> }</p>
+
+<p>公共静态布尔a()</p>
+
+<p> {</p>
+
+<p>返回a；</p>
+
+<p> }</p>
+
+<p>公共静态字符串b()</p>
+
+<p> {</p>
+
+<p>返回b；</p>
+
+<p> }</p>
+
+<p>公共静态布尔c()</p>
+
+<p> {</p>
+
+<p>回归b！= null</p>
+
+<p> }</p>
+
+<p>}</p></pre>
+
+<p>这似乎是我一直在寻找的决策点。改变赋值<span> a =假；</span>到<span>真</span>应该已经启用了隐藏菜单。我打开了类的smali表示，找到了布尔成员的赋值。</p>
+
+<p/><pre># direct methods
+
+<p>。方法public static a(land roid/content/pm/application info；)V</p>
+
+<p>。本地人1</p>
+
+<p>。序言</p>
+
+<p>。第29行</p>
+
+<p>常数/4 v0，0x0</p>
+
+<p>sput-boolean v0，Lcom/eter max/tools/f/a；-&gt;答:Z</p>
+
+<p>。第30行</p>
+
+<p>返回-无效</p>
+
+<p>。结束方法</p></pre>
+
+<p>我将第29行(上面的代码片段第7行)改为<span> const/4 v0，1 </span>，将值设置为true。然后我重新编译并安装了这个应用程序。菜单按钮成功地暴露了下面隐藏的选项:</p>
+
+<p><a href="http://i.imgur.com/0kz8pJU.png"/></p>
+
+
+
+<p/>
+
+<p>“答案作弊”现在似乎默认启用，所以我开始了一个新的游戏来测试。不出所料，游戏现在在问题后面附加了一个数字，表示正确答案的从零开始的索引。</p>
+
+<p><a href="http://i.imgur.com/oxjEnHb.png"/></p>
+
+
+
+<p/>
+
+<p>点击下载APK补丁<a href="http://www.mediafire.com/download/0e1mbz6rchavc9r/Trivia_Crack_com.etermax.preguntados.lite_2.0.1_71.apk" target="_blank">。请注意，这仅用于研究目的；我不对任何不道德的游戏负责！</a></p>
+
+<p><strong>编辑:</strong> <a href="http://www.filedropper.com/triviacrackcometermaxpreguntadoslite20171" target="_blank"> APK镜报</a></p>
+
+<p>这应该是一个很好的例子，说明客户端应用程序的隐私无法得到保证，开发人员应该小心他们编译的版本中包含的内容。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

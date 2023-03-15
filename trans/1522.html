@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Chrome OS 85 vastly improves handwriting recognition for some Chromebooks</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Chrome OS 85极大地改善了一些Chromebooks的手写识别</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/chrome-os-85-vastly-improves-handwriting-recognition-for-some-chromebooks/#0001-01-01">https://www.xda-developers.com/chrome-os-85-vastly-improves-handwriting-recognition-for-some-chromebooks/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Chrome OS 85极大地改善了一些Chromebooks的手写识别</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Chrome OS在其最新更新中获得了一个增强的人工智能手写识别模块，可以在本地工作。继续阅读，了解更多信息！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>本月初，谷歌<a href="https://www.xda-developers.com/google-chrome-os-85-rolls-out-wi-fi-sync-simpler-settings-mic-slider-more/">开始通过稳定的渠道向兼容设备推出Chrome OS 85 </a>。此次更新带来了方便的Wi-Fi同步选项，相机应用程序中的视频录制暂停/恢复支持，以及许多其他改进。然而，事实证明，山景城巨人在这次更新中在一些Chromebooks上安装了一个增强的离线手写识别模块，尽管官方changelog中根本没有提到该功能。</p>
+
+  
+<p>据<a href="https://www.androidpolice.com/2020/09/11/chrome-os-85-significantly-improves-the-handwriting-keyboard-for-some-chromebooks/"> <em>安卓警察</em> </a>报道，新的人工智能手写识别组件完全离线工作。与之前基于云的机制不同，该模块的新版本利用了设备上的机器学习，精确度更高。手写图形数据被本地处理以编译一个相当精确的识别模型，该模型能够随着时间的推移而自我修正。</p>
+
+
+
+<p>在引擎盖下，有一个名为<a href="https://source.chromium.org/chromiumos/chromiumos/codesearch/+/master:src/platform2/ml/handwriting.cc;bpv=1;l=21"><strong>libhandingbwriting . so</strong></a>的新库，负责管理Chrome OS中改版的手写识别系统的整个离线机器学习方面。只有在编译Chrome OS时在默认makefile中设置了<code>ondevice_handwriting</code>属性，才能加载该库。截至目前，谷歌正在分阶段推出，只有少数设备最初在其各自的Chrome OS 85版本中包含该属性。该功能可能严重依赖于处理器的神经处理能力，这就是为什么该公司试图限制选择Chromebooks的可能性。</p>
+
+<p>以下是运行Chrome OS的设备列表，这些设备目前支持基于人工智能的本地离线手写识别:</p>
+
+<ul> <li>《夏娃》:谷歌Pixelbook</li> <li>“sarien”:戴尔Latitude 5300二合一设备，Latitude 5400</li> <li>“soraka”:惠普Chromebook x2</li> <li>“章鱼”:华硕、宏碁、惠普、联想、三星双子湖Chromebooks几款</li> <li>「娜美」:宏碁Chromebook 13 / Spin 13，戴尔Inspiron 14二合一型号7486，联想Chromebook C340-15，联想Yoga Chromebook C630，</li> <li>【rammus】:华硕Chromebook Flip C434，华硕Chromebook C425，华硕Chromebook Flip C433TA</li> <li>“鹦鹉螺”:三星Chromebook Plus (V2)，三星Chromebook Plus LTE</li> <li>【孵化】:华硕Chromebook Flip C436FA，宏碁Chromebook 712，联想IdeaPad Flex 5i，三星Galaxy Chromebook</li> <li>《夜曲》:<a href="https://www.xda-developers.com/google-pixel-slate-detachable-chrome-os-tablet/">谷歌像素写字板</a></li> </ul>
+</div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

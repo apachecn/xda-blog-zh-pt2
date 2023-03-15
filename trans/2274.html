@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Determine Your Device's Hard Brick Risk with Got Brickbug</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用Got Brickbug确定您设备的硬件故障风险</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/determine-your-devices-hard-brick-risk-with-got-brickbug/#0001-01-01">https://www.xda-developers.com/determine-your-devices-hard-brick-risk-with-got-brickbug/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>到目前为止，我们都很熟悉在更新到IC的泄露版本时困扰各种三星的<a title="Hard Brick Bug on Galaxy S II and Note Leaked ICS Kernels" href="http://www.xda-developers.com/android/hard-brick-bug-on-galaxy-s-ii-and-note-leaked-ics-kernels/">硬砖错误。这个bug已经出现在各种基于三星Exynos 4210的设备上，包括</a><a href="http://forum.xda-developers.com/forumdisplay.php?f=1346"> Galaxy Note GT-N7000 </a>、<a href="http://forum.xda-developers.com/forumdisplay.php?f=1281"> Epic 4G Touch </a>、<a href="http://forum.xda-developers.com/forumdisplay.php?f=1301">AT&amp;Galaxy S II</a>以及韩国的SHW-M250S/K/L</p>
+
+  
+<p>然而，我们很快发现，并不是所有的eMMC修订版都受到同样的困扰。相反，0x19修订版被突出显示为已知错误，而0x25被认为是安全的。0x19和0x25之间的版本被认为可能是坏的，而比0x25新的版本可能是安全的。雪上加霜的是，热衷于十六进制的人会很快注意到，0x19换算成十进制就是25！</p>
+
+<p>自然，有人会创造一种更简单的方式来确定你的设备的状态，而那个人就是XDA精英公认的开发者<span><span><a href="http://forum.xda-developers.com/member.php?u=631273"/></span></span>。通过他的新应用Got Brickbug，用户可以轻松地检查他们的设备，以查看他们对硬砖错误的风险状态。正如Chainfire自己解释的那样:</p>
+
+<blockquote>
+<p>附上一个简单的APK，读出你的芯片的类型和CID，并让你知道我们是否知道芯片是危险的或安全的。</p>
+<p>使用后再次卸载即可。</p>
+<p>显然，这是“按现状”来的，我们对你用你的设备做什么不负责，等等。程序的输出不能派生出任何权限！</p>
+<p>使用的内部数据:</p>
+<p>MAG4FA、VYL00M或KYL00M fwrev 0x19 -&gt;已知不良</p>
+<p>MAG4FA、VYL00M或KYL00M fwrev &gt;= 0x25 -&gt;可能安全</p>
+<p>MAG4FA，VYL00M，或者KYL00M fwrev！= 0x19 &amp;&amp; &lt; 0x25 --&gt;可能不好</p>
+<p>其他一切:未知芯片</p>
+ </blockquote>
+<p>由于这是任何flash爱好者的相关信息，我们建议您前往<a href="http://forum.xda-developers.com/showthread.php?t=1693704">应用程序线程</a>来测试您的设备。</p>
+
+<p>[图片摘自egzthunder1关于此事的<a href="http://www.xda-developers.com/android/hard-brick-bug-on-galaxy-s-ii-and-note-leaked-ics-kernels/">精彩文章</a>。]</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

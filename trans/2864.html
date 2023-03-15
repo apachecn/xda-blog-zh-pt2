@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Fix External Storage Handling with Xposed Module</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用暴露模块修复外部存储处理</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/fix-external-storage-handling-with-xposed-module/#0001-01-01">https://www.xda-developers.com/fix-external-storage-handling-with-xposed-module/#0001-01-01</a></blockquote><div><section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>在最近的Android版本中，谷歌越来越不愿意迎合使用外置SD卡。一直不太清楚谷歌为什么决定在Nexus设备中放弃SD卡支持，但许多人认为这是因为移除另一个存储区域更加简单。</p>
+
+  
+<p>虽然谷歌在自己的设备上取消了这个想法，但各种原始设备制造商决定在他们的设备上保留SD卡插槽。为了正确使用它们，需要对Android的源代码进行一些修改。由于一些较新版本的Android处理SD卡的方式发生了变化，许多应用程序失去了访问外部SD卡的能力。幸运的是，Xposed Framework允许用户修改操作系统的各个方面，而不需要修改文件本身。</p>
+
+<p>XDA资深成员<a href="http://forum.xda-developers.com/member.php?u=4501300"> defim </a>对外部存储的情况感到恼火，于是创建了一个模块来解决上述问题。要应用这个补丁，唯一需要做的就是在根设备上成功安装这个模块后，在Xposed安装程序中启用它。</p>
+
+<p>如果您的Android 4.0.3+设备遇到了外部存储处理问题，请使用<a href="http://forum.xda-developers.com/showthread.php?t=2693521">原始线程</a>并尝试一下这个模块。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

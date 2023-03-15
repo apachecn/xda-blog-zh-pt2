@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>How to Use a Custom Toolchain for ROMs and Kernels</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何为rom和内核使用定制工具链</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/custom-toolchain-roms-kernels/#0001-01-01">https://www.xda-developers.com/custom-toolchain-roms-kernels/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">如何为rom和内核使用定制工具链</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">工具链提供了编译代码的必要工具。定制工具链通常带有您可以使用的优化——通过本指南了解如何使用。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>工具链基本上是在一个链中使用的一组开发工具(一个工具的输出成为下一个工具的输入，以此类推)，以便编译源代码(在这里是rom和内核)。虽然Android NDK工具链(除了其他工具之外，还附带了GCC)通常用于此，但是如果开发者愿意，他们也可以使用其他工具链。例如，这些可以包括侧重于性能或稳定性的优化。</p>
+
+  
+<p>Linaro和SaberMod是定制工具链的两个流行示例。它们都引入了一些优化，特别是针对最近的ARM CPUs。如果你想知道如何切换到定制工具链，那么你可能想看看XDA资深会员<a href="http://forum.xda-developers.com/member.php?u=5051294"> frap129 </a>写的教程。在这篇文章中，他解释了如何获取您想要的工具链，以及为了使用它所做的必要更改。虽然本指南使用Linaro和SaberMod作为示例，但它也可以用于任何其他自定义工具链。感兴趣吗？现在就去<a href="http://forum.xda-developers.com/chef-central/android/guide-switching-to-custom-toolchain-t2927662">切换到定制工具链指南论坛线程</a>开始吧！</p>
+
+<p>使用定制工具链，即使它可能提供显著的好处，也可能对稳定性产生负面影响，并引入难以跟踪和修复的错误。这是做实验时要牢记的一件好事！</p>
+
+<p>如果你刚刚开始，想学习如何从源代码编译一个ROM或内核，那么我们也可以满足你。去XDA大学吧，那里有相关的教程和更多。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

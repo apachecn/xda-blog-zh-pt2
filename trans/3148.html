@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Michael Leahy Releases OpenGL ES 3.0/3.1 Frameworks</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Michael Leahy发布OpenGL ES 3.0/3.1框架</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/opengl-es-3-03-1-frameworks/#0001-01-01">https://www.xda-developers.com/opengl-es-3-03-1-frameworks/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>你可能知道XDA论坛成员迈克尔·莱格，又名迈克尔·莱希。Michael因在Android上使用OpenGL而闻名。事实上，在Android BBQ 2014大会上，他发表了题为“<a href="http://forum.xda-developers.com/member.php?u=4680981"> OpenGL ES 3.1 / Android扩展包</a>”的演讲。今天，他以<a href="http://forum.xda-developers.com/tools/programming/library-modern-opengl-es-3-0-3-1-t2973316"> apache许可框架演示</a>的形式为开发者提供了更多信息。</p>
+
+  
+<p>作为一名开发人员，你很快就会发现的一件事是，我们可以说，使用图形是令人沮丧的。当您的图形类似于视频时，尤其如此。虽然有相当多的应用程序使用OpenGL，但没有太多是开放的，开发者也没有分享他们自己的加速框架。在这种情况下，Michael为您提供了利用OpenGL构建应用程序所需的一切。他还提供了指南和维基条目。</p>
+
+<p>你可能会问自己，“这提供了Android本身所没有的什么？”好吧，你可以直接进入代码并找出答案，或者你可以直接从这个人那里听到:</p>
+
+<blockquote>
+<p>从资产中轻松加载着色器代码的能力相当不错。AndroidGLESXXUtil中的任何东西都可以真正减轻负担。OpenGL API的工作方式是，您必须将数组或IntBuffer传递到方法调用中，以进行查询并获得返回值。所有这些都是通过ThreadLocal创建在内部管理的，所以它也是线程安全的。</p>
+<p>我用EGL 1.4重写了GLSurfaceView -&gt; GLSurfaceView2，删除了1.0版Android SDK中的所有遗留内容</p>
+<p>AndroidGLES20Util就是一个很好的例子。AndroidGLES30Util中也有覆盖，可以更有效地加载纹理，并正确地使它们与计算着色器一起工作。Adreno 420非常挑剔，但我发现了一种加载纹理的好方法，这种方法在K1 for compute shader上有效，但不会破坏它，但不会破坏Adreno GPU上的正常纹理支持。</p>
+ </blockquote>
+<p>虽然Michael目前正在运行一个kickstarter，它将于今晚关闭，并且可能不会得到资助，但他分享这个内容的主要目标是找到对这个项目有类似兴趣的人，并为开发人员提供开源的Apache许可的标准。因此，如果你是一名开发人员，并且对Android上的OpenGL应用于电影感兴趣，请随时联系他。否则，检查这个<a href="https://github.com/typhonrt/modern-java6-android-gldemos"> OpenGL演示</a>项目以及<a href="https://github.com/typhonrt/modern-java6-android-glframework">框架</a>。还有，别忘了<a href="https://github.com/typhonrt/modern-java6-android-gldemos/wiki/installation">维基</a>！</p>
+
+<p>如果你想看看这个框架能做些什么，而又不弄湿你的脚，那就去看看<a href="https://github.com/typhonrt/modern-java6-android-gldemos/blob/master/prebuilt-apk/ModernGL.apk?raw=true" target="_blank">演示</a>。在依赖这个框架的<a href="http://kck.st/1xA3R61" target="_blank"> kickstarter </a>上有更多的例子。此外，别忘了看看<a href="http://forum.xda-developers.com/member.php?u=4680981">迈克尔·格雷格</a>的<a href="http://forum.xda-developers.com/tools/programming/library-modern-opengl-es-3-0-3-1-t2973316"> XDA论坛帖子</a>。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

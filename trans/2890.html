@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Increase the Number of Allowed Lock Screen Pattern Attempts</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>增加允许的锁屏模式尝试次数</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/increase-the-number-of-allowed-lock-screen-pattern-attempts/#0001-01-01">https://www.xda-developers.com/increase-the-number-of-allowed-lock-screen-pattern-attempts/#0001-01-01</a></blockquote><div><section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>数据安全非常重要，这一点我们都很清楚。<a href="http://www.xda-developers.com/announcements/heartbleed-what-xda-did-to-patch-this-critical-internet-flaw/"> Heartbleed </a> <span> </span>只是强调了我们对数字数据安全性的依赖。在移动设备方面，有几种方法可以保护我们的数据免受窥探。其中一个是锁屏。你可以用几种方式保护你的锁屏，包括<a href="http://www.xda-developers.com/android/thwart-password-stealing-eyes-with-timepin/">一个可变设备解锁密码</a>，面部检测，密码，传统密码，当然还有模式解锁。但是过度安全的设备也会成为其所有者的负担。毕竟，我们的记忆并不完美，我们可能会忘记解锁密码。</p>
+
+  
+<p>五次输入不正确的密码会迫使您等待30秒，然后才允许您重试。但是我们都不喜欢等待。考虑到这一点，XDA的高级成员<a href="http://forum.xda-developers.com/member.php?u=5290145"> hamzahrmalik </a>为Xposed框架创建了更多模式尝试模块。</p>
+
+<p>顾名思义，模式尝试次数越多，在设备将自身锁定为20次之前，可以尝试的错误模式的数量就越多。关于五次失败的通知仍然存在，但是您可以立即进入下一个模式。在20次错误组合后，设备被锁定，只能通过登录您的Google帐户解锁。因为它是以Xposed模块的形式出现的，所以它只能在安装了Xposed框架的根设备上工作。</p>
+
+<p>你可以在<a href="http://forum.xda-developers.com/showthread.php?t=2711498">模块线程</a>中找到更多信息。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

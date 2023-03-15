@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>ArchLinux on the Transformer TF300T</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Transformer TF300T上的ArchLinux</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/archlinux-on-the-transformer-tf300t/#0001-01-01">https://www.xda-developers.com/archlinux-on-the-transformer-tf300t/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>在Android上运行Linux是一个<a href="http://www.xda-developers.com/android/samsung-galaxy-nexus-gets-linux-on-android-support/">古老的最爱</a>。从完全安装到不太复杂的<em> chroot </em>方法，新旧项目都有，用户可以在各种设备上运行Linux。唯一的限制是你可以加载的Linux发行版。大多数情况下，它是Ubuntu或其他基于Debian的发行版。现在，<a href="http://forum.xda-developers.com/forumdisplay.php?f=1578">华硕变压器TF300T </a>车主可以安装Arch了。</p>
+
+  
+<p>这种方法已经存在一段时间了，但是已经通过更新得到了完善。XDA论坛成员<a href="http://forum.xda-developers.com/member.php?u=374382"> cb22 </a>发布了方法。尽管它并不完美，但绝对是一个坚实的开端。以下是当前工作的列表:</p>
+
+<blockquote>
+<p>安卓双开机。</p>
+<p>内部存储和MicroSD卡</p>
+<p>X11，带合成</p>
+<p>声音的</p>
+<p>鼠标和键盘，以及坞站热插拔。</p>
+<p>触摸屏</p>
+<p>播放视频(全1080P效果很棒。)使用Xfce的媒体播放器</p>
+<p>传感器(光、指南针、加速度计、陀螺仪)。这些都暴露在sysfs下。</p>
+<p>充电/坞站充电。这似乎是由内核管理的。</p>
+<p>USB小工具(作为通过USB访问网络的RNDIS设备)</p>
+<p>CPU频率缩放/ Tegra LP内核。LP内核是自动使用的，您可以在/sys/kernel/cluster/active中看到它的状态(当该文件读取LP时),它的用途就是当前CPU1的用途。</p>
+<p>WiFi，带网络管理器</p>
+<p>3G，在TF300TG型号上，带网络管理器</p>
+<p>Xfce中的电池(和坞站)状态</p>
+<p>坞站上的USB端口</p>
+<p>一些明智的按键重映射(后退-&gt;退出，搜索-&gt; Alt，Home -&gt; Super)</p>
+ </blockquote>
+<p>目前不起作用的大东西是从Linux重启、蓝牙和双指滚动。这些也恰好在计划要修复的事情的短列表上。还有很多是未经检验的。</p>
+
+<p>有关安装说明和更多细节，请查看<a href="http://forum.xda-developers.com/showthread.php?t=1918849">原始螺纹</a>。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

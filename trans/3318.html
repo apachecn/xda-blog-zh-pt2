@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Enable One-Handed Mode using a Script</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用脚本启用单手模式</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/enable-one-handed-mode-using-a-script/#0001-01-01">https://www.xda-developers.com/enable-one-handed-mode-using-a-script/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p><span> <strong>越大并不总是越好</strong> </span></p>
+
+  
+<p>随着更大的手机屏幕的出现，对于大多数人来说，只用一只手接触手机的每个角落几乎是不可能的(除非你是勒布朗·詹姆斯)。然而，像Note系列这样的大手机仍然非常受欢迎，因为它们在观看视频和网络内容时非常舒适。一些制造商认识到，他们的客户经常会面临只用一只手使用手机的情况，因此他们内置了“单手模式”选项，可以随时调整显示屏的内容。例如，Galaxy Note手机有一个将屏幕缩小到一个角落的设置，苹果最近推出了他们自己的解决方案，名为“可达性”，可以将屏幕内容缩小到显示屏的一半。但对于Nexus 6这样的手机，你没有任何股票期权来启用单手模式。</p>
+
+<p><strong>过扫描补偿</strong></p>
+
+<p>幸运的是，我们可以利用一个通常根本不应该用于手机显示屏的功能。这就是所谓的“过扫描”校正。为了始终为电视观众呈现全屏体验，许多电视可能会剪切输入显示的边缘，从而导致过扫描。因此，为了在Android中纠正这一点，谷歌允许API级别为18的开发者(Android 4.3 Jelly Bean)开始使用过扫描边距来补偿显示不匹配。谷歌还改变了一些显示选项，如分辨率/DPI，从“am”shell命令(ActivityManager)改为“WM”shell命令(WindowManager)，并引入了“overscan”命令，使开发人员能够轻松地在他们的设备上测试他们的应用程序。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/10/Overscan-Demonstration.gif" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;One-Handed Mode Demonstration&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/10/Overscan-Demonstration.gif?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/10/Overscan-Demonstration.gif?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/10/Overscan-Demonstration.gif?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/10/Overscan-Demonstration.gif?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="One-Handed Mode Demonstration" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/10/Overscan-Demonstration.gif" src="../Images/affb03dc8ac384b8f0f05622d2caf01c.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/10/Overscan-Demonstration.gif"/> </picture> <figcaption class="body-img-caption">One-Handed Mode Demonstration</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p><b>要求</b></p>
+
+<ul> <li><b> <b>你必须扎根。</b>T3】</b></li> <li><b>必须是安卓4.3+ </b></li> <li><b>请注意，这种情况会在重启时持续存在。不要将以下任何值</b> <b>设置得太高，否则您无法充分操作您的设备。如果搞砸了，可以用adb执行reset命令。</b></li> <li>你可以选择使用自动化应用程序，比如Tasker，将shell命令绑定到一个动作上，比如在home键上向上滑动或者左右摇动，但这是强烈推荐的。</li> </ul>
+
+<p>以下是您需要的命令。</p>
+
+<p><code>    wm overscan LEFT,TOP,RIGHT,BOTTOM</code></p>
+
+<p>其中每个方向是像素计数，表示显示器应该从该方向移动多远。例如，如果将TOP设置为600，屏幕内容将向下移动600像素。您可以尝试每种方法的组合，以找到一组最适合您的缩小屏幕的值。你可以模仿苹果的可达性，例如将顶部设置为垂直分辨率的一半。要重置过扫描，只需使用:</p>
+
+<p><code>    wm overscan reset</code></p>
+
+<p>相当简单！它可以很好地将屏幕缩小到一个按钮，但我个人对它有一些谷歌键盘问题。试试看，如果你发现任何问题，请在评论中告诉我们！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

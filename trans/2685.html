@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Quickly Optimize APK and Classes.dex with GOptimize</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用GOptimize快速优化APK和Classes.dex</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/quickly-optimize-apk-and-classes-dex-with-goptimize/#0001-01-01">https://www.xda-developers.com/quickly-optimize-apk-and-classes-dex-with-goptimize/#0001-01-01</a></blockquote><div><section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>如果您试图通过降低I/O时间来最小化加载时间，那么优化应用程序的资源可能是值得考虑的。自然，加载较小的apk会减少读取应用程序数据所花费的时间。对于任何形式的压缩数据，在更高级别的压缩中，最终都会在计算时间和读取时间之间进行权衡，但在大多数情况下，应用程序负载和一般设备性能似乎受I/O而非计算性能的限制。</p>
+
+  
+<p>为此，XDA资深会员 <a href="http://forum.xda-developers.com/member.php?u=4665716"> gu5t3r </a>创建了一个简单的BASH脚本来帮助你快速优化你的应用。它主要通过更有效地压缩你的png文件来工作。然而，它跳过了讨厌的<a title="Tutorial Helps Users Understand NinePatch PNGs Better" href="http://www.xda-developers.com/android/tutorial-helps-users-understand-ninepatch-pngs-better/"> NinePatch </a>文件，以防止潜在的强制关闭。对于PNG压缩，该工具使用TruePNG、pngout和DeflOpt的组合，gu5t3r声称，与更标准的OptiPNG压缩相比，它将导致存储空间净减半。</p>
+
+<p>该脚本以基于Cygwin的BASH脚本的形式出现，并附带了您需要的所有可执行文件，以便轻松入门。<span>该主题中的用户报告了文件大小的显著减小，而功能没有损失。它会对性能产生任何实际的显著影响吗？这取决于许多变量，如设备的I/O速度、CPU能力和应用程序大小。也就是说，试试也无妨。</span></p>
+
+<p><span>前往</span> <a href="http://forum.xda-developers.com/showthread.php?t=2358261">实用线程</a> <span>参与其中。</span></p>
+
+<p><em>【感谢资深会员<a href="http://forum.xda-developers.com/member.php?u=303041"> ct_moi </a>的提示！] </em></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

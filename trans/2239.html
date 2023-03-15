@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Android 3.2+ Code (Inadvertently?) Preventing Write Access to External Storage</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 3.2+代码(无意中？)防止对外部存储器的写访问</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-3-2-code-inadvertently-preventing-write-access-to-external-storage/#0001-01-01">https://www.xda-developers.com/android-3-2-code-inadvertently-preventing-write-access-to-external-storage/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>似乎谷歌在他们的AOSP代码中有一个错误，这个错误是在Android 3.2左右引入的，它影响了操作系统处理USB存储的方式，并可以阻止对SD卡和USB棒的写访问。XDA精英公认的开发者、资深版主、<a href="http://www.xda-developers.com/android/google-announces-second-week-of-google-io-2012/">新闻撰稿人</a><a href="http://forum.xda-developers.com/member.php?u=631273"/>在他的<a href="http://www.chainfire.eu/articles/113/Is_Google_blocking_apps_writing_to_SD_cards_/">博客</a>中总结了这个问题:</p>
+
+ 
+<blockquote>
+<p>在过去，应用程序会请求“<em> WRITE_EXTERNAL_STORAGE </em>权限，这将授予对<em>所有</em>外部存储(用户/组“<em> sdcard_rw </em>”)的写访问权限。这显然已被更改为仅授予对<em>主</em>外部存储器的写访问权限。引入了第二个权限，称为“<em> WRITE_MEDIA_STORAGE </em>”，它将授予对其他外部存储的访问权限(用户/组“<em> media_rw </em>”)。</p>
+<p>问题是，第三方实际上不会被授予此权限，只有系统应用程序和设备制造商提供的应用程序通常会被授予此权限。也有例外，显然在一些设备上第三方应用程序会被授予这种权限，但根据AOSP的消息来源，他们当然不应该这样做。</p>
+ </blockquote>
+<p>在Chainfire调查这个问题时，他在<em> /system/vold/Volume.cpp </em>中发现了一段代码，其中明确指出:</p>
+
+<blockquote><div><p>if(primary storage){</p><p>//特殊情况下的<strong>主SD卡</strong>。</p> <p> //为此我们授予对SDCARD_RW组的写权限。</p><div><p>GID = AID _ SD card _ RW；</p><p>} else {</p><div><p>//<strong>对于二级外部存储我们把东西锁起来。</strong></p><p>GID = AID _ MEDIA _ RW；</p> <p> } </p> </div> </div> </div></blockquote>
+<p>在许多设备上，内部闪存被视为“主SD卡”然后，<em>真正的</em> SD卡成为第二个外部存储器，并被锁定-由不可获得的“<em>写_媒体_存储</em>权限保护。</p>
+
+<p>Chainfire将他的问题提交给了Android开发者办公时间团队，他们于4月11日在T2的现场聚会上讨论了这个问题。不幸的是，在场的谷歌工程师无法提供任何真实的答案，因为这是一个复杂的问题，而且这个问题是在节目直播前一个小时才提出的。然而，他们已经承诺要弄清这个问题，并在晚些时候回复Chainfire(和我们)。</p>
+
+<p>此外，根据Chainfire的说法，这个问题实际上也存在于SGS2的ICS版本中，尽管三星“<em>使用非常丑陋的权限黑客</em>解决了这个问题:</p>
+
+<blockquote>
+<p><permission/></p>
+<p><group/></p>
+<p><group/></p>
+<p/>
+ </blockquote>
+<p>你在这里看到的是三星<em>将WRITE_MEDIA_STORAGE权限搭载</em>到WRITE_EXTERNAL_STORAGE权限，因此应用程序不会遇到上述问题。</p>
+
+<p>谷歌是否打算将连接的SD卡和u盘限制为第三方应用程序只读，还有待观察。然而，这确实产生了一个令人不安的想法:如果代码和附带的注释是谷歌对外部存储实施某种写保护的第一步，从而进一步限制我们的移动自由，会怎么样？我们只能希望这是一个真正的错误，因为自由是我们都避免黑暗面的原因之一。</p>
+
+<p>【非常感谢Chainfire的提醒和帮助！]</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

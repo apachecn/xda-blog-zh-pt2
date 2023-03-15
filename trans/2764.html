@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Xposed Module Brings Back App Ops on Android 4.4.2 to Give Your Control of Your Application Permissions</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Xposed模块带回Android 4.4.2上的App Ops，让你控制自己的应用权限</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/xposed-module-brings-back-app-ops-to-android-4-4-2-and-gives-your-control-of-your-application-permissions/#0001-01-01">https://www.xda-developers.com/xposed-module-brings-back-app-ops-to-android-4-4-2-and-gives-your-control-of-your-application-permissions/#0001-01-01</a></blockquote><div><section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p lang="en-US">就在昨天，我们<a href="http://www.xda-developers.com/android/source-code-commits-in-android-4-4-2-kot49h-reveal-flash-sms-attack-fix-and-app-ops-removal/">谈到了FunkyAndroid的同事报告的对Android 4.4.2源代码的一些更改</a>。最重要的变化之一是取消了App Ops，这是一个非常方便的管理应用程序权限的工具。谷歌框架工程师<a href="https://plus.google.com/105051985738280261832/posts"> Dianne Hackborn </a>声明<a href="https://plus.google.com/+DannyHolyoake/posts/FkfBxA5i3iG">故意隐藏它</a>，因为该实用程序仅供谷歌内部调试使用。</p>
+
+  
+<p/><p lang="en-US">虽然App Ops最初是供内部使用的，但它受到了许多XDA用户的喜爱，他们只是希望一切尽在掌握之中。幸运的是，XDA论坛成员<a href="http://forum.xda-developers.com/member.php?u=4477302"> caspase </a>决定利用他的编程技能，创建一个Xposed框架模块，将App Ops带回Android 4.4.2！</p>
+
+<p>开发人员将他的工作描述为一个快速而肮脏的黑客，实现了<em> :android:show_fragment </em>，并将选项添加回设置应用程序。用更专业的语言来说，这个模块恢复了设置库中的这个<a href="https://android.googlesource.com/platform/packages/apps/Settings/+/37f06a4">提交</a>。Caspase还将他的更改集成到设置应用程序中，因此不再需要外部启动器来将应用程序操作恢复到最新的KitKat版本。</p>
+
+<p>要使用该模块，您的设备必须是rooted用户，并且必须安装Android 4.4的<a href="https://www.xda-developers.com/android/xposed-framework-2-4-exits-beta-brings-official-kitkat-support-and-bug-fixes/"> Xposed Framework </a>。你可以在<a href="http://forum.xda-developers.com/showthread.php?t=2564865">的原始线程</a>中找到更多关于变更以及模块本身的信息。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

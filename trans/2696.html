@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Beginner's Guide to the Android Debug Bridge</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android调试桥初学者指南</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/beginners-guide-to-the-android-debug-bridge/#0001-01-01">https://www.xda-developers.com/beginners-guide-to-the-android-debug-bridge/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>我们这里的大多数人已经非常熟悉ADB (Android调试桥)。见鬼，我甚至敢打赌，我们很多人都经常使用它——<em>ADB推送</em> ing和<em>拉取</em> ing文件，<em> adb重启</em> ing，运行shell命令，等等。然而，大多数新用户还没有这样的经历。让我们面对现实吧:对于在GUI出现和普及之后出生的年轻人来说，命令行界面可能相当吓人。因此，如果你是一个经验丰富的老手，对亚行了如指掌，这篇文章不适合你。但是如果你是一个新用户，想对这个伟大的工具有更多的了解，请继续阅读！</p>
+
+  
+<p>Android Debug Bridge是Android SDK的一部分，它允许桌面计算机和目标设备之间的通信。那么你能用亚行做什么呢？相当多。如前所述，您可以将文件从客户端PC推送到设备，将设备从设备拉送到客户端PC，您可以重新启动(到Android、引导加载程序或恢复)，记录logcat，获得错误报告，执行许多标准Linux命令，等等。</p>
+
+<p>对于新用户来说，最大的问题是知道可以执行什么命令，以及记住正确的语法。幸运的是，这些命令及其语法都很容易理解。例如，看看以下命令的正确语法:</p>
+
+<ul> <li>adb start-server:该命令启动桌面计算机上的adb守护程序，并允许您的计算机与您的设备进行交互。注意，这个命令不是必需的，因为执行任何其他ADB命令都会自动启动守护进程。</li> <li>adb kill-server:如你所料，这会杀死adb守护进程。</li> <li>adb logcat:这会生成一个<a title="Learn to Use a Logcat to Diagnose and Fix Your Issues" href="http://www.xda-developers.com/android/learn-to-use-a-logcat-to-diagnose-and-fix-your-issues/"> logcat </a>，这在找出哪里出错时非常有用。您可以使用&gt;将输出重定向到一个文本文件中。例如，您可以键入“adb logcat &gt; logcat.txt”将您的logcat记录为logcat.txt。</li> <li>adb错误报告:生成一个简单的错误报告。就像logcat一样，您可以使用“&gt;”将它重定向到一个文本文件中</li> <li>adb安装<local apk="" name="">:将APK从你的桌面电脑直接安装到你的设备上。</local></li> <li>adb pull <source path="" and="" filename=""> <destination path="" and="" filename="">:拉取指定的文件，存放到指定文件夹中指定的名称。</destination></source></li> <li>adb push <source path="" and="" filename=""> <destination path="" and="" filename="">:功能与adb pull类似，但方向相反。</destination></source></li> </ul>
+
+<p>然而，以上所述并不全面。这些只是您将会遇到的一些更常见的命令。</p>
+
+<p>对于那些希望学习更多知识的人，或者那些只想看到这些命令在运行中的可视化输出的人，XDA认可的贡献者<a href="http://forum.xda-developers.com/member.php?u=4923920"> doctor_droid </a>创建了一个基本指南，涵盖了初学者需要知道的一切，以便通过ADB完成基本任务。</p>
+
+<p>Doctor_droid还包含了一个Windows用户所需的ADB二进制文件的直接链接，这样您就不必为了启动和运行ADB而下载SDK。虽然安装过程严格适用于Windows用户，但本指南的其余部分同样适用于Linux和Mac用户。</p>
+
+<p>如果你是一个新用户，想要学习更多关于ADB的知识，或者即使你是一个经验丰富的兽医，想要确保你知道所有的常用命令，请前往<a href="http://forum.xda-developers.com/showthread.php?t=2266638">指南线程</a>了解更多。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

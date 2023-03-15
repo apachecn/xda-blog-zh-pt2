@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>SuperSU BETA: Root Android Lollipop on Stock Kernel</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>SuperSU BETA:将Android Lollipop放在股票内核上</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/supersu-beta-lollipop-root-stock-kernel/#0001-01-01">https://www.xda-developers.com/supersu-beta-lollipop-root-stock-kernel/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>到目前为止，如果你想在Android 5.0上获得root，你需要在你的设备上刷新一个修改过的内核，以绕过一些SELinux限制。XDA资深公认开发者<a href="http://forum.xda-developers.com/member.php?u=631273"> Chainfire </a>最近发布了之前必需的<a href="http://www.xda-developers.com/android/chainfire-releases-cf-auto-roots-for-nexus-line/"> CF-Auto-Root </a>包，对内核ramdisk做了必要的修改，从AOSP上的install-recovery.sh脚本中删除了SELinux限制。然而，今天早上，Chainfire给许多人带来了笑容，因为他<a href="https://twitter.com/ChainfireXDA/status/535253476021116928">在Twitter </a>上宣布，未来将不再需要这样做。</p>
+
+  
+
+
+<p>直到今天，Chainfire一直计划发布一个自动化的基于ZIP的补丁工具，从TWRP恢复中自动修补内核映像，直到他找到一个合适的方法来消除这种需要。</p>
+
+<p>这一发现意味着Android 5.0用户不再需要运行修改后的内核来通过SuperSU(或其他root解决方案)获得root访问权限。虽然在带有可解锁引导加载程序的Nexus设备上这不是一个大问题，但是对于许多引导加载程序锁定设备的用户来说，修改ramdisk的需求是值得关注的，因为这些设备没有解锁功能(是的，不幸的是它们确实存在)。他们祈祷的答案现在就在这里，我们可以对所需的改变给出一个独家的解释。至少目前(直到/除非谷歌对此进行修补)，有可能获得root访问权限，然后在一台普通Android 5.0设备上安装和使用SuperSU，而无需对内核ramdisk进行任何调整。这样做的原因是需要SuperSU以root身份运行服务，以允许在受SELinux保护的设备上进行不受限制的root访问。</p>
+
+<p>以前，SuperSU会利用预装的AOSP <em> flash_recovery </em>服务(在AOSP用于在OTA安装后更新恢复)来启动SuperSU守护进程(它实际上为请求它的应用程序提供root权限)。随着Lollipop的发布，这个服务已经被添加到一个受限的SELinux上下文中，这意味着它不再能够完全访问系统。之前的内核修改试图从这个脚本中删除SELinux限制。</p>
+
+<p>Chainfire的SuperSU最新测试版通过使用核心的“Zygote”服务(负责启动所有Java服务，从而启动设备上安装的所有应用程序)解决了这一问题。由于Zygote是Android L上仅有的可用服务之一，它是在无限制的“init”SELinux上下文中作为root启动的，这使得它成为SuperSU操作中使用的主要目标。启动后，Zygote服务将其SELinux“init”上下文转换为其最终(受限)的“Zygote”上下文。Chainfire已经成功地修改了Zygote文件，以便在不受限制的“init”上下文中以root用户身份运行代码，从而将SuperSU带回Android L，而无需修改内核。</p>
+
+<p>这不是Chainfire第一次求助于Zygote来解决这些问题；早期的2.23测试版使用Zygote作为一种手段，可能规避一些其他SELinux问题(这些问题导致root应用程序在Android L上崩溃)。这使得一些(但不是全部)不起作用的应用程序能够运行——其余的需要开发者进行一些更新。不幸的是，当5.0 AOSP代码被查阅时，谷歌已经打破了接管Zygote服务的方法。鉴于他之前所有接管受精卵的尝试都失败了，这是一个充满希望的进步。</p>
+
+<p>Chainfire敏锐地指出，SuperSU长期以来一直能够在运行的系统上修改SELinux策略(并警告OEM可以轻松地禁用这一功能，并真正阻止有意义和简单的根访问)，以及对Zygote的任何修改都必须小心谨慎，因为该服务是从各种不同的上下文中运行的，用于不同的任务，这增加了许多(令人讨厌的)微妙故障的可能性。这个新的SuperSU beta 2.27是一个供发烧友和其他技术人员玩的版本，可以发现哪些地方出了问题。手指交叉——没有意外的节目停止错误，这是一个可行的前进方向。</p>
+
+<p>请注意——即使这个测试版成功了，Zygote是获得root访问权限的首选途径，向前发展，整个过程只需一行代码就可以被谷歌破解，这将使打补丁的内核ramdisks成为Android上root访问权限的未来(从而排除了bootloader锁定设备的root访问权限)。事实上，作为一个提醒，由于过去几个月中一些相当大的SELinux变化，新的过程甚至可能无法在完全最新的AOSP版本上工作，这些变化没有包括在零售设备中，但毫无疑问会在未来的版本中出现。不过，看起来root迟早需要修改内核内存磁盘，但这个新的测试版可能会在我们必须朝着这个方向前进之前提供一个短暂的暂停执行。</p>
+
+<p>查看<a href="https://plus.google.com/113517319477420052449/posts/K7n4e1q5SMD">发布说明</a>以获得更多关于测试所涉及风险的信息，以及相关链接。开发人员也应该知道，Chainfire目前正在努力编写<a href="http://su.chainfire.eu/">【如何使用SU】指南</a>(针对Android 5.0进行了全面更新)，应该会在未来几天内发布。</p>
+
+<p>非常感谢Chainfire在这里所做的工作，以及在准备这篇文章时给予的帮助。] </p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

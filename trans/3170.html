@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Restore Lost Functionality on Unlocked Xperia Devices - Part 2</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在解锁的Xperia设备上恢复丢失的功能-第2部分</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/restore-lost-functionality-on-your-unlocked-xperia-device-part-two/#0001-01-01">https://www.xda-developers.com/restore-lost-functionality-on-your-unlocked-xperia-device-part-two/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>你可能已经注意到，不久前，我们发表了一篇文章，详细介绍了如何在解锁的索尼Xperia设备上找回丢失的功能。概括地说，一个简单的系统修改可以让你重新获得在解锁最新Xperia设备的引导加载程序时丢失的大部分功能。功能减少的原因是，当解锁引导加载程序时，您会丢失设备的内部DRM密钥，这些密钥对于受保护的流媒体以及BIONZ图像处理器或Bravia引擎等高级技术都是必需的。</p>
+
+  
+<p>在与mod 的作者<a href="http://forum.xda-developers.com/member.php?u=4699816" target="_blank">进一步讨论此事后，发现修改后的文件欺骗了DRM系统，并假装随时可以获得有效的DRM密钥。幸运的是，一些丢失的特性只检查DRM密钥的可用性，实际上并不要求它们有效。你可以把它想象成一辆汽车(特定功能)和一把汽车钥匙(DRM钥匙)。在这种情况下，汽车不需要<em>的特定按键</em>，它只需要<em>的任何按键</em>就能工作。可以说，它甚至不需要匹配汽车的制造商。</a></p>
+
+<p>虽然这最初听起来完全是好消息，但它也带来了一些重要的问题。只有索尼能回答的问题，但大家应该都清楚。</p>
+
+<p> </p>
+
+<p><strong><em/><em>如果一个(大部分)简单的软件修改可以恢复索尼所说的需要有效DRM密钥才能工作的功能，那么为什么这些功能甚至可以在没有DRM密钥的情况下工作？</em> </strong></p>
+
+<p>在这一点上，看起来你肯定不需要有效的DRM密钥来使某些功能工作，这些功能在解锁后最初不会工作。各种成员已经发布了对比图像(例如这里的<a href="http://forum.xda-developers.com/showpost.php?p=57878546&amp;postcount=470" target="_blank"/>，或者OP 中的<a href="http://forum.xda-developers.com/showpost.php?p=56541777&amp;postcount=1" target="_blank">)，这些图像显示了BIONZ图像处理器和Bravia引擎在刷新修改后的文件后的工作情况。虽然不是所有的东西现在都可以工作了，但是作者一直在努力改进结果。毕竟，即使我们今天得到的结果也表明，没有有效的DRM密钥也可以重新激活这些功能。他们告诉我们，所有的问题充其量都是人为的。</a></p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/01/xperia_comparision_bionz_off_on-1024x288.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;&lt;i&gt;The left image has the BIONZ image processor disabled while it's enabled on the right&lt;\/i&gt;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/01/xperia_comparision_bionz_off_on-1024x288.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/01/xperia_comparision_bionz_off_on-1024x288.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/01/xperia_comparision_bionz_off_on-1024x288.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/01/xperia_comparision_bionz_off_on-1024x288.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="xperia_comparision_bionz_off_on" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/01/xperia_comparision_bionz_off_on-1024x288.jpg" src="../Images/a56ec1d84ba3a462f1f014eea173b07b.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2015/01/xperia_comparision_bionz_off_on-1024x288.jpg"/> </picture> <figcaption class="body-img-caption"><i>The left image has the BIONZ image processor disabled while it's enabled on the right</i></figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p> </p>
+
+<p><strong> <em>如果这些功能不需要有效的DRM密钥才能工作，那么索尼为什么还要移除它们呢？</em>T3】</strong></p>
+
+<p>显然，这一点只是猜测，但它肯定看起来像是索尼试图通过人为杀死重要功能来阻碍引导加载程序解锁，作为解锁设备的权衡。另一方面，这可能更像是索尼的一次意外失误，因为毕竟他们确实倾向于与开发社区紧密合作。</p>
+
+<p>在这两种情况下，未来将揭示哪个是正确的答案，索尼有机会改善和消除这些限制，或者他们可能会加强安全措施，使其更难找回失去的功能。让我们等待棒棒糖OTA们，发现索尼为我们准备了什么。</p>
+
+<p>请务必查看<a href="http://www.xda-developers.com/android/restore-lost-functionality-unlocked-xperia/" target="_blank">第一部分</a>和<a href="http://forum.xda-developers.com/crossdevice-dev/sony/xperia-z1-z2-z3-series-devices-drm-t2930672" target="_blank">主题</a>了解更多信息，并在下面的评论中告诉我们你的想法。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

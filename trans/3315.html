@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Down Memory Lane: Can the Nexus 5X Cut It With 2GB of RAM?</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>下一条记忆通道:Nexus 5X能用2GB的内存切断它吗？</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/down-memory-lane-can-the-nexus-5x-cut-it-with-2gb-of-ram/#0001-01-01">https://www.xda-developers.com/down-memory-lane-can-the-nexus-5x-cut-it-with-2gb-of-ram/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>2014年10月15日，大批忠实的Nexus 5用户在键盘后等待他们认为是这款手机的继任者的决定性发布，这款手机吸引了市场。Nexus 5是价格点的先锋，它设法避免在最关键的规格上偷工减料。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-pullquote"><div class="emaki-custom pullquote" id="custom_block_1"><p>我们倾向于认为我们在优质功能/体验和经济实惠之间取得了强大的平衡。</p> </div></section>
+<p>然而，谷歌推出的Nexus 6震惊了许多Nexus 5用户，这款设备的尺寸和价格变化如此之大，以至于许多人决定完全跳过这款手机。然而，谷歌没有忘记Nexus 5带来的成功，并在今年9月大张旗鼓地推出了Nexus 5X ( <a href="https://www.google.com/nexus/5x/">“全能冠军”</a>),但有一个警告——它只有2GB的内存。</p>
+
+ 
+<h2 id="the-all-around-champ-breaks-from-the-pack">全能冠军脱颖而出</h2>
+<p>为什么这不寻常？到2014年底，3GB内存似乎将成为旗舰手机的标准(LG G3和小米Mi4的32GB版本以及OnePlus One是首批产品，但三星的Note 3在2013年带来了3GB内存)。2015年，这一趋势仍在继续，一些公司的旗舰设备甚至拥有4GB的RAM！没有迹象表明谷歌选择骁龙808 SoC直接导致Nexus 5X拥有2GB内存，因为其他4款骁龙808设备至少拥有3GB内存，但它确实将内存限制为DDR3。</p>
+
+<p>以前的Nexus 5也配备了2GB的内存，但在当时被普遍认为是顶级的。谷歌似乎很满意，尽管新机型的内存容量没有变化，但你仍然可以享受这款设备。在最近reddit上的IAmA subreddit上的“问我任何问题”中，来自Nexus团队的成员<a href="http://www.xda-developers.com/google-nexus-ama-compilation/" target="_blank">表示</a><em>“</em><i><span>我们喜欢认为我们在优质功能/体验和可负担性之间取得了强大的平衡。”</span>T9】</i></p>
+
+<h3 id="a-trip-down-memory-lane">回忆之旅<b/></h3>
+<p>许多博客和评论者对这些消息表示失望。设备只有2GB的内存会有问题吗？这是Android爱好者在揭秘后热议的一个问题。然而，我要说的是，它并不像看起来那么糟糕- <strong>是的，Nexus 5X </strong>  <strong> <i>可以用2GB的RAM来处理它。</i></strong>但这完全取决于你自己的经历——你来自哪部手机，你使用哪种应用/股票功能，等等。</p>
+
+<p>在考虑是否应该将2GB内存视为一个障碍时，理解Android内存管理的工作方式非常重要。Android处理内存管理的方式是这样的:不是在活动结束后立即杀死每个进程(就像当你按下home键退出应用程序时)，而是将进程保存在内存中，直到系统需要杀死它来释放更多内存。系统是如何决定保留什么进程和杀死什么进程的？LMK(低内存黑仔)驱动程序。ActivityManager服务为每个进程分配一个范围从-17到15的oom_adj值，该服务根据进程的重要性动态调整oom_adj值。较高的oom_adj值意味着进程更有可能被终止以释放内存，而较低的值意味着进程不太可能被终止。</p>
+
+<blockquote>
+<p>制造商喜欢根据他们觉得最适合他们设备的方式来调整它们</p>
+ </blockquote>
+<p>Android将每个进程分为五类(前台、可见、服务、后台和空),从最重要到最不重要。属于每个类别的进程在不同的剩余空闲内存级别(称为LMK最小空闲值)被终止。例如，如果您的设备的LMK minfree值设置为“2560，4090，6144，7168，8192”(列为4k页，可以从/sys/module/lowmemorykiller/parameters/minfree中读取)，那么当您的可用内存低于32MB时，您的设备将终止定义为“空”的进程，当可用内存低于28MB时，终止定义为“后台”的进程，当可用内存低于10MB时，终止前台应用(<strong>但愿不会如此！</strong>)如今，这些minfree值在大多数设备上并不典型，因为制造商喜欢根据他们觉得最适合他们设备的方式来调整这些值。但是你应该从这个简短的解释中得到的是，你拥有的空闲内存越多，你看到关键进程被终止的可能性就越小。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="task-killers-be-gone">任务杀手消失了！</h2>
+<p>但事实是，用户不得不不断与自己的设备斗争以在内存中保存重要进程的日子在很大程度上已经一去不复返了。我们不再与任务杀手搏斗，以确保我们的短信应用程序不会在我们使用时突然关闭。大多数应用程序(除了一些真正高端的游戏和大量的网络浏览)不会占用太多内存。具有2GB RAM的设备与具有3GB RAM的设备之间的主要区别在于，具有3GB RAM的设备应该能够在后台缓存更多的进程，而不会触发LMK驱动程序将其关闭。</p>
+
+
+
+
+
+<p>但即使是这条线也是模糊的，因为每种类型的手机都有大量不同的功能。例如，尽管现代旗舰三星Galaxy手机通常配备3GB内存，但实际上，手机中惊人数量的常用功能(其中许多功能甚至可能不会被使用)最终会减少留给用户应用程序的可用内存量。Nexus 5X虽然在纸面上的内存较少，但最终可能会在自由内存方面与Galaxy S6相媲美，因为它没有那么臃肿。我的观点是，你不应该羡慕其他拥有3GB内存的设备，你需要考虑与其他设备相比，Nexus 5X带来了什么样的体验。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="examining-your-own-user-experience">检查您自己的用户体验</h2>
+<p>这让我想到了我的最后一点——在决定2GB内存是否是一个障碍之前，考虑你自己的体验和对你以前设备的需求。你如何将自己归类为用户？你是同步多个电子邮件和社交媒体账户的超级用户吗？你是一个只把手机当作发短信/上网浏览机器，并附带几个游戏的普通用户吗？在这两种情况下，我认为2GB的内存并不是真正的障碍，因为Android内存管理已经变得非常智能。</p>
+
+<p>没有3GB的内存，你真的不太可能错过任何重要信息。但我可以理解，如果你不得不在几分钟后重新加载Chrome标签会让你感到沮丧(不过，这也经常发生在我们这些拥有3GB内存手机的人身上！)最后，考虑一下:你从哪部手机升级而来，为什么你觉得2GB是个问题？如今，很容易有人嫉妒技术规格，因为很多公司都在努力争取我们，但你必须记住，规格并不代表一切。最重要的是将整个硬件和软件打包到一个单一的设备中，以及它是否能为您的需求提供良好的体验。</p>
+
+<p><a href="http://forum.xda-developers.com/nexus-5x"> <strong>查看XDA Nexus 5X论坛&gt; &gt; </strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Remotely Flash Files onto Your Android Device</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>远程将文件闪存到您的Android设备上</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/remotely-flash-files-onto-your-android-device/#0001-01-01">https://www.xda-developers.com/remotely-flash-files-onto-your-android-device/#0001-01-01</a></blockquote><div><section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>将文件刷新到Android设备上的传统方式有几个缺点。如果你想手动这样做，这涉及到用USB电缆连接你的设备，你似乎只是在几分钟前丢失了。然后是测试新主题、mod和rom的试错过程。然而，这一切都可以通过XDA资深会员<a href="http://forum.xda-developers.com/member.php?u=4979049"> Prl91 </a>的RemoteFlash来避免。</p>
+
+  
+<p>RemoteFlash允许你将个人电脑上的文件直接闪存到你的Android设备上，省去了线缆和麻烦。它由两个组件组成:一个作为PC客户端的独立Java应用程序，和一个用于Android的简单APK。安装APK后需要重新启动，该应用程序将在后台静默运行，而PC客户端会自动扫描您的设备，随后通过擦除<em>/数据</em>和<em>/缓存</em>选项刷新选定的文件。请记住，PC和您的设备必须在同一个WiFi网络上，并且网络上安装了RemoteFlash的任何其他设备都必须断开连接，扫描才能正常运行。Prl91建议使用<em> OpenRecoveryScript </em>进行自定义恢复，例如TWRP，尽管CWM可能根据安装的版本而可用。</p>
+
+<p>在撰写本文时，Prl91还没有对错误的文件传输执行MD5检查，尽管有一个系统可以持续监控通过TCP套接字流的字节流。如果有一个字节丢失或连接闪烁，客户端会立即取消从PC到设备的传输。然而，Prl91计划在将来实现MD5检查。</p>
+
+<p>PC客户端和安卓APK都可以在XDA论坛上免费下载，更多信息可以在<a href="http://forum.xda-developers.com/showthread.php?t=2307677" target="_blank">应用线程</a>中找到。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

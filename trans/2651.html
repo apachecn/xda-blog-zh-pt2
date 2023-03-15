@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Simple Guide for Using ADB on the Google Chromecast</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在谷歌Chromecast上使用ADB的简单指南</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/simple-guide-for-using-adb-on-the-google-chromecast/#0001-01-01">https://www.xda-developers.com/simple-guide-for-using-adb-on-the-google-chromecast/#0001-01-01</a></blockquote><div><section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>如果说谷歌Chromecast有起有落，那是一种保守的说法。在它发布后不久，我们<a title="Chromecast Secure Boot Exploit and Root" href="http://www.xda-developers.com/android/chromecast-secure-boot-exploit-and-root/">了解到了一种找到设备</a>的方法，这要归功于破碎图像签名验证。然而，没过多久，<a title="Latest Google Chromecast OTA Blocks Root Method" href="http://www.xda-developers.com/android/latest-google-chromecast-ota-blocks-root-method/">这个漏洞被堵住了，OTA更新设备上的root访问也被移除了</a>。自那以后，我们还看到了一个应用程序<a title="Turn Your Extra Android Device into a Chromecast Receiver with CheapCast" href="http://www.xda-developers.com/android/turn-your-extra-android-device-into-a-chromecast-receiver-with-cheapcast/">在任何Android设备上模拟Chromecast功能</a>，以及一个应用程序<a title="Play Almost Any Video on Your Chromecast with AirCast" href="http://www.xda-developers.com/android/play-almost-any-video-on-your-chromecast-with-aircast/">逆向工程协议</a>以绕过谷歌的白名单限制。然而，在XDA，我们是超级用户。此外，电力用户还希望获得亚行贷款。</p>
+
+  
+<p>现在，多亏了XDA资深会员<a href="http://forum.xda-developers.com/member.php?u=2975319"> death2all110 </a>，那些有幸通过使用<a href="http://forum.xda-developers.com/showthread.php?p=44194208#post44194208">备用系统映像</a>保留root权限的人现在可以通过本指南轻松访问亚行。首先，您需要将根Chromecast和telnet放入带有PuTTY或任何其他telnet客户端的设备中。几个命令和一个<em> wget </em>(下载adbd)之后，你就可以启用adbd了。接下来，您只需<em> chmod </em>新下载的adbd拥有适当的权限，然后执行它。最后，您使用<em>ADB connect【Chromecast本地IP地址】</em>从客户端计算机连接到您的chrome cast。</p>
+
+<p>该指南有很多图片，甚至还有视频演示，以确保你不会被卡住。基本上，如果你已经扎根了，那就再简单不过了。前往<a href="http://forum.xda-developers.com/showthread.php?t=2407250">教程线程</a>开始学习。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

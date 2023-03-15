@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Check Symlinks in Your Projects with Chklnk</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用Chklnk检查项目中的符号链接</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/check-symlinks-chklnk/#0001-01-01">https://www.xda-developers.com/check-symlinks-chklnk/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">使用Chklnk检查项目中的符号链接</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">这个方便的脚本会给你一个在你的ROM中使用的符号链接的列表，这样你可以确保它们是有效的，不会给你的用户带来问题！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>和所有基于Unix的操作系统一样，Android使用符号链接。符号链接是一种特殊类型的文件，它以绝对或相对路径的形式包含对另一个文件或目录的引用，这会影响路径名解析。在Android中，它们主要用在<em> /bin </em>和<em> /xbin </em>文件夹中，所有正在执行的二进制文件都保存在那里。</p>
+
+  
+<p>如果你想创建自己的符号链接，或者想知道哪些文件是工具箱或Busybox的一部分，你可以通过在终端中输入一些命令来手动查找。你也可以用XDA资深成员<a href="http://forum.xda-developers.com/member.php?u=4629194"> LENAROX </a>写的剧本。Chklnk只不过是<a title="Protect Yourself from Shellshock Vulnerability with Patched BASH" href="http://www.xda-developers.com/android/bash-patched-shellshock-vulnerability/"> BASH脚本</a>，它只需一个命令就可以轻松识别符号链接。在推到选定的系统文件夹并使其可执行后，该脚本可用于增强您的开发项目。</p>
+
+<p>要使用这个脚本，您的设备必须是根设备，因为您需要将脚本文件推送到您的<em> /system </em>分区。您还应该安装Busybox 1.19.4或更高版本。用法非常简单，因为您只需要输入chklnk [file]命令来获取连接列表。</p>
+
+<p>Chklnk是使您的开发项目更好的好方法。可以通过访问<a href="http://forum.xda-developers.com/android/software-hacking/script-checking-symlinks-fast-t2902774"> chklnk.sh脚本论坛线程</a>了解更多。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Tap, Tap lets you do a triple tap gesture on the back of your Android phone</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>点击，点击允许你在你的Android手机背面做三次点击手势</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/tap-tap-app-triple-tap-gesture/#0001-01-01">https://www.xda-developers.com/tap-tap-app-triple-tap-gesture/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>早在2月份，我们就详细介绍了Pixel的SystemUI应用程序中一个名为<a href="https://www.xda-developers.com/google-pixel-android-11-double-tap-rear-gestures/">“哥伦布”</a>的隐藏功能——这是谷歌创造的一种新的手势机制，利用陀螺仪和加速度计的传感器数据来检测特定Pixel手机背面的点击。谷歌正在努力使<a href="https://www.xda-developers.com/google-pixel-3-pixel-4-double-tap-gestures-android-11-screenshots-recents/">能够使用这一独特功能执行动作</a>，如启动谷歌助手或截屏，但该公司在Android 11测试版中删除了这些手势。XDA认可的开发者<a href="https://forum.xda-developers.com/member.php?u=3563640"> Quinny899 </a>随后决定重新使用引擎盖下的机器学习代码和TensorFlow模型来创建一个名为“Tap，Tap”的应用程序，该应用程序可以在任何Android设备上实现双击手势。你不需要根来使用这个漂亮的小应用程序，它甚至有能力与Tasker集成，以获得更大的可定制性。</p>
+
+  
+<p>自从<a href="https://www.xda-developers.com/tap-tap-brings-ios-14-android-11-back-tap-gesture-any-android-device/">我们最初的报道</a>以来，开发者已经在应用程序中添加了许多修复和新功能。首先，Tap，Tap不再被认为是alpha。两天前，第一个测试版(0.8版)发布了，现在是一个快速修复版(0.8.1版)。其次，现在可以使用应用程序配置三次点击手势。请注意，在某些情况下，启用三击手势可能会减慢双击动作。</p>
+
+
+
+
+
+<p>除了这些变化，第一个Tap，Tap beta版本带来了四个新的Android 11可访问性全局操作，包括安装支持的启动器时的应用程序抽屉操作。从0.4 alpha版开始，还增加了对传统ARMv7器件的支持。手势设置下有一个实验灵敏度选项，带有一个滑块(从0.5 alpha版本开始)，这对最终用户调整传感器识别点击的能力应该很有用。最后但同样重要的是，Gates模块，即条件执行例程，现在可以检测耳机、音乐播放以及设备何时平放在桌子上。</p>
+
+
+
+
+
+<p>展开下面的列表以查看Tap的累积更改日志，Tap:</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_6"><h3 id="tap-tap-changelog">点击，点击更改日志</h3><ul> <li><strong> 0.4阿尔法:</strong><ul> <li>增加了新的分屏动作，开始分屏</li> <li>添加了新的模拟可达性模式，该模式使用上半部分为空的分屏(除了两个按钮用于打开通知和快速设置，无需向上触摸)</li> <li>将动作类别的声明移动到TapAction，而不是将每个类别的项目定义为列表</li> <li>在picker中实现了isAvailable布尔值，它在&lt; 9.0中隐藏屏幕截图和锁屏。更新了默认列表，以在&lt; 9.0版本中解决这个问题(默认列表现在是助理，然后是主页)</li> <li>迁移到使用Tensorflow库而不是共享库，代码取自SystemUI，希望修复Android 7.0。这也将启用armv7支持。</li> <li>增加了一些新的语言和对现有语言的更新(现在支持英语、德语、西班牙语、法语、意大利语、波兰语、葡萄牙语(巴西)、俄语、乌克兰语、越南语和繁体中文)</li> </ul> </li> <li><strong> 0.5阿尔法:</strong><ul> <li>在手势设置下增加了带有滑块的灵敏度选项(实验)</li> <li>增加了禁用电池优化的选项，以及一些关于如何让它在你奇怪的OEM固件上工作的提示</li> <li>触觉反馈现在只会发生在“请勿打扰”没有启用的时候(感谢Ashutosh Singh)——如果你想的话，有一个选项可以覆盖它</li> <li>增加了电源菜单动作(感谢阿德里安坎波斯)</li> <li>将“可达性”移至实用程序</li> <li>增加了键盘可见性和方向的门</li> <li>修正了当选择一个入口时，应用程序选择器不显示所有的应用程序，隐藏系统应用程序做了与它应该做的完全相反的事情</li> <li>进一步调整了用户界面</li> <li>更新的翻译</li> </ul> </li> <li><strong> 0.6和0.61阿尔法:</strong><ul> <li>实施行动的“要求”(又名“当门”)。这允许你指定一个动作只在满足一个条件时运行(任何门都可以用于此)，例如一个应用程序运行或显示关闭-例如在XDA线程上</li> <li>添加了工作台门</li> <li>增加了口袋门</li> <li>增加了检测耳机和音乐播放的门</li> <li>增加了声音配置文件控制-需要请勿打扰访问，应用程序会提示你(感谢Ashutosh辛格)</li> <li>更新的翻译和贡献者</li> </ul> </li> <li><strong> 0.7阿尔法和0.7.1阿尔法:</strong><ul> <li>修正了哥伦布罐子中的一个问题，这个问题导致大门被检查的次数远远超过了需要的次数。这意味着现在的动作启动明显更快，CPU使用率和电池消耗也可能更少</li> <li>增加了将后台服务分为辅助服务和前台服务的选项，并带有通知，这在某些设备上可能会有帮助。这是可选的，可以在新的高级设置页面中选择</li> <li>增加了每小时自动重启服务的选项。有些人使用Tasker成功地做到了这一点，所以这是一个自动实现。同样，从新的高级设置页面选择加入。</li> <li>增加了自动更新检查，每天中午运行一次，如果有更新会显示通知，并检查应用程序何时启动。</li> <li>添加了kill switch来禁用手势，而不停止辅助功能服务(注意，这是一个完整的服务重新启动，所以如果手势停止工作，切换这个开关(或使用QS磁贴)将重新启动它，让它再次工作)</li> <li>增加了快速设置磁贴来切换杀死开关</li> <li>添加了启动Google语音访问(辅助功能应用程序)的操作。这意味着使用该应用程序，您可以双击设备背面来执行辅助操作，如单击图标或滚动。</li> <li>增加了启动谷歌搜索的动作(谢谢arkon！)</li> <li>修正了在某些设备上登录导致的崩溃</li> </ul> </li> <li><strong> 0.8 Beta: </strong> <strong>现已内测！</strong><ul> <li>增加了三次点击-一个全新的应用程序部分，具有与两次点击相同的用户界面，动作和控制。三次点击是可选的，仍然有点实验性，我建议确保你有最好的手势模型设置，并在第一次启用后重新启动，以获得最佳效果。</li> <li>增加了对Tasker事件的三击支持</li> <li>添加了四个新的Android 11辅助功能全局操作-辅助功能按钮，辅助功能按钮选择器，辅助功能快捷方式和应用程序抽屉(仅支持启动器)</li> <li>增加了汉堡动作，带有警告(阅读警告)</li> <li>“锁屏”动作现在将禁用唤醒，直到它被执行，以防止设备唤醒回来，如果唤醒设备反馈被启用</li> <li>希望修复服务运行两次，并在一些设备上运行不正确的行动时，服务经常被启用/禁用/重启</li> <li>实验:通知和快速设置动作现在是动态的，基于窗口标题。他们现在将关闭受支持设备上的通知/ QS面板(如果它是打开的)</li> <li>更新的翻译</li> </ul> </li> <li><strong> 0.8.1 Beta: </strong><ul> <li>修正了一些设备改变反馈选项时的崩溃问题</li> <li>对服务的进一步更改有望修复侦听器/操作的重复</li> <li>修复了Android 11上由于包可见性变化而丢失的应用程序</li> <li>向“操作”和“期限”页面添加了空状态</li> <li>修复了启用并运行三次点击但未设置任何操作时的崩溃问题</li> </ul> </li> </ul> </div></section>
+<p>和往常一样，你可以从项目的GitHub repo中使用<a href="https://github.com/KieronQuinn/TapTap/releases/latest">“最新发布”标签</a>下载Tap的最新APK。或者，去下面链接的XDA论坛，从第一个帖子里抓取APK。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/android/apps-games/app-tap-tap-double-tap-device-gesture-t4140573">轻点，轻点——XDA下载与讨论线程</a> </strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

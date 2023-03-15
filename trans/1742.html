@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Android Auto 5.7 prepares to let you add a shortcut to a Google Assistant command</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Auto 5.7准备让你添加一个谷歌助手命令的快捷方式</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-auto-5-7-prepares-add-shortcut-google-assistant-command/#0001-01-01">https://www.xda-developers.com/android-auto-5-7-prepares-add-shortcut-google-assistant-command/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌最近更新了Android Auto的设置UI，增加了一些新元素，旨在简化连接过程。<a href="https://www.xda-developers.com/android-auto-settings-redesign-rolling-out/">更新增加了</a>一个新的“连接汽车”按钮，帮助用户使用USB电缆连接的说明，以及一个无线连接按钮。现在，谷歌推出了另一个Android Auto更新，增加了一个有趣的内容。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>Android Auto v5.7.603944不包括任何值得注意的面向用户的变化。此次更新只带来了一些对请勿打扰功能的改进，对黑暗模式的优化，以及一些错误修复。但最新APK的拆解发现了一系列代码，指向即将推出的一项功能，该功能将使该应用程序上的谷歌助手更加有用。</p>
+
+<pre> <code class="hljs xml">+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_assistant_shortcut_activity_title"</span>&gt;</span>Assistant Action<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_assistant_shortcut_add_button"</span>&gt;</span>Add<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_assistant_shortcut_error_label_empty"</span>&gt;</span>Please enter a valid label<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_assistant_shortcut_error_query_empty"</span>&gt;</span>Please enter a valid query<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_assistant_shortcut_label_hint"</span>&gt;</span>Label<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_assistant_shortcut_launcher_icon_title"</span>&gt;</span>LAUNCHER ICON<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_assistant_shortcut_query_hint"</span>&gt;</span>Assistant command<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_launcher_shortcut_button"</span>&gt;</span>Add a shortcut to the launcher<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_launcher_shortcut_deleted"</span>&gt;</span>Item removed<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_shortcut_dialog_option_assistant"</span>&gt;</span>an assistant action<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_shortcut_dialog_option_contact"</span>&gt;</span>a contact to call<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br/>+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"settings_customize_add_shortcut_dialog_title"</span>&gt;</span>Add a shortcut to<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span></code> </pre>
+<p>这些字符串表明，谷歌正在努力为Android Auto中的谷歌助手命令添加快捷方式。我们的主编<a href="https://www.xda-developers.com/author/mishaalrahman/">米沙·拉赫曼</a>已经设法手动启用了这个功能，下面是它的样子:</p>
+
+
+
+
+
+<p>这些截图显示了在Android Auto中为一个助手操作添加新快捷方式的设置过程。该功能将允许您在此过程中为快捷方式选择一个辅助命令和启动器图标标签。设置快捷方式后，您将能够在应用程序中执行自定义助手操作。</p>
+
+<p>值得注意的是，尽管Mishaal能够启用该功能的入职流程，但他无法让该功能实际工作。这表明该功能目前处于早期开发阶段，谷歌可能会在即将到来的Android自动更新中充实它。到目前为止，我们还没有从谷歌获得关于该功能或其发布时间表的官方信息。</p>
+
+<hr/>
+
+<p><em>感谢PNF软件为我们提供了使用</em> <em> <a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB反编译</a> </em> <em>的许可，这是一款针对Android应用的专业级逆向工程工具。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

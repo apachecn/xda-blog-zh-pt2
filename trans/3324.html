@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>The Importance of Open Source in Root</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>开源在Root中的重要性</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/the-importance-of-open-source-in-root/#0001-01-01">https://www.xda-developers.com/the-importance-of-open-source-in-root/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p><strong>更新:</strong>在与Chainfire讨论过这个问题后，我认为在这里补充一些说明是个好主意。软件开源或闭源的原因有很多，软件的安全性并不是由其源代码的可用性决定的。有很多非常安全(写得很好)的闭源软件，也有很多写得很差的开源软件——只有优秀的、有能力的安全专家真正阅读和审核开源软件，你才能从中受益。</p>
+
+  
+<p/><p>根。这是我们在这里最熟悉的一个词。尽管谷歌越来越多地试图让它更难实现和使用(这很可能会继续，随着<a href="http://arstechnica.com/gadgets/2015/10/wsj-google-to-merge-chrome-os-into-android-unveil-unified-os-next-year/">预测的严重锁定的ChromeOS和Android平台的融合)</a>，生根在XDA仍然非常受欢迎。</p>
+
+<p>事实上，围绕它已经形成了一个完整的生态系统，应用程序利用root提供的提升访问权限来实现定制和修改，否则这些都将被Android的安全模型所阻止。</p>
+
+<blockquote>
+<p>对Android进行了多年的修改，使得获得root权限变得更加困难</p>
+ </blockquote>
+<p>当Android的定制化在2008年和2009年开始获得关注时，第一个“真正的”可定制超级用户解决方案是由退休的知名开发人员<a href="http://forum.xda-developers.com/member.php?u=1562806"> ChainsDD </a>开发的。这使得人们可以通过图形用户界面来控制哪些应用程序可以访问root，哪些不可以，这就是我们今天所知的前身。如果你想看的话，<a href="https://github.com/ChainsDD/Superuser">应用程序</a>和<a href="https://github.com/ChainsDD/su-binary"> su二进制代码</a>的源代码仍然可用。</p>
+
+<p/><p><a href="http://www.xda-developers.com/wp-content/uploads/2015/10/20151031154853715.png"> <img class="wp-image-131580 alignright" src="../Images/8aeb2753242d65627e11230911b361af.png" alt="20151031154853715" data-original-src="https://static0.xdaimages.com/wordpress/wp-content/uploads/2015/10/20151031154853715.png"/> </a>快进一步，历经多年对Android做出的改变让获得root变得更加困难，无论是对于恶意软件，还是对于用户，都发生了很大的变化。事实上，目前有必要(至少在Android 6.0上)对设备的内核ramdisk (boot.img)进行更改，这意味着没有解锁引导加载程序的设备上的root用户可能不会很快看到<a href="http://www.xda-developers.com/a-look-at-marshmallow-root-verity-complications/"/>。</p>
+
+<p/><p>尽管如此，直到最近，你的根选项几乎都是超级用户。这是对旧的根解决方案的一个很大的改进，旧的根解决方案不能处理像SELinux策略和约束这样的新的和现代的复杂性。唯一的问题是SuperSU过去是(现在也是)闭源软件。作为绝对控制你手机的看门人，这真的应该是开源的，可审计的。虽然直到现在，大多数人只是信任XDA资深公认的开发商，<a href="http://forum.xda-developers.com/member.php?u=631273"/>，做正确的事情，鉴于他的声誉和地位，这不是一个真正的问题。</p>
+
+<p>然而，当Chainfire宣布由一个之前不为人知的、不相关的第三方<a href="http://www.xda-developers.com/chainfire-makes-important-announcement-about-supersus-future/">收购SuperSU </a>时，问题出现了。但是对于像root访问这样重要的东西，这引起了用户的恐慌；用户信任它真的很重要——想象一下，如果你的超级用户应用程序被配置为允许某些应用程序在你不知情的情况下静默访问root用户。开发人员可以为他们自己的应用程序或者为其他付费的开发人员这样做。<strong>没有迹象表明这已经发生或者将要发生</strong>，但是它仍然是一个闭源超级用户解决方案的可能性。或者，它可以开始显示侵入性广告。你真的没有什么选择来阻止这些，因为它有根访问！根访问是非常强大的，对如此强大的东西的任何改变都会让人有点紧张。</p>
+
+<section class="emaki-custom-block emaki-custom-pullquote"><div class="emaki-custom pullquote" id="custom_block_8"><p>不管您使用哪种根解决方案，拥有一个完全开源的版本是非常重要的</p> </div></section>
+<p>幸运的是，在XDA精神的指引下，一群用户聚集在一起，试图创建一个真正的、现代的超级用户解决方案，这将是完全开源的，由社区开发。一旦完成，用户将可以选择使用一家新公司的专有根解决方案，还是一个由社区开发的开放透明的解决方案。</p>
+
+<blockquote>
+<p>一个选择不会伤害任何人，当涉及到根访问时，拥有多个选择对于您的安全和隐私是必不可少的</p>
+ </blockquote>
+<p>然而，不管您使用哪种根解决方案，拥有一个完全开源的版本，作为任何商业或专有产品的强大替代，是非常重要的。它实际上也将有利于专有版本的用户——仅仅存在一个可行的替代方案对于确保SuperSU的开发者和新的(未知的和目前不可信的)所有者以公共利益为重是至关重要的。别无选择，如果他们逍遥法外，就无处可去。另一方面，有了强大的开源替代方案，就有强烈的动机为用户的利益而行动，而不是冒着名誉严重受损的风险，看着其他地方的用户大量流失。</p>
+
+<p>出于这个原因，我鼓励任何拥有相关技能的人参与到开源项目中来。拥有一个由社区主导的、基于完全开源软件的高质量超级用户解决方案，将有益于整个社区，包括那些想要继续使用SuperSU的人。一个选择不会伤害任何人，当涉及到根访问时，拥有多个选择对于您的安全和隐私是至关重要的。开发还处于早期阶段，正在Github上进行，引导镜像的补丁在<a href="https://github.com/phhusson/super-bootimg">这个库</a>的问题部分讨论，超级用户应用本身在<a href="https://github.com/phhusson/Superuser">这个库开发。</a></p>
+
+<p>为什么不通过加入论坛上的<a href="http://forum.xda-developers.com/android/software-hacking/wip-selinux-capable-superuser-t3216394">讨论线程来参与讨论或参与开发呢？让我们制定一个真正的社区主导的、开源的、可审计的超级用户解决方案，并确保总是有选择使用完全开源的软件来获得和控制你的手机上的root访问。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

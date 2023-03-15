@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>SuperSU 2.13 Begins Preparations for Android L Release</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>SuperSU 2.13开始筹备Android L发布</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/supersu-2-13-android-l/#0001-01-01">https://www.xda-developers.com/supersu-2-13-android-l/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">SuperSU 2.13开始筹备Android L发布</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">SuperSU获得了重大更新，现在已经为即将到来的Android L正式发布做好了准备。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>自从上一个主要版本T1和几个小的测试版本以来，SuperSU已经平静了几个月，最终在其稳定分支中获得了一个重要的更新。XDA资深公认的开发者<a href="http://forum.xda-developers.com/member.php?u=631273"> Chainfire </a>添加了大量的错误修复、兼容性添加和只有精通技术的用户才会注意到的底层变化。</p>
+
+  
+<p>SuperSU现在已经为Android L做好了充分准备，Android L应该很快就会发布。Chainfire花了很大力气让这个应用程序与AOSP兼容。因此，SuperSU现在与根级应用程序更加兼容。对于<em> boot.img </em>是否必须更新才能获得root仍然有些担心，但我们应该保持乐观。</p>
+
+<p>为了正常工作，SuperSU需要将一些二进制文件推入到<em> /system </em>分区中。从现在开始，SuperSU应用程序将与针对所有Android变体的特定于架构的二进制文件一起发布。从Android L开始，官方支持64位版本，但是二进制文件还没有经过测试，因为我们还没有看到很多64位Android设备。</p>
+
+<p>以下是SuperSU 2.13的完整更新日志:</p>
+
+<blockquote>    <ul> <li>改进了对Android TV的支持(调整了图标，禁用了一些功能，默认使用设备默认主题，等等)</li> <li>如果系统无法将UID名称手动解析为数字，请执行此操作</li> <li>修复即使启用了“信任系统用户”,系统用户也无法获得root权限的问题</li> <li>如果在init_shell上下文中启动，则转换到init上下文(如果可能)</li> <li>调整加密设备的启动顺序</li> <li>支持-cn/ -上下文切换的MCS</li> <li>对最新AOSP/L的大量审计保持沉默</li> <li>许多小的变化，以修复对最新的AOSP/L的支持</li> <li>次要用户不再能够更改信任系统或遵守CM设置</li> <li>添加了实验性sppolicy二进制文件</li> <li>启动时检查移除的应用程序，如果启用了重新验证，则忘记它们的设置</li> <li>亚马逊应用商店支持</li> <li>取消APK限制，仅安装到ARM和X86上(MIPS问题)</li> <li>当需要隐藏覆盖时，通知感兴趣的应用程序(授予root权限)</li> <li>如果在内核上下文中启动，则转换到init上下文</li> <li>armeabi-v7a、arm64-v8a、x86-64、mips、mips64的实验版本</li> <li>修复了可能导致su会话冻结的错误fd关闭</li> <li>修正了sugote中偶尔死机和错误的退出代码</li> <li>移除TWRP/CWM二进制更新程序中的busybox依赖项</li> <li>修复了备份脚本中丢失的sugote-mksh</li> <li>修正了安装脚本清除SuperSU Pro</li> <li>添加了禁用装载命名空间分隔的选项</li> <li>修正了授予默认访问权限仍然显示提示的错误</li> <li>二进制更新后在对话框中增加了重启按钮</li> <li>增加了点击保护-可能会导致屏幕变暗应用程序的问题！</li> <li>增加了移除团队毒液苏</li> <li>添加了新的dalvik-cache路径以在包维护时清除</li> <li>修复启用完整内容日志记录时exitcode有时会出错的问题</li> <li>修复自动OTA生存</li> <li>更新的语言文件</li> </ul>
+ </blockquote>
+<p>你可以在这篇Google+文章的<a href="https://plus.google.com/+Chainfire/posts/eshAgMtYfoX">中了解更多关于CF-Auto-Root的最新变化。你可以通过访问</a><a href="http://forum.xda-developers.com/showthread.php?t=1538053">官方SuperSU应用线程</a>获取最新版本的应用。你也可以等待Play Store或亚马逊的更新，但这可能会比通过你最喜欢的恢复显示最新的ZIP文件花费更长的时间。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

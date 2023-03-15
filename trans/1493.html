@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>WSL 2 in Windows 10 now supports mounting Linux filesystems like EXT4</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Windows 10中的WSL 2现在支持挂载像EXT4这样的Linux文件系统</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/wsl-2-windows-10-supports-mounting-linux-filesystems-ext4/#0001-01-01">https://www.xda-developers.com/wsl-2-windows-10-supports-mounting-linux-filesystems-ext4/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>继去年在微软构建期间宣布Windows Subsystem for Linux 2(WSL 2)<a href="https://www.xda-developers.com/microsoft-announces-windows-terminal/">之后，微软</a><a href="https://www.xda-developers.com/microsoft-windows-10-may-2020-update-wsl-2-revamped-cortana-assistant-your-phone-calls-arm-devices/">在今年早些时候通过Windows 10 2020年5月更新(v. 2004)向用户推出了</a>该功能。此次更新为稳定的Windows 10分支引入了完整的Linux内核，该公司还通过Windows Update 使WSL 2 <a href="https://devblogs.microsoft.com/commandline/wsl2-will-be-generally-available-in-windows-10-version-2004/">可更新。上个月末，微软宣布WSL 2支持被</a><a href="https://www.xda-developers.com/wsl-2-support-backported-windows-10-v1903-v1909/">回移植到Windows 10 v1903和v1909 </a>。现在，该公司宣布了该功能的更新。</p>
+
+  
+<p/><p><strong> <a href="https://www.xda-developers.com/how-to-build-lineageos-on-windows-10-using-wsl-2/">如何使用WSL 2在Windows 10上构建lineage OS</a>T3】</strong></p>
+
+<p>根据<a href="https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/">最近在Windows命令行博客上的帖子</a>，从Windows Insider预览版20211开始，WSL 2将提供一个新功能:<span> <code>wsl --mount</code> </span>。帖子称这个<em>“新参数允许在WSL2中连接和安装一个物理磁盘，“</em>”这将使用户能够访问Windows本身不支持的文件系统，如ext4。实际上，新参数将允许用户从Windows访问他们的Linux文件，即使他们使用不同的磁盘双重启动Windows和Linux。</p>
+
+
+
+<p>如果您的设备上已经安装了Windows Insider preview build 20211，您将能够通过使用管理员权限打开PowerShell窗口并运行:<span> <code>wsl -- mount &lt;DiskPath&gt;</code> </span>来挂载磁盘。要在Windows中列出所有可用的磁盘，可以运行:<span> <code>wmic diskdrive list brief</code> </span>。最后，要从WSL 2中卸载和分离磁盘，可以运行:<span> <code>wsl --unmount &lt;DiskPath&gt;</code> </span>。请注意，您只能将物理磁盘挂载到WSL 2，此时，不可能挂载单个分区。</p>
+
+
+
+<p>成功装载磁盘后，您将能够通过Windows资源管理器访问该磁盘。为此，您需要导航到“\wsl$”，然后导航到已装载的文件夹。同样值得注意的是，默认情况下，<span> <code>wsl --mount</code> </span>命令试图将磁盘挂载为ext4。如果你想指定一个不同的文件系统，或者对于更高级的场景，你可以从微软的文档中找到<a href="https://docs.microsoft.com/en-us/windows/wsl/wsl2-mount-disk">来学习如何做。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

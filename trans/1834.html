@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Download Manager for UC Browser</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>UC浏览器下载管理器</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/download-manager-for-uc-browser/#0001-01-01">https://www.xda-developers.com/download-manager-for-uc-browser/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>说到网页浏览器，我们都有自己的最爱。对于那些喜欢UC浏览器的人，你会发现下面的下载管理器调整非常方便。XDA成员<a href="http://forum.xda-developers.com/member.php?u=2056651"> imbunned </a>制作了2个文件，一个用于将文件下载到你的Windows mobile设备，另一个用于在使用UC浏览器时将Coreplayer设为你的默认视频播放器。</p>
+
+  
+<p>Imbunned还为我们提供了一些全屏观看视频的代码，以及另一个无需下载文件即可观看视频的代码。</p>
+
+<blockquote>
+<p><em>原帖由</em> <strong> <em>转贴</em> </strong> <em/></p>
+<p>按取消-输入地址-tab并按住-全屏编辑和开始菜单-下载与ucweb</p>
+<p><em>非常有用</em></p>
+<p><em>代码:</em></p>
+<p>鼠标点击(activeWin，100)</p>
+<p>鼠标点击(activeWin，100)</p>
+<p>睡眠(20)</p>
+<p>SendCtrlKey( activeWin，" c ")</p>
+<p>运行(" \存储卡\程序文件\UCWEB\UCWEB.exe ")</p>
+<p>WaitForActive( "UC浏览器"，10)</p>
+<p>send left soft(“UC浏览器”)</p>
+<p>send down(“UC浏览器”)</p>
+<p>send down(“UC浏览器”)</p>
+<p>SendCR(“UC浏览器”)</p>
+<p>send down(“UC浏览器”)</p>
+<p>SendCR(“UC浏览器”)</p>
+<p>SendLeftSoft(“下载”)</p>
+<p>SendCR(“下载”)</p>
+<p>SendCR("新任务" )</p>
+<p>SendRightSoft("新任务" )</p>
+<p>SendCtrlKey( "v ")</p>
+<p>SendLeftSoft("新任务" )</p>
+<p>或者比如一个视频下载，但是你不想下载，只想看</p>
+<p><em>全屏编辑链接-开始菜单观看coreplayer </em></p>
+<p><em>代码:</em></p>
+<p>鼠标点击(activeWin，100)</p>
+<p>鼠标点击(activeWin，100)</p>
+<p>睡眠(20)</p>
+<p>SendCtrlKey( activeWin，" c ")</p>
+<p>运行(" \存储卡\程序文件\CorePlayer\player.exe ")</p>
+<p>WaitForActive( "CorePlayer "，15)</p>
+<p>SendLeftSoft( "CorePlayer ")</p>
+<p>SendDown( "CorePlayer ")</p>
+<p>SendCR( "CorePlayer ")</p>
+<p>SendKeys( "http://)</p>
+<p>SendCtrlKey( "v ")</p>
+<p>发报机</p>
+ </blockquote>
+<p>更多信息可以在<a href="http://forum.xda-developers.com/showpost.php?p=6679031&amp;postcount=64">原线程</a>中找到。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

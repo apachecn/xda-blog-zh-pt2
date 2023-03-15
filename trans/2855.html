@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Speed Up Your Aging Nexus 7 2012's Storage with F2FS</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>借助F2FS加快老化的Nexus 7 2012存储速度</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/speed-up-your-aging-nexus-7-2012s-storage-with-f2fs/#0001-01-01">https://www.xda-developers.com/speed-up-your-aging-nexus-7-2012s-storage-with-f2fs/#0001-01-01</a></blockquote><div><section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>众所周知，尽管总体来说是一款很棒的设备，但谷歌Nexus 7(2012)的闪存性能并不理想。虽然通过使用TRIM ，这个问题已经<a title="Yet Another Reason to Update to Android 4.3: TRIM Support" href="http://www.xda-developers.com/android/yet-another-reason-to-update-to-android-4-3-trim-support/">在一定程度上得到了缓解，但是文件系统性能仍然经常是设备的致命弱点。正因为如此，任何提高设备存储性能的措施都将极大地改善整体用户体验。</a></p>
+
+  
+<p>XDA资深成员<a href="http://forum.xda-developers.com/member.php?u=2743057"> legolas93 </a>决定通过使用F2FS来提高Nexus 7的存储性能，F2FS是一种不同的文件系统，旨在更好地优化闪存设备中NAND内存的特性。但是在我们继续之前，重要的是要注意，当改变你的文件系统时，你<em>将</em>丢失你所有的数据。因此，请确保您进行了完整备份，然后在执行所需步骤时将备份传输到您的计算机。</p>
+
+<p>首先，您必须下载支持F2FS的内核和一个修改过的TWRP，它能够用F2FS重新格式化平板电脑。然后，您通过当前的自定义恢复来刷新内核，并通过快速启动来刷新TWRP的修改版本。接下来，您访问修改后的TWRP并格式化到新的文件系统。最后，您可以在将备份从PC复制回平板电脑后进行恢复。</p>
+
+<p>更详细的说明和所有下载可以在<a href="http://forum.xda-developers.com/showthread.php?t=2664392">原始线程</a>中找到。如果你是一个SlimKat用户，你可能想试试<a href="http://forum.xda-developers.com/showthread.php?t=2678142">这个版本</a>修改后完全兼容F2FS。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

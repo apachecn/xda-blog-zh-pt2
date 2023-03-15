@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Basic Kernel Kitchen for Minor Kernel Tweaking</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>用于较小内核调整的基本内核厨房</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/basic-kernel-kitchen-for-minor-kernel-tweaking/#0001-01-01">https://www.xda-developers.com/basic-kernel-kitchen-for-minor-kernel-tweaking/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>我们通常鼓励那些想学习如何开发的人通过开发代码来这样做<a title="Sage Advice from Cyanogen Still Valid Today" href="http://www.xda-developers.com/android/sage-advice-from-cyanogen-still-valid-today/">，而不是使用厨房。但是，每个人的入门都不一样。这意味着一些有抱负的开发人员可能想在实际创建真正的开发工作之前尝试一些简单的东西，比如ROM厨房。对于那些希望开始学习更多内核知识的人来说也是如此。</a></p>
+
+  
+<p>正是考虑到这一点，XDA公认的贡献者<a href="http://forum.xda-developers.com/member.php?u=4308696"> championswimmer </a>发布了一个旨在修改内核的厨房。这个项目背后的动机来自XDA公认的开发者和退休的高级主持人<a href="http://forum.xda-developers.com/member.php?u=673068"> dsixda </a>的现在传奇的<a href="http://forum.xda-developers.com/showthread.php?t=633246"> ROM厨房</a>，championswimmer希望为内核创建一个类似的厨房，以帮助新用户开始做一些小的修改。</p>
+
+<p>厨房主要是让用户从一个<em> boot.img </em>文件中提取Zimage和ramdisk，将zImage和ramdisk合并成一个<em> boot.img </em>文件，并修改启动闪屏。正如开发商所描述的:</p>
+
+<blockquote>
+<p>完全菜单驱动界面(如dsixda kitchen)</p>
+<p>从boot.img文件中提取zImage和ramdisk</p>
+<p>从zImage和ramdisk创建boot.img</p>
+<p>从任何包含kernel.sin的ftf文件中提取zImage和ramdisk(Xperia 2010、2011、2012)</p>
+<p>从zImage和ramdisk创建可刷新的ftf(仅限Xperia 2010)</p>
+<p>从ramdisk文件夹创建压缩的ramdisk二进制文件</p>
+<p>从ramdisk二进制文件中提取ramdisk文件</p>
+<p>将png图像转换为rle格式(用于android启动启动图像)</p>
+<p>转换rle启动飞溅到png文件(以便您可以编辑它)</p>
+ </blockquote>
+<p>和dsixda的厨房一样，这个厨房是一个菜单驱动的脚本，打算在Linux上运行。有了这个厨房，初级内核开发人员可以对内核的各个部分进行一些小的调整。</p>
+
+<p>然而，championswimmer确保提醒新用户:</p>
+
+<blockquote>
+<p>我想在这里补充一点...我们不应该把它当作一台庞大复杂的机器，扔进去一只靴子，又拿回来一只</p>
+<p>我真的非常希望想要成为内核开发者的人也能仔细检查一下内部结构...看脚本，读源文件，试着理解厨房里发生了什么，而不仅仅是把它当作一台“封闭的机器”</p>
+ </blockquote>
+<p>那些想要了解更多的人应该前往<a href="http://forum.xda-developers.com/showthread.php?t=1659584">原始线程</a>。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

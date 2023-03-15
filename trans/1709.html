@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Developer brings mainline Linux Kernel support to the Sony Xperia M4 Aqua with unofficial Android 11 custom ROM</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>开发者为索尼Xperia M4 Aqua带来主线Linux内核支持，带有非官方的Android 11定制ROM</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/sony-xperia-m4-aqua-mainline-linux-kernel-android-11-custom-rom/#0001-01-01">https://www.xda-developers.com/sony-xperia-m4-aqua-mainline-linux-kernel-android-11-custom-rom/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在过去的几周里，我们发了很多关于<a href="https://www.xda-developers.com/android-11-update-tracker/">Android 11官方更新</a>和<a href="https://www.xda-developers.com/android-11-custom-rom-list/">基于Android 11的定制rom</a>的帖子。甚至还有一个特殊的<a href="https://www.xda-developers.com/developer-boots-android-11-22-older-devices-project-treble-gsi/">定制通用系统映像(GSI)版本</a>，任何人都可以通过它在他们的Project Treble兼容设备上体验Android 11。然而，在通用内核开发领域还没有取得类似的成就。如果特定Android智能手机的每一个硬件组件都可以<a href="https://www.xda-developers.com/samsung-galaxy-siii-samsung-galaxy-note-ii-htc-hd2/">升级到主流Linux内核</a>，那么该设备应该能够引导任何常规的GNU/Linux发行版，而无需额外的更改，这也使得它更容易跟上新的AOSP版本。现在，资深内核开发人员Pavel Dubrova，也就是XDA成员Cubbins展示了一台索尼Xperia M4 Aqua，它实际上在AOSP 11.0定制ROM下运行主线Linux内核。</p>
+
+  
+<p/><p><strong> <a href="https://forum.xda-developers.com/m4-aqua">索尼Xperia M4阿卡XDA论坛</a> </strong></p>
+
+<p>像所有安卓设备一样，2015年的索尼Xperia M4 Aqua运行在经过修改的Linux内核上。谷歌通常会采用一个主线Linux内核版本，然后对其进行修改，以支持当时最新的Android版本——他们称之为“Android公共内核”。芯片组制造商(在这种情况下，高通)然后采用Android通用内核，并对其进行进一步修改，以制作SoC专用内核。OEM/ODM(如索尼)然后采用特定于SoC的内核，并做进一步的更改以支持他们的硬件或额外的供应商组件——我们称之为特定于设备的内核。</p>
+
+<p>因为Linux内核是在GNU GPL v2许可证下发布的，所以所有发布内核分支(包括商业设备上发布的Linux内核blobs)的实体都需要根据请求提供其内核的源代码。索尼确实发布了基于Linux内核3.10的Xperia M4 Aqua(代号“郁金香”)的内核源代码，但考虑到这款手机太旧了，无法支持Project Treble，官方源代码树不足以将现代版本的Android(或任何Linux发行版)移植到这款设备上。</p>
+
+<p>Pavel也参与了<a href="https://www.xda-developers.com/postmarketos-touch-optimized-linux-distro/"> postmarketOS </a>项目，他已经<a href="https://github.com/bartcubbins/device_sony_tulip-mainline">从零开始为Xperia M4 Aqua创建了一个定制设备树</a>到<a href="https://github.com/bartcubbins/kernel_kanuti_mainline">启用主线Linux内核</a>支持(注意，这里的“主线”和<a href="https://www.xda-developers.com/android-q-project-mainline-security/">谷歌自己的“项目主线”</a>并不相关)。开发者还为这款手机上传了一个现成的flash AOSP 11.0版本，它与预编译的Linux内核5.9 RC7一起发布。</p>
+
+
+
+
+
+<p>到目前为止，ROM中还缺少许多特定于硬件的特性，但这没什么，因为我们仍处于早期阶段，随着时间的推移，这些特性将在源代码端得到修复。我们希望官方对Linux内核中几乎所有关键硬件组件的支持将为未来版本的Android和其他基于Linux内核的操作系统移植到Xperia M4 Aqua和类似的其他设备铺平道路。如果你想了解更多，看看下面链接的XDA主题。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/m4-aqua/rom-android-11-mainline-linux-kernel-t4172351"> Android 11采用主线Linux内核为索尼Xperia M4 Aqua — XDA线程</a> </strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>PwnMyMoto Root and Write Protection Bypass for the Moto X and Droid Ultra / Maxx / Mini</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>用于Moto X和Droid Ultra / Maxx / Mini的PwnMyMoto Root和写保护旁路</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/pwnmymoto-root-and-write-protection-bypass-for-the-moto-x-and-droid-ultra-maxx-mini/#0001-01-01">https://www.xda-developers.com/pwnmymoto-root-and-write-protection-bypass-for-the-moto-x-and-droid-ultra-maxx-mini/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>当Moto X发布时，许多人不安地得知，尽管谷歌在开发过程中发挥了积极的影响，但这款设备仍然没有真正开放。老实说，关于摩托罗拉对开发者的友好程度，从来没有任何虚假的借口。然而，看起来黑客大师和XDA精英公认的开发者<a href="http://forum.xda-developers.com/member.php?u=2376614"> jcase </a>又成功了。</p>
+
+  
+<p>不久前，jcase为机器人阵容创造了<a href="http://forum.xda-developers.com/showthread.php?t=2442585"> MotoRoot。这利用了之前</a><a title="Xposed Patch for Master Key and Bug 9695860 Vulnerabilities" href="http://www.xda-developers.com/android/xposed-patch-for-master-key-and-bug-9695860-vulnerabilities/">报道的</a> Android bug 9695860来获得系统用户。然后，jcase自己创建的一个symlink攻击被用来获取root访问权限。然而今天，一个更好的解决方案出现了。</p>
+
+<p>再次感谢jcase，PwnMyMoto首先使用bug 9695860(就像它的前身一样)来获得系统用户。它还利用MotoRoot中的符号链接攻击来获取根用户访问权限。然而，对于PwnMyMoto来说，接下来发生的事情是新的:获得root后，bootloader漏洞被利用，允许绕过<em> /system </em>分区上的写保护。在这个过程中，库存恢复被删除，防止不需要的未来OTA干扰根状态。</p>
+
+<p>自然，任何未经授权的修改都带有固有的风险。但是，如果您希望root，您必须冒这些风险才能释放您的设备。首先，请浏览下面的链接。再次祝贺jcase的伟大工作！</p>
+
+
+
+<p>非常感谢jcase的提示！] </p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

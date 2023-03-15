@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>How to enable T-Mobile VoLTE/VoWiFi on ASUS smartphones [Root]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在华硕智能手机上启用T-Mobile VoLTE/VO wifi[Root]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-enable-t-mobile-volte-vowifi-on-asus-smartphones-root/#0001-01-01">https://www.xda-developers.com/how-to-enable-t-mobile-volte-vowifi-on-asus-smartphones-root/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>从传统电路交换语音网络过渡到IP多媒体子系统(IMS)让我们有机会使用高级蜂窝服务，如LTE语音(VoLTE)、Wi-Fi呼叫(VoWiFi)和<a href="https://www.xda-developers.com/tag/rcs/">丰富通信服务</a> (RCS)。现在<a href="https://www.xda-developers.com/qualcomm-5g-budget-smartphones-snapdragon-4-series-chips/"> 5G支持已经准备好登陆预算段</a>，几家运营商正在逐步淘汰老式的2G/3G基础设施，甚至要求所有连接到4G LTE和5G网络的设备都使用VoLTE。例如，T-Mobile和AT&amp;T,<a href="https://www.xda-developers.com/t-mobile-att-require-volte-phone-calls-shut-down-3g/">将在不久的将来为不支持VoLTE的手机屏蔽</a>语音和数据服务。</p>
+
+  
+<p>房间里的大象来了:运营商解锁模式的普通消费者如何确保他们的智能手机与服务提供商的VoLTE(和VoWiFi)兼容？当我们在谈论像华硕这样的OEM厂商时，整个情况真的很复杂。如果你想买任何一部当代华硕ROG手机或华硕ZenFone品牌的智能手机——包括最近推出的<a href="https://www.xda-developers.com/asus-rog-phone-3-review/"> ROG手机3 </a>和<a href="https://www.xda-developers.com/asus-zenfone-7-pro-specs-features-pricing-availability/">Zen fone 7/7 Pro</a>——作为你的下一部手机，你会惊讶地发现，上述美国运营商都没有正式支持VoLTE。好消息是，XDA的汽车后市场开发社区再次出手相救。</p>
+
+<p/><p><strong>t1【ASUS rog phone 3论坛】| |<a href="https://forum.xda-developers.com/asus-zenfone-7">ASUS zenfone 7论坛</a>| |<a href="https://forum.xda-developers.com/asus-zenfone-7-pro">ASUS zenfone 7 pro论坛</a> </strong></p>
+
+<p>这一次，XDA认可的开发商<a href="https://forum.xda-developers.com/member.php?u=2266182"> HomerSp </a>找到了一种方法，可以摆弄高通骁龙调制解调器的内部诊断接口，并设置正确的参数，以便目标华硕智能手机可以无缝支持高级IMS服务，如T-Mobile网络上的VoLTE。虽然开发者在<a href="https://www.xda-developers.com/tag/asus-rog-phone-ii/">华硕ROG手机II </a>上成功测试了该方法，但我们论坛上的用户也在他们的<a href="https://www.xda-developers.com/tag/asus-zenfone6/"> ZenFone 6 </a>上成功测试了该方法。根据XDA公认的开发者<a href="https://forum.xda-developers.com/member.php?u=1162986" target="_blank" rel="nofollow noopener noreferrer" data-is-link="https://forum.xda-developers.com/member.php?u=1162986"> Captain_Throwback </a>和XDA资深成员<a href="https://forum.xda-developers.com/asus-rog-phone-3/how-to/ive-asus-rog-phone-3-1-month-t4137097/post83431427#post83431427" target="_blank" rel="nofollow noopener noreferrer" data-is-link="https://forum.xda-developers.com/asus-rog-phone-3/how-to/ive-asus-rog-phone-3-1-month-t4137097/post83431427#post83431427"> bs3pro </a>的说法，修改ROG Phone 3上的那些参数(也就是厂商prop值)就足以让VoLTE和VoWiFi在T-Mobile上工作，这意味着mod也与最新的华硕手机兼容！</p>
+
+<p/><p><strong>t1【ASUS zenfone 6论坛】| |<a href="https://forum.xda-developers.com/rog-phone-2">ASUS rog phone ii论坛</a> </strong></p>
+
+<hr/>
+
+
+<h2 id="how-to-enable-t-mobile-volte-vowifi-on-asus-smartphones">如何在华硕智能手机上启用T-Mobile VoLTE/VoWiFi</h2>
+<h3 id="step-1-enable-the-hidden-qualcomm-diagnostic-mode">步骤1–启用隐藏高通诊断模式</h3>
+<ol> <li>确保您拥有root访问权限。</li> <li>下载高通产品支持工具(QPST)的最新版本，高通USB驱动程序，以及由<a href="https://forum.xda-developers.com/member.php?u=2266182"> HomerSp </a>开发的<a href="https://github.com/HomerSp/AsusVoLTE"> AsusVoLTE </a>应用程序。</li> <li>使用AsusVoLTE应用程序或QPST的远程连接功能来触发高通诊断模式。进一步的细节，看一看<a href="https://forum.xda-developers.com/rog-phone-2/how-to/guide-enabling-diag-qpst-t4027493">这个线程</a>。</li> </ol>
+
+<h3 id="step-2---set-appropriate-prop-values">步骤2 -设置适当值</h3>
+<ol> <li>通过股票拨号器app拨打<code>*#*#3642623344#*#*</code>。<ul> <li>这个秘密代码可以用来从手机上强制启用VoLTE/VoWiFi，但它无法在重启后存活。</li> </ul> </li> <li>或者，从提升的shell中执行下面的命令:<pre> <code class="hljs css"><span class="hljs-selector-tag">setprop</span> <span class="hljs-selector-tag">persist</span><span class="hljs-selector-class">.vendor</span><span class="hljs-selector-class">.dbg</span><span class="hljs-selector-class">.ims_volte_enable</span> 1<br/><span class="hljs-selector-tag">setprop</span> <span class="hljs-selector-tag">persist</span><span class="hljs-selector-class">.vendor</span><span class="hljs-selector-class">.dbg</span><span class="hljs-selector-class">.volte_avail_ovr</span> 1<br/><span class="hljs-selector-tag">setprop</span> <span class="hljs-selector-tag">persist</span><span class="hljs-selector-class">.vendor</span><span class="hljs-selector-class">.dbg</span><span class="hljs-selector-class">.vt_avail_ovr</span> 1<br/><span class="hljs-selector-tag">setprop</span> <span class="hljs-selector-tag">persist</span><span class="hljs-selector-class">.vendor</span><span class="hljs-selector-class">.dbg</span><span class="hljs-selector-class">.wfc_avail_ovr</span> 1</code> </pre></li> <li>您也可以使用AsusVoLTE应用程序来设置这些值。</li> </ol>
+
+<p>如果一切正常，在关闭然后再次打开移动数据后，此时您应该能够在状态栏中看到VoLTE(或VoWiFi)图标。</p>
+
+<h3 id="optional-step-3---modify-the-efs-partition">(可选)步骤3 -修改EFS分区</h3>
+<p>您可能需要将运营商配置推送到目标ASUS设备的EFS分区，以获得更好的兼容性。为此，请按照下面链接的主题中提到的步骤进行操作。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/rog-phone-2/how-to/guide-enabling-volte-vowifi-v2-t4028073">在华硕智能手机上启用VoLTE/VO wifi—XDA线程</a> </strong></p>
+
+<hr/>
+
+<p>值得一提的是，与T-Mobile不同，<a href="https://www.anrdoezrs.net/links/100122946/type/dlg/sid/UUxdaUeUpU29740/https://www.att.com/idpassets/images/support/wireless/Service-Capabilities-Unlocked-Devices-ATT-Network.pdf" class="norewrite noskim" rel="sponsored nofollow">为VoLTE(又名“高清语音”)兼容性维护了一个白名单</a>。虽然有一些使用本指南在运营商上启用VoLTE的成功报告，但您的里程数可能会有所不同。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Working Windows 95 Port for Android</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android的Windows 95工作端口</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/working-windows-95-on-android/#0001-01-01">https://www.xda-developers.com/working-windows-95-on-android/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>我们已经看到了许多不同类型的Windows Mobile设备的移植，但是如何将不同的操作系统移植到Android呢？XDA成员和传奇人物mamaich为我们带来了两款Android设备模拟器，这两款模拟器将允许Android用户启动Windows 95。QEMU和BOSCH都在知道如何使用它们的人中广受欢迎，因为它们已经在其他项目中用于在其他设备上运行不同的Windows版本。</p>
+
+  
+<p>虽然项目进展顺利，但仍有待改进。不幸的是，mamaich提到他不会继续开发这些港口。然而，他分享了所有的资源和知识，这些资源和知识是任何有适当技能的人从他中断的地方重新开始所需要的。在众多要求中，需要一个具有大量RAM的设备和至少一个VGA屏幕。</p>
+
+<blockquote>
+<p>BOCHS太慢，无法使用，但非常稳定。</p>
+<p>QEMU确实很快——但是漏洞百出。SB16模拟正在工作，但没有MIDI音乐。FPU模拟不正确/不完整，因此可能会导致某些程序无法运行或行为异常。网络不工作。键盘/鼠标模拟远非完美。</p>
+<p>如果你在QEMU中禁用32位磁盘驱动程序，Windows 9x可以在QEMU中工作。这是Android的一个bug(pread/p write功能不起作用)。Windows 9x速度真的很快。</p>
+<p>这个QEMU构建基于0.9.1，更新的版本在ARM TCG中有bug，不能引导Windows或类似的操作系统。</p>
+<p>我不会继续从事这两个项目。如果有人感兴趣-我会提供所有的来源和一些关于建设的信息。需要具备C++、ARM和x86 asm的知识。</p>
+ </blockquote>
+<p>你可以在<a href="http://forum.xda-developers.com/showthread.php?p=6661598" target="_blank">端口线程</a>中找到更多信息。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

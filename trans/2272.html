@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>TriangleAway Updated for the Samsung Galaxy S III and International Note, Possibly Final Release</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>为三星Galaxy S III和国际版Note更新了TriangleAway，可能是最终版本</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/triangleaway-updated-for-the-samsung-galaxy-s-iii-and-international-note-possibly-final-release/#0001-01-01">https://www.xda-developers.com/triangleaway-updated-for-the-samsung-galaxy-s-iii-and-international-note-possibly-final-release/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>那些熟悉由XDA精英认可的开发商<a href="http://forum.xda-developers.com/member.php?u=631273"> Chainfire </a>开发的<a title="TriangleAway – Reset Flash Counter Tool" href="http://www.xda-developers.com/android/triangleaway-reset-flash-counter-tool/"> TriangleAway </a>的人会感到欣慰的是，该应用程序已经更新，增加了与<a href="http://forum.xda-developers.com/forumdisplay.php?f=1563">三星Galaxy S III </a>和<a href="http://forum.xda-developers.com/forumdisplay.php?f=1346">国际Galaxy Note </a>的兼容性。对于那些不熟悉这个应用程序的人来说，它就像它的名字暗示的那样，通过移除三角形并重置你设备上的闪光计数器来实现。</p>
+
+  
+<p>让我们回溯一分钟，找出应用程序必须更新的确切原因，以及这次与以前有所不同的原因。在应用程序启动时，内核闪存计数器相对容易管理。简单地重置该值将会删除计数器。然而，随着Galaxy Note的发布，三星通过隐藏数据让事情变得更加困难。现在，在三星Galaxy S III上，三星使它变得更加困难，这要归功于一种后台服务，它可以搜索根的迹象。</p>
+
+<p>根据Chainfire的开发博客:</p>
+
+<blockquote>
+<p>在Galaxy S II中，三星引入了自定义内核闪存计数器和自定义内核警告三角形。这就是Triangle Away的用武之地——它重置了闪光计数器，并移除了警告三角。</p>
+<p>在Galaxy Note上，三星再次尝试隐藏数据，因此Triangle Away不起作用。</p>
+<p>在Galaxy S III(以及其他新设备)上，三星更进一步，推出了一种后台服务，可以在你的设备上运行，并检查诸如修改的/系统、以root访问权限运行的应用程序等。</p>
+<p>就目前而言，这项服务并没有恶意，但谁知道未来会带来什么？跟踪IMEI的曾经运行根，禁用服务等？</p>
+ </blockquote>
+<p>很可怕，不是吗？最后一行应该会引起你的注意，因为不难想象将来的服务版本也可以这样使用。而且通过查看更新日志，可以清楚的看到Chainfire和三星的战斗:</p>
+
+<blockquote>
+<p><span>更新16.02.2012: </span>用户已经确认TriangleAway对I9220 SGNote ICS泄漏的工作！</p>
+<p><span>2012年5月13日更新:</span> TriangleAway在最新的SGNote ICS官方固件上*不*工作。很快会有一个固定的版本，但它必须等我的笔记从维修中返回，否则我不能测试它</p>
+
+<p><span>2012年6月4日更新:</span>1.50版应该可以再次与I9220和N7000 SGNote兼容</p>
+ </blockquote>
+<p>现在，你可能想知道为什么三星或任何其他OEM会觉得有必要密切关注你的订单。人们可以假设这与保修有关，但这真的是三星的一个有效理由吗？毕竟，如果硬件功能正常，<a title="Hard Brick Bug on Galaxy S II and Note Leaked ICS Kernels" href="http://www.xda-developers.com/android/hard-brick-bug-on-galaxy-s-ii-and-note-leaked-ics-kernels/">为什么不正确的固件刷新甚至会损坏硬件</a>？</p>
+
+<p>根据Chainfire自己的说法:</p>
+
+<blockquote>
+<p><strong>定制rom、root、砖块和保修</strong></p>
+<p>我不确定三星想要追踪这一切的原因是什么。我想“中断”他们跟踪的原因只有一个:保修。</p>
+<p>能够在我拥有的设备上运行我想要的软件而不失去硬件保修应该是法律赋予的权利。就我所见，只有两种方法可以真正用root权限破解你的设备:</p>
+<p>(1)超频到硬件损坏的地步</p>
+<p>(2)对你的引导程序分区进行无意义的刷新</p>
+<p>我不确定如何处理(1)。我个人从不超频——而且我也不觉得否认超频保修有什么奇怪的。当然，这在硬件上是可以避免的。然而，案例2完全是三星的错。<em> Adam Outler </em>已经一次又一次地表明，这些设备完全可以被做成<em>不易碎</em>——所以任何引导程序块都是IMHO三星的错。如果<em>亚当·奥特勒</em>能用烙铁阻止这种情况，那么原来的设计就被打破了。</p>
+<p>不管怎样，硬件应该在保修期内——不管我的设备有没有root。泄露的服务中心文件显示，应检查设备的根，如果存在，拒绝保修。(这不只是三星，各大主机厂都这么做。)</p>
+<p>这是完全不能接受的。任何遵循该政策的OEM都是不良的OEM——在一些国家，这甚至可能是非法行为(尽管祝你在法庭上胜诉)。由于HSPL在场，HTC曾拒绝更换我的HTC Diamond上有缺陷的数字化仪(这是该设备常见的硬件问题)。他们声称HSPL已经不可逆转地损坏了主板，设备的整个内部都必须更换。Riiiiight。</p>
+<p>Root本身并不是犯罪，也不是一个指针，表明设备以任何方式损坏都不属于保修范围。但在原始设备制造商的眼中，我们似乎是罪犯。</p>
+<p>如果追踪的目的与公司安全等相关，我可以理解为什么三星想要进一步封锁。我当然能理解，尽管我不一定同意。</p>
+ </blockquote>
+<p>如果这个<a href="http://www.urbandictionary.com/define.php?term=skateboarding%20is%20not%20a%20crime">让你想起了九十年代中期的</a>，你被原谅了。正如Chainfire所写的那样，能够以我们认为合适的方式使用我们自己的设备本身并没有什么恶意或犯罪。然而，各种原始设备制造商采用各种策略，旨在阻止我们真正定制我们的设备，以满足我们的心，因为害怕无效的保修。</p>
+
+<p>如果(用Chainfire的个人例子)损坏的数字化仪硬件与闪存固件完全没有关系，为什么这是拒绝保修服务的理由。对于那些修补汽车的人来说，这就像是因为你增加了一个售后收音机而取消了动力系统保修。根本没有正当理由——无论从道德上来说。对美国人来说幸运的是，马格努森-莫斯保证法案提供了一点保护，但是想把它告上法庭还是祝你好运。而在其他国家，你可能完全不走运。</p>
+
+<p>这就引出了这样一个问题:从实践和伦理角度来看，什么是最好的。Chainfire对情况进行了评估，指出:</p>
+
+<blockquote>
+<p>因此，我们兜了一圈——如果三星在保护他们的定制闪存数据方面更进一步，我会试图绕过它吗？我应该吗？我很大程度上不这么认为。</p>
+ </blockquote>
+<p>那些只是想为可能是最后一次的三角和闪光计数器开脱的人可以在<a href="https://play.google.com/store/apps/details?id=eu.chainfire.triangleaway"> Google Play </a>上购买该应用的捐赠版本，或者前往<a href="http://forum.xda-developers.com/showthread.php?t=1494114">原始发布线程</a>获取免费版本。那些只是想在这个问题上了解更多的人应该前往<a href="http://www.chainfire.eu/articles/118/Triangle_Away_vs_Samsung/"> Chainfire的开发博客帖子</a>。</p>
+
+<p> </p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

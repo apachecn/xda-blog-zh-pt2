@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>How to enable custom reactions in Facebook Messenger right now</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何立即在Facebook Messenger中启用自定义反应</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/enable-custom-emoji-reactions-facebook-messenger/#0001-01-01">https://www.xda-developers.com/enable-custom-emoji-reactions-facebook-messenger/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>众所周知，脸书总是和用户一起测试新功能。有些很酷，也很有用，但是，许多经常受到排他性的限制，有些人似乎得到了新特性，而更多的人没有。其中一个功能是自定义反应，脸书说这个功能很快就会出现在Messenger平台上。消息反应是快速交流的有趣而有用的方式，但Facebook Messenger默认提供的那些并没有涵盖所有的基础。我发现了一种启用它们的方法，你所需要的就是你的电脑，Tampermonkey，和我写的一个脚本。</p>
+
+ 
+<h2 id="enabling-custom-reactions-in-facebook-messenger">在Facebook Messenger中启用自定义反应</h2>
+<p>首先，你需要安装Tampermonkey作为Chrome或T2 Firefox的扩展。Tampermonkey是一个扩展，允许你在页面上运行“用户脚本”，这是修改页面的自定义JavaScript程序，我们将使用它来实现自定义反应。一旦你安装了Tampermonkey，点击右上角的扩展并选择Tampermonkey图标。你会看到这个屏幕。</p>
+
+
+
+<p>单击“创建新脚本”。</p>
+
+<p>接下来，您需要将以下所有代码粘贴到您进入的窗口中。</p>
+
+<pre> <code class="hljs javascript"><br/><br/><br/><br/><br/><br/><br/>// @<span class="hljs-keyword">grant</span> <span class="hljs-keyword">none</span><br/><br/><br/>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"/>) </span>{<br/><span class="hljs-meta"> 'use strict'</span>;<br/><br/>  <span class="hljs-keyword">const</span> heart = <span class="hljs-string">'\u2764'</span>;<br/>  <span class="hljs-keyword">const</span> clown = <span class="hljs-string">'\u{1F921}'</span>;<br/><br/>  <span class="hljs-keyword">const</span> heartEncoded = <span class="hljs-built_in">encodeURIComponent</span>(heart);<br/>  <span class="hljs-keyword">const</span> clownEncoded = <span class="hljs-built_in">encodeURIComponent</span>(clown);<br/><br/>  <span class="hljs-keyword">const</span> promptText = <span class="hljs-string">`React with:</span><br/>1: <span class="hljs-variable">${heart}</span> (Heart),<br/>2: <span class="hljs-variable">${clown}</span> (Clown)`;<br/><br/><br/>  <span class="hljs-keyword">const</span> oldOpen = XMLHttpRequest.prototype.open;<br/><br/>  XMLHttpRequest.prototype.open = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"/>) </span>{<br/>      <span class="hljs-keyword">const</span> query = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>];<br/><br/>      <br/>      <span class="hljs-keyword">if</span> (query.includes(<span class="hljs-string">'ADD_REACTION'</span>) &amp;&amp; query.includes(heartEncoded)) {<br/>      <br/>      <span class="hljs-keyword">const</span> new_reaction = <span class="hljs-built_in">Number</span>.parseInt(prompt(promptText, <span class="hljs-string">'2'</span>));<br/><br/>      <br/>      if (1 === new_reaction) {<br/>        <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>] = query.replace(heartEncoded, heartEncoded);<br/>      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-number">2</span> === new_reaction) {<br/>        <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>] = query.replace(heartEncoded, clown);<br/>      }<br/>    }<br/><br/>    <br/>    oldOpen.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);<br/>  }<br/>})();</code> </pre>
+
+
+<p>点击文件-&gt;保存，然后在电脑上重新加载<a href="http://messenger.com"> Messenger的网站</a>。<strong>确保你的心脏反应设置为默认的心脏反应，而不是紫心反应。</strong>如果有效，试着用心回复脸书上的一条消息，你会在顶部看到这个提示。</p>
+
+
+
+<p>键入“2 ”,您应该会看到您对该消息的反应是一张小丑脸。</p>
+
+
+
+<p>接下来，重新启动手机上的Facebook Messenger，当您尝试回复一条消息时，应该会看到以下内容。</p>
+
+
+
+
+
+<p>就是这样！</p>
+
+<p>在下面的评论中让我们知道这是否对你有用，或者你是否是已经在Facebook Messenger中获得自定义反应的幸运儿之一！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

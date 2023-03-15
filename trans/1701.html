@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>NewPipe 0.20.0 brings a new unified video player and much more to the open source YouTube client</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>NewPipe 0.20.0为开源YouTube客户端带来了新的统一视频播放器和更多功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/newpipe-0-20-0-new-unified-video-player-open-source-youtube-client/#0001-01-01">https://www.xda-developers.com/newpipe-0-20-0-new-unified-video-player-open-source-youtube-client/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>NewPipe是一款开源的YouTube Android客户端，为那些不喜欢官方应用或者没有安装Google Play服务的用户提供了一个选择。简单来说，NewPipe解析YouTube网站提取数据，播放视频，没有限制，没有广告。几天前，<a href="https://www.xda-developers.com/newpipe-tests-unified-player-ui-seamless-fullscreen-switching/"> NewPipe在其测试版本</a>中测试了新的统一播放器UI，现在，该应用程序已经在稳定分支中更新了新的统一播放器UI和其他变化。</p>
+
+ 
+<h3 id="unified-player-in-newpipe">新管道中的统一播放器</h3>
+<p>NewPipe v0.20.0的亮点在于其统一播放器。在这个稳定版本和最近的测试版本之前，NewPipe的代码中实际上捆绑了三个不同的播放器:主播放器、弹出播放器和后台播放器——每个播放器都有自己的代码和单独的播放队列。因此，每当您在这三个播放器之间切换时，旧的播放器实例将被关闭，新的实例和播放队列将被创建，通常会导致您在视频中丢失进度。统一播放器通过将所有播放器合并在一个公共服务上来解决这个问题。所以现在当你在播放器之间切换时，服务保持运行，流数据被保留。</p>
+
+<h3 id="video-details-page">视频详情页面</h3>
+<p>新的NewPipe版本对视频详细信息页面进行了重新设计，使其更接近默认YouTube应用程序的体验。</p>
+
+<h3 id="video-orientation">视频方向</h3>
+<p>以前，主视频播放器总是全屏播放视频，但如果播放器的方向与视频的方向不匹配，则不会呈现优化的体验。方向开关现在被全屏按钮取代，它可以检测视频是横向还是纵向，并确保用户进入全屏时方向正确。</p>
+
+<p>https://newpipe.schabi.org/img/smart_button.webm</p>
+
+<h3 id="minimized-player">最小化播放器</h3>
+<p>视频详细信息页面中的视频可以向下滑动，在底部的最小化播放器中打开，让你从那个位置暂停、播放或关闭。如果您打算在视频继续播放的同时浏览其他视频，这将很有帮助。这篇博客文章还指出，这个功能可以用来动态创建一个观看播放列表，所以<a href="https://newpipe.schabi.org/blog/pinned/release/newpipe-0.20.0/">继续阅读，了解更多细节</a>。</p>
+
+<p>https://newpipe.schabi.org/img/landscape_swipe_down.webm</p>
+
+<h3 id="changes-to-newpipe-s-notification">更改新管道的通知</h3>
+<p>这个NewPipe版本带有MediaStyle通知(从Android Lollipop开始提供),而不是旧的RemoteView API。这种交换允许应用程序提供一个新的可定制的播放通知，允许您更改精简通知中最多三个可见的按钮。对于Android 8和更高版本，通知适应封面艺术的颜色。对于Android 10和更高版本，通知还将具有seekbar。</p>
+
+
+
+<h3 id="other-improvements">其他改进</h3>
+<p>NewPipe也有一些改进，我们总结如下:</p>
+
+<ul> <li>应用程序窗口现在大小友好。</li> <li>不支持的网址现在处理得更好了。</li> <li>直播链接不再与时间戳共享。</li> <li>页眉布局得到了改进。</li> <li>离线搜索现在处理得更好了。</li> <li>弹出窗口的大小和位置现在可以保持不变。</li> <li>主播放器现在默认最小化为背景音频，实现无缝的应用程序切换体验。</li> <li>主播放器视频现在默认为720p 60fps，弹出视频现在默认为480p，而不是之前的360p。</li> <li>“自动播放”切换现在更名为“自动排队”，以更好地描述其功能。</li> <li>更多翻译改进。</li> </ul>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_17"><h3 id="newpipe-0-20-0-changelog">新管道0.20.0变更日志</h3><p>你可以在这里找到完整的变更日志:</p><ul> <li>新的<ul> <li>新申请工作流程#2907、#4061、#4080、#4130、#4134、#4154、#4155、#4223、#4246、#4272、#4288、#4347、#4353、#4360、#4362(感谢@avently和所有其他相关人员)</li> <li>将所有三个播放器统一为一个，以便在它们之间无缝切换-例如，现在如果您在主播放器或弹出播放器中播放视频时点击背景播放，视频流将准确地从您停止的地方开始，而不是从头开始。这是真的，当你从3个玩家中的任何一个走到另一个的时候。</li> <li>在视频详细信息屏幕中直接播放视频</li> <li>打开视频详情屏幕时自动播放视频的选项(默认打开)</li> <li>向下滑动视频以将其最小化，并继续不间断地浏览(在横向模式下，您可以向下滑动标题以执行相同的操作)</li> <li>全屏按钮智能检测视频是纵向还是横向，并相应地采取行动</li> <li>在横向模式下向上滑动全屏按钮，向下滚动视频详情</li> <li>现在，如果你在后台或弹出播放器中播放，你会在视频细节屏幕的缩略图下方看到一个整洁的进度条。</li> <li>切换应用程序时，默认将玩家最小化到背景</li> <li>主播放器/最小化播放器会保留您的浏览历史，直到您将其关闭</li> <li>对所有玩家使用媒体风格通知#3178、#4340</li> <li>可自定义的通知操作</li> <li>减少过多的通知更新</li> <li>修正了元数据(歌曲名称、艺术家和专辑封面)有时设置不正确的问题</li> <li>修正了通知优先级和蓝牙相关的错误</li> <li>在窗口模式下使用NewPipe作为桌面应用程序#3948时允许基本的大小调整</li> <li>新本地化:孟加拉语、柏柏尔语、那不勒斯语、葡萄牙语和撒丁语</li> </ul> </li> <li>改良的<ul> <li>在不支持URL toast #3826的情况下显示带有打开选项的对话框</li> <li>改进共享对话框#4259</li> <li>改进播放列表标题布局:与信息项对齐，需要时总是使用两行播放列表标题#3944</li> <li>改善无法获取远程搜索建议时的搜索建议体验#4029</li> <li>将默认视频质量提高到720p60(应用内播放器)和480p(弹出播放器)#4275</li> <li>减少“记住弹出窗口的大小和位置”设置#4050中的冗余</li> <li>共享直播流时从URL中删除时间戳#4115</li> <li>使用SubtitlesStream#getUrl代替getURL #4120</li> <li>记住上次选择的下载媒体类型。#4038</li> <li>加载时禁用注释图像视图缩略图设置为假#4350</li> <li>将“自动播放”改为“自动排队”以减少歧义#4252</li> </ul> </li> <li>固定的；不变的<ul> <li>修正了正确/建议搜索词#3984的颜色</li> <li>修复了不包含堆栈跟踪#3982的ACRA错误报告</li> <li>修复了在KitKat #3892的本地播放列表标签中打开视频时的崩溃问题</li> <li>修复了没有下一个视频的自动排队#4349</li> <li>修复了Kayble语言的显示名称(Taqbaylit) #4066</li> <li>固定许可证弹出隐藏时，方向改变#4127</li> <li>修复了当文件被删除然后重新下载时的崩溃#3794</li> <li>修正了俄语#4365中复数的错误用法</li> </ul> </li> <li>发展<ul> <li>当可能是final的局部变量不是final时，将Checkstyle规则添加到错误中#4138</li> <li>允许在应用包id #4326中使用数字和大写字母</li> <li>增加要求贡献者在打开PRs #4126之前讨论贡献</li> <li>拆除和清理#3909</li> </ul> </li> </ul> </div></section>
+<hr/>
+
+
+<h2 id="download-newpipe">下载新管道</h2>
+<p>如果你已经安装了NewPipe，当你打开它的时候，程序会提示你更新。如果你没有安装旧版本，你可以从<a href="https://f-droid.org/en/packages/org.schabi.newpipe/"> F-Droid </a>或<a href="https://github.com/TeamNewPipe/NewPipe/releases"> GitHub </a>获取最新版本。</p>
+
+<p>你用过NewPipe吗？请在下面的评论中告诉我们你的想法！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

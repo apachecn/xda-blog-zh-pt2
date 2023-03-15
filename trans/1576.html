@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Super Mario 64 can be natively run on Android without a Nintendo 64 emulator</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>超级马里奥64可以在没有任天堂64模拟器的情况下在Android上运行</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/super-mario-64-android-port-nintendo-64/#0001-01-01">https://www.xda-developers.com/super-mario-64-android-port-nintendo-64/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">超级马里奥64可以在没有任天堂64模拟器的情况下在Android上运行</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">多亏了一个开源项目，现在可以在你的Android手机上编译和播放超级马里奥64，而不需要模拟器！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>超级马里奥3D全明星赛<a href="https://www.nintendo.com/games/detail/super-mario-3d-all-stars-switch/">终于来了</a>，这意味着你现在可以在你的任天堂Switch上玩该系列的前三款3D平台游戏——超级马里奥64、超级马里奥阳光和超级马里奥银河。如果你正在寻找一种在你的Android手机上享受桃子公主蛋糕的方法，你可以<a href="https://www.xda-developers.com/shady-nintendo-switch-emulator-android/">用Switch emulation </a>试试运气，或者拿一个兼容的任天堂64模拟器潜入超级马里奥64的世界。</p>
+
+  
+<p>不幸的是，模仿也有它的缺点。没有什么可以击败本机可执行文件的性能和可扩展性，这是长期以来努力将超级马里奥64 ROM反向工程为等效的C代码库的驱动力。只要你能获得<a href="https://github.com/n64decomp/sm64">人类可读的C代码</a>，你就有能力将游戏移植到任何平台，包括Android。</p>
+
+<p>事实上，XDA成员<a href="https://forum.xda-developers.com/member.php?u=9671514"> VDavid003 </a>已经加紧准备了一份报告<a href="https://github.com/VDavid003/sm64-port-android-base">，其中包含一个准备好的用于Android </a>的超级马里奥64端口，使用简单的DirectMedia Layer (SDL)和OpenGL ES 2.0。您可以将repo克隆到运行Microsoft Windows或Linux的PC上，准备构建环境，并在编译后最终获得APK，它可以轻松地加载到Android设备上。然而，让移植过程更有趣的是，<strong>它也可以直接在你的Android手机上编译</strong>！</p>
+
+<hr/>
+
+
+<h2 id="how-to-natively-compile-and-run-super-mario-64-on-android">如何在Android上原生编译和运行超级马里奥64</h2>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p>免责声明: XDA不会宽恕盗版游戏。您必须提供您自己的超级马里奥64副本，以下过程才能正常工作。</p> </div></section>
+<p>如果命令行voodoo是你的东西，那么按照以下步骤来配置Android中的构建环境，并从头编译经典的任天堂平台:</p>
+
+<ol> <li>安装来自谷歌Play商店的<a href="https://www.xda-developers.com/termux-the-ultimate-linux-terminal-emulator-for-android-xda-spotlight/"> Termux </a>。</li> <li>在Termux环境中安装所需的依赖项:<pre> <code class="hljs sql">pkg <span class="hljs-keyword">install</span> git wget make python getconf zip apksigner clang</code> </pre></li> <li>使用git: <pre> <code class="hljs php">git <span class="hljs-keyword">clone</span> https:<br/><span class="hljs-built_in">cd</span> sm64-port-android</code> </pre>克隆适当的存储库</li> <li>使用Termux复制游戏的baserom。再说一次，<strong>你必须提供你自己的副本</strong>。<pre> <code class="hljs ">termux-setup-storage<br/>cp /sdcard/path/to/your/baserom.z64 ./baserom.us.z64</code> </pre></li> <li>获得SDL包括:<pre> <code class="hljs ">./getSDL.sh</code> </pre></li> <li>开始构建:<pre> <code class="hljs sql">make </code> </pre>您可以增加“jobs”参数的值，这取决于您可以为构建过程贡献多少个CPU内核。</li> <li>如果一切顺利，最终的超级马里奥64 APK应该在“构建”文件夹中:<pre> <code class="hljs ">ls -al build/us_pc/sm64.us.f3dex2e.apk</code> </pre></li> </ol>
+
+<hr/>
+
+<p>您是否发现了开发人员尚未修复的编译故障？想提交补丁？前往下面链接的GitHub repo。</p>
+
+<p/><p><strong> <a href="https://github.com/VDavid003/sm64-port-android">超级马里奥64安卓端口— GitHub回购</a>T3】</strong></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

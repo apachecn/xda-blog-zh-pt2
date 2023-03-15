@@ -1,0 +1,253 @@
+<html>
+<head>
+<title>How Qualcomm is Improving the Cameras on Android Phones</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>高通如何改进安卓手机的摄像头</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/qualcomm-camera-isp-snapdragon/#0001-01-01">https://www.xda-developers.com/qualcomm-camera-isp-snapdragon/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>作为为全球许多智能手机和可穿戴设备提供动力的片上系统(SOC)的制造商，总部位于美国的高通无疑是芯片制造商行业的巨头之一。例如，几乎所有主要的Android设备制造商都在旗舰、中档和经济型智能手机上使用骁龙系列SOC。高通每年都会在该公司的年度技术峰会上因其在CPU、GPU和人工智能领域的进步而受到称赞，因为它采用了ARM的新CPU微体系结构，并通过其定制GPU的年度改进来补充它们。然而，它在相机领域的进步并没有引起太多的注意，因为它们往往会被忽视。</p>
+
+  
+<p>然而，这并不意味着高通在智能手机相机方面的工作不重要。相反，高通在其骁龙SOC中的Spectra ISPs通过增强的计算处理能力、8K视频录制、HDR10视频、支持高百万像素QCFA相机等功能，帮助许多现代智能手机相机成为可能。高通宣传骁龙855 <a href="https://www.xda-developers.com/qualcomm-spectra-380-isp-integrated-ai/">中的Spectra 380 ISP是世界上第一个CV-ISP </a>，并宣传了世界上第一个4K HDR视频录制功能，该功能本身现在已由第二代4K HDR10+视频录制补充。最新一代<a href="https://www.xda-developers.com/qualcomm-snapdragon-865-processor-specifications-features/">骁龙865 </a>中的Spectra 480 ISP功能非常强大——每秒可以处理20亿像素，比上一代增加了40%。这是一项知识产权(IP ),使高通在移动芯片供应商领域有别于其竞争对手。</p>
+
+<p>虽然高通在新闻稿和产品主题演讲中解释了大部分标题功能，但到目前为止，消费者还没有机会了解这些功能的大部分底层细节。</p>
+
+<p>这就是为什么我们XDA开发人员很高兴接受邀请，与高通产品管理高级主管贾德·希普交谈。2020年6月，我和《XDA》主编米莎尔·拉赫曼(Mishaal Rahman)采访了贾德，以了解和看看高通是如何用智能手机摄影和视频记录推动目标的。我们谈论的话题包括人工智能图像处理、多帧降噪(MFNR)、AV1、杜比视界视频录制、高百万像素相机中的像素宁滨等。让我们逐一看看Judd对每个主题的见解:</p>
+
+<hr/>
+
+
+<h2 id="ai-image-processing-workloads">人工智能图像处理工作负载</h2>
+<p>米沙·拉赫曼:我先从伊德里斯的一个开始，这个很有趣，也是我感兴趣的。因此，我们想知道高通在Spectra ISP中使用的人工智能图像处理工作负载是什么，它们在多大程度上可以由设备制造商定制？</p>
+
+<blockquote>
+<p/><h4><em> <strong>贾德·希普</strong> </em>:是的，我们观察了许多人工智能工作负载，有些人工智能可以在ISP本身中运行，例如，我们的下一代3A:自动曝光、自动白平衡和自动对焦都是基于人工智能的。</h4>
+<p/><h4>但我们也看一些其他的人工智能工作负载，它们将在ISP之外的其他计算元素中运行。因此，我们特别关注这样的事情:我们有一个基于人工智能的降噪核心，它在ISP外部运行，位于芯片的人工智能引擎(AIE)部分。</h4>
+<p/><h4>此外，我们还有像人脸检测这样的东西，这是一个完整的深度学习引擎，也在AIE大楼中运行，但当然是辅助相机。除了人脸检测和去噪，我们还在做其他事情。我们也在考虑做一些事情，比如使用人工智能自动调整快照，这将根据HDR内容自动设置每个场景的参数，我们会修改阴影、高光和颜色等类似的事情。</h4>
+<p/><h4>我们的一个合作伙伴Morpho刚刚在今年的嵌入式视觉峰会上获得了一个巨大的AI工作负载奖。独立软件供应商合作伙伴也有许多真正密集的基于人工智能的算法，这些算法可以从平滑的相机过渡(如Arcsoft所做的那样)(我在上次骁龙技术峰会上提到过，这是基于人工智能的)，到Morpho的语义分割引擎。Morpho的解决方案是一个人工智能引擎，它可以理解场景的不同部分，比如织物与皮肤、天空与草地、建筑物等等，然后ISP可以获取这些信息，对这些像素进行不同的处理，例如纹理、噪声和颜色。</h4>
+ </blockquote>
+<p><strong>高通声明</strong> : <em>对于ML &amp; AI我们今天也不会宣布人脸检测和“3A”(AE，AF和AWB)功能的任何新更新。然而，正如Judd所说，我们致力于为相机带来更多的ML/AI功能，包括这两个功能领域。</em></p>
+
+<hr/>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_10"><p><em> <strong>分析和背景</strong>:自从第一批神经处理单元(npu)和“基于人工智能的”功能开始出现在Android手机上，智能手机中的人工智能就一直被认为是一个时髦的词。然而，这并不意味着AI本身没有意义。相反，人工智能在移动领域有很大的潜力，到目前为止，芯片供应商和设备制造商都只是触及了可能的表面。</em></p><p>多亏了人工智能，智能手机的摄像头变得更好了——有时很快，有时慢得令人痛苦，但它们正在实现。智能手机相机正在克服一些基本限制，如相对较小的传感器、固定的焦距和较差的光学性能，这些都是由机器学习(ML)提供支持的智能计算摄影技术。自动曝光、降噪、人脸检测和分割只是智能手机摄影中人工智能能够产生影响的一些领域。在接下来的五年里，这些人工智能改善摄影不同方面的新兴领域将会成熟很多。</p> </div></section>
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="multi-frame-noise-reduction">多帧降噪</h2>
+<p><strong> <em>伊德里斯·帕特尔</em>:高通一直把多帧降噪作为一个特性来提。我想知道更多关于它的细节，如图像堆叠如何工作。喜欢谷歌用他们的HDR+技术做的事情有相似之处吗，还是完全不同？</strong></p>
+
+<blockquote>
+<p/><h4><strong> <em>贾德·希普</em> </strong>:相似而不同。想象一下，相机进行连拍，快速连续拍摄五到七帧。然后，ISP引擎会查看这些帧，并选择最佳帧(称为“锚帧”)以获得焦点和清晰度，然后它可以在该帧的任意一侧选择3-4帧，然后将它们平均在一起。它试图挑选足够靠近的帧，这样就不会有什么移动。</h4>
+<p/><h4>当它停留在这些帧上时，它会将它们平均在一起，以辨别不同之处，例如，什么是实际图像数据，什么是噪声数据。所以当你有越来越多的信息，从越来越多的画面中，你实际上可以做一些简单的事情，比如看看画面之间的差异。差异可能是噪声，而帧中相同的可能是图像数据。</h4>
+<p/><h4>因此，我们可以进行实时帧合并来降低噪声。现在，你也可以用弱光和HDR做同样的事情，这很像谷歌正在做的事情。我们不知道他们的算法。但是他们使用多帧技术来增加灵敏度，这样你可以更好地“看”；一旦你降低了噪底，你现在可以考虑做更多的局部色调映射，或者在不增加更多噪声的情况下增加图像的增益。</h4>
+<p/><h4>这就是它们处理弱光的方式，HDR也是如此。对多帧降噪功能的增强将来自高通，其中也将包括弱光和HDR。但这是我们很快就会推出的东西。</h4>
+ </blockquote>
+<p>米沙勒·拉赫曼:所以你提到了推出这个功能。这是否像是对合作伙伴BSP的更新？</p>
+
+<blockquote>
+<p/><h4>贾德·希普 :在我们的下一代产品中，通过添加软件，我们将有能力参与——实际上这正在下一代产品中发生——我们现在正在与客户合作，在降噪之外做更多的多帧技术，同时也处理HDR和弱光情况。它使用相同的基础ISP硬件引擎，但我们添加了更多的软件来处理这些多帧，而不仅仅是降噪。</h4>
+<p/><h4>因此，它还没有推出，但我们正在就这些功能与一些主要客户接洽。</h4>
+ </blockquote>
+<hr/>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_18"><p><em> <strong>分析与背景</strong>:随着每一个新的骁龙SoC发布，高通的规格表都包含了与多帧降噪相关的规格。例如，骁龙865的双14位CV-ISP<a href="https://www.qualcomm.com/products/snapdragon-865-5g-mobile-platform">支持高达200MP的单摄像头</a>(尽管索尼、三星和OmniVision等摄像头传感器供应商尚未发布任何高于108MP的智能手机摄像头传感器)。然而，当涉及到支持MFNR、零快门延迟(ZSL)和30fps的单摄像头时，规格变为64MP，而对于相同规格的双摄像头，规格变为25MP。</em></p><p>高通的多帧降噪技术与HDR+非常相似，但又不完全相同，这一点Judd在上面已经解释过了。HDR+拍摄了一系列曝光不足的照片，并将其平均以获得最佳照片，而MFNR拍摄了五至七张正常帧。高通的MFNR似乎没有谷歌的解决方案先进，因为HDR和弱光在Spectra的当前工作流程中没有被提到是具体的优先事项，而谷歌的HDR+同时针对HDR，弱光摄影和降噪，夜视甚至更进一步。然而，令人鼓舞的是，MFNR正在接受改进，高通将向“一些关键客户”推出这些改进。在未来，也许我们不需要非官方的谷歌相机端口来实现非谷歌Android智能手机相机的全部潜力。</p> </div></section>
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="super-resolution-for-video">视频的超分辨率</h2>
+
+
+<p>米沙·拉赫曼:这是我在科技峰会上听到的。其实我在接受<em>安卓权威</em> 采访时觉得是<a href="https://www.androidauthority.com/qualcomm-snapdragon-865-camera-1060000/">。高通正计划将超分辨率扩展到视频，作为合作伙伴的软件解决方案，显然这将在更新中推出。我想知道你是否有关于这个特性的更新要分享。</a></p>
+
+<blockquote>
+<p/><h4>Judd Heape :是的，这是我们已经有能力做了一段时间的一个功能，现在刚刚推出。我不会说这是在软件更新中，但我会说这有点像现有的多帧，低光功能的额外好处。我们正在就该功能与一些特定的主要客户接洽。所以，是的，视频超分辨率是另一代的东西，所以我们将把它称为记录功能的计划，它实际上是内置在相机的软件代码库中的。但是现在，更多的是针对新功能的特定客户参与水平。</h4>
+ </blockquote>
+<hr/>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_25"><p><em> <strong>分析和背景:</strong>视频的超分辨率是一个迄今为止还没有在智能手机相机中出现的功能。这是一个如此新的领域，以至于关于它的研究论文仍在撰写中。将多帧技术用于摄影是一回事，但将它们用于视频以将视频提升到更高的分辨率是完全不同的另一回事。高通表示，它将再次向“一些关键客户”推出这一功能，但目前，它还没有内置到相机的软件代码库中。将来，每个人都可以使用它，但是现在，终端消费者还没有开始使用它。</em></p> </div></section>
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="high-megapixel-quad-bayer-sensors">高百万像素四路拜耳传感器</h2><div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Pixel-Binning-Quad-Bayer-Sensors.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Via: AnandTech&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Pixel-Binning-Quad-Bayer-Sensors.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Pixel-Binning-Quad-Bayer-Sensors.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Pixel-Binning-Quad-Bayer-Sensors.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Pixel-Binning-Quad-Bayer-Sensors.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Pixel binning" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Pixel-Binning-Quad-Bayer-Sensors.jpg" src="../Images/35a9ed7cc101ad14b8507c64ea300d97.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Pixel-Binning-Quad-Bayer-Sensors.jpg"/> </picture> <figcaption class="body-img-caption">Via: AnandTech</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p><strong> <em>伊德里斯·帕特尔</em>:我们来谈谈四个拜耳传感器。从2019年开始，现在很多手机都有48MP，64MP，现在甚至还有108MP的传感器。这些是四拜耳传感器；你实际上没有48或64或108MP的真彩色分辨率。我想问的一件事是，与没有任何像素宁滨的传统传感器相比，ISP在这些Quad Bayer或Nona Bayer传感器(4合1或9合1像素宁滨)的图像处理方面有何不同。</strong></p>
+
+<blockquote>
+<p/><h4><strong> <em>贾德·希普</em> </strong>:是的，当然这些四通道CFA(四通道彩色滤光片阵列)传感器的好处是能够在明亮的光线下以全分辨率运行，然后ISP可以以全108百万像素或64百万像素或任何可用的分辨率处理它们。</h4>
+<p/><h4>然而，通常在大多数照明情况下，如室内或黑暗，你必须bin，因为传感器像素非常小，你必须组合像素以获得更好的光敏感度。所以我想说，大多数时候，尤其是如果你在拍摄视频，或者如果你在低光下拍摄快照，你是在binned模式下运行的。</h4>
+<p/><h4>现在，ISP可以用任何一种方式处理传感器。您可以在像素合并模式下查看传感器，在这种情况下，它只是一幅普通的Bayer图像；也可以在全分辨率模式下查看，在这种模式下，输入的数据是四倍CFA。如果是这种模式，ISP会将其转换为拜耳模式。</h4>
+<p/><h4>所以我们在做——我们称之为——“重新镶嵌”。这是做一些插值的四CFA图像，使它看起来像全分辨率拜耳了。这通常是在软件中为快照完成的，尽管我们最终会在硬件中添加这一功能，以支持视频。</h4>
+<p/><h4>今天ISP硬件中包含的是宁滨。因此，您可以装入传感器，让传感器决定输出全分辨率、四分之一分辨率还是九分之一分辨率，或者您也可以装入ISP。实际上，这是我们在骁龙865增加的一个功能。因此，如果在ISP中装箱，然后以全分辨率运行传感器，ISP就能够同时获得全分辨率图像和装箱后的图像。因此，它可以将较小分辨率或“装箱”图像用于视频(摄像机)和预览(取景器)，同时将全分辨率图像用于全尺寸快照。</h4>
+<p/><h4>但同样，这是在明亮的照明条件下。但至少如果你在ISP中，你有能力同时处理大图像和小图像，因此，你可以获得同步视频和快照，你还可以获得全分辨率ZSL；所有这些都不需要来回切换传感器，这需要相当长的时间。</h4>
+<p/><h4>这是一个非常好的功能。随着四CFA传感器，甚至9x传感器甚至更多传感器的出现，随着这些传感器变得越来越普遍，我们越来越多地在硬件中处理这些传感器，不仅仅是为了宁滨，也是为了重新拼接。</h4>
+<p/><h4>这样做的好处是，如果在硬件中进行，而不是在软件中进行，您可以减少客户的延迟，因此，您的拍摄时间和突发速率会快得多。因此，随着我们不断推出新的ISP和新的芯片，你会开始看到我们为这些新型传感器投入硬件所做的更多工作。</h4>
+ </blockquote>
+<hr/>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_32"><p><em> <strong>分析和背景:</strong>2018年，华为在<a href="https://www.xda-developers.com/huawei-p20-pro-review/">华为P20 Pro </a>上率先使用了40MP Quad Bayer传感器，Quad Bayer传感器的受欢迎程度如此之高，以至于它现在已经进入了甚至150美元的骁龙/exy nos/联发科芯片手机。特别是，我们已经看到智能手机行业将48MP和64MP摄像头作为最佳选择，而少数手机确实达到了108MP。Quad Bayer和Nona Bayer传感器并非没有缺点，因为它们的全分辨率带有警告。</em></p><p>然而，出于市场营销的原因，48MP传感器听起来比12MP传感器好得多，即使用户大多数时间都在拍摄12MP像素的装箱照片。与传统的12MP传感器相比，48MP传感器理论上应该可以在弱光下产生更好的12MP像素像素存储照片，但图像处理必须跟上，正如我在下面提到的那样，要实现这一点还有很长的路要走。无论如何，看看Spectra ISP如何处理四重Bayer传感器和重新镶嵌是很有趣的。这些传感器有很大的潜力，像一加8 Pro(使用索尼IMX689 Quad Bayer传感器和大像素)<a href="https://www.xda-developers.com/oneplus-8-pro-vs-samsung-galaxy-s20-plus-review-comparison/">这样的手机目前处于智能手机相机的巅峰</a>。</p> </div></section>
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="ml-based-facial-recognition">基于最大似然的面部识别</h2>
+<p>米沙·拉赫曼:我记得你之前提到过Spectra 480支持基于ML的面部识别。这是我在科技峰会上听到的。[这是]380对480的改进之一；这是——视频分析引擎中有一个新的客观检测模块，用于未来的空间识别。</p>
+
+<p><strong>您能详细谈谈这在多大程度上改善了面部识别功能，以及您认为供应商正在使用它的哪些潜在应用吗？</strong></p>
+
+<blockquote>
+<p/><h4><strong> <em>贾德·希普</em> </strong>:是的，实际上，你在嵌入式计算机视觉领域是对的，也就是我们在技术峰会上谈到的“EVA”领域。它有一个通用的物体检测核心，当摄像机运行时，我们用它来检测人脸。该模块中的技术是更传统的技术，因此对象识别是通过传统的分类器完成的，但除此之外，我们还运行了一个软件引擎来提高该模块的准确性。</h4>
+<p/><h4>因此，我们使用基于ML的软件来过滤掉误报，因为硬件可能会在场景中检测到更多的人脸，然后ML软件会说，“好吧，那是一张脸”，或者“那真的不是一张脸”，因此它会通过在硬件上运行ML过滤器来提高几个百分点的准确性。</h4>
+<p/><h4>我提到了很多关于未来的事情。展望未来，我们还计划在ML中或在软件的深度学习模式中运行实际的整个面部检测本身。特别是，在较低层也是如此，例如在我们没有EVA硬件引擎的层中，我们将开始逐步引入深度学习作为检测，它在芯片的AI引擎中运行，然后在700-800层的上层中，我们有EVA硬件来完成这项工作...</h4>
+<p/><h4>我要说的是，总体来说，我们将更多地采用最大似然法来进行人脸检测，这将包括中期的软件和后期的硬件。我不会透露哪些产品将拥有它，但当然，随着我们在改善ISP方面的进展，我们将增加越来越多的硬件能力来实现ML，这是肯定的。</h4>
+ </blockquote>
+<p>米沙勒·拉赫曼:太棒了。嗯，我认为这是一个既定的方向，你要把800系列的机器学习改进带到较低的层次，所以我认为这通常是一个既定的。当然，你不能给我们任何细节。谢谢你的更新。</p>
+
+<blockquote>
+<p/><h4><strong> <em>贾德·希普</em> </strong>:人脸检测是我们非常热衷的事情。我们希望提高这些准确性，您知道，从800层到400层，所有层都是一代又一代。ML是其中很大的一部分。</h4>
+ </blockquote>
+<hr/>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_41"><p><em> <strong>分析和背景:</strong>这些方面赋予了智能手机摄影比最新的无反光镜相机更大的潜力。是的，无反光镜相机在弱光下有更好的图像质量，也更灵活，但智能手机相机正在通过巧妙的方式克服其局限性。基于ML的人脸检测只是其中的一部分。</em></p> </div></section>
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="improvements-in-the-image-processing-engine">图像处理引擎的改进</h2>
+<p>米沙勒·拉赫曼:太棒了。因此，在骁龙技术峰会后的圆桌讨论中，我简要听到的一件事是对图像处理引擎的改进。我听说有改进的低中频降噪技术。并且你正在应用动态反向增益图；是你之前在谈话中提到的吗？</p>
+
+<blockquote>
+<p/><h4><strong> <em>贾德希普</em> </strong>:哦，好的。所以我认为你混淆了两件事。是的，所以有一个LEANR内核，它是对更粗糙的颗粒进行降噪的内核，这在弱光下有所帮助。这是在骁龙865 ISP中添加的一个新块，这是一件事。</h4>
+<p/><h4>反向增益图是另一回事。这是我在圆桌会议上提到的另一件事，但这是为了逆转镜头阴影的影响。如你所知，如果你有一部手机，它有一个小镜头；镜头的中心会变亮，边缘会变得更加模糊；意味着它们会变得更黑。</h4>
+<p/><h4>过去几年，在ISP中，我们应用静态反向增益图来消除这些暗边。这在ISP中已经存在很长时间了。不过，我们在骁龙865中添加的是增益图在给定特定图像帧的情况下动态变化的能力，因为如果你对边缘应用大量增益，会发生的情况是边缘可能会被剪切，特别是如果你在外面看明亮的场景，比如蓝天可能会变成白色，或者边缘会由于大量增益而被剪切。</h4>
+<p/><h4>所以在骁龙865，反向增益图不是静态的；它是动态的。我们看着图像说，“好吧，图像的这些部分被剪切了，它们不应该被剪切”，这样我们就可以自然地滚降增益图，这样就不会出现明亮的条纹或光晕效果，或者校正镜头阴影时出现的这类情况。所以那和降噪是不一样的，是两个不同的核心。</h4>
+ </blockquote>
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="low-light-photography-and-aggressive-noise-reduction">弱光摄影和积极降噪</h2><div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Sony-Xperia-1-II-3-300x300.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Sony Xperia 1 II, a Snapdragon 865-powered flagship&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Sony-Xperia-1-II-3-300x300.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Sony-Xperia-1-II-3-300x300.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Sony-Xperia-1-II-3-300x300.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Sony-Xperia-1-II-3-300x300.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Sony Xperia 1 II" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Sony-Xperia-1-II-3-300x300.jpg" src="../Images/008565460e82772305dab261ee772500.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Sony-Xperia-1-II-3-300x300.jpg"/> </picture> <figcaption class="body-img-caption">Sony Xperia 1 II, a Snapdragon 865-powered flagship</figcaption> </figure> </div>
+
+
+ </div>
+
+
+
+
+<p>伊德里斯·帕特尔:我想问的一件事是弱光摄影。像过去几年一样，有许多[OEM实现的]夜间模式，但我注意到的一件事是，许多设备制造商追求积极的降噪，减少细节，甚至消除亮度噪声。</p>
+
+<p><strong>所以我的问题是，高通是否建议任何设备制造商不要这样做，这是他们的处理流水线在做的事情，还是受到SoC中ISP的影响。</strong></p>
+
+<blockquote>
+<p/><h4>贾德·希普 :很多都与调谐有关，如果你没有多帧，或者我会说没有一个非常好的图像传感器，具有高灵敏度或低f数的光学元件。尤其是在弱光下消除噪点的一种方法是应用更多的降噪，但当你应用更多的降噪时，你会丢失细节，因此锐利的边缘变得模糊。现在，如果你应用这些多帧技术，你可以摆脱它。或者如果你应用人工智能技术，它可以计算出物体和人脸的边缘在哪里，诸如此类的事情。因此，在这个时代，只应用蛮力降噪并不是真正的解决方法，因为你最终会丢失细节。</h4>
+<p/><h4>你想做的是多帧技术或人工智能技术，以便你仍然可以将降噪应用于更像物体内部的区域，同时保持物体上漂亮干净的边缘或保持锐利的边缘。所以这就是我要说的:使用人工智能或多帧是降低噪音和改善低光图像的方法。</h4>
+ </blockquote>
+<p>伊德里斯·帕特尔:是的，这正是我想听到的。因为这是优秀的智能手机相机与中端或低端相机的主要区别。</p>
+
+<blockquote>
+<p/><h4><strong> <em>贾德希普</em> </strong>:对。</h4>
+ </blockquote>
+<p>伊德里斯·帕特尔:优秀的智能手机相机知道什么时候应该降噪，什么时候不应该。</p>
+
+<blockquote>
+<p/><h4><strong> <em>贾德希普</em> </strong>:正是。是的，就像我说的，摄像头的调整是由我们的客户或原始设备制造商完成的，一些原始设备制造商喜欢更柔和的图像和更少的噪音。有些人喜欢用更多的噪音来揭示更多的细节。</h4>
+<p/><h4>所以这是一个权衡，所以你有局限性。就像我说的那样，最好的办法是获得更好的图像传感器，具有更高的灵敏度、更大的像素或更低的光圈数，因为这样你从一开始就可以获得更多的光线，这总是更好。但如果你做不到这一点，那么与其只是加快降噪速度和丢失细节，你应该做的是使用多帧或人工智能技术。</h4>
+ </blockquote>
+<hr/>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_58"><p><em> <strong>分析和背景:</strong>在我看来，这是目前智能手机摄像头的最大问题。是的，你可以使用48MP或64MP甚至108MP传感器。然而，如果你不选择使用MFNR或人工智能技术的限制降噪，所有这些百万像素，4合1宁滨甚至9合1宁滨都没有多大用处。Galaxy S20 Ultra是这里的主要例子，因为它的108MP主摄像头<a href="https://www.xda-developers.com/samsung-galaxy-s20-ultra-review/">在很大程度上被认为是令人失望的</a>。三星在2020年的旗舰产品中，通过在夜间模式中使用极其激进的降噪技术，在图像处理方面倒退了，而具有讽刺意味的是，2019年的Galaxy S10系列具有更好的图像质量。</em></p><p>Judd透露，一些原始设备制造商实际上更喜欢更柔和、噪音更少的图像，这从根本上来说是一个错误的选择。调谐是由设备制造商进行的，因此，使用相同传感器并由相同SoC供电的两部手机可以输出非常不同的照片。希望这些设备制造商能从他们表现更好的竞争对手那里了解真相。虽然三星今年在图像处理方面迷失了方向，但一加却形成了鲜明的对比。一加8 Pro是市场上最好的智能手机相机之一，考虑到OnePlus 5T的相机在2017年的输出非常差，这是一个显着的成就。无论百万像素大战有多激烈，图像处理的思维模式必须改变，照片才会清晰。</p> </div></section>
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="av1-decoding-and-encoding">AV1解码和编码</h2>
+<p>米莎尔·拉赫曼:所以这和我们正在讨论的关于相机质量的其他讨论有点不同。开源媒体编解码社区的一些人一直在想的一件事是，高通什么时候会支持<a href="https://www.xda-developers.com/mediatek-dimensity-1000-is-the-first-smartphone-soc-to-support-av1-hardware-decoding/"> AV1解码</a>以及可能的编码。我知道这有点牵强，但谷歌要求4K·HDR和Android 10上的8K电视支持AV1解码和网飞，<a href="https://www.xda-developers.com/youtube-for-android-tv-adopts-av1-video-codec-in-certain-devices/"> YouTube </a>，他们开始推出AV1编码的视频。因此，这看起来像是AV1编码视频的缓慢上升。所以我们想知道Spectra什么时候能提供解码支持。</p>
+
+<blockquote>
+<p/><h4><strong><em/></strong>高通声明:关于你在AV1上的问题，今天我们没有要发布的消息。然而，骁龙目前能够通过软件播放AV1。高通一直通过软件和硬件与合作伙伴合作开发下一代编解码器，使骁龙成为HDR编解码器的领导者，包括HEIF、HLG、HDR10、HDR10+和杜比视觉的采集和回放。当然，我们意识到要为客户带来最佳的编解码器体验，包括支持高分辨率和最低功耗，因此需要在硬件中实现这些功能。</h4>
+ </blockquote>
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="video-recording---motion-compensation">视频记录-运动补偿</h2>
+<p>米沙·拉赫曼:我不知道伊德里斯是否还有其他问题，但我确实有一个问题，是关于我在骁龙科技峰会上读到的。是关于运动补偿视频内核的。我听说运动补偿引擎有所改进，可以减少视频录制时的噪音。我想知道你是否能详细说明它到底改进了什么，做了什么。</p>
+
+<blockquote>
+<p/><h4><strong>我们所做的是，我们已经使内核更加精确，它几乎是在每像素级别上完成的，而不是更粗糙的块级别，因此我们在骁龙865的EVA引擎中获得了比前几代产品更多的运动矢量。这意味着进行编码的视频内核可以使用这些运动矢量来提高编码的准确性，但摄像机端的ISP也会使用这些信息来降低噪声。</strong></h4>
+<p/><h4>如你所知，几代人以来，我们一直使用运动补偿时间滤波，这实际上是视频过程中的主动降噪，它在一段时间内对帧进行平均，以消除噪声。</h4>
+<p/><h4>不过，这种技术的问题是，如果场景中有运动。运动最终只是被噪声降低所拒绝，因为它不能被处理或被玷污，你会在运动的东西上得到这些丑陋的痕迹和伪像。因此，在运动补偿时间滤波中，我们过去所做的是，因为我们没有针对局部运动的密集运动图，我们只是简单地处理移动摄像机时的情况，这很容易，因为一切都在全局移动。</h4>
+<p/><h4>但是，如果你在拍摄一些东西，而你有一个物体在场景中运动，我们之前所做的就是忽略这些像素，因为我们无法处理它们的噪声，因为它是一个局部运动的物体。因此，如果你逐帧平均，物体在每一帧的不同位置，所以你不能真正处理它。</h4>
+<p/><h4>但在骁龙865上，因为我们有更密集的运动地图，我们有能力在几乎一个像素一个像素的基础上查看运动向量，我们实际上能够一帧一帧地处理那些局部移动的像素以减少噪声，而以前我们不能。我想我在演讲中提到了一个度量标准。我不记得数字了<strong> ( </strong> <em>是40% </em> <strong> ) </strong>但是对于大多数视频来说，平均来说，这是一个很大的像素百分比，现在可以对其进行噪声处理，而在上一代，他们不能。这在一定程度上是因为我们有能力理解局部运动，而不仅仅是全局运动。</h4>
+ </blockquote>
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="video-recording---hdr">视频记录- HDR</h2>
+<p class="w-rich w-youtube" id="b1-XKxwFOW0">  </p>
+
+
+
+
+<p>伊德里斯·帕特尔:我还有一个关于HDR视频的问题。今年，我看到更多的设备制造商提供HDR10视频录制。那么，它是随着骁龙865一起推广的，还是已经存在了几代。</p>
+
+<blockquote>
+<p/><h4>贾德·希普 :哦，是的，正如我们在技术峰会上谈到的，我们已经有了HDR10，这是几代以来HDR在摄像机编码方面的视频标准，我想是从骁龙845开始，我们一直在不断改进它。</h4>
+<p/><h4>去年，我们谈到了HDR10+，这是一种10位HDR记录，但它不是静态元数据，而是动态元数据，因此摄像机在场景中捕捉的元数据实际上是实时记录的，因此当您播放它时，播放引擎可以了解这是一个黑暗的房间还是一个明亮的房间，并可以对此进行补偿。</h4>
+<p/><h4>我们还在去年的技术峰会上谈到了杜比视觉捕捉，这是杜比对HDR10+的替代。它们实际上也产生动态元数据，这非常相似。因此，今天的骁龙可以支持所有三种格式:HDR10、HDR10+和杜比视觉捕捉。因此，没有任何限制，我们的原始设备制造商可以选择他们喜欢的任何方法。我们的客户使用HDR10已经有一段时间了，去年和今年越来越多的客户开始使用HDR10+。我认为在未来，你也会看到一些杜比视觉捕捉的应用。</h4>
+<p/><h4>所以，是的，我们一直在大力推广。HDR对我们真的很重要，无论是在快照方面还是在视频方面。就像我说的，我们一直致力于HDR10和HDR10+以及现在的杜比视界格式，你知道从骁龙845开始，现在甚至是最近的骁龙865杜比视界。</h4>
+ </blockquote>
+<p>米莎尔·拉赫曼:另外，我实际上不确定是否有厂商实现了杜比视界录制，但我想这回答了这个问题。这是我们将来会看到的。</p>
+
+<blockquote>
+<p/><h4><strong> <em>贾德·希普</em> </strong>:当然——我不能评论哪些厂商感兴趣之类的事情。这是杜比的问题；这是他们的特色，所以如果你想了解更多信息，我建议你联系杜比。但据我所知，迄今为止，还没有一款手机推出杜比视觉捕捉功能。</h4>
+ </blockquote>
+<p>伊德里斯·帕特尔:因为你也需要显示器支持。我注意到智能手机显示器支持HDR10和HDR10+，但不支持杜比视觉。</p>
+
+<blockquote>
+<p/><h4><strong> <em>贾德·希普</em> </strong>:实际上是的，但是杜比视觉回放在过去已经在骁龙上得到支持。它可以与给定的显示器一起工作，显示器不一定要符合任何特定的标准才能符合杜比视觉，只是杜比会对显示器进行分级，并确保它具有特定的色域、伽玛、特定的位深度、特定的亮度和特定的对比度。</h4>
+<p/><h4>所以，你知道，你可以购买HDR10显示器，但你也可以购买支持杜比视界播放的手机，但逗逗将对该显示器进行认证，以确保它符合他们的严格要求。</h4>
+ </blockquote>
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="collaboration-with-software-vendors-imint-morpho-and-arcsoft">与软件供应商合作:Imint、Morpho和Arcsoft</h2>
+
+
+<p><strong> <em>米沙·拉赫曼</em>:我想我还有一个问题要跟进，就是我们最近谈过的一家公司是<a href="https://www.xda-developers.com/motorola-edge-plus-first-phone-imint-new-vidhance-stabilization-tech/">艾明特</a>。他们最近升级了他们的<a href="https://www.xda-developers.com/imint-vidhance-camera-stabilization-hands-on/"> Vidhance稳定软件</a>到<a href="https://www.xda-developers.com/imint-qualcomm-optimize-video-enhancement-snapdragon-865/">使用Spectra 480 </a>。我知道你们与许多公司合作，这些公司也利用Spectra 480的处理能力。我想知道你是否能够透露更多这些技术的例子，或者你的合作伙伴，这样我们就可以跟进，了解更多关于Spectra 480在现场的使用情况。</strong></p>
+
+<blockquote>
+<p/><h4>贾德·希普 :我们和很多软件供应商合作。就像我们过去提到的，杜比就是其中之一。还有其他像你提到的，EIS(电子防抖)的Imint/Vidhance。我们之前也提到过Morpho和Arcsoft，我们也与他们密切合作。</h4>
+<p/><h4>至于我们如何与他们合作，我们的政策是，我们真的希望与这些独立的软件供应商密切合作，并确保无论他们在软件方面做什么，他们都能够利用骁龙的硬件来获得尽可能低的功耗。</h4>
+<p/><h4>因此，我们正在与这些供应商一起做的事情之一是，我们确保他们能够很好地访问HVX引擎或Hexagon DSP内核。他们还使用EVA引擎来获得运动矢量，并使用硬件和EVA引擎进行图像处理，以便他们可以在硬件中执行图像移动、转换和去扭曲等操作，而不是使用GPU来完成这些操作。</h4>
+<p/><h4>因此，我们确实与这些独立软件开发商密切合作，尤其是我特别提到的那些，以确保他们不只是将所有东西和软件都放在CPU中，而是在EVA中使用DSP和硬件加速器等东西来获得更好的性能和更低的功耗。这对我们也很重要，因为它为我们的客户提供了功能和功耗的最佳组合。</h4>
+<p/><h4><strong>【来自Judd的结束语】:</strong>我只想说，谢谢你们提出的所有非常好的问题。它们非常非常详细。我已经在高通工作了大约三年，回顾我们的过去，甚至超过了我在这里的任期，在骁龙845之前我们开始了Spectra，我们非常努力地工作，极大地改善了ISP和相机，以及过去几年的整体体验。我真的对未来感到兴奋。我对我们将在未来的技术峰会上宣布的内容感到兴奋，你们可以问这些问题，写些东西。在我看来，[光谱相机]可能是高通最令人兴奋的技术之一。</h4>
+ </blockquote>
+<hr/>
+
+<p/><h4>最后的想法</h4>
+
+<p>和贾德讨论高通对智能手机摄影的贡献真是太棒了。我们对这家公司及其专利授权系统可能会有复杂的感觉，但高通在智能手机行业的标志是每个人都可以感受到的，无论你是在谈论专利、4G和5G、Wi-Fi、Adreno GPUs、Spectra ISPs，还是在很大程度上被视为安卓智能手机市场黄金标准的骁龙芯片本身。</p>
+
+<p>智能手机摄影仍有许多痛点需要解决，但未来是光明的，因为高通承诺在广阔、不断增长的人工智能领域取得更多进展，这为人工智能提供了动力。让我们看看在下一届骁龙科技峰会上，高通会在这个领域宣布什么。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>
