@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Custom AOSP Project Treble GSI builds get May 2020 security patches</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>定制AOSP项目Treble GSI构建获得2020年5月安全补丁</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/custom-project-treble-gsi-may-2020-security-patches-dc-dimming-oppo-devices/#0001-01-01">https://www.xda-developers.com/custom-project-treble-gsi-may-2020-security-patches-dc-dimming-oppo-devices/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>一些三星设备<a href="https://www.xda-developers.com/samsung-galaxy-s20-galaxy-fold-updates-may-2020-security-patches/">开始</a> <a href="https://www.xda-developers.com/samsung-galaxy-note-10-receives-update-with-may-2020-security-patches/">接收【2020年5月的安全补丁，甚至在</a><a href="https://www.xda-developers.com/may-2020-android-security-patches-google-pixel/">谷歌发布当月的安全公告</a>并推出兼容Pixel设备的相应OTA更新之前。即使你没有谷歌Pixel手机或三星旗舰手机，你仍然有机会通过更新的<a href="https://www.xda-developers.com/flash-generic-system-image-project-treble-device/">通用系统镜像</a> (GSI)来提升你的设备的安卓安全补丁级别(SPL)，前提是设备本身符合<a href="https://forum.xda-developers.com/project-treble"> Project Treble </a>并且引导程序是可解锁的。事实上，XDA认可的开发者<a href="https://forum.xda-developers.com/member.php?u=1915408"> phhusson </a>，第三方GSI开发社区中的知名人士，最近更新了他的定制AOSP项目Treble GSI，又名<em>嘎嘎Phh-Treble </em>，提供了2020年5月的安全补丁以及几个特定于OEM的修复。</p>
+
+  
+<p/><p><strong> <a href="https://forum.xda-developers.com/project-treble/trebleenabled-device-development/aosp-10-0-quack-phh-treble-t3992559">呱呱Phh——高音——XDA螺纹</a> </strong></p>
+
+<p>作为一个快速复习，开发者已经在小米手机上添加了对双击唤醒手势的支持，并在最近几个版本的<em>嘎嘎Phh高音</em> 中添加了Realme的显示屏下指纹传感器<a href="https://www.xda-developers.com/custom-project-treble-gsis-get-updated-with-the-april-2020-security-patches-and-fixes-for-xiaomi-realme-devices/">。除了新的安全补丁，定制GSI的最新版本(<em> v216 </em>)现在完全兼容运行Android 10的三星设备上的超声波指纹传感器。phhusson还合并了几个与高通供应商实现相关的修复，这可能会导致骁龙平台上更高的摄像机录制分辨率。</a></p>
+
+<p>关于OEM特定的增强功能，新版本现在可以正确识别不同的参数，如一些诺基亚手机上的电池状态和自动亮度。另一方面，从现在开始，DC调光应该可以在这款定制GSI上的兼容OPPO设备上工作。对于那些不熟悉这个术语的人来说，DC调光是一种行业标准方法，在某些情况下<a href="https://www.xda-developers.com/oneplus-dc-dimming-optional-feature-future-update/">调光OLED面板以减少屏幕闪烁</a>。</p>
+
+<p>完整的变更日志可以在下面找到:</p>
+
+<ul> <li>2020年5月安全补丁</li> <li>修正三星<a href="https://forum.xda-developers.com/galaxy-a30"> Galaxy A30 </a>的开机问题</li> <li>为<a href="https://forum.xda-developers.com/redmi-6a">红米6A </a>和<a href="https://forum.xda-developers.com/redmi-6">红米6 </a>修复奥利奥供应商的长靴</li> <li>在三星Q厂商上固定超声波指纹传感器</li> <li>修复牙线变体上的最近按钮</li> <li>将手电筒固定在<a href="https://forum.xda-developers.com/galaxy-s10-lite"> S10 Lite </a>上</li> <li>修正小米双击唤醒<a href="https://forum.xda-developers.com/t/xiaomi-redmi-go">红米Go </a></li> <li>新的覆盖层(修复电池状态，自动亮度，...)</li> <li>开发者端:<ul> <li>清除在硬件覆盖中使用IMS</li> <li>为供应商媒体配置文件提供更多更改</li> </ul> </li> <li>高音设置:<ul> <li>高通设备:添加使用供应商媒体配置文件的选项。这可以实现更高的相机记录分辨率。</li> <li>高通设备:添加一个选项来使用供应商音频策略。这可能会修复一些音频问题，但可能会产生一些其他问题。</li> <li>添加一个选项来禁用音频效果。这可能会修复一些音频问题。</li> <li>Oppo:增加一个启用dc明帝的选项。</li> <li>navbar的反转逻辑:navbar默认启用，但可以禁用。</li> </ul> </li> </ul>
+
+<p/><p><strong> <a href="https://github.com/phhusson/treble_experimentations/releases/tag/v216">下载呱呱Phh-高音v216 </a> </strong></p>
+
+<p>在闪烁自定义GSI之前，您应该使用下面链接的Treble Info应用程序确定您的设备型号。刷新过程将要求您重置设备的出厂设置，因此在继续之前，请确保您已准备好丢失应用程序数据。我们建议你选择设备外备份(比如在你的电脑或SD卡上)，以防万一。</p>
+
+<p>[app box Google play " tk . hack 5 . treble check "]</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

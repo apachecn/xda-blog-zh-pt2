@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Google Phone 47 prepares to add "Flip to Silence" and 1-way video</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌手机47准备添加“翻转到静音”和单向视频</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-phone-flip-to-silence-answer-1-way-video/#0001-01-01">https://www.xda-developers.com/google-phone-flip-to-silence-answer-1-way-video/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌今天在测试频道推出了47.0版本的谷歌手机应用程序，对APK的新资源进行了简单的回顾，揭示了Pixel拨号器应用程序的一些新功能。这些功能尚未在公开测试版中上线，但它们可能会在下一个Pixel功能发布时上线。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p><strong>用单向视频回答</strong></p>
+
+<p>一个字符串表明，谷歌手机应用程序将让用户以单向视频的形式接听来电。这可能意味着您可以看到其他来电者的视频，但他们看不到您的视频源。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"call_incoming_chip_answer_video_as_one_way_video"</span>&gt;</span>Answer as 1-way video<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p><strong>翻转到静音</strong></p>
+
+<p>另一组字符串描述了一个新的“翻转到静音”功能。这项功能可以让用户将手机面朝下放在平面上，使来电铃声静音。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"flip_to_shush_title"</span>&gt;</span>Flip To Shhh<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"flip_to_silence_key"</span>&gt;</span>flip_to_silence_key<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"flip_to_silence_summary"</span>&gt;</span>To silence an incoming call, place your phone face down on a flat surface<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"flip_to_silence_title"</span>&gt;</span>Flip To Silence<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>检查谷歌手机应用程序的反编译代码，我们发现该应用程序在启用到该设置的链接之前会查询<a href="https://www.xda-developers.com/digital-wellbeing-flip-to-silence-google-pixel-2/">Digital wellness的“Flip to Shhh”</a>的存在，否则，将显示新的“Flip to Silence”切换。这是因为尽管Flip to Shhh的功能描述称，它只在你翻转手机时打开勿扰模式，但这个动作实际上已经让来电铃声静音了，至少在我的Pixel 4上是这样的。因此，如果“翻转到Shhh”可用，那么“翻转到静音”将不需要向用户显示。但是，如果“翻转到嘘”不可用，那么“翻转到静音”将需要显示。目前，Flip to Shhh在Pixel 2 、Pixel 3、Pixel 3a和Pixel 4上可以使用<a href="https://www.xda-developers.com/digital-wellbeing-flip-to-shhh-pixel-2/">，而谷歌手机应用不仅可以在Pixel设备上使用，也可以在Android One设备上使用。然而，我们不知道谷歌是否计划为非像素设备启用“翻转静音”。</a></p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

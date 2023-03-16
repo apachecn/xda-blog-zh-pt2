@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Samsung Galaxy S20 has a hidden 96Hz display mode</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>三星Galaxy S20具有隐藏的96Hz显示模式</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/samsung-galaxy-s20-hidden-96hz-display-mode/#0001-01-01">https://www.xda-developers.com/samsung-galaxy-s20-hidden-96hz-display-mode/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>三星最近发布了他们的<a href="https://www.xda-developers.com/samsung-galaxy-s20-specs-features-pricing-availability/"> Galaxy S20系列智能手机</a>。它们拥有三星旗舰产品的所有功能，包括性能良好的相机以及顶级的内部部件，但它们也有一个值得注意的关键特性，即高刷新率显示屏。三星Galaxy S20系列的显示屏支持3200x1440 (WQHD+)的最大分辨率和120Hz的最大刷新率。尽管有一些限制，例如120Hz模式仅限于FHD+分辨率(WQHD+仅限于60Hz，所以你只能选择其中一个)，但这是三星的第一个也是一个重要的里程碑。</p>
+
+  
+<p>120赫兹显然会让你的手机看起来非常流畅，但有一个缺点:电池寿命。在显示设置中，你可以选择让Galaxy S20以2400x1080 (FHD+)和/或60Hz运行:与其他制造商的许多其他智能手机不同，没有中间90Hz选项，只剩下60Hz和120Hz作为两个选项。120Hz刷新显示器的速度是60Hz的两倍，在此过程中会对电池寿命产生影响。然而，我们最近发现，这不是显示器支持的唯一模式:在Galaxy S20s中还可以设置其他隐藏的显示模式。</p>
+
+<p/><p><strong> XDA论坛:<a href="https://forum.xda-developers.com/galaxy-s20">银河S20 </a> || <a href="https://forum.xda-developers.com/galaxy-s20-plus">银河S20+ </a> || <a href="https://forum.xda-developers.com/galaxy-s20-ultra">银河S20超</a> </strong></p>
+
+<p>如果你运行shell命令“dumpsys display”，你会发现Galaxy S20的显示屏实际上支持以下模式:</p>
+
+<pre> <code class="hljs ">[{id=1, width=1440, height=3200, fps=60.000004}, <br/>{id=2, width=1440, height=3200, fps=48.0}, <br/>{id=3, width=1080, height=2400, fps=120.00001}, <br/>{id=4, width=1080, height=2400, fps=96.00001}, <br/>{id=5, width=1080, height=2400, fps=60.000004}, <br/>{id=6, width=1080, height=2400, fps=48.0}, <br/>{id=7, width=720, height=1600, fps=120.00001}, <br/>{id=8, width=720, height=1600, fps=96.00001}, <br/>{id=9, width=720, height=1600, fps=60.000004}, <br/>{id=10, width=720, height=1600, fps=48.0}]</code> </pre>
+<p>在这里，我们可以看到有几个分辨率和刷新率是用户无法访问的:1600x720 (HD+)分辨率、96fps和48fps。尽管这些模式不能通过手机的设置来切换，但它们出现在这里意味着手机支持这些模式，因此，我们可以强制Galaxy S20在这些模式中的一种模式下运行。</p>
+
+<p>通过将<code>Settings.System.peak_refresh_rate</code>和<code>Settings.System.min_refresh_rate</code>的值更改为48.0或96.0，您可以将Galaxy S20的刷新率设置为这些隐藏值之一。将你的手机设置为96Hz将会使你的电池寿命略有增加，因为你的显示器不会经常刷新内容，同时仍然具有高刷新率的优势:它看起来仍然比60Hz平滑得多。但是，它仍然不能与WQHD+一起使用，因为该组合没有被列为支持的显示模式之一。</p>
+
+<p/><p><strong>从Amazon.in购买—三星Galaxy:<a href="https://www.amazon.in/Samsung-Galaxy-Storage-Additional-Exchange/dp/B08445DF23/?tag=xdaportalin-21">S20</a>| |<a href="https://www.amazon.in/Samsung-Galaxy-Storage-Additional-Exchange/dp/B084451YSS/?tag=xdaportalin-21">S20+</a>| |<a href="https://www.amazon.in/Samsung-Galaxy-Storage-Additional-Exchange/dp/B08444S68Q/?tag=xdaportalin-21">S20超</a> </strong></p>
+
+<p>不过，为了让你省去运行shell命令的麻烦，XDA的资深成员<a href="https://forum.xda-developers.com/member.php?u=5246190">sathistony</a>开发了一个简单的应用程序，可以让你在96Hz和120Hz之间转换。该应用程序甚至添加了两个快速设置磁贴，以在刷新率模式之间切换。该应用程序是<a href="https://github.com/SatySatsZB/S20RefreshRateControl">开源的</a>，非常简单，因为它所做的只是为你改变峰值刷新速率和最小值刷新速率的设置值。你可以去testufo.com<a href="https://testufo.com/">的</a>确认改变是否有效。</p>
+
+
+
+
+
+<p>立即查看XDA实验室上的应用<a href="https://labs.xda-developers.com/store/app/sszb.s20.refresh">！</a></p>
+
+<p>【appbox xda sszb.s20.refresh】</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

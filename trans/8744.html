@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Google Play Services will soon help you set up RCS/Chat apps in Android</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Google Play服务将很快帮助您在Android中设置RCS/聊天应用程序</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-play-services-20-15-13-rcs-chat-android-messages/#0001-01-01">https://www.xda-developers.com/google-play-services-20-15-13-rcs-chat-android-messages/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>美国的信息传递与世界其他地方有很大不同。虽然像<a href="https://forum.xda-developers.com/t/whatsapp"> WhatsApp </a>和<a href="https://www.xda-developers.com/announcing-the-official-xda-developers-telegram-group/"> Telegram </a>这样的应用程序已经成为许多国家的主要通信平台，但美国的Android用户仍然非常依赖短信来发送信息，特别是因为他们使用iPhones的同行已经与苹果的iMessage挂钩。这启发了Google去开发一个平行的，导致该公司帮助推动RCS消息。丰富的通信服务<a href="https://www.xda-developers.com/google-allo-paused-chat-rcs-apple-imessage/">，谷歌简单地称之为“聊天”</a>，支持多媒体功能和阅读回执，不像短信。虽然RCS和Chat仅限于少数第一方消息应用，包括谷歌的Messages应用，但仍有许多用户可能不知道它的存在。</p>
+
+  
+<p>谷歌将很快在设置中添加一个新页面，显示所有支持RCS和/或聊天消息的已安装应用程序的列表。通过分析最新APK包中的资源，我们在最新的Google Play服务测试版中发现了对这一即将推出的功能的引用。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_2"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>我们在Google Play服务v20.15.13中发现的新字符串表明，Google Play服务中的新设置页面将显示手机上支持RCS的应用程序列表。该页面还将指导用户如何在这些应用程序中设置和使用RCS消息。然而，更新并没有增加任何新的选项来打开或关闭每个应用程序的RCS，因为该功能可能仅限于单个应用程序。鉴于您一次只能使用一个消息应用程序发送和接收短信，RCS功能将只能通过默认的短信应用程序使用。</p>
+
+<p>Google Play服务v20.15.13中的以下字符串暗示了即将推出的功能可能如何工作:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"c11n_chat_features_activity_label"</span>&gt;</span>Chat features<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"c11n_chat_features_learn_more"</span>&gt;</span>Learn more about Chat features<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"c11n_chat_features_privacy"</span>&gt;</span>Privacy Policy<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"c11n_chat_features_terms_of_service"</span>&gt;</span>Terms of Service<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"c11n_chat_features_text"</span>&gt;</span>"Chat features lets you send upgraded, high-quality images and videos over Wi-Fi and mobile data using Rich Communication Services (RCS).<span class="hljs-symbol">&amp;lt;</span>br/&gt;<span class="hljs-symbol">&amp;lt;</span>br/&gt;When you turn on Chat features from Google, you agree to the %1$s. Google will occasionally verify your number with your carrier (SMS charges may apply). Google's %2$s describes how data is handled. %3$s."<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"c11n_connected_apps"</span>&gt;</span>Connected apps<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>我们还发现了以下字符串，该字符串引用了如何在Samsung Messages应用程序中启用RCS消息传递的教程:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"c11n_samsung_steps"</span>&gt;</span>To turn Chat features on/off<span class="hljs-symbol">&amp;lt;</span>br/&gt;1. Open %1$s<span class="hljs-symbol">&amp;lt;</span>br/&gt; 2. Go to More options <span class="hljs-symbol">&amp;lt;</span>b&gt;⋮<span class="hljs-symbol">&amp;lt;</span>/b&gt; and tap <span class="hljs-symbol">&amp;lt;</span>b&gt;Settings<span class="hljs-symbol">&amp;lt;</span>/b&gt;<span class="hljs-symbol">&amp;lt;</span>br/&gt; 3. Tap <span class="hljs-symbol">&amp;lt;</span>b&gt;Chat Settings<span class="hljs-symbol">&amp;lt;</span>/b&gt; and turn Rich Communication settings on/off<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>RCS在三星的Messages应用程序中已经可用了一段时间，但对于那些不知道它存在的人，该页面将告诉他们如何启用它。谷歌的信息应用程序也是如此。下面的截图显示了即将到来的设置页面，展示了如何在Google Pixel设备上的Messages应用程序中启用聊天。</p>
+
+
+
+<p>当该功能开始推出时，我们会及时通知您。</p>
+
+ 
+
+
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

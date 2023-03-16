@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Google is preparing to let you use "Live Captions" during phone calls</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌正准备让你在打电话时使用“实时字幕”</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-live-caption-phone-call/#0001-01-01">https://www.xda-developers.com/google-live-caption-phone-call/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌在去年的Google I/O 2019上首次公布了其“<a href="https://ai.googleblog.com/2019/10/on-device-captioning-with-live-caption.html">直播字幕</a>”辅助功能<a href="https://www.xda-developers.com/google-accessibility-live-caption-android-q-live-relay-live-transcribe/">。该功能使用三种设备上的机器学习模型，可以检测媒体中的英语语音，并自动生成字幕。该功能最初在Pixel 4上可用，但后来扩展到了</a><a href="https://www.xda-developers.com/december-2019-android-security-patches/"> Pixel 3a、</a>、<a href="https://www.xda-developers.com/live-caption-pixel-2-update/"> Pixel 2、</a>、<a href="https://www.xda-developers.com/samsung-galaxy-s20-google-live-caption/">三星Galaxy S20 </a>、<a href="https://www.xda-developers.com/oneplus-7t-pro-open-beta-1-build-live-caption-support/">一加7T </a>和<a href="https://www.xda-developers.com/oneplus-8-series-update-adds-live-caption-bullets-wireless-z-integration-dolby-atmos/">一加8 </a>。然而，自该功能推出以来，它尚未收到任何功能更新。不过，这种情况可能很快就会改变，因为我们发现有证据表明，谷歌将允许电话直播字幕。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>在谷歌Pixel 4的Android 11开发者预览版3中，我们分析了负责直播字幕的应用程序设备个性化服务的2.13.302920511版本。其中，我们发现了一些字符串，表明用户可以通过电话打开直播字幕。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"call_confirmation_cancel"</span>&gt;</span>CANCEL<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"call_confirmation_confirmation_message"</span>&gt;</span>Enable Live Caption over this phone call? Your use of the feature will be annonunced to others on the call.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"call_confirmation_dialog_name"</span>&gt;</span>Enable Live Caption confirmation dialog<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"call_confirmation_enable"</span>&gt;</span>ENABLE<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"call_other_side_transcription_prefix"</span>&gt;</span>Caller<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"call_system_message_prefix"</span>&gt;</span>System<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"call_turn_indicator_text"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"call_user_typed_input_prefix"</span>&gt;</span>You typed<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>通过电话呼叫启用该功能将向所有参与者宣布该呼叫正在被转录成字幕。电话中会播放一个音频文件，这个音频文件简单地说了下面一行:</p>
+
+<pre> <code class="hljs sql"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"system_message_start_call_speaking_mode"</span>&gt;</span>Hi, the person you’re about to speak with has call captions turned on. They’ll see captions of what you say to help them listen along.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>目前，直播字幕所依赖的API AudioPlaybackCaptureConfiguration，<a href="https://developer.android.com/guide/topics/media/playback-capture#allowing_playback_capture">不允许</a>捕捉语音通话音频。然而，有可能在Android 11开发者预览版3 中添加的<a href="https://twitter.com/MishaalRahman/status/1253390680040394752">新系统专用权限将允许该功能绕过这一限制。</a></p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

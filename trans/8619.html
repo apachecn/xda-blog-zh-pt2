@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Google Lens may soon help you with your homework</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌镜头可能很快会帮你做作业</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-lens-education-mode-homework-help-offline-translation/#0001-01-01">https://www.xda-developers.com/google-lens-education-mode-homework-help-offline-translation/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌镜头是谷歌的图像识别服务，根据你的相机指向的任何东西，从谷歌搜索中传递信息。去年5月，谷歌<a href="https://www.xda-developers.com/google-search-google-lens-augmented-reality-features/">重新设计了该服务的Android版本</a>，将用户界面分为5种不同的扫描模式:翻译、文本、搜索、购物和餐饮。在包含镜头服务的谷歌应用程序的11.3.7.29版本中，我们发现谷歌正在开发第六项服务:教育。我们还了解到，谷歌正准备允许你在离线时使用Lens的翻译模式。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p><strong>离线翻译</strong></p>
+
+<p>谷歌应用11.3.7.29的新字符串显示，你可以下载语言包，这样你就可以在没有互联网连接的情况下使用Lens翻译文本。这些字符串没有透露将支持哪些语言，但你可能可以下载谷歌镜头已经支持的大多数语言。值得注意的是，谷歌翻译应用在其“相机”模式下支持<a href="https://www.xda-developers.com/google-translate-instant-translation-automatic-language-detection-camera-mode/">离线翻译，这在功能上与Lens中的翻译模式非常相似。</a></p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lens_translate_cancel_language_pack_download_dialog"</span>&gt;</span>Cancel download of the %1$s offline package?<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lens_translate_cancel_language_pack_no"</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lens_translate_cancel_language_pack_yes"</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"lens_translate_download_language_pack_dialog"</span>&gt;Translate even when you are offline by downloading the %<span class="hljs-number">1</span>$s translation file (%<span class="hljs-number">2</span>$s)&lt;/string&gt;<br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lens_translate_download_language_pack_dialog_title"</span>&gt;</span>Translate %1$s offline<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lens_translate_download_language_pack_tooltip"</span>&gt;</span>Tap to download offline translations<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lens_translate_download_language_pack_yes"</span>&gt;</span>Download<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"lens_translate_remove_language_pack_dialog"</span>&gt;If you remove <span class="hljs-keyword">this</span> offline translation file, <span class="hljs-keyword">this</span> language will be unavailable <span class="hljs-keyword">for</span> offline translation.&lt;<span class="hljs-regexp">/string&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lens_translate_remove_language_pack_yes"</span>&gt;</span>Remove<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lens_translate_space_remaining_dialog"</span>&gt;</span>%1$s storage available<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p><strong>教育模式</strong></p>
+
+<p>接下来是一个新的“教育”模式，我们设法简单地浮出水面。这种“教育”模式的描述告知用户“指向[一个]家庭作业问题以获得帮助。”遗憾的是，我们无法测试这项功能，但对谷歌应用程序代码的简要分析显示，你可以使用教育模式来扫描数学问题。不过，我们不知道教育模式是否能支持复杂的数学问题。</p>
+
+
+
+
+
+<p>你可以通过抓取谷歌应用程序的最新测试版来下载最新版本的谷歌镜头服务。谷歌Play商店的Lens应用程序只是启动这项服务的快捷方式，而不是一个独立的应用程序。</p>
+
+ 
+
+
+
+ 
+
+
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

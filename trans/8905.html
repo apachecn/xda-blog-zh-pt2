@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>Easily integrate Huawei Mobile Services into your Unity game with the HMS Unity Plugin!</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用HMS Unity插件轻松将华为移动服务集成到您的Unity游戏中！</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/easily-integrate-huawei-mobile-services-unity-game-hms-unity-plugin/#0001-01-01">https://www.xda-developers.com/easily-integrate-huawei-mobile-services-unity-game-hms-unity-plugin/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>华为移动服务(HMS)是华为对GMS(T1)的替代，由面向用户的应用和核心后台服务组成。华为移动服务背后的理念是提供跨设备一致的体验，并且独立于平台更新。HMS生态系统的月平均用户数从2018年7月的4.2亿增加到2019年12月的6亿，而同期在该平台上注册的开发者从45万增加到130万，HMS核心应用集成从2万个应用增加到5.5万个应用。根据华为截至2019年12月披露的其他数据，HMS Core在全球170多个国家(包括中国)拥有6亿用户。</p>
+
+  
+<p>这些数字对应用程序和游戏开发者都有帮助，他们都可以通过华为和Honor设备上的<a href="https://www.xda-developers.com/appgallery-huawei-alternative-google-play-store-android/">华为应用程序库</a>向最终用户提供服务。由于华为和Honor智能手机在全球的用户数量，应用程序和游戏开发者有很大的动力跳到HMS平台和AppGallery上。此外，该平台还为他们提供了一些功能，如成本效益，一站式整合的统一门户，以及通过多种推广渠道进行精确的用户定位。</p>
+
+<p>如果你是一名寻求支持华为和荣誉设备的开发人员，华为提供了大量现成的文档，用于在开发人员的资源内轻松集成其API。游戏开发者也有可用的工具，允许他们整合构建一款手机游戏所需的所有必要功能，这款手机游戏不仅可以作为一款优秀的手机游戏，还具有必要的升级潜力，可以成长为一款成功的游戏。</p>
+
+<p>如果你正在寻找在HMS支持下构建你的游戏的方法，你的工作现在会因为这个<a href="https://github.com/EvilMindDevs/hms-unity-plugin"> HMS Unity插件</a>而变得更加容易。该插件帮助您将华为移动服务的所有功能集成到您的Unity游戏中，允许您利用华为强大的API，如<a href="https://developer.huawei.com/consumer/en/hms/huawei-accountkit">华为账户套件</a>、<a href="https://developer.huawei.com/consumer/en/hms/huawei-pushkit">推送套件</a>、<a href="https://developer.huawei.com/consumer/en/hms/huawei-game">游戏服务</a>、<a href="https://developer.huawei.com/consumer/en/hms/huawei-adskit">广告套件</a>和<a href="https://developer.huawei.com/consumer/en/hms/huawei-iap/">应用内购买</a>。</p>
+
+<hr/>
+
+
+<h2 id="brief-overview-of-some-of-huawei-mobile-services-api">华为移动服务API概述</h2>
+<h3 id="huawei-account-kit">华为账户套件</h3>
+<p><a href="https://developer.huawei.com/consumer/en/hms/huawei-accountkit">华为账户套件</a>允许开发者在游戏中使用现有的华为账户作为有效的登录选项，让玩家减少介绍疲劳，并跳过电子邮件地址和手机号码验证等步骤。得益于安全登录、一键式授权、双因素身份认证支持、数据加密和隐私GDPR合规性等特性，它进一步帮助了用户入职流程，并降低了注册和登录期间的用户流失率。</p>
+
+<h3 id="push-kit">推送套件</h3>
+<p><a href="https://developer.huawei.com/consumer/en/hms/huawei-pushkit"> Push Kit </a>允许开发人员从云端向您的用户发送消息，作为一个可靠的实时推送消息平台，覆盖全球，遍布200多个国家。游戏开发者可以利用它提供的精确定位功能来提升他们游戏的娱乐性。通过智能消息推送，开发者还可以促进游戏内部的交互和交易。</p>
+
+<h3 id="game-service">游戏服务</h3>
+<p><a href="https://developer.huawei.com/consumer/en/hms/huawei-game">游戏服务</a>提供了一种简单的登录和追踪游戏成绩的方法。游戏开发者可以为玩家定制多达200个成就，所以在游戏中总有一些目标要实现。您还可以获得多样化的玩家数据统计，这将让您定制您的游戏体验，以满足您的玩家的需求和期望。该API还可以让您配置事件报告，并让您自定义报告的关键游戏事件，让您从多个维度分析报告的事件。当然，没有排行榜和保存的游戏特性，任何游戏API都是不完整的，这个API也包括这些。您可以创建多个排行榜，以不同的方式对玩家进行排名，结合成绩跟踪，为玩家继续玩您的游戏提供稳定的激励。您还可以让玩家在Huawei Drive上保存他们的游戏进度，让玩家在其他兼容设备上检索保存的游戏数据。</p>
+
+<h3 id="ads-kit">广告套件</h3>
+<p>HMS中的广告套件是一个重要的盈利媒介，游戏开发者可以利用它通过广告支持来维持一个免费游戏。该API提供了独特的设备级广告标识符和广告转换跟踪功能。Ads Kit利用OAID(开放广告ID)解决方案作为非永久广告标识符，允许开发者平衡用户隐私，同时仍然提供个性化广告并准确跟踪广告效果。</p>
+
+<h3 id="in-app-purchase">应用内购买</h3>
+<p>至于<a href="https://developer.huawei.com/consumer/en/hms/huawei-iap/">应用内购买</a>，顾名思义，它是负责在一个应用或游戏内集成无缝应用内购买体验的API。它支持订阅服务、以当地货币为产品自动定价的产品管理、订单管理和相关的促销活动。应用内购买背后的意图是简化支付访问流程，简化访问和交互逻辑，以便开发者可以更专注于开发和完善他们的游戏产品，而不必太担心收入收集流程。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="hms-unity-plugin">HMS Unity插件</h2>
+<p>HMS Unity插件可以非常轻松地将HMS功能集成到您的Unity游戏中，用于应用内购买、华为登录、推送消息、游戏排行榜和基于广告的货币化。这些功能进一步使您能够融入游戏设计的重要元素，如唯一的玩家身份、消耗品和化妆品的应用内购买、广告支持、推送通知支持、保存游戏支持以及游戏排行榜和成就。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/UnityIAPDemo-1024x655.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;IAP Demo&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/UnityIAPDemo-1024x655.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/UnityIAPDemo-1024x655.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/UnityIAPDemo-1024x655.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/UnityIAPDemo-1024x655.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/UnityIAPDemo-1024x655.jpg" src="../Images/d1dd02e1fdfbd46f74fb9e03d6b9f2c3.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/UnityIAPDemo-1024x655.jpg"/> </picture> <figcaption class="body-img-caption">IAP Demo</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>该插件仍然以这四个特性为傲:</p>
+
+<ul> <li>它有清晰的文档，用包含逐步说明的易于遵循的指南来指导开发人员。</li> <li>该插件带有现成的预置。</li> <li>该插件还包含演示场景，以帮助开发人员熟悉一个活生生的例子。</li> <li>该插件还承诺会定期更新新特性，因此您可以放心，一段时间后您的项目将不再依赖过时的工具。</li> </ul>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/RewardedVideo-473x1024.jpeg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Video ad demo&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/RewardedVideo-473x1024.jpeg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/RewardedVideo-473x1024.jpeg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/RewardedVideo-473x1024.jpeg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/RewardedVideo-473x1024.jpeg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/RewardedVideo-473x1024.jpeg" src="../Images/b1e43753e6d1349d6254d1f8f6cb5954.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/RewardedVideo-473x1024.jpeg"/> </picture> <figcaption class="body-img-caption">Video ad demo</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>集成插件非常容易。所有这一切都需要五个广泛而简单的步骤:</p>
+
+<ol> <li>在<a href="https://developer.huawei.com/consumer/en/">华为开发者网站</a>注册游戏</li> <li>将插件导入您的Unity项目</li> <li>配置您的清单</li> <li>将您的游戏与HMS管理器连接</li> <li>将HMS回调处理器与您的游戏连接</li> </ol>
+
+<p>将HMS集成到你的游戏中的第一个要求是向HMS本身注册。流程简单明了，从登录开发者控制台开始，在AppGallery模块中创建新应用，然后申请IAP服务并为您的游戏产品进行配置。</p>
+
+<p>下一步是导入Unity插件，你可以<a href="https://github.com/EvilMindDevs/hms-unity-plugin">从GitHub </a>下载。打开Unity编辑器并导入自定义包。Unity中的导入工具会显示所有预先选中的项目，所以你只需点击Install，Unity就会将插件部署到你的Assets文件夹中。接下来，您需要配置插件，通过在提供的提示中输入您游戏的唯一应用ID、您的开发者CPID和您游戏的包名来为您的游戏工作，插件将自动包括Android清单中所有必要的信息。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/HuaweiEditor.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Configuring the Manifest&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/HuaweiEditor.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/HuaweiEditor.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/HuaweiEditor.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/HuaweiEditor.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/HuaweiEditor.jpg" src="../Images/eb2e08f17e39e675423d26967fbf1925.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/HuaweiEditor.jpg"/> </picture> <figcaption class="body-img-caption">Configuring the Manifest</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>一旦所有这些都完成了，你需要在场景中部署HMS管理器预置。在Unity编辑器中，找到插件预置文件夹，将HMS管理器拖放到场景中，然后按照配置提示进行操作。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/Prefabs.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Ready-to-use Prefabs&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/Prefabs.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/Prefabs.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/Prefabs.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/Prefabs.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Huawei Mobile Services HMS Unity Plugin" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/Prefabs.jpg" src="../Images/0cee58ac01c2d0d5793349204585da28.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/Prefabs.jpg"/> </picture> <figcaption class="body-img-caption">Ready-to-use Prefabs</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>接下来，通过onClick部分调用HMS管理器。最后一步是将HMS回调处理程序与您的游戏连接起来。文档会指导您完成整个过程，因此您应该不会有任何困难。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/DemoScenes-1024x216.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Demo Scenes&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/DemoScenes-1024x216.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/DemoScenes-1024x216.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/DemoScenes-1024x216.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/DemoScenes-1024x216.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Huawei Mobile Services HMS Unity Plugin" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/DemoScenes-1024x216.jpg" src="../Images/4095265ab5c949231725bf1937d2dd7a.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/DemoScenes-1024x216.jpg"/> </picture> <figcaption class="body-img-caption">Demo Scenes</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>正如你所看到的，对于一个游戏开发者来说，登上HMS非常容易，如果他们遇到任何困难，可以获得简单的文档和支持。有了庞大的用户群作为激励，HMS确实为萌芽中的游戏提供了激励，让它们将HMS视为首选平台。</p>
+
+<p>如果您想将华为移动服务集成到您的游戏中，请点击下面的GitHub项目链接:</p>
+
+<p/><p><strong> <a href="https://github.com/EvilMindDevs/hms-unity-plugin"> HMS Unity插件</a> </strong></p>
+
+<hr/>
+
+<p/><h6>我们感谢华为赞助XDA。华为很少参与这篇文章的创作或内容。特别是，为了核实事实，征求了他们的意见。表达的任何意见都是作者的意见。我们的赞助商帮助我们支付与运行XDA相关的许多费用，包括服务器、开发人员、作家等等。虽然您可能会在门户内容旁边看到赞助内容，但所有内容都会被清楚地标记为赞助内容。XDA门户网站团队不会因为接受金钱来写一家公司的好话而损害新闻的完整性。我们的意见不能被收买。赞助内容、广告和XDA仓库由我们的营销总监管理，而不是编辑团队。</h6>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

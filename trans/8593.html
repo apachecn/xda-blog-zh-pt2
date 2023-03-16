@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Android 11 x86 system images for the Android Emulator support ARM ABIs</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android模拟器支持ARM ABIs的Android 11 x86系统镜像</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-11-x86-system-images-android-emulator-arm-abis/#0001-01-01">https://www.xda-developers.com/android-11-x86-system-images-android-emulator-arm-abis/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Android模拟器支持ARM ABIs的Android 11 x86系统镜像</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">面向x86硬件的Android 11系统映像现在支持在面向x86 PCs的Android Studio中的Android仿真器上进行ARM仿真。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>谷歌在本月早些时候发布了Android 11开发者预览版2。在这个版本中，谷歌做了一个关键的改变，在<a href="https://www.xda-developers.com/android-studio-3-6-stable-release/"> Android Studio </a>中的Android模拟器上实现了更高效的应用程序调试。面向x86 CPUs的Android 11系统映像现在允许具有C或C++依赖性的应用程序更流畅地运行，而无需完整的ARM仿真，并利用x86硬件的硬件加速和CPU虚拟化。</p>
+
+  
+<p>用本机代码(即C或C++)编写的Android应用程序必须考虑不同的CPU架构进行编译。必须有针对不同CPU架构的不同版本的应用程序，如ARM、ARM64、x86或x86-64。这是因为本机代码直接编译成特定架构的机器指令，而不是在Android运行时(ART)上执行的Kotlin或Java应用程序。</p>
+
+<p>为了通过在基于x86的计算机上运行的Android模拟器测试您的应用程序，您需要不同版本的x86 CPU。该应用的x86版本无法在智能手机上运行，因为智能手机通常基于ARM或ARM64 CPUs。到目前为止，这个问题的唯一解决方案是要么使用物理Android设备，要么为x86 CPUs安装带有完整ARM仿真的仿真器映像。后一种选择是性能密集型的，不能充分利用x86 CPUs提供的硬件加速和CPU虚拟化。</p>
+
+<p>为了解决这个问题，谷歌现在发布了兼容ARM的新Android 11 x86系统映像。这些系统映像利用ABI(应用程序二进制接口),在用不同语言编写的应用程序之间或应用程序和操作系统之间充当中介。ARM二进制文件中的ARM指令被专门翻译成x86，而其余代码继续在x86中执行。由于ARM二进制文件的这种隔离，该过程对性能的要求较低，甚至可以在低级硬件上运行。</p>
+
+<p>除了使用C++依赖关系更容易调试Android应用程序之外，它还允许开发人员在未来发布他们的应用程序的ARM版本以及ABIs，而不是Chromebooks的x86版本。这将刺激各种Chromebooks支持更多针对Android 11的应用程序。</p>
+
+<p>使用<a href="https://developer.android.com/studio/run/managing-avds#createavd"> Android虚拟设备管理器</a>或SDK管理器，可以在<a href="https://developer.android.com/studio"> Android Studio </a>中下载新的兼容x86的Android 11系统映像。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

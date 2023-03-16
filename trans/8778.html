@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Developers port Windows 10 on ARM to the Samsung Galaxy S8</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>开发者将ARM上的Windows 10移植到三星Galaxy S8上</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/developers-port-windows-10-on-arm-to-the-samsung-galaxy-s8-and-other-snapdragon-835-powered-phones/#0001-01-01">https://www.xda-developers.com/developers-port-windows-10-on-arm-to-the-samsung-galaxy-s8-and-other-snapdragon-835-powered-phones/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">开发人员将ARM上的Windows 10移植到三星Galaxy S8和其他Snapdragon 835手机上</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">一个自制的UEFI固件使Snapdragon 835驱动的三星Galaxy S8能够启动ARM版本的Windows 10。继续阅读，了解更多信息！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>像一加和索尼这样对开发者友好的OEM厂商以发布内核源代码和<a href="https://www.xda-developers.com/xperia-10-xperia-10-plus-open-devices-program/">设备树</a>而闻名；后者作为一种机制，一旦主引导程序启动，就向ARM平台上基于Linux的Android内核描述硬件。然而，像Microsoft Windows这样的操作系统利用高级配置和电源接口(ACPI)来完成相同的任务，而低级硬件初始化现在由统一可扩展固件接口(UEFI)来处理。有趣的是，通过大量的<em>黑客攻击</em>，可以将UEFI和ACPI支持移植到现有的ARM设备上，因此你可以在像<a href="https://www.xda-developers.com/raspberry-pi-4-upgraded-cpu-4gb-of-ram-dual-4k-displays/">树莓派</a>这样的设备上技术上启动Windows 10。</p>
+
+  
+<p>Windows 10确实<a href="https://www.xda-developers.com/microsoft-qualcomm-and-intel-the-windows-10-arm-dustup/">原生支持</a>ARM架构，这在这个移植游戏中确实是个加分项。被称为<a href="https://github.com/Evsio0n"> Evsio0n </a>的开发者现在公布了一个概念验证方法，可以在高通骁龙835驱动的三星Galaxy S8上启动ARM上的Windows 10。这不是我们第一次看到<a href="https://www.xda-developers.com/windows-10-arm-oneplus-6t/"> Windows 10在Android手机</a>上运行，但Evsio0n也分享了基于<a href="https://www.tianocore.org/"> TianoCore </a>项目为Galaxy S8构建准系统UEFI固件的源代码。</p>
+
+ 
+
+
+
+<p>在报告时，<a href="https://github.com/Evsio0n/edk2sdm">固件</a>能够引导Windows预安装环境(又名<a href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro"> WinPE </a>)，但是缺乏完整的ACPI实现阻止了完全成熟的Windows 10的引导。内存管理单元(MMU)在一定程度上是工作的，足以让主线Linux 5.x内核的Debian Linux启动。</p>
+
+ 
+
+
+
+<p>Evsio0n对王炳兴，又名<a href="https://github.com/imbushuo"> imbushuo </a>和<a href="https://github.com/fxsheep"> fxsheep </a>在这一领域的贡献给予了肯定。另一位名叫<a href="https://github.com/tomchrisdperez">汤姆·克里斯多佛·丹尼尔·佩雷斯</a>的鼓吹者<a href="https://twitter.com/tomchrisdperez/status/1249265248860684289">在小米Mi 6上做了</a>(但后来删除了)类似的开发(可能基于<a href="https://github.com/fxsheep/edk2-sagit"> fxsheep现有的用于设备</a>的UEFI端口)，这表明该项目最终可能支持其他基于Snapdragon 835的手机。虽然当前的端口远远不是日常驱动程序，特别是与Lumia WOA项目相比，Windows 10可能有助于显著延长这些传统旗舰的寿命。</p>
+
+<p/><p><strong> <a href="https://github.com/Evsio0n/edk2sdm/releases">下载三星Galaxy S8</a>T3的UEFI固件</strong></p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/galaxy-s8">三星Galaxy S8论坛</a> </strong></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>
