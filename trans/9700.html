@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>The Snapdragon Samsung Galaxy S9 has a GPU Stability Bug that can be Exploited to Trigger Remote Reboots</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>骁龙三星Galaxy S9有一个GPU稳定性漏洞，可被利用来触发远程重启</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/the-snapdragon-samsung-galaxy-s9-has-a-gpu-stability-bug-that-can-be-exploited-to-trigger-remote-reboots/#0001-01-01">https://www.xda-developers.com/the-snapdragon-samsung-galaxy-s9-has-a-gpu-stability-bug-that-can-be-exploited-to-trigger-remote-reboots/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>新的<a href="https://www.xda-developers.com/snapdragon-samsung-galaxy-s9-lineageos-15-1/">三星Galaxy S9 </a>包括几个市场的最新高通骁龙845片上系统，包括香港、美国、加拿大和拉丁美洲的部分地区。在一些市场，三星经常选择最新的旗舰产品高通骁龙SoC，而不是他们自己的Exynos SoC。在美国通常都是这样，三星Galaxy S6例外。对于普通消费者来说，Exynos 9810和骁龙845的变体之间几乎没有区别。然而，实际上，芯片组的差异会导致截然不同的体验。</p>
+
+  
+<p><a href="https://www.anandtech.com/show/12520/the-galaxy-s9-review/12"> <em> Anandtech </em> </a>对骁龙Galaxy S9和Exynos Galaxy S9的评测揭示了这两款机型在性能和电池续航时间上的明显差异，骁龙机型轻松胜过Exynos机型。据一家名为<a href="http://www.graphicsfuzz.com/"> <em> GraphicsFuzz </em> </a>的英国公司称，由于这两种截然不同的芯片组，性能差异似乎不是这次唯一的担忧。<em> GraphicsFuzz </em>是一家初创公司，专门测试设备上GPU的可靠性。他们开发测试来寻找图形驱动程序中的错误，并帮助诊断他们发现的任何问题的根本原因。例如，该团队发现了一个影响三星Galaxy S6 的ARM驱动程序的安全问题<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=675658">，为此他们获得了谷歌的bug奖金。在他们对骁龙三星Galaxy S9的测试中，<em> GraphicsFuzz </em>在Adreno 630的图形驱动程序中发现了一个错误，该错误允许他们在使用普通三星互联网浏览器浏览时<strong>通过有效的WebGL互联网页面</strong>触发整个手机重启。</a></p>
+
+<p>特别是，Adreno 630渲染复杂但有效的着色器时存在错误，可利用该错误使设备冻结，然后最终重新启动。着色器只是一个允许GPU渲染图像的程序。<em> GraphicsFuzz </em>并没有恶意设计WebGL页面来触发这个bug，而是说是在他们对设备的GPU稳定性进行标准测试时偶然发现的。一旦他们发现这种远程崩溃是可复制的，该公司就联系了<em> XDA开发商</em>，以促进高通和三星的披露过程。</p>
+
+ 
+<h2 id="webgl-crash-reproduction-on-the-snapdragon-samsung-galaxy-s9">骁龙三星Galaxy S9上的WebGL崩溃再现</h2>
+<p>在我们联系两家公司的代表之前，我们在自己的设备上验证了<em> GraphicsFuzz </em>的发现。<em> GraphicsFuzz </em>建立了一个特殊的网页供我们测试，我们选择了谷歌Play商店最受欢迎的5个互联网浏览器，看看会发生什么。下表显示了在5种不同的web浏览器上渲染复杂着色器的效果。</p>
+
+<p><strong>被测设备:</strong>高通骁龙845三星Galaxy S9+ (SM-G965U)</p>
+
+<p><strong>操作系统:</strong>安卓8.0.0奥利奥SM-G965U</p>
+
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><th><p>网络浏览器</p> </th><th><p>结果</p> </th> </tr><tr><td><p>谷歌浏览器v65.0.3325.109</p> </td><td><p>仅冻结约2秒钟</p> </td> </tr><tr><td><p>三星互联网版本7.0.10.46</p> </td><td><p>冻结，然后最终触发完全重启</p> </td> </tr><tr><td><p>Opera v45.1版。56866.88868888686</p> </td><td><p>冻结电话</p> </td> </tr><tr><td><p>微软Edge 1 . 0 . 0 . 1726版</p> </td><td><p>仅冻结约3秒钟</p> </td> </tr><tr><td><p>Firefox v59.0.2</p> </td><td><p>浏览器崩溃</p> </td> </tr></tbody> </table> </div>
+<p>谷歌Chrome和微软Edge都会冻结手机几秒钟，并产生一个WebGL错误，但设备最终会没事。<em> GraphicsFuzz </em>向我们报告说，他们已经与谷歌Chrome团队讨论了一段时间，并了解到Chrome实现了一种机制，在设定的一段时间后结束GPU进程，以防止手机完全崩溃。Opera会冻结手机，但不会触发重启。火狐应用程序本身崩溃，但手机没事。最后，通过三星互联网访问该页面会导致手机在完全重启前变慢。</p>
+
+<p>以下是事故的视频演示:</p>
+
+ 
+<p class="w-rich w-youtube" id="uL9LtH_-1qU">  </p>
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="detailed-explanation-of-the-error">错误的详细解释</h2>
+<p><em> GraphicsFuzz </em>进行了更深入的调查，表明导致手机重启的问题在于高通Adreno 630的GPU驱动程序，该驱动程序是高通骁龙845片上系统的一部分。<em> GraphicsFuzz </em>收集了一份关于此次事故的日志，我们将它嵌入到了下面。简单总结一下，当手机渲染复杂的着色器时，GPU会设置一个叫做“栅栏”的东西。栅栏用于协调CPU和GPU之间对共享内存的访问。与台式机不同，移动GPU可以访问与CPU相同的RAM，因此当玩游戏或渲染其他东西时，它会使用栅栏来访问共享内存。在有独立显卡的设备上，GPU本身有自己的内存。所有当前的移动电话都与RAM的闪存共享视频存储器和随机存取存储器。这里的问题是围栏无法完成，这将触发内核恐慌，并导致手机重启。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_13"><h3 id="complete-kernel-panic-prior-to-reboot">重启前完全内核崩溃</h3><pre> <code class="hljs xml">[12681.035590]  [2:crtc_commit:117:  433] kgsl kgsl-3d0: |a6xx_snapshot_gmu| <span class="hljs-keyword">set</span> FENCE <span class="hljs-keyword">to</span> <span class="hljs-keyword">ALLOW</span> <span class="hljs-keyword">mode</span>:<span class="hljs-number">0</span><br/>[12681.035839]  [2:crtc_commit:117:  433] kgsl kgsl-3d0: |kgsl_device_snapshot| snapshot created at pa 0x000000016e500000 size 927400<br/>[12681.035993]  [0:  kworker/u16:5:27740] kgsl kgsl-3d0: |kgsl_snapshot_save_frozen_<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span> /&gt;</span>objs| kgsl_snapshot_save_frozen_objs start<br/><span class="hljs-selector-attr">[12681.036085]</span>  <span class="hljs-selector-attr">[2:crtc_commit:117:  433]</span> <span class="hljs-selector-tag">Kernel</span> <span class="hljs-selector-tag">panic</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">not</span> <span class="hljs-selector-tag">syncing</span>: !!!<span class="hljs-selector-tag">FENCE</span> <span class="hljs-selector-tag">TIMEOUT</span><br/><span class="hljs-selector-attr">[12681.036156]</span>  <span class="hljs-selector-attr">[2:crtc_commit:117:  433]</span> <span class="hljs-selector-tag">CPU</span>: 2 <span class="hljs-selector-tag">PID</span>: 433 <span class="hljs-selector-tag">Comm</span>: <span class="hljs-selector-tag">crtc_commit</span><span class="hljs-selector-pseudo">:117</span> <span class="hljs-selector-tag">Tainted</span>: <span class="hljs-selector-tag">G</span>        <span class="hljs-selector-tag">W</span>       4<span class="hljs-selector-class">.9</span><span class="hljs-selector-class">.65-13087505</span> <span class="hljs-selector-id">#1</span><br/><span class="hljs-selector-attr">[12681.036248]</span>  <span class="hljs-selector-attr">[2:crtc_commit:117:  433]</span> <span class="hljs-selector-tag">Hardware</span> <span class="hljs-selector-tag">name</span>: <span class="hljs-selector-tag">Samsung</span> <span class="hljs-selector-tag">STARQLTE</span> <span class="hljs-selector-tag">PROJECT</span> <span class="hljs-selector-tag">Rev14</span> (<span class="hljs-selector-tag">DT</span>)<br/><span class="hljs-selector-attr">[12681.036319]</span>  <span class="hljs-selector-attr">[2:crtc_commit:117:  433]</span> <span class="hljs-selector-tag">Call</span> <span class="hljs-selector-tag">trace</span>:<br/>[12681.036368]  [2:crtc_commit:117:  433] [] dump_backtrace+0x0/0x248<br/>[12681.036438]  [2:crtc_commit:117:  433] [] show_stack+0x18/0x28<br/>[12681.036509]  [2:crtc_commit:117:  433] [] dump_stack+0x98/0xc0<br/>[12681.036578]  [2:crtc_commit:117:  433] [] panic+0x1e0/0x44c<br/>[<span class="hljs-number">12681.036646</span>]  [<span class="hljs-number">2</span>:crtc_commit:<span class="hljs-number">117</span>:  <span class="hljs-number">433</span>] [] sde_plane_wait_input_fence+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">wbr</span> /&gt;</span></span><span class="hljs-number">0x174</span>/<span class="hljs-number">0x28c</span><br/>[<span class="hljs-number">12681.036727</span>]  [<span class="hljs-number">2</span>:crtc_commit:<span class="hljs-number">117</span>:  <span class="hljs-number">433</span>] [] sde_crtc_atomic_flush+<span class="hljs-number">0x1c4</span>/<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">wbr</span> /&gt;</span></span><span class="hljs-number">0x5e8</span><br/>[12681.036807]  [2:crtc_commit:117:  433] [] drm_atomic_helper_commit_<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span> /&gt;</span>planes+0x19c/0x1fc<br/>[12681.036891]  [2:crtc_commit:117:  433] [] complete_commit+0x74/0x6a4<br/>[<span class="hljs-number">12681.036960</span>]  [<span class="hljs-number">2</span>:crtc_commit:<span class="hljs-number">117</span>:  <span class="hljs-number">433</span>] [] _msm_drm_commit_work_cb+<span class="hljs-number">0x48</span>/<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">wbr</span> /&gt;</span></span><span class="hljs-number">0x1c4</span><br/>[12681.037038]  [2:crtc_commit:117:  433] [] kthread_worker_fn+0x78/0x194<br/>[12681.037108]  [2:crtc_commit:117:  433] [] kthread+0xd8/0xf0<br/>[12681.037172]  [2:crtc_commit:117:  433] [] ret_from_fork+0x10/0x20<br/><span class="hljs-selector-attr">[12681.037239]</span>  <span class="hljs-selector-attr">[2:crtc_commit:117:  433]</span> <span class="hljs-selector-tag">Kernel</span> <span class="hljs-selector-tag">loaded</span> <span class="hljs-selector-tag">at</span>: 0<span class="hljs-selector-tag">x800a0000</span>, <span class="hljs-selector-tag">offset</span> <span class="hljs-selector-tag">from</span> <span class="hljs-selector-tag">compile-time</span> <span class="hljs-selector-tag">address</span> 20000<br/><span class="hljs-selector-attr">[12681.037331]</span>  <span class="hljs-selector-attr">[2:crtc_commit:117:  433]</span> <span class="hljs-selector-tag">SMP</span>: <span class="hljs-selector-tag">stopping</span> <span class="hljs-selector-tag">secondary</span> <span class="hljs-selector-tag">CPUs</span></code> </pre> </div></section>
+<p><em> GraphicsFuzz </em>认为这个问题只发生在三星互联网浏览器上的原因是GPU看门狗的问题。有时，GPU可能会在长时间运行的着色器上挂起，在这种情况下，浏览器或操作系统通常会有一个GPU看门狗来强制重启无响应的图形驱动程序。<em> GraphicsFuzz </em>测试着色器有几个for循环，可能会使渲染时间更长，但它仍然是一个有效的着色器。其他几个设备，包括Exynos 9810三星Galaxy S9和Mali-G72 GPU，都可以渲染这个着色器。因此，<em> GraphicsFuzz </em>的团队得出的结论是，这个错误是由于Adreno 630的GPU驱动程序故障造成的。</p>
+
+<p>运行相同版本三星互联网浏览器的高通骁龙835 adre no 540 GPU的谷歌Pixel 2 XL也慢得像爬行一样——这意味着这个错误可能是高通GPU驱动程序渲染着色器和三星浏览器看门狗没有结束服务的问题。</p>
+
+<p>希望高通能够诊断出导致重启的GPU驱动程序中的潜在问题，并尽快向三星提供修复的驱动程序。当然，此更新传播到最终用户可能还需要一段时间。与此同时，我们预计三星将对三星互联网浏览器进行更新，以缓解这一问题(至少防止它被网页利用)，与谷歌Chrome的行为相匹配。虽然这个问题已知会影响高通骁龙845三星Galaxy S9/S9+，但它也可能会影响更多使用骁龙845的设备。</p>
+
+<p>如果你有兴趣测试你自己的移动或桌面设备的GPU可靠性，<em> GraphicsFuzz </em>的团队已经制作了一个webapp演示，允许你在你的设备上运行一些有效的着色器。点击此链接，您可以通过<a href="http://www.graphicsfuzz.com/benchmark/android-v1.html">进入该网页。</a></p>
+<p class="ad-even"> </p>
+
+
+<h2 id="disclosure-timeline">披露时间表</h2>
+<ul> <li><strong>2018年3月28日</strong> : <em>图形模糊</em>联系<em> XDA开发商</em>告知我们这个问题。XDA的开发者在我们自己的三星Galaxy S9+上重现了这个问题。</li> <li><strong>2018年3月29日</strong> : <em> GraphicsFuzz </em>获得了更多细节，并为高通和三星员工建立了专门的网页来重现该漏洞</li> <li><strong>2018年3月30日</strong>:<em>XDA——开发者</em>向三星和高通提供了报告的全部细节。我们在高通的联系人回复我们说我们的信息已经收到。</li> <li><strong>2018年4月2日</strong>:我们的三星联系人回复我们，确认我们的信息已收到。</li> <li><strong>2018年4月4日</strong>:我们的三星联系人建议我们在三星的<a href="https://security.samsungmobile.com/securityReporting.smsb">安全报告</a>页面进行报告。<em>XDA——开发者</em>提交了一份报告，一名三星工程师被指派负责该报告。</li> </ul>
+</div>
+
+
+</div>    
+</body>
+</html>

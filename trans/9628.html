@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Hard Brick Bug on Galaxy S II and Note Leaked ICS Kernels</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Galaxy S II和Note泄露ICS内核上的硬砖错误</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/hard-brick-bug-on-galaxy-s-ii-and-note-leaked-ics-kernels/#0001-01-01">https://www.xda-developers.com/hard-brick-bug-on-galaxy-s-ii-and-note-leaked-ics-kernels/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p>自从三星Galaxy S2系列的最新泄漏消息不断冲击我们，人们一直在rom之间跳跃——主要是在有缺陷的预发布ICS版本和非常稳定的GB之间跳跃。毕竟，这是我们在XDA做的一个习惯:我们看到漏洞，我们闪现它，我们使用它，我们调整它。如果它飞不起来，我们就简单地回滚。当然，闪存本来就不应该在你的设备上的东西总是有内在的风险，但是在今天这个时代完全阻塞设备的风险相当小。特别是，因为有工具可以让你的设备起死回生，如XDA精英公认的开发者<a href="http://forum.xda-developers.com/member.php?u=3682533">阿达穆特勒</a>的<a title="Explaining and Advancing the UnBrickable Mod" href="http://www.xda-developers.com/android/explaining-and-advancing-the-unbrickable-mod/"> UnBrickable Mod </a>。</p>
+
+  
+<p>话虽如此，在泄密的世界里，似乎并不是一切都很好。感谢XDA精英公认的开发商<a href="http://forum.xda-developers.com/member.php?u=591147"> Entropy512 </a>，我们已经了解到，大多数接收泄漏的设备在一次闪光后永远不会醒来的风险非常高。原来，泄露的ICS内核中有一个重大错误，影响了eMMC芯片中的<em>/数据</em>分区，这显然是在某些操作(如擦除和闪存)中损坏的。最初认为这只会影响在CWM等自定义恢复中执行的操作。然而，有报道称，<a href="http://forum.xda-developers.com/showpost.php?p=26046849&amp;postcount=140" target="_blank">库存恢复</a>的废料也能生产出坚硬的砖块。受影响的设备有:</p>
+
+
+
+<p>Entropy和其他开发者在网站上发布了一些警告，详细解释了正在发生的事情。我们的建议是，在内核中的错误被完全修复之前，用户应该远离闪存IC的泄漏——当然，除非你正在寻找硬砖你的设备。请记住，这不是可以通过Unbrickable Mod甚至通过JTAG复活的东西，因为这是eMMC的固件错误。这是直接来自熵的，如果你们对细节感兴趣的话:</p>
+
+<blockquote>
+<p><em>危险:许多三星ICS泄漏内核可能会损坏您的设备！</em></p>
+<p>那些关注各种三星设备的人可能已经注意到，当使用ICS泄漏内核时，一些设备会遇到大量的硬砖。这些硬盘尤其令人讨厌，因为JTAG服务的供应商无法复活这些设备，不像简单的引导加载程序损坏硬盘。这是因为这些内核实际上正在设法对eMMC存储设备造成似乎是永久性的损坏。</p>
+<p><em>确认受影响的内核有:</em></p>
+<p><em>[*]所有Epic 4G Touch (SPH-D710) ICS泄漏[*]所有Galaxy Note (GT-N7000) ICS泄漏[*]AT&amp;T Galaxy S II(SGH-I777)ucld 3泄漏-可能还有所有其他[*]韩国SHW-M250S/K/L官方版本和任何从其来源构建的内核</em></p>
+<p><em>应该安全的内核有:</em></p>
+<p><em> [*]GT-I9100 ICS泄漏[*]GT-I9100官方版本[*]基于GT-I9100 Update4源代码库构建的内核</em></p>
+<p><em>运行受影响内核时可能造成损害的操作:</em></p>
+<p><em>在CWM中擦拭(以及可能的任何其他自定义恢复)(已确认)</em></p>
+<p><em>在CWM中恢复Nandroid备份(先擦除)</em></p>
+<p><em>在CWM中刷新另一个固件(大多数刷新先擦除)</em></p>
+<p><em>擦拭库存3e恢复(疑似，也擦拭一个分区)</em></p>
+<p><em>运行受影响内核时删除大文件(疑似但未确认)</em></p>
+<p><em>如果你有一个受影响的内核:</em></p>
+<p>立即使用Odin/Heimdall刷新一个已知良好的内核。不要使用移动Odin、CWM或任何设备上的方法来刷新。已知的好内核包括:</p>
+<p><em>[*]几乎所有的姜饼内核[*]ICS内核都是从GT-I9100 Update4源代码构建的</em></p>
+<p><em>此问题的根本原因尚未确定，但是，XDA众多知名开发人员怀疑这是由于三星在受影响的内核中启用了一项功能MMC _ CAP _ ERASE——这是一项性能功能，可以极大地提高闪存写入性能，但似乎带来了闪存芯片组中的一个缺陷。GT-I9100 ICS内核没有启用此功能，看起来很安全。然而，还没有足够的信息来宣布所有没有这个功能的内核是安全的——唯一能够确认这个问题的根本原因并宣布修复它而不冒很大风险(破坏多个设备而没有办法修复它们)的实体是三星自己。</em></p>
+<p><em>一般来说，除非另行通知，否则如果您正在为GT-I9100以外的任何基于Exynos的设备运行三星ICS泄漏，强烈建议您刷新其他设备。</em></p>
+ </blockquote>
+<p>这也是今天早上在我们的论坛上出现的，由XDA成员<a href="http://forum.xda-developers.com/member.php?u=4194834"> garwynn </a>提供。显然，已经联系了谷歌，他们意识到了这个问题，一名工程师希望能够解决这个问题。</p>
+
+<blockquote>
+<div><em>Well, it's been some time but thankfully Mr. Sumrall from Android did get back to us on our questions. I think the community will find that this was worth the wait.</em><em><strong>Issue: fwrev not set properly.</strong></em><em>As we suspected the bugfix is not in our build. (The patch applies this unconditionally.)</em>
+<div>
+<p><em>报价:</em></p>
+<table border="0" cellspacing="0" cellpadding="6"><tbody><tr><td>
+<p><em>最初由<strong>肯·苏姆拉尔</strong>T3】发布</em></p>
+<p><em>该补丁在mmc.c中包含一行将fwrev设置为cid寄存器的权限位。在此修补程序之前，文件/sys/class/block/mmcblk 0/device/fw rev未从emmc devices rev 4和更高版本的CID初始化，因此显示为零。</em> <em>(第二次查询)</em> <em> fwrev为零，直到应用补丁。</em></p>
+</td></tr></tbody></table>
+</div>
+<em><strong>Question: Revision didn't match the fix</strong></em><em>(Emphasis mine in red as it discusses the superbrick issue.)</em>
+<div>
+<p><em>报价:</em></p>
+<table border="0" cellspacing="0" cellpadding="6"><tbody><tr><td>
+<p><em>最初由<strong>肯·苏姆拉尔</strong>T3】发布</em></p>
+<p><em>你可能有这个错误，<strong> <span>但版本0x19是我们原型设备中的固件的早期版本，但我们发现它有另一个错误，如果你发出mmc擦除命令，它可能会破坏芯片中的数据结构，并导致设备锁定，直到它重新通电。当我们开发ICS时，我们的许多开发人员在进行快速启动擦除用户数据时，我们发现了这一点。</span> </strong> <strong>于是三星修复了问题，转移到固件版本0x25。</strong>是的，0x19是十进制的25是非常令人讨厌的，这在试图诊断emmc固件问题时导致了许多混乱。我终于学会了总是用十六进制来指代emmc版本，并在编号前加上0x，这样才不会混淆。</em> <em>不过，<span>即使0x19可能存在可以将32k字节的0插入flash的bug</span>，也不能在固件版本为0x19的设备上使用这个补丁。该补丁对修订版0x25固件中的两个字节的代码进行了非常具体的黑客攻击，该补丁很可能不会在0x19上工作，并且很可能会导致芯片在最好的情况下出现故障，在最坏的情况下会丢失数据。将此补丁应用到emmc固件的选择标准如此严格是有原因的。</em> <em>几天后，我将我们的结果告诉了大家，并提到文件系统在擦除之前没有损坏。这是对后续行动回应。</em> <em>正如我在之前的帖子中提到的，固件版本0x19有一个错误，在发出擦除命令后，emmc芯片可能会锁定。不是每次，但足够经常了。通常，设备可以在此之后重新启动，但在启动过程中会锁定。很少情况下，它甚至可以在加载快速启动之前锁定。你的测试者不走运。由于你甚至不能启动快速启动，该设备可能是砖。:-(如果他可以运行快速启动，<span>那么该设备可能可以用我拥有的固件更新代码恢复，假设我可以共享它。我去问问。</span> </em></p>
+</td></tr></tbody></table>
+</div>
+<em><strong>Question: Why the /data partition?</strong></em>
+<div>
+<p><em>报价:</em></p>
+<table border="0" cellspacing="0" cellpadding="6"><tbody><tr><td>
+<p><em>原帖由<strong>肯·苏姆拉尔(安卓SE)</strong>T3】</em></p>
+<p><em>因为/data是芯片经历最多写入活动的地方。从不写入/system(除非在系统更新期间),并且很少使用/cache(主要用于接收OTA)。</em></p>
+</td></tr></tbody></table>
+</div>
+<em><strong>Question: Why JTAG won't work?</strong></em>
+<div>
+<p><em>报价:</em></p>
+<table border="0" cellspacing="0" cellpadding="6"><tbody><tr><td>
+<p><em>最初由<strong>肯·苏姆拉尔</strong>T3】发布</em></p>
+<p><em>正如我上面提到的，修订版0x19固件有一个缺陷，在emmc擦除命令后，它可能会使emmc芯片的内部数据结构处于不良状态，导致芯片在访问特定扇区时被锁定。<span>唯一的解决办法是擦除芯片，并更新固件。我有这样做的代码，但我不知道是否可以共享。我去问问。</span>T3】</em></p>
+</td></tr></tbody></table>
+</div>
+<em><strong>Question: Can a corrupted file system be repaired (on the eMMC)?</strong></em>
+<div>
+<p><em>报价:</em></p>
+<table border="0" cellspacing="0" cellpadding="6"><tbody><tr><td>
+<p><em>最初由<strong>肯·苏姆拉尔</strong>T3】发布</em></p>
+<p>e2fsck可以修复文件系统，但通常在块组的开头插入32千字节，这会擦除许多信息节点，因此运行e2fsck通常会导致许多文件丢失。</p>
+</td></tr></tbody></table>
+</div>
+<em>So, while the fix doesn't apply to us at the moment, we've been given a great insight into the superbrick issue as well as information that a fix <strong>is</strong> already developed (hopefully we'll see it released!). The bug likely applies to us and assuming the fix for the 0x19 firmware is given then it would apply to our devices.</em><em>On a lighter note, I wanted to include his close:</em>
+<div>
+<p><em>报价:</em></p>
+<table border="0" cellspacing="0" cellpadding="6"><tbody><tr><td>
+<p><em>最初由<strong>肯·苏姆拉尔</strong>T3】发布</em></p>
+<p>你将一瞥Android内核开发人员激动人心的生活。:-)事实证明，这项工作主要是与有缺陷的硬件进行斗争。至少，有时候看起来是这样。</p>
+</td></tr></tbody></table>
+</div>
+</div>
+<p/>
+<p>在问题解决之前，请不要在您的设备上闪烁任何IC。</p>
+ </blockquote>
+<p>想在门户网站上发表什么吗？联系任何新闻记者。</p>
+
+<p>感谢您的辛勤工作！！！！]</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

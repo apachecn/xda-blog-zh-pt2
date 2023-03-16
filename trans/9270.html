@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>How to build LineageOS on Windows 10 using WSL 2</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何使用WSL 2在Windows 10上构建LineageOS</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-build-lineageos-on-windows-10-using-wsl-2/#0001-01-01">https://www.xda-developers.com/how-to-build-lineageos-on-windows-10-using-wsl-2/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>用于Linux的第二代Windows子系统，通常被称为<strong> WSL 2 </strong>，在微软的Build 2019开发者大会期间<a href="https://www.xda-developers.com/microsoft-announces-windows-terminal/">宣布</a>。与<a href="https://www.xda-developers.com/microsoft-announces-important-features-at-build-2017/">遗留的WSL实现</a>相比，由于主要的架构重写，WSL 2在文件系统繁重的操作上表现得更好。Windows 10最新的稳定通道构建，即<a href="https://www.xda-developers.com/microsoft-windows-10-may-2020-update-wsl-2-revamped-cortana-assistant-your-phone-calls-arm-devices/">Windows 10 2020年5月更新</a>，使WSL 2可供所有用户使用。使用WSL 2，Windows用户可以很容易地从零开始编译AOSP或定制rom，如LineageOS，而无需安装一个完整的GNU/Linux发行版。</p>
+
+  
+<p>这不是我们第一次<a href="https://www.xda-developers.com/build-lineageos-windows-10/">强调</a><a href="https://www.xda-developers.com/build-lineageos-16-windows-10-pc/">使用WSL在Windows </a>上构建LineageOS的可能性，但是现在情况有点不同了。第一个稳定版本的<a href="https://www.xda-developers.com/microsoft-releases-windows-terminal-1-0-package-manager-announces-linux-gui-app-support-gpu-acceleration-subsystem-linux-wsl-2/"> Windows终端</a>已经发布，CLI爱好者现在可以原生获得GPU加速的文本渲染、自定义键绑定、带有自定义配色方案的选项卡式外壳以及许多其他有用的功能。鉴于您可以像终端中的另一个选项卡一样直接调用WSL，Windows 10的用户可以在编译LineageOS时应用不同的配置和快捷方式(就像预配置的Linux环境一样)。</p>
+
+<p>XDA资深成员/LineageOS团队成员<a href="https://forum.xda-developers.com/member.php?u=7350242"> Uldiniad </a>已经<a href="https://forum.xda-developers.com/showpost.php?p=82684345">更新了他的论坛帖子</a>关于如何在使用WSL 2的Windows 10 PC上编译基于Android 10的最新版本LineageOS、<a href="https://www.xda-developers.com/lineageos-17-1-android-10-officially-available/"> LineageOS 17.1 </a>。在尝试执行本地构建之前，确保你有足够的免费存储空间和无限制的互联网计划。例如，考虑到同步的源代码以及构建输出，Uldiniad为<a href="https://forum.xda-developers.com/oneplus-6"> OnePlus 6 </a>(代号“enchilada”)编译一个干净的LineageOS 17.1构建需要大约340GB的存储空间。</p>
+
+<p>如果你的PC满足从源代码构建Android的<a href="https://source.android.com/setup/build/requirements#hardware-requirements">硬件要求</a>，那么按照以下步骤在Windows 10中设置一个WSL 2构建环境，并编译LineageOS 17.1:</p>
+
+<ol> <li>打开<a href="https://aka.ms/wslstore">微软商店</a></li> <li>搜索并安装Ubuntu应用程序</li> <li>打开应用程序，按照首次设置步骤进行操作</li> <li>更新软件包并安装以下软件<pre> <code class="hljs xml">sudo apt <span class="hljs-keyword">update</span> &amp;&amp; sudo apt <span class="hljs-keyword">full</span>-<span class="hljs-keyword">upgrade</span> -y &amp;&amp; sudo apt <span class="hljs-keyword">install</span> -y <span class="hljs-keyword">build</span>-essential ccache libncurses5 libssl-dev m4 unzip zip</code> </pre></li> <li>为源代码创建一个目录(并转到该目录):<pre> <code class="hljs xml">mkdir -p ~<span class="hljs-regexp">/android/</span>lineage &amp;&amp; cd android/lineage</code> </pre></li> <li>初始化LineageOS源存储库:<pre> <code class="hljs javascript">repo init -u https:</code> </pre></li> <li>同步信号源:<pre> <code class="hljs ">repo sync</code> </pre></li> <li><a href="https://wiki.lineageos.org/devices/klte/build#turn-on-caching-to-speed-up-build">打开缓存</a>加速构建。这一步是可选的，但是建议在后续的构建中使用。</li> <li>运行<pre> <code class="hljs bash"><span class="hljs-built_in">source</span> build/envsetup.sh</code> </pre></li> <li>准备设备专用代码:<pre> <code class="hljs ">breakfast your_device_codename</code> </pre></li> <li>将以下内容添加到<code>.repo/local_manifests/roomservice.xml</code> : <pre> <code class="hljs javascript"><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"TheMuppets/proprietary_vendor_your device brand"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"vendor/your device brand"</span> <span class="hljs-attr">remote</span>=<span class="hljs-string">"github"</span> /&gt;</span></code> </pre></li> <li>再次同步信号源:<pre> <code class="hljs ">repo sync</code> </pre></li> <li>开始构建:<pre> <code class="hljs ">brunch your_device_codename</code> </pre></li> </ol>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/android/software-hacking/guide-how-to-build-lineageos-15-1-t3750175">用WSL 2在Windows 10上构建linegeos 17.1——XDA讨论线程</a> </strong></p>
+
+<p>根据Uldiniad的说法，他的AMD锐龙9 3950X驱动的PC(完整规格可在此处找到<a href="https://pcpartpicker.com/user/Uldiniad/saved/FdQ8K8"/>)花了22分钟来编译上述填充了ccache的LineageOS 17.1构建。</p>
+
+<hr/>
+
+<p>你认为你的电脑足够强大来处理编译工作吗？请在下面的评论中告诉我们你在WSL上使用LineageOS的体验！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

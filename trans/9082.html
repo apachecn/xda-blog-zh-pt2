@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Bootloader unlock legacy ZTE phones with Qualcomm SoCs</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Bootloader解锁高通SOC的传统中兴手机</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/unlock-bootloader-zte-phones/#0001-01-01">https://www.xda-developers.com/unlock-bootloader-zte-phones/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">几十部带有高通处理器的旧中兴手机现在可以解锁引导程序了</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">你现在可以通过利用不安全的EDL模式来解锁几款高通骁龙供电的传统中兴手机的引导程序。继续阅读，了解更多信息！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>典型的高通骁龙芯片组驱动的Android设备的常规引导序列是由<strong> P </strong>主<strong>B</strong>oot<strong>l</strong>loader(PBL)启动的，尽管存在一种称为<strong>E</strong>emergency<strong>D</strong>own<strong>l</strong>oad Mode(EDL)的替代引导模式。后者严格用于OEM服务，可用于通过名为“Firehose”的协议使用适当的软件二进制文件<a href="https://www.xda-developers.com/oneplus-8-unbrick-tool-msmdownloadtool-edl-available/">“解锁”设备</a>。有趣的是，EDL经常被修补者用来获得低级别的分区访问，这可以被进一步利用来<a href="https://www.xda-developers.com/bootloader-unlock-method-has-been-found-for-the-sprint-oneplus-7-pro-5g/">在一些设备上实现引导加载程序解锁</a>。基于这一原理以及Aleph安全团队之前所做的研究工作，XDA资深成员<a href="https://forum.xda-developers.com/member.php?u=10365003"> alexenferman </a>现在发现了一种通用的方法来解锁一批中兴手机的bootloader，而不会丢失任何数据。</p>
+
+  
+<p>中兴显然使用“devinfo”分区来存储关键的引导程序状态参数，包括锁定/解锁状态。由于Firehose协议提供了读取各个分区的内容，因此可以从锁定引导加载程序的设备中转储“devinfo”分区，更改存储解锁参数的偏移量，并将修改后的映像写回设备以解锁引导加载程序。<a href="https://www.xda-developers.com/xiaomi-edl-unbrick-authorized-mi-accounts/">与小米</a>和其他一些原始设备制造商不同，中兴甚至没有在EDL模式之前设置防范此类“攻击”的保护措施，因此您可以通过一个简单的ADB命令轻松触发设备启动到紧急下载模式。唯一的问题是，这种方法无法在使用Android 8.0 Oreo或更新版本的中兴手机上运行，也无法在像<a href="https://www.xda-developers.com/zte-axon-9-pro-specs-renders-pricing-availability/"> Axon 9 Pro </a>、<a href="https://forum.xda-developers.com/axon-10-pro"> Axon 10 Pro </a>、<a href="https://forum.xda-developers.com/axon-m"> Axon M </a>等旗舰设备上运行。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/zte_bootloader_devinfo_qfil.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Dumping the 'devinfo' partition using QFIL&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/zte_bootloader_devinfo_qfil.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/zte_bootloader_devinfo_qfil.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/zte_bootloader_devinfo_qfil.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/zte_bootloader_devinfo_qfil.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="zte_bootloader_unlock_devinfo_qfil" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/zte_bootloader_devinfo_qfil.jpg" src="../Images/6dd114a63b9cf98ace759d526553b169.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/zte_bootloader_devinfo_qfil.jpg"/> </picture> <figcaption class="body-img-caption">Dumping the 'devinfo' partition using QFIL</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>根据XDA公认的开发商<a href="https://forum.xda-developers.com/member.php?u=4222965"> deadman96385 </a>的说法，该方法适用于以下设备:</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_4"><h3 id="devices-with-msm8909-qualcomm-snapdragon-210-soc">采用MSM8909(高通骁龙210) SoC的设备</h3><ul> <li>中兴Avid 4 (Z855)(代号:calbee)</li> <li>中兴Maven 2 (Z831)(代号:chapel)</li> <li>中兴Maven 3 (Z835)(代号:draco)</li> <li>中兴至尊Pro Plus (Z899VL)(代号:elden)</li> <li>不知名的中兴通讯(代号:福布斯)</li> <li>中兴ZMAX One (Z719DL)(代号:gemi)</li> <li>中兴时间X (N9137)(代号:grayjoylite)</li> <li>中兴Grand X View 2 (K81)(代号:helen)</li> <li>中兴序曲3 (Z851)(代号:杰夫)</li> <li>中兴Fanfare 3 (Z852)(代号:kelly)</li> <li>中兴ZFive G LTE (Z557BL)(代号:lewis)</li> <li>中兴ZFive C (Z558VL)(代号:loft)</li> <li>未知的中兴(代号:避难所)</li> <li>中兴N818S(代号:蓝宝石/蓝宝石4G)</li> <li>中兴Blade Vantage (Z839)(代号:sweet)</li> </ul> </div></section>
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_5"><h3 id="devices-with-msm8952-qualcomm-snapdragon-617-soc">采用MSM8952(高通骁龙617) SoC的设备</h3><ul> <li>安卓5.1.1<ul> <li>中兴Grand X Max 2 (Z988)(代号:jerry)</li> <li>中兴帝国Max (Z963U)(代码-名称:lily)</li> <li>中兴Max Duo LTE (Z963VL)(代号:nancy)</li> <li>中兴Axon Max (C2016)(代号:兰花)</li> <li>中兴Max Duo LTE (Z962BL)(代号:tom)</li> </ul> </li> <li>安卓6.0.1<ul> <li>中兴ZPAD (K90U)(代号:gevjon)</li> <li>中兴美国电话电报公司迷航2 (K88)(代号:茉莉)</li> <li>中兴Grand X Max 2 (Z988)(代号:jerry)</li> <li>中兴Axon Max (C2016)(代号:兰花)</li> <li>中兴ZMAX Pro (Z981)(代号:urd)</li> </ul> </li> <li>安卓7.1.1<ul> <li>中兴美国电话电报公司迷航2 (K88)(代号:茉莉)</li> <li><a href="https://forum.xda-developers.com/axon-7-mini">中兴Axon 7 Mini </a> (B2017G)(代号:郁金香)</li> </ul> </li> </ul> </div></section>
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_6"><h3 id="devices-with-msm8920-msm8937-msm8940-msm8953-qualcomm-snapdragon-427-430-435-625-socs">采用MSM 8920/MSM 8937/MSM 8940/MSM 8953(高通骁龙427/430/435/625)SOC的设备</h3><ul> <li>中兴Blade Force/中兴Warp 8 (N9517)(代号:Warp 8)</li> <li>中兴大X4 (Z956/Z957)(代号:finacier)</li> <li>中兴Blade Spark (Z971)(代号:牡丹)</li> <li>中兴Blade X (Z965)(代号:脯氨酸)</li> <li>中兴Max XL/中兴Bolton (N9560)(代号:Bolton)</li> <li>中兴Blade Z Max (Z982)(代号:crocus)</li> <li>不知名的中兴(代号:火焰)</li> <li>中兴Blade X Max (Z983)(代号:stollen)</li> <li>中兴Blade Max View (Z610DL)(代号:紫罗兰)</li> <li>中兴Max Blue LTE (Z986DL)(代号:花店)</li> <li>中兴通讯美国电话电报公司prime time(K92)(代号:primerose)</li> </ul> </div></section>
+<p>此外，中兴Avid 4、中兴Tempo X、中兴Imperial Max和中兴Grand X View 2也应与此程序兼容。感兴趣的用户应该看看<a href="https://forum.xda-developers.com/member.php?u=4222965"> deadman96385 </a>的<a href="https://github.com/programmer-collection/zte">非官方中兴通讯消防水带回购</a>并在摆弄他们的设备之前挑选合适的程序员。一步一步的引导加载程序解锁过程可以在下面链接的线程中找到。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/android/software/bootloader-unlocking-qualcomm-zte-t4100897">高通中兴设备上Bootloader解锁— XDA讨论线程</a> </strong></p>
+
+<p> </p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

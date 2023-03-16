@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Google releases Android Studio 4.0 stable with new developer features</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌发布Android Studio 4.0稳定版，新增开发者功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-android-studio-4-0-stable-release/#0001-01-01">https://www.xda-developers.com/google-android-studio-4-0-stable-release/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>仿佛就在昨天(如果昨天是二月的话),<a href="https://www.xda-developers.com/android-studio-3-6-stable-release/"> Android Studio 3.6发布了</a>,提供了许多有用的补充和必要的修复。现在，一天(三个月)后，谷歌已经将Android Studio 4.0推向稳定，增加了更多有用的功能和必要的修复。请继续阅读，了解更多新内容。</p>
+
+  
+
+
+
+<h2 id="motion-editor">运动编辑器</h2>
+<p>我们要讨论的第一个特性是运动编辑器。近几年来，<a href="https://www.xda-developers.com/googles-androidx-aosp/"> AndroidX </a>拥有了一个名为MotionLayout的ConstraintLayout子类。MotionLayout的目的是帮助您更轻松地在布局状态之间制作动画。唯一的问题是，您必须自己用XML创建转换。在Android Studio 4.0中，有一个新的运动编辑器界面，让您可以在MotionLayout中可视化地创建和编辑过渡和动画。不管怎样，所有这些都以一个XML文件结束，但是您不再需要自己写出来。</p>
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="new-layout-inspector">新布局检查器</h2>
+<p>Android Studio有一个非常有用的工具是布局检查器。在可调试的应用程序上，它让你确切地看到你的应用程序是如何在屏幕上布局的，以及它们的各种属性。在Android Studio 4.0中，新的和改进的布局检查器扩展了旧版本。虽然您仍然可以使用它进行简单的视图树检查，但它现在包括了像实时刷新这样的功能。与至少运行Android 10的设备配对，你可以获得更多功能，如更详细的视图属性和屏幕上的3D显示。</p>
+
+
+<p class="ad-even"> </p>
+
+
+<h2 id="layout-validation">布局验证</h2>
+<p>可以说，设计一个应用程序最困难的方面之一是创建布局。您可能会使用Android Studio中的内置预览创建一个布局，但在实际的手机或平板电脑上看起来很糟糕。虽然可以在预览中切换不同的屏幕尺寸和分辨率，但这可能会很麻烦。如果这是困扰你的事情，你很幸运！Android Studio 4.0增加了布局验证视图，让你一次看到你的布局在各种不同的屏幕尺寸和分辨率下会是什么样子。</p>
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="java-8-desugaring-for-all-apis">所有API的Java 8去糖</h2>
+<p>为Android开发的另一个恼人的部分是试图使用Java 8的特性。也许你找到了一些实现流的代码，或者你想使用lambda函数。也许你甚至需要一个不切实际的Java 8 API。一段时间以来，Android Gradle插件已经能够将一些Java 8功能编译到旧的API，但从Android Studio 4.0开始，所有Java 8功能现在都应该得到支持。</p>
+
+<hr/>
+
+<p>这个列表远非详尽无遗。这些只是Android Studio 4.0中一些更有趣的新增功能。以下是由Google提供的最新版本中引入的主要新增强功能和特性的摘要:</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_15"><h2 id="android-studio-4-0-changelog-overview">Android Studio 4.0变更日志概述</h2><p><strong>设计</strong></p><ul> <li>运动编辑器:创建、编辑和预览<code>MotionLayout</code>动画的简单界面</li> <li>升级的布局检查器:实时和更直观的调试体验</li> <li>布局验证:跨多个屏幕维度比较您的用户界面</li> </ul><p><strong>开发&amp;简介</strong></p><ul> <li>CPU Profiler更新:改进使用户界面导航更直观，数据更容易理解</li> <li>R8规则更新:代码收缩器规则的智能编辑器功能，如语法突出显示、完成和错误检查</li> <li>IntelliJ IDEA 2019.3平台更新，提高了性能和质量</li> <li>实时模板更新:为您的Kotlin代码提供Android专用的实时模板</li> <li>cland支持:默认情况下打开cland和Clang-Tidy</li> </ul><p><strong>建造</strong></p><ul> <li>构建分析器:理解并解决构建中的瓶颈</li> <li>Java 8语言支持更新:无论应用程序的最低API级别如何，您都可以使用API</li> <li>特性对特性的依赖性:定义动态特性模块之间的依赖性</li> <li>buildFeatures DSL:启用或禁用离散的构建功能，如数据绑定</li> <li>Kotlin DSL:对Kotlin DSL脚本文件的基本支持</li> </ul> </div></section>
+<p>如果你想了解关于这次更新的更多信息，请务必<a href="https://android-developers.googleblog.com/2020/05/android-studio-4.html.">查看谷歌的博客文章</a>和<a href="http://d.android.com/studio/releases#4-0-0">的发布说明</a>以了解全部细节，或者观看下面嵌入的视频以获得可视化概述。</p>
+
+ 
+<p class="w-rich w-youtube" id="f1fHPqAYj5I">  </p>
+
+</div>
+
+
+</div>    
+</body>
+</html>

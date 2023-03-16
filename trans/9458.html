@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>UBports GSI brings Ubuntu Touch to any Project Treble-supported Android device</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>UBports GSI将Ubuntu Touch带到任何支持Treble的Android设备上</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/ubports-gsi-brings-ubuntu-touch-to-any-project-treble-supported-android-device/#0001-01-01">https://www.xda-developers.com/ubports-gsi-brings-ubuntu-touch-to-any-project-treble-supported-android-device/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在兼容的Android设备上启动AOSP通用系统映像(GSI)的能力是T2项目的最佳成果之一，但是在通用内核开发领域还没有类似的成就。谷歌确实要求每个新版本的Android都有一个<a href="https://www.xda-developers.com/google-mandating-linux-kernel-versions-android-oreo/">最低Linux内核版本要求</a>，但你仍然不能简单地在你的Android智能手机上闪存一个通用的ARM Linux发行版并期望它能工作，因为事实上大多数Android设备都没有使用主流的Linux内核。有一个名为<a href="https://www.xda-developers.com/ubuntu-to-show-off-community-ports-on-oneplus-one-sony-xperia-z1-at-mwc-2016/"> UBports </a>的社区驱动项目，旨在将Ubuntu Touch(流行的Ubuntu Linux发行版的移动版本)引入Android设备，但<a href="https://devices.ubuntu-touch.io/">他们的设备支持</a>迄今为止相当少。</p>
+
+  
+<p>然而，XDA公认的开发商erfanoabdi正试图从一个不同的角度解决这个问题。开发人员没有等待特定于设备的补丁在<a href="https://github.com/torvalds/linux">主线Linux内核源代码树</a>中登陆，而是成功地创建了一个GSI风格、平台无关的Ubuntu Touch映像，可以安装在任何Project Treble兼容设备上。</p>
+
+<p>听起来很熟悉？嗯，<a href="https://forum.xda-developers.com/member.php?u=6298645"> erfanoabdi </a>就是几个月前成功<a href="https://www.xda-developers.com/developer-ports-ubuntu-touch-to-the-xiaomi-redmi-note-7/">将Ubuntu Touch移植到小米红米Note 7 </a>的人。与最初版本不同，目前的GSI(仍然基于Ubuntu 16.04 LTS版)几乎是日常驱动的材料。得益于内置的<a href="https://www.xda-developers.com/anbox-allows-you-to-run-android-apps-on-any-gnulinux-os/"> Anbox </a>环境，你可以收发电话，连接蓝牙外设，使用GPS，甚至运行Android应用程序。</p>
+
+
+
+
+
+
+<h2 id="is-my-device-compatible-with-the-ubuntu-touch-gsi">我的设备与Ubuntu Touch GSI兼容吗？</h2>
+<p>大概是的。该GSI的底层供应商界面是针对基于Android 9 Pie的固件进行测试的，尽管GSI也可以在基于Android 8.0和8.1的旧供应商映像上工作。此外，您需要修补股票内核，使其与<a href="https://www.xda-developers.com/halium-is-an-open-source-project-working-towards-a-common-base-for-non-android-mobile-operating-systems/"> Project Halium </a>兼容。这部分有点复杂，因为目前还没有办法即时修补Android设备的现有启动映像。您可以从源代码构建halium-boot，也可以通过在内核源代码上手动应用适当的补丁来编译您的普通内核的独立修改版本。点击了解更多<a href="https://github.com/ubports/porting-notes/wiki/Generic-system-image-(GSI)#how-to-build-patched-kernel-or-halium-boot">。</a></p>
+
+<p>一旦你完成了补丁部分，你应该可以像其他安卓GSI一样安装Ubuntu Touch GSI了。刷新过程将要求您格式化您的数据分区，因此请提前执行备份。</p>
+
+<p/><p><strong> Ubuntu Touch (UBports) GSI: <a href="https://build.lolinet.com/file/halium/GSI/">下载</a>| |<a href="https://forum.xda-developers.com/project-treble/trebleenabled-device-development/gsi-ubuntu-touch-ubports-t4110581">XDA讨论线程</a> </strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

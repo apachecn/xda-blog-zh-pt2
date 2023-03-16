@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Files by Google tests a "Safe Folder" that protects files with a 4-digit PIN</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌文件测试了一个“安全文件夹”,它用一个4位数的PIN码来保护文件</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/files-by-google-safe-folder-protect-files-4-digit-pin/#0001-01-01">https://www.xda-developers.com/files-by-google-safe-folder-protect-files-4-digit-pin/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">谷歌1.0.315的文件测试了一个“安全文件夹”,它用一个4位数的PIN码隐藏和保护文件</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">谷歌1.0.3版的文件揭示了一个“安全文件夹”的工作，它将隐藏和保护你的私人文件，带有一个4位数的PIN。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>谷歌文件是一个文件管理应用程序，已经成为谷歌像素设备在Android 11上的默认文件管理器，因为AOSP文件应用程序现在只能从存储设置中访问。APK的最新版本最近开始推出，它也被上传到<a href="https://www.apkmirror.com/apk/google-inc/files-go/files-go-1-0-315758190-release/"> APKMirror </a>。版本1.0.315揭示了一个新的“安全文件夹”功能的工作，该功能将允许您使用4位PIN隐藏和加密文件。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>今天早些时候，<a href="https://9to5google.com/2020/06/12/files-by-google-safe-folder/"> <em> 9to5Google </em> </a>首次发现了该功能的字符串，但我们已经通过Google应用程序在文件中完全启用了该功能。它的工作原理很简单:一个新的“安全文件夹”按钮出现在“浏览”标签的“收藏”部分。当你点击安全文件夹时，你会被要求设置一个4位密码。一旦您设置了PIN，它会警告您，如果您忘记了PIN，将无法再次打开安全文件夹。设置PIN后，您可以移动文件，方法是选择一个或多个文件，然后在菜单中选择“移动到安全文件夹”。</p>
+
+
+
+
+
+<p>在引擎盖下，文件存储在一个名为。FilesByGoogle位于外部存储的根目录下(位于/data/media/{user})。由于有了一个<a href="https://www.xda-developers.com/keep-those-pesky-data-folders-out-of-the-gallery-with-gallery-excluder-for-android/">，这个文件夹的内容对其他应用程序是隐藏的。目录中的nomedia文件</a>。文件本身似乎是加密的，所以如果你忘记了你的密码，确实没有办法恢复它们。如果通过Google app卸载文件，安全文件夹的内容不会被删除。然而，当你重新安装谷歌文件时，它将无法再次读取旧的安全文件夹内容。您可以使用相同(或不同)的PIN设置新的安全文件夹，所有移动到安全文件夹的新文件也将保存在。FilesByGoogle目录。</p>
+
+<p>在最新版本的谷歌应用程序文件中，用户还不能使用该功能。然而，一旦它推出，我们会让你知道。</p>
+
+ 
+
+
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

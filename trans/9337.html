@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Google Play Console, Android Studio, Kotlin, and Jetpack get new features</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Google Play控制台、Android Studio、Kotlin和Jetpack获得新功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-redesigning-play-console-new-features-android-studio-kotlin-jetpack/#0001-01-01">https://www.xda-developers.com/google-redesigning-play-console-new-features-android-studio-kotlin-jetpack/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android 11测试版可能刚刚发布，但如果你是一名开发人员，还有更多值得兴奋的事情。随着Android 11的推出，谷歌为开发者推出了一系列好东西，包括新的Google Play控制台设计，新版本的Android Studio，以及一系列AndroidX和Kotlin更新。</p>
+
+ 
+<h2 id="google-play-console-redesign">Google Play控制台重新设计</h2>
+<p>首先，我们来谈谈新的Google Play主机。自从引入新的材料设计准则以来，谷歌一直(慢慢地)更新其各种应用程序和网站，以适应新的设计语言，最终包括Play控制台。在设计更新的基础上，事情已经重新组织了一点。谷歌表示，有一个新的用户管理系统来帮助你处理你邀请到你的控制台帐户的人，以及一些其他功能来“帮助你在Google Play上茁壮成长”。</p>
+
+<p>你可以在下面看到一些新设计的截图。</p>
+
+
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="android-studio-4-1-and-4-2">Android Studio 4.1和4.2</h2>
+<p>下一个新事物是Android Studio。谷歌发布了两个新版本:4.1测试版和4.2加那利版。这些版本中有大量的新特性，所以我们只讨论一些更有趣的特性。</p>
+
+<p>如果你做过很多开发(或修补)，你可能知道无线ADB。ADB的这一功能允许您使用IP地址而不是电缆连接到您的设备。不幸的是，它很难被启用。你要么需要摆弄正常的ADB，要么有一个根设备。嗯，有了Android Studio 4.2，你需要的只是一台运行Android 11或更高版本的设备，你马上就能运行无线ADB。</p>
+
+<p>Android模拟器现在是Android Studio的一部分。在撰写本文时，还不清楚这意味着什么，但谷歌表示，它将实现更快、更集成的自动化测试。</p>
+
+<p>最后(对于这个子列表)，运行Android 11或更高版本的设备的应用构建应该更快。</p>
+
+<p>下图显示了两个版本中的新功能。</p>
+
+
+<p class="ad-even"> </p>
+
+
+<h2 id="kotlin-and-androidx">科特林和安卓</h2>
+<p>现在我们来谈谈<a href="https://www.xda-developers.com/tag/kotlin/">科特林</a>和<a href="https://www.xda-developers.com/android-jetpack-components-kotlin-android-studio-3-2/">安卓克斯</a>。Kotlin可能已经成为Android开发中最流行的语言。它比Java更简洁，有各种助手方法，支持扩展功能，还有很多其他的功能，使它比Java更容易使用。由于所有这些优势，Google官方推荐Kotlin作为Android开发使用的语言。</p>
+
+<p>首先，Kotlin本身有一些新功能。Android Studio现在支持Kotlin 1.4，它带来了一大堆新东西。1.4的主要特性之一是Kotlin接口的SAM转换。一段时间以来，Kotlin已经自动将单方法Java接口转换为lambdas，以获得更好的可读性。然而，这种转换不适用于在Kotlin中声明的接口；在1.3中，即使只有一个单一方法的Kotlin接口，您也必须写出整个实现。在Kotlin 1.4中，这不再是必要的。只需用<code>fun</code>修饰符标记你的单方法Kotlin接口，你就能以lambda的形式使用它们。</p>
+
+<p>你可以在这里和这里阅读更多关于科特林1.4 <a href="https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-4-m1-released/">的内容。</a></p>
+
+<p>然而，这还不是全部。Kotlin有一个强大的特性，叫做协程。协同程序类似于Android的<a href="https://www.xda-developers.com/asynctask-deprecate-android-11/">现在已经废弃的AsyncTask </a>，但是有更多的特性，更好的语法，更容易阅读。三个AndroidX库，Lifecycle、WorkManager和Room，现在都支持Kotlin的协同程序，这使得在使用这些库时更容易处理异步逻辑。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="jetpack-compose">Jetpack复合</h2>
+<p>如果你错过了谷歌发布的各种公告，Jetpack Compose是一种在原生Android项目中设计布局的新方法。Compose不是命令式的XML布局设计，而是一个完全用Kotlin编写的声明性框架。它的第一个开发者预览版已经有一段时间了，但是从今天开始，你将可以试用它的第二个开发者预览版。这个版本中有许多新功能，包括:</p>
+
+<ul> <li>与原生Android视图的互操作性</li> <li>动画片</li> <li>基于适配器的列表</li> <li>布局更改的实时预览(以前需要重建项目)</li> <li>代码完成</li> </ul>
+
+<p>谷歌希望在今年夏天的某个时候发布Compose的alpha版本，完整版本预计在2021年的某个时候发布。</p>
+
+<hr/>
+
+<p>这就是我们今天的全部！并非所有的新东西都在这篇文章中，所以请务必查看谷歌的官方声明以了解更多细节。你可以在【YouTube播放列表中看到谷歌刚刚发布的所有12场演讲，在谷歌的“【Android 11周”期间每周了解新的开发者内容，并在<a href="http://d.android.com/android11/meetups">在线Android 11社区聚会</a>期间相互学习。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

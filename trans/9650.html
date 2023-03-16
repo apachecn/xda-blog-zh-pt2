@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Processor Temperature Results for Tens of SoCs -- How Hot is Your Chip?</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>数十个SOC的处理器温度结果-您的芯片有多热？</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/processor-temperature-results-for-tens-of-socs-how-hot-is-your-chip/#0001-01-01">https://www.xda-developers.com/processor-temperature-results-for-tens-of-socs-how-hot-is-your-chip/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Testbird，一家我们之前谈过的公司<a href="http://www.xda-developers.com/the-state-of-android-gaming-takeaways/"/>，联系我们分享了一些他们在广泛的兼容性测试中收集的关于处理器的有趣数据。至少可以说，他们分享的一些结果非常令人惊讶。</p>
+
+  
+<p>首先，数据显示了该公司用于兼容性测试的来自不同制造商的各种芯片组的最高和平均温度。测试是该公司的例行程序，只有测试应用程序和监控应用程序安装在装有最新官方操作系统更新的库存设备上。除了设备自带的常规膨胀软件之外，设备上没有安装其他应用程序，因此数据可以与安装的用户应用程序的一个变量进行比较。测试是在多达300台设备上针对各种各样的客户端应用程序进行的，因此获得的数据非常全面，是人们可以预期的良好指标。</p>
+
+<p>大部分测试进行了一个小时，因为游戏测试的各个方面，如启动，登录，关闭等；因此，我们预计这些设备将在更长的时间内以接近最高性能的状态运行。为了进一步减少变量，应用程序(游戏加监控服务)正常安装，并以系统和统一的方式在所有设备上运行。事不宜迟，看看数据吧！</p>
+
+<p>首先是不同制造商记录的最高温度表，以及制造商芯片组记录的所有温度的平均值。</p>
+
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p><b>制造商</b></p> </th><th><p><b>平均CPU温度(摄氏度)</b></p> </th><th><p><b> Max。CPU温度(摄氏度)</b></p> </th><th><p><b>具有最高CPU温度的芯片组</b></p> </th> </tr></thead><tbody><tr><td><p>联发科</p> </td><td><p>31.22</p> </td><td><p>50.01</p> </td><td><p>MT6595</p> </td> </tr><tr><td><p>高通公司</p> </td><td><p>33.14</p> </td><td><p>63.88</p> </td><td><p>MSM8225Q</p> </td> </tr><tr><td><p>三星电子</p> </td><td><p>36.21</p> </td><td><p>50.71</p> </td><td><p>Exynos 4210</p> </td> </tr><tr><td><p>感觉到了吗</p> </td><td><p>32.49</p> </td><td><p>51.56</p> </td><td><p>K3V2</p> </td> </tr><tr><td><p>马韦尔</p> </td><td><p>35.3</p> </td><td><p>61.65</p> </td><td><p>PXA1088</p> </td> </tr><tr><td><p>美国英特尔公司(财富500强公司之一ˌ以生产CPU芯片著称)</p> </td><td><p>38.01</p> </td><td><p>51.03</p> </td><td><p>Atom Z2560</p> </td> </tr><tr><td><p>展讯</p> </td><td><p>35.26</p> </td><td><p>51.86</p> </td><td><p>SC8825</p> </td> </tr></tbody> </table> </div>
+<p>正如你所看到的，作为制造商之间的比较，高通的MSM8225Q，也就是通常所说的骁龙200，是最热的SoC。骁龙200是一款四核处理器，配有4个Cortex A5内核，主频为1.4 GHz，主要出现在低端设备上，如<a href="http://www.gsmarena.com/samsung_galaxy_win_i8550-5392.php">三星Galaxy Win </a>或<a href="http://www.gsmarena.com/htc_desire_500-5623.php"> HTC Desire 500 </a>。MSM8225Q的平均温度为32.77°C，因此这些迹象表明，具有这种SoC的设备达到了如此高的温度，然后被严重抑制。</p>
+
+<p>Exynos 4210是三星“最差”的散热性能，拥有2个1.2GHz的Cortex A9内核，可以在<a href="http://www.gsmarena.com/samsung_i9100_galaxy_s_ii-3621.php">三星Galaxy S2 </a>和<a href="http://www.gsmarena.com/samsung_p6200_galaxy_tab_7_0_plus-4208.php">三星Galaxy Tab 7.0 Plus </a>等设备中找到。SoC平均值为36.21°C，这令人惊讶，因为更常见的Exynos 4210设备从来不知道会非常热，也没有报告过激进的热节流。</p>
+
+<p>与我们共享的综合表格的其余部分如下:</p>
+
+<p>https://docs.google.com/spreadsheets/d/1xXL4yJhk35kK5CANb8fF7WykIErivNUuVUiYfQ6xV9g/pubhtml?gid=1722649135&amp;single=true&amp;widget=true&amp;headers=false</p>
+
+<p>需要注意的重要一点是，数据是在一年的时间内从所有测试活动中收集的。自然，这就排除了一年前还没有手机发布的最近的SoC，如Snapdragon 810。骁龙801确实出现在表中，因为它是MSM8974系列SoC的通用名称。此外，提到的温度是SoC在任务期间的温度，并不一定反映物理设备的散热效率。所以同样的SoC在不同的住房条件下会有不同的结果。</p>
+
+<p>尽管如此，该测试确实提供了一些我们作为普通消费者无法收集的数据。有趣的是，许多SoC会产生相当多的热量。所有最高温度的平均值为45.108摄氏度，而记录的最低最高温度为32.67摄氏度，属于联发科MT8125，这是一种在一些联想和宏碁平板电脑中发现的SoC。平均温度最低的也是一款联发科SoC，即MT6589TD-M。总体而言，联发科SoC在承受压力的温度方面表现相当不错。这些SoC产生的热量较低，完全有可能是因为在高强度任务期间无法提升重物。这也可能是由于积极的热节流，其目的是保持温度非常低，以使设备在更长时间内“勉强运行”。</p>
+
+<p>我们希望你和我们一样对这些数据感兴趣。请在下面的评论中告诉我们你的想法！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

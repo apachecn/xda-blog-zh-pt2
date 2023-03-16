@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Unlock full Dolby Atmos equalizer settings on the OnePlus 8, OnePlus 7T, and OnePlus 7 series</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>解锁一加8、一加7T和一加7系列的杜比全景声均衡器设置</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/unlock-full-dolby-atmos-equalizer-settings-on-the-oneplus-8-oneplus-7t-and-oneplus-7-series/#0001-01-01">https://www.xda-developers.com/unlock-full-dolby-atmos-equalizer-settings-on-the-oneplus-8-oneplus-7t-and-oneplus-7-series/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如今，智能手机制造商往往会提供某种数字音频优化，以增强其设备内置扬声器的性能。例如，一加与迪拉克研究公司合作，直到T2的一加6T的发布，但从一加7系列开始，他转向杜比全景声音频调谐。这些技术和解决方案中的大部分都是深入固件内部的，因此修改现有的预置通常需要root访问权限。然而，XDA资深成员<a href="https://forum.xda-developers.com/member.php?u=6083771"> Rayekk </a>现在发现了一个简单的技巧(不需要root访问权限)来用一个功能更丰富的均衡器取代一加7 Pro上的准系统杜比全景声设置。我们已经在一加8和一加8 Pro上测试了该方法，没有任何问题，这一技巧也应该可以用于普通的一加7和一加7T系列手机。</p>
+
+  
+<p/><p><strong> <a href="https://forum.xda-developers.com/oneplus-7">一加七大论坛</a>| |<a href="https://forum.xda-developers.com/oneplus-7-pro">一加七大论坛</a>|</strong></p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/oneplus-7t">一加7T论坛</a> ||| <a href="https://forum.xda-developers.com/7t-pro">一加7T Pro论坛</a> </strong></p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/oneplus-8">一加八大论坛</a>| |<a href="https://forum.xda-developers.com/oneplus-8-pro">一加八大论坛</a>|</strong></p>
+
+<p>资深OxygenOS用户应该知道，一加只提供三种“基于场景的增强功能”，即“动态”、“电影”和“音乐”，作为这些手机中的杜比全景声均衡器预设。内置预置来自<code>com.oneplus.sound.tuner</code>包，它本身就是一个系统应用程序。你需要做的只是卸载当前用户的软件包，然后安装一个兼容的控制器应用程序，以释放手机的全部潜力。下面列出了这些步骤:</p>
+
+<ol> <li>按照<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/">本指南</a>设置<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/"> ADB </a> shell访问。</li> <li>打开一加手机上的USB调试功能，并将其连接到PC。</li> <li>执行以下ADB命令:<pre> <code class="hljs xml">&lt;<span class="hljs-selector-tag">span</span> &gt;<span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">uninstall</span> <span class="hljs-selector-tag">--user</span> 0 <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.oneplus</span><span class="hljs-selector-class">.sound</span><span class="hljs-selector-class">.tuner</span><br/><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code> </pre></li> <li>这将从主要用户配置文件中卸载纸张预设。现在你可以使用<a href="https://www.apkmirror.com/apk/razer-inc/dolby-atmos-4/dolby-atmos-4-dax2_2-6-0-28_r1-release/dolby-atmos-dax2_2-6-0-28_r1-android-apk-download/">这个链接</a>下载从Razer手机的Android固件中提取的杜比Atmos均衡器。</li> </ol>
+
+
+
+
+
+<p>与典型的第三方音频模块不同，新的均衡器与OxygenOS固件无缝集成。虽然您也可以使用此ADB命令恢复旧的预设:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> &gt;</span>adb shell cmd package install-existing com.oneplus.sound.tuner<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code> </pre>
+<p>...您应该事先移除其他Dolby Atmos应用程序，以避免潜在的冲突。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/oneplus-7-pro/how-to/guide-dolby-atmos-control-how-to-real-t4103773">杜比全景声在运行OxygenOS的一加手机上解锁——XDA讨论线程</a> </strong></p>
+
+<p><em>特色图片演职员表:<a href="https://www.youtube.com/watch?v=vkSN1F5EcVw">杜比</a>T3】</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

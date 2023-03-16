@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Digital Wellbeing prepares to track your sleep, let you take Night Notes, and more</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Digital Wellbeing准备跟踪您的睡眠，让您做夜间笔记，等等</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/digital-wellbeing-sleep-tracking-night-notes/#0001-01-01">https://www.xda-developers.com/digital-wellbeing-sleep-tracking-night-notes/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌在2018年谷歌I/O大会上首次推出了数字福利，并推出了一些工具来帮助用户减少智能手机的使用，但该公司在过去的两年里通过引入大量新功能稳步改进了该应用。在1.0.312292882版本的最新测试更新中，谷歌准备推出主要的新功能，以帮助你获得更好的睡眠。</p>
+
+  
+<p><strong>在“管理您的数据”中新增“日常设备使用”切换功能</strong></p>
+
+<p>谷歌推出的第一个功能已经在最新的测试版中为每个人提供了。如果你打开“数字健康”中的“设置”菜单，你会看到一个新的“管理你的数据”选项，带你进入一个带有“日常设备使用”开关的新活动此选项将让您决定Digital Wellbeing是否应跟踪您的设备解锁、收到的通知和应用程序使用情况。禁用此选项会关闭使用访问，因此Digital Wellbeing无法再跟踪您的手机使用情况。</p>
+
+
+
+<p>目前，此开关是“管理您的数据”中唯一可用的开关然而，其他选项很快也会加入进来。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p><strong>睡眠习惯追踪</strong></p>
+
+<p>最大的新功能是睡眠习惯跟踪。我们设法推出了一项新的活动，让用户授权Digital Wellbeing和谷歌时钟应用程序访问日常应用程序使用情况、你预定的就寝时间内的运动和光线传感器数据以及时区历史。授予这两个应用程序访问这些数据的权限将让这两个应用程序“向你展示你的睡眠习惯的快照”</p>
+
+
+
+
+
+<p>来自APK内部的字符串告诉我们数字福利将能够在睡眠方面提供什么样的见解。总之，数字健康可以告诉你在床上花了多长时间，在床上花了多长时间使用手机(以及你花了多长时间没有使用手机)，以及你的就寝时间开始和结束的时间。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_10"><h3 id="digital-wellbeing-sleep-insights-strings">数字健康睡眠洞察字符串</h3><pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_footer_wake_up"</span>&gt;</span>%1$s • Wake up<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"sleep_insights_footer_wake_up_desc"</span>&gt;Bedtime ended at %<span class="hljs-number">1</span>$s on %<span class="hljs-number">2</span>$s&lt;/string&gt;<br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_header_bedtime"</span>&gt;</span>%1$s • Bedtime<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"sleep_insights_header_bedtime_desc"</span>&gt;Bedtime started at %<span class="hljs-number">1</span>$s on %<span class="hljs-number">2</span>$s&lt;/string&gt;<br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_more_apps"</span>&gt;</span>+%1$d<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_more_apps_ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_on_your_phone"</span>&gt;</span>On your phone<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_on_your_phone_duration"</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>primary&gt;%1$s<span class="hljs-symbol">&amp;lt;</span>/primary&gt; • %2$s<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_title_bedtime_activity"</span>&gt;</span>Recent bedtime activity<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_title_screen_time"</span>&gt;</span>Screen time during bedtime<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_total_time_in_bed"</span>&gt;</span>Time in bed<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_total_time_in_bed_desc"</span>&gt;</span>%1$s in bed<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_total_time_on_phone"</span>&gt;</span>Time on phone<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_total_time_without_usage"</span>&gt;</span>Without your phone<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_total_time_without_usage_desc"</span>&gt;</span>%1$s without your phone<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_usage_group_collapse_action_desc"</span>&gt;</span>collapse<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"sleep_insights_usage_group_collapsed_desc"</span>&gt;Apps used <span class="hljs-keyword">for</span> %<span class="hljs-number">1</span>$s, from %<span class="hljs-number">2</span>$s to %<span class="hljs-number">3</span>$s&lt;/string&gt;<br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_insights_usage_group_expand_action_desc"</span>&gt;</span>expand<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"sleep_insights_usage_group_expanded_desc"</span>&gt;Expanded <span class="hljs-keyword">list</span> of apps used <span class="hljs-keyword">for</span> %<span class="hljs-number">1</span>$s, from %<span class="hljs-number">2</span>$s to %<span class="hljs-number">3</span>$s&lt;/string&gt;<br/>&lt;string name=<span class="hljs-string">"sleep_insights_usage_group_row_desc"</span>&gt;%<span class="hljs-number">1</span>$s <span class="hljs-keyword">for</span> %<span class="hljs-number">2</span>$s&lt;/string&gt;<br/>&lt;string name=<span class="hljs-string">"sleep_insights_usage_group_single_app_desc"</span>&gt;%<span class="hljs-number">1</span>$s used <span class="hljs-keyword">for</span> %<span class="hljs-number">2</span>$s from %<span class="hljs-number">3</span>$s to %<span class="hljs-number">4</span>$s&lt;/string&gt;<br/>&lt;string name=<span class="hljs-string">"sleep_insights_usage_range"</span>&gt;%<span class="hljs-number">1</span>$s - %<span class="hljs-number">2</span>$s&lt;/string&gt;<br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_screen_education_notification_text"</span>&gt;</span>Bedtime mode turns off always-on display to help you sleep better. Tap to make changes.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sleep_screen_education_notification_title"</span>&gt;</span>Screen stays dark at bedtime<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre> </div></section>
+<p>一旦该功能上线，“管理您的数据”中将有一个新项目来控制就寝时间传感器数据的使用:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"manage_data_bedtime_sensor_data_subtitle"</span>&gt;</span>Includes motion and light detection during your scheduled bedtime<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"manage_data_bedtime_sensor_data_title"</span>&gt;</span>Bedtime sensor data<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>您还可以看到发送到时钟应用程序的数据，以及您的预定就寝时间历史记录:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"show_app_usage_and_sleep_api_result"</span>&gt;</span>Show Clock API result<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"show_bedtimes"</span>&gt;</span>Show bedtime schedule history<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"show_sleep_data"</span>&gt;</span>Show sleep data<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"show_time_zones"</span>&gt;</span>Show time zone history<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>最后，如果您关闭睡眠习惯跟踪，所有已收集的现有数据都将被删除:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"turn_off_action"</span>&gt;</span>Turn off<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"turn_off_sensor_data_dialog_message"</span>&gt;</span>Existing data will be deleted<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"turn_off_sensor_data_dialog_title"</span>&gt;</span>Turn off access to sensor data?<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"turn_off_time_zone_data_dialog_message"</span>&gt;</span>Existing data will be deleted<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"turn_off_time_zone_data_dialog_title"</span>&gt;</span>Turn off access to time zone history?<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p><strong>夜笔记</strong></p>
+
+<p>与睡眠习惯跟踪一起开发的另一个主要新功能是数字健康中的“夜间笔记”。这个功能可以让你在睡觉前或者已经躺在床上，刚刚有了顿悟的时候，快速记下笔记。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"night_note_notification_reminder_text"</span>&gt;</span>"Anything on your mind? Offload your thoughts to Night Notes."<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"night_note_notification_reminder_title"</span>&gt;</span>Bedtime mode starts at %s<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>一旦你醒来，Digital Wellbeing会向你显示一个通知，询问你是否想查看你在晚上做的任何笔记。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"good_morning_notification_text"</span>&gt;</span>Tap to view your Night Notes.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"good_morning_notification_title"</span>&gt;</span>Good morning!<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>我不完全确定笔记会被写到哪里，但在Digital wellness的功能标志中有一个暗示，它将推出“com . Google . Android . compose . capture . capture activity”活动。这个活动不属于Digital wellness、谷歌时钟应用程序，甚至不属于谷歌Keep，所以它可能是谷歌为这项功能推出的新应用程序的一部分。</p>
+
+<p><strong>横向屏幕时间使用</strong></p>
+
+<p>接下来，一个让Work Profile用户满意的功能是查看工作应用程序的屏幕时间使用情况。目前，你必须在Digital Wellbeing中点击“切换到工作档案”，才能在工作档案中查看应用的应用使用统计数据。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cross_profile_meta_data"</span>&gt;</span>See your screen time for work apps<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p><strong>与其他应用程序共享数据</strong></p>
+
+<p>最后，有迹象表明，Digital Wellbeing将与其他应用程序共享一些数据。我们认为这可能仅限于谷歌应用程序，但谷歌有可能将一些福利数据作为API的一部分开放给第三方应用程序。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"data_sharing_with_other_apps"</span>&gt;</span>Other apps that use your data<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>您现在可以从谷歌Play商店下载最新版本的数字福利测试版应用程序。</p>
+
+ 
+
+
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

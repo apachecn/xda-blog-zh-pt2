@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Google decouples ML Kit's on-device APIs from Firebase</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Google将ML Kit的设备上API从Firebase中分离出来</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-decouples-ml-kits-on-device-apis-from-firebase-and-introduces-early-access-apis/#0001-01-01">https://www.xda-developers.com/google-decouples-ml-kits-on-device-apis-from-firebase-and-introduces-early-access-apis/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌广泛使用人工智能来提供高度关联和准确的网络和图像搜索结果。除了网络平台上的搜索，谷歌的机器学习模型还为Android手机提供了各种人工智能应用，从谷歌镜头上的视觉搜索到像素设备闻名的T2计算摄影。除了自己的应用程序，谷歌还允许第三方开发者在ML Kit的帮助下，将机器学习功能无缝集成到他们的应用程序中，ML Kit是一个SDK(软件开发工具包)，是Firebase的一部分，Firebase是其用于移动开发的在线管理和分析仪表板。截至今天，谷歌宣布了对ML工具包的重大改变，并将使设备上的API独立于Firebase。</p>
+
+  
+<p><a href="https://www.xda-developers.com/google-ml-kit-machine-learning/"> ML Kit在Google I/O 2018 </a>上公布，旨在简化向应用添加机器学习功能。在推出时，ML Kit由文本识别、人脸检测、条形码扫描、图像标记和地标识别API组成。2019年4月，谷歌以智能回复和语言识别的形式，向面向开发者的SDK推出了首个自然语言处理(NLP)API。一个月后，即在谷歌I/O 2019上，<a href="https://www.xda-developers.com/firebase-3-new-capabilities-ml-kit-performance-monitoring-web-apps/">谷歌推出了三个新的ML API</a>，用于设备上翻译、对象检测和跟踪，以及<a href="https://firebase.google.com/docs/ml/automl-image-labeling"> AutoML Vision Edge API </a>，用于使用视觉搜索识别特定对象，如花卉或食物的类型。</p>
+
+<p>ML工具包包括基于设备和基于云的API。正如你所料，设备上的API使用保存在设备上的机器学习模型处理数据，而基于云的API将数据发送到谷歌云平台上的机器学习模型，并通过互联网连接接收解析的数据。由于设备上的API无需互联网就能运行，因此它们可以更快地解析信息，并且比基于云的API更安全。设备上的机器学习API也可以在运行Android Oreo 8.1和更高版本的Android设备上进行硬件加速，并运行谷歌的神经网络API (NNAPI)，以及在高通、联发科、海思等最新芯片组上找到的特殊计算模块或npu。</p>
+
+<p>Google最近发布了一篇博文,宣布ML Kit的设备上API现在将作为独立SDK的一部分提供。这意味着ML套件中的设备上API–包括文本识别、条形码扫描、人脸检测、图像标记、对象检测和跟踪、语言识别、智能回复和设备上翻译–将在一个单独的SDK下提供，无需Firebase即可访问。然而，Google确实推荐在Firebase中使用ML Kit SDK来<a href="https://developers.google.com/ml-kit/migration">迁移他们现有的项目</a>到新的独立SDK。一个新的<a href="https://developers.google.com/ml-kit/">微型网站</a>已经发布，包含所有与ML套件相关的资源。</p>
+
+<p>除了新的SDK，谷歌还宣布了一些变化，使开发者更容易将机器学习模型集成到他们的应用程序中。首先，人脸检测/轮廓模型现在作为Google Play服务的一部分提供，因此开发人员不必为他们的应用程序单独克隆API和模型。这使得应用程序包的大小更小，并且能够在其他应用程序中更无缝地重用该模型。</p>
+
+<p>其次，谷歌在所有API中加入了<a href="https://developer.android.com/reference/androidx/lifecycle/Lifecycle"> Android Jetpack生命周期</a>支持。这将有助于在应用程序经历屏幕旋转或被用户关闭时管理API的使用。此外，它还便于将<a href="https://www.xda-developers.com/google-camerax-android-api-third-party-apps-best-features-stock-camera/"> CameraX Jetpack库</a>集成到使用ML工具包的应用程序中。</p>
+
+<p>第三，谷歌已经宣布了一个<a href="https://developers.google.com/ml-kit/early-access">早期访问计划</a>，这样开发者可以在其他人之前获得即将到来的API和特性。该公司现在正在ML工具包中添加两个新的API，供精选的开发人员预览并分享他们的反馈。这些API包括:</p>
+
+<ul> <li><a href="https://developers.google.com/ml-kit/early-access/entity-extraction">实体提取</a>检测文本中的电话号码、地址、付款号码、跟踪号码和日期&amp;时间，以及</li> <li><a href="https://developers.google.com/ml-kit/early-access/pose-detection">姿势检测</a>用于33个骨骼点的低延迟检测，包括手和脚</li> </ul>
+
+
+
+<p>最后，谷歌现在允许开发人员用来自<a href="https://www.xda-developers.com/tensorflow-lite-mobile-machine-learning/"> TensorFlow Lite </a>的定制机器学习模型来替换ML工具包中现有的图像标记以及对象检测和跟踪API。该公司将很快宣布更多关于如何找到或克隆TensorFlow Lite模型并使用ML Kit或Android Studio新的ML集成功能训练它们的细节。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Google Camera port for OnePus 8 and 8 Pro can use the other cameras</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>OnePus 8和8 Pro的谷歌摄像头端口可以使用其他摄像头</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/oneplus-8-8-pro-google-camera-mod-port-urnyx05-telephoto-wide-angle-camera/#0001-01-01">https://www.xda-developers.com/oneplus-8-8-pro-google-camera-mod-port-urnyx05-telephoto-wide-angle-camera/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>一加8和一加8 Pro于今年4月发布。虽然<a href="https://www.xda-developers.com/oneplus-8-xda-review/">一加8(回顾)</a>延续了去年的类似相机，但<a href="https://www.xda-developers.com/oneplus-8-pro-review-never-settle-on-hardware/">一加8 Pro(回顾)</a>在相机方面比去年的<a href="https://www.xda-developers.com/oneplus-7t-pro-xda-review/">一加7T </a>系列有了显著改进。这些变化包括更大的48MP索尼IMX689主传感器，而另一个48MP传感器用作超广角摄像头。如果你想将一加8系列设备上的摄像头与谷歌丰富的摄影技能配对，下面链接的这个谷歌摄像头端口不仅可以帮助你使用这两款手机上的主摄像头，还可以使用非主摄像头。</p>
+
+  
+<p/><p><strong> <a href="https://forum.xda-developers.com/oneplus-8">一加8论坛</a> </strong> ||| <strong> <a href="https://forum.xda-developers.com/oneplus-8-pro">一加8 Pro论坛</a>购买:一加8(<a href="https://www.amazon.in/Test-Exclusive-547/dp/B078BNQ318/?tag=xdaportalin-21">₹41,999首发</a> ) |||一加8 pro(<a href="https://www.amazon.in/b/ref=s9_acss_bw_cg_oneplus_4d1_w?node=21152978031">₹54,999首发</a> ) </strong></p>
+
+<p>谷歌相机的非官方端口在过去的几年中变得非常受欢迎，因为它们将谷歌计算摄影的好处添加到了非谷歌设备中。然而，由于Pixel设备已经推出了最多两个摄像头，开发人员需要修改谷歌摄像头端口，以添加对辅助摄像头(即主摄像头以外的摄像头)的支持，如广角或长焦摄像头。</p>
+
+<p>XDA资深会员<em> <a href="https://forum.xda-developers.com/member.php?u=9040262"> Urnyx05 </a> </em>为一加8系列最新推出的谷歌相机端口，可以在旗舰智能手机上实现长焦和超广角传感器。更重要的是，这个Google Camera mod不需要添加任何配置XML就可以工作。</p>
+
+<p>XDA的Max Weinbach在他的一加8 Pro上试用了谷歌相机模式，结果如下所示:</p>
+
+
+
+
+
+<p/><p><em>用stock Camera应用程序拍摄的图像在左边，而用mod拍摄的图像在画廊的右边</em></p>
+
+<p>谷歌相机显然捕捉到了更自然的色彩和更好的对比度。谷歌相机图像中的高光和阴影看起来并不夸张，色彩噪声也较少。谷歌相机模式不会错误地裁剪3倍远摄图像，也可以反转任何鱼眼效果，在超广角相机上呈现自然的外观，而不是扭曲的外观</p>
+
+<p>这种模式有一些限制，首先是图像是在12MP分辨率下捕捉的，即来自48MP传感器(两款手机的主传感器和一加8 Pro的广角传感器)的4合1像素宁滨之后，没有办法以全分辨率捕捉图像。虽然像素宁滨通常是有利的，因为它增加了更多的光线和图像的清晰度，一些用户可能希望捕捉全分辨率的图像，这在这里是无法实现的。此外，目前国防部不支持一加8上的微距相机。最后，超广角相机没有防失真功能，所以照片的边缘会扭曲。</p>
+
+<p>如果你拥有这两种设备中的任何一种，你可以从下面的链接下载改装的谷歌摄像头端口。请注意，这个相机模块可能会/可能不会与该公司的旧设备。</p>
+
+<p/><p><a href="https://www.celsoazevedo.com/files/android/google-camera/dev-urnyx05/">下载一加8/8 Pro的谷歌相机端口</a></p>
+
+<p>为了启用对辅助相机的支持，该Google Camera mod的包名称已被设置为"<strong> org.codeaurora.snapcam </strong>"，这是一个白名单包，位于devices' build.prop中的"<strong>vendor . Camera . aux . package list</strong>"属性下。然而，要使用辅助相机，它们必须由OEM向Camera2 API公开。</p>
+
+<hr/>
+
+<p><strong>Via:<a href="https://www.reddit.com/r/oneplus/comments/hb9m5p/gcam_can_now_take_advantage_of_auxiliary_cameras/">Reddit(r/一加)</a>T3】</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

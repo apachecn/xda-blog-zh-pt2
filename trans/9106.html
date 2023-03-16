@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>How to add any app to OxygenOS Parallel Apps space on OnePlus phones</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在一加手机上将任何应用添加到OxygenOS并行应用空间</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/add-any-app-oxygenos-parallel-apps-space-oneplus-phones/#0001-01-01">https://www.xda-developers.com/add-any-app-oxygenos-parallel-apps-space-oneplus-phones/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">如何在一加手机上将任何应用添加到OxygenOS并行应用空间</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">你可以在运行OxygenOS的一加手机上的并行应用空间中添加任何应用。继续阅读，了解更多信息！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>早在2017年，一加<a href="https://www.xda-developers.com/oneplus-oxygen-4-5-8-open-beta-21-12/">在OnePlus 3/3T的OxygenOS公开测试版中推出了一项名为“并行应用”的新功能。此功能允许您克隆选定的应用程序，以便您可以在这些应用程序上运行单独的帐户，即使应用程序本身不支持快速帐户切换。支持的应用程序包括脸书、Facebook Messenger、Instagram、WhatsApp、Twitter、LinkedIn、Quora等。然而，并不是每个应用程序都支持并行空间。幸运的是，有一个简单的解决方法。</a></p>
+
+  
+<p>Parallel Apps所做的是创建一个ID为“999”的新用户配置文件。OxygenOS将安装在此用户个人资料上的应用程序集成到主用户个人资料中，并在锁屏中隐藏此个人资料，因此您无法登录。这个隐藏的用户配置文件安装了Google Play服务，但没有安装T2谷歌Play商店服务。幸运的是，可以将应用程序加载到用户档案中，以获得平行空间。为了让我们想要的任何应用程序作为<em>并行应用程序</em>运行，我们将安装“极光商店”应用程序，这是谷歌Play商店的一个完全开源的非官方客户端。如果你想知道为什么我们不喜欢将实际的谷歌Play商店安装在并行应用用户配置文件下，这是由于Play Store和并行应用的一个错误，它不允许你安装任何已经安装在主配置文件上的应用，因为Play Store认为那些应用已经安装在并行应用配置文件上。</p>
+
+<p>要将Aurora商店应用程序安装到并行应用程序，从而能够安装任何其他应用程序，只需执行以下操作:</p>
+
+<ol> <li>从其XDA线程下载Aurora商店的APK文件。</li> <li>设置ADB shell访问。点击这里，你可以找到一份方便的指南。</li> <li>运行以下ADB命令:<code>adb install --user 999 &lt;aurora_store_apk_name&gt;.apk</code></li> <li>这将把Aurora商店安装到用户配置文件999，这是并行应用程序的配置文件。现在你只需打开Aurora商店，下载你想要的任何其他应用程序。</li> <li>或者，您可以为您想要克隆的任何应用程序下载APK文件，并运行步骤3中的命令。</li> </ol>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/oneplus_oxygenos_parallel_apps_aurora_store.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Credits go to XDA Recognized Developer &lt;a href=\&quot;https:\/\/forum.xda-developers.com\/member.php?u=3563640\&quot;&gt;Quinny899&lt;\/a&gt; for this screenshot!&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/oneplus_oxygenos_parallel_apps_aurora_store.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/oneplus_oxygenos_parallel_apps_aurora_store.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/oneplus_oxygenos_parallel_apps_aurora_store.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/oneplus_oxygenos_parallel_apps_aurora_store.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="OxygenOS Parallel Apps any app" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/oneplus_oxygenos_parallel_apps_aurora_store.jpg" src="../Images/b04b4b87a88d36780c17774db40790a2.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/oneplus_oxygenos_parallel_apps_aurora_store.jpg"/> </picture> <figcaption class="body-img-caption">Credits go to XDA Recognized Developer <a href="https://forum.xda-developers.com/member.php?u=3563640">Quinny899</a> for this screenshot!</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>如果你不想走这条路，你也可以使用第三方应用程序，如<a href="https://www.xda-developers.com/shelter-open-source-sandboxing-app/" target="_blank" rel="nofollow noopener noreferrer"> Shelter </a>或<a href="https://forum.xda-developers.com/android/apps-games/closed-beta-test-incoming-companion-app-t3366295" target="_blank" rel="nofollow noopener noreferrer"> Island </a>，在你的设备上创建一个工作档案，然后安装任何你想要的应用程序。</p>
+
+<p>你觉得这个功能有用吗？请在下面的评论中告诉我们！</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

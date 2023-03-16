@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>ARM announces Cortex-A78 CPU, Mali-G78 GPU, Ethos N78 NPU</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>ARM宣布推出Cortex-A78 CPU、Mali-G78 GPU、Ethos N78 NPU</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/arm-announces-cortex-a78-cpu-mali-g78-gpu-ethos-n78-npu/#0001-01-01">https://www.xda-developers.com/arm-announces-cortex-a78-cpu-mali-g78-gpu-ethos-n78-npu/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>作为TechDay 2020的一部分，ARM发布了三项重大声明。头条新闻是Cortex-X定制程序(CXC)，包含新的<a href="https://www.xda-developers.com/arm-announces-cortex-x-custom-cpu-program/"> Cortex-X1 CPU内核</a>。Cortex-X1带来了比任何Cortex-A系列CPU更高的峰值性能，同时打破了Cortex-A系列的PPA极限。ARM发布的另外两个公告要常规得多。Cortex-A78 CPU和Mali-G78 CPU现已正式发布，分别作为<a href="https://www.xda-developers.com/arm-cortex-a77-cpu-announcement/"> Cortex-A77 </a> CPU和<a href="https://www.xda-developers.com/arm-mali-g77-valhall-gpu-announcement/"> Mali-G77 </a> CPU的继任者。让我们逐一介绍这些公告:</p>
+
+ 
+<h2 id="arm-cortex-a78">手臂皮层-A78</h2>
+<p>对于Cortex-A78，ARM的主要关注点是效率需求，例如更长的电池续航时间、新的移动外形和不断缩小的SoC面积。持续的性能是Cortex-A78的关键词，而Cortex-X1的目标是实现最大的短期峰值性能。</p>
+
+
+
+<p>ARM表示，Cortex-78代表了其以同类最佳效率实现高端性能的“最佳”驱动力。这些也不仅仅是空话。在过去几年中，Cortex-A76和Cortex-A77表现出了同类最佳的能效和PPA(性能、功耗和面积)。他们没有与苹果A系列芯片竞争所需的设计，但由于产生的功率较低，他们的能效在最坏的情况下与苹果相同，在最好的情况下甚至高于苹果。</p>
+
+<p>A78的性能改进涵盖了生产力、通信、安全性和基于相机的任务、高级游戏、XR和基于ML的体验等使用案例。</p>
+
+
+
+<p>在持续性能方面，Cortex-A78带来了两位数的提升。与前代产品Cortex-A77相比，在相同的移动散热功率范围内，它的持续性能提高了20%。<em> AnandTech </em>仔细查看了这些数字，并解释说，20%的数字是比A77高7%的IPC的组合，而其余13%的性能提升归功于5纳米工艺，下一代SOC都将在此基础上制造。ARM指出了持续性能的重要性，称移动设备的功耗有限，持续性能可以避免对需要大量功率的应用进行功率调节。这反过来又通过避免延迟或丢帧来提高UX。</p>
+
+<p>提高能效意味着更高的能效，因为两者是相关的，但却是不同的概念。根据ARM的说法，在高性能点，如当前移动设备的峰值，Cortex-A78在与Cortex-A77相同的性能下，比2019年的设备<em>节能50%。这令人印象深刻，它使A78成为CPU ARM设计的最节能的Cortex-A。</em></p>
+
+<p>ARM对持续性能的关注将有利于下一波移动创新，如新的外形(可折叠手机)以及通过5G改善的“数字沉浸感”。现实的检验是，对于现在这一代人来说并非如此，即使在下一代也不会有太大影响。</p>
+
+<p>Cortex-A78将改进的一个用例是AAA移动游戏，与ARM自己的新Mali-G78 GPU结合使用。两者的结合旨在为手机带来高保真的游戏体验。它们更高的性能，加上5G的快速速度和高带宽，将使移动设备上的优质游戏成为可能。A78的效率在这里有一个好处，因为它将为长时间的游戏提供更长的电池寿命。ARM表示，它也在与生态系统合作，以进一步提高性能和构建更丰富的游戏体验，并给出了一个与Unity合作将Burst编译器引入Android的例子。</p>
+
+<p>机器学习(ML)性能是ARM的另一个重点。CPU是移动设备上ML计算的首选处理器，尽管现在高端SOC都带有独立的神经处理单元(npu)。ARM的CPU支持智能手机上最受欢迎的真实世界ML应用和用例，如社交媒体过滤器、听写、安全和安全性。与A77相比，Cortex-A78在处理基于ML的任务时平均耗电少8%,官方效率提高了10%。</p>
+
+<h3 id="arm-cortex-a78---architecture">ARM Cortex-A78 -架构</h3>
+<p>ARM Cortex-A78的架构与上一代相同(仍然是ARM v8.2内核)。然而，ARM确实增加了微架构特性，旨在以更高的面积和能效推动性能。ARM节省面积和功耗，同时保持所需的性能水平。同样，ARM对Cortex-A系列的关注仍然是面积和能效，而不是峰值性能，后者现在由Cortex-X计划接管。</p>
+
+<p>Cortex-A78的性能提升是通过优化宽度和深度的额外微架构特性实现的。指令解码宽度保持为4宽度，与A77和A76相同。(另一方面，Cortex-X1的解码宽度为5，而A13的解码宽度为7。)ARM针对带宽和准确性以及指令融合情况增加了更好的分支预测。这些架构改进使单线程性能比A77提高了7%。</p>
+
+<p>通过减少低性能和低面积的结构，例如L1-I和L1-D高速缓存，效率得到了最大化。ARM优化了现有结构以降低功耗，例如品牌预测结构。ARM表示，与A77相比，这导致每兆瓦性能功耗降低4%，每平方毫米性能面积降低5%。</p>
+
+<p>A78始终专注于在集群级别实现一流效率的持续性能。由4个Cortex-A77和4个Cortex-A55 CPU组成的DynamIQ集群可以升级到4个A78内核和4个A55内核。这在减少15%的面积中提供了20%的持续性能提升。需要并行处理多个高性能线程的应用(如高保真游戏)将受益于持续的性能提升。</p>
+
+<p>ARM指出，A78 DynamIQ集群的增强区域效率使其成为可折叠手机和多个更大显示器的理想选择。另一个重点是通过性能和能源的改善让智能手机为5G做好准备。5G理应提供“更快的速度”、“更低的延迟”和“更快、更普遍的高带宽应用移动设备连接”。这可能是几年后的情况，但目前，这些好处对最终消费者来说并不明显。</p>
+
+
+
+<p>总的来说，Cortex-A78是一款可靠的产品。下一代旗舰SOC将集成多个A78内核，以补充具有更高功率和面积要求的单个Cortex-X1内核，一些价值导向型SOC甚至会选择完全跳过Cortex-X1。对于中端SoC市场，A78将成为2021年SoC的首选CPU内核，其对持续性能的关注值得欢迎。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="arm-mali-g78">马里武装部队-78国集团</h2>
+<p>委婉地说，ARM的Mali系列GPU远不如Cortex系列CPU成功。年复一年，Mali GPUs在性能和能效方面一直优于苹果的定制GPU和高通的定制Adreno GPUs。可悲的是，去年推出的新Valhall架构和Mali-G77 GPU并没有改变这一点。以Mali-G77为特色的SOC分别包括<a href="https://www.xda-developers.com/samsung-exynos-990-5g-modem-5123-7nm/"> Exynos 990 </a>和<a href="https://www.xda-developers.com/mediatek-dimensity-1000-7nm-soc-integrated-5g/">联发科天玑1000L </a>。不幸的是，这两款产品的实现都很弱，这意味着它们的GPU性能无法与高通的Adreno 650 GPU竞争，更不用说苹果A12和A13中的一流GPU了。Mali已经落后多年，它的改进不足以改变移动GPU领域的现状。</p>
+
+<p>然而，如果不乐观的话，ARM什么都不是。它指出，其合作伙伴每年已售出超过10亿个Mali GPUs，使Mali成为全球第一大GPU出货量。据推测，这个数字只会增加，因为更多不同类型的设备支持图形密集型用例，如高级移动游戏和XR (VR和AR)。根据ARM的说法，这使得Mali成为整个生态系统中最广泛用于移动开发的GPU。</p>
+
+
+
+<p>ARM指出，2019年，它宣布了第一款基于Valhall架构的GPU——Mali-G77。2020年，Mali-G78将接替G77，后者也基于Valhall架构。虽然ARM说它是迄今为止高端移动设备中性能最高的GPU，但数字并不支持它，尽管ARM讽刺地说这是有数字支持的事实。G78在性能上比G77提高了25%,这至少可以说是微不足道的。G77和苹果A13的GPU之间的峰值GPU性能差距很大，这意味着G78将无法赶上A13，更不用说即将推出的苹果A14的GPU了。高通也将继续保持领先一步，因为它自己的增量性能的改善。</p>
+
+<p>改变游戏规则的图形和移动设备上的全天游戏已经可以在其他GPU上实现，所以ARM在这里的营销听起来有点空洞。</p>
+
+
+
+<p>据ARM称，Mali-G78是为开发者和最终用户设计的。它支持高质量的移动游戏体验，现在可以在移动设备上使用主机游戏。G78为高端移动设备带来更长的电池寿命。它还为移动设备上更复杂的游戏、视频、相机和安全ML功能带来了进一步的ML性能提升。</p>
+
+<p>ARM看好手机游戏的前景。2019年，移动游戏占全球游戏市场的46%以上，收入达到682亿美元。它还将在未来几年继续增长，因为它将超过PC和主机游戏。越来越多的高端游戏将登陆移动设备，用户希望在移动设备上获得与游戏机类似的体验。</p>
+
+<p>为了让这些体验成为可能，Mali-G78配备了必要的性能提升。与G77相比，它的游戏内容性能密度提高了15%。对于与上一代相同的面积，G78将提供更高的性能。这一提升得益于四个关键特性:</p>
+
+<ul> <li>支持多达24个内核</li> <li>异步顶层</li> <li>瓷砖改进</li> <li>改进的片段依赖跟踪</li> </ul>
+
+
+
+<p>虽然G77的最大内核数是16个，但ARM已经将G78的最大内核数增加到了24个。当然，仅仅因为有一个最大值并不意味着移动芯片供应商将实际纳入24核。到目前为止，我们看到的G77最广泛的核心变体是Exynos 990上的Mali-G77MP11，而Dimensity 1000有一个Mali-G77MC9。</p>
+
+<p>ARM认为异步顶级是GPU性能的一个改变游戏规则的特性。据说这是为了尽可能多地挤出手机游戏的性能，确保最大性能。</p>
+
+<p>另一方面，Tiler的改进为手机游戏增加了一层额外的质量。从PC和主机上带来的游戏，往往有着极其复杂的资产和精良的场景，造成了性能的症结和瓶颈。Tiler的改进减少了这些复杂场景和资源在GPU上的顶点负载。这提高了复杂的类似控制台的游戏内容的性能。</p>
+
+<p>ARM还增强了G78上的片段依赖跟踪。这尤其会影响到包含烟雾、树木和草地等复杂游戏场景的手机游戏。结果是，与G77相比，ARM在顶级移动游戏上的性能提高了17%。</p>
+
+
+
+<p>Mali-G78的能效比上一代产品高10%。同样，这也不足以赶上高通或苹果。ARM在这里的目标似乎特别保守。异步顶级功能在能效方面发挥着重要作用，因为它可以降低功耗，从而以可持续的方式生成内容。因此，当设备以所需的帧速率输出内容时，它可以降低时钟频率以节省能源。增加该任务的顶级使用更多的能量，但是通过降低着色器核心的频率节省的能量要高得多。这是因为着色器核心使用了GPU 90-95%的能量预算。</p>
+
+
+
+<p>得益于融合乘加(FMA)，78国集团也实现了更高的能效。它已经完全重新设计，导致该单位的能源减少30%。FMA单元负责GPU内部发生的大部分计算，这就是ARM将其作为节能目标的原因。</p>
+
+<p>GPU的并行数据处理能力使其适合运行ML工作负载，尽管ARM承认CPU和GPU仍然是ML的主要处理器。随着用例变得越来越复杂，一些工作负载将被卸载到GPU。GPU的主要ML用例与设备上的安全功能、不同的摄像头和视频模式以及具有AR功能的应用程序相关联。</p>
+
+
+
+<p>ML在GPU上的作用是实现照片或视频帧中的面部跟踪、使用AR功能的游戏等体验。对于这些基于ML的任务，与G77相比，Mali-G78对各种ML工作负载的平均性能提高了15%。与前几代产品相比，G77的ML性能提高了60%,因此今年的同比改善要小得多。异步顶级在提升ML性能方面至关重要，因为为着色器核心计时有助于GPU上的各种ML用例。</p>
+
+<p>此外，还有Mali-G68的发布。这只不过是Mali-G78的缩小版，正如Mali-G57是Mali-G77的缩小版一样。ARM表示，这是第一款用于2021设备的次高级Mali GPU。它拥有G78的所有功能，如tiler改进和执行引擎中的新FMA单元，但支持多达6个内核，而不是24个。这款GPU的目标是以更低的成本获得近乎完美的性能。</p>
+
+
+
+<p>ARM在听取了合作伙伴的反馈后开发了这一次高级GPU层，这些合作伙伴希望他们的设备组合具有高级功能。正如预期的那样，G68具有更低的芯片面积，并为更广泛的开发者和消费者带来高性能游戏。</p>
+
+<p>最后，ARM提到了它的开发者合作伙伴关系。它使得开发者可以很容易地优化他们的内容，以便在Mali GPUs上更好地运行(理论上)。性能顾问就是一个例子。其次是ARM与Unity合作，带来了Burst编译器。这方面的详细信息可以在源文章中阅读。</p>
+
+<h3 id="mali-g78---outlook">马里-78国集团-展望</h3>
+<p>马里-78国集团的前景黯淡。看起来，ARM似乎对在苹果和高通过去制造的同一模具中实现逐年大幅性能提升不感兴趣。虽然高通的改善速度也有所放缓，但其基线水平高于ARM。当评论者用数字证据表明A13的GPU持续性能高于骁龙865的峰值性能时，这对Android生态系统来说看起来很糟糕。苹果和安卓GPU之间的性能差距正在扩大，而且只会越来越大。</p>
+
+<p>因此，G78并不是解决ARM的Mali GPU困境并将其带到性能图表顶端的神奇解决方案。它的排名仍将低于苹果和高通的GPU。它将成为一些SOC的默认选择，因为它是ARM的股票GPU IP，定制解决方案有进入壁垒，成本也更高。</p>
+
+<p>明年，三星系统LSI是否真的会使用Mali-G78还是个疑问。三星一直是Mali GPUs的重要客户，但去年，<a href="https://www.xda-developers.com/samsung-amd-partnership-hatch-game-streaming-galaxy-s10-5g/">它与AMD签署了合作伙伴关系，将在2021年将RDNA GPU架构</a>引入其移动SOC。如果这个路线图保持在正轨上——在这一点上，我们没有理由怀疑它不在正轨上——那么Exynos 990的继任者将采用AMD RDNA GPU，而不是Mali GPU。事实上，这将是ARM在设计上的一大损失。即使是其他厂商，如联发科，这些天也有更多的选择。Imagination Technologies的新<a href="https://www.xda-developers.com/imagination-technologies-a-series-gpu-architecture-launch/"> A系列GPU架构</a>的设计目标是比G78更高的性能，联发科有可能在未来放弃Mali。当然，高通没有理由放弃其Adreno GPU的努力，当专门谈论Android智能手机市场时，它在性能和效率方面仍然是同类最佳的。</p>
+
+<p>因此，很明显，ARM需要提高Mali GPUs的年改进率，才能在移动GPU市场上发挥真正的作用。如果做不到这一点，它将面临在高端旗舰移动GPU领域被边缘化的风险。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="arm-ethos-n78">ARM Ethos N78</h2>
+<p>最后，ARM还宣布了Ethos N78神经处理单元(NPU)。它是N77 NPU的继任者。它提供了更强大的设备上ML功能，性能效率提高了25%。可配置性也是一个优势，因为可用的配置范围从1 TOP/s到10 TOP/s。有关更多详细信息，请查看<a href="https://community.arm.com/developer/ip-products/processors/b/processors-ip-blog/posts/arm-ethos-n78-npu?_ga=2.207546451.1140308209.1590544784-339760549.1590544784"> ARM的博客文章</a>。由于高通、三星、海思和联发科都有自己的神经处理单元/人工智能引擎，这种NPU可能只会获得有限的设计胜利。</p>
+
+<hr/>
+
+<p><strong>来源:ARM ( <a href="https://community.arm.com/developer/ip-products/processors/b/processors-ip-blog/posts/arm-cortex-a78-cpu"> 1 </a>、<a href="https://community.arm.com/developer/tools-software/graphics/b/blog/posts/arm-mali-g78-gpu"> 2 </a>)、AnandTech ( <a href="https://www.anandtech.com/show/15813/arm-cortex-a78-cortex-x1-cpu-ip-diverging"> 1 </a>、<a href="https://www.anandtech.com/show/15816/arm-announces-the-malig78-evolution-to-24-cores"> 2 </a> ) </strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

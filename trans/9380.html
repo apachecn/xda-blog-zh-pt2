@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Android 11 has a hidden Recycle Bin for trashed photos and videos</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 11有一个隐藏的回收站，用于存放垃圾照片和视频</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-11-hidden-recycle-bin-trashed-photos-videos/#0001-01-01">https://www.xda-developers.com/android-11-hidden-recycle-bin-trashed-photos-videos/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌正试图通过“范围存储”来控制失控的应用存储局面。作用域存储是在Android 10中引入的，但自从它首次出现以来已经改变了几次，因为它极大地影响了许多Android应用程序的存储访问。谷歌正在对面向API级别30的应用实施范围存储，这是与Android 11一致的最新API级别。</p>
+
+  
+<p>与其试图<a href="https://www.xda-developers.com/android-11-developer-preview-privacy-security-features-changes/">再一次解释作用域存储</a>，这里有一张来自谷歌“<a href="https://www.youtube.com/watch?v=5w5h_UdIiqs">Android 11</a>中所有隐私问题”演讲的图片，总结了作用域存储将如何影响Android 11中应用的存储访问。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/All-things-privacy-in-Android-11-6-50-screenshot-1024x576.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Source: Google&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/All-things-privacy-in-Android-11-6-50-screenshot-1024x576.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/All-things-privacy-in-Android-11-6-50-screenshot-1024x576.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/All-things-privacy-in-Android-11-6-50-screenshot-1024x576.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/All-things-privacy-in-Android-11-6-50-screenshot-1024x576.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Android 11 Scoped Storage summary" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/All-things-privacy-in-Android-11-6-50-screenshot-1024x576.jpg" src="../Images/cb903227316685b3b528239efb5b1598.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/All-things-privacy-in-Android-11-6-50-screenshot-1024x576.jpg"/> </picture> <figcaption class="body-img-caption">Source: Google</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>到目前为止，对存储访问的一个更有趣的变化是引入了一个新的“垃圾”机制。这项功能在谷歌的“<a href="https://www.youtube.com/watch?v=RjyYCUW-9tY&amp;feature=youtu.be">Android 11</a>存储访问”视频中有详细介绍。本质上，使用<a href="https://developer.android.com/reference/android/provider/MediaStore"> MediaStore API </a>的应用程序可以丢弃文件，而不是删除它，以便给用户一个机会在以后恢复文件。谷歌将这一功能比作PC上的回收站，只不过Android的回收站默认是隐藏的。不过，谷歌表示，对垃圾文件拥有编辑权限或要求用户同意的应用程序可以显示回收站中的项目。被丢弃的物品会在30天后被Android自动删除。</p>
+
+
+
+
+
+<p>Android 11还要求应用程序在修改不属于应用程序的媒体文件之前，必须获得用户的同意。另一个增加的新功能是“收藏夹”，它允许媒体应用程序将“收藏夹”文件状态添加到指定的媒体项目，以便其他媒体应用程序知道用户认为这些项目很重要。例如，如果用户在gallery应用程序中标记了一个项目，那么其他媒体应用程序可以看到该项目已被收藏。</p>
+
+<p>虽然谷歌的讲话没有展示MediaStore新垃圾桶概念的例子，但该API自第一个Android 11开发者预览版以来就已经可用。开发人员塞维多夫·米索琴科在二月份发表了一篇关于Medium 的文章，介绍了这个新的API，他在一个示例应用中演示了这个API，如下所示:</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/Android-11-Trash-576x1024.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;New MediaStore Trash API in Android 11. Credits: &lt;a href=\&quot;https:\/\/medium.com\/@sdex\/new-mediastore-trash-api-in-android-r-9a7000c4037\&quot;&gt;Yuriy Mysochenko&lt;\/a&gt;.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/Android-11-Trash-576x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/Android-11-Trash-576x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/Android-11-Trash-576x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/Android-11-Trash-576x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/Android-11-Trash-576x1024.jpg" src="../Images/becba4ad96d4df3f69761b5095997a28.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/06/Android-11-Trash-576x1024.jpg"/> </picture> <figcaption class="body-img-caption">New MediaStore Trash API in Android 11. Credits: <a href="https://medium.com/@sdex/new-mediastore-trash-api-in-android-r-9a7000c4037">Yuriy Mysochenko</a>.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>在这个演示中，该应用程序询问用户是否想将照片移到垃圾桶，这将暂时从图库中删除照片。7天后，照片将从存储中永久删除。谷歌人Roxanna Aliabadi提到，操作系统将垃圾项目存储30天，因此自第一次开发者预览版以来，7天的存储限制可能有所增加。</p>
+
+<p>对实现这个API感兴趣的开发者现在可以在Android开发者网站上查看文档。媒体应用程序可以创建一个名为<a href="https://developer.android.com/reference/android/provider/MediaStore#createTrashRequest(android.content.ContentResolver,%20java.util.Collection%3Candroid.net.Uri%3E,%20boolean)"> createTrashRequest </a>的PendingIntent来提示用户丢弃一个项目，然后添加标志<a href="https://developer.android.com/reference/android/provider/MediaStore.MediaColumns#IS_TRASHED">IS _ trassed</a>来指示媒体项目已经被丢弃。被丢弃的项目由操作系统保留，直到<a href="https://developer.android.com/reference/android/provider/MediaStore.MediaColumns#DATE_EXPIRES">日期到期</a>，之后它们将从存储中永久删除。查询MediaStore的媒体应用程序必须使用<a href="https://developer.android.com/reference/android/provider/MediaStore#QUERY_ARG_MATCH_TRASHED"> QUERY_ARG_MATCH_TRASHED </a>显式查询已丢弃的项目，因为默认情况下，已丢弃的项目会从操作中过滤掉。</p>
+
+<p>如果您的应用处理存储访问，您可以(也应该)听听这个关于作用域存储的完整演讲:</p>
+
+ 
+<p class="w-rich w-youtube" id="RjyYCUW-9tY">  </p>
+
+</div>
+
+
+</div>    
+</body>
+</html>

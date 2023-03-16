@@ -1,0 +1,221 @@
+<html>
+<head>
+<title>Qualcomm Snapdragon 845 Hands On: Benchmarks and First Impressions</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>高通骁龙845动手:基准和第一印象</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/qualcomm-snapdragon-845-hands-on-benchmarks-first-impressions/#0001-01-01">https://www.xda-developers.com/qualcomm-snapdragon-845-hands-on-benchmarks-first-impressions/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>高通骁龙845于去年12月正式发布，尽管它在一年一度的骁龙科技峰会上的亮相留给我们的问题和答案一样多。虽然我们设法获得了对其架构和功能的表面描述，但到目前为止，我们不得不依靠该公司的内部数据——即其引用的同比百分比增量——来估计新平台的性能。现在，我们有了基准分数。</p>
+
+  
+<p>本周，一群记者、分析师和YouTube名人被邀请参加高通的5G日活动，该公司在活动中发布了更多关于其连接工作和移动互联网未来的信息。之后，我们中的一些人留下来参加了一次基准测试会议，使用的是一台配备骁龙845和其他高端组件的参考设备。虽然我们只有大约两到三个小时的实际操作时间，尽管参考设备的唯一目的是测试(现在展示)平台，但我们还是设法了解了即将推出的搭载骁龙845的旗舰设备会带来什么。</p>
+
+<p>在我们向您展示我们收集的一些结果之前，这里有一个关于骁龙845的快速复习，包括在CPU和GPU设计和实现方面的变化和新功能。</p>
+
+<p/><p><a href="#1"> <strong>带我去基准</strong> </a></p>
+
+<hr/>
+
+
+<h2 id="a-bit-of-background">一点背景知识</h2>
+<p>骁龙系列的芯片架构在过去十年中有了显著的改进，该架构一直以基于ARM设计的定制和半定制内核的混合为特色。高通的Scorpion CPU内核之后是其定制的Krait CPU内核，从2012年的骁龙S4开始。2015年，高通转向64位库存ARM Cortex-A57和Cortex-A53内核与<a href="https://www.xda-developers.com/qualcomm-announces-64-bit-snapdragon-810-and-808-socs/"> Snapdragon 810和808 </a>的组合，并在此过程中淘汰了Krait。但仅仅一年后，高通就带着<a href="https://www.xda-developers.com/a-look-at-what-has-changed-from-the-snapdragon-820-to-the-snapdragon-821-in-the-google-pixel-phones/">骁龙820 </a>重返定制CPU核心游戏。它标志着Kryo的首次亮相(在下面的比较中有所介绍)，它在单线程性能中非常重视浮点IPC(每时钟指令数)。</p>
+
+<p>Kryo的CPU性能和能效在高通在骁龙808和810中实施的ARM Cortex-A57上有所改善，但基准测试显示，在整数IPC方面，它无法与ARM的2016内核Cortex-A72相匹配。也就是说，对高通来说，这是一次救赎；它的前身<a href="https://www.xda-developers.com/opinion-the-810-held-back-a-generation-with-deliberate-apologism-damage-control/">玷污了该公司在一些评测者</a>中的声誉，在许多情况下，这些评测者无法忽视许多Snapdragon 810设备上出现的热量和节流问题，特别是早期的型号，如<a href="https://forum.xda-developers.com/one-m9"> HTC One M9 </a>和<a href="https://forum.xda-developers.com/g-flex2"> LG G Flex 2 </a>。</p>
+
+<p>凭借<a href="https://www.xda-developers.com/snapdragon-835-hands-on-and-qualcomm-visit-part-1-benchmarks-performance-power-savings/"> Snapdragon 835 </a>，高通利用“基于ARM Cortex技术”许可的“半定制”CPU内核再次改变了局面。Snapdragon 835采用基于ARM A73设计的Kryo 280“性能”内核，在每时钟整数指令数(IPC)方面比该公司的上一代完全定制的前辈更快，但在浮点数学(FPM)方面却有所退步。尽管如此，Snapdragon 835仍然是Android市场上最快的片上系统之一，从技术角度来看，这是一个巨大的飞跃，带来了更好的能效和热稳定性，以及外围组件的进步。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="snapdragon-845-improvements-overview">骁龙845改进概述</h2>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p>规范</p> </th><th><p>高通骁龙845</p> </th><th><p>高通骁龙835</p> </th> </tr></thead><tbody><tr><td><p>芯片集</p> </td><td><p>845(10纳米LPP)</p> </td><td><p>835(10纳米LPE)</p> </td> </tr><tr><td><p>中央处理器</p> </td><td><p>4个2.8GHz Kryo 385 (A75“性能”)，4个1.8GHz Kryo 385 (A55“效率”)</p> </td><td><p>4个2.45GHz Kryo 280 (A73大)，4个1.9GHz Kryo 280 (A53小)</p> </td> </tr><tr><td><p>国家政治保卫局。参见OGPU</p> </td><td><p>Adreno 630 GPU</p> </td><td><p>Adreno 540 GPU</p> </td> </tr><tr><td><p>记忆</p> </td><td><p>4x 1866MHz 32位LPDDR4X</p> </td><td><p>4x 1866MHz 32位LPDDR4X</p> </td> </tr><tr><td><p>ip摄像机</p> </td><td><p>双14位光谱280 ISP 32MP</p> </td><td><p>双14位光谱180 ISP 32MP</p> </td> </tr><tr><td><p>调制解调器</p> </td><td><p>骁龙X20 LTE(18类下行链路，13类上行链路)</p> </td><td><p>骁龙X16 LTE(16类下行链路，13类上行链路)</p> </td> </tr></tbody> </table> </div>
+<p>你可能已经注意到，骁龙845是多代人中第一个没有在定制和半定制内核之间进行架构改革的高通芯片，反之亦然。它重新采用了“基于ARM构建”的许可证，跟随去年Snapdragon 835的脚步。这标志着多年来我们第一次看到高通旗舰机连续两年坚持定制或半定制核心设计，这不是没有道理的。骁龙845配备了八个Kryo 385 CPU内核，尽管它们的名称表明是同质的，但它实际上由四个Cortex-A75性能内核和四个Cortex-A55效率内核组成。升级到新的内核本身就意味着性能的健康提升，正如采用三星的第二代10纳米LPP(低功耗加)FinFET工艺一样。与去年的835相比，这些更新和其他改进使性能提升了30%,能效总体提高了25%至30%。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/845soc.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Snapdragon 845 System-on-chip (Source: Qualcomm)&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/845soc.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/845soc.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/845soc.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/845soc.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/845soc.png" src="../Images/3c8618726838dd6fa0871e92be8185a7.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/845soc.png"/> </picture> <figcaption class="body-img-caption">Snapdragon 845 System-on-chip (Source: Qualcomm)</figcaption> </figure> </div>
+
+
+ </div>
+
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa75.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Source: ARM&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa75.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa75.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa75.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa75.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa75.png" src="../Images/6b7cadecfc06ef612cef89ab40ee6854.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa75.png"/> </picture> <figcaption class="body-img-caption">Source: ARM</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>Kryo 385的性能(“黄金”)内核主频高达2.8GHz，高于Kryo 280的2.4 GHz。A75设计在性能方面改进了前几年的A72和A73，同时转向ARMv8.2架构，带来了增强的内存模型、可扩展矢量扩展(SVE)和其他增强功能。这些内核还增加了一些功能，如支持ARM的DynamIQ，这是ARM为异构计算改进的标准。</p>
+
+<p>A72和A73非常注重提高热稳定性和功效，而A75继承了这些优势(例如，通过保持A73的分支预测器进行最小的调整)，同时表现出一致的性能改进。</p>
+
+<p>在相同的处理节点和相同的时钟速度下，A75比Cortex-A73提升了22%。它的整数核心性能提高了20%以上，浮点和NEON性能提高了33%(增加了对FP16半精度处理的支持)，并且通过包含针对8位神经网络算法的INT8点积指令提高了机器学习性能(尽管您可能仍然希望在骁龙845的Adreno 630 GPU或计算DSP上执行机器学习工作负载)。当A75最初公布和详细介绍时，ARM表示，与Cortex-A73相比，我们可以预计Geekbench性能将提高34%，Cortex-A73最多比A72有两位数的改善。在接下来的几个段落中，我们将看到它如何转化为骁龙845。</p>
+
+
+
+<p/><p><em>异构计算的优势。(来源:高通)</em></p>
+
+<p>DynamIQ也是一个很有前途的进步，建立在big之上。几乎没有充分利用骁龙845上的A75+A55组合。DynamIQ管理CPU集群的分组以及它们在异构计算中的相互通信。它支持每个集群多达八个CPU，每个CPU集群多达八个电压/频率域-骁龙845有一个熟悉的双集群设置，有三个时钟和电压域。集群之间的桥接由DynamIQ共享单元或DSU执行，它可以托管可选的共享L3缓存(A75/A55现在有专用的L2缓存)，骁龙845充分利用了这一点。DynamIQ还支持更细粒度的CPU时钟速度控制，845将轻松利用这一点。</p>
+
+<p>当我们谈到共享高速缓存时，骁龙845还特别为所有SoC模块提供了一个单独的3MB系统高速缓存，高通声称它可以帮助减少高达75%的访问事务，从而带来一些性能和节能方面的改进。</p>
+
+
+
+<p/><p><em>来源:ARM </em></p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa55.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;A55 vs. A53 (Source: ARM)&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa55.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa55.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa55.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa55.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa55.png" src="../Images/9c2405071637ca7fae97d0a11c3bd779.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/cortexa55.png"/> </picture> <figcaption class="body-img-caption">A55 vs. A53 (Source: ARM)</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>Kryo 385(“银”)集群采用基于ARM Cortex-A55的“高效”内核，主频为1.8GHz。高通声称，由此带来的性能提升约为15%，该公司还指出，内核在异构计算平台的整体能效中发挥着关键作用。事实上，我们已经在高通的旗舰芯片组和中端芯片组中看到了前代高效内核的出色表现(骁龙625就是一个最好的例子，它专门采用了A53内核，并具有传奇的耐用性)。A55看到了预期的改进，如前面提到的ARMv8.2架构扩展、专用机器学习指令和私有L2缓存(高达256KB)，以及重新设计的微架构，该架构承诺性能提高18%，功效提高15%(我们将不得不看到高通如何决定调整这些旋钮，但它很可能有利于耐用性)。</p>
+
+<p>根据ARM的数据，这18%的性能参考增加反映在整数性能提高18%，浮点性能提高20%，霓虹SIMD性能提高40%，JavaScript速度提高15%，内存受限工作负载大幅提升高达200%。降低的高速缓存延迟和性能优化使其成为去年著名的耐久性之王背后的高能效内核的整体更好版本，并且845在效率集群中的频率略低(与835相比低100MHz)，我们预计这种A55配置将为电池寿命的节省做出巨大贡献。</p>
+
+<p>最后但同样重要的是，骁龙845为高通的定制GPU系列带来了预期的改进，新的Adreno 630承诺性能提高30%，同时能效提高30%。与845上基于ARM的CPU不同，除了性能数字之外，发现新的和改进的细节是一个挑战-例如，我们知道它的计算核心是上一代Adreno GPU的两倍……但其他方面并不多。</p>
+
+<p>过去，我们已经看到了较大的GPU同比改进，但值得注意的是，高通的GPU在Android领域尤其领先于竞争对手，这一点不能总是说它的CPU产品。海思970中的Mali-G72 (12核变体)和Exynos 8895中的Mali-G71 (20核变体)开始弥补这一性能差距，但代价是功耗效率。这对高通来说很重要，因为该公司正专注于统一平台中的异构计算，而全面提高能效在其中发挥了重要作用。这也符合该公司对虚拟现实的关注(毫不奇怪，骁龙芯片组正在<a href="https://www.xda-developers.com/qualcomm-announces-vr-sdk-for-snapdragon-820/">向虚拟现实耳机</a>发展)，以及设备上的机器学习努力(其SDK允许开发人员根据需要在CPU、GPU和计算DSP之间分配工作负载)。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="testing-unit-methodology-amp-pitfalls">测试单位、方法和缺陷</h2>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th> </th><th><p>高通骁龙845参考设计</p> </th><th><p>一加5(骁龙835)</p> </th><th><p>一加3T(骁龙821)</p> </th> </tr></thead><tbody><tr><td><p><strong>安卓版本</strong></p> </td><td><p>安卓8.0奥利奥</p> </td><td><p>OxygenOS 5.0.2，安卓8.0奥利奥</p> </td><td><p>OxygenOS 5.0.1，安卓8.0奥利奥</p> </td> </tr><tr><td><p><strong>芯片组</strong></p> </td><td><p>骁龙845(八核，10纳米，4个2.8 GHz+4个1.8GHz)</p> </td><td><p>Qualcomm Snapdragon 835 (Octa-core, 10nm, 4x 2.45GHz + 4x 1.9GHz)</p> </td><td><p>高通骁龙821/MSM8996专业版(四核，14纳米，2个2.4 GHz+2个1.6 GHz)</p> </td> </tr><tr><td><p><strong> GPU </strong></p> </td><td><p>Adreno 630 GPU</p> </td><td><p>Adreno 540 GPU</p> </td><td><p>Adreno 530 GPU</p> </td> </tr><tr><td><p><strong> RAM </strong></p> </td><td><p>6GB LPDDR4X</p> </td><td><p>6GB LPDDR4X</p> </td><td><p>6GB LPDDR4</p> </td> </tr><tr><td><p><strong>显示</strong></p> </td><td><p>5.5英寸2560 x 1440像素(538 ppi)</p> </td><td><p>5.5英寸1920 x 1080像素(401 ppi)</p> </td><td><p>5.5英寸1920 x 1080像素(401 ppi)</p> </td> </tr><tr><td><p><strong>存储</strong></p> </td><td><p>UFS 2.1</p> </td><td><p>UFS 2.1</p> </td><td><p>UFS 2.0</p> </td> </tr></tbody> </table> </div>
+<p>一旦到了测试骁龙845的时候，我们被带到高通圣地亚哥总部的一个小会议室，在那里我们有几个小时的时间与高通<a href="https://qrd.qualcomm.com/">参考设计项目</a>的最新硬件在一起。这个单元看起来像是可以在商店里出售的东西，而不像是粗糙光滑的砖块，那是<a href="https://www.xda-developers.com/snapdragon-835-hands-on-and-qualcomm-visit-part-1-benchmarks-performance-power-savings/"> Snapdragon 835参考模型</a> (MDP/S)。它配备了5.5英寸QHD显示屏和强大的组件，包括一个适中的摄像头传感器，详见本段上表。高通一直专注于开发一个更加热稳定的平台，这从参考设计的性能中可以明显看出——该设备具有令人印象深刻的热稳定性，即使在更高的温度下也能保持在预期范围内。</p>
+
+<p>它运行的是未经修改的Android 8.0.0 Oreo，但当我们使用它时，该设备已经启用了USB调试，并且root访问似乎也已启用(我们当时无法利用这一点)。在我们的会议之前，它已经被用于基准测试几次，几周前的分数明显低于我们获得的分数。</p>
+
+
+
+<p> </p>
+
+
+
+
+
+<p><strong>简单介绍一下方法:</strong>我们只花了几个小时开发骁龙845参考设备，必须指出的是，它运行的ROM远不是一个可生产的产品包。我们被提前告知一些我们必须注意的测试异常，所以我们获得的结果不应该受到设备软件的影响。也就是说，PCMark等一些测试依赖于Android API调用，因此可能更容易受到ROM引入的无关行为的影响，我们的平滑度测试也严重依赖于ROM优化。一旦我们开始在实际生产装置上测试骁龙845，我们预计这些数字中的一些会与我们将来报告的略有不同。原始设备制造商将引入他们自己的内核和调控器变化，他们将最终决定处理器如何在他们的设备上运行(可能不使用参考设备使用的相同schedutil CPU伸缩调控器)。尽管如此，这些基准仍然应该给我们一个有根据的预期预览。</p>
+
+<p>因为我们使用这些设备的时间有限，而且因为我们每个人只能测试一个单元，所以我们无法彻底验证混杂因素是否真的改变了分数。也就是说，我们也没有理由认为这些分数不可靠:我们独立禁用了设备上的几个应用程序，以防止它们在后台运行(对分数的影响明显但微乎其微)，我们的所有结果都在高通提出的范围内(或以上)。我们肯定无法避免的一个问题是热量，因为时间限制迫使我们按顺序运行大多数基准测试。不过，我们确实让设备在更长时间的图形密集型测试后冷却下来，正如我们之前所说，我们不认为热量引入了显著的节流(我们没有在CPU频率图中观察到明显的变化)。</p>
+
+<p>除了Geekbench(四次)和PCMark(一次)之外，每个测试我们都执行了三次。为了比较各代片上系统的变化，我们在OnePlus 3T (6GB)和OnePlus 5 (6GB)上运行了相同次数的相同基准测试。这两款设备都有1080p显示屏，所以我们在这次比较中只包括了屏幕外图形测试。然而，在文章的末尾，您会发现一个链接，指向我们在本文中使用的所有数据，在这里您还会看到SDM845的屏幕1440p结果。事不宜迟，下面是数字！</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="benchmark-test-results">基准测试结果</h2>
+<p>首先，我们将看看<a href="https://www.geekbench.com/"> Geekbench 4 </a>，这是评估Android设备和跨平台CPU性能的较好(如果不是最好的)测试之一。这个基准测试多年来在爱好者中非常受欢迎，<a href="https://www.xda-developers.com/geekbench-ceo-fireside-chat-pt-2-oems-cheating-benchmarks-custom-cores-honest-manufacturers/">其背后的团队一直在听取用户和公司的意见</a>，以优化其测试的准确性并最大限度地发挥其效用。Geekbench 4引入了一个围绕英特尔酷睿i7-6600U标准化的新评分标准(基准分数为4000)，以及一些工作负载之间的暂停，以最大限度地减少热量节流的影响(因此，它的完成时间比Geekbench 3长)。4.1更新还提高了多核可扩展性，并对内存延迟工作负载进行了更改，以避免在采用Cortex-A72和A73内核的片上系统上出现缓存命中(这是我们不得不重新测试本文部分分数的原因之一，因为单核和多核分数分别略微上升了约2%和5%)。Geekbench 4使用的测试实现了与许多流行应用程序中的幕后算法和工作负载同源的流行算法和工作负载，因此其分数非常有见地。详细的细分将有助于我们评估高通新芯片组的一些改进。</p>
+
+ 
+
+
+
+<p>对于骁龙845，我们看到了全面的改进，这是去年的旗舰片上系统所无法比拟的。单核得分的平均增幅为25%，而多核得分的增幅较小，为24%。这些数字大约是25%到30%的预期改善，在大多数情况下，我们看到Geekbench中每个子分数都有所增加(见下图)。另一个有趣的观察结果是，相对于Snapdragon 835，每MHz浮点分数和每MHz整数分数都有所提高。与骁龙821中的Krait核心相比，去年Snapdragon 835中的核心每MHz的整数分数有所增加，但每MHz的浮点分数有所下降。这一次，在这些类别中，从一代到下一代，妥协更少(明确地说，妥协不是我们想要的)，845更高的时钟速度意味着这种每MHz的优势应该转化为预期的性能提升。</p>
+
+
+
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th> </th><th><p>SDM845</p> </th><th><p>单核性能提升</p> </th><th><p>SDM835</p> </th><th><p>单核性能提升</p> </th><th><p>MSM8996</p> </th> </tr></thead><tbody><tr><td><p>单一的</p> </td><td><p>2453</p> </td><td><p><span> <strong> x1.25 </strong> </span></p> </td><td><p>1965</p> </td><td><p>x1.06</p> </td><td><p>1841</p> </td> </tr><tr><td><p>秘密党员</p> </td><td><p>1547</p> </td><td><p><span> <strong> x1.27 </strong> </span></p> </td><td><p>1223</p> </td><td><p>x1.58</p> </td><td><p>776</p> </td> </tr><tr><td><p>整数</p> </td><td><p>2759</p> </td><td><p><span> <strong> x1.33 </strong> </span></p> </td><td><p>2074</p> </td><td><p>x1.12</p> </td><td><p>1859</p> </td> </tr><tr><td><p>浮点</p> </td><td><p>2065</p> </td><td><p><span> <strong> x1.45 </strong> </span></p> </td><td><p>1422</p> </td><td><p>x0.84</p> </td><td><p>1696</p> </td> </tr><tr><td><p>记忆分数</p> </td><td><p>2570</p> </td><td><p><span><strong>x . 94</strong>T3】</span></p> </td><td><p>2721</p> </td><td><p>x1.19</p> </td><td><p>2285</p> </td> </tr></tbody><tbody><tr><td><p>AES(GB/秒)</p> </td><td><p>1.16</p> </td><td><p><span> <strong> x1.23 </strong> </span></p> </td><td><p>942.4</p> </td><td><p>x1.78</p> </td><td><p>529.8</p> </td> </tr><tr><td><p>lzma(MB/秒)</p> </td><td><p>4.14</p> </td><td><p><span> <strong> x1.45 </strong> </span></p> </td><td><p>2.86</p> </td><td><p>x1.29</p> </td><td><p>2.22</p> </td> </tr></tbody><tbody><tr><td><p>JPEG(像素/秒)</p> </td><td><p>21.9</p> </td><td><p><span> <strong> x1.32 </strong> </span></p> </td><td><p>16.6</p> </td><td><p>x0.75</p> </td><td><p>22</p> </td> </tr><tr><td><p>Canny(百万像素/秒)</p> </td><td><p>32.3</p> </td><td><p><span> <strong> x1.27 </strong> </span></p> </td><td><p>25.5</p> </td><td><p>x0.79</p> </td><td><p>32.1</p> </td> </tr><tr><td><p>Lua MB/秒)</p> </td><td><p>2.20</p> </td><td><p><span> <strong> x1.25 </strong> </span></p> </td><td><p>1.76</p> </td><td><p>x1.24</p> </td><td><p>1.42</p> </td> </tr><tr><td><p>迪克斯特拉(MTW/秒</p> </td><td><p>1.88</p> </td><td><p><span> <strong> x1.08 </strong> </span></p> </td><td><p>1.74</p> </td><td><p>x1.20</p> </td><td><p>1.45</p> </td> </tr><tr><td><p>SQLite(Krows/秒)</p> </td><td><p>71.8</p> </td><td><p><span> <strong> x1.35 </strong> </span></p> </td><td><p>53.3</p> </td><td><p>x1.43</p> </td><td><p>37.2</p> </td> </tr><tr><td><p>HTML5解析(MB/秒)</p> </td><td><p>12.9</p> </td><td><p><span> <strong> x1.43 </strong> </span></p> </td><td><p>8.99</p> </td><td><p>x1.01</p> </td><td><p>8.90</p> </td> </tr><tr><td><p>html 5 DOM(kelys/sec)</p> </td><td><p>2930</p> </td><td><p><span> <strong> x1.31 </strong> </span></p> </td><td><p>2230</p> </td><td><p>x2.97</p> </td><td><p>746.6</p> </td> </tr><tr><td><p>直方图(百万像素/秒)</p> </td><td><p>68.4</p> </td><td><p><span> <strong> x1.31 </strong> </span></p> </td><td><p>52.2</p> </td><td><p>x0.92</p> </td><td><p>56.7</p> </td> </tr><tr><td><p>PDF渲染(百万像素/秒)</p> </td><td><p>68.6</p> </td><td><p><span> <strong> x1.37 </strong> </span></p> </td><td><p>50.1</p> </td><td><p>x0.84</p> </td><td><p>59.5</p> </td> </tr><tr><td><p>LLVM(函数/秒)</p> </td><td><p>353.8</p> </td><td><p><span> <strong> x1.35 </strong> </span></p> </td><td><p>262.6</p> </td><td><p>x1.58</p> </td><td><p>165.9</p> </td> </tr><tr><td><p>相机(图像/秒)</p> </td><td><p>7.82</p> </td><td><p><span> <strong> x1.38 </strong> </span></p> </td><td><p>5.68</p> </td><td><p>x0.74</p> </td><td><p>7.70</p> </td> </tr><tr><td><p>n体物理(千帕/秒)</p> </td><td><p>1440</p> </td><td><p><span> <strong> x1.64 </strong> </span></p> </td><td><p>877.8</p> </td><td><p>x0.79</p> </td><td><p>1110</p> </td> </tr><tr><td><p>光线跟踪(千像素/秒)</p> </td><td><p>353.5</p> </td><td><p><span> <strong> x1.51 </strong> </span></p> </td><td><p>233.4</p> </td><td><p>x0.81</p> </td><td><p>286.7</p> </td> </tr><tr><td><p>刚体物理学(FPS)</p> </td><td><p>8683.3</p> </td><td><p><span> <strong> x1.40 </strong> </span></p> </td><td><p>6189.4</p> </td><td><p>x1.06</p> </td><td><p>5815.2</p> </td> </tr><tr><td><p>HDR(百万像素/秒)</p> </td><td><p>12</p> </td><td><p><span> <strong> x1.42 </strong> </span></p> </td><td><p>8.48</p> </td><td><p>x0.71</p> </td><td><p>12</p> </td> </tr><tr><td><p>高斯模糊(百万像素/秒)</p> </td><td><p>33.9</p> </td><td><p><span> <strong> x1.40 </strong> </span></p> </td><td><p>24.3</p> </td><td><p>x0.48</p> </td><td><p>51.1</p> </td> </tr><tr><td><p>语音识别(字数/秒)</p> </td><td><p>18.7</p> </td><td><p><span> <strong> x1.30 </strong> </span></p> </td><td><p>14.4</p> </td><td><p>x1.36</p> </td><td><p>10.6</p> </td> </tr><tr><td><p>人脸检测(Ksubwindows/秒)</p> </td><td><p>823.8</p> </td><td><p><span> <strong> x1.62 </strong> </span></p> </td><td><p>509.1</p> </td><td><p>x0.76</p> </td><td><p>671.7</p> </td> </tr><tr><td><p>内存拷贝(GB/秒)</p> </td><td><p>6.04</p> </td><td><p><span> <strong> x1.22 </strong> </span></p> </td><td><p>4.94</p> </td><td><p>x0.77</p> </td><td><p>6.38</p> </td> </tr><tr><td><p>内存延迟(纳秒)</p> </td><td><p>174.9</p> </td><td><p><span> <strong> x1.40 </strong> </span></p> </td><td><p>124.8</p> </td><td><p>x0.53</p> </td><td><p>237</p> </td> </tr><tr><td><p>内存带宽(GB/秒)</p> </td><td><p>15.9</p> </td><td><p><span> <strong> x0.86 </strong> </span></p> </td><td><p>18.5</p> </td><td><p>x1.53</p> </td><td><p>12.1</p> </td> </tr></tbody> </table> </div>
+<p> </p>
+
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th> </th><th><p>SDM845</p> </th><th><p>多核性能提升</p> </th><th><p>SDM835</p> </th><th><p>多核性能提升</p> </th><th><p>MSM8996</p> </th> </tr></thead><tbody><tr><td><p>多（前缀）</p> </td><td><p>8437</p> </td><td><p><strong> x1.24 </strong></p> </td><td><p>6788</p> </td><td><p>x1.66</p> </td><td><p>4104</p> </td> </tr><tr><td><p>秘密党员</p> </td><td><p>7025</p> </td><td><p><strong> x1.15 </strong></p> </td><td><p>6117</p> </td><td><p>x3.04</p> </td><td><p>2013</p> </td> </tr><tr><td><p>整数</p> </td><td><p>11071</p> </td><td><p><strong> x1.23 </strong></p> </td><td><p>8981</p> </td><td><p>x1.84</p> </td><td><p>4879</p> </td> </tr><tr><td><p>浮点</p> </td><td><p>8288</p> </td><td><p><strong> x1.33 </strong></p> </td><td><p>6232</p> </td><td><p>x1.51</p> </td><td><p>4134</p> </td> </tr><tr><td><p>记忆分数</p> </td><td><p>3087</p> </td><td><p><strong> x1.05 </strong></p> </td><td><p>2937</p> </td><td><p>x1.03</p> </td><td><p>2838</p> </td> </tr></tbody><tbody><tr><td><p>AES(GB/秒)</p> </td><td><p>5.28</p> </td><td><p><strong> x1.14 </strong></p> </td><td><p>4.62</p> </td><td><p>x3.12</p> </td><td><p>1.48</p> </td> </tr><tr><td><p>lzma(MB/秒)</p> </td><td><p>15.4</p> </td><td><p><strong> x1.17 </strong></p> </td><td><p>13.2</p> </td><td><p>x1.92</p> </td><td><p>6.87</p> </td> </tr></tbody><tbody><tr><td><p>JPEG(像素/秒)</p> </td><td><p>98.4</p> </td><td><p><strong> x1.22 </strong></p> </td><td><p>80.9</p> </td><td><p>x1.66</p> </td><td><p>48.7</p> </td> </tr><tr><td><p>Canny(百万像素/秒)</p> </td><td><p>142.2</p> </td><td><p><strong> x1.17 </strong></p> </td><td><p>121.5</p> </td><td><p>x1.59</p> </td><td><p>76.6</p> </td> </tr><tr><td><p>Lua MB/秒)</p> </td><td><p>8.40</p> </td><td><p><strong> x1.05 </strong></p> </td><td><p>8.03</p> </td><td><p>x2.01</p> </td><td><p>4</p> </td> </tr><tr><td><p>迪克斯特拉(MTW/秒</p> </td><td><p>7.14</p> </td><td><p><strong> x1.31 </strong></p> </td><td><p>5.47</p> </td><td><p>x1.49</p> </td><td><p>3.66</p> </td> </tr><tr><td><p>SQLite(Krows/秒)</p> </td><td><p>309</p> </td><td><p><strong> x1.32 </strong></p> </td><td><p>234.4</p> </td><td><p>x2.41</p> </td><td><p>97.4</p> </td> </tr><tr><td><p>HTML5解析(MB/秒)</p> </td><td><p>58.1</p> </td><td><p><strong> x1.39 </strong></p> </td><td><p>41.9</p> </td><td><p>x1.79</p> </td><td><p>23.4</p> </td> </tr><tr><td><p>html 5 DOM(kelys/sec)</p> </td><td><p>7.14</p> </td><td><p><strong> x1.43 </strong></p> </td><td><p>5.01</p> </td><td><p>x2.66</p> </td><td><p>1.88</p> </td> </tr><tr><td><p>直方图(百万像素/秒)</p> </td><td><p>303</p> </td><td><p><strong> x1.18 </strong></p> </td><td><p>256.1</p> </td><td><p>x1.72</p> </td><td><p>149</p> </td> </tr><tr><td><p>PDF渲染(百万像素/秒)</p> </td><td><p>306.2</p> </td><td><p><strong> x1.21 </strong></p> </td><td><p>252.2</p> </td><td><p>x1.99</p> </td><td><p>126.5</p> </td> </tr><tr><td><p>LLVM(千次/秒)</p> </td><td><p>1440</p> </td><td><p><strong> x1.20 </strong></p> </td><td><p>1200</p> </td><td><p>x2.46</p> </td><td><p>488.3</p> </td> </tr><tr><td><p>相机(图像/秒)</p> </td><td><p>34</p> </td><td><p><strong> x1.28 </strong></p> </td><td><p>26.6</p> </td><td><p>x1.58</p> </td><td><p>16.8</p> </td> </tr><tr><td><p>多体物理(毫微微秒)</p> </td><td><p>6.04</p> </td><td><p><strong> x1.48 </strong></p> </td><td><p>4.07</p> </td><td><p>x1.67</p> </td><td><p>2.44</p> </td> </tr><tr><td><p>光线跟踪(千像素/秒)</p> </td><td><p>1420</p> </td><td><p><strong> x1.64 </strong></p> </td><td><p>1010</p> </td><td><p>x1.64</p> </td><td><p>616.6</p> </td> </tr><tr><td><p>刚体物理学(FPS)</p> </td><td><p>39598</p> </td><td><p><strong> x1.38 </strong></p> </td><td><p>28718.4</p> </td><td><p>x1.70</p> </td><td><p>16915.3</p> </td> </tr><tr><td><p>HDR(百万像素/秒)</p> </td><td><p>51.3</p> </td><td><p><strong> x1.30 </strong></p> </td><td><p>39.6</p> </td><td><p>x1.64</p> </td><td><p>24.2</p> </td> </tr><tr><td><p>高斯模糊(百万像素/秒)</p> </td><td><p>142.7</p> </td><td><p><strong> x1.32 </strong></p> </td><td><p>108.3</p> </td><td><p>x1.43</p> </td><td><p>75.7</p> </td> </tr><tr><td><p>语音识别(字数/秒)</p> </td><td><p>52.2</p> </td><td><p><strong> x1.17 </strong></p> </td><td><p>44.6</p> </td><td><p>x1.42</p> </td><td><p>31.4</p> </td> </tr><tr><td><p>人脸检测(Ksubwindows/秒)</p> </td><td><p>3.31</p> </td><td><p><strong> x1.40 </strong></p> </td><td><p>2.37</p> </td><td><p>x1.25</p> </td><td><p>1.89</p> </td> </tr><tr><td><p>内存拷贝(GB/秒)</p> </td><td><p>9.11</p> </td><td><p><strong> x1.29 </strong></p> </td><td><p>7.07</p> </td><td><p>十. 71</p> </td><td><p>9.96</p> </td> </tr><tr><td><p>内存延迟(纳秒)</p> </td><td><p>167.8</p> </td><td><p><strong> x1.29 </strong></p> </td><td><p>130.1</p> </td><td><p>x0.55</p> </td><td><p>237.2</p> </td> </tr><tr><td><p>内存带宽(GB/秒)</p> </td><td><p>18.6</p> </td><td><p><strong> x1.20 </strong></p> </td><td><p>15.5</p> </td><td><p>x0.88</p> </td><td><p>17.6</p> </td> </tr></tbody> </table> </div>
+<p>总体而言，Geekbench 4显示了健康的(如果不引人注目的话)同比改善。但关键是，这些分数不足以击败苹果的A11仿生片上系统，该系统在单核测试中的分数超过4200分，在多核测试中的分数超过10100分。自从苹果几年前开始用芯片基准测试，它和高通之间的差距越来越大，以至于后者声称每次骁龙修订都有25%到30%的同比改善，这已经成为它在这方面无法推翻苹果定制芯片的标志。</p>
+
+<p>当然，也有一些相反的观点破坏了这种比较。例如，当你考虑每平方毫米的性能等指标时，或者当你看一看每家公司的特定目标时，高通和苹果之间似乎不可逾越的差距就缩小了。高通希望骁龙845具有最佳的性能功耗比，不仅适用于智能手机，还适用于虚拟现实耳机、联网设备和Windows电脑。苹果设计其芯片组主要是，而且几乎完全是为了一个设备:iPhone。</p>
+
+<p>抛开争论和反对，骁龙845的性能提升大约是我们预期的，也是高通声称的。只是不要指望845的CPU能力(当然不是它的Geekbench分数)能与苹果目前和即将推出的芯片组相匹配。</p>
+
+ 
+
+
+
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th> </th><th><p>SDM845</p> </th><th><p>性能改进</p> </th><th><p>SDM835</p> </th><th><p>性能改进</p> </th><th><p>MSM8996</p> </th> </tr></thead><tbody><tr><td><p>全部的</p> </td><td><p>265569</p> </td><td><p><strong> x1.24 </strong></p> </td><td><p>213994</p> </td><td><p>1.23</p> </td><td><p>173450</p> </td> </tr><tr><td><p>中央处理器</p> </td><td><p>91838</p> </td><td><p><strong> x1.25 </strong></p> </td><td><p>73254</p> </td><td><p>1.35</p> </td><td><p>54085</p> </td> </tr><tr><td><p>国家政治保卫局。参见OGPU</p> </td><td><p>107322</p> </td><td><p><strong> x1.25 </strong></p> </td><td><p>85999</p> </td><td><p>1.24</p> </td><td><p>69286</p> </td> </tr><tr><td><p>UX</p> </td><td><p>58498</p> </td><td><p><strong> x1.89 </strong></p> </td><td><p>30918</p> </td><td><p>.74</p> </td><td><p>42047</p> </td> </tr><tr><td><p>工程管理硕士</p> </td><td><p>7910</p> </td><td><p><strong> x.75 </strong></p> </td><td><p>10489</p> </td><td><p>1.31</p> </td><td><p>8033</p> </td> </tr></tbody> </table> </div>
+<p>接下来，我们有来自<a href="http://www.antutu.com/en/ranking/rank1.htm"> AnTuTu </a>的基准测试结果，这是一个非常受欢迎的整体测试，可以频繁地得到有意义的修改。虽然AnTuTu可能因其突出的单分数测试结果而闻名，但在大多数情况下，尤其是在这种情况下，单独的子分数细分最能让我们评估芯片之间的差异。</p>
+
+<p>UX和内存测试涉及我们关注的CPU和GPU之外的组件和因素，因此与我们预测的结果有偏差并不完全意外。即便如此，骁龙845的平均分数增幅仍保持在预期的25%范围内，GPU和CPU的平均分数也是如此。UX测试模拟了真实世界的应用程序使用情况(例如，列表滚动、加载文本和图像元素等)，与我们的OnePlus 5特定分数相比有了巨大的提升，而内存工作负载则有所下降。鉴于最终分数是所有独立分数的总和，这是UX测试不成比例地影响了最终结果845的优势。因为这是一个受系统行为严重影响的测试，我们建议不要太关注它。</p>
+
+ 
+
+
+
+
+
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th> </th><th><p>SDM845</p> </th><th><p>性能改进</p> </th><th><p>SDM835</p> </th><th><p>性能改进</p> </th><th><p>MSM8996</p> </th> </tr><tr><td><p>Web 2.0分数</p> </td><td><p>8197</p> </td><td><p><strong> x1.23 </strong></p> </td><td><p>6667</p> </td><td><p>x1.14</p> </td><td><p>5828</p> </td> </tr><tr><td><p>网页浏览</p> </td><td><p>6971</p> </td><td><p><strong> x1.10 </strong></p> </td><td><p>6321</p> </td><td><p>x1.20</p> </td><td><p>5263</p> </td> </tr><tr><td><p>视频编辑</p> </td><td><p>5726</p> </td><td><p><strong> x1.11 </strong></p> </td><td><p>5146</p> </td><td><p>x1.13</p> </td><td><p>4542</p> </td> </tr><tr><td><p>写作</p> </td><td><p>8278</p> </td><td><p><strong> x1.25 </strong></p> </td><td><p>6604</p> </td><td><p>x1.37</p> </td><td><p>4821</p> </td> </tr><tr><td><p>照片编辑</p> </td><td><p>17196</p> </td><td><p><strong> x1.55 </strong></p> </td><td><p>11060</p> </td><td><p>x.90</p> </td><td><p>12273</p> </td> </tr><tr><td><p>数据操作</p> </td><td><p>6515</p> </td><td><p><strong> x1.18 </strong></p> </td><td><p>5543</p> </td><td><p>x1.17</p> </td><td><p>4752</p> </td> </tr></thead> </table> </div>
+
+
+
+
+<p>另一个既模拟现实世界的应用程序和使用场景，又完全依赖于ROM和内核/调控器调优的测试是<a href="https://www.futuremark.com/benchmarks"> PCMark </a>。我们不太了解高通参考设计的整体行为，因此我们无法评论该公司的参考设计频率缩放与零售单位的同源程度。正如我们在评论中看到的，PCMark分数往往因手机而异，即使这些手机具有相似或相同的规格。尽管如此，除了照片编辑测试，大多数测试都显示骁龙845有明显的两位数增长。<em>(完全披露:我们只能记录这次测试的一个分数，因为我们在几个测试单元上安装和运行基准测试都有一些困难。)</em></p>
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p>3DMARK</p> </th><th><p>SDM845</p> </th><th><p>性能改进</p> </th><th><p>SDM835</p> </th><th><p>性能改进</p> </th><th><p>&gt; MSM8996</p> </th> </tr></thead><tbody><tr><td><p>得分</p> </td><td><p>4859</p> </td><td><p><strong> x1.18 </strong></p> </td><td><p>4103</p> </td><td><p>1.40</p> </td><td><p>2924</p> </td> </tr><tr><td><p>物理学</p> </td><td><p>5444</p> </td><td><p><strong> x1.75 </strong></p> </td><td><p>3112</p> </td><td><p>1.55</p> </td><td><p>2010</p> </td> </tr><tr><td><p>制图法</p> </td><td><p>3515</p> </td><td><p><strong> x.78 </strong></p> </td><td><p>4513</p> </td><td><p>1.34</p> </td><td><p>3362</p> </td> </tr><tr><td><p>G1</p> </td><td><p>31.8</p> </td><td><p><strong> x1.11 </strong></p> </td><td><p>28.7</p> </td><td><p>1.24</p> </td><td><p>23</p> </td> </tr><tr><td><p>G2 Esports电子竞技俱乐部</p> </td><td><p>18.9</p> </td><td><p><strong> x1.27 </strong></p> </td><td><p>14.9</p> </td><td><p>1.40</p> </td><td><p>10.7</p> </td> </tr><tr><td><p>第一亲代</p> </td><td><p>58.7</p> </td><td><p><strong> x1.09 </strong></p> </td><td><p>54</p> </td><td><p>1.11</p> </td><td><p>48.8</p> </td> </tr></tbody><tbody><tr><td><p>P2</p> </td><td><p>35.6</p> </td><td><p><strong> x1.05 </strong></p> </td><td><p>34.1</p> </td><td><p>1.52</p> </td><td><p>22.4</p> </td> </tr><tr><td><p>P3</p> </td><td><p>20.4</p> </td><td><p><strong> x1.20 </strong></p> </td><td><p>17</p> </td><td><p>1.78</p> </td><td><p>9.57</p> </td> </tr></tbody> </table> </div>
+<p>转到图形基准，我们看了GFXBench的热门Manhattan (ES 3.1)和Car Chase测试以及T2的3DMark(T3)弹弓无限制测试(ES 3.1)。(我们没有通过Vulkan，也没有将图形测试的屏幕结果包含在此比较中，尽管您可以在我们的电子表格中找到屏幕分数。)正是在这些测试中，我们看到了高通的肾上腺素630 GPU带来的一些更强大的性能数据。具体来说，我们看到GFXBench的Manhattan和Car Chase屏幕外测试的两位数改进接近(在某些情况下超过)50%的性能提升，而3DMark的总体得分上升了18%。物理成绩有了最大的提高，在测试的三个部分中，分数提高了75%，并且变量增加。</p>
+
+
+
+
+
+
+
+<p>我们还在骁龙845上运行了Manhattan ES 3.1续航时间/电池寿命测试，这是一项30分钟的测试，推动了运行它的任何设备的热包络(特别是骁龙845，我们看到了47°C | 117°F的荒谬峰值表面温度)，尽管该设备变得难以忍受，但帧率仅下降了约16%，并在测试结束时稳定在较高水平。考虑到我们通常确保在凉爽的28°C | 82.4°F下开始测试，这当然不坏，在(字面上)激烈的基准测试会议中，这是我们无法承受的奢侈。我们提供了一些图表，比较了821和835的节流情况，但是请记住，这些结果是在更加受控的测试环境中获得的——我不会从这些具体的结果中得出强有力的结论。</p>
+
+
+
+
+
+
+
+<p>最后但同样重要的是，在综合基准测试列表中，我们有一组浏览器测试:Octane、北海巨妖、Jetstream和Sunspyder。幸运的是，相对于Snapdragon 835，骁龙845在这些测试中的最终得分同比有所提高。我们在本文底部的电子表格中包含了完整的分数明细，我们建议您参考该表，因为我们能够记录每个特定工作负载的更多分数。在不影响可读性的情况下，我们在本文中包含所有这些故障是不可行的，所以我们选择将重点放在更受欢迎的分数和测试上。</p>
+
+
+
+
+
+<p>我们运行了几个其他测试，没有产生明显的结果。Geekbench 4的RenderScript分数显示，与骁龙835相比，有了100%的大幅提升，骁龙845的分数达到了14，353，Razer Phone和Exynos S8设备的分数在8，000范围内。在基准测试会议上，一些媒体成员，包括<em> Fudzilla </em>的Fuad Abazovic询问了这一点，并被告知这可能与骁龙845中计算核心数量的两倍增长有关(我们被告知，图形性能受到固定流水线的限制，因此不要期望在大多数工作负载中看到如此显著的改善)。我们还在骁龙845上运行了一个平滑度测试，只是为了看看参考设备的Oreo ROM是否经过了很好的优化，以及/或者845是否在UI性能上显示出可衡量的优势……诚然，这是毫无意义的，因为我们无法确定两者是否都是真的。也就是说，Play Store滚动测试(简单的几秒钟快速浏览预载的“排行榜”列表)显示了相当惊人的结果(如上图)。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="benchmarks-giveth-and-benchmarks-taketh-away"><em>基准给予和基准取走</em></h2>
+<p>我们已经通过了大量的基准测试，并得以一窥骁龙845的性能。然而，仍有许多问题有待发现，片上系统的最终表现将取决于制造商的实施。我们希望这是一个有用的比较，尽管并不完美。一旦旗舰手机开始推出，我们肯定会重新审视骁龙845及其在2018年设备中的实例化。</p>
+
+<p>根据我们整理的大量基准测试信息，有几个关键的要点。高通声称CPU和GPU的性能都提高了30%,这似乎是正确的，在各种基准测试和各自的子评分中，这个数字上下有一些波动。我们可以推断，骁龙845很好地利用了转向A75和A55内核所带来的架构改进，Adreno GPU系列再次实现了可观的同比改进。所有这些还带来了巨大的能效改进，虽然难以衡量，但应该会给最终用户带来更多切实的好处。我们还可以期待DynamIQ的采用带来的性能优势，DynamIQ是最近基于ARM的芯片组中最重要的发展之一。再加上骁龙845的共享系统高速缓存和SDK的可用性，以正确利用所有SoC模块，我们可以开始看到高通对异构计算的复合关注将如何塑造<em>骁龙平台</em>向前发展。很明显，虽然上周新闻发布会的目的主要是对骁龙845的CPU和GPU进行基准测试，但大多数参观和会谈实际上都与该公司每一代产品都在不断改进的外围组件有关。</p>
+
+<p>事实上，骁龙上许多最令人兴奋的发展都是围绕着CPU和GPU的片上系统。例如，在连接方面，高通正在改进其调制解调器，并与合作伙伴合作，以加快并平稳过渡到5G。该公司还在机器学习上加倍努力，尽管其<a href="https://www.xda-developers.com/qualcomm-snapdragon-845-hexagon-685-dsp/"> Hexagon 685 DSP </a>缺乏专用处理单元，但其性能仍然是上一代的三倍。<a href="https://www.qualcomm.com/solutions/mobile-computing/features/aqstic">AQ stic音频编解码器</a>(支持高分辨率标准和集成DAC的低功耗音频编解码器)、高通的电源管理和快速充电解决方案、Spectra ISP和新的安全处理单元都是以这样或那样的方式影响用户体验的增值产品。然而，与此同时，该公司很难传达所有这些额外的硅最终如何以具体、可追踪的方式进入用户体验。CPU和GPU仍然是大多数用户心目中最重要的组件。</p>
+
+<p>这让我想到了我在2016年提出的观点:我注意到了苹果和高通之间<a href="https://www.xda-developers.com/a-widening-gap-the-a10-fusion-puts-a-chokehold-on-qualcomms-prospects/"><em/></a>不断扩大的差距，以及华为和三星等竞争对手开始挑战该公司在安卓领域的性能桂冠的方式。事实上，这种束缚还没有放松——只是随着A11 Bionic在一次修订中超越Snapdragon 835和未发布的845而变得更紧了。正如Geekbench 4的创造者约翰·普尔(John Poole)在<a href="https://www.xda-developers.com/geekbench-ceo-fireside-chat-pt-3/">接受XDA </a>采访时所说:“他们不是在和苹果竞争，而是在和苹果竞争”。在狂热爱好者和密切关注移动技术的人看来，这一点尤其正确——越来越明显的是，竞争对手正在迎头赶上，并且在某些(甚至许多)领域超过了高通。例如，随着三星承诺通过其即将发布的Exynos芯片将单核性能提高两倍，以及海思去年推出第一款专用神经网络处理单元，媒体的大部分注意力被吸引到了其他地方。</p>
+
+<p>当然，高通会辩称其Hexagon DSP实际上是第三代人工智能平台；他们的芯片在每瓦性能、每平方毫米性能或每瓦每平方毫米性能方面无与伦比；他们拥有更大、更广、更多样化的客户群，以多种不同方式使用平台；诸如此类。这些可能是有力的反驳，我碰巧看到了其中一些观点的正确性。但与此同时，我认为，互联网总体上仍然专注于CPU和GPU的数据，硅市场在这一领域只会越来越激烈。当然，这并不是说高通的研发团队在所有有助于用户体验的组件上投入如此之多是错误的，无论是直接投资还是让原始设备制造商通过采用快速充电等标准化实施来节省成本。</p>
+
+<p>最后，您可能会点击这篇文章，因为您看到了标题中的“基准”一词。看看我们自己的统计数据和竞争网站关于这些主题的文章的表现，我不认为我会错误地说，你不太可能阅读标题为Aqstic音频编解码器、Spectra 280 ISP、Hexagon 685 DSP或安全处理单元的文章。如果高通要在未来几年内继续“仅”实现30%的性能提升，这将是其面临的挑战之一。互联网声称很少或很少关心的基准分数差距不断扩大，但无论如何似乎都无法停止讨论，这将继续吸引该公司许多突破应得的关注。</p>
+
+<hr/>
+
+<p><strong>如果您有兴趣了解更多关于骁龙845的信息，请查看我们过去的报道:</strong></p>
+
+
+
+<p/><p><a href="https://docs.google.com/spreadsheets/d/1cUp0wsol6MFRu5-omTnXsYA89E7_7eNOAAKAMLTMpS8/edit?usp=sharing"> <strong> SDM845基准分数表</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

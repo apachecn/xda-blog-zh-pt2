@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Next Version of Android to Remove Dalvik and Make ART Default</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>下一个版本的Android将删除Dalvik，并使艺术默认</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/breaking-next-major-version-of-android-to-finally-remove-dalvik-and-set-art-as-default/#0001-01-01">https://www.xda-developers.com/breaking-next-major-version-of-android-to-finally-remove-dalvik-and-set-art-as-default/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">突破:Android的下一个主要版本将最终删除Dalvik并将ART设置为默认！</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Android的下一个主要版本将最终移除Dalvik并将ART运行时编译器设为默认！</p>
+
+
+<p class="img-description heading-img-desc">达尔维克走了，艺术运行时编译器默认</p>
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>自从我们<a title="BREAKING: New Runtime Compiler in Android 4.4 to Possibly Bring Better Performance in Future Releases" href="http://www.xda-developers.com/android/new-runtime-compiler-in-android-4-4/">第一次看到ART </a>伴随着Android 4.4 KitKat的发布出现，我们都知道它最终会取代老化且相对低效的Dalvik运行时编译器。好吧，伙计们，现在是时候了，因为昨晚晚些时候提交给AOSP主分支显示达尔维克得到斧头和艺术被设置为默认。</p>
+
+  
+<p>正在讨论的变更是以合并提交的形式出现的<a href="https://android-review.googlesource.com/98553" target="_blank"> 98553 </a>和<a href="https://android-review.googlesource.com/98618" target="_blank"> 98618 </a>。前者负责将Dalvik从AOSP主分支中移除，后者将默认运行时编译器切换到ART</p>
+
+<p>下面可以看到他们辉煌的变化:</p>
+
+<blockquote>
+<div class="table-container">
+<table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td><div> <div> <div> <p>达尔维克已死，达尔维克万岁！不合并</p><p>croot</p><p>CD libcore</p><p>回购启动dal vik-is-dead-long-live-dal vik。</p><p>repo sync-c .</p><p>git RM-r libdvm</p><p>git add Java library . MK(删除libdvm引用后，添加explict core-libart引用)</p> <p> git add Docs.mk(用libart替换对lib dvm的引用后)</p><p>git add benchmarks/Android . MK(添加explict core-libart引用后)</p> <p> git add Android.mk(删除后</p> </div> </div> </div>不合并</td> </tr></tbody> </table>
+ </div>
+<p> </p>
+<div class="table-container">
+<table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td><div> <div> <div> <p>从内核切换到内核-libart </p> </div> </div> </div></td> </tr></tbody> </table>
+ </div>
+ </blockquote>
+<p>伙计们，合并是不言自明的。达尔维克死了，达尔维克万岁！从艺术在过去几个月里变得如此可行来判断，Dalvik可能不会被错过——至少在XDA资深公认开发者rovo89发布了一个与艺术兼容的build Xposed框架后不会。:)</p>
+
+<p><em>【来源:AOSP代码审查(变更<a href="https://android-review.googlesource.com/98553" target="_blank"> 98553 </a>和<a href="https://android-review.googlesource.com/98618" target="_blank">98618</a>)】</em></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

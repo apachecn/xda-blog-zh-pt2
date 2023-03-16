@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>StrandHogg 2.0 Exploit Explained - Why users and developers should care</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>StrandHogg 2.0漏洞解释-为什么用户和开发者应该关心</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/strandhogg-2-0-android-vulnerability-explained-developer-mitigation/#0001-01-01">https://www.xda-developers.com/strandhogg-2-0-android-vulnerability-explained-developer-mitigation/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>现在是晚上10点。你知道你的活动在哪里吗？有一个新的漏洞可以在数百万的Android设备上被利用，而且是一个相当严重的漏洞。简而言之，这个设计缺陷允许攻击者在另一个应用程序的顶部显示他们自己的活动(页面)，潜在地混淆用户，泄露他们的私人数据。该漏洞被命名为StrandHogg 2.0，最近由挪威安全公司Promon T1披露。</p>
+
+  
+<p>StrandHogg 2.0漏洞理论上影响所有运行Android版本的Android设备，从Honeycomb (3.0)一直到Android 9 Pie (9.0)。根据<a href="https://www.xda-developers.com/android-version-distribution-statistics-android-studio/">最新的Android版本分布统计</a>，这意味着<strong>大约91.8%的Android设备容易受到StrandHogg 2.0 </strong>的攻击。该漏洞被指定为<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-0096"> CVE-2020-0096 </a>，并被赋予“严重”的<strong>严重级别它不需要任何特殊的许可就能工作，几乎完全不需要用户交互。用户只需打开一个隐藏了恶意代码的应用程序，然后他们就很容易被利用。</strong></p>
+
+<p>Promon非常友好地向我们发送了他们的概念证明应用程序及其源代码，以便我们能够最好地解释该漏洞是如何工作的，为什么它对用户很重要，以及开发人员如何保护他们的应用程序免受其害。</p>
+
+<hr/>
+
+
+<h2 id="how-it-works">它是如何工作的</h2>
+<p>假设你正在使用Gmail，然后你点击了一个网络链接。如果你进入最近的应用程序屏幕，你可能会注意到网页似乎在Gmail的“内部”。预览显示网站，但应用程序图标和名称仍来自Gmail。这是当一个应用程序/活动在同一任务中启动另一个应用程序/活动时发生的事情。现在想象你没有故意打开那个链接。对你来说，它看起来只是Gmail应用程序的一部分。这就是StrandHogg 2.0利用的行为。</p>
+
+<p>我们将不得不在这里省略一些细节，但这里大致介绍了这种利用是如何工作的。对于下文，我们假设攻击者想要获得用户的Gmail登录。</p>
+
+<ol> <li>用户下载了一个恶意的应用程序(当然，不知道它是恶意的)并打开它。</li> <li>该应用程序在后台打开Gmail，在上面放置一个看起来很像的登录活动，然后启动另一个活动。</li> <li>用户打开Gmail，看到看起来像Gmail的登录屏幕，但实际上是攻击者的网络钓鱼活动。</li> </ol>
+
+<p>步骤2中启动的最后一个活动可以是任何能够避免怀疑的活动。该应用程序可以假装崩溃并返回主屏幕，或者它可以像什么都没发生一样打开它的主要活动。用户可能看到的唯一可疑的事情是所有活动启动时的一堆打开动画。最糟糕的是:它甚至看起来不像是打开了Gmail。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/StrandHogg-2.0-Hijack-Password-Example-1024x408.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Source: Promon&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/StrandHogg-2.0-Hijack-Password-Example-1024x408.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/StrandHogg-2.0-Hijack-Password-Example-1024x408.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/StrandHogg-2.0-Hijack-Password-Example-1024x408.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/StrandHogg-2.0-Hijack-Password-Example-1024x408.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="StrandHogg 2.0 password hijack example" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/StrandHogg-2.0-Hijack-Password-Example-1024x408.jpg" src="../Images/e4ce101f67349f4900ab17a6b608117d.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/StrandHogg-2.0-Hijack-Password-Example-1024x408.jpg"/> </picture> <figcaption class="body-img-caption">Source: Promon</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>当然，攻击者可以做的不仅仅是显示一个虚假的登录屏幕。相反，恶意应用程序可能会显示权限提示，诱使用户授予不需要的权限。虽然请求任何特殊权限(如可访问性)可能会使用户产生怀疑，但像存储访问这样的事情也可能造成很大的损害。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="the-technical-bits">技术部分</h2>
+<p>下一节是StrandHogg 2.0工作原理的高级概述。Promon在接下来的几个月里不会发布完整的细节，所以我们不能确切地分享这个漏洞是如何实现的。不过，我们可以讨论一些技术细节。</p>
+
+<p>简单来说，StrandHogg 2.0劫持了Android的<code>Context.startActivities()</code> API方法，使用了三种意图。</p>
+
+<ul> <li>在我们的例子中，第一个意图是启动Gmail。标有<code>Intent.FLAG_ACTIVITY_NEW_TASK</code>。</li> <li>第二个意图是恶意的。在我们的例子中，这是为了相似的登录活动。此意图没有标志。</li> <li>第三个意图是分散注意力。它确保用户不会怀疑Gmail只是随机打开，而不是他们点击的应用程序(即发起攻击的应用程序)。标有<code>Intent.FLAG_ACTIVITY_NEW_TASK</code>。</li> </ul>
+
+<p>所有这些意图都以数组的形式传递给<code>startActivities()</code>方法。</p>
+
+<p>第二个意图缺少标志是这里的关键。通过这样做，我们基本上复制了上面的Gmail例子。从技术上讲，这项任务是Gmail的，但最重要的活动是攻击者的。当用户点击Gmail的主屏幕图标时，显示的是攻击者的活动，而不是Gmail的。</p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="proof-of-concept">概念证明</h2>
+<p>利用Promon发给我们的信息，我们能够复制他们的概念证明。这里有一段运行Android 9 Pie的三星Galaxy Note8的屏幕记录，显示了它的运行情况。</p>
+
+ 
+<p class="w-rich w-youtube" id="HO8nyhjXZEI">  </p>
+
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="mitigation-techniques-and-issues">缓解技术和问题</h2>
+<p>现在，简单地在代码中复制上述内容实际上是行不通的。这不是一个完整的例子，攻击者还必须做一些其他的事情才能让它工作，我们不能分享。但是你自己也不难猜到，这也是这次攻击如此危险的部分原因。StrandHogg 2.0是一个相对容易实现的漏洞，很难缓解。</p>
+
+<p>缓解不能仅仅包括将所有使用<code>startActivities()</code>的应用列入黑名单，因为它有很多合法的用途。也很难实现自动检测算法。恶意开发者可以使用各种技巧来使他们的StrandHogg 2.0实现对Google Play Protect等服务有效地不可见。StrandHogg 1.0要求攻击者在恶意应用的AndroidManifest.xml中添加一个属性，这相对容易检测到。另一方面，StrandHogg 2.0完全在Java/Kotlin中运行。</p>
+
+<p>考虑到混淆、反射，甚至只是不同的编码风格，自动正确检测利用这种漏洞的应用程序似乎不切实际。更重要的是，如果一个用户是StrandHogg 2.0攻击的对象，他们可能甚至不知道。如果你打开Gmail，看到它的登录屏幕，你可能会认为你的会话已经过期，然后不假思索地输入你的登录信息。</p>
+
+<p>当我们联系谷歌寻求回应时，一位发言人提供了以下声明:</p>
+
+<blockquote>
+<p/><h4>“我们感谢研究人员的工作，并发布了他们发现的问题的修复程序。此外，Google Play Protect可以检测和阻止恶意应用，包括使用这种技术的应用。”</h4>
+ </blockquote>
+<p>这听起来不错，希望它至少对StrandHogg 2.0攻击有一些效果。不过，值得注意的是，Google Play Protect <em>并没有</em>检测到我们的概念验证应用程序是恶意的，即使是在执行手动扫描之后。</p>
+
+<p>Promon表示，他们“<strong>没有观察到任何利用StrandHogg 2.0漏洞</strong>的真实恶意软件，”但不能保证这是第一次发现该漏洞。出于这个原因，Promon建议开发者继续保护他们的应用程序，将他们的启动器活动的<code>launchMode</code>标志设置为<code>singleTask</code>或<code>singleInstance</code>。这两个标志中的任何一个都会阻止任务注入，而这正是StrandHogg 2.0所依赖的。然而，让您的活动使用这些标志之一可能会导致某些应用程序流出现问题，因此并不总是可取的。</p>
+
+<p>Promon也在推广自己的“Promon SHIELD应用内保护”产品，这听起来像是一个应用程序开发人员可以实现的库，用于监控应用程序流程中的任务，以检查不规则的插入。因为没有真正有效的开发人员或用户缓解策略，所以制造商尽快实施补丁来解决这个问题是非常重要的。</p>
+
+<p>值得庆幸的是，Promon在公开这一漏洞之前遵循了负责任的披露准则(而且它仍然没有完全公开——Promon在完全披露StrandHogg 2.0如何工作之前等待了90天)。谷歌此后将针对这一漏洞的补丁移植到Android 8.0 Oreo、Android 8.1 Oreo和Android 9 Pie，并发布了【2020年5月Android安全补丁级别(SPL) 。Android 10及以上版本的用户不容易受到攻击，尽管我们不完全确定为什么会这样。这可能与Android 10关于启动活动的新限制以及谷歌如何将其集成到任务堆栈有关。Promon说，“在Android 10上，攻击完全无效，根据<code>adb shell dumpsys activity activities</code>，活动被分成不同的任务和独立的任务堆栈。”</p>
+
+<p>如果你的设备制造商仍然在提供安全更新(你可以在这里阅读更多关于<a href="https://www.xda-developers.com/how-android-security-patch-updates-work/">安全补丁程序如何工作的信息</a>)，你应该要求他们尽快更新。否则，你只需要小心你下载和运行的应用程序(尽管你应该这样做)。</p>
+
+<p>有关StrandHogg 2.0的更多细节和用例，请查看Promon网站上的<a href="https://promon.co/strandhogg-2-0/">官方公告。对于自定义ROM开发者来说，可以在这里</a>和这里找到相关的AOSP防止StrandHogg 2.0攻击的承诺<a href="https://android.googlesource.com/platform/frameworks/base/+/a952197bd161ac0e03abc6acb5f48e4ec2a56e9d">。</a></p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="disclosure-timeline">披露时间表</h2>
+<p>以下是Promon在其StandHogg 2.0文档中分享的披露时间表:</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_38"><ul> <li><strong>2019年12月4日</strong>–向谷歌报告问题</li> <li><strong>2019年12月4日</strong>–与谷歌共享了一个PoC恶意应用和视频</li> <li><strong>2019年12月4日</strong>–谷歌确认收到报告</li> <li><strong>2019年12月9日</strong>——谷歌将该发现的严重程度定为严重</li> <li><strong>2019年12月9日</strong>–谷歌确认他们能够重现该问题</li> <li><strong>2020年2月14日</strong>——我们在3月初通知谷歌90天的披露即将结束，并询问他们的状态</li> <li>2020年2月14日——谷歌回应称，他们最快也要在4月份推出修复方案</li> <li><strong>2020年2月14日</strong>–我们通知谷歌我们正在努力缓解</li> <li>2020年2月14日——谷歌回应。他们正在进行补救，并询问我们是否可以分享我们建议的缓解措施</li> <li>2020年2月17日——我们通知谷歌，我们可以将披露时间推迟到4月。我们请求CVE号码</li> <li><strong>2020年2月17日</strong>—我们分享了我们的缓解战略，以及我们对平台缓解的设想</li> <li>2020年3月23日——谷歌回复CVE ID (CVE-2020-0096)</li> <li>2020年3月23日——谷歌回应称，安卓系统的补丁将于5月正式发布</li> <li>2020年3月23日——谷歌询问我们是否会考虑将披露时间推迟到5月</li> <li><strong>2020年3月27日</strong>–我们回应称，我们将把披露时间推迟到5月</li> <li>2020年4月22日——谷歌通知我们，五月份的安全公告将包含一个漏洞补丁</li> </ul> </div></section></div>
+
+
+</div>    
+</body>
+</html>

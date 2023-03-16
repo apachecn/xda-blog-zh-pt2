@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>How to restore the missing pocket mode toggle in OxygenOS on some OnePlus phones</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在一些一加手机上恢复OxygenOS中丢失的口袋模式切换</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/how-to-restore-the-missing-pocket-mode-toggle-in-oxygenos-on-some-oneplus-phones/#0001-01-01">https://www.xda-developers.com/how-to-restore-the-missing-pocket-mode-toggle-in-oxygenos-on-some-oneplus-phones/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>来自一加的OxygenOS提供了大量定制的Android体验和各种有用的功能和选项。例如，你可以在OxygenOS中找到一个内置的“<a href="https://support.oneplus.com/app/answers/detail/a_id/5031/~/setting-pocket-mode">口袋模式</a>，当设备放在口袋中时，它可以防止意外触摸。然而，在最近的OxygenOS更新之后，一加7和一加7 Pro等设备上显然缺少禁用这一特定选项的开关。</p>
+
+  
+<p/><p><strong> <a href="https://forum.xda-developers.com/oneplus-7">一加七大论坛</a>| |<a href="https://forum.xda-developers.com/oneplus-7-pro">一加七大论坛</a>|</strong></p>
+
+<p>一加7家族最近收到了<a href="https://www.xda-developers.com/oneplus-7-oneplus-7t-series-oxygenos-updates-dolby-atmos-support-bullets-wireless-z-epic-games-store-india/"> OxygenOS 10.3.3 </a>(欧洲版本为OxygenOS 10.0.6)，将Android安全补丁级别提升至2020年5月，并为新的<a href="https://www.xda-developers.com/oneplus-bullets-wireless-z-announced-ip55/">一加子弹无线Z </a>耳机引入了<a href="https://www.xda-developers.com/unlock-full-dolby-atmos-equalizer-settings-on-the-oneplus-8-oneplus-7t-and-oneplus-7-series/">杜比全景声支持</a>等功能。另一方面，开放测试版用户在稳定频道推出前几天以<a href="https://www.xda-developers.com/oneplus-7-oneplus-7t-series-oxygenos-open-beta-14-4-ambient-display-clocks-may-2020-patches/">开放测试版14 </a>的形式获得了相同的安全补丁级别。这可能是一个巧合，但设置&gt;实用程序下的“口袋模式”开关似乎在这些更新后就消失了。</p>
+
+
+
+
+
+<p>虽然这种切换在视觉上是不存在的，但是口袋模式检测算法总是在后台运行。它最终打破了环境显示相关的功能，如双击唤醒和拾取以在弱光条件下显示，因为手机认为它仍然在你的口袋里。由于一加倾向于在他们的设备上重复使用OxygenOS的大部分UI代码库，该故障可能也会影响非一加7 (Pro)手机。</p>
+
+<p>希望有一个简单的方法，但是你必须有根才能应用这个补丁。你所需要做的就是将下面的文本片段添加到手机上的<code>/system/etc/feature_list</code>文件的末尾(就在最后一个<code>]</code>之前)。</p>
+
+<pre> <code class="hljs javascript">,<br/>   {<br/>       <span class="hljs-string">"featureName"</span>: <span class="hljs-string">"OP_FEATURE_ENABLE_POCKETMODE_SWITCH"</span><br/>   }<br/></code> </pre>
+<p>保存更改后重启手机，现在应该可以在设置&gt;实用程序下看到“口袋模式”切换。请注意，添加上述代码后，该选项的默认状态应该是“disabled ”,因此您可能需要切换它两次，以正确关闭口袋模式检测。</p>
+
+<hr/>
+
+<p><strong>来源</strong> : <a href="https://forums.oneplus.com/threads/oxygenos-10-0-6-eu-and-global-and-10-3-3-india-for-the-oneplus-7-pro-and-oneplus-7.1232394/page-82#post-21680168">一加论坛</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

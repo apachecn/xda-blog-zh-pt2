@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>S7 Edge Throttling &amp; Thermals: Stress-tests Comparing SD820, 810, 808, A9 &amp; Exynos 7420</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>S7边缘节流和散热:比较SD820、810、808、A9和Exynos 7420的压力测试</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/s7-edge-throttling-thermals-benchmark-stress-tests-of-sd820-810-808-exynos-7420/#0001-01-01">https://www.xda-developers.com/s7-edge-throttling-thermals-benchmark-stress-tests-of-sd820-810-808-exynos-7420/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>现在Galaxy S7和S7 Edge已经到达消费者手中，由于我们的第一组测试，我们终于可以开始探索<a href="http://xda-developers.com/tag/snapdragon-820"> Snapdragon 820 </a>的本质了。</p>
+
+  
+<p>虽然<a href="http://www.xda-developers.com/the-letv-max-pro-is-not-the-phone-youre-looking-for/">再多的单器件测试也无法揭示820 </a>的真正本质，但我们至少可以看到820在S7和S7 Edge中的表现，从而得出这种特定封装的最终性能结论。因为我们是在S7 Edge及其防水机身中测试Snapdragon 820，并通过TouchWiz和Samsung配置进行更改，所以不要推断我们的结果:这些分数和温度不会揭示820从现在起在每款旗舰中的表现，因为许多混淆变量会有所不同。</p>
+
+<p>我们的样本包括5款采用不同处理器的设备:iPhone 6S Plus (Apple A9)、S7 Edge (Snapdragon 820)、Note5 (Exynos 7420)、Moto X Pure(骁龙808)和Nexus 6P (Snapdragon 810)，以及HTC One M9 (Snapdragon 810)，但热成像除外。我们发现了一些有趣的结果，希望与大家分享，为我们的深入测试和后续S7 Edge审查做准备。事不宜迟，我们开始吧。</p>
+
+<hr/>
+
+
+<h2 id="cpu">中央处理器</h2>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p>极客工作台</p> </th><th><p>1</p> </th><th> </th><th><p>2</p> </th><th> </th><th><p>3</p> </th><th> </th><th><p>4</p> </th><th> </th><th><p>5</p> </th><th> </th><th><p>6</p> </th><th> </th><th><p>7</p> </th><th> </th><th><p>8</p> </th><th> </th> </tr></thead><tbody><tr><td><p><strong>装置</strong></p> </td><td><p>单核</p> </td><td><p>多核</p> </td><td><p>单核</p> </td><td><p>多核</p> </td><td><p>单核</p> </td><td><p>多核</p> </td><td><p>单核</p> </td><td><p>多核</p> </td><td><p>单核</p> </td><td><p>多核</p> </td><td><p>单核</p> </td><td><p>多核</p> </td><td><p>单核</p> </td><td><p>多核</p> </td><td><p>单核</p> </td><td><p>多核</p> </td> </tr><tr><td><p>iPhone 6S Plus</p> </td><td><p>2520</p> </td><td><p>4410</p> </td><td><p>2527</p> </td><td><p>4415</p> </td><td><p>2526</p> </td><td><p>4414</p> </td><td><p>2529</p> </td><td><p>4402</p> </td><td><p>2525</p> </td><td><p>4407</p> </td><td><p>2529</p> </td><td><p>4414</p> </td><td><p>2528</p> </td><td><p>4412</p> </td><td><p>2512</p> </td><td><p>4401</p> </td> </tr><tr><td><p>银河S7 Edge</p> </td><td><p>2337</p> </td><td><p>5309</p> </td><td><p>2307</p> </td><td><p>5179</p> </td><td><p>2341</p> </td><td><p>5341</p> </td><td><p>2336</p> </td><td><p>5335</p> </td><td><p>2338</p> </td><td><p>5379</p> </td><td><p>2341</p> </td><td><p>5362</p> </td><td><p>2327</p> </td><td><p>5359</p> </td><td><p>2312</p> </td><td><p>5281</p> </td> </tr><tr><td><p>注释5</p> </td><td><p>1476</p> </td><td><p>5127</p> </td><td><p>1480</p> </td><td><p>5148</p> </td><td><p>1476</p> </td><td><p>5141</p> </td><td><p>1474</p> </td><td><p>5147</p> </td><td><p>1480</p> </td><td><p>5018</p> </td><td><p>1472</p> </td><td><p>5115</p> </td><td><p>1472</p> </td><td><p>5071</p> </td><td><p>1475</p> </td><td><p>4984</p> </td> </tr><tr><td><p>摩托车x纯</p> </td><td><p>1245</p> </td><td><p>3440</p> </td><td><p>1247</p> </td><td><p>3526</p> </td><td><p>1253</p> </td><td><p>3511</p> </td><td><p>1251</p> </td><td><p>3502</p> </td><td><p>1217</p> </td><td><p>3445</p> </td><td><p>1213</p> </td><td><p>3388</p> </td><td><p>1249</p> </td><td><p>3481</p> </td><td><p>1218</p> </td><td><p>3371</p> </td> </tr><tr><td><p>Nexus 6P</p> </td><td><p>1249</p> </td><td><p>4348</p> </td><td><p>1242</p> </td><td><p>4613</p> </td><td><p>1255</p> </td><td><p>4591</p> </td><td><p>1186</p> </td><td><p>4503</p> </td><td><p>1149</p> </td><td><p>4219</p> </td><td><p>959</p> </td><td><p>3647</p> </td><td><p>1018</p> </td><td><p>3908</p> </td><td><p>1001</p> </td><td><p>3801</p> </td> </tr><tr><td><p>HTC M9</p> </td><td><p>1307</p> </td><td><p>3911</p> </td><td><p>1284</p> </td><td><p>3943</p> </td><td><p>1243</p> </td><td><p>3885</p> </td><td><p>1217</p> </td><td><p>3832</p> </td><td><p>1186</p> </td><td><p>3826</p> </td><td><p>1163</p> </td><td><p>3860</p> </td><td><p>1147</p> </td><td><p>3660</p> </td><td><p>1068</p> </td><td><p>3563</p> </td> </tr></tbody> </table> </div>
+<p/><p>在我们连续进行了8次Geekbench测试后，我们得到了第一组结果。这是一个CPU密集型测试，也是跨平台的，允许我们比较Android和iOS的分数。</p>
+
+<p/><p>对于那些不熟悉分数细分的人来说，单核分数衡量单个内核的性能，而多核分数同时衡量多个内核的性能。这种区别很重要，因为Snapdragon 820比Snapdragon 810 (8)和808 (6)封装的内核更少(4个)，但功能更强大，这在单核分数中有所反映。</p>
+
+
+
+
+
+<p><a href="http://www.xda-developers.com/wp-content/uploads/2016/03/compete.png" rel="attachment wp-att-141136"/></p>
+
+
+
+<p><a href="http://www.xda-developers.com/wp-content/uploads/2016/03/all.png" rel="attachment wp-att-140785"/></p>
+
+<p>在这些测试中，S7中的Snapdragon 820表现令人惊讶，几乎没有节流的迹象，Nexus 6P和HTC One M9连续出现最高降幅，并在最终得分中出现最高降幅。事实证明，Note5自始至终都非常高效，反映了我们去年对<a href="http://www.xda-developers.com/failed-potential-the-note5-xda-review/"> Note5进行深入审查</a>所获得的结果。Exynos 7420再次证明了它的实力，足够幸运的是，s 7中的Snapdragon 820不仅获得了高于所有其他设备的分数，而且<em>保持了这些分数</em>，并一路领先到最后。下面你可以看到一个对比图，展示了CPU压力测试后的热性能。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/03/img_thermal_1457023826080-1024x577.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Order: iPhone 6S Plus, S7 Edge, Note5, Moto X Pure, Nexus 6P&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/03/img_thermal_1457023826080-1024x577.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/03/img_thermal_1457023826080-1024x577.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/03/img_thermal_1457023826080-1024x577.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/03/img_thermal_1457023826080-1024x577.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="img_thermal_1457023826080" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/03/img_thermal_1457023826080-1024x577.jpg" src="../Images/7e17ebb0df5c45710263c9663de229ba.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2016/03/img_thermal_1457023826080-1024x577.jpg"/> </picture> <figcaption class="body-img-caption">Order: iPhone 6S Plus, S7 Edge, Note5, Moto X Pure, Nexus 6P</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>这张图片很有说服力，因为它显示了每部手机的相对热效率，排名正如我们所预期的那样，与我们两次测试的最终结果一致。iPhone 6S Plus(左一)和Note5(左三)表现出非常好的热效率(83°F | 28.3°C)。正如我们在<a href="http://www.xda-developers.com/failed-potential-the-note5-xda-review/"> Note5评论</a>中提到的，这款设备即使在压力下也很少发热。Nexus 6P在95华氏度|35摄氏度时最热，其次是Moto X Pure在88华氏度|31.1摄氏度，然后是S7 Edge。值得注意的是，S7 Edge成功地在性能和散热之间保持了良好的平衡，达到了84°F | 28.9°C，而X Pure和Nexus 6P表现出不太稳定的性能。总的来说，在这次CPU测试中，S7 Edge保持了与Note5相似的冷静。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="gpu">国家政治保卫局。参见OGPU</h2>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p>3D标记</p> </th><th><p>初始温度(华氏度)</p> </th><th><p>1</p> </th><th><p>2</p> </th><th><p>3</p> </th><th><p>4</p> </th><th><p>5</p> </th><th><p>最终试验(华氏度)</p> </th> </tr></thead><tbody><tr><td><p>iPhone 6S+</p> </td><td><p>90/32.2</p> </td><td><p>2759</p> </td><td><p>2561</p> </td><td><p>2469</p> </td><td><p>1900</p> </td><td><p>2076</p> </td><td><p>104/40</p> </td> </tr><tr><td><p>银河S7 Edge</p> </td><td><p>90/32.2</p> </td><td><p>2511</p> </td><td><p>2519</p> </td><td><p>2480</p> </td><td><p>2103</p> </td><td><p>2090</p> </td><td><p>99/37.2</p> </td> </tr><tr><td><p>注释5</p> </td><td><p>90/32.2</p> </td><td><p>1258</p> </td><td><p>1246</p> </td><td><p>1244</p> </td><td><p>1199</p> </td><td><p>1232</p> </td><td><p>97/36.1</p> </td> </tr><tr><td><p>摩托车x纯</p> </td><td><p>91/32.8</p> </td><td><p>1023</p> </td><td><p>973</p> </td><td><p>995</p> </td><td><p>1001</p> </td><td><p>968</p> </td><td><p>91/32.7</p> </td> </tr><tr><td><p>Nexus 6P</p> </td><td><p>95/35</p> </td><td><p>1330</p> </td><td><p>1180</p> </td><td><p>1283</p> </td><td><p>1185</p> </td><td><p>1141</p> </td><td><p>97/36.1</p> </td> </tr><tr><td><p>HTC M9</p> </td><td><p>93/33.9</p> </td><td><p>1401</p> </td><td><p>1266</p> </td><td><p>1338</p> </td><td><p>1144</p> </td><td><p>1082</p> </td><td><p>97/36.1</p> </td> </tr></tbody> </table> </div>
+<p/><p><img src="../Images/abb938646c145d1ed1e83847beea17f6.png" alt="" data-original-src="https://www.qualcomm.com/sites/ember/files/blog/managed-images/snapdragon_adreno530gpu_sidebar.jpg"/>骁龙820中最新的Adreno处理器承诺<a href="http://www.xda-developers.com/snapdragon-820-debut-qualcomms-comeback-packs-a-big-punch/">高达40% </a>的更好性能，考虑到移动GPU已经变得多么强大，这没有什么可嘲笑的。我们通过3DMark运行了我们的样本，发现820确实给S7 Edge带来了比Nexus 6P和Galaxy Note5相当大的增长。但与我们的CPU结果不同，S7 Edge无法在后续测试中保持领先。值得注意的是，我们让设备在76华氏度|24.5摄氏度的房间中冷却30分钟，但初始温度仍然不完全相等，可能是由于之前测试的最终温度和手机的材料。</p>
+
+
+
+
+
+<p> </p>
+
+<p><a href="http://www.xda-developers.com/wp-content/uploads/2016/03/all-2.png" rel="attachment wp-att-141141"/></p>
+
+
+
+<p/>
+
+<p>Snapdragon 820 S7 Edge在开始和结束时都遥遥领先于所有其他Android设备，正如所承诺的那样，显示了GPU性能的健康增长。但S7 Edge在这次测试中也出现了一些最严重的性能下降，诚然，这次测试比Geekbench激烈得多。相比之下，Nexus 6P表现更好，Note5也保持了它的表现。然而，M9从1401年到1082年出现了大幅下滑。每次测试结束时，我们再次测量温度:</p>
+
+
+
+
+
+<p>令人惊讶的是，iPhone 6S Plus在这些测试中最受欢迎，S7 Edge位居第二。两者都在与Note5相同的温度下开始测试，note 5没有变得那么热，但在5轮测试中保持了分数。Nexus 6P让我们感到惊讶的是，它只比初始温度高了2华氏度，对此我们没有明确的解释；可能是这样，因为这是一个GPU密集型测试，而且是CPU而不是Adreno 430遇到了架构问题；热量管理和节流不是问题，因为430仍然是一个强大的移动GPU。</p>
+
+<hr/>
+
+<h1>结束语</h1>
+<p>我们重申:<a href="http://www.xda-developers.com/the-letv-max-pro-is-not-the-phone-youre-looking-for/">这绝不代表820本身</a>，因为有几个混淆的变量在起作用，包括但不限于专有/软件修改、后台服务、内部硬件分配、设备容量等。这也绝不是详尽的分析，而只是我们深入测试的开始。然而，到目前为止，我们可以发现S7 Edge显示的一些有趣的行为。</p>
+
+<p/><p><a href="http://www.xda-developers.com/wp-content/uploads/2016/03/scrolling.png" rel="attachment wp-att-140808"> <img class=" wp-image-140808 alignright" src="../Images/f6d944a1923819a01a913ff84f49dcd9.png" alt="scrolling" data-original-src="https://static0.xdaimages.com/wordpress/wp-content/uploads/2016/03/scrolling.png"/> </a>首先，骁龙820确实带来了理论性能的显著提升，这是我们在2015年看到的非常受欢迎的升级。事实上，我们发现高通已经在很大程度上控制了CPU节流。进一步的测试可能会揭示不同的结果；如果是这样的话，我们会回来报告的。GPU得分也有显著提高，但令人失望的是，S7 Edge无法在长期压力下保持其图形性能。话虽如此，这里的含义并不太显著，到目前为止，我们还没有遇到Gear VR软件/性能的问题。</p>
+
+<p/><p>也许最有趣的是，<a href="http://www.xda-developers.com/this-is-touchwiz-lag-and-it-better-not-show-its-face-in-the-s7/">但并不令人震惊的是</a>，我们仍然设法在<a href="http://www.xda-developers.com/this-is-the-new-touchwiz-on-the-galaxy-s7edge-gallery/">用户界面</a>中找到滞后，包括随机的口吃和丢帧。事实上，我们的go-to GPU profiling测试显示，在Play Store中滚动时有许多跳过的帧，明显多于我们运行库存或接近库存软件(Nexus 6P，OnePlus 2)的810设备。我们还遇到了随机输入锁定，性能没有受到影响，但我们只是在几秒钟内无法与UI交互(两位XDA编辑报告了相机应用程序和设置菜单上重复出现的情况)。</p>
+
+<p>我们接触这款设备的时间不长，即将到来的发现可能会揭示更多关于S7 Edge的本质，进而进一步了解Snapdragon 820在各种情况下的行为。有关S7和S7 Edge的更多报道，请继续关注我们即将发布的深入评论<b/>。</p>
+
+<p><a href="http://forum.xda-developers.com/s7-edge"> <strong>查看XDA银河S7 Edge论坛&gt; &gt; </strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>
