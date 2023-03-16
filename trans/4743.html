@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>The Sony Xperia XZ Premium has a hidden 120Hz screen mode like the Razer Phone</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>索尼Xperia XZ Premium像Razer手机一样具有隐藏的120Hz屏幕模式</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/sony-xperia-xz-premium-hidden-120hz-screen-mode-razer-phone/#0001-01-01">https://www.xda-developers.com/sony-xperia-xz-premium-hidden-120hz-screen-mode-razer-phone/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><b>2018年4月8日更新:我们已经了解了更多关于这种隐藏屏幕模式的信息。见下文。</b></p> </div></section>
+<p/><p>嗯，这里有些有趣的东西。索尼Xperia XZ Premium是2017年的旗舰产品，最引人注目的是它的4K HDR显示屏，但它还有另一个隐藏的技巧:它的显示面板实际上支持像Razer手机一样的高帧率120Hz模式。关于这种隐藏屏幕模式<a href="https://gazyekichi.com/2017/07/26/%E7%94%BB%E9%9D%A2%E3%81%95%E3%81%8F%E3%81%95%E3%81%8F%EF%BC%81%E3%80%8Cxperia-xz-premium%E3%80%8D%E3%81%AF%E3%80%8C120hz%E3%80%8D%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B/">的传言自该设备发布之时起就在互联网</a>上流传，但因为它需要修改内核才能启用，所以没有多少用户能够实际测试它。然而最近，<a href="https://www.reddit.com/r/Android/comments/8a6kkn/this_aosp_81_for_the_xperia_xz_premium_seems_to/">我们听说</a>许多用户已经开始测试这种隐藏屏幕模式...不幸的是，结果很不一致。</p>
+
+  
+<p>作为背景，Xperia XZ Premium显示面板支持3种屏幕模式:1080p@60fps，2160p@60fps，最后是禁用的1080p@120fps模式。这种禁用的高帧速率模式可以通过在内核源代码中将该提交恢复为显示面板配置来启用。</p>
+
+
+
+
+
+<p>感谢索尼开放设备程序支持<a href="https://www.xda-developers.com/xperia-xz-premium-open-devices/"> Xperia XZ Premium </a>用于其<a href="https://www.xda-developers.com/sony-android-oreo-open-devices-program/">最新Android Oreo </a> <a href="https://www.xda-developers.com/android-oreo-sony-xperia-xz-premium/">发布</a>(甚至在<a href="https://www.xda-developers.com/xperia-open-devices-linux-4-4-kernel/"> Linux内核版本4.4 </a>！)，开发人员为设备构建一个功能性的AOSP ROM是相当容易的。(不幸的是，有一个挥之不去的问题，当解锁引导加载程序时，DRM密钥被擦除，导致劣质的相机性能。)使用最新的资源，XDA成员<a href="https://forum.xda-developers.com/member.php?u=8946654"> uditrawat </a>为XZ Premium 编译了<a href="https://forum.xda-developers.com/xz-premium/how-to/aosp-8-1-t3752708"> Android 8.1 Oreo，支持120Hz屏幕模式。</a></p>
+
+<p>根据我们论坛中测试过这个版本的成员所说，结果是不一致的。有人说它有效，有人说它只是安慰剂。我个人认为，如果成功了，人们会很容易注意到。也许AOSP本身不支持高帧率显示，而是需要额外的框架补丁。一名为<a href="https://www.xda-developers.com/list-android-devices-project-treble-support/"> Razer手机</a>闪存了<a href="https://www.xda-developers.com/lineageos-15-1-resurrection-remix-available-project-treble/">linegeos 15.1</a>的<a href="https://www.xda-developers.com/flash-generic-system-image-project-treble-device/">通用系统映像</a>版本的测试人员报告称，这款手机的运行频率为90Hz(这是该手机内核中指定的默认刷新率)，所以我不太确定它不能用于索尼Xperia XZ Premium的原因。</p>
+
+<p>不管怎样，这是一个非常有趣的发展。索尼Xperia XZ Premium不允许开箱即用的120Hz刷新率肯定有一个很好的原因。我不认为这与性能有关，因为该设备使用与Razer手机相同的片上系统(高通骁龙835)，所以我倾向于Android兼容性或显示面板不一致。希望开发者能够解决这里的问题，让索尼Xperia XZ Premium稳定在120Hz，或者希望Android P将正式添加对高帧率显示器的支持。鉴于索尼向AOSP提交上游更改的记录，我认为如果该公司真的希望XZ Premium支持高帧速率模式，我们应该已经在AOSP看到对它的支持了。</p>
+
+ 
+<h2 id="update-more-devices-more-information">更新:更多设备，更多信息</h2>
+<p>事实证明，有更多的索尼设备被内核禁用了隐藏的120Hz显示模式。XDA认可开发者<a href="https://forum.xda-developers.com/member.php?u=3816568"> Myself5 </a>深挖来源向我们确认索尼Xperia X、索尼Xperia X Performance、索尼Xperia XZ、索尼Xperia XZ1、索尼Xperia XZ1 Compact、索尼Xperia XA2、索尼Xperia XA2 Ultra都支持这种屏幕模式。基本上，除了索尼Xperia X Compact之外，任何新的索尼手机都应该支持这种模式。</p>
+
+<p>然而，屏幕模式目前在为这些设备编译的AOSP rom上不起作用，因为模式之间的切换不起作用。不过，这并不意味着屏幕模式本身不起作用，因为Myself5声明将内核默认设置为该屏幕模式会起作用。如果或当这些索尼设备的8.1版本支持高帧率屏幕模式时，CarbonROM和其他基于AOSP的ROM将开始集成这些补丁。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

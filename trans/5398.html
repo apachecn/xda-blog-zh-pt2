@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>PSA: Flashing MIUI Global on these Xiaomi devices may brick your device</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>PSA:在这些小米设备上闪烁MIUI Global可能会砖块你的设备</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/flash-miui-global-locked-bootloader-xiaomi-brick/#0001-01-01">https://www.xda-developers.com/flash-miui-global-locked-bootloader-xiaomi-brick/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>中国电子产品制造商小米不仅在他们的祖国中国，而且在印度和其他亚洲国家都是巨头。他们最近也开始向欧洲扩张。他们的智能手机和平板电脑因其性价比而大受欢迎。你可以以与新iPhone 相同的价格获得最新的小米智能手机、笔记本电脑、腕带和蓝牙耳机<a href="https://www.xda-developers.com/xiaomi-offer-smartphone-laptop-wearable-headset-same-price-iphone/">。他们产品令人难以置信的价值使得许多人将他们的产品进口到其他国家。第三方零售商利用小米在经销商市场的人气，向客户承诺他们将获得中国小米设备的“全球”版本，即使全球版本实际上并不存在。小米已经开始打击这些经销商，在他们的最新举措中，他们正在阻止他们的设备启动区域外的MIUI设备。</a></p>
+
+  
+<p>我们最近谈到了<a href="https://www.xda-developers.com/xiaomi-anti-rollback-protection-brick-phone/">小米的防回滚保护</a>，以及如果你在降级到早期MIUI版本时不小心，它会如何损坏你的设备。在那篇文章中，我们还提出了其他可能意外损坏小米设备的方式。其中一种方法是在中国销售的某些小米设备上安装MIUI Global ROM。这样做会导致你的手机卡在MIUI恢复屏幕上，错误信息“此MIUI版本无法安装在此设备上。”</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Xiaomi-This-MIUI-Cant-Be-Installed-Error-Message.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;This is what happens if you try to flash a MIUI Global ROM on Chinese Xiaomi hardware with a locked bootloader. Credits: &lt;a href=\&quot;http:\/\/en.miui.com\/thread-974069-1-1.html\&quot;&gt;physicien007&lt;\/a&gt;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Xiaomi-This-MIUI-Cant-Be-Installed-Error-Message.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Xiaomi-This-MIUI-Cant-Be-Installed-Error-Message.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Xiaomi-This-MIUI-Cant-Be-Installed-Error-Message.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Xiaomi-This-MIUI-Cant-Be-Installed-Error-Message.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="Xiaomi anti-rollback" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Xiaomi-This-MIUI-Cant-Be-Installed-Error-Message.jpg" src="../Images/2aae7fde2329287f2d9589ce2ed347dc.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Xiaomi-This-MIUI-Cant-Be-Installed-Error-Message.jpg"/> </picture> <figcaption class="body-img-caption">This is what happens if you try to flash a MIUI Global ROM on Chinese Xiaomi hardware with a locked bootloader. Credits: <a href="http://en.miui.com/thread-974069-1-1.html">physicien007</a></figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>用户遇到这个问题已经有几个月了，他们不清楚为什么会发生这种情况。几周前，MIUI官方论坛<a href="http://en.miui.com/thread-3831680-1-1.html">的一名管理员宣布</a>这一行为是故意的。来自论坛帖子:</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_4"><p><strong>关于国产闪灯Mi手机的重要公告！</strong></p><p>在你刷新或者更新ROM之前，这里有一些非常重要的事情。</p><p>1.为中国市场制造的小米手机无法运行MIUI全球ROM。</p><p>2.为全球市场制造的小米手机无法运行MIUI中国ROM。</p><p>我们强烈建议您通过官方或授权销售渠道购买小米手机，并在闪烁或更新前仔细检查系统信息。</p> </div></section>
+<p>虽然很高兴终于看到小米解决了为什么人们通过闪现区域外MIUI版本来阻止他们的设备，但我们感到失望的是，该公司没有详细说明哪些设备受到这一限制的影响。幸运的是，<a href="http://www.xiaomitool.com/adb">小米工具</a>的开发者，XDA的初级成员<a href="https://forum.xda-developers.com/member.php?u=8229896"> franztesca </a>，自己承担了找出哪些设备受到影响的任务。他发现了负责阻止区域外MIUI安装的代码，我们能够自己验证这一点*。所发生的是MIUI检查系统属性以确定MIUI版本是否匹配设备的区域。如果不匹配，系统会重启你到MIUI恢复，并显示错误信息。你没有办法避开这个错误信息，因为每次启动都会把你踢回MIUI恢复。(幸运的是，如果你有一个解锁的引导程序，这种检查不会发生，所以你可以自由安装一个区域外的MIUI版本或自定义ROM。)</p>
+
+<p>* <em>对于那些好奇的人，相关的类是com . Android . server . systemserverinjictor，您可以在/system/framework中的services.vdex中找到它。</em></p>
+
+ 
+<h2 id="list-of-xiaomi-devices-with-out-of-region-miui-restrictions">具有区域外MIUI限制的小米设备列表</h2>
+<p>由您决定是否了解您的设备所在的地区，但只要您从官方渠道购买设备，如该地区的官方零售/在线合作伙伴或您所在地区的官方Mi商店/网站，这应该很容易做到。如果你从第三方零售商那里购买设备，那就有点棘手了。第三方零售商可能会对他们卖给你的设备撒谎。例如，一家第三方零售商可能声称他们卖给你的是全球小米Mi Max 3，而实际上他们卖给你的是中国小米Mi Max 3。务必检查包装盒和设备上的任何标签。</p>
+
+<p>无论如何，这里是受这种区域外限制影响的小米设备。我们列出了每种设备的市场名称以及它们的代号。</p>
+
+
+
+<p>列表中有些设备可能看起来不合适。例如，小米poco phone F1<a href="https://www.xda-developers.com/xiaomi-poco-f1-specs-pricing-availability-india/">只在国际上销售</a>，而<a href="https://www.xda-developers.com/xiaomi-mi-pad-4-official-specifications-features/"> Mi Pad 4 </a>和<a href="https://www.xda-developers.com/xiaomi-mi-6x-china-dual-cameras-snapdragon-660/"> Mi 6X </a>只在中国销售。因此，区域外限制没有意义，因为不可能刷新区域外的MIUI版本。我们假设列出这些设备是为了完整性，因为这些设备将来可能会在其他市场推出。</p>
+
+<h3 id="tip-to-avoid-bricking-your-device">提示避免砖你的设备</h3>
+<p>如果您有一个解锁的引导加载程序，您可以使用TWRP、快速引导或MiFlash工具安全地刷新区域外的MIUI版本。但是，在闪存区域外软件时，请务必在MiFlash中选择“flash_all”而不是“flash_all_lock”。如果您选择后者，您的引导加载程序将在刷新后锁定...也就是说你的设备会被屏蔽。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Mi-Flash-1024x644.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Pro-tip: Always uncheck \&quot;clean all and lock\&quot; before flashing with Mi Flash. This will prevent your bootloader from being locked when flashing.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Mi-Flash-1024x644.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Mi-Flash-1024x644.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Mi-Flash-1024x644.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Mi-Flash-1024x644.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Xiaomi Anti-rollback protection" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Mi-Flash-1024x644.png" src="../Images/33abad2d63f9b4ef6517cd0d6b6d45ea.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/09/Mi-Flash-1024x644.png"/> </picture> <figcaption class="body-img-caption">Pro-tip: Always uncheck "clean all and lock" before flashing with Mi Flash. This will prevent your bootloader from being locked when flashing.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<h3 id="what-to-do-if-your-device-has-been-bricked">如果您的设备被拦截，该怎么办</h3>
+<p>如果你最终得到了一个被屏蔽的设备，你现在唯一的办法就是进入EDL模式，为你的设备刷新正确的MIUI版本。不幸的是，小米已经锁定了EDL模式，因此只有授权的小米账户才能访问它。</p>
+
+<hr/>
+
+<p>小米地区闪购政策的任何变化，我们都会及时通知你。该公司通常不会详细说明他们为什么实施某些限制，尽管通常情况下，原因可以归结为挫败可疑的第三方零售商，而不是伤害爱好者群体。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

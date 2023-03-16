@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>How to unlock the bootloader of Huawei and Honor devices for a fee</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何收费解锁华为和Honor设备的bootloader</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/huawei-honor-unlock-bootloader-fee/#0001-01-01">https://www.xda-developers.com/huawei-honor-unlock-bootloader-fee/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>改造我们的智能手机和平板电脑是XDA的使命。我们的网站是最大的Android爱好者论坛的所在地，他们喜欢摆弄他们的设备，这有时会导致与制造这些设备的公司发生冲突。一些公司，如谷歌和一加，对修改者很友好，而其他许多公司则对我们的社区视而不见。然而，其他公司打击修改设备上的软件的能力，因为他们感到第三方经销商损害他们的声誉的威胁。例如，华为最近<a href="https://www.xda-developers.com/huawei-stop-providing-bootloader-unlock-codes/">停止为他们所有的智能手机和平板电脑提供引导程序解锁码</a>，引发了来自社区的<a href="https://www.xda-developers.com/xda-huawei-decision-stop-bootloader-unlocking/">反弹</a>。虽然华为的子品牌<a href="https://forum.xda-developers.com/honor-view-10/development/honor-bootloader-unlocking-limited-t3837880">Honor在有限的试验中重新开放了</a>引导加载程序解锁，但只有一种方法可以解锁你的华为或Honor设备的引导加载程序，但这需要你付出代价。</p>
+
+  
+<p>对于那些不知道的人，引导程序是负责在设备上启动操作系统及其内核的代码。通常，引导加载程序将只加载由设备制造商签名的引导映像。使用解锁的引导加载程序，您可以安装未经设备制造商签名的引导映像。这包括引导基于AOSP的ROM所需的定制映像、为支持Magisk root而修补的引导映像等等。解锁谷歌、一加、Essential、Razer和其他一些设备制造商的智能手机上的引导程序非常简单，只需将你的手机连接到PC，在开发者选项中启用“OEM解锁”，然后在你的手机处于引导程序菜单中时输入几个fastboot (fastboot是一种从PC向设备的引导程序发送命令的协议)命令。其他设备要求您拥有设备特定的引导加载程序解锁代码，然后才能解锁引导加载程序。通常，请求引导加载程序解锁代码需要填写一个包含IMEI、帐户信息和其他详细信息的表格。华为曾经提供过这样一个表格，但是他们在七月下旬关闭了这个表格。</p>
+
+
+
+<p>这意味着不再有官方途径来获取你的华为或Honor智能手机或平板电脑的引导加载器解锁代码。还没有人弄清楚这些引导程序解锁代码是如何生成的，所以自己生成一个是不可能的。最有可能的是，这些代码是为工厂中的每个设备创建的，而华为表单只是从内部数据库中查找您设备的代码。因此，除非华为利用漏洞或突然来个180度大转弯，否则如果你执意要用定制内核、定制rom、Magisk等改造华为或荣誉产品，就不要指望它们。然而，如果你已经拥有一台华为或Honor设备，并且你真的<em>不顾一切地</em>解锁引导加载程序，那么还有最后一招:第三方付费服务。</p>
+
+ 
+<h2 id="unofficially-unlocking-the-bootloader-of-huawei-and-honor-smartphones">非正式解锁华为和Honor智能手机的Bootloader</h2>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p><strong>注意:XDA开发商不支持使用第三方服务来解锁您设备的引导程序。我们不从下列任何服务中赚取任何利润。无法保证这些服务使用起来是安全的，如果您选择使用这些服务，您的设备将面临风险，因为华为和Honor可能不会在出现任何问题时为您提供支持(除非法律要求)。)</strong></p> </div></section>
+<p>你过去可能听说过一个叫做<a href="https://funkyhuawei.club/"> FunkyHuawei.club </a>的服务。我们已经泄露了关于<a href="https://www.xda-developers.com/honor-v10-specifications-leaked/"> Honor View 10 </a>、<a href="https://www.xda-developers.com/exclusive-att-huawei-mate-10-pro-firmware/">华为Mate 10 Pro </a>、<a href="https://www.xda-developers.com/possible-huawei-mate-20-camera-features/">华为Mate 20 </a>和许多其他设备的信息，这要感谢他们提供的固件版本的早期访问。FunkyHuawei也有unbricking或<a href="https://funkyhuawei.club/rebranding"> rebranding </a>华为和Honor devices的服务，但他们最近增加的服务是<a href="https://funkyhuawei.club/bootloader"> bootloader解锁</a>。它为所有华为和Honor设备生成引导加载器解锁代码——甚至是最近发布的设备，如Honor Note 10、华为Mate 20和Honor Magic 2。其他付费服务，如<a href="https://www.dc-unlocker.com/"> DC解锁器</a>在最近的设备上停止工作，但如果你有一台旧的华为或Honor设备，你也可以尝试一下。我个人只在我的Honor Magic 2上尝试过FunkyHuawei的bootloader解锁服务，在我发送IMEI和型号后，解锁代码过了几分钟才到达我的收件箱。我还没有试过DC解锁器，但我听说它可以在华为MediaPad M5等设备上工作。<em>(免责声明:FunkyHuawei向我提供了一个免费的代码，所以我可以验证他的服务实际工作。</em>)</p>
+
+
+
+
+
+<p>至于价格，FunkyHuawei的单个解锁码是55美元。是的，很贵。DC-解锁器更便宜，但它不能在新型号上工作。我不相信来自第三方的引导加载器解锁代码的可用性将挽救定制rom社区，因为很少有开发者愿意为华为或荣誉设备的发展而烦恼。然而，如果你只是想安装Magisk或尝试一个项目Treble GSI，那么你必须付钱，因为像这样的服务是唯一的方式来解锁引导加载程序，我们知道。FunkyHuawei告诉我，他们还出售从香港进口的设备，这些设备要么是预装的，要么带有引导程序解锁代码，以防你想走这条路。同样，你将支付比你通常为该设备支付的更多的费用，但华为bootloader解锁表单的关闭让你几乎没有选择。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

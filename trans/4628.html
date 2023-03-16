@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Android P Blocks Custom Overlays (Substratum Themes) From Being Installed</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android P阻止安装自定义覆盖图(底层主题)</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-p-blocks-custom-overlays-substratum-themes/#0001-01-01">https://www.xda-developers.com/android-p-blocks-custom-overlays-substratum-themes/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>CST 3/8/18</strong>晚上10:05更新:我们社区的一名成员在Google的官方问题跟踪器上提交了一个功能请求。这是引起Google注意的正确方法，我们和底层开发者谈过了，他们也会支持这个请求。请明星，但不要评论<a href="https://issuetracker.google.com/issues/74354703">这一页</a>如果你支持的要求。</p> </div></section>
+<p/><p>谷歌Pixel、谷歌Pixel XL、谷歌Pixel 2和谷歌Pixel 2 XL的首个Android P开发者预览版今天<a href="https://www.xda-developers.com/android-p-developer-preview-1-google-pixel-xl-pixel-2-xl/">发布</a>。我们在这里记录了大量的<a href="https://www.xda-developers.com/everything-new-android-p-developer-preview/">用户界面和生活质量的变化</a>，但有一个潜在的变化不会让你高兴:自定义覆盖不再能安装在Android P上。这意味着<strong>不再有无根的底层</strong>。<strong>不再定制主题</strong>。都没了。</p>
+
+  
+<p>对于那些不知道的人，Android Oreo引入了索尼的覆盖管理器服务(OMS ),可以通过ADB命令控制。使用一个聪明的技巧，流行的Substratum主题引擎应用程序背后的开发人员能够开发一个名为Andromeda的插件，允许Substratum在不需要root访问的情况下应用主题。这是一个令人难以置信的成就，因为这是第一次谷歌的Android可以主题化，而不需要定制ROM或根来替换系统文件。使用仙女座，用户可以<a href="https://www.xda-developers.com/install-dark-theme-android-oreo-without-root/">安装一个黑暗主题</a>，<a href="https://www.xda-developers.com/blob-emojis-whatsapp-telegram-android-oreo/">在一些应用中改变表情符号</a>，<a href="https://www.xda-developers.com/customize-navigation-bar-icons-android-oreo/">定制导航栏图标</a>，<a href="https://www.xda-developers.com/minimal-lock-screen-rounded-recent-app-more-quick-setting-columns-android-oreo/">锁屏，最近的应用缩略图，快速设置</a>和<a href="https://www.xda-developers.com/tag/substratum-tutorials/">等等</a>。</p>
+
+<p>Android P实现了我们认为将被称为<a href="https://www.xda-developers.com/chromium-gerrit-material-design-2-colors/"> Material Design 2 </a>的东西，它比以往任何时候都更亮。我们确信很多人会寻找各种方式来为它的各个方面添加主题。</p>
+
+
+
+
+
+<p>然而，如果您尝试在Android P中安装自定义覆盖，您将在<a href="https://www.xda-developers.com/guide-sending-a-logcat-to-help-debug-your-favorite-app/"> logcat </a>中看到以下消息:</p>
+
+<pre> <code class="hljs sql">1239 W PackageManager: Package couldn't be installed in /data/app/com.dropbox.android.SwiftDark.Android81NexusorPixel-wb7JxFaAXaHgw7WkZFCvEQ==<br/>03<span class="hljs-selector-tag">-07</span> 21<span class="hljs-selector-pseudo">:00</span><span class="hljs-selector-pseudo">:13.099</span> 1179 1239 <span class="hljs-selector-tag">W</span> <span class="hljs-selector-tag">PackageManager</span>: <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.server</span><span class="hljs-selector-class">.pm</span><span class="hljs-selector-class">.PackageManagerException</span>: <span class="hljs-selector-tag">Overlay</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.dropbox</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.SwiftDark</span><span class="hljs-selector-class">.Android81NexusorPixel</span> <span class="hljs-selector-tag">must</span> <span class="hljs-selector-tag">be</span> <span class="hljs-selector-tag">signed</span> <span class="hljs-selector-tag">with</span> <span class="hljs-selector-tag">the</span> <span class="hljs-selector-tag">platform</span> <span class="hljs-selector-tag">certificate</span>.</code> </pre>
+<p>这意味着<strong>只有系统安装的覆盖图才被允许运行</strong>。这类似于Razer手机上的<a href="https://www.xda-developers.com/razer-phone-theme-engine-oms/">主题引擎的行为，现在在Android P上看到这种情况令人难以置信地失望</a></p>
+
+<p>我在自己的设备上证实了这种行为。在我把我的谷歌Pixel 2 XL更新到Android P之前，我禁用了所有底层覆盖，以确保更新顺利进行。当我更新时，我注意到我所有安装的覆盖图不再显示在“<code>cmd overlay list</code>”命令中。我与Substratum的主要开发人员进行了交谈，并确认其他人也面临着同样的问题。换句话说，这似乎是谷歌有意的改变。</p>
+
+
+
+<p>不幸的是，拥有root访问权限的用户也将受到这些变化的影响。您不能简单地“强制”安装一个覆盖并期望它工作，因为平台证书不匹配仍然是一个问题。很可能需要对framework.jar打补丁来消除这一需求。定制的rom当然能够做出这种改变，但是非ROMs用户不能。</p>
+
+<p>对于Andromeda plug-on for Substratum的付费用户，Substratum团队声明Andromeda框架仍在工作中，因此您的钱不会白花。该团队将尝试发起请愿，希望社区能够表达他们对这一举措的强烈不满，但最终的决定取决于谷歌是否扭转这一变化。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

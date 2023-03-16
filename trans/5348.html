@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Possible Huawei Mate 20 camera features detailed in EMUI 9 software</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>EMUI 9软件中详述的华为Mate 20相机可能的功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/possible-huawei-mate-20-camera-features/#0001-01-01">https://www.xda-developers.com/possible-huawei-mate-20-camera-features/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>下个月，我们将见证多项备受瞩目的智能手机发布。我们期待看到LG V40 ThinQ、谷歌Pixel 3、Razer Phone 2、新的三星Galaxy A手机、华为Mate 20、<a href="https://www.xda-developers.com/oneplus-6t-forums/">一加6T </a>和Honor Magic 2。虽然我们<a href="https://www.xda-developers.com/google-pixel-3-xl-specs-features-pics-rumors/">基本上知道关于Pixel 3 </a>的一切，但其他智能手机并没有得到很好的记录。由于<a href="https://www.xda-developers.com/huawei-mate-20-mate-20-pro-real-life-photos/">之前的泄露</a>，我们知道了华为Mate 20的<a href="https://www.xda-developers.com/huawei-mate-20-notch-render-specifications/">基本设计</a>和<a href="https://www.xda-developers.com/huawei-mate-20-specifications-features-rumor/">硬件</a>，现在我们可以分享一些关于其相机应用可能功能的见解。我们不能保证这些功能将与华为Mate 20一起推出，但这些新的EMUI 9相机功能肯定会在未来的华为或Honor设备中出现。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些功能目前还没有在live build中实现，可能会在未来的版本中随时被Google拉出来。</p> </div></section>
+<p><em>特别感谢PNF软件为我们提供了<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB反编译器</a>。JEB使我们有可能反编译和分析EMUI 9相机应用程序的代码。我们分析的华为Mate 20固件(日期为9月13日)是由<a href="https://funkyhuawei.club/"> FunkyHuawei.club </a>提供给我们的，这是一项允许用户付费更新、<a href="https://funkyhuawei.club/unbricking"> unbrick </a>或<a href="https://funkyhuawei.club/rebranding"> rebrand </a>华为和Honor手机的服务。FunkyHuawei计划全力支持即将到来的华为Mate 20系列，目前正在为XDA读者提供<a href="https://funkyhuawei.club/xdaspecial">销售</a>。</em></p>
+
+<hr/>
+
+
+<h2 id="underwater-mode">水下模式</h2>
+<p>这是迄今为止我在EMUI 9相机应用中发现的最奇怪的新功能。华为P20 Pro的防尘和防水等级为IP67，但它并不完全防水，因此当你试图在水下拍摄视频时，你可能会毁了你的手机。我们不知道即将到来的华为Mate 20或华为Mate 20 Pro是否会防水，但这似乎并不重要，因为这种水下模式旨在使用或不使用防水手机。</p>
+
+<p>根据我找到的字符串，水下模式旨在帮助您“在水下环境中拍摄清晰的照片。”您可以按下音量下调按钮来拍照，按下音量上调按钮来拍摄视频，按下电源按钮来打开/关闭相机，或者按住底部的按钮来退出。所有这些都可以通过防水手机壳在屏幕上点击来完成，显然，华为自己也将提供这种手机壳。尽管如此，该公司警告称，任何因未正确遵循说明而导致的手机损坏都不在保修范围内。</p>
+
+
+
+<p>我发现了一个水下模式的相关图形，它看起来像一个包里的手机的图片。华为鼓励你把真正昂贵的智能手机放在包里，浸入水下，拍出精彩的照片。你们中的一些人可能会觉得这很酷，但我想我会通过。</p>
+
+
+
+<p>下面的两个截图显示了我们如何使用JEB Decompiler来帮助我们发现这个特性。左边的屏幕截图显示了代码中的image字段与实际资产的交叉引用，而右边的屏幕截图显示属性<code>ro.hwcamera_underwater_enable</code>必须设置为true，该特性才可用。我们检查了/product/etc/prop中的local.prop，但是，该标志丢失了。华为Mate 20可能不会推出这项功能，但由于我们检查了预发布软件，我们不知道华为是否会在稍后的日期翻转开关。水下模式似乎不需要特殊的硬件(如新的海思麒麟980)来工作，因为应用程序中没有定义华为相机功能标志。</p>
+
+
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="ai-cinema">爱影院</h2>
+<p>下一个功能并不令人惊讶，因为华为在海思麒麟980的发布会上明确告诉我们，由于其双npu，该芯片组将能够在视频中进行实时物体识别。它被称为“人工智能影院”，看起来该功能将在视频录制过程中实时应用某些滤镜。可用的滤镜有AI颜色、背景模糊、清新、复古和悬疑。下图显示了华为在EMUI 9相机应用程序中包含的每个滤镜的样本图形。</p>
+
+
+
+<p>下面是我用来获得每个过滤器的真实名称的字符串。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai_cinema_effect_none"</span>&gt;</span>None<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai_cinema_effect_bokeh"</span>&gt;</span>Background blur<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai_cinema_effect_color"</span>&gt;</span>AI color<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai_cinema_effect_fresh"</span>&gt;</span>Fresh<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai_cinema_effect_nostalgia"</span>&gt;</span>Vintage<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai_cinema_effect_hitchcock"</span>&gt;</span>Suspense<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai_cinema_color_tip_select"</span>&gt;</span>Touch to select colors.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>最后，要启用此功能，必须将<code>ro.hwcamera.aimovie_enable</code>设置为true。在我目前看到的版本中，情况并非如此，但考虑到麒麟980的功能，如果在设备发货时还没有启用这样的功能，我们会感到惊讶。麒麟980应该支持人工智能电影功能，但是，因为它的相机功能标志已定义。</p>
+
+
+<p class="ad-even"> </p>
+
+
+<h2 id="ai-zoom">空气变焦</h2>
+<p>如果你很难找到完美的变焦水平来拍摄出色的照片，那么华为的AI变焦功能可能适合你。字符串表示该功能将自动调整缩放级别，以保持您的主题居中。除此之外，字符串并没有告诉我们更多关于这个特性的信息。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"title_smart_zoom"</span>&gt;</span>AI zoom<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"remark_smart_zoom"</span>&gt;</span>Automatically adjust the zoom level to keep your subject centered<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"toast_smart_zoom_enter"</span>&gt;</span>AI zoom enabled.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"toast_smart_zoom_quit"</span>&gt;</span>AI zoom disabled.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"toast_smart_zoom_fail"</span>&gt;</span>Unable to lock on to subject.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"toast_smart_zoom_first_tip"</span>&gt;</span>Touch the padlock to lock on and enable AI zoom.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>深入研究代码，我们可以看到启用该特性有三个要求:</p>
+
+<ul> <li>视频录制分辨率必须至少为1080p。</li> <li>AI影院必须启用。</li> <li>美颜等级必须为0(关)。</li> </ul>
+
+<p>我们还可以看到，字符串引用的“主题”是一个人的脸，这是通过引用FaceDetectionExtension类中的Smart Zoom (AI Zoom)来判断的。最后，我们可以看到，如果算法放大错误的对象，可能会对人工智能变焦进行手动补偿。部分代码提到了抓取触摸或轻击位置，然后计算要放大的矩形。</p>
+
+
+
+
+
+<p>要启用人工智能变焦，必须将<code>ro.hwcamera.smartzoom_enable</code>设置为true。同样，这个功能在我看到的版本中没有启用，但海思麒麟980肯定有这个功能，所以我不会惊讶地在华为Mate 20上看到这个功能。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="video-bokeh">视频散景</h2>
+<p>散景是通过模糊主体周围的背景来突出前景主体的过程。散景效果在背景中放置形状，如星星或圆圈，这产生了灯光的错觉。华为将提供多种视频散景效果，如下图所示。</p>
+
+
+
+<p>视频散景，像人工智能变焦和人工智能影院，将需要相机HAL的支持。具体来说，必须定义<code>videoBokehSpotShapeSupported</code>和<code>videoBokehSpotShapeValueSupported</code>摄像机功能。我们相信Mate 20将支持这一功能，尽管我们无法确认该功能是否真的在设备上启用。</p>
+
+<hr/>
+
+<p>这是我们从华为Mate 20固件转储中的EMUI 9相机应用程序中可以了解到的所有信息。如果我们了解更多关于华为Mate 20或华为Mate 20 Pro的信息，我们会让大家知道。我们为我们的读者准备了一些特殊的好东西，不需要你拥有华为或Honor设备就可以欣赏，请继续关注！</p>
+
+<p/><p><a href="https://forum.xda-developers.com/mate-20"> <strong>加入华为Mate 20论坛</strong> </a></p>
+
+<p/><p><a href="https://forum.xda-developers.com/mate-20-pro"> <strong>加入华为Mate 20 Pro论坛</strong> </a></p>
+
+</div>
+
+
+</div>    
+</body>
+</html>

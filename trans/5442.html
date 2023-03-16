@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Flip to Shhh is Digital Wellbeing's flip-to-silence gesture on Google Pixel</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Flip to Shhh是Digital Wellbeing在Google Pixel上的翻转静音手势</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/digital-wellbeing-flip-to-silence-google-pixel-2/#0001-01-01">https://www.xda-developers.com/digital-wellbeing-flip-to-silence-google-pixel-2/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>睡觉前，用你的智能手机做一些最后一分钟的网络浏览真的很有诱惑力。这是很多人都有的坏习惯，所以谷歌和苹果今年都推出了一些功能来帮助你抑制对智能手机的依赖。在谷歌I/O 2018上，谷歌推出了<a href="https://www.xda-developers.com/android-p-beta-features/">Digital wellness</a>:一套减少你花在手机上的时间的功能。Digital Wellbeing有一个仪表盘，可以显示你在Reddit等应用上花了多长时间，一个应用计时器可以限制你在你最喜欢的应用上花多长时间，还有一个放松模式，这样你就可以在晚上放下手机。随着Android Pie的正式发布，Pixel 2和Pixel 2 XL的数字福利<a href="https://www.xda-developers.com/digital-wellbeing-google-pixel-xl-google-pixel-2-xl/">进入了测试版</a>，但谷歌I/O期间被取笑的一个功能没有进入:通过翻转手机来启用勿扰模式的能力。</p>
+
+ 
+<h2 id="what-s-already-present-in-digital-wellbeing">数字福利中已经存在的东西</h2>
+<p>作为总结，以下是谷歌Pixel 2和谷歌Pixel 2 XL目前在数字福利方面的所有功能:</p>
+
+<ul> <li>概述您的应用使用情况，以及您在每个应用上花费的时间。</li> <li>一个计数器，显示您解锁设备的次数。</li> <li>您收到的通知总数的计数器。</li> <li>一个应用程序计时器，用于限制您在所选应用程序中的使用。</li> <li>Wind Down mode可安排手机进入免打扰模式、开启夜灯和渐变至灰度模式的时间。</li> <li>快速访问通知和勿扰模式设置。</li> <li><a href="https://www.xda-developers.com/digital-wellbeing-launcher-shortcut/">启动器快捷方式和灰度快速设置图块</a>。</li> </ul>
+
+
+
+
+
+<p>Google Pixel、Google Pixel XL、Google Pixel 2和Google Pixel 2 XL正式提供数字福利。HMD Global <a href="https://www.hmdglobal.com/press/2018-09-28-nokia-smartphones-serves-first-slice-of-android-9-pie">已经声明</a>诺基亚7 Plus将“从2018年秋季”获得支持，虽然有报道称一些用户获得了该功能(通过<a href="https://nokiapoweruser.com/all-nokia-7-plus-android-pie-beta-users-get-digital-wellbeing-via-a-playstore-update/"> <em> NokiaPowerUser </em> </a>)，但我们无法确认该功能是否已经真正为Android Pie 上的<a href="https://www.xda-developers.com/nokia-7-plus-android-pie-update/">诺基亚7 Plus用户推出。该功能也可以在任何使用Magisk模块的Android Pie设备</a>上<a href="https://www.xda-developers.com/get-google-pixel-digital-wellbeing-essential-phone-android-pie/">启用，例如在这篇早期文章</a>底部<a href="https://www.xda-developers.com/digital-wellbeing-launcher-shortcut/">链接的模块。</a></p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="what-s-coming-to-digital-wellbeing">数字福祉即将到来</h2>
+<p>正如我们之前提到的，谷歌已经宣布，支持勿扰模式功能的翻转将进入数字福祉。我们不知道它将于何时推出——可能与谷歌Pixel 3事件一起或之后的某个时间——但我们知道，如果你有root权限，该功能在最新版本中已经可以使用。我们设法在一台运行Android 9 Pie的谷歌Pixel 2 XL和Essential手机上手动激活了该功能(在XDA知名开发者<a href="https://forum.xda-developers.com/member.php?u=3563640"> Quinny899 </a>的少量帮助下)。一旦该功能上线，系统中会有一个新的设置- &gt;手势，名为“翻转到嘘”，如下截图所示。</p>
+
+
+
+
+
+<p>该功能的工作方式与所述完全相同。在平面上翻转我的Pixel 2 XL会立即启用请勿打扰模式，而拿起它会禁用它。既然这个功能看起来已经开始工作了，我们不确定为什么它还没有对用户开放。希望它能在几天内对所有用户开放。</p>
+
+<h3 id="how-i-enabled-flip-to-shhh">我如何启用翻转到嘘</h3>
+<p>无聊之余，我利用PNF软件的<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>在数字福利APK周围挖掘，看看是否有办法启用这一功能。幸运的是，它很容易启用——尽管除非您修改APK来硬编码该值，否则它会在一段时间后自动重置。无论如何，下面是你需要在手势设置中添加翻转到Shhh并启用它的步骤，至少是暂时的。这在OnePlus 6上不起作用，因为OxygenOS修改得太多了，所以翻转到Shhh菜单不会显示。</p>
+
+<ol> <li>下载最新版本的数字福利。</li> <li>输入以下shell命令:<pre> <code class="hljs bash">su<br/>pm <span class="hljs-built_in">enable</span> <span class="hljs-string">"com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.autodnd.ui.AutoDndGesturesSettingsActivity"</span></code> </pre></li> <li>翻转到Shhh现在会出现在手势设置中，但是还不能启用。</li> <li>从我制作的名为<code>PhenotypePrefs.xml</code>的<a href="https://www.androidfilehost.com/?fid=1322778262904020692"> AndroidFileHost </a>下载这个文件，推送到<code>/data/data/com.google.android.apps.wellbeing/shared_prefs</code>。给它+660权限。为此我使用了MiXplorer，但是你也可以使用任何支持root的文件浏览器，比如Solid Explorer或者FX File Explorer</li> <li>重启你的设备。</li> <li>重新启动后，您可能无法立即启用翻转到Shhh。如果发生这种情况，请等待一分钟或只是重新启动。</li> </ol>
+
+<p>希望您能够启用它。我不知道你为什么想这么做，因为它不会以这种方式永久启用，但尽管如此还是很酷。当我在谷歌Pixel 2 XL上启用它时，它保持了8个小时，直到我重新启动我的设备。对于Max Weinbach来说，在他的基本手机上启用它后，它在一个小时内重置。您的里程可能会有所不同。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

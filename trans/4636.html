@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Chrome OS will finally support ADB access for Android in Developer Mode</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Chrome OS将最终在开发者模式下支持Android的ADB访问</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/chrome-os-adb-access-android-apps/#0001-01-01">https://www.xda-developers.com/chrome-os-adb-access-android-apps/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>大约两年前，Chrome OS首次获得了对Android应用程序的支持。去年，大多数Chromebooks都支持Play Store。从那以后，我们看到了Chrome OS中Android应用程序的用户体验的许多改进。Chrome OS增加了一些功能，如<a href="https://www.xda-developers.com/chrome-os-adding-floating-keyboard/">浮动键盘</a>、<a href="https://www.xda-developers.com/chrome-os-split-screen-mode-android-apps/">分屏</a>、<a href="https://www.xda-developers.com/chrome-os-lock-screen-notifications/">锁屏通知</a>等等。谷歌Chrome的触摸优化版本也在开发中。</p>
+
+  
+<p>然而，这并不意味着操作系统已经实现了功能对等。Android仍然比Chrome操作系统拥有更多的功能，目前，它是一个触摸优化程度更高的操作系统。Chrome OS最近为Android应用程序添加了<a href="https://www.xda-developers.com/chrome-os-64-android-apps-simultaneous/">真正的多任务处理，现在，Chromium Gerrit中的新承诺表明，该操作系统最终将支持开发者模式下Android的ADB访问。</a></p>
+
+<p>ADB (Android Debug Bridge)是Android不可或缺的工具。它允许用户完成大量的任务，否则没有root用户是不可能完成的。像<a href="https://www.xda-developers.com/andromeda-substratum-50-percent-sale/">Andromeda</a>(sub tum的无根插件)这样的应用使用ADB在没有根的Android Oreo上安装自定义主题。到目前为止，Chrome操作系统中的Android缺乏这种访问权限，这意味着许多高级任务根本无法执行。</p>
+
+<p>Chrome OS将很快支持开发者模式下Android应用的ADB访问。提交号952470现在已经被合并为a15200e 。标题是:“<strong> arc:添加一个守护进程将ADB小工具暴露给Android”。</strong>描述如下:</p>
+
+<blockquote>
+<p/><h4>这一改变使得Android可以在开发者模式下通过USB使用ADB。</h4>
+ </blockquote>
+<blockquote>
+<p/><h4>CQ-依赖=CL:953091，CL:953656，CL:955675，CL:*585579，CL:*585580</h4><p>BUG=b:70349025</p>
+<p>TEST = `adb shell '在经过大量修改的soraka上工作</p>
+<p>测试=平台_文件权限</p>
+<p>TEST=cheets_ContainerSmokeTest</p>
+<p>TEST=cheets_SELinuxTest</p>
+<p>TEST=cheets_ContainerMount</p>
+ </blockquote>
+<p>另外，<a href="https://chromium-review.googlesource.com/c/chromiumos/overlays/chromiumos-overlay/+/953091">提交号953091现在已经合并为ad921f4 </a>。标题为:“<strong> arc-adbd:添加arc-adbd服务</strong>”。以下是描述:</p>
+
+<blockquote>
+<p/><h4>这一更改增加了。arc-adbd服务的ebuild。这仅在以开发人员模式运行时启用。</h4>
+ </blockquote>
+<blockquote>
+<p/><h4>CQ依赖=CL:952470</h4><p>BUG=b:70349025</p>
+<p>TEST = `adb shell '在经过大量修改的soraka上工作</p>
+ </blockquote>
+<p>由于承诺现在已经合并，Chrome操作系统将很快支持通过adb shell为Android访问ADB。这将仅在用户的Chromebook以开发人员模式运行时启用。对于希望在Chrome操作系统上调试Android应用程序的开发人员来说，这将非常有用。</p>
+
+<p>有趣的是，这些Chromebook的测试命令提到了“大规模修改的soraka”，这是一款未经宣布的可拆卸chrome book，我们在过去的中已经报道过<a href="https://www.xda-developers.com/detachable-chromebooks-soraka-poppy-wake-on-voice/">。然而，我们仍然不知道它的发布时间框架。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

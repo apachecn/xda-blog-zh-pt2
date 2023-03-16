@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>How to increase the headphone jack volume on the OnePlus 6 [Root]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何增加OnePlus 6上的耳机插孔音量[Root]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/increase-oneplus-6-headphone-jack-volume/#0001-01-01">https://www.xda-developers.com/increase-oneplus-6-headphone-jack-volume/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>对OnePlus 6最常见的抱怨之一是其低音量耳机插孔。虽然该设备的许多不同方面都很出色，但这款手机的音量输出却没有那么大。质量本身是好的，但你不会完全泵出高分贝的音频。通常用户在其他设备上增加音量的一个技巧是改变适当的mixer_path文件中的值，但在OnePlus 6上该位置已经改变。如果你想了解如何增加OnePlus 6耳机插孔的音量输出，请遵循此教程。你需要一个<a href="https://www.xda-developers.com/unofficial-twrp-oneplus-6/">根设备</a>(使用Magisk)和一个根支持的文件浏览器。我们推荐MiXplorer或Solid Explorer。</p>
+
+  
+<p>[appbox xda com.mixplorer]</p>
+
+ 
+
+
+
+
+<h2 id="how-to-increase-the-headphone-jack-volume-on-the-oneplus-6">如何增加OnePlus 6上的耳机插孔音量</h2>
+<h3 id="step-1---root">第一步-根</h3>
+<p>你需要首先启动你的设备。在OnePlus 6上这是一个有点复杂的过程，所以我们建议遵循XDA公认的贡献者<a href="https://forum.xda-developers.com/member.php?u=6143932"> Funk Wizard </a>的<a href="https://forum.xda-developers.com/oneplus-6/how-to/oneplus-6-unlock-bootloader-flash-twrp-t3792643">这个教程</a>。一旦你设置好了，确保你有一个根文件浏览器。</p>
+
+<h3 id="step-2---finding-mixer-paths-tavil-xml">步骤2 -查找mixer_paths_tavil.xml</h3>
+<p>一加已经将我们需要的mixer_paths文件移动到供应商分区。特定于设备的库和其他二进制文件位于这个分区中。您需要导航到/vendor/etc。接下来，打开mixer_paths_tavil.xml。</p>
+
+
+
+
+
+<h3 id="step-3---modifying-mixer-paths-tavil-xml">步骤3 -修改mixer_paths_tavil.xml</h3>
+<p>该文件包含许多设备的音频特定设置。我们只对调整耳机插孔音量输出感兴趣，所以不要管其他设置。要找到它，我建议搜索“=”耳机“”，不带多余的引号。它在文件的底部。您要修改的值是“RX1混合数码音量”和“RX2混合数码音量”。该值默认为80，所以我将其设置为90。更改此值后，请重新启动设备。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/oneplus-6-headphone-jack-volume-increase-4-1024x485.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;&lt;b&gt;Take care when editing this value, as it can damage your ears. Increase it in small increments. Use common sense.&lt;\/b&gt;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/oneplus-6-headphone-jack-volume-increase-4-1024x485.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/oneplus-6-headphone-jack-volume-increase-4-1024x485.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/oneplus-6-headphone-jack-volume-increase-4-1024x485.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/oneplus-6-headphone-jack-volume-increase-4-1024x485.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="oneplus 6 headphone jack" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/oneplus-6-headphone-jack-volume-increase-4-1024x485.jpg" src="../Images/eaf90636d197f90e716fb58f2566f2bb.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/oneplus-6-headphone-jack-volume-increase-4-1024x485.jpg"/> </picture> <figcaption class="body-img-caption"><b>Take care when editing this value, as it can damage your ears. Increase it in small increments. Use common sense.</b></figcaption> </figure> </div>
+
+
+ </div>
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="conclusion">结论</h2>
+<p>你在OnePlus 6上的耳机孔现在应该大很多了吧！我们到底做了什么？该值通常设置得较低，以保护用户的耳朵，但由于市场上有各种各样的耳机，它对每个用户都没有意义。请注意，较高的值可能会导致音频失真。我注意到这一点时，设置为100，并把音量提高到最高水平。不过，在值为90时，我注意到失真很小，而且我的耳机比原声大得多。我用一加子弹V2，森海塞尔动量2.0和音频技术M50X测试了输出。试试这个mod，让我们知道它是否适合你！</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="update-how-to-increase-the-headphone-jack-volume-on-the-oneplus-5-and-the-oneplus-5t">更新:如何增加OnePlus 5和OnePlus 5T上的耳机插孔音量</h2>
+<p>由于在OnePlus 5和OnePlus 5T上都有这样做的需求，我们决定用说明更新这篇文章。因此，虽然步骤本身保持不变，但您必须查看三个不同的文件。在最新的公开测试版上，你需要检查/vendor/etc来找到以下文件，而在stable上你应该检查/system/etc。</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">mixer_paths</span><span class="hljs-selector-class">.xml</span></code> </pre>
+<pre> <code class="hljs css"><span class="hljs-selector-tag">mixer_paths_tasha</span><span class="hljs-selector-class">.xml</span></code> </pre>
+<pre> <code class="hljs css"><span class="hljs-selector-tag">Finding</span> <span class="hljs-selector-tag">mixer_paths_tavil</span><span class="hljs-selector-class">.xml</span></code> </pre>
+<p>选项应该在其中之一。如果你找到了，请在评论中告诉我们！除了它是一个不同的文件之外，步骤是完全相同的。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

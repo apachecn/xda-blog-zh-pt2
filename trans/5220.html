@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Motorola Moto Z Play &amp; Moto G 2015 get unofficial Android Pie ports</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>摩托罗拉Moto Z Play &amp; Moto G 2015获得非官方安卓派端口</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/motorola-moto-z-play-moto-g-2015-unofficial-android-pie-ports/#0001-01-01">https://www.xda-developers.com/motorola-moto-z-play-moto-g-2015-unofficial-android-pie-ports/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>没过多久，开发社区就开始将Android 9 Pie移植到更老的设备上。Android Pie的源代码是在8月6日谷歌Pixel/Xl和谷歌Pixel 2/XL的官方更新推出后上传的。对于小米设备，开发社区将Android Pie移植到旧设备上的速度特别快。小米红米Note 4 <a href="https://www.xda-developers.com/xiaomi-redmi-note-4-android-pie/">获得了一个稳定的Android 9 Pie端口，一切正常</a>，然后<a href="https://www.xda-developers.com/xiaomi-mi-3-xiaomi-mi-4-xiaomi-redmi-4x-android-pie-ports/">该端口被移植到小米红米4X </a>。其他小米手机如小米Mi 3/Mi 4、小米Mi A1和小米Redmi Note 5 Pro <a href="https://www.xda-developers.com/xiaomi-redmi-note-5-pro-xiaomi-mi-a1-android-pie/">也获得了非官方的AOSP Android 9端口</a>。在其他设备制造商方面，受欢迎的华硕ZenFone Max Pro M1 <a href="https://www.xda-developers.com/asus-zenfone-max-pro-m1-android-pie-port/">已经获得了AOSP Android 9 Pie port </a>。现在，摩托罗拉Moto Z Play和Moto G 2015加入了获得非官方馅饼端口的手机名单。</p>
+
+  
+<p>最近，摩托罗拉的安卓版本更新记录不是特别好。例如，<a href="https://www.xda-developers.com/motorola-moto-g5-android-8-1-oreo-soak/"> Moto G5和Moto G5S系列仍然没有得到Android Oreo </a>的广泛推广。Moto E5系列<a href="https://www.xda-developers.com/moto-z2-moto-z3-moto-x4-moto-g6-series-android-pie-updates/">将不会收到官方的Android Pie更新</a>，尽管这款手机是在今年4月发布的。摩托罗拉通常承诺为预算/较低的中端Moto G系列提供单一的Android版本更新。这就是为什么开发社区的贡献对于希望延长设备生命周期的用户非常重要。</p>
+
+ 
+<h2 id="aosp-android-9-pie-for-the-motorola-moto-z-play">摩托罗拉Moto Z Play的AOSP Android 9 Pie</h2>
+<p>AOSP Android Pie已经移植到摩托罗拉Moto Z Play上(设备代号:addison)。不起作用的东西包括加密和VoLTE，SELinux被设置为permissive。还有，不支持Moto Mods。</p>
+
+<p>Moto Z Play用户需要有一个Android Nougat或Android Oreo引导程序，否则TWRP会通过向用户显示错误引导程序的消息来拒绝安装。用户可以按照<a href="https://forum.xda-developers.com/showpost.php?p=74069195&amp;postcount=91">链接线程</a>中提到的说明升级到更新的bootloader。开发者还注意到加密还不被支持(因为高通的消息来源还没有公布)，这意味着用户需要通过TWRP<strong>格式化数据</strong>或者使用下面的快速启动命令:</p>
+
+<pre> <code class="hljs ">fastboot erase userdata</code> </pre>
+<p>这样做，他们将会丢失内部存储器中的所有数据，包括应用程序、照片和下载。关于如何刷新ROM的说明可以在<a href="https://forum.xda-developers.com/moto-z-play/development/rom-android-source-project-9-t3829881">源码链接</a>找到。</p>
+
+<p>[button link = https://forum . xda-developers . com/Moto-Z-Play/development/rom-Android-source-project-9-t 3829881 " Icon = " Select a Icon " side = " left " target = " " color = " f 85050 " text color = " ffffff "]为摩托罗拉Moto Z Play下载AOSP Android 9 Pie[/button]</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="unofficial-lineageos-16-0-for-the-moto-g-2015">Moto G 2015的非官方LineageOS 16.0</h2>
+<p>LineageOS 16.0的非官方版本可用于Moto G 2015(设备代码名称；鱼鹰)。该版本的开发人员声明，它已被修改为挂载/cache分区，因为/vendor分区和所有设备blobs已被合并并移动到vendor。旧的Moto blobs已被转移到供应商和单独推出，开发人员说，它使ROM更快更轻。因此，它处于项目三重支持的早期阶段，但它不是一个完整的项目三重构建。</p>
+
+<p>除了不确定的小错误之外，不工作的列表包括VoLTE和强制SELinux。ROM需要厂商支持的TWRP，可以从这里下载<a href="https://forum.xda-developers.com/2015-moto-g/development/unofficial-twrp-3-2-3-osprey-t3829999">。</a></p>
+
+<p><a href="https://forum.xda-developers.com/2015-moto-g/development/rom-lineageos-16-0-t3830213"> <strong>为Moto G 2015 </strong> </a>下载非官方LineageOS 16.0</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

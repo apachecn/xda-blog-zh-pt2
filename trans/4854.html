@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Android P may Add "Predictive Settings" to Automate Toggled Settings</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android P可能会添加“预测设置”来自动切换设置</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-p-predictive-settings-automate-frequent-settings/#0001-01-01">https://www.xda-developers.com/android-p-predictive-settings-automate-frequent-settings/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android P 将给我们钟爱的操作系统带来一系列变化。从<a href="https://www.xda-developers.com/pixel-2-android-p-automatic-color-mode/">自动颜色模式调整</a>到<a href="https://www.xda-developers.com/android-p-fine-tune-audio-output/">允许开发者调整他们的音频输出</a> - Android P将改进Android的许多现有优势，给用户带来真正“智能”的智能手机体验。</p>
+
+  
+<p>我们发现了即将推出的功能集的提示，这些功能集可能会改善您一天中处理设备的方式。在Android P Developer Preview 2 中被称为“设置建议”,这款应用程序提到了一个似乎可以自动进行频繁切换设置的系统。</p>
+
+
+
+<p>在您授予应用程序必要的权限后，这些自动化提示可能会由您的日历和位置数据触发，尽管我们发现的提示也表明其他设置不依赖于这些数据。</p>
+
+
+
+<p>以下是我们在APK中找到的字符串，打包为<em>com . Google . Android . settings . intelligence</em>:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"predictive_ringer_notification_title"</span>&gt;</span>Ringer suggestion<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"predictive_settings_ringer_silence_description"</span>&gt;</span>You usually mute your phone at this time<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"predictive_settings_ringer_silence_title"</span>&gt;</span>Tap to silence your phone<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"predictive_settings_ringer_turn_on_description"</span>&gt;</span>You usually turn on your ringtone at this time<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"predictive_settings_ringer_turn_on_title"</span>&gt;</span>Turn on your ringtone<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"predictive_settings_ringer_vibrate_description"</span>&gt;</span>You usually set phone to vibrate at this time<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"predictive_settings_ringer_vibrate_title"</span>&gt;</span>Tap to set phone to vibrate only<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"feedback_body_notification"</span>&gt;</span>Please provide your feedback here<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"feedback_chooser_text"</span>&gt;</span>Select an email app<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"feedback_email"</span>&gt;</span>pixel-predictive-settings-feedback@google.com<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"feedback_subject_notification"</span>&gt;</span>Predictive Settings Notification Feedback<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"feedback_text"</span>&gt;</span>Feedback<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"permission_dialog_accept_button"</span>&gt;</span>Got it<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"permission_dialog_description"</span>&gt;</span>"%s uses your location and calendar to provide personalized suggestions based on your routines. If you don't allow location and calendar permissions, you may still receive other suggestions."<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"permission_dialog_reject_button"</span>&gt;</span>Deny permissions<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"permission_dialog_title"</span>&gt;</span>Get personalized setting suggestions<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>这个应用程序目前显示“开车时使用蓝牙”功能(从开发者预览版1开始，通过在开发者选项&gt;功能标志中切换它，它已经可见)，但该功能本身目前并不工作。对于其余的功能集，我们怀疑一旦你确认你的切换活动的例行性质，应用程序可能会自动执行功能，直到你以某种方式中断相同的功能。</p>
+
+
+
+
+
+<p/><p><span> <em>当前预测设置</em> </span></p>
+
+<p>从Developer Preview 2开始，这些特性都不起作用。而且当Android P退出开发者预览版时，也不能保证它们能准备好公开发布。尽管如此，这些迹象表明，Android P可能只是引入了自动化日常切换需求的基石。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

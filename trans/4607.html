@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Android P May Support Blocking Calls From Unknown, Private, and Pay Phone Numbers</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android P可能支持阻止来自未知、私人和付费电话号码的呼叫</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-p-blocking-calls-unknown-private-pay-phone-numbers/#0001-01-01">https://www.xda-developers.com/android-p-blocking-calls-unknown-private-pay-phone-numbers/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新10:18PM CST 3/8/18 </strong>:今晚，负责以下变更的提交已经合并到主分支。除非将来有一系列的提交来恢复这些更改，这意味着你应该期待这些增强的呼叫阻塞功能会在Android P Developer Preview 2中出现。</p> </div></section>
+<p/><p>我们即将发布第一个<a href="https://www.xda-developers.com/tag/android-p/"> Android P </a>开发者预览版(根据AOSP的活跃程度来判断)，但在Android的下一个主要版本中仍有一些可能即将推出的功能。我们最近了解到可能的<a href="https://www.xda-developers.com/iris-scanners-native-support-android-p/">原生虹膜扫描仪支持</a>，隐私调整，如阻止<a href="https://www.xda-developers.com/android-p-background-apps-camera/">摄像头</a>和<a href="https://www.xda-developers.com/android-p-audio-recording-limitations-privacy/">麦克风</a>从闲置应用程序访问，以及更多<a href="https://www.xda-developers.com/tag/android-p/">更多</a>。现在，我们看到了另一个正在开发的功能:增强的呼叫阻塞功能。</p>
+
+  
+<p>来自索尼工程师的一组新的承诺出现在AOSP gerrit中。索尼工程师最近在Android中进行了大量与运营商相关的变化，例如让运营商能够<a href="https://www.xda-developers.com/android-p-carriers-define-lte-signal-bars/">定义LTE信号栏</a>，<a href="https://www.xda-developers.com/android-p-signal-strength-carriers/">隐藏设置中的信号强度</a>，以及<a href="https://www.xda-developers.com/android-p-national-roaming-toggle/">在设置中添加全国漫游切换</a>，所以看到他们的另一个变化并不令人惊讶。这一次的变化对用户来说更加友好，因为<a href="https://android-review.googlesource.com/q/topic:%22enhanced_call_blocking_function%22+(status:open%20OR%20status:merged)">提交</a>给<a href="https://www.xda-developers.com/tag/google-dialer/">默认拨号器应用</a>添加了新功能:阻止未知号码、私人号码、付费电话或任何不在你联系人列表中的号码的来电。</p>
+
+
+
+
+
+<p/><p><em>运行<a href="https://www.xda-developers.com/android-8-1-oreo-final-release-imminent/">安卓8.1奥利奥</a> </em>的<a href="https://www.xda-developers.com/tag/google-pixel-2/">谷歌Pixel 2 XL </a>上已有的来电屏蔽功能</p>
+
+<p>目前，您只能基于每个号码阻止呼叫。你屏蔽的号码必须手动添加，这意味着你基本上只能在事后屏蔽不需要的号码。但是，通过这些新设置，您可以限制允许谁给您打电话，这样您就不会被不想要的电话打扰了。</p>
+
+
+
+<p>以下是将在拨号器应用程序的新阻止号码设置中显示的文本字符串。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_8"><h3 id="enhanced-call-blocking-features">增强的呼叫阻止功能</h3><pre> <code class="hljs xml"><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_settings_call_blocking_txt"</span>&gt;</span>Call Blocking<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_settings_number_not_in_contact_txt"</span>&gt;</span>Numbers not in Contacts<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_settings_number_not_in_contact_summary_txt"</span>&gt;</span>Block numbers that are not listed in your Contacts<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_settings_private_num_txt"</span>&gt;</span>Private<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_settings_private_num_summary_txt"</span>&gt;</span>Block callers that do not disclose their number<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_settings_payphone_txt"</span>&gt;</span>Pay phone<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_settings_payphone_summary_txt"</span>&gt;</span>Block calls from pay phones<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_settings_unknown_txt"</span>&gt;</span>Unknown<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_settings_unknown_summary_txt"</span>&gt;</span>Block calls from unidentified callers<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_strings_call_blocking_turned_off_notification_title_txt"</span>&gt;</span>Call Blocking<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_strings_call_blocking_turned_off_notification_text_txt"</span>&gt;</span>Call Blocking disabled<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_strings_emergency_call_made_dialog_title_txt"</span>&gt;</span>Emergency call made<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"phone_strings_emergency_call_made_dialog_call_blocking_text_txt"</span>&gt;</span>Call Blocking has been disabled to allow emergency responders to contact you.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre> </div></section>
+<p>根据字符串，您可以在以下情况下阻止电话号码:</p>
+
+<ul> <li>电话号码不在您的联系人列表中</li> <li>呼叫者不会透露电话号码(私人)</li> <li>电话号码来自付费电话</li> <li>电话号码没有任何呼叫者ID信息(未知/未识别)</li> </ul>
+
+<p>如果用户拨打紧急电话，呼叫阻止将被禁用，这是有意义的，因为当有人遇险时，紧急响应人员必须能够联系到他们。在回应一位谷歌员工的评论时，索尼工程师提到,“运营商要求”显示一个持续通知，告诉用户在紧急呼叫后呼叫阻止已被禁用，因此在这些情况下用户不应感到困惑或恐慌。</p>
+
+
+
+<p>最后，这些新的增强呼叫阻止功能似乎只有在运营商允许的情况下才可用，这令人失望。我们可以想象某些运营商试图向你出售这些呼叫阻塞功能，作为“增值”套餐的一部分。</p>
+
+
+
+<p>最终，这将是对Android的一个巨大改变。虽然Play Store上有许多免费的呼叫阻止应用程序，但你基本上相信该应用程序不会对你的呼叫历史做任何事情。有了内置功能，你就不用担心这个问题了。</p>
+
+<p>现在，请记住，这项功能实际上还没有在AOSP合并。这意味着它还没有被证实会搭载Android P，但很有可能会。一名谷歌员工在审阅补丁时表示，他们“非常支持这一整体变化”，因此它很可能会很快被合并。它可能不会出现在第一个Android P开发者预览版中，但正如我们在Android Oreo开发者预览版中看到的那样，即使在提交合并之前最初的预览版下降了，仍然有可能添加新功能。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

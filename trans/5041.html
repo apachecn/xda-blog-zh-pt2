@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>How to enable Android P's Dark Theme when Night Light is on</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>夜灯开着怎么启用Android P的黑暗主题</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/enable-android-p-dark-theme-night-light/#0001-01-01">https://www.xda-developers.com/enable-android-p-dark-theme-night-light/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">夜灯开着怎么启用Android P的黑暗主题</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">你有没有想过让Android P的黑暗主题只有在夜灯开启的情况下才能自行启用？如果你有Android P DP4，那你也可以！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p>在谷歌Pixel 2中，谷歌添加了一个部分系统深色主题，当你有深色壁纸时就会应用。随着Android 8.1 Oreo更新和最新的Android P Beta 3/Developer Preview 4，该功能出现在最初的Google Pixel和其他设备上，你不再需要有深色壁纸来使用深色主题。如果你曾经想让黑暗模式变得更智能一点，我们知道如何自动化它，所以你可以在它启用之前应用任何条件。最好的部分是它<strong>不需要根</strong>！</p>
+
+  
+<p>作为参考，黑暗主题只为SystemUI和Google Pixel Launcher的部分主题，如快速设置面板、音量面板、文件夹背景和应用程序抽屉背景。获得全系统黑暗主题的唯一方法是要么继续使用Android Oreo并使用Substratum主题，要么让你的Android P设备使用Substratum。我们意识到让你的设备根化并不是你们中的一些人想要做的事情，所以我们一直在寻找不需要根的定制选项。由于最新的Android P测试版，现在可以自动应用黑暗主题，例如，我们可以只在夜灯打开时启用黑暗模式。</p>
+
+
+
+
+
+
+<h2 id="trigger-android-p-39-s-dark-theme-with-night-light">用夜灯触发Android P的黑暗主题</h2>
+<p>我们正在做的事情的简要说明。最新的Android P beta允许你在显示设置中手动切换黑暗主题。因此，一个新的设置。安全值是由Google创建的，用于保存此设置的当前值(设置。Secure.theme_mode其中0是自动基于壁纸，1是亮主题，2是暗主题。)通过ADB或具有适当权限的应用程序手动更改该值允许我们更改主题。使用最新的Tasker beta版本，我们可以监控设置的变化，我们可以监控夜间灯光状态，然后随意切换主题变化。</p>
+
+<h3 id="requirements">要求</h3>
+<ul> <li>你必须使用Android P Beta 3/Developer Preview 4才能在没有root用户的情况下工作。该版本在发布时适用于以下设备:<ul> <li>谷歌像素</li> <li>谷歌像素XL</li> <li>谷歌像素2</li> <li>谷歌像素2 XL</li> <li>基本电话(<a href="https://www.xda-developers.com/essential-phone-android-p-beta-3-july-security/"> PH-1 </a>)</li> <li>索尼Xperia XZ2</li><p> </p> </ul> </li> <li>您需要安装自动化应用程序“Tasker ”,并且您需要使用最新的测试版 , v5.2.bf6。</li> <li>您需要通过亚洲开发银行授予Tasker特别许可。安装最新的Tasker测试版后，按照此处所述设置ADB <a href="https://www.xda-developers.com/install-adb-windows-macos-linux/">，并在命令提示符/PowerShell/终端中输入以下命令。</a><ul> <li>Windows命令提示符:<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">net</span><span class="hljs-selector-class">.dinglisch</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.taskerm</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre></li> <li>Windows PowerShell: <pre> <code class="hljs css">.\<span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">net</span><span class="hljs-selector-class">.dinglisch</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.taskerm</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre></li> <li>macOS/Linux终端:<pre> <code class="hljs sql">./adb shell pm <span class="hljs-keyword">grant</span> net.dinglisch.android.taskerm android.permission.WRITE_SECURE_SETTINGS</code> </pre></li><p> </p> </ul> </li> </ul>
+
+<p>[app box Google play net . dinghly . Android . task erm]</p>
+
+<h3 id="instructions">说明</h3>
+<p>以下是如何设置的分步说明。最后，我还会包含一个导入它的链接。</p>
+
+<h3 id=""><img alt="Tasker" class="aligncenter wp-image-224397 size-medium" src="../Images/3b0c1b3d97d6513f36475ca193adac38.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/Tasker-Automatic-Dark-Theme-At-Night-1-300x115.png"/></h3>
+<ol> <li>打开Tasker并创建一个新的配置文件。命名为“夜间自动黑暗主题。”</li> <li>选择状态上下文。</li> <li>选择系统类别。</li> <li>选择自定义设置选项。</li> <li>对于类型，选择“安全”。输入“夜间显示激活”作为名称。对于该值，输入“1”。</li> <li>进入任务创建(不需要给任务命名。)</li> <li>添加一个操作。</li> <li>选择设置类别。</li> <li>选择自定义设置。</li> <li>对于类型，选择“安全”。对于名称，输入“主题模式”。对于该值，输入“2”。这将在夜灯开启时启用黑暗主题。</li> <li>退出任务创建并返回Tasker的主屏幕。</li> <li>长按您创建的任务，然后选择“添加退出任务”</li> <li>重复步骤7-10，但对于步骤10中的值，输入“1”。当夜灯关闭时，这将禁用黑暗主题。</li> <li>你完了。现在Tasker会自动切换黑暗模式，每当夜灯被切换。您可以手动切换夜间照明，根据自定义计划进行设置，或者根据太阳周期进行设置。</li> </ol>
+</div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>New permission group in Android P makes it clear when apps want to read call log or phone number</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android P中的新权限组使得应用程序何时想读取通话记录或电话号码变得很清楚</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-p-read-call-log-phone-number/#0001-01-01">https://www.xda-developers.com/android-p-read-call-log-phone-number/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android Developer Preview 3(Android P Beta 2)<a href="https://www.xda-developers.com/android-p-developer-preview-3/">刚刚取消了</a>，随之而来的是一系列的变化——大部分是在幕后。虽然有一些面向用户的更改，但几乎所有的更改都是为最终版本做准备。更新的最大部分是最终确定的API，这意味着您现在可以构建一个针对API 28的应用程序，Android P。在开发者预览版3中，添加了一个新的权限组。这个权限组专门针对Android通话记录，这意味着当应用程序想要读取您的通话记录或电话号码时，会显示一条突出的面向用户的消息，告诉他们他们正在授予应用程序什么样的访问权限。</p>
+
+  
+<p>首先，当请求新的CALL_LOG权限组中的任何权限时，用户将看到这些新的字符串。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"permgroupdesc_calllog"</span>&gt;</span>read and write phone call log<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"permgrouprequest_calllog"</span>&gt;</span>Allow <span class="hljs-symbol">&amp;lt;</span>b&gt;%1$s<span class="hljs-symbol">&amp;lt;</span>/b&gt; to access your phone call logs?<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre><div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/access-phone-features.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;The permission box that appeared when requesting READ_CALL_LOG, which was previously under the PHONE permission group.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/access-phone-features.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/access-phone-features.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/access-phone-features.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/access-phone-features.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="android p" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/access-phone-features.png" src="../Images/1059c19e19dbb937ff59c9f3a323c46b.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/access-phone-features.png"/> </picture> <figcaption class="body-img-caption">The permission box that appeared when requesting READ_CALL_LOG, which was previously under the PHONE permission group.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>这将如何影响现有的应用程序？Android使用标记为“危险”的权限分组来管理授予应用程序的访问级别，并选择向用户显示的消息。以前，READ_CALL_LOG和其他呼叫日志相关的权限显示为一般“访问设备的电话功能”对话的一部分，但该消息非常模糊。不仅如此，还可以说它与你的手机通话记录无关。Android P Developer Preview 3已经将所有与呼叫日志相关的权限重新分组到一个全新的组中，该组被适当地称为CALL_LOG，以便当应用程序请求它时，会出现一个更合适的消息。</p>
+
+
+
+<p> </p>
+
+<p>根据Android P开发人员预览文档，如果应用程序需要访问呼叫日志或处理呼出呼叫，它们将需要从CALL_LOG组显式请求CALL_LOG、READ_CALL_LOG、WRITE_CALL_LOG或PROCESS_OUTGOING_CALLS权限。此外，开发人员需要考虑用户何时拒绝应用程序访问通话记录信息。</p>
+
+
+
+
+
+<p>你也可以从下面反编译的Android框架中找到新的权限分组。</p>
+
+<pre> <code class="hljs javascript"><span class="hljs-tag">&lt;<span class="hljs-name">permission-group</span> <span class="hljs-attr">android:description</span>=<span class="hljs-string">"@string/permgroupdesc_calllog"</span> <span class="hljs-attr">android:icon</span>=<span class="hljs-string">"@drawable/perm_group_phone_calls"</span> <span class="hljs-attr">android:label</span>=<span class="hljs-string">"@string/permgrouplab_calllog"</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission-group.CALL_LOG"</span> <span class="hljs-attr">android:priority</span>=<span class="hljs-string">"450"</span> <span class="hljs-attr">android:request</span>=<span class="hljs-string">"@string/permgrouprequest_calllog"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">permission</span> <span class="hljs-attr">android:description</span>=<span class="hljs-string">"@string/permdesc_accessImsCallService"</span> <span class="hljs-attr">android:label</span>=<span class="hljs-string">"@string/permlab_accessImsCallService"</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.ACCESS_IMS_CALL_SERVICE"</span> <span class="hljs-attr">android:protectionLevel</span>=<span class="hljs-string">"privileged|signature"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">permission</span> <span class="hljs-attr">android:description</span>=<span class="hljs-string">"@string/permdesc_readCallLog"</span> <span class="hljs-attr">android:label</span>=<span class="hljs-string">"@string/permlab_readCallLog"</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.READ_CALL_LOG"</span> <span class="hljs-attr">android:permissionGroup</span>=<span class="hljs-string">"android.permission-group.CALL_LOG"</span> <span class="hljs-attr">android:protectionLevel</span>=<span class="hljs-string">"dangerous"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">permission</span> <span class="hljs-attr">android:description</span>=<span class="hljs-string">"@string/permdesc_writeCallLog"</span> <span class="hljs-attr">android:label</span>=<span class="hljs-string">"@string/permlab_writeCallLog"</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.WRITE_CALL_LOG"</span> <span class="hljs-attr">android:permissionGroup</span>=<span class="hljs-string">"android.permission-group.CALL_LOG"</span> <span class="hljs-attr">android:protectionLevel</span>=<span class="hljs-string">"dangerous"</span>/&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">permission</span> <span class="hljs-attr">android:description</span>=<span class="hljs-string">"@string/permdesc_processOutgoingCalls"</span> <span class="hljs-attr">android:label</span>=<span class="hljs-string">"@string/permlab_processOutgoingCalls"</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.PROCESS_OUTGOING_CALLS"</span> <span class="hljs-attr">android:permissionGroup</span>=<span class="hljs-string">"android.permission-group.CALL_LOG"</span> <span class="hljs-attr">android:protectionLevel</span>=<span class="hljs-string">"dangerous"</span>/&gt;</span></code> </pre>
+<hr/>
+
+<p><a href="https://developer.android.com/preview/behavior-changes#privacy-changes-all"> <strong>来源:Android P开发者文档</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

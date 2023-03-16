@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>LineageOS 15.1 now available for the Honor View 10, Huawei Mate 10 Pro, and other Project Treble-Compatible Devices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>LineageOS 15.1现可用于Honor View 10、华为Mate 10 Pro和其他Project Treble兼容设备</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/lineageos-honor-view-10-huawei-mate-10-pro-project-treble/#0001-01-01">https://www.xda-developers.com/lineageos-honor-view-10-huawei-mate-10-pro-project-treble/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>投射高音。你们中的一些人可能已经厌倦了听到这个消息，而另一些人对任何与这个计划相关的消息都欣喜若狂。我们在XDA <a href="https://www.xda-developers.com/how-project-treble-revolutionizes-custom-roms-android-oreo/">对它带来的东西感到无比兴奋</a>,每周都有新的事情发生，增加了这种兴奋感。最近，一名开发者能够为<a href="https://www.xda-developers.com/xiaomi-redmi-note-4-project-treble/">小米Redmi Note 4 </a>带来完整的项目三重兼容性。一部采用联发科SoC的<a href="https://www.xda-developers.com/obscure-mediatek-phone-kernel-source-android-oreo-project-treble/">不起眼的手机</a>也能够启动通用的Android版本，为延长设备寿命铺平了道路——远远超过官方制造商支持的期限。现在，一名开发人员已经使基于Treble的定制rom对用户更具吸引力，因为第一个LineageOS 15.1版本可用于Honor View 10和华为Mate 10 Pro(它也可用于其他Treble兼容设备！)</p>
+
+ 
+<hr/>
+
+
+<h2 id="lineageos-15-1-for-the-honor-view-10-huawei-mate-10-pro-and-other-treble-devices">Honor View 10、华为Mate 10 Pro和其他高音设备的LineageOS 15.1</h2>
+<p>概括地说，Project Treble是Android工作方式的一个非常低级的架构变化，从Android 8.0 Oreo开始。基本上，所有供应商硬件抽象层(HALs，Android与硬件组件交互的二进制文件)都被移动到一个单独的供应商分区，并通过HAL接口定义语言(HIDL)以更标准化的方式与Android框架(OS)交互。谷歌通过供应商测试套件(VTS)强制执行这一标准化，设备必须通过该套件才能获得认证，以便与Google Play应用和服务一起发布。VTS的要求之一是Treble兼容设备必须能够引导通用系统映像(GSI)，这基本上只是从Android开源项目(AOSP)构建的股票Android Oreo系统映像。</p>
+
+<p>这一要求对定制ROM社区的好处是，Treble兼容设备至少不需要太多的黑客来启动和运行一个基本的AOSP ROM。事实上，像华为Mate 10 Pro(T1)、T2 Honor 8 Pro、Honor 9(T3)和T4 Honor View 10(T5)这样的设备都有非常简单的AOSP Android Oreo rom。但大多数用户对运行XDA资深会员phhusson的AOSP ROM不感兴趣，因为它缺少太多开箱即用的功能:没有夜灯，没有自适应亮度，没有环境显示，等等。当然，你可以通过安装一个<a href="https://forum.xda-developers.com/project-treble/trebleenabled-device-development/overlay-enable-night-light-adaptive-t3741965">定制框架覆盖</a>、<a href="https://www.xda-developers.com/xposed-framework-for-android-oreo-beta/">暴露框架</a>，或者安装<a href="https://www.xda-developers.com/tag/substratum-tutorials/">底层</a>来使事情变得漂亮一点，但是在设置这一切的时候需要付出很多努力。</p>
+
+<p>对于那些只想快速忘记的人来说，这就是XDA认可的开发者<a href="https://forum.xda-developers.com/member.php?u=5075128"> Luk1337 </a>和<a href="https://forum.xda-developers.com/member.php?u=5778309">Luca 020400</a>LineageOS 15.1的用武之地。它基于<a href="https://www.xda-developers.com/android-8-1-oreo-final-release-imminent/">安卓8.1奥利奥</a>，就像以前的GSIs一样，但它也带有LineageOS众所周知的所有酷的附加功能。这包括LiveDisplay、隐私保护、按钮定制等等。如果你有一个项目高音兼容设备，并有兴趣尝试AOSP，这可能是你的完美选择。</p>
+
+
+
+
+
+<p>激动吗？想要在您的<a href="https://www.xda-developers.com/project-treble-android-oreo/">高音兼容设备</a>上刷新LineageOS 15.1？在我引导你到可以下载ROM的论坛之前，有一件非常重要的事情我们必须解决。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_8"><p>警告:创建这个ROM的LineageOS开发者在Honor View 10论坛上发布了这个消息，并声明它可以在任何装有海思麒麟970的设备上工作。你可以尝试在你的Treble兼容设备上刷新这个ROM，但是要注意，如果你遇到任何错误，开发者可能不会支持你。值得注意的是，<a href="https://www.xda-developers.com/honor-announces-developers-honor-view-10-recipients/">开发者由于</a><a href="https://www.xda-developers.com/honor-open-source-program-honor-view-10/">荣誉开源项目</a>而获得了他们的荣誉View 10设备，因此这是他们官方支持的唯一设备。</p> </div></section>
+<p>既然已经解决了这个问题，下面介绍如何在Project Treble兼容设备上安装LineageOS 15.1。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="how-to-install-lineageos-15-1-on-the-honor-view-10-huawei-mate-10-pro-or-other-treble-compatible-devices">如何在Honor View 10、华为Mate 10 Pro或其他Treble兼容设备上安装LineageOS 15.1</h2>
+<ol> <li>对所有重要文件进行设备外备份。很有可能你需要一个完整的数据擦除才能启动。</li> <li>解锁您的设备的引导加载程序。<a href="https://forum.xda-developers.com/honor-view-10/development/honor-view-10-bootloader-unlock-t3749426">这是</a>Honor View 10的指南，<a href="https://www.xda-developers.com/unlock-bootloader-root-huawei-mate-10/">这是</a>Mate 10系列的指南。</li> <li>重新启动引导程序。最简单的方法是插上你的手机，关机，然后按住电源+音量键。</li> <li>从本论坛线程下载linegeos 15.1<a href="https://forum.xda-developers.com/honor-view-10/development/rom-lineageos-15-1-t3753000">。</a></li> <li>打开命令提示符或终端窗口，导航到从上面下载系统映像的同一目录。</li> <li>输入以下命令:<code>fastboot flash system system.img</code></li> <li>注意:用您下载的映像的确切名称替换“system.img”。在本文发表时，它将是“system_20180221.img”</li> <li>重启手机。如果你的手机开始引导循环，让它继续，直到它把你带到华为的恢复屏幕，要求你做一个低级数据擦除。用电源按钮选择那个选项，让它做它自己的事。</li> <li>数据擦除完成后，您应该可以成功启动LineageOS 15.1。</li> </ol>
+
+<p>之后，你可以在设备上自由定制你想要的任何东西。</p>
+
+<hr/>
+
+<p><em>专题图片致谢:XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=1915408">胡森</a>。从左到右显示的设备:未公开的MSM8937 Treble兼容设备，华为Mate 9，Honor View 10，Allview Viper V3。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>How to Remove Direct Share from the Share Menu</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何从共享菜单中删除直接共享</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/remove-direct-share-share-menu-root/#0001-01-01">https://www.xda-developers.com/remove-direct-share-share-menu-root/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>直接分享是那些表面上看起来有用，但实际上却令人讨厌的功能之一。每当你打开“共享”菜单时，它就会出现，并将其他应用程序中联系人的快捷方式放在顶部。我相信许多人都会同意，他们通常不会<em>最终直接在共享菜单中选择他们的一个联系人，还有一个事实是，它会导致共享菜单跳转，这可能会让你错过你想要的点击。如果你宁愿完全取消这些联系人的建议，你可以在LG和三星手机上禁用它们，而不用root，也可以通过Intent Firewall在其他手机上禁用它们。</em></p>
+
+ 
+
+
+
+
+
+
+<p>首先，如果您有一台LG或三星设备，那您就走运了。两个原始设备制造商都在其设备设置中包含了禁用该功能的方法。在三星手机上，您只需要转至“高级功能”部分并禁用“直接共享”在LG手机上，进入<strong>网络标签</strong>、<strong>共享&amp;连接、</strong>最后进入<strong>共享面板</strong>。如果您没有这些设备，请继续阅读。</p>
+
+
+
+
+<p class="ad-odd"> </p>
+
+
+
+<p>我们建议使用Magisk之类的根解决方案。您还需要一个支持根的文件浏览器。我个人推荐MiXplorer。</p>
+
+<p>[appbox xda com.mixplorer]</p>
+
+<h3 id="step-1---create-an-xml-file">步骤1 -创建XML文件</h3>
+<p>您需要创建一个XML文件，但是名称并不重要。意图防火墙将读取任何XML文件，不管其名称如何。为了简单起见，我将我的命名为“disable-direct-share.xml”。将以下内容粘贴到文本编辑器中。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">rules</span>&gt;</span><br/>  <span class="hljs-tag">&lt;<span class="hljs-name">service</span> <span class="hljs-attr">block</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">log</span>=<span class="hljs-string">"true"</span>&gt;</span><br/>    <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span><br/>      <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android.service.chooser.ChooserTargetService"</span> /&gt;</span><br/>    <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span><br/>  <span class="hljs-tag">&lt;/<span class="hljs-name">service</span>&gt;</span><br/><span class="hljs-tag">&lt;/<span class="hljs-name">rules</span>&gt;</span></code> </pre>
+<p>现在保存文本文件并关闭它。</p>
+
+
+
+<h3 id="step-2---move-the-file">步骤2 -移动文件</h3>
+<p>这是需要root的部分，因为我们必须通过将文件放在/data/system/ifw中来直接修改/data。只要把它复制到那个文件夹里，就大功告成了。你甚至不需要重启。</p>
+
+
+
+
+
+<h3 id="step-3---test-it-out">第3步-测试它！</h3>
+<p>差不多就是这样。只需尝试共享一个项目，您应该会注意到，不再有任何联系人建议您发送项目。</p>
+
+<h3 id="the-intent-firewall---what-we-did">意图防火墙-我们所做的</h3>
+<p>意图防火墙是Android 4.4.2中引入的一个功能，但是还没有正式的文档。因此，它不仅会随时改变，而且也不是官方支持的特性。但这并不意味着我们不能利用它，因为您需要的只是root访问权限。当我们将文件添加到/data/system/ifw时，意图防火墙将扫描任何。它检测到文件夹中的XML文件已被修改，并尝试分析其规则。然后，有效的规则将应用于整个系统。我们利用这一点来阻止来自ChooserTargetService的广播，ChooserTargetService负责发送广播来询问应用程序在Direct Share下显示什么。如果ChooserTargetService无法广播该请求，则直接共享菜单无法显示，因为没有应用程序会响应。Intent防火墙还有很多其他用途，甚至GitHub上的一个用户利用它来帮助防止由于调用不必要的服务而导致的电池耗尽<a href="https://github.com/LaelLuo/Intent-Firewall-List">。</a></p>
+
+<p>当然，如果你有一个三星或LG设备，那么你不应该这样做，而是应该在你的设置中禁用这个选项。Google anywhere没有记录Intent Firewall，这表明它要么没有完成，要么已经被放弃。系统似乎也没有在任何场合使用它。意图防火墙并不是阻止意图和广播的最强大的解决方案，但它是目前唯一的方法。它完成了工作，尤其是在这种情况下，并且可能还有其他重要的用途。</p>
+
+<hr/>
+
+<p><a href="https://android.stackexchange.com/questions/128053/removing-a-contact-from-direct-share-panel/160350#160350"> <strong>来源:rehh(stack exchange)</strong></a></p>
+
+<p><a href="https://www.reddit.com/r/Android/comments/9ijt3z/psa_how_to_remove_direct_share_from_share_menu/"><strong>Via:/u/forbid reality(Reddit)</strong></a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

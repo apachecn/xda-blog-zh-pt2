@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Android Pie adds support for the Sony PlayStation 4's DualShock 4</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Pie增加了对索尼PlayStation 4的DualShock 4的支持</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-pie-support-playstation-4-dualshock-4/#0001-01-01">https://www.xda-developers.com/android-pie-support-playstation-4-dualshock-4/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Android Pie为索尼PlayStation 4的DualShock 4添加了控制器映射</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Android Pie终于为索尼PlayStation 4的DualShock 4控制器添加了控制器映射支持。所有Android 9设备都将识别DS4！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>Android Pie终于增加了一个备受期待的功能:索尼PlayStation 4的DualShock 4的控制器映射。PlayStation 4是市场上最受欢迎的当代游戏主机，所以难怪有很多人想用DualShock 4控制器在Android上玩手机游戏。在Android上使用PlayStation 4控制器的问题是，您的设备上可能没有按键映射。因此，虽然您可以通过蓝牙连接到PlayStation 4控制器，但您可能无法实际使用控制器来导航UI或玩任何游戏。索尼Xperia设备可以使用开箱即用的DualShock 4控制器，但对其他设备的支持取决于设备制造商。幸运的是，谷歌终于在AOSP 添加了正确的<a href="https://android.googlesource.com/platform/frameworks/base/+/master/data/keyboards/Vendor_054c_Product_05c4.kl">键映射，因此所有Android 9 Pie设备都应该可以使用PlayStation 4控制器。</a></p>
+
+ 
+
+
+
+
+
+<h2 id="playstation-4-controller-support-in-android-pie">Android Pie中的PlayStation 4控制器支持</h2>
+<p>虽然你的Android智能手机可以通过蓝牙无线连接到你的DualShock 4控制器，但你的智能手机需要一个按键布局文件，让Android知道如何将控制器上的按钮按压转换为Android中的标准按键事件。然后，开发人员可以在他们的应用程序中监听这些关键事件，以确定在他们的应用程序中采取什么行动。例如，如果用户按下“X”键，那么射击游戏可以解释为执行射击动作，或者移动平台玩家可以用跳跃动作来响应。如果没有告诉Android如何翻译按键的按键布局文件，应用程序就不会知道用户按的是什么按钮。</p>
+
+<p>如果您有root访问权限，您可以手动添加索尼在其Xperia设备上包含的键布局文件。如果你真的想的话，你甚至可以<a href="https://www.xda-developers.com/how-to-enable-ps4-remote-play-on-any-android-and-play-dualshock-4-tips-opinion/">设置远程播放</a>。然而，如果你没有root，你只能希望设备制造商足够关心添加对DualShock 4控制器的支持。有了Android Pie，你再也不用担心这个问题了，因为默认情况下，所有Android Pie设备都会包含这个关键映射文件。索尼工程师一直在努力让DualShock 4键布局支持最早于2017年4月进入AOSP<a href="https://android-review.googlesource.com/c/platform/frameworks/base/+/364645"/>，但那些提交不再是必要的<a href="https://android-review.googlesource.com/c/platform/frameworks/base/+/572484#message-b98f65b3ef8bc646d404f33ba198cd02608930a7"/>，因为谷歌在<a href="https://www.xda-developers.com/android-pie-source-code-aosp/">将代码推向AOSP </a>之前就在他们的内部主分支中包含了支持。由于这一变化，Android现在支持无线DualShock 4控制器以及<a href="https://www.xda-developers.com/android-pie-controller-mapping-fix-xbox-one-s/">无线Xbox One S控制器</a>。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

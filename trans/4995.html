@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Improve the FPS in PUBG Mobile with GFX Tool for Android</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>使用Android版GFX工具改进PUBG Mobile中的FPS</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/improve-fps-pubg-android-games-gfxtool/#0001-01-01">https://www.xda-developers.com/improve-fps-pubg-android-games-gfxtool/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>手机游戏最近风靡一时，智能手机如<a href="https://www.xda-developers.com/razer-phone-display-analysis/">雷蛇手机</a>、<a href="https://www.xda-developers.com/asus-rog-phone-gaming-phone-announced/">华硕ROG手机</a>和<a href="https://www.xda-developers.com/xiaomi-black-shark-gaming-phone-announced/">小米黑鲨</a>正在发布，以利用这一市场。然而，并不是所有人都能买得起(或想要)这些游戏手机，只是为了玩最新的手机游戏。如果你不是在三星Galaxy S9、OnePlus 6或小米Mix 2S等最新旗舰设备上使用高通骁龙845等最新旗舰芯片，那么PlayerUnknown的BattleGrounds (PUBG)等游戏可能会有问题。但是由于XDA成员的GFX工具<a href="https://forum.xda-developers.com/member.php?u=6481740"> tsoml </a>，你可以极大地提高PUBG的性能。如果你对改进PUBG中的FPS感兴趣，你可以跟随我们下面的教程！请注意，对于0.7版本，您将<strong>需要root访问权限。我们建议您的智能手机使用Magisk。</strong></p>
+
+  
+<p>如果你想知道你可以期待看到什么样的性能提升，那么由高通骁龙820和Adreno 530 GPU驱动的OnePlus 3上的帧速率大约翻了一番。我们确认，在进行更改之前，我们的帧速率在中等图形下平均为26帧。之后，帧速率平均在40-50 FPS左右徘徊。你肯定会看到进步。</p>
+
+<p>更新:我们设法修复了帧速率测量，并可以在应用这些更改后确认我们的平均帧速率为36 FPS，几乎一直保持在40-60FPS。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_3"><p>我们想警告用户，虽然这不太可能，但总有可能开发者会改变立场，开始禁止用户。在PC上，他们只是屏蔽了这些视觉上的调整，并没有禁止用户。</p> </div></section>
+
+
+
+<p>你需要安装和设置GFX工具。只需按照下面的谷歌Play商店链接，并安装它。</p>
+
+ 
+
+
+
+
+<p>使用下面的图像，并设置如图所示的每个参数。我们将在下面解释这些功能。</p>
+
+
+
+<p><strong>版本</strong></p>
+
+<p>这是设置应用程序最重要的部分。如果您选择0.7版本，应用程序将请求root访问权限，因为没有它就不可能访问目标FPS。然而，在世界各地和韩国，0.6版本仍然是最新发布的版本。你必须检查你的游戏是什么版本，然后再通过GFX工具运行它。</p>
+
+<p><strong>分辨率</strong></p>
+
+<p>这一部分很容易理解。OnePlus 3上的游戏运行于1920x1080，因此将分辨率减半至960x540意味着更平滑的缩减，同时也大大减少了需要渲染的像素数量。</p>
+
+<p><strong>图形</strong></p>
+
+<p>PUBG为用户提供了许多图形选项，但还有更多选项没有显示给用户。您可以在这里启用通常无法访问的超高保真图形，所以如果您愿意，可以尝试一下。平滑比通常的图形低，所以它有助于挤出更多的FPS。</p>
+
+<p><strong> FPS </strong></p>
+
+<p>这是我们想要的最大FPS。除非你想避免热节流，否则你应该把它设置为60。该值越高，流动性越好，但需要的功率越大。</p>
+
+<p><strong>抗锯齿</strong></p>
+
+<p>抗锯齿通常会消除纹理的“锯齿”，但这是以牺牲性能为代价的。禁用这个会让你获得更高的FPS。</p>
+
+<p><strong>风格</strong></p>
+
+<p>风格是指游戏中的饱和度和颜色。你不需要担心这个设置，因为它纯粹是装饰性的。</p>
+
+<p><strong>阴影</strong></p>
+
+<p>虽然禁用阴影可能会让你获得更高的性能，但在PUBG这样的游戏中禁用它们通常不是个好主意。他们可以是有利的，所以最好把它留在“跳过”，让游戏来决定。</p>
+
+<p>Vulkan </p>
+
+<p>Vulkan指的是使用<a href="https://www.xda-developers.com/vulkan-api-means-more-control-but-not-outright-replacement-of-opengl/"> Vulkan图形API </a>可以提高性能，但需要支持的设备。最新的设备应该支持Vulkan，但如果游戏无法启动，你要确保这个选项是关闭的。试图在不支持的设备上使用它会使游戏在启动时崩溃。</p>
+
+<h3 id="step-3---launch-pubg">第3步-启动折叠！</h3>
+<p>现在，这是简单而有趣的部分。你要做的就是点击“接受”“接受”按钮会切换到“运行游戏”按钮，所以你所要做的就是启动游戏，你就可以开始了。一旦游戏启动，你应该会看到你的设置已经应用，因为分辨率会降低。排队一个游戏，并给它一个测试驱动，你应该注意到它比以前流畅得多。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="conclusion">结论</h2>
+<p>差不多就是这样！PUBG现在应该运行得更好了。正如我们已经说过的，我们在测试中设法将FPS提高了一倍。请注意，如果它一开始无法工作，您可能需要重新启动您的设备才能让它工作。</p>
+
+<p>这样做的主要原因是因为屏幕分辨率的缩小，如果你想将同样的变化应用到其他游戏中，你可以使用像<a href="https://www.xda-developers.com/xda-external-link/change-your-screen-parameters-with-screen-shift/">屏幕移动</a>这样的应用程序。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

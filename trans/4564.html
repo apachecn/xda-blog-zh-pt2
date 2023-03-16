@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>An Obscure MediaTek Phone with no Kernel Source can run AOSP Android Oreo thanks to Project Treble</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>多亏了Treble项目，一部没有内核源代码的不起眼的联发科手机可以运行AOSP的Android Oreo</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/obscure-mediatek-phone-kernel-source-android-oreo-project-treble/#0001-01-01">https://www.xda-developers.com/obscure-mediatek-phone-kernel-source-android-oreo-project-treble/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在过去的几周里，我们发布了很多关于谷歌的三倍项目的帖子。它最重要的后果之一(至少对我们来说)是Treble认证的设备必须能够<a href="https://www.xda-developers.com/how-project-treble-revolutionizes-custom-roms-android-oreo/">启动一个通用版本的Android </a>，称为通用系统映像(GSI)。它已经使在像<a href="https://www.xda-developers.com/honor-8-pro-honor-9-aosp-android-oreo-rom-project-treble/"> Honor 8 Pro、Honor 9 </a>或<a href="https://www.xda-developers.com/project-treble-aosp-android-oreo-huawei-mate-10-pro/">华为Mate 10 Pro </a>这样的设备上运行AOSP成为现实，尽管三重兼容性本身并不意味着这些受欢迎的设备不会获得AOSP rom。但是那些不太可能得到像样的开发者支持的设备怎么办——更不用说官方支持了？考虑相对模糊的<a href="https://www.allviewmobile.com/v3-viper.html">all view V3 Viper</a>——如果没有Project Treble兼容性，让AOSP在这个设备上运行将是一个<strong>噩梦</strong>。</p>
+
+  <div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Allview-Viper-V3.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;The Allview Viper V3. Source: &lt;a href=\&quot;https:\/\/www.allviewmobile.com\/v3-viper.html\&quot;&gt;Allview Electronics&lt;\/a&gt;.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Allview-Viper-V3.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Allview-Viper-V3.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Allview-Viper-V3.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Allview-Viper-V3.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="Allview Viper V3 MediaTek AOSP Android Oreo Project Treble" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Allview-Viper-V3.jpg" src="../Images/6e103991a8ac5f35d86bdfb5fee24376.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Allview-Viper-V3.jpg"/> </picture> <figcaption class="body-img-caption">The Allview Viper V3. Source: <a href="https://www.allviewmobile.com/v3-viper.html">Allview Electronics</a>.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>你可能从来没有听说过这款手机。它实际上是上个月发布的，配备了5.5英寸18:9 1440x720显示屏，1300万像素后置和1300万像素前置摄像头，指纹传感器，3gb内存，32GBs内置存储，带microSD卡插槽，3.5毫米耳机插孔和3000毫安时电池。</p>
+
+<p>在219.00€，市场上肯定有更好的选择。再花10欧元，你就可以购买<a href="https://www.xda-developers.com/honor-9-lite-western-europe/"> Honor 9 Lite </a>或者等几天再进口新发布的<a href="https://www.xda-developers.com/xiaomi-redmi-note-5-redmi-note-5-pro-hands-on/">小米Redmi Note 5或者Note 5 Pro </a>。在我们的脑海中，Allview V3 Viper没有什么特别有趣的，除了一件事:它由<strong>联发科</strong> (MT6737) SoC驱动，并运行<strong> Android 8.0 Oreo开箱即用</strong>。</p>
+
+<p>由于它运行Android Oreo并通过了谷歌的CTS，这意味着它也必须满足兼容<a href="https://www.xda-developers.com/googles-project-treble-modularize-android-so-oems-can-update-devices-faster/">Project Treble</a>的要求。对我们来说最重要的是，这意味着该设备能够启动AOSP奥利奥GSI，而不需要开发人员从其他手机移植专有组件，为缺少符号的库创建<a href="https://www.xda-developers.com/cameras-custom-roms-developers-make-hardware-work-without-source-code/">垫片</a>，使用包装器，十六进制编辑二进制文件来修复不匹配的名称，以及更多的黑客方法来让基本硬件在AOSP ROM上工作。</p>
+
+<p>当然，这是假设，任何开发者甚至会<em>希望</em>在这个设备上工作。开发者就像用户一样——他们涌向他们负担得起或满足其基本需求的最好、最受欢迎的设备。我非常怀疑一个相当大的开发者社区会关注Allview V3 Viper，但是多亏了Project Treble，为了让用户将AOSP引导到他们的设备上，不需要有一个<strong>。此外，即使<em>有</em>开发者对这款设备感兴趣，这最终也无关紧要——如果没有内核源代码，你甚至可以幸运地获得<a href="https://www.xda-developers.com/lineageos-14-xiaomi-mi-a1-kernel-sources/">半功能rom</a>。</strong></p>
+
+<p>但是一个Treble兼容设备不需要任何内核修改来启动AOSP，所以这意味着你不需要Allview V3 Viper的内核源代码来运行一个基本的AOSP ROM。为了证明这一点，XDA的高级成员phhusson T1出去买了一台这样的设备，因为一位用户在T2/r/Android T3上询问是否可以在这种设备上运行AOSP。phhusson前几天才收到这款设备，他不仅能启动AOSP的安卓8.0奥利奥，还能启动AOSP <strong>的安卓8.1奥利奥</strong>！</p>
+
+
+
+
+
+<p>根据phhusson的说法，<strong>当他使用Play Store的“测试你的Android”应用程序进行测试时，所有的硬件功能都工作正常。</strong></p>
+
+ 
+
+
+
+<p>他说他到目前为止遇到的唯一一个错误是该设备很难对他的ROM中的HEVC 1080p视频进行硬件解码——考虑到他没有花时间开发8.0版奥利奥，也没有花时间开发8.1版，这是一个很短的错误列表。</p>
+
+<h3 id="why-this-is-important">为什么这很重要</h3>
+<p>到目前为止，我们一直在引导所谓的“Treble ROMs”的所有设备通常都是高端华为或Honor设备。大多数用户可能不会尝试在这些设备上运行AOSP，因为他们可以依赖OEM的官方支持，也因为OEM ROM提供了许多AOSP所没有的独家功能。</p>
+
+<p>然而，并不是每个用户都从主要的OEM厂商购买最新的高端旗舰。事实上，大多数用户倾向于中低端设备，有数百万这样的用户从没有资源更新设备的品牌那里购买手机。但多亏了Treble，这些手机仍然可以启动更新版本的Android，而不需要专门的开发者社区，也不需要访问内核源代码。</p>
+
+<p>我们无意挑V3 Viper的毛病，但它是证明这种可能性的完美测试设备。我们可以想象这样一个未来，大量没有名字的低端联发科设备发布时只有微不足道的软件支持，但有了三倍的兼容性，这些设备可以长期存在，超过制造商预期的到期日期。</p>
+
+<h3 id="a-small-caveat">一个小小的警告</h3>
+<p>现在，有一件事我应该提一下。正如我之前提到的，Android 8.0 Oreo发布时，Project Treble <a href="https://twitter.com/MishaalRahman/status/958769338391187456">并没有真正完成</a>。我被告知，供应商NDK (VNDK)直到Android 8.1奥利奥才完成。这意味着phhusson <em>不得不做一些黑客工作来让8.1在V3毒蛇上工作。据他说:</em></p>
+
+<blockquote>
+<p/><h4>有一个SELinux问题(MediaTek在供应商8.0中所做的和Google在系统8.1中所做的冲突，我还不知道如何正确解决)，然后，我需要向VNDK添加库。</h4>
+ </blockquote>
+<p>不幸的是，这种问题目前很常见，因为少数开发三倍兼容rom的开发人员正在研究如何在现有的8.0设备上正确启动新版本的Android。</p>
+
+<p>然而，一旦有更多搭载安卓8.1奥利奥的设备上市，升级到T2安卓P T3应该是小菜一碟——至少谷歌是这么认为的。如果所有这些消息让您兴奋，那么请考虑订阅我们的三重设备开发论坛。</p>
+
+<p/><p><a href="https://forum.xda-developers.com/project-treble/trebleenabled-device-development"> <strong>访问我们的高音设备开发论坛</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

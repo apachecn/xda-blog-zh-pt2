@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Huawei P20 camera app ported for the Honor 9 Lite and other Kirin 659 phones</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>华为P20相机应用为Honor 9 Lite和其他麒麟659手机移植</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/huawei-p20-camera-port-honor-9-lite-kirin-659/#0001-01-01">https://www.xda-developers.com/huawei-p20-camera-port-honor-9-lite-kirin-659/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>从7月22日开始，华为和Honor devices】将在下周被完全锁定，但现在解锁你的引导程序还为时不晚。一旦你解锁了你的引导程序，你就有可能<a href="https://www.xda-developers.com/flash-generic-system-image-project-treble-device/">在项目Treble- </a><a href="https://www.xda-developers.com/list-android-devices-project-treble-support/">支持的设备</a>上安装定制的rom，比如LineageOS或者复活混音。我们回顾了几个月前运行纯AOSP ROM 的Honor 9 Lite <a href="https://www.xda-developers.com/honor-9-lite-project-treble-aosp-review/">，性能提升在AOSP和EMUI之间日夜不停。然而，这些AOSP rom的最大问题是相机性能，这是华为P20相机应用程序的端口旨在解决的问题。</a></p>
+
+  
+<p>如果没有从EMUI移植的相机，你经常会得到带有绿线或伪像的劣质照片。如果不使用合适的相机库，照片就无法正确处理。由于这些问题，这基本上意味着如果你想用手机拍照，你必须留在EMUI上。这就是为什么XDA成员<a href="https://forum.xda-developers.com/member.php?u=9044321">Dark-Dark</a>将优秀的华为P20相机应用移植到海思麒麟659设备上(在Honor 9 Lite上测试)。我决定试开一下，看看效果如何。</p>
+
+<p>该端口可以通过Magisk模块安装。您可以从本文中的链接<a href="https://www.xda-developers.com/magisk-v16-6-samsung-galaxy-s9-project-treble-gsi-root-loss/">下载Magisk的最新版本。在我们向您展示这个相机端口带来的改进之前，请查看下面这张使用AOSP相机应用程序拍摄的照片。</a></p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/05/IMG_20180505_152650-1024x768.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Picture taken using stock AOSP camera app on the Honor 9 Lite&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/05/IMG_20180505_152650-1024x768.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/05/IMG_20180505_152650-1024x768.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/05/IMG_20180505_152650-1024x768.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/05/IMG_20180505_152650-1024x768.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="honor 9 lite project treble aosp" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/05/IMG_20180505_152650-1024x768.jpg" src="../Images/c1cabcde5fe0916ad20e407520814c94.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/05/IMG_20180505_152650-1024x768.jpg"/> </picture> <figcaption class="body-img-caption">Picture taken using stock AOSP camera app on the Honor 9 Lite</figcaption> </figure> </div>
+
+
+ </div>
+
+
+
+<h2 id="huawei-p20-camera-ported-to-kirin-659-devices-like-the-honor-9-lite">华为P20摄像头移植到麒麟659设备，如Honor 9 Lite</h2>
+<p>我对新的相机应用程序进行了测试，结果比AOSP相机应用程序好得多。即使只有控制ISO和快门速度的能力也有很大的不同。下面显示的所有照片都来自AOSP的GSI，带有移植的华为P20相机应用程序。注意WordPress压缩了我上传的图片，所以质量比下面显示的还要好。尽管如此，您仍然可以对改进的动态范围颜色有一个大致的了解。以前，这种相机几乎不能被认为是可用的。</p>
+
+
+
+
+
+<p>镜头比我们之前看到的好多了，对吧？相机不再在画面中产生怪异的伪像，有些镜头效果相当不错。顺便说一下，所有这些照片都是傻瓜相机拍的。如果你想完全控制你的相机，有很多选择。这包括ISO、曝光、白平衡等等。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="huawei-p20-camera-port-features">华为P20摄像头端口特性</h2>
+<p>华为P20相机端口有大量的功能，尽管有一些错误，它确实经常崩溃。话虽如此，它仍在不断发展和改进。您可以查看下面的功能列表。请注意，慢动作也适用于股票EMUI。</p>
+
+<ul> <li>孔</li> <li>肖像</li> <li>照片</li> <li>录像</li> <li>专业模式</li> <li>夜间摄影</li> <li>光绘</li> <li>直接热轧制</li> <li>全景画</li> <li>时间推移</li> <li>良好的足部</li> <li>文档扫描</li> <li>过滤器</li> <li>水印</li> <li>二维码扫描仪</li> </ul>
+
+
+
+
+
+<p>很明显，不要指望这里会有奇迹发生。请记住，Honor 9 Lite是一款经济型智能手机，所以这款相机不会令人兴奋。话虽如此，在合适的光线下，它也能拍出一些不错的照片。我们还需要记住，大多数采用海思麒麟659片上系统的智能手机也将是廉价设备。华为P20摄像头端口只是为那些不想牺牲摄像头质量来提高AOSP ROM性能的定制ROM用户提供的。查看下面的论坛帖子，下载并安装Magisk模块。</p>
+
+<hr/>
+
+<p><a href="https://forum.xda-developers.com/apps/magisk/module-huawei-p20-camera-kirin659-t3798436"> <strong>为麒麟659设备下载华为P20摄像头端口</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

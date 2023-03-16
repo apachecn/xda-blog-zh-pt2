@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>[Update: Fix] Bootloader Protection Bypass Discovered on OnePlus 6 (requires physical access)</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>[更新:修复]在OnePlus 6上发现的引导加载程序保护旁路(需要物理访问)</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/oneplus-6-bootloader-protection-exploit-physical-access/#0001-01-01">https://www.xda-developers.com/oneplus-6-bootloader-protection-exploit-physical-access/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p>美国东部时间2018年6月9日下午2点31分:一加就此话题发表了一份声明。</p><p><strong>更新2018年6月15日上午10:47</strong>:一加已经开始推出<a href="https://www.xda-developers.com/oxygenos-5-1-7-oneplus-6-bootloader-vulnerability/"> OxygenOS 5.1.7 </a>，修复了bootloader漏洞。</p> </div></section>
+<p/><p>OnePlus 6于上月中旬正式发布。该设备最近才开始在我们的论坛上进入消费者和开发者的手中，我们已经听到了正在进行的工作。TWRP 的<a href="https://www.xda-developers.com/official-twrp-oneplus-6-huawei-p20-pro/">官方建造已经可用，非官方的</a><a href="https://forum.xda-developers.com/oneplus-6/development/experimental-lineage-t3801281">15.1 GSI</a>建造工作进展顺利。然而，OnePlus 6不仅受到了对个人使用或项目感兴趣的用户的关注，因为安全研究人员开始仔细研究该设备，看看他们能发现什么。</p>
+
+  
+<p>一位这样的研究人员，杰森·唐恩菲尔德，<a href="https://www.edgesecurity.com/"> Edge Security LLC </a>的总裁，在XDA也被称为<a href="https://forum.xda-developers.com/member.php?u=5434776"> zx2c4 </a>，发现了设备上的一个漏洞，允许他启动任何任意修改的图像，这些图像<strong>绕过引导程序保护措施</strong>(例如锁定的引导程序)。(利用该漏洞需要物理接触设备。)</p>
+
+ 
+
+
+
+<p>此漏洞允许攻击者通过物理访问和连接到PC来控制设备。如果使用不安全的ADB和缺省的根ADB修改引导映像，那么具有物理访问权限<strong>的攻击者将完全控制设备</strong>。与OnePlus 5T上臭名昭著的“<a href="https://www.xda-developers.com/oneplus-root-access-backdoor/">后门</a>”(其实不是后门)不同，利用该漏洞不需要用户已经启用USB调试。这意味着，如果攻击者利用OnePlus 6上的这一漏洞，他们只需拿到设备，就可以获得对设备的完全访问权限。</p>
+
+<p>该漏洞被报告给了一加的多名工程师，Jason Donenfeld已经证实安全团队的一名成员已经确认了该报告。随着更多信息的获得，我们将继续关注此事。我们希望能尽快发布一个补丁来解决这个问题。</p>
+
+<hr/>
+
+
+<h2 id="update-1-oneplus-statement">更新1:一加声明</h2>
+<p>一加就此事发表了声明:</p>
+
+<blockquote>
+<p/><h4>“我们非常重视一加的安全。我们正在与安全研究员联系，软件更新将很快推出。”-一加发言人</h4>
+ </blockquote>
+<p>我们将继续关注这个话题，一旦有软件更新，我们会及时通知您。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="update-2-fix">更新2:修复</h2>
+<p>一加已经开始在6月15日为OnePlus 6推出OxygenOS 5.1.7，并对bootloader漏洞进行了修复。</p>
+
+<hr/>
+
+<p><em>本文已更新，以反映攻击者需要物理接触设备以及连接到PC才能利用该漏洞。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

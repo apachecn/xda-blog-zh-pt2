@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>WhatsApp sends Cease &amp; Desists for apps that use native Android APIs</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>WhatsApp向使用原生Android APIs的应用程序发送停止和终止请求</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/whatsapp-sends-cease-desist-apps-native-android-api/#0001-01-01">https://www.xda-developers.com/whatsapp-sends-cease-desist-apps-native-android-api/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>WhatsApp是迄今为止智能手机上最受欢迎的应用之一，每天有超过10亿的活跃用户。早在2014年被脸书以190亿美元收购时，怀疑者就担心此后该应用程序将如何管理。对用户来说幸运的是，尽管有一些关于幕后发展的<a href="https://www.xda-developers.com/whatsapp-founder-leaves-company/"/>，但似乎没有什么变化。对开发者来说不幸的是，有一个地方我们希望公司有所改变:他们对第三方开发者的态度。该公司正在向独立的Android应用程序开发者发出新一轮的停止和终止信，但这一次他们的声明没有多少价值。</p>
+
+  
+
+
+
+
+<h2 id="what-s-up-with-whatsapp">WhatsApp怎么了？</h2>
+<p>WhatsApp是这个星球上最大的服务之一，所以看到他们通过防止滥用他们的平台来积极保护自己的品牌并不奇怪。这很好，这也是为什么我们可以理解为什么之前的公司<a href="https://www.xda-developers.com/cease-and-desist-whatsapp-sucks-and-you-cant-help-it/">追求第三方客户</a>，即使我们不同意这个决定。使用服务的API的应用程序正在走钢丝，因为每当他们想要杀死第三方客户端时，服务都可以更改他们的API的服务条款(只要他们通知用户任何更改)。第三方Twitter客户端的开发者<a href="https://www.xda-developers.com/twitter-new-api-third-party-clients/">对此太了解了</a>。</p>
+
+<p>但这次不是这样。一家代表WhatsApp的法律公司已经向至少两家独立的Android应用程序开发者发送了停止函，要求他们删除应用程序的功能，否则将面临诉讼。这两个应用程序都不使用任何来自WhatsApp服务的代码，也不与WhatsApp服务接口。相反，这些应用程序利用标准的Android APIs、通知监听器和直接回复来运行。因此，要求从这些应用中去除任何与WhatsApp相关的功能，往好里说是可疑的，往坏里说是恶意的。</p>
+
+<p>你可以在下面查看开发者从代表WhatsApp的法律公司收到的停止和终止信的编辑版本。<em>XDA-开发商</em>可以证实原始信件的真实性。我们联系了WhatsApp的母公司脸书，请其置评。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/whatsapp-cease-and-desist.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Source: &lt;a href=\&quot;https:\/\/www.reddit.com\/r\/Android\/comments\/8vkqtk\/follow_up_whatsapp_cease_and_desist_full_letter\/\&quot;&gt;Reddit&lt;\/a&gt;&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/whatsapp-cease-and-desist.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/whatsapp-cease-and-desist.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/whatsapp-cease-and-desist.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/whatsapp-cease-and-desist.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="WHATSAPP" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/whatsapp-cease-and-desist.jpg" src="../Images/673b47fc8ff7f5578b9da2de2ffd9427.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/07/whatsapp-cease-and-desist.jpg"/> </picture> <figcaption class="body-img-caption">Source: <a href="https://www.reddit.com/r/Android/comments/8vkqtk/follow_up_whatsapp_cease_and_desist_full_letter/">Reddit</a></figcaption> </figure> </div>
+
+
+ </div>
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="breaking-down-the-cease-and-desist-letter">分解停止和终止信</h2>
+<p>这封信中提出了许多说法，但并没有准确反映每个应用程序在WhatsApp集成方面的功能。让我们来分解一下这些说法:</p>
+
+<ul> <li>您通过安装、访问或使用WhatsApp服务同意这些服务条款<ul> <li>这两个应用程序都不使用服务中的任何API。此外，开发人员从一开始就没有同意服务条款，因为他们没有使用他们的任何API。</li> </ul> </li> <li>对WhatsApp服务进行反向工程、更改、修改、创建衍生作品、反编译或提取代码<ul> <li>这两款应用都不是WhatsApp特有的，都使用原生Android APIs，而不是WhatsApp本身的任何代码。</li> </ul> </li> <li>"获得或试图获得对WhatsApp服务或系统的未授权访问."<ul> <li>按照这种逻辑，Android本身违反了ToS，因为它处理每个通知并保留通知日志。</li> </ul> </li> <li>“以任何不允许或未经授权的方式收集WhatsApp用户的信息或关于WhatsApp用户的信息”<ul> <li>用户明确地自己下载并安装这个应用程序。</li> </ul> </li> <li>WhatsApp服务的销售、转售、租赁或收费<ul> <li>这些应用程序不出租或出售对服务的访问权限。除非安装最初的WhatsApp应用程序，否则这两个应用程序都无法运行。</li> </ul> </li> </ul>
+
+<p>几乎信中的每一项声明都是错误的，或者过于模糊，无法说明这些应用程序是如何违反这些条款的。不管怎样，这些应用背后的开发者没有一个同意任何ToS，使得这些协议没有实际意义。不过，该信确实指出，指称的违反行为并非详尽无遗。除非这些应用违反了这里没有涉及的术语，否则我们看不出这些应用如何违反了ToS。甚至在Play Store对每个应用程序的描述中使用WhatsApp品牌名称可能会侵犯他们的商标，而不是ToS。</p>
+
+<p>开发商有七天的时间来遵守，否则他们可能会面临诉讼。在开发者评估他们的选项时，不能说话已经从Play Store中删除，而DirectChat应用程序仍然可用，但可能会被修改以删除对WhatsApp集成的访问。移除整合将对每个应用造成重大打击，因为他们的大多数用户可能会使用这些应用进行特定的整合——毕竟WhatsApp每天有超过10亿的活跃用户。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="applications-that-received-cease-and-desist-letters">收到停止函的申请</h2>
+<h3 id="can-t-talk">不能说话</h3>
+
+
+
+
+<p><a href="https://forum.xda-developers.com/android/apps-games/app-talk-office-everything-t3634507">不会说话</a>的前提是<a href="https://www.xda-developers.com/cant-talk-auto-reply-whatsapp-slack/">简单</a>。它所做的就是当你不在的时候，利用Android自带的快速回复(RemoteInput) API，自动回复别人。如果你正在开车，看电影，或者只是不想在这个时候说话，那么应用程序可以用预设的消息为你回复。它还可以给试图给你打电话的人发短信。如果你想支持的不仅仅是短信和通话，比如WhatsApp、Slack等等，这是一个付费应用。基本上，任何允许你通过可以使用的通知发送快速回复的消息服务都无法与之交谈。</p>
+
+<h3 id="directchat">DirectChat</h3>
+
+
+<p> </p>
+
+<p>DirectChat是另一个有用的应用。它就像Facebook Messenger的聊天气泡一样工作，但它也支持许多不同的应用程序。它会将你的聊天内容传送到另一个窗口，你也可以在那里回复。它最流行的用法可能是WhatsApp。</p>
+
+ 
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="what-happens-next">接下来会发生什么？</h2>
+<p>为使用原生Android APIs而关闭这些应用程序，为大公司未来的关闭树立了一个危险的先例。如果这种情况继续下去，是什么阻止了WhatsApp要求移除任何通知管理器应用程序，不管它对WhatsApp的具体用途是什么。独立的应用程序开发者没有资源来对抗这些主张，所以大多数人只能让步。我们将密切关注这一情况，如果我们从脸书/WhatsApp、受影响的开发者或涉及这一情况的另一方那里得到反馈，我们将更新您的信息。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

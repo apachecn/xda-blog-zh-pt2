@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Android Oreo update for the LG V30/V30+ accidentally allows unsupported models to unlock the bootloader</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>LG V30/V30+的Android Oreo更新意外地允许不受支持的型号解锁引导加载程序</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/lg-v30-bootloader-unlock-android-oreo/#0001-01-01">https://www.xda-developers.com/lg-v30-bootloader-unlock-android-oreo/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">LG V30/V30+的Android Oreo更新意外地允许不受支持的型号解锁引导加载程序</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">LG V30/V30+的Android Oreo更新意外地允许不支持的型号解锁其引导加载器。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>社区对LG V30有着复杂的感觉，因为许多人希望该公司坚持使用该系列已经闻名的副屏幕。其他人也对LG的设计风格感到不安，这种设计风格使该设备看起来与市场上的其他设备非常相似。尽管如此，LG V30被社区中的一些人视为2017年最好的智能手机，其唯一的缺点是LG的bootloader解锁过程。然而，XDA成员<a href="https://forum.xda-developers.com/member.php?u=6158380"> TxanMoe </a>偶然发现了一种方法，允许我们解锁不支持的LG V30型号的引导加载程序，如一些美国运营商版本。</p>
+
+  
+<p>这一发现过程仍处于早期，但我们可以看到它适用于市场上的大多数LG V30型号。有趣的是，这种方法<strong>将不会与T-Mobile LG V30 </strong>型号一起工作，因为它具有与其他方法不同的RSA加密。</p>
+
+
+
+
+
+<p>这个过程需要你下载Android Oreo us 998 KDZ或Oreo H930 KDZ固件(取决于你的手机),然后下载Oreo兼容版本的T2 TWRP T3。完成后，从线程、<a href="https://www.xda-developers.com/tag/magisk/"> Magisk </a>或<a href="https://www.xda-developers.com/tag/supersu/"> SuperSU </a>、加密禁用器和根检查禁用器中获取unlock.bin文件。Android Oreo上的LG V30 US998或H930变体已经可以跳到下一步，但其他型号需要使用Frankenstein方法来转换到Oreo US998。这实际上需要你先闪现牛轧糖US998，然后再到奥利奥。欧洲H930G或任何地区的H930DS设备将需要使用LGUP转换到开放市场H930。</p>
+
+<p>完成后，您需要启用OEM解锁和USB调试模式，并将new_unlock.bin文件复制到您的设备。将LG V30引导至快速引导模式(又名引导加载程序模式)，然后使用快速引导刷新new_unlock.bin文件。那些之前解锁过LG bootloader的人可能对这个过程很熟悉，但整个事情的独特之处在于<strong>我们使用的unlock.bin文件实际上来自华为Mate 8设备</strong>。</p>
+
+<p>LG V30最近的Android Oreo更新中似乎有某种错误，允许这种工作，因为它已经被证明不能在旧版本的固件上工作。完成所有这些之后，你就可以继续安装TWRP，如果你愿意的话，还可以获得你的设备的root权限。发现这个疯狂方法的用户制作了一个视频展示了下面的过程，XDA公认的贡献者<a href="https://forum.xda-developers.com/member.php?u=3250376"> ChazzMatt </a>根据这个过程制作了一个冗长的文本指南。看看下面这两个。</p>
+
+ 
+<p class="w-rich w-youtube" id="NtrGYqAW5OU">  </p>
+
+
+<hr/>
+
+<p/><p><a href="https://forum.xda-developers.com/lg-v30/help/wtf-lg-v30-t3790500"> <strong>解锁LG v 30/v 30+</strong>T3的bootloader</a></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

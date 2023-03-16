@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Get Google Pixel's Gestures for the OnePlus 6 on Android P</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>获取Android P上OnePlus 6的谷歌Pixel手势</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/oneplus-6-google-pixel-gestures-android-p/#0001-01-01">https://www.xda-developers.com/oneplus-6-google-pixel-gestures-android-p/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">获取Android P上OnePlus 6的谷歌Pixel手势</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">你知道你可以在运行Android P的OnePlus 6上启用谷歌像素导航手势吗？点击这里了解如何！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>OnePlus 6的Android P Beta 3<a href="https://www.xda-developers.com/oneplus-6-android-p-developer-preview-4-beta-3/">刚刚发布</a>，我们已经在这里深入报道了所有的新变化<a href="http://www.xda-developers.com/android-p-oneplus-6-beta-3">。那些看到我们拍摄的一些截图的人可能已经注意到导航栏已经发生了变化，这是因为我们设法找到了如何在OnePlus 6上从谷歌像素</a>中启用<a href="https://www.xda-developers.com/android-p-iphone-x-gestures-official/">新导航手势。你所需要的是亚行，你也可以启用它们。甚至不需要root权限！如果你感兴趣，请继续阅读。</a></p>
+
+ 
+
+
+
+
+
+<h2 id="how-to-enable-google-pixel-navigation-gestures-on-the-oneplus-6-android-p-beta-3">如何在OnePlus 6 Android P Beta 3上启用谷歌像素导航手势</h2>
+<h3 id="step-1---set-up-adb-and-usb-debugging">步骤1 -设置adb和USB调试</h3>
+<p>这部分很简单。你可以简单地按照我们的教程来设置adb <a href="https://www.xda-developers.com/install-adb-windows-macos-linux/">这里</a>。接下来，按照下面的截图，在Android P上的OnePlus 6上启用USB调试。</p>
+
+
+
+
+
+<ol> <li>导航到<strong>设置&gt;系统&gt;关于手机</strong></li> <li>点击“<strong> Build number </strong>”直到它说你是开发者。</li> <li>返回上一屏，进入<strong>开发者选项。</strong></li> <li>启用<strong> USB调试。</strong></li> </ol>
+
+<h3 id="step-2---adb-command">步骤2 - adb命令</h3>
+<p>现在，这是我们启用像素手势的地方。请确定您的手机已连接，并且您已授权访问您的电脑来调试它。然后在adb中运行以下命令。</p>
+
+<pre> <code class="hljs ">adb shell settings put secure swipe_up_to_switch_apps_enabled 1</code> </pre>
+<p>看看你的OnePlus 6。新的导航栏应该是活动的！</p>
+
+<hr/>
+
+<p>真的是这样！这个设置只是重新启用手势，这是AOSP的一部分。一加似乎把它们留了下来，它们工作得或多或少很完美。你不能在启用它们的情况下使用不同的启动器，但这是我们目前唯一注意到的错误。如果你这样做，你会反复收到通知，告诉你一加启动器已经崩溃，你将无法切换应用程序。发生这种情况后，当我切换回一加启动器时，我的启动器看起来像下面的图片。</p>
+
+
+
+<p>如果您发现任何其他问题，请告诉我们！如果你正在寻找一种不同风格的手势，请查看下面XDA自己的导航手势应用程序。</p>
+
+<p>[app box Google play com . xda . nobar]</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

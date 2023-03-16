@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>How to Fix the Multi-Touch Bug on the Google Pixel 2/2 XL running Android 8.1 Oreo</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何修复运行安卓8.1奥利奥的谷歌Pixel 2/2 XL上的多点触控Bug</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/fix-multi-touch-bug-google-pixel-2-xl-android-oreo/#0001-01-01">https://www.xda-developers.com/fix-multi-touch-bug-google-pixel-2-xl-android-oreo/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>你拥有谷歌Pixel 2还是谷歌Pixel 2 XL？你想在PUBG Mobile赢得一些鸡肉晚餐吗？如果是这样，你可能处于劣势。不，我不是在谈论游戏中键盘和鼠标用户的猖獗使用，而是一个可能导致一些令人沮丧的触摸屏问题的错误。自Android 8.1 Oreo发布以来的几个月里，许多用户报告了不稳定的多点触摸行为。从谷歌问题跟踪页面上的报告数量来看，这个问题非常普遍，但是仍然没有官方的解决方案。如果你正在寻找一种方法来修复它，有一个非官方的方法，涉及到闪存Magisk模块，我们今天想与你分享。</p>
+
+  
+<p>在我们开始之前，让我们绝对清楚我们首先在谈论什么问题。简而言之，当两个手指放在屏幕上时，手机可能会在两个手指之间产生不稳定的触摸事件。根据我们的消息来源，这在FPS游戏中非常明显，但也可以在其他地方复制，例如在谷歌照片中。这里有两个视频可以帮助你想象我们正在谈论的内容:</p>
+
+ 
+<p class="w-rich w-youtube" id="wgYN5GwIgIc">  </p>
+
+
+<p class="w-rich w-youtube" id="2Vv584tvVyg">  </p>
+
+
+<p>谷歌正在进行修复，但目前还不可用。根据最近<a href="https://android-review.googlesource.com/#/c/platform/frameworks/native/+/640606/">对安卓开源项目(AOSP) gerrit的<a href="https://android-review.googlesource.com/#/c/platform/frameworks/native/+/640605/">两次</a>承诺</a>，修复包括对多个指针进行重采样。XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=3428502"> Freak07 </a>没有等到下一次更新时才推出补丁，而是根据Pixel 2和Pixel 2 XL的最新<a href="https://www.xda-developers.com/nexus-pixel-security-april-2018-ota-factory-images/">4月安全补丁版本</a>编译了更新后的库(具体来说就是libinput和libinputflinger ),这样你就可以立即安装补丁了。因为您将替换系统文件，所以您需要一个根设备。</p>
+
+<hr/>
+
+
+<h2 id="fix-multi-touch-bug-on-the-google-pixel-2-and-pixel-2-xl-running-android-8-1-oreo">修复运行Android 8.1 Oreo的谷歌Pixel 2和Pixel 2 XL上的多点触摸错误</h2>
+<ol> <li><a href="https://www.xda-developers.com/how-to-unlock-bootloader-and-root-the-google-pixel-2-and-pixel-2-xl/">解锁设备的引导程序，安装Magisk </a>。</li> <li>从<a href="https://www.androidfilehost.com/?fid=890129502657595755">这里</a>下载Magisk模块。</li> <li>使用Magisk管理器安装Magisk模块。</li> <li>重启你的手机。</li> </ol>
+
+
+
+
+
+<p/><p><em>从左到右:安装该模块的步骤</em></p>
+
+<p>您不稳定的多点触摸屏问题现在应该得到解决！让我们在评论中知道这个修复是否对你有用。这个修复程序据说也适用于其他Android 8.1 Oreo设备，如谷歌Pixel、谷歌Pixel XL和一加设备，如OnePlus 5和OnePlus 5T，但尚未在这些设备上进行测试。该修复目前导致运行<a href="https://www.xda-developers.com/everything-new-android-p-developer-preview/"> Android P Developer Preview </a>的Pixel设备出现引导循环，因此如果您正在运行该版本，我们警告您不要立即刷新它。</p>
+
+<p><em>感谢XDA资深会员Freak07的提示！</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

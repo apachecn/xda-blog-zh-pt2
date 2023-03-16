@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Customize Display Saturation on Xiaomi Redmi Note 5 Pro, Poco F1, and other devices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在小米Redmi Note 5 Pro、Poco F1和其他设备上自定义显示饱和度</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/customize-display-saturation-xiaomi-redmi-note-5-pro-poco-f1-other-devices/#0001-01-01">https://www.xda-developers.com/customize-display-saturation-xiaomi-redmi-note-5-pro-poco-f1-other-devices/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>显示屏是智能手机的基本组成部分。现在任何现代手机都需要一个大显示屏。根据分辨率、亮度、黑电平、视角和色彩准确度来判断显示质量。色彩精确度是一个广义的术语，包括灰度精确度和灰度精确度、饱和度精确度和色域精确度。谷歌去年用Android Oreo做了一次大的推动，这是第一个支持颜色管理的Android版本。不幸的是，Android Oreo的色彩管理系统迄今为止只被少数设备制造商采用。即使在谷歌Pixel 2上，一些用户也希望有更多的灵活性，而不是必须从自然、增强和饱和等颜色配置中进行选择。他们想要一种在更低水平的基础上调整显示饱和度的方法。</p>
+
+  
+<p>事实证明，<a href="https://www.xda-developers.com/custom-saturation-level-google-pixel-2/">谷歌Pixel/XL和谷歌Pixel 2/XL的根用户事实上可以更灵活地改变显示饱和度</a>,而不是只能从自然、增强或饱和的颜色中进行选择。可以使用终端命令来设置0.0和2.0之间的值，其中0.0将颜色设置为黑色和白色，而2.0将颜色设置为100%饱和度。</p>
+
+<p>接着，XDA论坛版主<a href="https://forum.xda-developers.com/member.php?u=7055541">zachare 1</a>开发了一款名为“Sa2ration”的开源app，让用户可以轻松更改显示饱和度值。这消除了用户使用终端命令的需要。应该指出的是，该应用程序不会影响gamma值(用户可以刷新一个支持KCAL的自定义内核，如果它可用的话)。</p>
+
+<p>我们为Pixel用户开发了这款应用，但XDA论坛上的用户开始报告说，它可以在基于MIUI的小米设备上工作，这些设备采用Android 8.1 Oreo和更高版本。我们能够确认它在根植的小米Redmi Note 5 Pro和根植的小米Poco F1上工作，这两款产品都是基于Android 8.1 Oreo之上的MIUI 9。Redmi Note 5 Pro和Poco F1已经配备了颜色配置文件(自动提供三种色温预设；对比度增加；以及通常以sRGB色域为目标的标准配置文件)，但Sa2ration应用程序在饱和度方面为用户提供了更细粒度的控制。</p>
+
+<p>应该注意的是，将显示饱和度设置得太高或太低都会使手机的显示相对于sRGB色域不准确(值得注意的是，因为大多数小米手机上的标准颜色配置文件都是根据sRGB校准的)，但一些用户实际上<em>更喜欢</em>饱和色，这个应用程序也允许他们拥有他们想要的颜色。</p>
+
+<p>Sa2ration应用程序可以通过XDA实验室和谷歌Play商店下载。提醒一下，使用这个应用程序的唯一先决条件是用户<strong>必须有根用户</strong>。在小米手机上有root就是申请bootloader解锁，解锁bootloader，然后闪Magisk。它可能会也可能不会在每一个根Android 8.1或更新的设备上工作，例如，它不能在运行Android Pie的OnePlus 6上工作。</p>
+
+ 
+</div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>How to disable Android Pie Gestures on the Google Pixel 3</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在谷歌Pixel 3上禁用Android饼图手势</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/disable-android-pie-gestures-google-pixel-3/#0001-01-01">https://www.xda-developers.com/disable-android-pie-gestures-google-pixel-3/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如果你在谷歌Pixel 3之前使用过Android智能手机，你可能会熟悉后退、主页和最近应用概述的3按钮导航栏布局。在Android Pie中，谷歌引入了手势导航，允许你向上滑动以查看最近的应用程序，向右滑动以切换到上一个应用程序，向右滑动并按住以在最近的应用程序之间滚动，按下后退按钮或按下home按钮。谷歌让这种新的导航风格对所有升级到Android Pie的设备都是可选的，如谷歌Pixel和谷歌Pixel 2，但在谷歌Pixel 3上是强制性的。如果你一直想知道如何在Pixel 3或Pixel 3 XL上禁用新的Android Pie手势，有一种非官方的方法可以做到这一点。</p>
+
+ 
+<h3 id="background">背景</h3>
+<p>在Android 9 Pie中，谷歌将新的导航风格与经过改进的横向最近应用概述集成到预装的启动器应用中。在谷歌Pixel 3上，这是Pixel启动器。在之前的Android版本中，最近的应用概述与SystemUI绑定在一起。如果由于某种原因，预装的启动器应用程序在Android Pie设备上被卸载，那么系统将退回到使用旧的最近应用程序风格，手势将不再工作。因此，如果我们能以某种方式卸载谷歌像素启动器，我们将禁用手势导航。我们的最后一步是重新启用旧的3按钮导航栏布局。以下是如何做到这一切，没有根。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_3"><p><strong>注意:如果你想在谷歌Pixel 3上禁用Android Pie手势，你将无法使用原来的谷歌Pixel启动器。然而，如果你决定回到手势导航，你可以很容易地再次加载Pixel Launcher。或者，你可以使用类似于<a href="https://www.xda-developers.com/rootless-pixel-launcher-google-play-store-pixel-bridge/">无根像素发射器</a>的东西，它是股票发射器的增强版本。</strong></p> </div></section>
+<h3 id="how-to-disable-android-pie-gestures-on-the-google-pixel-3">如何在谷歌Pixel 3上禁用Android饼图手势</h3>
+<ol> <li>安装您选择的任何第三方启动器。这是必须的，因为否则，一旦我们完成了这个教程，你就不会有一个启动器程序了！</li> <li>在您的电脑上设置ADB。这里有一个我们之前写的教程，你应该通过这个过程。</li> <li>将您的Pixel 3连接到您的PC，并在您下载ADB二进制文件的目录中打开命令提示符/终端。根据你的OS输入以下命令:<b> Windows命令提示符</b><pre> <code class="hljs ">adb shell</code> </pre><b>Windows Power Shell</b><pre> <code class="hljs ">.\adb shell</code> </pre><b>MAC OS/Linux终端</b> <pre> <code class="hljs ">./adb shell</code> </pre></li> <li>现在，输入以下命令从当前用户卸载Pixel启动器。<pre> <code class="hljs css"><span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">uninstall</span> <span class="hljs-selector-tag">-k</span> <span class="hljs-selector-tag">--user</span> 0 <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.google</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.apps</span><span class="hljs-selector-class">.nexuslauncher</span></code> </pre></li> <li>现在，输入这个命令在重启后重新启用股票导航栏。<a href="https://android.googlesource.com/platform/frameworks/base/+/pie-dr1-release/core/java/android/provider/Settings.java#7732">这个</a>是您将通过发出以下命令来更改的设置。<pre> <code class="hljs ">settings put secure system_navigation_keys_enabled 1</code> </pre></li> <li>重启你的Pixel 3。</li> <li>一旦你启动备份，你应该看到原来的3按钮导航栏布局和原来的垂直堆叠卡最近的应用概述。</li> </ol>
+
+<h3 id="how-to-re-enable-android-pie-gestures-on-the-google-pixel-3">如何在谷歌Pixel 3上重新启用Android饼图手势</h3>
+<p>如果你想重新使用新的手势，你需要重新安装Pixel Launcher。只需从<a href="https://www.apkmirror.com/apk/google-inc/pixel-launcher/pixel-launcher-9-4902955-release/pixel-launcher-9-4902955-android-apk-download/">这里</a>下载它，然后像加载其他应用程序一样加载它。它是由谷歌签署的，所以它是安全的。侧加载后，你必须重启来修复崩溃并恢复旧的手势。</p>
+
+<hr/>
+
+<p>旁注:如果你有root权限，有办法在不禁用Pixel启动器的情况下恢复旧的导航栏布局。一旦Magisk更新到与Pixel 3兼容，我们将继续跟进。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

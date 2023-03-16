@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Manual Google Drive backup support is now in testing in Android Pie</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>手动Google Drive备份支持现在正在Android Pie中测试</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-pie-test-manual-backup-google-drive/#0001-01-01">https://www.xda-developers.com/android-pie-test-manual-backup-google-drive/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如果你没有同一个品牌的设备，升级你的Android智能手机可能会很烦人。这是因为，除非你有一个带有TitaniumBackup的根设备，否则你可能会发现自己不得不重新设置所有的应用程序，因为内置的备份解决方案不是那么强大。虽然内置的解决方案可以将联系人、通话记录和短信备份到Google Drive帐户，但它可以备份和恢复哪些应用程序的数据和设备设置是有限制的。如果你从谷歌Pixel 2升级到即将推出的谷歌Pixel 3，内置的谷歌驱动器备份将会非常好，但备份功能缺少一个功能:手动触发备份的能力。幸运的是，谷歌<a href="https://www.xda-developers.com/android-pie-manual-google-drive-backup/">已经证实</a>我们将在“未来版本”中获得手动谷歌硬盘备份，并且我们已经在最新的Android Pie版本中发现了正在开发的功能。</p>
+
+  
+<p>目前，您只能通过进入系统设置中的备份和重置来启用或禁用Google Drive备份。备份不能从“备份与重置”设置中手动启动，因为它们受到时间或电源等条件的限制。谷歌表示，将数据手动备份到Google Drive将在未来的Android版本中推出，但尚不清楚该功能是否会在Android Q 或谷歌Pixel的每月更新中推出。在XDA知名开发商<a href="https://forum.xda-developers.com/member.php?u=3563640"> Quinny899 </a>的帮助下，我们成功地在运行安卓9 Pie的谷歌Pixel 2 XL上启用了手动备份功能，并安装了<a href="https://www.xda-developers.com/october-android-security-patches-pixel-2-nexus/">最新的10月安全补丁</a>。</p>
+
+
+
+
+
+<p>虽然我们不能说这项功能何时推出，但它在最新的Android版本中功能齐全的事实表明，谷歌可以在未来的更新中添加它，而不会推迟Android Q的更新。希望在不久的将来，你可以手动触发数据备份，这样你就不必等待备份自动触发，然后再去出售你的设备。</p>
+
+<p>像WhatsApp这样特定于应用程序的备份可能会变得非常大，但幸运的是，Google <a href="https://www.xda-developers.com/whatsapp-backup-google-drive-storage-quota/">将不再将</a> WhatsApp备份计入您的Google Drive存储配额。你存储在设备内部存储器上的任何照片或视频都不会备份到Google Drive，尽管备份&amp;重置设置页面会将你引导到Google相册，这样你就可以高质量地上传你的整个收藏。</p>
+
+ 
+<h2 id="how-to-manually-trigger-a-data-backup-via-adb">如何通过ADB手动触发数据备份</h2>
+<p>如果你真的想知道如何手动触发Android中的Google Drive备份，实际上有一个ADB shell命令可以运行，它将启动备份过程。不过，同样的限制也适用，所以不要指望通过这种方式获得完整的数据备份。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> &gt;</span>adb shell bmgr backupnow <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> &gt;</span>--<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> &gt;</span>all<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code> </pre></div>
+
+
+</div>    
+</body>
+</html>

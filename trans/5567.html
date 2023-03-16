@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Android Q will support the Vulkan-backend for ANGLE to make 2D game development easier</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Q将支持角度的Vulkan-backend，使2D游戏开发更容易</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-support-vulkan-backend-angle-game-development/#0001-01-01">https://www.xda-developers.com/android-q-support-vulkan-backend-angle-game-development/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在Google I/O 2016 上，Android牛轧糖<a href="https://www.xda-developers.com/google-io-2016-roundup-part-1-google-assistant-google-home-allo-duo-android-n/">宣布支持Android。提醒您一下，这个API可以帮助开发人员获得对底层硬件的更多控制。这种访问有助于他们更好地利用各自单元的处理和图形能力，并优化游戏以尽可能流畅地运行。毫不奇怪，正确的内存分配和线程管理对于任何类型的高能耗任务都很重要，比如运行游戏。这就是Xbox One和PlayStation 4等流行游戏机长期以来所做的事情——让开发者对设备内部的硬件进行低级别的控制。</a></p>
+
+  
+<p>同样有趣的是，Vulkan是一个跨平台的开放标准，面向跨平台的图形应用。今年早些时候，<a href="https://www.xda-developers.com/google-android-q-vulkan-graphics-render-ui/">我们发现了一条线索【Android Q可能会通过Vulkan API渲染用户界面元素。这将是进一步提高系统流畅度的一个步骤。现在，我们收到信息，Android Q肯定会支持角度，使2D游戏开发更容易。</a></p>
+
+ 
+<h2 id="what-is-angle">什么是角度？</h2>
+<p>角度是一个缩写，它代表“几乎原生图形层引擎。”WebGL的兴起使得支持渲染器的标准化解决方案成为必要。很长一段时间以来，OpenGL驱动程序在Windows平台上一直不太稳定。因此，ANGLE将OpenGL代码转换为Direct3D，这是一种Windows原生支持的API，将一切提升到了一个全新的水平。ANGLE的主要目标是通过将WebGL和OpenGL ES内容转换为平台上可用的硬件支持的API，使OpenGL可移植并可供所有人访问。使用相同的原理，ANGLE将把OpenGL代码翻译成Android上的Vulkan代码，因为前者是操作系统上官方支持的硬件API。你可能每天都在使用ANGLE，却从未意识到这一点。谷歌Chrome和Mozilla Firefox的桌面网络浏览器内置了ANGLE。它用于在Windows上的这些浏览器中呈现任何图形内容。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="opengl-es-vs-vulkan">OpenGL ES vs火山</h2>
+<p>Khronos小组正在努力使ANGLE成为Vulkan上OpenGL的主要渲染器。你们中的许多人可能看不到为了Vulkan而放弃OpenGL的必要性，但是肯定有改进的空间。在这一点上，OpenGL API被认为是一种过时的技术。它最初发布于1992年，也就是26年前。26年对你们中的一些人来说可能不算什么，但对于技术发展来说，这是一个天文数字。2016年，全球引入Vulkan——下一级图形API。但是，更新并不意味着更好，对不对？我来解释一下为什么Vulkan比OpenGL/OpenGL ES好很多。</p>
+
+<p>如果你曾经和OpenGL ES打过交道，你就会知道它是<em>巨大的</em>。这个API有超过300个扩展，一点也不容易使用。Vulkan将一切都提升到了一个全新的水平，提供了一个更小的API和图形的直接控制。也更容易实现。虽然Vulkan在比OpenGL ES更低的层次上工作，但这意味着更大的控制能力。有了Vulkan，线程和内存管理完全交给了游戏开发者，所以你可以充分利用资源。此外，Vulkan的移动和桌面版本之间的差异非常小，因此移植游戏更加容易。简而言之，Vulkan是一个底层驱动程序，可以让您释放特定设备上显卡的全部潜力。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="why-angle">为什么是角度？</h2>
+<p>ANGLE的第一个优势是它是一个开放的标准平台。有很多方法可以为这个项目做贡献。你可以在你的设备上测试驱动程序，报告错误，修复错误，帮助开发者提出解决方案，发送建议，为开发捐赠一些钱，等等。所有这些都将加快发展速度。与OpenGL ES相比，下一个大优势是可移植性和跨平台支持。ANGLE的特性使得平台和游戏开发者的工作更加容易。维护和实现ANGLE比早期的实现要容易得多。OpenGL是如此的支离破碎，以至于追踪bug并在不同的设备上修复它们对开发者来说是一件痛苦的事情。将所有需要的驱动程序集中到ANGLE中意味着开发人员将更容易实现它们。ANGLE开发者Jamie Madill向我们证实，在Android平台上，ANGLE将通过谷歌Play商店接收定期更新。通过内置的第一方市场更新驱动程序是一个好主意，因为用户不必在每次驱动程序更新时更新整个系统。此外，开发人员不需要每次ANGLE改变一些东西时都修补代码。这里有一个关于ANGLE如何让Android游戏开发受益的视频。</p>
+
+ 
+<p class="w-rich w-youtube" id="QrIKdjmpmaA">  </p>
+
+
+<p>正如你所看到的，ANGLE在过时的OpenGL ES上有许多改进。Android Q的第一个开发者预览版并没有走那么远，所以我们可以拭目以待ANGLE在实践中的效果。根据<a href="https://chromium-review.googlesource.com/c/angle/angle/+/1330315">这个提交</a>，用户将能够从开发者选项角度强制所有应用程序工作。对渲染器的支持是<a href="https://android-review.googlesource.com/q/branch:pie-angle-preview-dev+status:merged">已经将</a>合并到Android Pie分支中，供OEM厂商测试。你可以从网站和下面的GitHub库跟踪ANGLE的发展。</p>
+
+<p><em>感谢XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=5015998"> XxPixX </a>的提示！</em></p>
+
+<p/><p><a href="https://opensource.google.com/projects/angle"> <strong>角度网站</strong> </a> <a href="https://github.com/google/angle"> <strong> GitHub知识库</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

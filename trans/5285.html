@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Magisk v17.1 released with better Android Pie and A/B device support</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Magisk v17.1发布，提供更好的Android Pie和A/B设备支持</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/magisk-v17-1-android-pie-a-b-support/#0001-01-01">https://www.xda-developers.com/magisk-v17-1-android-pie-a-b-support/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Magisk v17.1发布，提供更好的Android Pie和A/B设备支持</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Magisk v17.1已经发布，更好地支持Android Pie和A/B分区设备。你可以在这里获得完整的changelog并下载Magisk！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>当谈到植根于你的Android智能手机时，每个人都指出XDA公认的开发者/公认的贡献者Magisk是开始的最佳地方。这是给你的Android智能手机加根的最简单的方法之一，它也完全支持Magisk模块。这些模块允许您无系统地替换设备/系统分区上的文件。Magisk最大的卖点在于它是一种隐藏root用户的方法。这使得用户即使在手机解锁和开机的情况下也能玩像Pokemon Go这样的游戏。</p>
+
+  
+<p>Magisk v17.1现已发布，更好地支持<a href="https://www.xda-developers.com/how-a-b-partitions-and-seamless-updates-affect-custom-development-on-xda/"> A/B分区设备</a>和运行Android Pie的智能手机。这还不是全部，因为Magisk v17.1还支持三星Galaxy S9、三星Galaxy S9+和三星Galaxy Note 9。您可以查看以下Magisk和Magisk Manager的完整变更日志。</p>
+
+ 
+<h2 id="magisk-v17-1-changelog">神奇v17.1变更日志</h2>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_3"><ul> <li>[常规]将安装带回到A/B设备上OTA的非活动插槽</li> <li>[脚本]删除addon.d中基于系统的根目录</li> <li>[Script]添加适当的addon.d-v2，以便在A/B设备的自定义rom上保留Magisk</li> <li>[Script]当设备使用system_root_image时启用KEEPVERITY</li> <li>[脚本]添加hexpatch删除新奥利奥内核中的三星defex</li> <li>[守护程序]支持镜像的非ext4文件系统(系统/供应商)</li> <li>[MagiskSU]使pts套接字始终在dev _ pts secontext中运行，为所有终端仿真器根shell提供与adb shells相同的功能[MagiskHide]终止所有与目标具有相同UID的进程，以解决OOS胚胎优化问题</li> <li>[MagiskInit]在初始化前移动所有sepolicy修补程序，以防止Pixel 2 (XL)启动服务崩溃</li> </ul> </div></section><p class="ad-odd"> </p>
+
+
+<h2 id="magisk-manager-v5-9-1-changelog">Magisk Manager v5.9.1 Changelog</h2>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><ul> <li>没有更多的启动通知</li> <li>支持在A/B设备上为OTA安装到非活动插槽的新机制</li> <li>修复Android P上的恢复Magisk管理器设置</li> <li>验证现有的文件校验和，以防止不必要的重新下载</li> <li>更新SNET扩展以使用新的Google API，修复“无效响应”错误</li> <li>将指纹设置移动到magisk数据库，以防止设置被轻易删除</li> <li>指纹设置现在受到指纹认证的保护，然后才能被更改</li> <li>禁止将任何文件下载到/sdcard/MagiskManager</li> </ul> </div></section>
+<p>在所有这些特性之上，它还隐藏了应用程序子服务的根。一个重新打包的MagiskHide的根丢失也已经被修复，所以你也不应该遇到这些问题。这基本上是一个巨大的错误修复更新，使你的Android智能手机的整个过程变得平滑。这也是A/B支持发挥作用的地方，因为现在您实际上可以保留您的Magisk安装。在GitHub <a href="https://github.com/topjohnwu/Magisk/blob/master/docs/tips.md#ota-installation-tips">这里</a>可以找到完整的指南，这样你就可以在不失去root访问权限的情况下进行更新。</p>
+
+<p>如果您已经更新了，但陷入了引导循环，只需刷新卸载程序并更新到版本17.1。这些引导错误是由16.0版本的数据库不兼容问题引起的，所以卸载并重新安装Magisk是唯一的选择。其他值得注意的增加包括在Magisk Manager中重新引入SafetyNet checker，以及一个新的模块模板，因为它与基于文件的加密(FBE)有冲突。当然，也有大量的错误修复和改进，但这些都是主要的变化。可以看看下面的帖子下载一下！</p>
+
+<p/><p><a href="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445">t1下载魔法v 17.1T3</a></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

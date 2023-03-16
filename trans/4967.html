@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Magisk v16.6 adds support for the Samsung Galaxy S9 and Project Treble GSIs</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Magisk v16.6增加了对三星Galaxy S9和Project Treble GSIs的支持</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/magisk-v16-6-samsung-galaxy-s9-project-treble-gsi-root-loss/#0001-01-01">https://www.xda-developers.com/magisk-v16-6-samsung-galaxy-s9-project-treble-gsi-root-loss/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如果你曾经关注过你的Android设备，你可能在某个时候听说过Magisk。这是一个无系统的root开源解决方案，最著名的是它通过SafetyNet的能力——允许你在root状态下使用Google Pay和Pokemon Go等应用程序。它是由XDA知名开发商topjohnwu开发的，他最近在台湾完成了强制性的军事训练。在那段时间里，我们仍然看到一些更新，其中<a href="https://www.xda-developers.com/magisk-16-4-magiskhide-android-p/">改进了MagiskHide并添加了Android P支持</a>和<a href="https://www.xda-developers.com/magisk-16-3-fixes-pokemon-go-uncertified-devices/">绕过了“认证设备”问题</a>，但现在我们得到了更好的东西。Magisk v16.6 (Beta)现在与<a href="https://www.xda-developers.com/flash-generic-system-image-project-treble-device/">Project Treble Generic System Images</a>(GSIs)和三星Galaxy S9更加兼容，神秘的“root loss”问题已经修复。</p>
+
+  
+<p>更新是朝着正确方向迈出的一大步，因为闪烁项目高音GSI或在GSI之间切换经常需要擦除/数据。但是，由于Magisk依赖于/data中的文件才能工作，因此您需要重新安装它才能工作。在最近的更新中，如果没有检测到管理器，将安装嵌入magiskinit的新存根管理器APK。然后，存根下载完整的应用程序，然后重新构建根环境。因此，重新安装将由脚本处理，而您不必采取一堆额外的步骤！</p>
+
+<p>接下来，用户报告了一个神秘的问题，root访问权限会突然丢失。topjohnwu发现了一个边缘案例，并实施了一个修复来防止根丢失问题的发生。此外，他还实现了修复来处理守护进程崩溃导致的根丢失。</p>
+
+<p>如果你想阅读变更日志的其余部分，那么看看下面。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_4"><h3 id="magisk-v16-6-beta-changelog">神奇v16.6 (Beta版)变更日志</h3><section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_4"><ul> <li>Magisk Manager将在应用程序内升级时保留随机包名称。magisk将不再偏好包名com.topjohnwu.magisk而不是重新打包的(隐藏的)Magisk管理器，以防止恶意软件针对这个特定的包名。如果您安装了重新打包的Magisk管理器，com.topjohnwu.magisk将被强制拒绝root访问。可以在设置中使用<b>恢复Magisk Manager </b>，或者卸载重新打包的Magisk Manager解锁com.topjohnwu.magisk。</li> <li>ext4映像中计算空闲空间的逻辑被新的非常精确的方法所取代，希望不会再发生由映像导致的模块安装失败。所有使用template 1500的模块将自动受益于Magisk v16.6+上新的可用空间计算方法，无需额外更改。</li> <li>正式增加对三星Galaxy S9/三星Galaxy S9+的支持。</li> <li>Magisk v16.4切换到仅32位二进制文件，导致一些应用程序出现问题。添加了一个新的包装器脚本来消除所有可能的问题。</li> <li>项目Treble GSIs(例如phh AOSP)有时需要替换ramdisk中的adbd，并用于与Magisk冲突。现在这个问题已经解决，亚行将在使用三重GSIs项目时充分发挥作用。</li> <li>LineageOS向A/B分区设备引入了addon.d-v2，addon.d脚本被更新为A/B感知的(我这边没有测试)</li> </ul> </div></section> </div></section>
+<p>这是管理器应用程序的变更日志。现在可以在应用程序中查看changelog，方法是转到侧边栏的“关于”部分。</p>
+
+
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_7"><h3 id="magisk-manager-v5-8-0-changelog">Magisk Manager v5.8.0 Changelog</h3><section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_7"><ul> <li>在重新打包的Magisk管理器中升级时保持隐藏</li> <li>新功能:支持在检测到错误时重建正确的Magisk环境(例如，在工厂重置后)</li> <li>新的卸载方法:下载卸载程序，完全删除Magisk + Magisk管理器，然后重新启动。</li> <li>隐藏的应用程序现在显示在MagiskHide片段列表的顶部</li> <li>大量的bug修复和改进</li> </ul> </div></section> </div></section>
+<p>如果你有兴趣安装它，那么<a href="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445">看看官方线程</a>。关于发布的更多细节，请看他的<a href="https://forum.xda-developers.com/showpost.php?p=77014053&amp;postcount=43">官方公告帖</a>。我们很想知道这个版本如何在您的设备上运行。如果你经常刷新GSIs，让我们知道新的更新对你来说怎么样。此外，如果你有一个可解锁的三星Galaxy S9引导程序，也请让我们知道最新的更新是否能在你的设备上正常工作。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

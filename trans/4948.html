@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Android Emulator in Android Studio 3.2 supports AMD processors on Windows 10</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Studio 3.2中的Android模拟器支持Windows 10上的AMD处理器</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-studio-canary-android-emulator-support-amd-windows-10/#0001-01-01">https://www.xda-developers.com/android-studio-canary-android-emulator-support-amd-windows-10/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Android Studio 3.2中的Android模拟器现在支持Windows 10上的AMD处理器</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">在最新的Android Studio版本中，为Windows 10上的AMD用户提供了正确的Android模拟器支持和硬件加速。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+
+<p/><p>Android Emulator 27.3.6最近在Canary和Dev频道与<a href="https://www.xda-developers.com/android-studio-3-1-now-available/"> Android Studio版本</a>一起发布，为AMD用户在Windows 10上带来了期待已久的功能。这个新版本最终支持在AMD处理器上运行带硬件加速的仿真器。</p>
+
+  
+<p>以前，Windows 10上的AMD用户无法运行具有硬件加速的Android仿真器，这导致仿真器运行缓慢、效率低下，与英特尔平台上的体验相比，使用起来通常令人沮丧。</p>
+
+<p>随着<a href="https://androidstudio.googleblog.com/2018/06/emulator-2736-canary.html">新版本</a>的发布，这种情况发生了变化，同时也带来了其他变化，例如:</p>
+
+<ul> <li>修复了从快照加载颜色缓冲区时，在初始快照加载后崩溃的问题。</li> <li>修复了保存OpenGL着色器程序信息日志的快照时潜在的内存损坏。</li> <li>修复了检查主机系统的CPUID时潜在的内存损坏。</li> <li>在运行最新Windows 10的AMD机器上，并且可以成功启用Windows虚拟机管理程序平台的地方，仿真器现在可以在加速模式下引导API级别26+x86/x86 _ 64 avd。<ul> <li><b>警告:</b>我们发现，在许多AMD锐龙机器上启用Hyper-V或Windows Hypervisor平台，尤其是配有Vega GPUs的笔记本电脑，会导致Windows无法启动。如果您的AMD系统已经在启用Windows虚拟机管理程序平台的情况下成功运行，我们仅建议您尝试此方法。</li> <li><b>修复:</b>如果Windows由于启用Windows虚拟机管理程序平台而变得无法启动，请在系统BIOS中禁用虚拟化并重新启动，这将允许您禁用该功能。</li> </ul> </li> </ul>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/n00w9fc4ej311-1024x616.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Credits: Reddit User \/u\/Ssunde2&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/n00w9fc4ej311-1024x616.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/n00w9fc4ej311-1024x616.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/n00w9fc4ej311-1024x616.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/n00w9fc4ej311-1024x616.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/n00w9fc4ej311-1024x616.png" src="../Images/44b38551d5f480b490fdd4af2d8db64f.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/06/n00w9fc4ej311-1024x616.png"/> </picture> <figcaption class="body-img-caption">Credits: Reddit User /u/Ssunde2</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>Android Studio模拟器开发者<a href="https://www.reddit.com/r/androiddev/comments/8qhirc/amd_finally_gets_google_emulator_support_canary/e0jjj0j/"> /u/lfy_google </a>也澄清了硬件加速应该也可以在Windows 10家庭系统上工作，尽管后者没有“Hyper-V”选项。只需在Windows可选功能中启用“Windows虚拟机管理程序平台”选项就可以了。此外，还不包括对API 25及以下版本的支持；用户可以期待在下一个canary版本中看到这个问题得到解决。</p>
+
+<hr/>
+
+<p><a href="https://www.reddit.com/r/androiddev/comments/8qhirc/amd_finally_gets_google_emulator_support_canary/?st=jicbvslf&amp;sh=5d376057"><strong>Via:Reddit</strong>T3】</a></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

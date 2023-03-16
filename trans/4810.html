@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Google Pixel &amp; Pixel 2 will support Bluetooth Hearing Aids on Android P</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Pixel &amp; Pixel 2将在Android P上支持蓝牙助听器</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-pixel-2-bluetooth-hearing-aids-android-p/#0001-01-01">https://www.xda-developers.com/google-pixel-2-bluetooth-hearing-aids-android-p/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Google I/O 2018正在<a href="https://www.xda-developers.com/google-i-o-2018-may-8-shoreline-amphitheater/">快速接近</a>。我们期待在活动中了解更多关于<a href="https://www.xda-developers.com/tag/android-p/"> Android P </a>的新内容。谷歌已经<a href="https://www.xda-developers.com/everything-new-android-p-developer-preview/">向我们</a>展示了<a href="https://www.xda-developers.com/android-p-developer-preview-1-google-pixel-xl-pixel-2-xl/">首个Android P开发者预览版</a>的新功能，但是还有很多好东西该公司尚未公布。<a href="https://www.xda-developers.com/android-p-iphone-x-navigation-gesture/">导航手势</a>据传将在活动中出现，据称它们会让人想起<a href="https://www.xda-developers.com/android-p-iphone-x-navigation-gesture-2/"> iPhone X pill bar手势。</a>由于Android开源项目，我们能够跟踪下一个Android版本中即将推出的一些功能，并且我们发现了一个会让听力障碍者兴奋不已的功能:支持蓝牙助听器。根据一系列代码提交，谷歌Pixel和Pixel 2智能手机将原生支持连接蓝牙助听器。</p>
+
+  
+<p>支持蓝牙的助听器的优势在于，它允许听力障碍者在听周围声音的同时，仍能享受标准的蓝牙功能，如打电话或听音乐。目前，重听人不能将他们的蓝牙助听器设备与大多数Android设备直接连接(尽管他们可以将他们的设备连接到iPhones。)蓝牙无线助听器的制造商通常会提供一个额外的蓝牙设备(如<a href="https://www.resound.com/en/hearing-aids/accessories/phone-hearing-aid"> ReSound Phone Clip+ </a>)，它可以夹在人身上，充当助听器和Android智能手机之间的桥梁。不得不携带第二个蓝牙设备并不理想，这就是为什么谷歌一直致力于通过对蓝牙无线助听器的原生支持来使Android更容易访问。</p>
+
+<hr/>
+
+
+<h2 id="google-pixel-amp-pixel-2-support-bluetooth-hearing-aids-natively-in-android-p">Google Pixel &amp; Pixel 2在Android P中本地支持蓝牙助听器</h2>
+<p>11月，我们<a href="https://www.xda-developers.com/android-getting-support-for-bluetooth-hearing-aids/">发现了一些承诺，即</a>建议在Android的下一版本中对蓝牙助听器提供原生支持。当时，实施还处于开始阶段。但是当我们接近Google I/O时，与助听器相关的代码提交数量<a href="https://android-review.googlesource.com/#/q/hearing-aid+(status:open+OR+status:merged)">已经大幅增长</a>。现在安卓系统中有了一个<a href="https://android-review.googlesource.com/549481">助听器蓝牙模式</a>，一个<a href="https://android-review.googlesource.com/#/c/platform/system/bt/+/546902/">助听器管理器</a>，等等。再次引发我们对这个话题兴趣的最新代码提交是一系列标题为“禁用除Pixel之外的所有平台的助听器配置文件”的提交<a href="https://android-review.googlesource.com/#/q/topic:enable-hearing-aid-only-for-pixel+(status:open+OR+status:merged)">我认为这是不言自明的，不是吗？</a></p>
+
+
+
+<p>正如您在提交描述中看到的，无线蓝牙设备的新助听器配置文件将在AOSP禁用，但默认情况下会为Google Pixel、Google Pixel XL、Google Pixel 2和Google Pixel 2 XL启用。这是通过在蓝牙系统应用程序的覆盖图中将布尔值<code>profile_supported_hearing_aid</code>设置为true来实现的，如下所示。</p>
+
+
+
+<p>这些更改的提交已经合并。然而，由于我们离Google I/O和Android P Developer Preview 2的预期发布如此之近，我不认为我们会在下一个预览版中看到这个功能。相反，我希望最早能在开发者预览版3中看到它，但它肯定会出现在p的第一个稳定版本中。</p>
+
+<p>当其他设备开始接收Android P更新时(如<a href="https://www.xda-developers.com/xiaomi-mi-mix-2s-android-p-developer-preview/">小米Mi Mix 2S </a>或<a href="https://www.xda-developers.com/huawei-mate-10-pro-android-p/">华为Mate 10 Pro </a>)，那么将由他们来启用对这一新蓝牙配置文件的支持。希望将来有更多的Android设备支持这一功能，因为可访问性似乎是iOS仍然胜过Android的一个领域。谷歌在I/O 有一个致力于Android可访问性的<a href="https://events.google.com/io/schedule/?section=may-8&amp;sid=5b089699-0940-4e9d-98d2-0ca9938b8680">会议，我们希望在那里了解更多关于这个特性的信息。我们将在活动中为您带来最新的Android新闻。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Developers can restrict Android Go devices from downloading their apps</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>开发者可以限制Android Go设备下载他们的应用</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/developers-exclude-android-go-oreo-downloading-apps/#0001-01-01">https://www.xda-developers.com/developers-exclude-android-go-oreo-downloading-apps/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">开发者可以限制Android Go设备下载他们的应用</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">添加了新的Google Play控制台排除规则，以限制Android Oreo (Go Edition)设备(也称为Android Go设备)上的用户下载您的应用程序。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>Android Oreo (Go Edition)，也简称为Android Go，是谷歌针对新兴市场日益增长的重要性的解决方案，在新兴市场，廉价设备占据主导地位。Android Go是针对低端硬件优化的Android 8.1 Oreo<a href="https://www.xda-developers.com/android-go-optimizes-android-o-to-run-on-low-end-devices/">；它基本上只是一套</a><a href="https://www.xda-developers.com/android-go-old-android-8-1-oreo/">构建配置和特殊的Go版应用</a>，设计用于在内存只有512MB的硬件上运行。(<a href="https://www.xda-developers.com/zte-no-longer-qualcomm-smartphones-threatening-axon-9/">现已倒闭</a> ) <a href="https://www.xda-developers.com/zte-announces-blade-v9-blade-v9-vita-tempo-go/">中兴Tempo Go </a>、<a href="https://www.xda-developers.com/alcatel-alcatel-5-3-1-series-smartphones-1t-10-7-tablets-1x-android-go-phone/">阿尔卡特1X </a>、<a href="https://forum.xda-developers.com/nokia-1">诺基亚1 </a>、<a href="https://www.xda-developers.com/nokia-5-1-nokia-3-1-nokia-2-1-announced/">诺基亚2.1 </a>只是运行Android Oreo (Go版)的部分廉价手机。对于寻求新用户的开发者来说，优化他们的应用程序以在低端硬件上运行是非常重要的。但如果你没有兴趣或无法合理地优化你的应用程序以在Go edition设备上运行，那么你会很高兴地知道，Google Play控制台现在允许你添加排除规则，以防止你的应用程序被下载到这些设备上。</p>
+
+  
+
+
+<p>不过，用户仍然可以侧装你的APK。如果你只是希望防止预算硬件上的用户对你的应用程序体验不佳(从而对你的应用程序评价很差)，那么这是一个快速的方法来防止这种情况发生在至少一小部分预算设备上。不过，无论如何，最好尽可能优化你的应用程序，因为大多数Android用户都是预算有限的硬件。</p>
+
+<p>如果你想为Android Oreo (Go Edition)设备设置设备排除规则，那么这里有关于如何做的说明，从谷歌的支持页面复制到下面的f <a href="https://support.google.com/googleplay/android-developer/answer/7353455#safetynet">。这些说明还告诉你如何基于通过安全网认证API(就像</a><a href="https://www.xda-developers.com/netflixs-safetynet-exclusion-is-actually-a-new-feature-in-the-google-play-console/">网飞</a>)来排除用户，但我们真的希望你不必诉诸于此。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_4"><p/><h4>为SafetyNet或Android (Go版)设置设备排除规则</h4><ol> <li>登录您的<a href="https://play.google.com/apps/publish/" target="_blank" rel="noopener">游戏控制台</a>。</li> <li>选择一个应用。</li> <li>在左侧菜单中，选择<b>设备目录</b>。</li> <li>选择“排除的设备”选项卡。</li> <li>在“排除规则”旁边，选择<b>管理排除规则</b>。</li> <li>在“安全网排除”或“Android Go排除”旁边，选择一个选项:<ul> <li><strong>安全网排除项目</strong><ul> <li><i>不排除基于安全网认证API </i>的设备:默认选择。</li> <li><i>仅排除未通过基本完整性</i> <i> y </i>测试的设备:这有助于您确定特定设备是否已被篡改或修改。</li> <li><i>排除未通过基本完整性测试的设备，以及未经谷歌认证的设备</i>:这有助于您确定特定设备是否被篡改、修改或未经谷歌认证。</li> </ul> </li> <li><strong> Android Go排除项</strong><ul> <li><em>不排除Android Go设备</em>:默认选中。</li> <li><em>排除Android Go设备</em>:阻止运行Android Oreo (Go版)的设备在Google Play上安装你的应用。</li> </ul> </li> </ul> </li> </ol> </div></section></div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

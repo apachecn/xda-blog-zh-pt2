@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Wi-Fi Easy Connect is Android Q's alternative to WPS</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Wi-Fi Easy Connect是Android Q对WPS的替代</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/wps-disappeared-android-p/#0001-01-01">https://www.xda-developers.com/wps-disappeared-android-p/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新2(美国东部时间6/9/19 @下午3:08):</strong>WPS已经被弃用，但谷歌在Android Q中提供了一个替代方案，名为“Wi-Fi Easy Connect”。</p><p><strong>更新1(美国东部时间2018年7月17日晚上7点10分)</strong>:一名谷歌员工刚刚在问题跟踪器上发表评论，称<a href="https://issuetracker.google.com/issues/79404939#comment10">功能将在未来的Android版本中可用</a>。</p> </div></section>
+<p/><p>随着Android P的出现，我们都很高兴看到最终版本给我们带来了什么。我们可以期待看到性能的提升和新的功能，比如手势导航和新的用户界面。然而，我们也可以期待无数的安全增强，其中一些可能会激怒用户。正如<a href="https://www.androidpolice.com/2018/07/09/android-p-doesnt-support-wps-may-deprecated-google/"> <em> AndroidPolice </em> </a>最先报道的，看起来谷歌可能会在Android P发布时取消WPS (Wi-Fi保护设置)支持。对于那些不知道的人，WPS允许你只需按下路由器上指定的按钮就可以将设备连接到路由器。一些配置要求您在设备上输入PIN码。</p>
+
+  
+<p>由于这种基于PIN的身份验证，WPS本质上是不安全的，暴力攻击对它来说是常见的。WPA2 <a href="https://www.xda-developers.com/wpa2-wifi-protocol-vulnerability-krack/">可能会被破解</a>，但如果你能破解WPS pin，你甚至不需要使用那样的攻击。但是我们怎么知道在Android P中对它的支持被取消了呢？许多与协议相关的字符串已被标记为不推荐使用，没有实际记录的更改。一名谷歌员工回应说，已经通知了开发团队，但这并不意味着这不是故意的。试图访问WPS将返回一个一般性错误，这使得这看起来非常故意。</p>
+
+<p>那么，对于那些在日常生活中可能需要WPS的人来说，接下来该怎么办呢？这是一个旧的安全标准，而且非常不安全。虽然它可能在家里有用，但它是一个不应该出现在商业环境中的协议。这也没什么大不了的，因为用户可以在智能手机上输入网络密码。可能不方便，但肯定不会阻止人们上网。你可以点击查看这个问题的<a href="https://issuetracker.google.com/issues/79404939">错误跟踪报告。如果谷歌有回应，我们会更新这篇文章。</a></p>
+
+<hr/>
+
+
+<h2 id="update-1-google-responds-to-issue-tracker">更新1:谷歌回应问题跟踪者</h2>
+<p>一名谷歌员工对WPS消失的问题跟踪报告做出回应，称“问题已经解决，将在未来的Android版本中可用。”我们不确定该功能是否会在最终的P版本或Android Q中回归。我们将努力澄清这一点，如果我们收到任何新信息，将更新本文。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="update-2-a-new-alternative---wi-fi-easy-connect">更新2:一个新的选择- Wi-Fi轻松连接</h2>
+<p>虽然WPS被弃用，但Android Q引入了对<a href="https://www.wi-fi.org/discover-wi-fi/wi-fi-easy-connect"> Wi-Fi Easy Connect </a>的支持，以简化向网络添加新设备。根据<a href="https://developer.android.com/preview/features#wifi-easy">文档</a>，应用程序可以通过使用ACTION _ PROCESS _ WIFI _ Easy _ Connect _ URI意图来集成Easy Connect，这需要用户通过扫描二维码或发现蓝牙LE或NFC广告来提供URI。轻松连接不需要位置或Wi-Fi权限。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

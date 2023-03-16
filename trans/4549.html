@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Enable Google Camera HDR+ and EIS on the Xiaomi Mi A1 without Root</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在无Root的小米米A1上启用谷歌相机HDR+和EIS</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/enable-google-camera-hdr-eis-xiaomi-mi-a1-without-root/#0001-01-01">https://www.xda-developers.com/enable-google-camera-hdr-eis-xiaomi-mi-a1-without-root/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>小米Mi A1是小米的第一款Android One智能手机。它是在9月份发布的，规格清单相当不错，包括高通骁龙625片上系统，4gb内存搭配64GBs存储，5.5英寸全高清(1920x1080) IPS显示屏，双12MP + 12MP(广角+长焦)后置摄像头，以及3080mAh电池。这款手机配备了几乎库存的Android 7.1牛轧糖，上个月它收到了Android Oreo更新。</p>
+
+  
+<p>Mi A1的双后置摄像头设置价格合理，12MP主后置广角摄像头与12MP带“长焦”镜头的摄像头配对。<a href="https://www.xda-developers.com/xiaomi-mi-a1-xda-android-review/">在我们对这款手机</a>的评测中，我们发现它的摄像头比Redmi Note 4的摄像头有明显的改进，但仍有改进的空间。值得注意的是，电子图像稳定(EIS)仍然没有出现。</p>
+
+<p>这就是非官方的谷歌相机HDR+端口来拯救。从Redmi Note 3到<a href="https://www.xda-developers.com/essential-phones-camera-app-updated-automatic-hdr-mode/"> Essential Phone </a>等一系列手机上的端口被发现在许多情况下显著提高了相机性能。在小米设备上使用该端口的问题是，小米设备没有默认启用Camera2 API。启用它需要<a href="https://www.xda-developers.com/camera2api-magisk-module-enables/">通常要求用户</a>启动他们的设备并且<a href="https://www.xda-developers.com/enable-night-light-camera2-api-xiaomi-mi-a1-magisk/">编辑build.prop </a>，这通常意味着他们不能接收OTA更新。所以，那些不想root设备或者想接收OTA更新的用户，到目前为止都不太走运。</p>
+
+<p>然而，<a href="https://www.xda-developers.com/enable-camera2-api-xiaomi-mi-a1/">有一种方法可以在不修改任何系统文件的情况下启用Camera2 API，本周</a>XDA公认的开发者flex1911详细介绍了这种方法。它包括解锁引导加载程序并通过Magisk启动设备，通过setprop命令启用<a href="https://www.xda-developers.com/enable-night-light-camera2-api-xiaomi-mi-a1-magisk/"> Camera2 API </a>，然后完全移除Magisk并重新锁定引导加载程序。这意味着仍然能够接收OTA更新。</p>
+
+<p>更进一步，XDA成员<a href="https://forum.xda-developers.com/member.php?u=8676627"> AridaneAM </a>发布了一款<strong>自动化工具，无需root即可安装谷歌摄像头HDR+端口</strong>。为了安装端口，用户需要执行以下步骤:</p>
+
+<ul> <li>禁用模式/密码安全锁</li> <li>启用开发人员选项</li> <li>启用OEM解锁和USB调试</li> <li>安装ADB / fastboot驱动程序</li> <li>启用HAL3和EIS</li> <li>安装Google Camera zip，同时使用ADB将手机连接到PC。</li> </ul>
+
+<p>该工具会自动解锁引导加载程序，临时安装TWRP，安装谷歌摄像头端口，然后重新锁定引导加载程序，而根本不需要对设备进行根操作。用户可以使用这种方法来安装端口，而根本不需要启动他们的设备。</p>
+
+<p/><p><a href="https://forum.xda-developers.com/mi-a1/how-to/tool-google-camera-root-magisk-enable-t3747585"> <strong>在小米米A1上下载谷歌摄像头安装程序</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

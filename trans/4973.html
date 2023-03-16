@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Here's how to try out Android Messages for web right now [Root]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>以下是如何立即试用Android消息的方法[Root]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/try-android-messges-for-web-now/#0001-01-01">https://www.xda-developers.com/try-android-messges-for-web-now/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">以下是如何立即试用Android消息的方法[Root]</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">期待已久的Android消息网络客户端即将推出。它适用于谷歌浏览器、火狐浏览器等等。下面是现在尝试的方法。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>期待已久的Android客户端消息今天开始发布。它可以让你通过谷歌Chrome、Mozilla Firefox、Opera、苹果Safari和微软Edge等网络浏览器从电脑上发送短信。它完全免费使用，支持表情符号，发送图像，同步信息，并通知你新的信息。web客户端有一个漂亮的Google Material设计主题，甚至还有一个黑暗的主题。我们已经发布了一个关于<a href="https://www.xda-developers.com/send-text-messages-pc-android-messages-for-web/">如何启用Android Messages】的教程，这样你就可以从你的笔记本电脑或台式机上发送短信，但是如果你还没有收到该功能，并且渴望尝试一下，我们已经为你准备好了。以下是如何在任何基于</a><a href="https://www.xda-developers.com/root/"> <strong>的</strong> </a>安卓设备上强制启用该功能。</p>
+
+ 
+
+
+
+
+<p/><p><em>截图鸣谢:XDA认可开发商<a href="https://forum.xda-developers.com/member.php?u=3563640">quinny 899</a>T3】</em></p>
+
+ 
+<h2 id="how-to-forcefully-enable-android-messages-for-web">如何为web强制启用Android消息</h2>
+<p><em>这些步骤的信用属于XDA认可的开发商<a href="https://forum.xda-developers.com/member.php?u=3563640">Quinn 899</a>。</em></p>
+
+ 
+
+
+
+ 
+
+
+
+<ol> <li>下载最新的Android Messages应用程序(版本3.3.043。)如果你没有在谷歌Play商店上看到它，请从<a href="https://www.apkmirror.com/apk/google-inc/messenger-google-inc/messenger-google-inc-3-3-043-release/android-messages-3-3-043-xylophone_rc22_xxhdpi-arm64-v8a-phone-android-apk-download/">这里</a>抓取它。</li> <li>从谷歌Play商店下载偏好设置管理器。</li> <li>打开首选项管理器，并在请求时授予其root访问权限。</li> <li>如果Android Messages像Google Pixel或Android One设备一样被预装为系统应用程序，请按右上角的三点菜单，然后选择“显示系统应用程序”</li> <li>查找“消息”</li> <li>左右滑动，直到找到“PhenotypePrefs.xml”</li> <li>搜索“多”</li> <li>将下面截图中以红色突出显示的两个首选项从“假”更改为“真”</li> <li>再次搜索“覆盖”并更改出现的两个首选项。</li> <li><strong>强制关闭</strong>安卓消息。<strong>暂时不要打开应用！</strong></li> <li>在ADB shell中，输入以下命令:<ol> <li><code>adb shell</code></li> <li><code>su</code></li> <li><code>am start -n com.google.android.apps.messaging/com.google.android.apps.messaging.ui.ditto.DittoActivity</code></li> </ol> </li> <li>或者，如果您安装了类似于<a href="https://play.google.com/store/apps/details?id=yarolegovich.materialterminal"> Material Terminal </a>的终端模拟器应用程序，那么您可以输入以下命令:<ol> <li><code>su</code></li> <li><code>am start -n com.google.android.apps.messaging/com.google.android.apps.messaging.ui.ditto.DittoActivity</code></li> </ol> </li> <li>现在您可以<a href="https://www.xda-developers.com/send-text-messages-pc-android-messages-for-web/">按照这些步骤</a>完成设置。</li> </ol>
+
+
+
+
+
+<p>我已经通过我的谷歌Pixel 2 XL在Android P上运行了大约一个小时的Android Messages for web client。Quinny899报告连接在他身上关闭，所以你的里程可能会有变化。这种方法是在web客户端尝试所有功能的快速方法。我确信这个特性很快会广泛推广，所以我不会依赖这种方法来访问未来的web客户端。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

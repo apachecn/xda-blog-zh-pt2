@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>How to change the Notification Snooze Durations on Android 8.1 Oreo without Root</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在没有Root的Android 8.1 Oreo上更改通知暂停持续时间</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/customize-notification-snooze-duration-android-oreo/#0001-01-01">https://www.xda-developers.com/customize-notification-snooze-duration-android-oreo/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>随着<a href="https://www.xda-developers.com/tag/android-p/">安卓P </a> <a href="https://twitter.com/mishaalrahman/status/958428092669874176">即将到来</a>，大部分用户可能最近才更新到<a href="https://www.xda-developers.com/tag/android-oreo/">安卓8.0奥利奥</a>，更不用说<a href="https://www.xda-developers.com/nokia-8-android-oreo-update-2/">安卓8.1 </a>了。Android Oreo带来了大量有用的功能，如更好的电池寿命/内存使用，这要归功于<a href="https://www.xda-developers.com/android-oreo-oem-background-app-limitations/">严格的后台应用限制</a>，画中画模式<a href="https://www.xda-developers.com/notification-importance-controls-all-apps-android-oreo/">，通知通道</a>，<a href="https://www.xda-developers.com/android-o-to-cut-reboot-time-in-half-significantly-improve-app-performance/">更快的启动时间</a>，以及用于密码管理器的自动填充API 。另一个有用的功能是<a href="https://www.xda-developers.com/android-8-0-oreo-google-released/">通知休眠</a>，这个功能最终允许你暂时关闭通知来清理你的状态栏。默认情况下，你只能暂停15分钟、30分钟、1小时或2小时的通知，但如果你运行的是Android 8.1 Oreo，没有root用户也可以自定义这些数字。以下是方法。</p>
+
+  
+
+
+<p/><p><em>默认奥利奥通知暂停持续时间</em></p>
+
+<hr/>
+
+
+<h2 id="how-to-customize-the-notification-snooze-durations-on-android-8-1-oreo">如何在Android 8.1 Oreo上自定义通知暂停持续时间</h2>
+<p>虽然Android 8.0 Oreo引入了通知打盹，但直到Android 8.1 Oreo，谷歌才引入了一种定制打盹持续时间的方法。因此，本教程将只适用于Android 8.1设备，如谷歌Nexus 5X、谷歌Nexus 6P、谷歌Pixel、谷歌Pixel XL、谷歌Pixel 2、谷歌Pixel 2 XL、诺基亚8，以及任何运行定制的基于AOSP的Android 8.1 ROM的设备。</p>
+
+<p>我们使用的方法包括通过Android调试桥(ADB)改变一个隐藏的设置。由于这并不涉及解锁你的引导程序或下载你的设备，你可以通过OTA更新或通过Android Pay支付。你所需要的只是你的设备、你的电脑和一个由XDA论坛主持人开发的名为T2系统界面调谐器的应用程序。这款应用在谷歌Play商店上是免费的，但请确保你运行的是<strong>248</strong>版本，否则你将无法使用这项新功能。</p>
+
+ 
+
+
+
+<p>下面是一个关于如何使用这个应用程序在Android 8.1 Oreo上更改通知暂停持续时间的分步教程:</p>
+
+<ol> <li>按照我们的教程<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/">在这里</a>设置ADB。</li> <li>打开命令提示符或终端，输入以下内容:<code>adb shell pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS</code></li> <li>启动SystemUI Tuner应用程序并浏览设置屏幕。</li> <li>点击“调整”</li> <li>接受弹出的警告。</li> <li>点击“杂项”</li> <li>向下滚动到“通知休眠”部分。</li> <li>对于“默认”,选择通知暂停持续时间的默认时间<strong>,单位为分钟</strong>。</li> <li>对于“时间A”到“时间D”，选择通知暂停持续时间应该设置为的4个时间<strong>(以分钟</strong>为单位)。例如，如果我想要30分钟、1小时、2小时和6小时，我将从A到D分别输入30、60、120和360。</li> <li>确保“默认”小睡持续时间<strong>与您在第9步中选择的数字</strong>相匹配。</li> <li>最后，为了让它在重启时保持不变，点击应用右上角的菜单按钮，选择“设置”然后，切换“<strong>安全模式</strong>，允许应用程序在重启时恢复这些值。</li> </ol>
+
+<p>你完了！需要记住的是，启用“安全模式”会在状态栏中显示一个烦人的通知，但你可以通过长按它并禁用其通知通道来轻松隐藏该通知。此外，您的新通知暂停持续时间<strong>将不会出现在状态栏中的任何现有通知</strong>上——只有在您进行此更改后出现的新通知。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Android-8.1-Oreo-Customize-Notification-Snooze-Durations-7-300x103.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Snooze Button on Notifications in Android 8.1 Oreo&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Android-8.1-Oreo-Customize-Notification-Snooze-Durations-7-300x103.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Android-8.1-Oreo-Customize-Notification-Snooze-Durations-7-300x103.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Android-8.1-Oreo-Customize-Notification-Snooze-Durations-7-300x103.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Android-8.1-Oreo-Customize-Notification-Snooze-Durations-7-300x103.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="How to change the Notification Snooze Durations on Android 8.1 Oreo without Root" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Android-8.1-Oreo-Customize-Notification-Snooze-Durations-7-300x103.png" src="../Images/408e8b980e57d4b6bb684d92869c8573.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Android-8.1-Oreo-Customize-Notification-Snooze-Durations-7-300x103.png"/> </picture> <figcaption class="body-img-caption">Snooze Button on Notifications in Android 8.1 Oreo</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>作为奖励，因为你已经经历了设置SystemUI Tuner的麻烦，你可以使用应用程序中提供的任何其他功能！这里和那里有许多小的调整，可能会使你的用户界面看起来更舒服一点！</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="how-this-works">这是如何工作的</h2>
+<p>好的，所以你们中的一些人可能想知道这到底是怎么回事。这很简单，谷歌增加了一个<a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/provider/Settings.java#10975">开发者选项</a>，允许改变通知暂停选项。该选项只能通过ADB访问，因为它位于设置表中。您可以直接通过ADB更改此选项，或者像我们上面所做的那样授予应用程序WRITE_SECURE_SETTINGS权限，以便应用程序可以访问该表。</p>
+
+
+
+<p>可以通过在ADB中发出如下命令来更改此选项:</p>
+
+<pre> <code class="hljs php">adb shell settings put <span class="hljs-keyword">global</span> notification_snooze_options <span class="hljs-string">"default=60,options_array=30:60:120:360"</span></code> </pre>
+<p>这正是Zacharee1的SystemUI Tuner应用程序的工作方式。我自己发现了这个小技巧，并要求Zacharee1将其添加到他的应用程序中，以便让你们更容易使用它，所以享受这个调整吧！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

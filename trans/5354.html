@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>How to Install Android Pie beta on the Snapdragon Samsung Galaxy S9</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在骁龙三星Galaxy S9上安装Android Pie beta</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/install-android-pie-beta-snapdragon-samsung-galaxy-s9/#0001-01-01">https://www.xda-developers.com/install-android-pie-beta-snapdragon-samsung-galaxy-s9/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">骁龙三星Galaxy S9现已推出早期Android Pie测试版</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">在三星Galaxy S9+泄露之后，骁龙三星Galaxy S9的早期Android Pie测试版已经泄露。下面是手动安装的方法。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>昨天，我们公布了三星Galaxy S9+的三星Experience 10 的<a href="https://www.xda-developers.com/exclusive-this-is-android-pie-with-samsung-experience-10-on-the-samsung-galaxy-s9/">第一手资料。在发布了关于</a><a href="https://www.xda-developers.com/install-android-pie-samsung-experience-10-samsung-galaxy-s9/">如何在骁龙三星Galaxy S9+ </a>上安装早期Android Pie测试版的细节后，我们现在有了这个相同的版本，但适用于较小的骁龙三星Galaxy S9。如果你对更新中的新内容感兴趣，<a href="https://www.xda-developers.com/exclusive-this-is-android-pie-with-samsung-experience-10-on-the-samsung-galaxy-s9/">看看我们之前的文章</a>。如果你想在装有高通骁龙845的三星Galaxy S9上安装早期的Android Pie测试版，请查看下面的教程。目前，我们只有骁龙三星Galaxy S9和Galaxy S9+的版本，但没有Exynos型号或三星Galaxy Note 9的版本。</p>
+
+  
+<p>与骁龙三星Galaxy S9+ build不同，我们对骁龙三星Galaxy S9的测试人员报告说，前置摄像头和AR表情符号都可以工作。然而，由于这是一个早期的测试版本，您的里程可能会有所不同。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_2"><p>警告:这个版本不稳定。我们不建议安装它，除非你愿意处理一些问题。新的夜晚主题不能被禁用。更多的功能可能被破坏，我们还没有看到它。除非你对奥丁感到舒服，否则不要安装这个，因为虽然降级到奥利奥是可能的，但这样做并不容易。不要启用最大节电模式。这将导致你的手机崩溃，无法启动。</p> </div></section>
+
+<h2 id="install-samsung-experience-10-based-on-android-pie-for-the-snapdragon-samsung-galaxy-s9">为骁龙三星Galaxy S9安装基于Android Pie的三星Experience 10</h2>
+<ol> <li>首先下载<a href="https://forum.xda-developers.com/attachment.php?attachmentid=4431749&amp;d=1519672710"> Odin 3.13.1 </a>、<a href="https://firmware.science/download?url=52758/1488/SS-G960USQS3ARI6-to-U3CRJB-UP">ARI6到CRJB update.zip </a>和<a href="https://androidfilehost.com/?fid=1322778262904019664"> Odin文件</a>。</li> <li>如果您的Galaxy S9中有SD卡，请将update.zip复制到SD卡中。如果您的Galaxy S9中没有SD卡，请跳过这一步。</li> <li>打开奥丁文件。这个压缩文件将被命名为G960USQS3ARI6.zip。在奥丁，你会看到5个类别，虽然你只会用4个。这是一个通用的更新，而不是一个专门为T-Mobile。不过，它将保留运营商品牌。</li> <li>关闭你的Galaxy S9进入Odin模式，然后按住电源+音量降低+ Bixby按钮。</li> <li>打开Odin，放上对应的BL，AP，CP，HOME_CSC(忽略CSC)，但是Userdata里什么都没有。</li> <li>点击开始。</li> <li>你的手机将刷新新的固件，然后重新启动。</li> <li>这样做之后，等待大约5分钟，然后关闭Galaxy S9，按住电源+音量增大+ Bixby按钮重新启动进入恢复模式。</li> <li>使用音量按钮和电源来选择“从SD卡应用更新”如果您没有SD卡，请跳至步骤11。</li> <li>再次使用音量按钮选择ARI6至BRJ5 update.zip文件，并使用电源按钮选择它。更新将开始，可能需要2到10分钟。完成这一步后，跳到第11步。</li> <li>如果您没有SD卡，请使用音量按钮选择“从adb应用更新”选项。然后在你的电脑上打开一个命令提示符或终端，输入:<pre> <code class="hljs xml">&lt;span &gt;adb sideload &lt;<span class="hljs-regexp">/span&gt;&lt;span &gt;&lt;&lt;/</span>span&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> &gt;</span>file location of update<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> &gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> &gt;</span>zip<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> &gt;</span>&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span></code> </pre></li> <li>更新完成后，我们建议您恢复出厂设置。这有助于解决稳定性问题。</li> </ol>
+</div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

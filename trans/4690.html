@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>How to see what hidden APIs apps are using in Android P</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何查看Android P中有哪些隐藏的API应用在使用</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/logcat-android-p-hidden-apis/#0001-01-01">https://www.xda-developers.com/logcat-android-p-hidden-apis/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>2月下旬，我们发现Android开源代码中的提交表明<a href="https://www.xda-developers.com/google-undocumented-hidden-apis-android-p/">谷歌将限制应用程序访问Android软件开发工具包(SDK)中未记录/隐藏的API</a>。这家搜索巨头后来证实了这些变化；在<a href="http://xda-developers.com/tag/android-p"> Android P </a>中，API限制已经扩展到涵盖SDK的Java语言接口，从很少使用的接口开始，最终扩展到其他非SDK方法和字段。当应用程序使用非SDK接口时，第一个Android P开发者预览版会显示警告，但不清楚正在访问哪些隐藏的API。幸运的是，Logcat使它变得更容易。</p>
+
+  
+<p><a href="http://xda-developers.com/tag/logcat"> <strong> Logcat </strong> </a>，一个Android调试桥(<a href="http://xda-developers.com/tag/adb"> ADB </a>)的命令行工具，它可以转储Android系统消息的运行日志，可以用来查看Android P中哪些隐藏的API应用程序正在使用。正如XDA成员高级<a href="https://forum.xda-developers.com/member.php?u=3694505"> Telperion </a>所发现的，用字符串“访问隐藏的”过滤Logcat会暴露正在运行的应用程序最近访问的内部方法和服务的列表。</p>
+
+
+
+
+
+<p>设置Logcat 最简单的方法之一是从谷歌下载适用于你的电脑操作系统的ADB二进制文件，为你的手机安装合适的USB驱动程序，并在Android的<strong>开发者选项</strong>菜单中启用<strong> USB调试</strong>。(<a href="https://www.xda-developers.com/huawei-phones-disable-logcat-heres-how-to-restore-access/">华为手机默认禁用Logcat</a>；要启动并运行它，请打开拨号器应用程序，输入代码<strong><span>* # * #</span><span>2846579</span><span># * # *</span></strong><span>，选择<strong>后台设置</strong>，并勾选对话框中的每个设置。)我们推荐使用<a href="https://play.google.com/store/apps/details?id=com.pluscubed.matlog"> Matlog </a>，这是一款低开销、易于使用的应用程序，由XDA初级会员<a href="https://forum.xda-developers.com/member.php?u=6820962">pluscused</a>开发。它可以从源代码编译，也可以从谷歌Play商店下载。</span></p>
+
+<p>[app box Google play com . plus cued . matlog]</p>
+
+<p>要添加滤镜，点击Matlog右上角的三点菜单，选择<strong>滤镜</strong>，点击<strong>添加滤镜。</strong>然后输入<strong>“访问隐藏”</strong>(不带引号)并选择<strong>确定。</strong></p>
+
+<p>虽然大多数应用程序访问隐藏的API相对无害，但谷歌限制Android P中非SDK接口的决定旨在防止滥用那些可能危及用户隐私和安全的API。卢森堡大学的研究人员进行的一项研究发现，许多恶意应用程序使用私有的内部API方法将广告代码注入任何应用程序，包括系统服务。</p>
+
+<p>这也是谷歌打击安卓流氓应用的更广泛努力的一部分。Android P限制后台应用程序访问设备<a href="https://www.xda-developers.com/android-p-background-apps-camera/">摄像头</a>和<a href="https://www.xda-developers.com/android-p-audio-recording-limitations-privacy/">麦克风</a>，谷歌此前威胁<a href="https://www.xda-developers.com/google-threatening-removal-accessibility-services-play-store/">将滥用Android可访问性API</a>的应用程序从谷歌Play商店除名，这些服务旨在使Android应用程序对某些残疾人更容易使用，其方式不符合官方指导方针。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Rootless custom themes on Android P are over as Google confirms restrictions are intended</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>随着谷歌确认有意限制，Android P上的无根定制主题已经结束</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/rootless-custom-themes-android-p/#0001-01-01">https://www.xda-developers.com/rootless-custom-themes-android-p/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android P (Android 9.0)对于Android爱好者来说是一个令人兴奋的版本，因为它给用户界面和用户体验带来了许多变化。由于谷歌在Project Treble上的工作，最新的Android版本不仅适用于谷歌Pixel和谷歌Pixel 2设备，还适用于OnePlus 6、小米Mix 2S、索尼Xperia XZ2、Essential Phone等手机。然而，Android P中一个不太令人兴奋的变化是操作系统对安装自定义覆盖的<a href="https://www.xda-developers.com/android-p-blocks-custom-overlays-substratum-themes/">限制</a>。覆盖图用于修改应用程序的资源，底层主题管理器使用它们来使Android Oreo上的<a href="https://www.xda-developers.com/custom-themes-android-oreo-substratum/">无根定制主题</a>成为可能。现在，谷歌已经证实，这些限制是有意的行为，这意味着无根的、全系统的定制主题将不再可能在谷歌智能手机和没有现有主题引擎向前发展的智能手机上实现。</p>
+
+ 
+
+
+
+
+<p/><p><em>安卓8.0奥利奥无根上的全系统黑暗主题</em></p>
+
+<p>在谷歌问题跟踪器中，一名谷歌员工在评论后留下了<a href="https://issuetracker.google.com/issues/74354703#comment360">，并将该问题标记为“不会修复(预期行为)”:</a></p>
+
+<blockquote>
+<p/><h4>我们感谢您的反馈，并愿意分享一些背景信息和澄清。</h4>
+<p/><h4>覆盖管理器服务(OMS)旨在供设备制造商使用。OMS目前的形式并不是为了成为一个通用的主题化功能——为了维护Android平台的安全性和用户的产品标准，还需要更多的设计考虑。因此，OMS从未被提倡作为公共开发者特征。</h4>
+<p/><h4>今年早些时候，Android Oreo设备的安全补丁(CVE-2017-13263)发布给了OEM厂商。该补丁将覆盖安装限制在预装或系统签名的应用程序，以回应Android Oreo中提出的合法安全问题。Android P也包括这个关键的安全补丁，所以它像Android Oreo一样限制覆盖。</h4>
+<p/><h4>我们知道自定义主题对于一些用户来说是一项重要的功能。我们将在这一领域的任何未来工作中考虑您的反馈。</h4>
+ </blockquote>
+<p>我们之前已经讨论过覆盖管理器服务(OMS)。索尼的主题框架被贡献给了Android开源项目。从Android 8.0 Oreo开始，与OMS 交互的命令可以通过ADB访问，这就是Andromeda add-on for substrate<a href="https://www.xda-developers.com/android-oreo-rootless-system-theme/">如何将无根定制主题</a>引入Android Oreo。Google意识到社区正在以一种意想不到的方式使用这些ADB命令(因为ADB命令是为开发人员调试准备的)，因此他们实现了一种新的检查，防止安装任何非系统覆盖。</p>
+
+<p>这是一个令人失望的，但最终可以预见的谷歌的变化。由于与目标应用程序的资源冲突，第三方覆盖图很容易被破坏，所以Andromeda的主题化方法肯定不理想。我们希望Google能为主题开发者实现一个API来连接应用程序，这样就不会经常出错。就目前而言，定制主题并不适用于谷歌手机的所有用户，这是一个遗憾。来自<a href="https://www.xda-developers.com/razer-phone-theme-engine-oms/">雷蛇</a>、华为、小米和三星等制造商的设备仍将拥有自己的主题引擎和主题商店，但对于许多设备来说，OMS是获得原生、全系统黑暗主题的唯一途径。至少未来的Android P更新可能会在Pixel Launcher中为部分黑暗主题带来一个<a href="https://www.xda-developers.com/google-pixel-launcher-manual-dark-theme/">手动切换。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

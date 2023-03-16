@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Android Oreo's "Turn on WiFi Automatically" feature is available for all in Android Pie</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Oreo的“自动打开WiFi”功能适用于Android Pie中的所有用户</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-pie-gets-android-oreo-turn-on-wifi-automatically-feature/#0001-01-01">https://www.xda-developers.com/android-pie-gets-android-oreo-turn-on-wifi-automatically-feature/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Android Oreo的“自动打开WiFi”功能适用于Android Pie中的所有用户</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Android Oreo增加了一个“自动打开WiFi”功能，当你靠近一个高质量的保存网络时。Android Pie中的所有人都可以使用该功能。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>谷歌Nexus 5X和Nexus 6P用户会记得当获得官方Android 8.0 Oreo更新，而没有获得夜灯和自动Wi-Fi唤醒等功能时的失望。谷歌Pixel和Pixel XL的Android Oreo更新引入了后一个功能。它所做的是自动打开Wi-Fi连接到高质量的存储网络。该功能并不适用于所有Android Oreo设备，因为原始设备制造商必须选择启用它，但它将适用于所有运行Android Pie的设备！</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p><strong>2018年8月9日</strong>更新:标题已更新，以阐明该功能现在对所有人都可用，而不必默认为所有人启用。它仍然是可选的，可以由用户启用或禁用！</p> </div></section>
+
+<h2 id="wi-fi-automatic-wakeup-for-all-android-pie-devices">所有Android Pie设备的Wi-Fi自动唤醒</h2>
+<p>随着Android Pie 的<a href="https://www.xda-developers.com/android-pie-google-pixel-google-pixel-2/">发布和</a><a href="https://www.xda-developers.com/android-pie-source-code-aosp/"> AOSP </a>的代码下降，我们发现了两个变化，为所有使用或升级到Android 9 Pie的设备启用了该功能。第一次提交只是通过将AOSP框架中<code>config_wifi_wakeup_available</code>的值从0(假)更改为1(真)来在所有设备上启用它。后续提交会完全删除此标志，因为它现在在Android Pie中默认启用。</p>
+
+
+
+
+
+<p>如果您将android-8.1.0_r43标签的Android frameworks/base分支中的config.xml与android-9.0.0_r3标签中的config . XML进行比较，您会看到“自动打开Wi-Fi”标志不再存在。即使是基于Android Pie的定制rom也将启用该功能，而无需进行任何更改。</p>
+
+<p>为了快速复习一下这项功能在Android Oreo中是如何工作的，它利用定位服务中的“Wi-Fi扫描”功能来检测后台的Wi-Fi网络。它会根据谷歌的推荐服务检查这些Wi-Fi网络，如果推荐服务确定Wi-Fi网络是可信的(保存的网络)和高质量的(基于连接质量、网络速度等)。)，那么你的Android设备就会完全打开Wi-Fi，自动连接网络。如果你住在一个有大量Wi-Fi接入点的地区，这实际上最终会节省电池，因为另一种选择是让Wi-Fi开着，这会导致你的手机不断连接和断开低质量的开放Wi-Fi网络。我们不确定这项功能在Android Pie中是如何工作的，因为它不再使用网络推荐服务。</p>
+
+<p>如果你的设备在Android Oreo中有这个功能，你会在设置-&gt;网络&amp;互联网- &gt; Wi-Fi - &gt; Wi-Fi偏好设置-&gt;自动打开Wi-Fi中找到它。要使用此功能，您还需要在“设置”-&gt;“位置”-&gt;“扫描”中启用“Wi-Fi扫描”。如果你的设备没有这个功能，你必须等待Android Pie (Android 9)更新推出或者<a href="https://www.xda-developers.com/turn-on-wifi-automatically-nexus5x-nexus6p/">自己手动启用</a>(尽管我们应该注意，只有当你使用覆盖来启用框架中的值时，这种方法才可能真正有效。)</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

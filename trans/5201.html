@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Android Pie's throttling of WiFi scanning is crippling some network tools</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Pie对WiFi扫描的限制正在削弱一些网络工具</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-pie-throttling-wi-fi-scans-crippling-apps/#0001-01-01">https://www.xda-developers.com/android-pie-throttling-wi-fi-scans-crippling-apps/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新2(美国东部时间2019年5月29日上午9点04分)</strong>:一名谷歌员工表示，从Android Q Beta 5开始，一个用于切换WiFi扫描节流的新开发选项将可用。</p><p><strong>更新1(美国东部时间2019年5月28日凌晨01:18)</strong>:谷歌已经证实，对前台Wi-Fi扫描的更改将保留在Android Q中。</p> </div></section>
+<p/><p>每个人都对Android Pie记忆犹新，我们才刚刚开始体验谷歌最新更新带来的一些变化。与其他移动操作系统相比，Android一直被批评电池续航能力差，但这是一把双刃剑。当然，Android比其他系统使用了更长的电池寿命，但它允许更多独特和多样化的应用程序专属于该平台。<a href="https://www.xda-developers.com/app-standby-buckets-android-p/">谷歌已经做了很多</a>来帮助<a href="https://www.xda-developers.com/xda-external-link/doze-mode-an-in-depth-look/">提高安卓系统的整体电池使用寿命</a>，但是WiFi扫描的最新变化干扰了许多网络应用。</p>
+
+  
+<p>因此，随着Android Pie的推出，谷歌对应用程序使用该平台WiFi扫描功能的频率进行了限制。<a href="https://issuetracker.google.com/issues/79906367#comment15">谷歌在他们的问题跟踪器中对报告</a>做出了回应，并确认Android的最新更新限制了前台应用程序和所有后台应用程序的这一功能。对于前台应用程序，该功能被限制为每2分钟4次扫描，而后台应用程序被限制为每30分钟仅1次扫描。</p>
+
+<p>从表面上看，这似乎是减少一些不必要的电池使用的好方法，但在某些情况下，这有负面影响。例如，<a href="https://play.google.com/store/apps/details?id=com.farproc.wifi.analyzer"> WiFi分析器</a>和<a href="https://play.google.com/store/apps/details?id=net.wigle.wigleandroid"> WiGLE </a>(一款驾驶应用)等流行的网络应用需要比你的标准应用更频繁地访问WiFi扫描。这种变化基本上使这些类型的应用程序变得无用，因为它将它们的扫描速率降低了至少30倍，即使它们是在前台使用的活动应用程序。</p>
+
+<p>正如您所看到的，这些异常情况对一些流行的网络应用程序产生了负面影响。谷歌在这个问题上一直很活跃，甚至解释了如何确定节流。到目前为止，谷歌自己还没有提供解决方案，但他们已经开始了，<a href="https://issuetracker.google.com/issues/79906367#comment21" target="_blank" rel="noopener noreferrer">将这个问题推迟到未来的Android版本</a>中“考虑”。</p>
+
+<hr/>
+
+
+<h2 id="update-1-still-in-android-q">更新1:还在安卓Q</h2>
+<p>根据谷歌问题追踪器上的一条<a href="https://issuetracker.google.com/issues/79906367#comment29">评论</a>(via<a href="https://www.androidpolice.com/2019/05/27/android-started-heavily-throttling-wi-fi-scanning-in-pie-google-confirms-its-here-to-stay/"><em>AndroidPolice</em></a>)来看，Wi-Fi节流将会持续下去。但是，Android Q允许用户使用以下ADB命令关闭本地设备上的节流:</p>
+
+<pre> <code class="hljs php">adb shell settings put <span class="hljs-keyword">global</span> wifi_scan_throttle_enabled <span class="hljs-number">0</span></code> </pre>
+<p>不管评论怎么说，发送这个命令不需要root访问权限。</p>
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="update-2-toggle-coming-in-q-beta-5">更新2:切换即将到来的Q Beta 5</h2>
+<p>一名谷歌员工在谷歌问题跟踪线程中发布了一条评论,称即将进行切换。从计划于2019年第三季度<a href="https://www.xda-developers.com/android-q-beta-release-schedule/">发布的Android Q Beta 5开始，开发者选项中将会有一个关闭扫描限制的开关。您不需要使用前一篇文章更新中提到的ADB命令。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

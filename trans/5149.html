@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Google Camera app shows up on some Chromebooks like the Pixelbook</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌相机应用出现在一些Chromebooks上，如Pixelbook</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-camera-chromebook-pixelbook/#0001-01-01">https://www.xda-developers.com/google-camera-chromebook-pixelbook/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">谷歌相机应用出现在一些Chromebooks上，如Pixelbook</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">谷歌Nexus和谷歌Pixel智能手机上的谷歌相机应用程序已经开始出现在谷歌Pixelbook等一些Chromebooks上。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>谷歌Pixel智能手机的拍照能力在很大程度上归功于谷歌相机应用程序背后的优秀软件。相机应用程序的HDR+和肖像模式功能使谷歌Pixel在图片性能方面成为顶级智能手机，这也是为什么每个人<a href="https://www.xda-developers.com/download-google-camera-port/">都希望看到应用程序移植到他们的智能手机</a>。相比之下，大多数Chromebooks的相机质量，甚至是高端的谷歌Pixelbook，都很糟糕。但谷歌可能会改变这种情况，因为一些用户注意到谷歌相机应用程序出现在他们的Chromebook上。</p>
+
+  
+<p>Reddit 上的一些用户注意到，最新的Chrome OS Dev频道更新神秘地添加了第二个相机应用图标。对于大多数用户来说，这两个图标打开的是同一个旧的相机应用程序。然而，对于谷歌pixel book(/u/<a href="https://www.reddit.com/user/SlideReadIt">slide readit</a>)上的一个用户来说，新的应用程序图标打开了Android上的谷歌相机应用程序。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/08/Google-Camera-Chromebooks-300x132.png" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Left: Old Camera app. Right: Google Camera app.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/08/Google-Camera-Chromebooks-300x132.png?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/08/Google-Camera-Chromebooks-300x132.png?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/08/Google-Camera-Chromebooks-300x132.png?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/08/Google-Camera-Chromebooks-300x132.png?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Google Camera app on Chromebooks like the Google Pixelbook" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/08/Google-Camera-Chromebooks-300x132.png" src="../Images/8f186b2c2172ccf8f4217d9b15fbfef2.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/08/Google-Camera-Chromebooks-300x132.png"/> </picture> <figcaption class="body-img-caption">Left: Old Camera app. Right: Google Camera app.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+
+
+
+
+<p>我们决定搜索Chromium Gerrit，看看哪个提交对这个新添加负责。我们发现了一个<a href="https://chromium-review.googlesource.com/c/chromium/src/+/1137054">相关的提交</a>，它“在启动器中创建一个持久的摄像机图标。”描述进一步指出，当点击这个新图标时，将“动态确定”是打开股票Chrome OS相机应用程序还是谷歌相机应用程序。一份附带的<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=861952">错误报告</a>称，谷歌相机应用程序将在支持ARC++ (Android应用程序)并已完成Chrome OS相机应用程序迁移的Chromebooks上打开。据推测，这意味着迄今为止只有谷歌Pixelbook (eve)满足这两个要求，这就是为什么只有Pixelbook能够推出新的相机应用程序。</p>
+
+
+
+
+
+<p>我们假设旧的相机应用程序图标将在稍后的日期消失，因为它将被新的应用程序图标取代，新的应用程序图标可以动态启动Chrome OS相机应用程序或新的谷歌相机应用程序。我们不知道谷歌像素相机应用程序的这个端口是否会带来类似HDR+或人像模式的功能。我们认为这款新的相机应用程序可能是为<a href="https://www.xda-developers.com/google-pixelbook-v2-launch-fall-event/">即将推出的谷歌Pixelbook </a> (2018)设计的，因为<a href="https://www.xda-developers.com/google-pixelbook-great-experience/">现有的谷歌Pixelbook </a>没有后置摄像头。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

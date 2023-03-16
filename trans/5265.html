@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>How to remap Bixby 2.0 on the Samsung Galaxy Note 9</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在三星Galaxy Note 9上重新映射Bixby 2.0</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/remap-bixby-2-0-samsung-galaxy-note-9/#0001-01-01">https://www.xda-developers.com/remap-bixby-2-0-samsung-galaxy-note-9/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>三星随三星Galaxy Note 9发布了Bixby 2.0。Bixby 2.0承诺比去年与三星Galaxy S8和Galaxy S8+一起推出的Bixby 1.0好得多。我已经使用三星Galaxy Note 9几天了，在我看来，Bixby 2.0基本上与1.0相同，但缺少一些我喜欢的功能。所以像任何正常人一样，我找到了重新映射它的方法。以下是如何在Galaxy Note 9上安装和使用Bixby 2.0的两个最佳重新映射应用程序的说明。</p>
+
+ 
+<h2 id="remap-bixby-2-0-on-the-samsung-galaxy-note-9">在三星Galaxy Note 9上重新映射Bixby 2.0</h2>
+<h3 id="option-1-button-mapper">选项1:按钮映射器</h3>
+ 
+
+
+
+<p>按钮映射器可以让你重新映射手机上的任何按钮，但就我们的目的而言，它可以让你重新映射Galaxy Note 9上的Bixby按钮。这个应用程序比选项二更可靠，但它也有一个缺点。你需要在每次重启手机时运行这个脚本。你可以按照下面的教程来设置它。</p>
+
+<ol> <li>从谷歌Play商店安装<a href="https://play.google.com/store/apps/details?id=flar2.homebutton">按钮映射器</a>。</li> <li>在电脑上设置ADB。您可以按照本指南进行安装。</li> <li>打开设置&gt;关于手机&gt;软件信息，点击7次内部版本号，启用ADB。一旦你这样做，输入你的密码，并返回两次。您现在可以进入开发者选项菜单。只需切换USB调试开关来启用ADB。</li> <li>打开按钮映射应用程序，在窗口的底部，会有一个弹出窗口，要求您启用辅助功能服务。然后，您只需为按钮映射器启用辅助功能服务。</li> <li>选择应用程序顶部的Bixby按钮选项。然后单击自定义按钮。一旦你这样做了，你将需要运行以下命令:<pre> <code class="hljs ">adb shell sh /data/data/flar2.homebutton/keyevent.sh</code> </pre>然后<pre> <code class="hljs ">adb shell sh /data/data/flar2.homebutton/keyevent.sh -d</code> </pre></li> <li>每次重启手机时，您都需要运行第二个命令。这也将禁用Bixby Voice。如果你没有禁用Bixby Voice，它会在你每次按下按钮时打开，并显示你重新映射的内容。您可以使用以下命令重新启用bix by Voice:<pre> <code class="hljs ">adb shell sh /data/data/flar2.homebutton/keyevent.sh -e.</code> </pre></li> <li>您可以在单击和长按菜单中选择想要使用的任何选项。你可以设置它做一些事情，比如打开谷歌助手或切换手电筒。</li> </ol>
+
+<p>这个应用程序在使用中似乎更好一点，因为它禁用了Bixby语音并重新映射它。缺点是，每次重启手机时，你都必须运行ADB命令。如果你不想每次重启手机都要运行这个命令，那么选项2将适合你。</p>
+
+<h3 id="option-2-bxactions">选项2: bxActions</h3>
+ 
+
+
+
+<p>bxActions是一款自去年三星Galaxy S8和三星Galaxy S8+推出以来就一直在做Bixby重新映射的应用。这个应用程序非常可靠，可以在三星Galaxy Note 9上重新映射Bixby，但Bixby Voice仍然安装在上面，所以可能会有一些兼容性问题。开发者正在积极开发应用程序，所以如果你发现任何错误，你应该期待他们被修复。</p>
+
+<ol> <li>加入<a href="https://play.google.com/apps/testing/com.jamworks.bxactions">公测</a>进行比拼，然后<a href="https://play.google.com/store/apps/details?id=com.jamworks.bxactions">安装app </a>。</li> <li>在你的电脑上安装<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/"> ADB。你可以按照这个指南来安装它。</a></li> <li>打开设置&gt;关于手机&gt;软件信息，点击7次内部版本号，启用ADB。一旦你这样做，输入你的密码，并返回两次。您现在可以进入开发者选项菜单。只需切换USB调试开关来启用ADB。</li> <li>打开bxActions，按照提示给予它所需的权限。</li> <li>选择Bix按钮选项，并点击红色框，上面写着“请使用电脑解锁权限”</li> <li>运行两个命令:<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jamworks</span><span class="hljs-selector-class">.bxactions</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span><br/><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jamworks</span><span class="hljs-selector-class">.bxactions</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.READ_LOGS</span></code> </pre></li> <li>一旦你这样做，关闭并重新打开应用程序。</li> <li>现在，您可以选择想要用来重新映射三星Galaxy Note 9上的Bixby按钮的选项。这个应用程序有类似谷歌助手和手电筒开关的动作。</li> </ol>
+
+
+
+
+
+<p>这个应用程序确实很好，但在我的经验中，它并不总是像按钮映射器那样可靠。它的优点是只需要启用一次。你甚至不需要运行adb命令，但它确实使应用程序更快、更可靠。这个应用程序一点也不差——我要说就其功能而言，它可能是最好的。只是有时候，我在我的Galaxy Note 9上发现它不可靠。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="what-remapping-bixby-on-the-galaxy-note-9-lets-you-do">在Galaxy Note 9上重新映射Bixby能让你做什么</h2>
+<p>按钮映射器可以让你将三星Galaxy Note 9上的Bixby按钮重新映射到长按或单按。完成后，您可以将其重新映射到下面列表中的一个操作。Zello也有选项，这是一个对讲机应用程序。有Pro选项可以在锁定时禁用Bixby，并在按下按钮时振动。</p>
+
+<ul> <li>默认</li> <li>主页</li> <li>背部</li> <li>最近的应用</li> <li>显示菜单</li> <li>最后一个应用程序</li> <li>关掉屏幕</li> <li>切换手电筒</li> <li>电源对话框</li> <li>屏幕上显示程序运行的图片</li> <li>分画面银幕</li> <li>任务者意图</li> <li>请勿打扰</li> <li>切换静音/振动</li> <li>静音音量</li> <li>静音麦克风</li> <li>音量+</li> <li>音量-</li> <li>上一首曲目</li> <li>下一首曲目</li> </ul>
+
+<ul> <li>播放/暂停</li> <li>向上滚动</li> <li>向下滚动</li> <li>复制</li> <li>粘贴</li> <li>杀死前台应用程序</li> <li>快速设置</li> <li>通知</li> <li>清除通知</li> <li>亮度+</li> <li>亮度-</li> <li>切换自动亮度</li> <li>切换蓝牙</li> <li>切换WiFi</li> <li>切换纵向</li> <li>更换键盘</li> <li>打开URL</li> <li>Zello PTT(仅专业版)</li> <li>搜索</li> <li>助理</li> <li>打开任何应用程序</li> </ul>
+
+<p>bxActions有单按和长按选项，以及长按锁屏。长按和长按锁定屏幕都需要解锁专业模式，价格为3美元。您可以将三星Galaxy Note 9上的Bixby按钮重新映射到以下操作。</p>
+
+<ul> <li>禁用Bixby</li> <li>启用Bixby</li> <li>主页</li> <li>背部</li> <li>电话(拨号程序)</li> <li>照相机</li> <li>启动应用程序</li> <li>启动快捷操作</li> <li>启动Tasker任务(专业版)</li> <li>Google Now</li> <li>谷歌助手</li> <li>Google assistant extra(支持直接语音输入和“我的屏幕上有什么”操作</li> <li>媒体播放/暂停</li> <li>下一个媒体</li> <li>提高音量</li> <li>降低音量</li> <li>请勿打扰(静音)</li> </ul>
+
+<ul> <li>声音模式(声音、振动、静音)</li> <li>声音模式iOS(声音、振动)(专业版)</li> <li>任务管理器</li> <li>电源菜单</li> <li>通知中心</li> <li>设置托盘</li> <li>切换自动旋转</li> <li>切换分屏(专业版)</li> <li>手电筒(系统)</li> <li>手电筒(额外电源)</li> <li>截图</li> <li>全屏打开/关闭</li> <li>当前应用程序的全屏显示</li> <li>全部取消并将所有通知标记为已读(专业版)</li> <li>标记为已读(专业版)</li> <li>抬头通知开/关(专业版)</li> <li>用Samsung Capture截图(Pro和root)</li> </ul>
+
+<p>在我看来，Bixby 2.0在Galaxy Note 9上并没有那么伟大。幸运的是，我们有了不起的开发者，他们也同意这一点，并致力于将应用程序重新映射到更有用的功能，如谷歌助手。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>
