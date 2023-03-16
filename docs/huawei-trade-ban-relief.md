@@ -20,7 +20,7 @@
 
 美国公司可以向华为出售他们的设备。我们谈论的是不存在重大国家安全问题的设备。我说没关系，我们会继续销售这种产品，这些是制造这些产品的美国公司。顺便说一下，这很复杂。我已经同意允许他们继续销售这种产品，这样美国公司就能继续下去。
 
-Donald Trump, President of the USA, and Xi Jinping, President of China, agreed to a cease-fire in the trade battle between the two countries. As negotiations are expected to resume on this political topic, Mr. Trump says he will grant Huawei some relief by allowing US-based companies to resume sales. The US administration is now expected to hold meetings on how to deal with Huawei and its presence on the "entity list," as the relief [does not explicitly remove Huawei from the said list](https://www.scmp.com/economy/article/3016610/donald-trump-speaks-g20-summit-after-breakthrough-meeting-xi-jinping). The announcement made during the summit does not go into any particular details with the scope of relief, so further details are awaited on this end.
+美国总统唐纳德·特朗普和中国国家主席XXX同意两国贸易战停火。随着有关这一政治话题的谈判有望恢复，特朗普表示，他将允许美国公司恢复销售，从而让华为松一口气。预计美国政府现在将举行会议，讨论如何处理华为及其在“实体名单”上的存在，因为这一缓解[没有明确将华为从上述名单中删除](https://www.scmp.com/economy/article/3016610/donald-trump-speaks-g20-summit-after-breakthrough-meeting-xi-jinping)。峰会期间发布的公告并未涉及救助范围的任何具体细节，因此仍在等待这方面的进一步细节。
 
 尽管如此，这一宣布对所有利益相关者来说都是一大安慰。在[第一次宣布行政命令](https://www.xda-developers.com/google-revoke-huawei-android-ban-blacklist/)后，谷歌、高通等美国公司暂停了与华为的业务，只是在中国公司获得“临时一般许可”后才有限地恢复业务甚至位于英国的 T2 公司也受到了贸易限制的影响。由于华为及其智能手机的不确定性，该公司预计其国际智能手机销量将下降 40-60%。像 [Honor 20 Pro](https://www.xda-developers.com/honor-20-pro-google-play-certification/) 这样的设备是贸易禁令的首批受害者之一，因为这款手机的可用性不再确定。现在，有了这种缓解，我们希望公司能够恢复与华为和 Honor 的业务运营。
 
