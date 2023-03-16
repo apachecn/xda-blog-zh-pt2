@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Magisk v20.4 released with script consistency changes and bug fixes</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Magisk v20.4发布，包含脚本一致性更改和错误修复</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/magisk-v204-released-script-consistency-changes-bug-fixes/#0001-01-01">https://www.xda-developers.com/magisk-v204-released-script-consistency-changes-bug-fixes/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Magisk v20.4发布，包含脚本一致性更改和错误修复</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Magisk (v20.4)的最新稳定更新已经发布。从这个版本开始，默认情况下不再启用MagiskHide。继续阅读，了解更多信息！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>Magisk在这一点上基本上已经成为Android上root访问的代名词。最受欢迎的定制ROM发行版之一LineageOS甚至<a href="https://www.xda-developers.com/lineageos-dropping-superuser-addonsu-implementation-favor-magisk-manager/">放弃了对自己的addonsu二进制文件</a>的支持，转而支持这个由XDA知名开发商<em> <a href="https://forum.xda-developers.com/member.php?u=4470081"> topjohnwu </a> </em>开发的无系统解决方案。开发人员最近谈到了<em>magis hide</em>组件的<a href="https://www.xda-developers.com/magisk-no-longer-hide-bootloader-unlock-status/">潜在缺点</a>，源于谷歌安全网认证API的一些变化。虽然<a href="https://twitter.com/topjohnwu/status/1238514375150850048">谷歌可能需要一段时间</a>才能完全实施新规则，但<em> topjohnwu </em>现在已经发布了Magisk的另一个稳定版本，默认情况下<em> MagiskHide </em>被禁用。标记为v20.4的最新版本只专注于核心组件，因为Magisk Manager的<a href="https://www.xda-developers.com/magisk-manager-redesigned-ui-latest-canary-update/">重新设计的UI</a>“<em>还没有完全准备好迎接黄金时间</em>”。</p>
+
+  
+<p>发布在GitHub上的发布说明非常强调BusyBox独立模式以提高脚本一致性，这主要是针对开发者和Magisk模块维护者的。从这个版本开始，Magisk强制每个脚本使用内部的BusyBox二进制，这是由XDA公认的开发者<a href="https://forum.xda-developers.com/member.php?u=4544860"> <em> osm0sis </em> </a>增强的。然而，用户仍然可以选择在BusyBox之外调用命令，但是他们需要使用完整的路径。</p>
+
+<p>这是Magisk v20.4的官方变更日志:</p>
+
+<ul> <li>[MagiskInit]修复仅限A的2SI设备中潜在的引导环路</li> <li>[MagiskInit]正确支持Tegra分区命名</li> <li>【常规】动态加载libsqlite.so，这样就不需要在Android 10+上使用包装器脚本了</li> <li>[常规]在某些设备上使用回退方法检测API级别</li> <li>[常规]解决方法x86内核readlinkat系统调用中可能存在的错误</li> <li>[BusyBox]启用SELinux特性。添加chcon/runcon等。、和“-Z”选项</li> <li>[BusyBox]引入独立模式。发行说明中的更多详细信息</li> <li>[magis hide]默认情况下禁用magis hide</li> <li>[magis hide]添加更多潜在的可检测系统属性</li> <li>[magis hide]添加小米设备bootloop在跨区域rom上启用magis hide时的变通方法</li> <li>[MagiskBoot]支持修补特殊的Motorolla DTB格式</li> <li>[MagiskPolicy]支持“genfscon”策略规则</li> <li>[脚本]支持基于NAND的启动映像(/dev/block中的字符节点)</li> <li>[脚本]更好的addon . d(v1和v2)支持</li> <li>[脚本]支持Android 10+的血统恢复</li> </ul>
+
+<p/><p><strong> <a href="https://github.com/topjohnwu/Magisk/releases/tag/v20.4">从GitHub </a>下载Magisk v20.4】</strong></p>
+
+<p>谷歌可能会严厉打击Magisk向应用程序隐藏引导程序解锁状态的能力，但这并没有锁定其他潜力。从<a href="https://www.xda-developers.com/unofficial-twrp-enables-true-dual-boot-oneplus-7-pro-5g/">实现真正的双引导</a>到<a href="https://www.xda-developers.com/jailbreak-apple-iphone-using-checkra1n-rooted-android-phone/">破解iPhone </a>，Magisk仍然被改装社区积极使用。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://github.com/topjohnwu/magisk_files/blob/598fee44ab7528205b7088716d1197dd8e38532d/notes.md">GitHub</a>T3】</strong></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

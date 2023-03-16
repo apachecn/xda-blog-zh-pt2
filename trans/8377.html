@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Google Keep 5.20 prepares to let you create drawings from the lockscreen</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Keep 5.20准备让你从锁屏中创建绘图</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-keep-5-20-create-drawings-lockscreen/#0001-01-01">https://www.xda-developers.com/google-keep-5-20-create-drawings-lockscreen/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌跨平台笔记服务Google Keep的新版本今天在谷歌Play商店发布。我在我的Pixel 4上下载了5.20.081.01.40版本，在将资源与之前的版本进行比较后，我发现了一个即将推出的功能的提示。在面向Android的Keep应用程序的未来版本中，您可以在设备锁定时创建新的绘画。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>三个新字符串非常清楚地暗示了这一特性:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lockscreen_drawing_finished"</span>&gt;</span>Done<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lockscreen_drawing_not_available"</span>&gt;</span>This feature is not available.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lockscreen_drawing_overlay"</span>&gt;</span>Create Keep drawings while your device is locked<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>还有两个新活动的布局:<code>com.google.android.apps.keep.ui.activities.SecureDrawingActivity</code>和<code>com.google.android.apps.keep.ui.activities.SecureDrawingLauncherActivity</code>。启动前一个活动只需打开已经可以通过打开Google Keep应用程序访问的绘图活动。启动后一个活动会显示一个对话框，说明“此功能不可用”，它与上面显示的字符串之一相匹配。简单地看了一下这两个活动的代码后，这个特性似乎还没有完全实现。然而，根据“lockscreen_drawing_overlay”字符串判断，Keep应用程序可能会在锁屏顶部显示一个浮动的覆盖图标，当点击该图标时，会启动安全绘图活动，该活动会将用户与主应用程序的其余部分隔离开来。然而，在该特性得到更充分的开发之前，我们不会确切地知道它是如何工作的。</p>
+
+<p>在Chrome操作系统上，可以从锁屏中记笔记，但在Android上是不可能的。有趣的是，当Android过去支持锁屏小工具时，Google Keep过去支持从Android锁屏记录笔记。有趣的是，当锁屏小工具成为过去时，看到谷歌开发这个功能，<a href="https://www.xda-developers.com/android-q-system-alert-window-deprecate-bubbles/">覆盖API将很快被否决</a>。</p>
+
+ 
+
+
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

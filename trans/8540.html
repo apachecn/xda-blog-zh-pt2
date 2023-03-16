@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Xiaomi Redmi Note 7 gets an unofficial Ubuntu Touch port</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>小米Redmi Note 7获得非官方Ubuntu Touch端口</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/developer-ports-ubuntu-touch-to-the-xiaomi-redmi-note-7/#0001-01-01">https://www.xda-developers.com/developer-ports-ubuntu-touch-to-the-xiaomi-redmi-note-7/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>曾经有一段时间，你可以在神话般的HTC HD2上安装任何操作系统，无论是<a href="https://forum.xda-developers.com/showpost.php?p=68623703"> Android </a>、<a href="https://forum.xda-developers.com/showthread.php?t=889433"> Ubuntu </a>，甚至是<a href="https://www.xda-developers.com/htc-hd2-refuses-to-die-now-runs-windows-rt/"> Windows RT </a>。三星Galaxy S III和Galaxy Note II正在逐渐继承这一衣钵，因为只需很小的努力就可以在它们上面安装常规的GNU/Linux发行版。虽然你可以通过购买<a href="https://www.xda-developers.com/purism-kde-crowdsource-free-smartphone/"> Librem 5 </a>或<a href="https://www.pine64.org/pinephone/"> PinePhone </a>来满足拥有一部“真正的Linux手机”的渴望，但不幸的是，它们的硬件配置已经过时了。几个社区驱动的项目，如<a href="https://www.xda-developers.com/ubuntu-to-show-off-community-ports-on-oneplus-one-sony-xperia-z1-at-mwc-2016/"> UBports </a>和<a href="https://www.xda-developers.com/postmarketos-touch-optimized-linux-distro/"> postmarketOS </a>，正在试图弥合普通消费者Android设备和主流Linux发行版之间的差距，而<a href="https://www.xda-developers.com/halium-is-an-open-source-project-working-towards-a-common-base-for-non-android-mobile-operating-systems/"> Project Halium </a>在这一开发场景中扮演着巨大的角色。现在，XDA公认的开发者<a href="https://forum.xda-developers.com/member.php?u=6298645"> erfanoabdi </a>决定涉足这一特定领域，因为他已经将Ubuntu Touch移植到小米Redmi Note 7上。</p>
+
+  
+<p/><p><strong> <a href="https://forum.xda-developers.com/redmi-note-7">小米红米Note 7 XDA论坛</a> </strong></p>
+
+<p>erfanoabdi是Android modding社区中一个著名的名字，他因在<a href="https://www.xda-developers.com/flash-generic-system-image-project-treble-device/">通用系统映像</a> (GSI) <a href="https://forum.xda-developers.com/project-treble/trebleenabled-device-development/pie-erfan-gsi-ports-t3906486">端口</a>以及为各种摩托罗拉手机维护<a href="https://www.xda-developers.com/tag/lineageos/">线路地理</a>方面的工作而闻名。据开发者称，Halium开发者<a href="https://github.com/NotKit"> NotKit </a>为<a href="https://www.xda-developers.com/fxtec-pro1-slider-phone-physical-keyboard/"> F(x)tec Pro1 </a>提供的Ubuntu Touch现有端口帮助他开始了“黑客”工作。<a href="https://github.com/Danct12">之前将<a href="https://forums.ubports.com/topic/3682/xiaomi-redmi-4x-santoni"> Ubuntu Touch移植到小米Redmi 4X </a>上的Danct12 </a>，负责创建erfanoabdi在这次旅程中使用的初步设备树。Danct12还发布了一个预告图，显示Ubuntu Touch将在Redmi Note 7上启动。</p>
+
+ 
+
+
+
+<p>erfanoabdi已经上传了<a href="https://build.lolinet.com/file/halium/lavender/">预建的图像</a>，但是此时此刻该端口只不过是一个概念证明。触摸和硬件合成器(带加速功能的显示器)正在工作，你甚至可以利用Wi-Fi，但仅此而已。如果你想咬紧牙关，那么你必须先从前面提到的镜像中闪存<a href="https://build.lolinet.com/file/lineage/lavender/lineage-16.0-20200226-UNOFFICIAL-lavender.zip"> erfanoabdi为红米Note 7 </a>自编译的LineageOS 16.0 build来填充供应商分区，然后是预编译的system.img、dtbo.img和hallium-boot.img。之后，你必须使用<a href="https://gitlab.com/JBBgameich/halium-install"> Halium安装脚本</a>安装。如果一切顺利，在这个阶段，您应该能够SSH到您的手机。然而，设置适当的挂载点和启动LightDM(即图形显示管理器)仍然需要一些shell命令。</p>
+
+
+
+
+
+<p>由于引入了<a href="https://forum.xda-developers.com/project-treble">项目Treble </a>，这是对Android的一次重大重组，旨在将Android框架代码从硬件供应商实现中分离出来，Halium开发人员不得不重写<em> libhybris </em>的主要部分(一个重用现有Android驱动程序的兼容层)。尽管如此，正如erfanoabdi所暗示的，这种重塑可能有助于在不久的将来将Ubuntu Touch发行版转变为GSI。</p>
+
+<hr/>
+
+<p><strong>来源:推特(<a href="https://twitter.com/RealDanct12/status/1239745207660212225"> 1 </a>，<a href="https://twitter.com/Khode_Erfan/status/1239911295496998914"> 2 </a> ) </strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

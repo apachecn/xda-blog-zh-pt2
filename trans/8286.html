@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>All Play Store apps will eventually need approval from Google to access location in the background</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>所有Play Store应用最终都需要获得谷歌的批准，才能在后台访问位置信息</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-apps-background-location-google-approval/#0001-01-01">https://www.xda-developers.com/android-apps-background-location-google-approval/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android 11的第一个开发者预览版<a href="https://www.xda-developers.com/android-11-developer-preview-1-google-pixel/">即将发布</a>，将会有大量的变化等待我们去发现和分析。鉴于它仅仅是<em>刚刚</em>出来，我们才刚刚开始发现新的功能。然而，在谷歌的Android开发者博客上，他们概述了一个可能对确保用户隐私有很大帮助的变化，而且它不会只为Android 11保留。开发者最终将需要直接获得谷歌的批准，以便他们的Play Store应用程序能够在后台获得位置服务。</p>
+
+  
+<p>随着Android 10的发布，谷歌使得<a href="https://www.xda-developers.com/android-q-privacy-permission-controls/">用户必须明确允许应用程序在后台访问位置服务</a>。目前，当应用程序请求定位时，会出现一个提示，允许访问，允许使用应用程序，或完全拒绝访问。谷歌似乎更进一步，开发者现在需要直接通过该公司。在他们的博客文章中，谷歌表示，超过一半的用户选择了“当应用程序正在使用中”选项。在Android 11中，用户还可以选择只允许应用程序访问一次位置数据，应用程序下次启动时需要再次请求。</p>
+
+<p>至于在后台访问位置数据的应用程序，谷歌发现许多应用程序“实际上并不需要它。”该公司将考虑以下因素，以决定应用程序是否需要在后台访问位置的能力。</p>
+
+<ul> <li>该功能是否向用户传递了明确的价值？</li> <li>用户会希望应用程序在后台访问他们的位置吗？</li> <li>该功能对应用程序的主要目的是否重要？</li> <li>你能在不访问后台位置的情况下提供同样的体验吗？</li> </ul>
+
+<p>这些是谷歌在更新Google Play政策后将考虑的因素。Google Play的信任与安全团队成员将审核所有此类许可请求。谷歌给出了以下三个应用程序示例，说明如何为运行Android 11的设备授予权限。</p>
+
+<blockquote>
+<p/><h4>一个将发送紧急或安全警报作为其核心功能的一部分的应用程序——并清楚地向用户传达为什么需要访问——将有很强的理由请求后台位置。</h4>
+<p/><h4>一个允许用户选择不断与朋友分享位置的社交网络应用程序也有很强的理由在后台访问位置。</h4>
+<p/><h4>具有商店定位器功能的应用程序只需在用户可见时访问位置即可正常工作。在这种情况下，根据新政策，应用程序没有足够的理由请求后台位置。</h4>
+ </blockquote>
+<p>这一政策变化不是立竿见影的，需要时间来实施。谷歌预计推出时间表如下。</p>
+
+<ul> <li><strong>4月</strong>:Google Play官方政策更新，带后台位置</li> <li><strong>5月</strong>:开发者可以通过Play控制台请求对其用例的反馈，预计回复时间为2周，具体取决于数量</li> <li><strong>8月3日:</strong>所有提交到Google Play的访问后台位置的新应用都需要获得批准</li> <li><strong>11月2日:</strong>所有请求后台位置的现有应用都需要获得批准，否则将从Google Play中删除</li> </ul>
+
+<p>谷歌目前鼓励所有开发者审查他们的应用程序，并确保当他们请求后台位置访问时，是出于正确的原因。开发人员还负责任何第三方SDK可能会尝试和访问位置在后台。这一变化影响的不仅仅是Android 11，因为应用程序将从谷歌Play商店中完全删除。</p>
+
+<p>我们已经详细介绍了Android 11 中的所有主要新功能<a href="https://www.xda-developers.com/android-11-developer-preview-new-development-features/">，以及所有的</a><a href="https://www.xda-developers.com/android-11-developer-preview-privacy-security-features-changes/">新隐私和安全改进</a>，所以一定要看看它们！</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://android-developers.googleblog.com/2020/02/safer-location-access.html">谷歌</a>T3】</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

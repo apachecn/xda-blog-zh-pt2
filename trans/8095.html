@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>The Ring Doorbell App reportedly sends a lot of data to third-party trackers</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>据报道，门铃应用程序向第三方追踪器发送了大量数据</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/ring-doorbell-app-third-party-tracking/#0001-01-01">https://www.xda-developers.com/ring-doorbell-app-third-party-tracking/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>让你的家变得更智能几乎总是会在某些方面损害隐私，不管这个产品有多普通。一个智能家居助手，比如谷歌Home T1或T2亚马逊Echo T3，在某些方面无疑会成为任何家庭的助手；但对许多人来说，隐私的权衡根本不值得。但这是从一个与你的家庭如此整合的设备中期待的，它带有一个总是轮询的麦克风。但是隐私问题会出现在一个更普通的家用物品上吗，比如门铃？根据电子前沿基金会的一份<a href="https://www.eff.org/deeplinks/2020/01/ring-doorbell-app-packed-third-party-trackers">报告，门铃的官方应用有很多第三方追踪器。</a></p>
+
+  
+<p>EFF发现，Android 的<a href="https://play.google.com/store/apps/details?id=com.ringapp"> Ring应用程序向四家不同的分析和营销公司发送了大量零碎的数据。这些数据包括付费用户的姓名、私有IP地址、移动网络运营商、永久标识符和传感器数据。虽然这些信息中没有一个可以单独与单个用户配对，但全部数据为设备创建了一个独特的指纹，可以组合起来用于跟踪给定的用户。发现个人识别信息被发送到branch.io、mixpanel.com、appsflyer.com和facebook.com。</a></p>
+
+<p>当铃声门铃应用程序打开时，即使用户在设备上没有关联的脸书帐户，脸书也会在您打开和关闭铃声应用程序时以及在某些设备条件下(如由于设备不活动而锁定)接收数据。脸书还接收时区、设备型号、语言偏好、屏幕分辨率和唯一标识符的数据。</p>
+
+<p>同时，Branch(自我描述为“深度链接”平台)接收唯一标识符以及设备的本地IP、型号、屏幕分辨率和DPI。AppsFlyer还会获取一些信息，如应用程序内的操作，如访问应用程序的“邻居”部分，以及其他数据，如移动运营商、与Ring app的首次安装和后续启动相关的数据、唯一标识符以及AppsFlyer tracking是否预装。公司可以预装膨胀软件，以抵消智能手机的一些生产成本，从而以牺牲隐私为代价为消费者降低价格。AppsFlyer甚至可以获得更深入的传感器数据，如磁力计、陀螺仪和加速度计。</p>
+
+<p>然而，迄今为止MixPanel获得的信息最多。用户的全名、电子邮件地址、设备信息(如操作系统版本和型号、蓝牙是否启用)以及应用程序设置(如用户安装铃声设备的位置数量)都会被收集并报告给MixPanel。MixPanel在Ring的第三方服务列表中也有提及，但脸书、Branch和AppsFlyer没有。</p>
+
+<p>如你所见，大量数据正被发送给第三方，而Ring并未披露这些数据被共享的程度。这些数据是通过拦截安装了门铃应用程序的设备发送的流量收集的。AFWall+用于阻止设备上的所有其他应用程序与互联网通信，以消除任何不必要的噪音。该应用程序被发现非常努力地逃避分析，但EFF的团队最终能够绕过其安全措施。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://www.eff.org/deeplinks/2020/01/ring-doorbell-app-packed-third-party-trackers">EFF</a>T3】</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

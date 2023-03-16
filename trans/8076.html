@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Google Camera 7.3 hints at 24fps video recording and 2020 mid-range Pixel code-names</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌相机7.3暗示24fps视频录制和2020中档像素代号</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-camera-7-3-do-not-disturb-setting-24-fps-video-pixel-4a-code-name/#0001-01-01">https://www.xda-developers.com/google-camera-7-3-do-not-disturb-setting-24-fps-video-pixel-4a-code-name/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌相机7.3.017今晚开始面向少数用户推出。我们获得了APK，并将其安装在我们的Pixel 2 XL和Pixel 4上，从表面上看，没有太多的变化。我们立即注意到的唯一一件事是，当用户没有授予相机应用程序的请勿打扰权限时，设置页面中有一个名为“需要请勿打扰访问”的新列表。当您授予相机应用程序“请勿打扰”访问权限时，它可以在您录制视频时暂停通知，因此您的视频不会受到通知振动的干扰。</p>
+
+  
+
+
+<p>然而，对APK档案的快速检查揭示了一些有趣的事情。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_3"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p><strong>支持24fps视频录制？</strong></p>
+
+<p>在strings.xml中，我们发现两个字符串暗示了视频录制设置中的一个新的fps选项。目前，至少在Pixel 4上，4K分辨率录制时只能选择30fps，或者1080p分辨率录制时可以从auto/30/60fps中选择。谷歌可能会增加一个新选项:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fps_24"</span>&gt;</span>24<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fps_24_desc"</span>&gt;</span>24 frames per second<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>以24fps录制的能力会让严肃的摄像师兴奋不已，因为24fps是电影和电视的标准。一般用户会以30fps录制，偶尔会切换到60fps，这就是为什么谷歌默认将帧率设置为“自动”选项。(正如你可能猜到的，Auto会根据拍摄的内容在30帧/秒和60帧/秒之间切换。)</p>
+
+<p><strong> 2020中档像素代号</strong></p>
+
+<p>上周晚些时候，我们偶然发现了谷歌2020年中端Pixel智能手机的可能代号。这些代号是太阳鱼，红鳍和荆棘。我们发现，Sunfish是基于高通骁龙730移动平台开发的，而redfin和bramble都是基于支持5G的高通骁龙765移动平台开发的。我们怀疑这些代号是Pixel智能手机的代号，因为每个代号都指一种鱼，但不可否认的是，证据有点不可靠。我们在谷歌相机7.3中再次发现了这些代号，这让我们相信这些代号确实是指谷歌的下一代Pixel智能手机。更好的是，我们在一个名为“pixel_20_mid_range”的字符串旁边发现了这些代号，这表明它们确实与即将到来的Pixel 4a系列有关，而不是2020年末的Pixel 5。</p>
+
+
+
+
+
+<p>更准确地说，我们在谷歌相机的Java代码中两次发现了黑莓和太阳鱼的代号。然而，我们只在一个名为libgcastartup的库中发现了redfin的代号。因此，我们认为sunfish和bramble可能是两款Pixel 4a智能手机的代号，sunfish是Pixel 4a，bramble是Pixel 4a XL，而redfin可能是开发板。同样，我们是基于代码中发现的早期证据，所以如果我们发现更多的证据来改变我们对谷歌2020年中端像素的理解，我们会让你知道。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

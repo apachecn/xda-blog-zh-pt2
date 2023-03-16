@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>T-Mobile OnePlus 7T Pro McLaren with unlocked bootloader won't get OxygenOS updates</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>T-Mobile一加7T专业迈凯轮与解锁引导加载程序不会获得OxygenOS更新</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/dont-unlock-t-mobile-oneplus-7t-pro-mclaren-bootloader-oxygenos-updates/#0001-01-01">https://www.xda-developers.com/dont-unlock-t-mobile-oneplus-7t-pro-mclaren-bootloader-oxygenos-updates/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>一加7T Pro迈凯轮版是一加智能手机2019年的<a href="https://www.xda-developers.com/oneplus-7t-pro-mclaren-edition-5g-t-mobile/">高潮。超平滑的90Hz显示屏和骁龙855 Plus的胆量只是一加最新高端设备中的一些功能，包括迈凯轮的品牌，设计和支持。它从里到外看起来都令人惊叹。一加设备在我们的论坛中非常受欢迎，7/7T系列也是如此。除了一个事实，如果你通过T-Mobile获得了一加7T Pro迈凯轮版设备，并且你打算解锁其引导加载程序并对其进行root，你可能不想这样做，除非你不介意完全错过OxygenOS更新。</a></p>
+
+  
+<p>如果你以前修改过一加设备，你会知道当你解锁引导程序时，只能使用完整的系统OTA zips来更新它们，而当它被锁定时，你可以选择使用更小的增量zip。对于为什么会发生这种情况的快速入门，基本上是因为增量OTA ZIPs要求所有只读分区，如/system、/vendor、/boot和/product，完全不被修改——这在bootloader解锁时无法保证，因为bootloader解锁允许boot(即修改引导映像)。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/7t-pro">一加7T Pro XDA论坛</a> </strong></p>
+
+<p>在/data分区中有一个名为reserve.img的img文件。它包含一些OxygenOS应用程序，这些应用程序不是设备启动所必需的，但它会在启动时安装在/system/reserve中。因为解锁引导加载程序会彻底清除/data分区，所以存储在该分区中的reserve.img文件也会随之清除。因为这个文件已经不存在了，所以手机不能在/system分区中挂载它，所以从技术上来说它被篡改了。如果它被篡改，那么手机就不能进行增量更新。通常，OxygenOS updater应用程序可以自己解决这个问题:它可以检测你的手机是否解锁/根，并下载完整的固件压缩文件，无论它是否解锁/根，它都可以刷新，因为它会覆盖所有只读分区。</p>
+
+<p>那么这里的问题是什么呢？T-Mobile一加7T Pro迈凯轮版与大多数其他一加设备不同，没有一加网站上提供的完整固件。因此，如果解锁的引导加载程序阻止你进行增量更新，并且没有完整的zip文件，那么如果你决定提前解锁引导加载程序，你将被卡在你的手机正在运行的任何OxygenOS版本上。普通的一加7T Pro确实有完整的拉链可供下载，但你不能在这款设备上下载，因为它是运营商品牌的，并且是T-Mobile -而不是一加-负责该设备的OxygenOS固件。</p>
+
+<p>现在，如果你不关心OxygenOS，只打算闪存GSIs或其他基于AOSP的定制rom，那么这个问题不会以任何方式阻止你。然而，如果你曾经需要完全恢复你的设备到股票，你现在运气不好。因此，我们真的希望T-Mobile和一加能够很快为这款设备提供全拉链或其他形式的恢复。</p>
+
+<hr/>
+
+<p><em>更新:这篇文章被更新以纠正关于reserve.img的信息，以及这个问题不影响刷新定制rom的能力的事实。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

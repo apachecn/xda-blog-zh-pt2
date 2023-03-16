@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Google tests new double tap gestures for Pixel phones on Android 11</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌在Android 11上测试Pixel手机的新双击手势</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-pixel-android-11-double-tap-rear-gestures/#0001-01-01">https://www.xda-developers.com/google-pixel-android-11-double-tap-rear-gestures/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌昨天发布了第一个Android 11开发者预览版，我花了几个小时浏览了我的Pixel 2 XL的更新，以搜索我能找到的任何变化。<a href="https://www.xda-developers.com/tag/android-11/">我们已经发现了很多</a>，但是和往常一样，代码中还隐藏着更多等待被发现的东西。在浏览负责谷歌Pixel手机上SystemUI组件的应用程序SystemUI谷歌APK时，我们发现了一个代号为“哥伦布”的神秘新手势系统的参考资料当激活时，新的手势将允许你双击背面——是的，手机的<em>背面</em>——来启动某些操作，如启动谷歌助手，启动默认的相机应用程序，播放/暂停媒体等等。</p>
+
+  
+<p>我们知道这项新的手势功能是针对Pixel手机而不是所有运行Android 11的设备，因为谷歌友好地坚持了他们的传统，即以“com.google”而不是“com.android”作为每个类的前缀，这是他们为包括Active Edge和Motion Sense在内的其他手势系统遵循的命名方案。与Active Edge和Motion Sense相比，这些“哥伦布”手势的有趣之处在于，它们似乎不需要任何特殊的硬件——只需要你手机的陀螺仪和加速度计。事实上，我们设法让几个新手势不仅在我们自己的Pixel 2 XL上工作，还在XDA高级成员<a href="https://forum.xda-developers.com/member.php?u=2712580"> cstark27 </a>的Pixel 4 XL上工作，两者都运行Android 11开发者预览版1。<a href="https://9to5google.com/2020/02/20/android-11-dp1-pixel-columbus-double-tap/"><em>9 to 5谷歌</em> </a>也独立启用了一个新的“哥伦布”手势，尽管他们只展示了启动谷歌助手。</p>
+
+<p>我们可以确认通过新的“哥伦布”功能可以使用以下手势:</p>
+
+<ul> <li>解散计时器</li> <li>发射照相机</li> <li>启动谷歌助手</li> <li>播放/暂停媒体</li> <li>折叠状态栏</li> <li>静音来电</li> <li>贪睡闹钟</li> <li>取消固定通知</li> <li>执行“用户选择的操作”</li> </ul>
+
+<p>为了防止这项功能过于随意地激活，谷歌还增加了“闸门”，以防止双击动作生效。目前实现的一些门包括相机可见性、充电状态、键盘守卫等等。</p>
+
+<p>“Columbus”的代码引用了SettingsGoogle中目前不存在的名为“COLUMBUS_GESTURE_TRAINING”的类，因此我们认为Settings应用程序将包含在SetupWizard期间呈现给用户的手势训练活动。我们还认为，Android 11中的Pixel设置应用程序可能会有页面来配置新的双击手势，特别是执行“用户选择的动作”。如果用户没有动作集，似乎“哥伦布”默认启动谷歌助手。由于目前在设置谷歌或任何其他系统应用程序中没有任何“哥伦布”的代码，可能会有更多关于这个功能的内容需要我们去发掘。</p>
+
+ 
+<h2 id="android-11-double-tap-gesture-demos">Android 11双击手势演示</h2>
+<p>这里有一个视频(由Kieron Quinn提供)显示了在运行Android 11的Pixel 2 XL上双击手势播放/暂停媒体:</p>
+
+<p>https://gfycat.com/ifr/ScholarlyInfiniteIndianglassfish</p>
+
+<p>Kieron Quinn使用一个古老的BBC应用程序的原因是KeyEvent 85，即播放/暂停媒体键的<a href="https://developer.android.com/reference/android/view/KeyEvent#KEYCODE_MEDIA_PLAY_PAUSE">键码，没有被我们尝试的大多数音乐应用程序的接收器接收到。对logcat的检查揭示了几个不允许后台执行的警告，阻止了Google Play Music、YouTube、Amazon Prime Video、Spotify、VLC和许多其他应用程序接收意图。</a></p>
+
+<p>下面是我在运行Android 11 DP1的Pixel 2 XL上启动谷歌相机应用程序的视频:</p>
+
+<p>https://gfycat.com/ifr/InsidiousTartFennecfox</p>
+
+<p>最后，这是我启动谷歌助手的视频:</p>
+
+<p>https://gfycat.com/ifr/AdventurousAgonizingFugu</p>
+
+<p>虽然这个功能在旧的Pixel设备上运行得很好，但我们不知道谷歌是否会为所有运行Android 11的Pixel设备启用它。谷歌可能会将其作为Pixel 4a或Pixel 5的独家功能推出，然后在未来的更新中推广到其他Pixel设备。或者，我们可以看到未来推出的未来<a href="https://www.xda-developers.com/google-pixel-feature-drop-post-snap-portrait-mode-auto-call-screen/">像素特征下降</a>。</p>
+
+<hr/>
+
+<p>非常感谢Kieron Quinn，在XDA论坛上也被称为Quinny899，帮助我们测试这个功能！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

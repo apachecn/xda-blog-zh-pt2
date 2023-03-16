@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Android 11 to include a Share to Print feature for easier image/PDF prints</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 11将包括共享打印功能，以简化图像/PDF打印</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-11-share-to-print-feature/#0001-01-01">https://www.xda-developers.com/android-11-share-to-print-feature/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Android 11的“共享打印”功能将使打印图像和pdf更加容易</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Android 11将包括一个新的“共享打印”功能，这将使从智能手机打印图像和PDF文件变得更容易。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>早在2017年，谷歌为支持互联网打印协议(IPP)的打印机推出了Android Oreo 上的<a href="https://www.xda-developers.com/android-oreo-print-service-ipp/">内置打印服务。在此之前，用户必须在Play Store上搜索第三方打印服务，才能从他们的Android设备上打印一些东西。这一变化是由佳能、惠普、三星和施乐成立的Mopria联盟为AOSP贡献的技术带来的。自</a><a href="https://www.xda-developers.com/wi-fi-direct-printing-android/">以来，Mopria联盟在改善安卓设备</a>上的<a href="https://www.xda-developers.com/history-of-printing-in-android/">打印方面发挥了重要作用</a>，为安卓Pie 中的<a href="https://www.xda-developers.com/android-pie-wifi-direct-printing/"> WiFi直接打印提供了支持。现在，Mopria联盟的一名工程师向AOSP提交了代码，表明Android 11可能会包括一个新的“共享打印”功能，这将简化图像和PDF文件的打印。</a></p>
+
+  
+<p>谷歌刚刚向Android开源项目(AOSP)合并了一项新的承诺，以支持“共享打印”——这一功能将使开发者能够向打印服务发送意图，以直接打印图像或PDF文件，而无需用户从共享菜单中手动选择打印服务。截至目前，这一代码变化似乎不会在共享菜单中添加一个专用的打印按钮，因为在目前的形式下，该功能只是一种绕过共享菜单的方式，使应用程序能够直接将图像/pdf发送到默认的打印服务。</p>
+
+<p>该代码表明，在Android 11中，开发者将能够在他们的应用程序中添加一个“打印”按钮，直接将图像或PDF发送到用户的默认打印服务。此“打印”按钮应构造为发送指向活动“com . Android . bips . imageprintactive”或“com . Android . bips . PDF print activity”的意图，并带有操作“android.intent.action.SEND”、类别“Android . intent . category . default”以及图像或PDF文件的数据。</p>
+
+<p>根据commit的描述，该功能“使应用程序通过正常的共享意图更容易打印到任何支持的打印机上。”PrintManager处理以适当的分辨率发送内容，以便打印到任何已安装并启用的打印服务。该提交进一步揭示了图像内容“被缩减到良好的DPI以用于预览(屏幕DPI)或交付(300 DPI)。”“适合”或“填充”选项“由用户的横向和纵向打印属性选择激活”，照片“默认为特定于语言环境的默认照片媒体大小”截至目前，谷歌还没有关于此事的官方信息，但我们希望在第一个Android 11公开测试版发布前的几周内了解更多信息。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://android-review.googlesource.com/c/platform/packages/services/BuiltInPrintService/+/1227541">AOSP</a>T3】</strong></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Pixel Launcher from Android 11 hints at app suggestions on home screen</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 11的Pixel Launcher在主屏幕上提示应用建议</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/pixel-launcher-android-11-hints-showing-suggested-apps-home-screen-dock/#0001-01-01">https://www.xda-developers.com/pixel-launcher-android-11-hints-showing-suggested-apps-home-screen-dock/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>第一个<a href="https://www.xda-developers.com/android-11-developer-preview-1-google-pixel/"> Android 11开发者预览版现在</a>可供下载。如果你是谷歌Pixel用户，你可以前往我们的指南<a href="https://www.xda-developers.com/how-to-download-android-11-developer-preview-for-google-pixel-and-other-android-devices/">为你的设备下载版本</a>，然后你可以在这里用<a href="https://www.xda-developers.com/how-to-install-android-11-r-developer-preview-beta-1-google-pixel-2-3-4-3a-xl/">我们的Pixel设备指南安装Android 11开发者预览版。第一个开发者预览版包括来自Android 10的</a><a href="https://www.xda-developers.com/android-11-developer-preview-changes/">数量的变化</a>，一堆<a href="https://www.xda-developers.com/android-11-developer-preview-privacy-security-features-changes/">隐私和安全特性</a>，以及几个<a href="https://www.xda-developers.com/android-11-developer-preview-new-development-features/">开发者关注的变化</a>。谷歌计划在稳定的Android 11发布之前再发布两个开发者预览版和三个测试版。与此同时，我们将梳理最新版本，寻找下一个Android版本中的所有新内容。我们已经在当前版本中发现了许多即将推出的功能，包括针对Pixel 4系列的新的<a href="https://www.xda-developers.com/google-pixel-4-new-increased-touch-sensitivity-option-android-11/">增强触摸灵敏度选项</a>，暂停音乐的<a href="https://www.xda-developers.com/android-11-new-motion-sense-gesture-pause-music-pixel-4/">新运动感应手势</a>，重新设计的<a href="https://www.xda-developers.com/android-11-testing-redesigned-notification-history/">通知历史</a>页面，新的<a href="https://www.xda-developers.com/android-11-scrolling-screenshot-feature/">截图预览</a>，以及更多的<a href="https://www.xda-developers.com/android-11-music-player-quick-settings-panel/"/>。现在，我们在Android 11的Pixel Launcher中发现了新的代码字符串，指向一个即将到来的名为“hotseat”的功能。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>Pixel Launcher的当前版本会根据您的活动推荐应用程序。这些建议显示为最近应用程序屏幕下方的一行应用程序，以及应用程序抽屉中的第一行应用程序(如下图所示)。即将推出的“hotseat”功能基于这一行为，并在主屏幕上显示推荐的应用程序，而不是dock。这些建议的应用程序基于您的使用情况，它们会取代主屏幕上最下面一行的应用程序。</p>
+
+
+
+
+
+<p/><p><em>当前行为</em></p>
+
+<p>根据该代码，谷歌将为用户提供选择加入新功能的选项，并将应用程序钉在hotseat上——这是应用程序的底部行或主屏幕上的dock。在设置该功能时，用户将看到几个解释其工作原理的提示，包括将应用程序固定到hotseat、隐藏建议的应用程序以及手动删除应用程序的说明。该代码还引用了一个pin预测功能，该功能很可能会根据您的使用情况建议您应该将哪些应用程序固定到hotseat。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_items_migrated"</span>&gt;</span>Your hotseat items have been moved to the last page.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_migrate_accept"</span>&gt;</span>"I'm in"<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_migrate_dismiss"</span>&gt;</span>No thanks<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_migrate_message"</span>&gt;</span>To pin a favorite app, drag it over a suggested app. To hide a suggested app, touch <span class="hljs-symbol">&amp;amp;</span> hold it.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_migrate_prompt_content"</span>&gt;</span>Tap to set up<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_migrate_prompt_title"</span>&gt;</span>Get suggested apps on the home screen<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_migrate_title"</span>&gt;</span>Suggested apps replace the bottom row of apps<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_no_migration"</span>&gt;</span>You can remove items from the hotseat manually to see suggested apps in their spot.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_onboard_notification_detail"</span>&gt;</span>Tap here to set it up<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hotseat_onboard_notification_title"</span>&gt;</span>Your hotseat just got smarter<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"pin_prediction"</span>&gt;</span>Pin Prediction<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Google's Android Flash Tool makes flashing AOSP builds much easier</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌的Android Flash工具使得刷新AOSP版本变得更加容易</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-android-flash-tool-project-treble-gsi/#0001-01-01">https://www.xda-developers.com/google-android-flash-tool-project-treble-gsi/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>当谷歌发布Android 8 Oreo时，他们对Android操作系统框架和供应商驱动程序Linux内核之间的交互方式进行了重大改变。这个项目被命名为Project Treble，它使得Android智能手机可以启动一个普通版本的Android，称为通用系统映像(GSI)，而不需要对启动或供应商映像进行许多修改。谷歌每个月都会发布一个最新的GSI，以符合最新的Android安全补丁级别，但他们也不断地从AOSP源代码树构建新的GSI。到目前为止，刷新这些版本需要快速启动命令的知识，但谷歌正在用Android Flash工具刷新这些AOSP版本，比以往任何时候都更容易。</p>
+
+  
+<p>今天在<a href="https://android-developers.googleblog.com/2020/01/flashing-android-open-source-project-builds.html"> Android开发者博客</a>上宣布，Android Flash工具允许开发者从谷歌的持续集成仪表板中刷新AOSP版本。这个仪表板是去年推出的，它允许开发人员轻松下载包含最新AOSP变化的图像，而无需每次手动编译AOSP。致力于向AOSP提交变更的开发人员会发现这个工具很有用，但是其他想要测试AOSP最新版本的开发人员也会发现这个工具很方便。</p>
+
+
+
+<p>要开始使用Android Flash工具，只需在任何支持<a href="https://caniuse.com/#search=Webusb"> WebUSB </a> API的网络浏览器上访问下面链接的网站。这个工具本质上是浏览器中的快速启动，所以它可以省去你手动下载图像并用快速启动命令刷新图像的麻烦。到目前为止，谷歌将该工具限制在Pixel 2、Pixel 3、Pixel 3a、Pixel 4和HiKey参考板上，因此您需要其中一个设备才能继续。如果你有一个这样的设备，你需要先解锁引导程序，然后才能刷新一个支持的版本。如果你还没有解锁引导程序，该工具会在它闪烁之前提示你解锁——只是要警告你这样做将会擦除<em>你手机上的所有</em>数据。最后，如果你使用的是Windows PC，你需要安装Android USB驱动程序才能继续。</p>
+
+<p/><p><strong> <a href="https://flash.android.com/">安卓Flash工具</a> </strong></p>
+
+<p>如果你想恢复库存的AOSP GSI，你也可以访问谷歌的“<a href="https://pixelrepair.withgoogle.com/carrier_selection">更新和软件修复</a>页面，指导你恢复库存图像。该页面还有一个使用WebUSB API的工具，这意味着它就像刷新AOSP版本一样容易。</p>
+
+<hr/>
+
+<p><em>更新1 @美国东部时间下午7:10:这篇文章被更新以反映Android Flash工具仅支持精选Pixel手机和HiKey参考板。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

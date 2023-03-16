@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Kr00K vulnerability affects devices with Broadcom and Cypress Wi-Fi chips</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Kr00K漏洞影响装有Broadcom和Cypress Wi-Fi芯片的设备</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/kr00k-wifi-vulnerability-broadcom-cypress/#0001-01-01">https://www.xda-developers.com/kr00k-wifi-vulnerability-broadcom-cypress/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>提供反病毒产品的互联网安全公司ESET刚刚公开披露了Broadcom和Cypress制造的Wi-Fi芯片中的一个漏洞。ESET称之为“Kr00K”的漏洞允许对WPA2加密的网络流量进行未经授权的解密。根据ESET的说法，装有Broadcom和Cypress FullMac Wi-Fi芯片的设备可能容易受到攻击，这些芯片可以在亚马逊Echo/Kindle、苹果iPhone/iPad/MacBook、谷歌Nexus、三星Galaxy、小米Redmi等产品中找到。此外，即使客户端设备已经打了补丁，如果无线接入点或路由器没有打补丁，攻击者也可以拦截网络流量。</p>
+
+  
+<p>以下是ESET确认易受Kr00k攻击的客户端设备列表:</p>
+
+<ul> <li>亚马逊Echo第二代</li> <li>亚马逊Kindle第八代</li> <li>苹果iPad mini 2</li> <li>苹果iPhone 6，6S，8，XR</li> <li>苹果MacBook Air Retina 13寸2018</li> <li>谷歌Nexus 5</li> <li>谷歌Nexus 6</li> <li>谷歌Nexus 6P</li> <li>树莓Pi 3</li> <li>三星Galaxy S4 GT-I9505</li> <li>三星Galaxy S8</li> <li>小米Redmi 3S</li> </ul>
+
+<p>以下是ESET确认易受攻击的无线路由器列表:</p>
+
+<ul> <li>华硕RT-N12</li> <li>华为B612S-25d</li> <li>华为EchoLife HG8245H</li> <li>华为E5577Cs-321</li> </ul>
+
+<p>ESET还测试了高通、Realtek、雷凌和联发科的Wi-Fi芯片，但无法利用这一漏洞。由于市场上有太多的Wi-Fi芯片需要测试，ESET正在与Wi-Fi联盟合作开发工具来检测易受攻击的设备，自2020年1月16日以来，他们还与<a href="https://www.icasi.org/our-members/"> ICASI </a>成员合作，以确保所有可能受影响的设备制造商都知道Kr00K。该漏洞已于2019年8月17日分配<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-15126"> CVE-2019-15126 </a>。</p>
+
+<p>根据ESET的说法，这个漏洞涉及Wi-Fi层的加密，与传输层安全(TLS)无关。使用Kr00k的攻击“降低了你的安全性，比你在开放的Wi-Fi网络上的安全性低了一步。”具体来说，该漏洞会导致易受攻击的设备使用全零临时密钥(TK)来加密单播数据帧，这使得攻击者很容易解密易受攻击设备传输的一些网络数据包。该错误发生在客户端设备和接入点之间解除关联之后，即当接入点重新建立与客户端设备的连接时。</p>
+
+<p>这是ESET发布的一张图片，展示了未打补丁的客户端和打补丁的客户端与无线接入点通信的区别。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Kr00K-attack-scheme-1024x589.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Kr00K Attack Scheme. Source: ESET.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Kr00K-attack-scheme-1024x589.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Kr00K-attack-scheme-1024x589.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Kr00K-attack-scheme-1024x589.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Kr00K-attack-scheme-1024x589.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Kr00K-attack-scheme-1024x589.jpg" src="../Images/ecb9b68b2072771c5bf43cca58c5f5e7.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/02/Kr00K-attack-scheme-1024x589.jpg"/> </picture> <figcaption class="body-img-caption">Kr00K Attack Scheme. Source: ESET.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>ESET只测试了AES-CCMP加密的WPA2个人和WPA2企业协议，但没有测试这个漏洞是否会影响WPA3。由于ESET提到了影响谷歌Nexus设备的漏洞，我们就ESET的发现联系了谷歌，并得到了以下声明:</p>
+
+<blockquote>
+<p/><h4>“像素设备不受此漏洞的影响。Broadcom直接向受影响的Android设备制造商通知了漏洞和补丁。”-谷歌发言人</h4>
+ </blockquote>
+<p>此时，没有简单的方法来检查您的设备或无线接入点是否容易受到Kr00K的攻击。要找出它们是易受攻击还是已经被修复，你需要联系制造商。ESET估计，超过10亿的Wi-Fi功能的设备和接入点可能容易受到这种利用，但主要制造商的设备补丁已经发布。根据ESET的披露时间表，自2019年第四季度以来，补丁一直在推出。定制ROM开发者将需要等待OEM厂商发布更新的Wi-Fi二进制文件；不幸的是，没有OEM的积极支持，旧设备将很难或不可能修复。更多关于Kr00K的信息，<a href="https://www.eset.com/int/kr00k/">请访问ESET的专用网页</a>。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

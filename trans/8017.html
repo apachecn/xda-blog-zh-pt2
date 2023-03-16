@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Tasker 5.9.2 beta lets you run ADB shell commands without being tethered to a PC</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Tasker 5.9.2测试版让您可以运行ADB shell命令，而无需受限于PC</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/tasker-5-9-2-beta-run-adb-shell-commands-without-tethered-pc/#0001-01-01">https://www.xda-developers.com/tasker-5-9-2-beta-run-adb-shell-commands-without-tethered-pc/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Tasker 5.9.2测试版让您可以运行ADB shell命令，而无需受限于PC</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">最新的Tasker测试版更新带来了一个新功能，允许您运行ADB shell命令，而无需连接到PC。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>当谈到Android上的自动化应用程序时，Tasker无疑是大多数用户的首选。尽管该应用程序没有初学者友好的用户界面，但Tasker是许多高级用户的首选，因为它提供了大量的插件。例如，开发人员<a href="https://www.xda-developers.com/tasker-5-9-brings-logcat-events-media-button-detection-customizable-assistant-and-much-more/">上个月早些时候发布了Tasker v5.9】，它引入了一个名为Logcat events的新特性，开启了自动化可能性的全新领域。现在，该应用程序在测试频道又有了重大更新，带来了更多的东西。</a></p>
+
+  
+<p>根据最近在Reddit上的一篇帖子，Tasker v5.9.2 beta现在向用户推出，它带来了一个新功能，让你可以运行shell命令，而不必受限于PC。对于不知情的人来说，这一新功能基本上可以让你在连接到PC时运行所有可以在ADB shell中运行的操作，允许你做许多大多数常规应用程序无法做的事情。然而，该特性仍然不允许您做许多需要像root一样修改系统文件的事情。以下是您可以使用新功能做的几件事:</p>
+
+<ul> <li>管理其他应用程序的权限(cmd应用程序)</li> <li>控制覆盖(cmd覆盖)</li> <li>切换飞行模式、移动数据等。(svc命令)</li> </ul>
+
+<p>虽然这一新功能在最初的<em> Reddit </em>线程中引起了隐私问题，但我们可以向您保证它的使用是安全的，前提是您只需为Tasker授权RSA密钥，而不是盲目地为每台请求在您的设备上访问ADB的PC/app授权。如果你有兴趣了解这个功能到底是如何工作的，你可以点击<a href="https://www.reddit.com/r/tasker/comments/epn1nj/dev_tasker_592_root_actions_without_root/felpu6w/">这个链接</a>查看Redditor提交的精彩解释。TL；DR版本是，当用户运行“adb tcpip 5555”时，它会导致设备侦听端口5555上的TCP/IP连接，这允许Tasker“远程”向adb客户端发送命令。通常这个过程是用来让你发送adb命令从PC到你的手机，而它是无线的，但在这种情况下，Tasker使用它来保持ADB客户端活着，所以它可以发送外壳命令给它。</p>
+
+ 
+<p class="w-rich w-youtube" id="tKCpkOn_mHA">  </p>
+
+
+<p>如果你有兴趣尝试新功能，你可以点击<a href="https://joaoapps.com/beta-testing/">这个链接</a>注册测试版。如果你已经注册了测试版，不想等待Google Play更新，你可以在这里下载更新的应用<a href="https://www.dropbox.com/s/7j58vurja7vm4hj/Tasker.28.apk?dl=0"/>。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://www.reddit.com/r/tasker/comments/epn1nj/dev_tasker_592_root_actions_without_root/">Reddit</a>T3】</strong></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

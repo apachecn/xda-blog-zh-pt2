@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Wine, the Windows Compatibility Layer, reaches version 5.0 on Android</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Wine，Windows兼容层，在Android上达到5.0版本</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/wine-windows-compatibility-layer-android-version-5-0/#0001-01-01">https://www.xda-developers.com/wine-windows-compatibility-layer-android-version-5-0/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Wine，Windows兼容层，在Android上达到5.0版本</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Wine是一个Windows兼容层，允许用户在其他操作系统上运行Windows应用。Wine for Android现在已经到了5.0版——来看看吧！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>在Android存在的这些年里，Android应用生态系统一直在稳步发展，这是由大多数人稳步采用移动设备作为主要的计算机交互方式推动的。许多用户都倾向于只使用手机的生活方式，这是因为手机上的应用和应用生态系统已经设法满足了他们的特殊需求。但是，如果您发现自己需要一个桌面应用程序，却无法访问桌面，您会怎么做？这就是Wine的由来，它是一个Windows兼容层，允许用户在不同的操作系统上运行成熟的Windows应用程序。Wine for Android现在已经达到了5.0版本，整理了团队一年的开发成果。</p>
+
+  
+<p>Wine是一个免费的开源Windows兼容层，旨在允许为Windows开发的计算机程序在其他操作系统上运行。<a href="https://www.xda-developers.com/run-windows-apps-on-android-wine/"> Wine for Android给Android带来了Wine</a>，很明显。Wine不是仿真器(实际上是名称的递归backronym)，所以它只能运行特定架构版本的应用程序——ARM版本的Wine for Android只会运行ARM应用程序，而不会运行x86。</p>
+
+
+
+
+
+<p>Wine 5.0稳定版的亮点包括多显示器支持和Vulkan 1.1支持。更新的完整变更日志如下:</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_4"><h3 id="wine-5-0-changelog">Wine 5.0变更日志:</h3><ul> <li>PE模块:<ul> <li>当MinGW编译器可用时，大多数模块是以PE格式(可移植可执行文件，Windows二进制格式)而不是ELF格式构建的。这有助于各种拷贝保护方案检查系统模块的磁盘内容和内存内容是否相同。</li> <li>实际的PE二进制文件被复制到Wine前缀中，而不是复制到假的DLL文件中。这使得前缀看起来更像一个真正的Windows安装，代价是一些额外的磁盘空间。</li> <li>已经转换成PE的模块可以使用标准的宽字符C函数，以及像L“ABC”这样的宽字符常量。这使得代码更容易阅读。</li> <li>并非所有模块都已转换为PE；这是一个正在进行的过程，将在Wine 5.x开发系列中继续进行。</li> <li>Wine C运行时得到更新，支持链接到MinGW编译的二进制文件；默认情况下，在生成dll时使用它而不是MinGW运行时。</li> </ul> </li> <li>图形:<ul> <li>正确支持多种显示适配器和显示器，包括动态配置更改。</li> <li>Vulkan驱动程序支持Vulkan规范的最高版本1.1.126。</li> <li>WindowsCodecs库能够转换更多的位图格式，包括调色板索引格式。</li> </ul> </li> <li>Direct3D:<ul> <li>全屏Direct3D应用程序禁止屏幕保护程序。</li> <li>当相应的窗口最小化时，DXGI swapchain会通知应用程序。这通常允许应用程序在最小化的同时减少CPU使用，并且在某些情况下需要允许应用程序窗口再次恢复。</li> <li>使用标准的Alt+Enter组合在全屏和窗口模式之间切换是为DXGI应用程序实现的。</li> <li>Direct3D 12应用程序实现了以下功能:<ul> <li>在全屏和窗口之间切换。</li> <li>更改显示模式。</li> <li>缩小的礼物。</li> <li>交换间隔。这些功能在早期版本的Direct3D API中已经实现。</li> </ul> </li> <li>改进了对各种边缘情况的处理。除其他外:<ul> <li>alpha和模板测试的参考值超出范围。</li> <li>使用3D采样器对2D资源进行采样，反之亦然。</li> <li>使用贴图纹理和缓冲区绘图。</li> <li>使用了无效的DirectDraw裁剪器对象。</li> <li>在无效窗口(如桌面窗口)上创建Direct3D设备。</li> <li>最小Z大于或等于最大Z的视口</li> <li>同时通过着色器资源视图和渲染目标或深度模板视图绑定的资源。</li> <li>有和没有alpha组件的格式之间的Blits。由于表现良好的应用程序不依赖于这些边缘情况，它们通常只影响一个或两个应用程序。然而，他们的数量相当多。</li> </ul> </li> <li>对于Direct3D 8和9纹理上传，脏纹理区域被更准确地跟踪。</li> <li>上传S3TC压缩的3D纹理需要更少的地址空间。由于3D纹理可能很大，并且地址空间耗尽是32位应用程序的一个问题，因此S3TC压缩的3D纹理是按片上传的，而不是单次上传。</li> <li>实现了id3d 11多线程接口。</li> <li>对旧的DirectDraw应用程序进行了各种光照计算修复和改进。</li> <li>实现了对跨交换链的blits的有限支持。</li> <li>实现了更多的着色器反射API。</li> <li>wined3d CPU blitter可以处理压缩的源资源。在以前的版本中已经实现了对压缩目标资源的支持。</li> <li>Direct3D显卡数据库识别更多的显卡。</li> <li>新的HKEY _当前_用户\软件\葡萄酒\Direct3D注册表项:<ul> <li>" shader_backend" (REG_SZ)要使用的着色器后端。可能的值为“glsl”(默认)代表GLSL，“arb”代表ARB顶点/片段程序，“none”代表禁用着色器支持。</li> <li>“strict _ shader _ math”(REG _ DWORD)启用(0x1)或禁用(0x0，默认值)Direct3D着色器的更严格转换，可能会以性能为代价。这目前只与默认的GLSL着色器后端结合专有的NVIDIA驱动程序有所不同。</li> </ul> </li> <li>已弃用的HKEY _当前_用户\软件\葡萄酒\Direct3D注册表项:<ul> <li>“UseGLSL”这已被上面的“shader_backend”设置所取代。</li> </ul> </li> </ul> </li> <li>D3DX:<ul> <li>实现了使用S3TC-compression压缩纹理的支持。</li> <li>在不可映射的表面上的各种操作，例如纹理填充，可以更正确地实现。以前，它们的实现依赖于底层的Direct3D实现，不强制映射限制。</li> <li>对效果框架进行了各种改进和修复。</li> </ul> </li> <li>内核:<ul> <li>Kernel32中的大部分功能都转移到了KernelBase中，以遵循最新Windows版本的架构。</li> <li>当在搜索路径中找到错误的32/64位库时，将忽略这些库，以便能够在路径中找到正确的库时加载正确的库。</li> <li>对于希望从内核端操作对象的设备驱动程序来说，内核对象更适合模拟。</li> <li>实现了内核级同步对象，如自旋锁、快速互斥、移除锁和资源变量。</li> <li>系统电池状态被正确地报告给应用程序。</li> </ul> </li> <li>用户界面:<ul> <li>最小化的窗口使用它们的标题栏显示，而不是旧的Windows 3.1样式的图标。</li> <li>实现了新的按钮样式拆分按钮和命令链接。</li> <li>编辑控件也可以为CJK字体正确设置边距。</li> </ul> </li> <li>桌面集成:<ul> <li>为“下载”和“模板”文件夹创建了到相应Unix目录的符号链接。</li> </ul> </li> <li>输入设备:<ul> <li>即插即用设备驱动程序可以在启动时安装和加载。</li> <li>游戏控制器得到了更好的支持，包括对帽子开关、滚轮、油门和刹车控制的正确支持。</li> <li>早于2.2的Linux版本的旧游戏杆API不再受支持。</li> </ul> </li> <li>。网络:<ul> <li>Mono引擎已更新至4.9.4版，包括Windows演示基础(WPF)框架的部分内容。</li> <li>Gecko和Mono附加组件支持共享安装，其中文件直接从/usr/share/wine下的全局位置使用，而不是复制到每个新前缀中。</li> </ul> </li> <li>互联网和网络:<ul> <li>Gecko引擎被更新以支持最新的工具链。</li> <li>实现了许多新的HTML APIs。</li> <li>MSHTML支持一些SVG元素。</li> <li>VBScript支持错误对象和异常传播。</li> <li>实现了许多VBScript内置函数。</li> <li>JScript EcmaScript兼容模式已扩展为支持更多功能。</li> <li>JScript和VBScript脚本对象公开类型信息接口。</li> <li>HTTP代理配置可以通过DHCP检索。</li> <li>支持Passport HTTP重定向。</li> <li>HTTP服务和相应的客户端库(HTTPAPI)已经部分实现。</li> </ul> </li> <li>密码术:<ul> <li>使用GnuTLS时支持ECC(椭圆曲线)密钥。</li> <li>实现了从PFX blob导入密钥和证书。</li> <li>支持PBKDF2密钥派生算法。</li> </ul> </li> <li>文本和字体:<ul> <li>DirectWrite支持OpenType定位功能，默认情况下为拉丁文脚本启用，包括字距调整。</li> <li>通过在使用前验证各种数据表，字体数据访问变得更加安全。</li> <li>DirectWrite接口更新到最近的SDK，实现了一些最新的API添加。</li> </ul> </li> <li>音频/视频:<ul> <li>为了更好的兼容性，XAudio2库被重新实现为使用外部FAudio库。</li> <li>媒体基础库得到充实，包括:<ul> <li>支持内置和用户异步工作队列。</li> <li>能够提交定期回调、等待、预定和常规工作项目，并支持项目优先级。</li> <li>支持媒体事件队列。</li> <li>处理媒体类型对象、流和表示描述符、对象属性、字节流对象、样本和缓冲区的各种核心API。</li> <li>初始源解析器实现。</li> <li>源阅读器API的初始实现。</li> <li>样本抓取器对象的实现。</li> <li>构建拓扑对象的核心支持。</li> <li>内置演示时钟实现，开始实现媒体会话功能。</li> </ul> </li> <li>视频捕获过滤器已移植为使用v4l2，而不是已弃用的v4l1 API，允许使用一些不支持v4l1的摄像机。</li> <li>删除了对YUV到RGB转换以及使用mmap()从v4l2设备读取的支持；我们现在依靠libv4l2来做这两件事。</li> <li>内置的AVI，MPEG-1和波形解码器已经被删除；我们现在依靠GStreamer或Mac QuickTime工具包来解码这样的媒体文件。</li> <li>实现了更多的VMR7配置API。</li> <li>声音驱动程序支持每个声道的音量调节。</li> </ul> </li> <li>国际化:<ul> <li>Unicode字符表基于Unicode标准的12.1.0版。</li> <li>实现了Unicode规范化。</li> <li>地理区域id是根据当前的区域设置在注册表中自动设置的。如有必要，可以在HKEY当前用户控制面板国际地理下进行修改。</li> <li>支持僧伽罗语和阿斯图里亚斯语言环境。</li> <li>支持代码页28601(拉丁语/泰语)。</li> </ul> </li> <li>RPC/COM:<ul> <li>typelib封送拆收器支持复杂的结构和数组。</li> <li>有一个Windows脚本运行时库的初始实现。</li> <li>这是Microsoft ActiveX数据对象(ADO)库的一个初始实现。</li> </ul> </li> <li>安装人员:<ul> <li>支持Microsoft Installer (MSI)修补程序文件。</li> <li>WUSA工具(Windows Update独立安装程序)支持安装。MSU更新文件。</li> </ul> </li> <li>ARM平台:<ul> <li>使用libunwind库为ARM64实现了异常展开。</li> <li>arm64支持ole ssubtles代理。</li> </ul> </li> <li>开发工具/ Winelib:<ul> <li>Visual Studio远程调试器可用于调试在Wine下运行的应用程序。</li> <li>调试引擎库(DBGENG)已部分实现。</li> <li>为Windows目标构建的二进制文件不再依赖于libwine库，这使它们能够在Windows上运行，而无需任何额外的依赖。libwine库已经不再是为Windows构建的了。</li> <li>资源编译器和IDL编译器支持'- sysroot '选项，以允许在交叉编译环境中定位头文件。</li> <li>Winegcc支持选项'- target '，'- wine-objdir '，'- winebuild '和'-fuse-ld '，这使得它更容易用作交叉编译器，或与自定义工具链一起使用。</li> <li>wine/unicode.h头文件对应用程序不再可用，因为这些函数最终将被移除，并被标准的C运行时宽字符函数所取代。</li> </ul> </li> <li>建设基础设施:<ul> <li>如果MinGW可用，测试二进制文件以PE格式构建，因此相同的测试二进制文件可以在Wine和Windows上运行。不再需要或支持“交叉测试”make目标。</li> <li>规范文件支持“快速调用”调用约定。它为Windows构建使用了正确的名称mangling。</li> <li>规范文件中支持“-import”入口点标志，以标记需要为其导入路径生成热补丁代码前缀的函数。</li> <li>Winebuild支持一个'- builtin '选项，为PE二进制文件添加一个特殊的签名，将它们标记为Wine内置文件。</li> </ul> </li> <li>内置应用程序:<ul> <li>CHCP工具已经实现。它允许设置控制台代码页。</li> <li>MSIDB工具已实现。它允许操作MSI数据库。</li> </ul> </li> <li>性能改进:<ul> <li>各种时间函数使用更高性能的系统时钟，以减少许多游戏渲染循环的开销。</li> <li>如果在被搜索的目录上启用了ext4文件系统大小写折叠支持，那么文件查找就可以利用这种支持。</li> <li>无数据风格的列表框(LBS_NODATA)对于大量的条目有更好的性能。</li> <li>瘦读/写锁、键控事件和条件变量在Linux上使用futexes来避免wineserver往返。</li> </ul> </li> <li>新的外部依赖项:<ul> <li>MinGW-w64交叉编译器用于构建PE格式的模块。</li> <li>FAudio库用于实现XAudio2。</li> <li>Inotify库用于BSD平台上的文件更改通知。</li> <li>展开库用于ARM64上的异常处理。</li> <li>使用Video4Linux版本2库，而不是版本1。</li> </ul> </li> </ul> </div></section>
+<hr/>
+
+<p><strong>来源:<a href="https://www.winehq.org/news/2020012101">酒师部</a>T3】</strong></p>
+
+<p><strong>故事Via: <a href="https://www.androidpolice.com/2020/01/21/windows-compatibility-layer-wine-hits-v5-0-on-android/">安卓警察</a>T3】</strong></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>
