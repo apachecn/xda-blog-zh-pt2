@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Google Camera performance fixes, Android 10 Rules, and screen recorder app revealed</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌摄像头性能修复，Android 10规则，和屏幕录制应用程序透露</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-camera-performance-fixes-android-10-rules-screen-recorder-app/#0001-01-01">https://www.xda-developers.com/google-camera-performance-fixes-android-10-rules-screen-recorder-app/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>几天前，我们从Pixel 4上拿到了<a href="https://www.xda-developers.com/google-camera-7-0-google-pixel-4-leak-hands-on/">新的谷歌相机7.0 APK </a>。我们展示了用户界面，也是第一个<a href="https://www.xda-developers.com/google-pixel-4-camera-features-google-camera-leak/">展示我们在APK发现的像素4相机功能</a>，以及神秘再现的“针鱼”2019像素。在检查APK时，我们看到了一些关于谷歌相机应用程序启动缓慢的字符串，这表明谷歌正在努力解决应用程序启动性能的任何问题。我们没有想太多，因为这听起来像标准的开发工作，但Philip Chang (@ <a href="https://twitter.com/m4au312"> m4au312 </a>)给我们发了一个有趣的提示，指向Google相册上的一个指导页面。<a href="https://photos.google.com/share/AF1QipMtdAPdeQHidVNaQO9EH18tXuXgcXNgnqaZY3P4uGKsE7mGyVpRTqykDn3cvecp4g?key=OVlnbC0wcUN0ZG1leUpfR1FST1p2Vll2XzcyOHVB">页面</a>概述了谷歌跨团队努力使谷歌相机应用更快，页面上包含的屏幕记录展示了一些我们很少看到的Android 10功能以及一些引起我们兴趣的内部应用。</p>
+
+  
+<p><strong>提高谷歌相机性能</strong></p>
+
+<p>尽管Pixel 3拥有2018年最好的相机之一，但它的相机体验并不完美。例如，有人抱怨相机应用程序不能正确保存照片。谷歌通过改进内存管理的后续更新解决了这些问题，但损害已经造成了。在页面中，谷歌提到，提高性能是2019年“团队的最高优先事项之一”，因为“它如何侵蚀对产品的信任。”然而，提高性能并不像“扳动开关或修复一两个错误”那么简单，因为它需要“相机团队以外的重大努力，如Android系统和Android性能团队。”例如，Android团队之前创建了<a href="https://android.googlesource.com/platform/frameworks/base/+/master/services/core/java/com/android/server/PinnerService.java"> PinnerService </a>，Pixel团队使用它将谷歌相机APK、ODEX和VDEX文件固定在内存中(在我的Pixel 2 XL上，那大约是183MB。)经过谷歌“执行领导层”的批准，谷歌相机团队今年“把重点放在‘快’上”，有“人们积极调查所有问题。”</p>
+
+<p>正在测试的主要性能问题是一些用户可能遇到的相机应用程序偶尔启动缓慢的问题。你希望总是能够快速启动相机应用程序，以防你需要立即拍摄照片或视频，但一些用户可能已经注意到，偶尔“在最初的大约10秒钟内，点击快门键不会做任何事情，相机的其他部分可能会看起来像是完全加载了一样”，而加载应用程序只需不到2秒钟。这个页面显示给狗粮用户(即内部Google beta测试人员)，他们在Google Camera应用程序启动期间经历了这样的“缓慢启动”，通知他们如何捕获系统跟踪并发送错误报告。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dogfood_slow_launch_toast_send_feedback"</span>&gt;</span>go/be-faster<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dogfood_slow_launch_toast_text"</span>&gt;</span>That launch seemed slow.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dogfood_toast_learn_more"</span>&gt;</span>Learn more<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>点击“了解更多”按钮会将他们带到Google相册页面，正如我们在Google Camera 7.0的代码中确认的那样。我们的情报提供者很可能是在他们自己经历缓慢启动时看到这个页面的。</p>
+
+
+
+<p>该页面创建于2019年5月3日，就在<a href="https://www.xda-developers.com/google-io-2019-may-7-9/">谷歌I/O 2019 </a>之前，该公司在那里发布了<a href="https://www.xda-developers.com/google-pixel-3a-3a-xl-specs-features-price/"> Pixel 3a和Pixel 3a XL </a>。鉴于该页面发布的时间与Google I/O的开始日期非常接近，该团队不太可能在Pixel 3a发布前及时收集并实施所有这些反馈。因此，我们很可能会看到提到的相机改进进入稳定的谷歌相机7.0更新，我们预计下个月将与Pixel 4一起发布。</p>
+
+<p><strong>安卓10规则</strong></p>
+
+<p>在Android Q beta 3中，<a href="https://www.xda-developers.com/google-pixel-android-q-settings-routines/">我们发现</a>谷歌正在研究一种方法来自动化你手机上的一些设置。我们后来<a href="https://www.xda-developers.com/google-pixel-android-q-rules-ramping-ringer-now-playing-album-art/">激活了这个功能</a>，透露它将被称为“规则”，当你连接到某个Wi-Fi网络或你在某个位置附近时，你将能够自动改变声音模式。此功能出现在两个屏幕录像中显示的设置应用程序中。由于屏幕录制是在Pixel 3a上进行的，因此谷歌可能会在旧款Pixel智能手机上启用该功能。</p>
+
+
+
+<p><strong>谷歌内置屏幕录制应用</strong></p>
+
+<p>Android 10 有一个非常简单的屏幕录制应用程序，目前隐藏在稳定版本中，但谷歌可能会为<a href="https://www.xda-developers.com/android-q-ama-summary/">Android 11 R</a>或<a href="https://www.xda-developers.com/google-pixel-4-hands-on-video-ambient-eq-screen-attention-pixel-themes-recorder-app/"> Pixel 4版本</a>开发一个合适的录制应用程序。有趣的是，我们在谷歌照片页面上发布的屏幕录像中发现了一个新的记录器应用程序。这款应用名为“召回”，它有一个我们从未在任何现有谷歌应用上见过的应用图标。我们认为它用于屏幕录制，因为当MediaProjection API被应用程序使用时，会在状态栏中显示“Cast”图标，并且通知会提到Recall应用程序正在录制。此外，我们可以在状态栏和通知中看到“隐私芯片”，它可以显示应用程序何时正在使用摄像头或麦克风。这个功能出现在我们早期的Android Q泄漏中，但在公开测试版和稳定版中被删除了。</p>
+
+
+
+
+
+<p>我们不知道这个应用程序是什么样子的，也不知道它提供了什么设置。有可能这只是打算供谷歌内部使用，而不会在谷歌之外公开。我们希望情况不是这样，因为用户想要一个预装的屏幕记录器已经有一段时间了。Android 10甚至允许屏幕记录器记录来自其他应用程序的音频，但目前，你需要使用第三方屏幕记录器来完成。</p>
+
+<p><strong> Volta App？</strong></p>
+
+<p>最后，我们发现了一个以前从未见过的“Volta”应用程序的图标。这或许与Android 5.0 Lollipop的<a href="https://www.xda-developers.com/android-5-0-rollout-begins/"> Project Volta </a>旨在提高电池寿命的举措有关。这款应用可能是一款测试应用电量或分析设备电池历史的工具。</p>
+
+
+
+<hr/>
+
+<p>我们期待Pixel 4智能手机发布日期的公告。我们很高兴看到新手机将带来什么样的相机改进，特别是在我们使用<a href="https://www.xda-developers.com/google-pixel-4-astrophotography-preview-google-camera-7-0/">改装的谷歌相机应用</a>对其夜视功能进行了改进之后。如果我们对这两款智能手机有更多了解，我们会通知您。</p>
+
+<p/><p><a href="https://forum.xda-developers.com/pixel-4"> <strong>谷歌Pixel 4论坛</strong></a>| |<a href="https://forum.xda-developers.com/pixel-4-xl">|<strong>谷歌Pixel 4 XL论坛</strong> </a></p>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

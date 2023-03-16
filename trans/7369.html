@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Google Camera 7.1 hints at "Frequent Faces" feature for the Pixel 4</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌相机7.1暗示了Pixel 4的“常见面孔”功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-camera-7-1-frequent-faces-pixel-4/#0001-01-01">https://www.xda-developers.com/google-camera-7-1-frequent-faces-pixel-4/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>下周，谷歌将在一年一度的谷歌制造活动上正式推出Pixel 4和其他Pixel品牌的产品。由于过去一个月<a href="https://www.xda-developers.com/tag/google-pixel4/">的大量泄露</a>，我们知道了很多关于新款Pixel智能手机的信息，包括设计、内部硬件和软件功能。Pixel以其相机实力而闻名，所以我们期待看到它的亮点功能，<a href="https://www.xda-developers.com/google-pixel-4-camera-samples-astrophotograhy-dual-exposure-sliders/">天文摄影</a>的实际应用。但新的谷歌相机7.1 APK可能会与2019年的Pixel一起推出，它不仅仅会提供更好的夜景。我们刚刚得知，谷歌正在谷歌相机中开发一项名为“频繁面孔”的功能，它可能会在Pixel 4上首次亮相。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>上周，我们首先报道了一个更新的像素提示应用程序,展示了一个以前从未见过的相机功能:社交分享。本周早些时候，我们<a href="https://www.xda-developers.com/google-camera-7-1-new-ui-framing-hints-social-share/">拿到了谷歌相机应用的7.1 </a>版本，它为所有Pixel智能手机启用了新的相机功能。深入研究这一版本，modder <a href="https://forum.xda-developers.com/member.php?u=2712580"> cstark27 </a>发现谷歌正在研究“频繁面孔”，这一功能将自动聚焦于你经常拍照的人。相机应用程序将保存你经常拍摄的面部数据，因此在未来，应用程序将知道自动聚焦谁。面部数据只存储在设备上，只有谷歌相机应用程序可以访问，所以你不必担心数据泄露。如果您禁用该功能，保存的面孔数据将被删除。</p>
+
+<p>有趣的是，该功能的字符串只存在于7.1 APK for Wear OS中。7.1.014版包含描述该功能的字符串，而7.1.015版只包含提示您使用该功能并在该功能开启时通知您的字符串。</p>
+
+<p><strong>7 . 1 . 014版中的字符串</strong></p>
+
+<pre> <code class="hljs sql"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"frequent_faces_info"</span>&gt;</span>"When you take photos with multiple people, Camera will automatically focus on the people you photograph most.<br/><br/>Frequent Faces data is only saved on <span class="hljs-keyword">this</span> device, and can only be accessed by <span class="hljs-keyword">this</span> Camera app.<br/><br/>When you turn off Frequent Faces, faces data will be deleted.<br/><br/>Frequent Faces will be available when you open Camera <span class="hljs-keyword">from</span> the lock screen.<span class="hljs-string">"&lt;/string&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"frequent_faces_learn_more"</span>&gt;</span>Learn more<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"frequent_faces_off"</span>&gt;</span>Off<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"frequent_faces_on"</span>&gt;</span>On<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p><strong>7 . 1 . 015版中的字符串</strong></p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"frequent_faces_on_notification"</span>&gt;</span>Frequent Faces is on<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"frequent_faces_try_notification"</span>&gt;</span>Try Frequent Faces<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>我检查了主要的7.1 APK，可以确认代码的频繁面对的功能是存在的。由于这项功能之前没有在任何泄露中显示出来，所以下周Pixel 4发布时，它可能还没有准备好。然而，可以肯定的是，假设这项功能没有被淘汰，它最终将在Pixel 4上首次亮相。</p>
+
+
+
+
+
+<p>我们将继续关注这个特性的更多细节。谷歌相机改装者甚至可以在下周之前启动并运行这一功能，或者谷歌可能会推出另一个支持这一功能的相机应用程序更新。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

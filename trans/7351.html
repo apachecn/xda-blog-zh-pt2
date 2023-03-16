@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Google requires new Android devices with Type-C to not break USB-PD</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌要求使用Type-C的新Android设备不能破坏USB-PD</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-new-android-devices-type-c-support-usb-pd/#0001-01-01">https://www.xda-developers.com/google-new-android-devices-type-c-support-usb-pd/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>智能手机的充电技术已经有了很大的进步，至少在安卓方面有了很大的进步。各公司正在推动充电解决方案，提供<a href="https://www.xda-developers.com/realme-x2-pro-coming-snapdragon-855-plus-90hz-display-64mp-camera/"> 50W </a>、<a href="https://www.xda-developers.com/oppos-65w-supervooc-4000mah-battery-30-minutes/"> 65W </a>，甚至<a href="https://www.xda-developers.com/xiaomi-demos-100w-super-charge-turbo/"> 100W </a>的电力。这些快速充电技术减少了对大电池的需求，尽管我认为它们仍然不能成为公司在新智能手机上包装小电池的借口。所有这些竞争技术的最大问题是，它们通常是专有的，所以它们要求你拥有制造商的充电电缆和砖块。对于带有USB Type-C端口的设备，有一个开放的快速充电标准，称为USB Power Delivery (USB-PD)，但很多时候采用专有充电技术的设备与USB-PD充电器不兼容。谷歌正在推动原始设备制造商改变这种状况。</p>
+
+  
+<p>USB功率传输理论上可以提供高达100W的功率，但很少有智能手机制造商完全依赖USB-PD进行快速充电，没有一家接近100W的功率。我见过最快的是<a href="https://www.xda-developers.com/samsung-galaxy-note-10-superfast-charge-confirmed/">三星为Galaxy Note 10设计的45W充电器</a>，它使用PD 3.0可编程电源，即PPS。我无法解释为什么除了谷歌和三星之外的原始设备制造商没有采用USB-PD，但谷歌已经在幕后工作了几年，以确保至少具有专有充电解决方案的设备不会破坏与标准Type-C充电器的兼容性。事实上，2016年末发布的Android 7.0牛轧糖的<a href="https://www.xda-developers.com/android-7-0-compatibility-document-released-plenty-of-changes-in-tow/">兼容性定义文件包含“强烈建议”原始设备制造商“不支持...可能会导致支持标准USB供电方式的充电器或设备出现互操作性问题。”尽管谷歌当时没有实施任何改变，但谷歌警告说，“在未来的Android版本中，我们可能会要求所有的type-C设备支持与标准type-C充电器的完全互操作性。”</a></p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Android-10-CDD-USB-Charging-1024x826.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Section 7.7.1 \&quot;USB Peripheral Mode\&quot; from the Compatibility Definition Document for Android 10. The wording introduced with the CDD for Android 7.1 Nougat is still present.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Android-10-CDD-USB-Charging-1024x826.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Android-10-CDD-USB-Charging-1024x826.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Android-10-CDD-USB-Charging-1024x826.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Android-10-CDD-USB-Charging-1024x826.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Android-10-CDD-USB-Charging-1024x826.jpg" src="../Images/f43e3291807414781b80743096a2e361.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Android-10-CDD-USB-Charging-1024x826.jpg"/> </picture> <figcaption class="body-img-caption">Section 7.7.1 "USB Peripheral Mode" from the Compatibility Definition Document for Android 10. The wording introduced with the CDD for Android 7.1 Nougat is still present.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>在过去一年的某个时候，谷歌决定将这一“强烈建议”变成一项要求，至少是针对搭载谷歌应用和服务的设备。我们获得了2019年9月3日发布的GMS要求7.0版本的副本。该文件概述了智能手机设备制造商必须满足的技术要求，以便预装谷歌移动服务(GMS)，这是一套谷歌应用和服务，包括Play Store和Play Services。几乎每一部在国际上销售的安卓智能手机或平板电脑都满足了这些要求，因为访问谷歌应用程序对中国以外的销售至关重要。第13.6小节的标题为“USB类兼容性”，包含以下措辞:</p>
+
+<blockquote>
+<p/><h4>从2019年开始推出的具有USB Type-C端口的新设备必须确保与符合USB规范并具有USB Type-C插头的充电器完全互操作。</h4>
+ </blockquote>
+<p>这个声明中的措辞有点含糊，因为“完全互操作性”在这里没有说清楚。从一加7 Pro和一加7T等已经在2019年推出的手机来看，很明显谷歌实际上并没有强制要求设备通过USB-PD支持大于27W或大于45W的更高功率规则。事实证明，<a href="https://www.xda-developers.com/oneplus-7-pro-usb-pd-hdmi-variable-refresh-rate/">一加7 Pro </a>和<a href="https://www.xda-developers.com/oneplus-7t-verizon-support-hdmi-out-usb-pd-charging/">一加7T </a>在连接到PD兼容充电器时支持“5V3A功率传输标准”。为了更好地理解USB-PD的工作原理，我推荐阅读这篇来自<a href="https://www.androidauthority.com/usb-power-delivery-806266/"> <em> Android权威</em> </a>的优秀文章。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

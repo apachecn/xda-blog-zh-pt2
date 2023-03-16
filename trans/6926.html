@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Google Play Store prepares to add In-App Reviews</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Play商店准备增加应用内评论</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-play-store-in-app-review/#0001-01-01">https://www.xda-developers.com/google-play-store-in-app-review/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如果你在社交媒体上关注任何知名的独立Android应用开发者，你可能会看到他们至少有一次抱怨过Play Store的评级。不过，这是可以理解的，因为评级，虽然<a href="https://twitter.com/franciscof_1990/status/1148376562775023616">有时完全没有意义</a>，可以成就或摧毁一个应用程序的成功。在Google Play中，对产品有问题的用户比对产品没有问题的用户更有可能留下(负面)评论，这对于许多有评级系统的在线市场来说都是如此。为了解决这个问题，许多开发商鼓励客户如果对产品满意，就离开Play Store评论。目前，用户在Google Play上给应用评级的唯一方法是导航到Play Store列表，但谷歌可能正在开发一种让用户通过应用内对话框给应用评级的方法。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些功能目前还没有在live build中实现，可能会在未来的版本中随时被Google拉出来。</p> </div></section>
+
+<h2 id="new-in-app-review-code-in-the-google-play-store">谷歌Play商店新增应用内审核代码</h2>
+<p>Play Store应用程序的15.9.21版本于本周开始推出，并由OpenGApps的开发者上传至<a href="https://www.apkmirror.com/apk/google-inc/google-play-store/google-play-store-15-9-21-release/"> APKMirror </a>。我们解码了这个APK，发现了一个名为“<code>com.google.android.finsky.inappreviewdialog.InAppReviewActivity</code>”的新活动从名称判断，这似乎是一个允许用户在不离开应用程序的情况下对应用程序进行评级的对话框。目前，启动活动会在底部弹出一个简单的“提交”按钮，点击它不会做任何事情。</p>
+
+
+
+<p>这是因为谷歌还没有真正实现这种应用内审查流程。名为in_app_review_dialog_fragment、in _ app _ review _ dialog _ rate _ review _ layout和in _ app _ review _ dialog _ thank _ you _ layout的3个新布局文件当前为空。我们不会发现这个应用内评论流程是什么样子的，直到后来的Play Store版本填充了这些布局。我们检查了代码，发现提到了一些相关的标志，但我们没有学到任何有用的信息。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="possibility-for-abuse">滥用的可能性？</h2>
+<p>谷歌本可以在几年前增加应用内审查流程，但评级滥用的可能性阻止了他们这样做。如果应用程序可以在Play Store之外进行审查，那么我们可能会看到一些技巧，如使用辅助服务来打开对话框，对应用程序进行评级，然后在用户不注意的时候离开。或者，一个应用程序可以使用覆盖来改变原始对话框，欺骗用户给出比他们预期更高的评级。</p>
+
+<p>然而，自Android早期以来，谷歌一直在大力打击这些潜在的滥用渠道。例如，Android Q <a href="https://www.xda-developers.com/android-q-security-privacy-features/">阻止后台活动启动</a>，最近的Android版本还强制带有前台服务的应用程序显示持久通知。用于叠加的SYSTEM_ALERT_WINDOW API将最终被Android Q的新Bubbles API完全取代<a href="https://www.xda-developers.com/android-q-system-alert-window-deprecate-bubbles/">。我不知道谷歌将如何验证通过Play Store新的应用内审查对话框提交的评级的完整性，但我相信如果不考虑这些问题，他们不会开发这样的功能。我会留下进一步的猜测，当该功能更接近推出。</a></p>
+
+<p>我希望谷歌能借此机会打击那些提供虚假应用内评论对话框的应用——你知道，那些告诉用户如果他们对Play Store用户评分规则进行评分就联系开发者的应用已经有一段时间没有更新了，但如果应用内评论流成为现实，我们可能会看到新的规则被添加进来。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

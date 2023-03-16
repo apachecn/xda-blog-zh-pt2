@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Google is working on NFC tag support for the Assistant's new Driving Mode</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌正在为助手的新驾驶模式提供NFC标签支持</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-assistant-driving-mode-nfc-tag-support/#0001-01-01">https://www.xda-developers.com/google-assistant-driving-mode-nfc-tag-support/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>回到5月份的谷歌I/O，谷歌<a href="https://www.xda-developers.com/google-assistant-driving-mode-waze/">宣布</a>助手将获得专用驾驶模式。新模式带有一个仪表板，旨在最大限度地减少触摸互动。仪表板将导航、拨号器和媒体控制等重要的快捷方式放在前面和中间，同时还显示基于日历等内容的定制建议。驾驶模式本应在“今年夏天在装有谷歌助手的安卓手机上”推出，但我们已经过了夏天，还没有看到该功能的推出。虽然我们仍然不知道该功能何时上线，但我们已经发现了一些关于它如何工作的新信息。具体来说，我们发现有证据表明，谷歌正在通过扫描NFC标签来支持启动助手的驾驶模式。</p>
+
+  
+<p>近场通信(Near-field communication，简称NFC)是一种短程通信协议，通常用于非接触式支付，但也可用于发送预编程数据。NFC标签可以被编程为<a href="https://www.xda-developers.com/tasker-beta-navigation-bar-nfc-tags/">向NFC兼容智能手机</a>发送特定数据，然后被应用程序拦截，以更改设置、启动网站、启动应用程序等。如果我们对谷歌应用程序中所看到的内容的理解是正确的，那么你就可以通过扫描预编程的NFC标签来启动新的助理驾驶模式。</p>
+
+<p>在提供谷歌助手服务的谷歌应用程序中，我在清单文件中发现了一些有趣的东西。如果通过动作“<a href="https://developer.android.com/reference/android/nfc/NfcAdapter.html#ACTION_NDEF_DISCOVERED">Android . NFC . action . ndef _ DISCOVERED</a>”接收到意图，则可以启动Google Assistant驾驶模式仪表板的活动因此，当NFC标签向手机发送包含此意图的数据时，可以直接启动谷歌助手的驾驶模式。谷歌表示，用户将能够通过说“嘿谷歌，让我们开车”来启动新的驾驶模式，但在我看来，扫描NFC标签比对着手机大喊更快、更可靠、更方便。</p>
+
+<p>还有其他通过NFC启动新驾驶模式的参考，例如通过用户扫描相关NFC标签时发送的意图，但他们也在设置&gt;连接偏好设置&gt;驾驶模式中选择了“打开驾驶模式前询问”选项。最后，我检查了最新版本的Android Auto应用程序的清单，没有发现任何通过NFC启动应用程序的支持，所以这一功能不是简单地在从Android Auto到Google Assistant的驾驶模式的过渡中进行的。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-1024x64.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Google App's AndroidManifest&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-1024x64.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-1024x64.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-1024x64.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-1024x64.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-1024x64.jpg" src="../Images/c10d460236abb6e75677f14c95dee23f.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-1024x64.jpg"/> </picture> <figcaption class="body-img-caption">Google App's AndroidManifest</figcaption> </figure> </div>
+
+
+ </div>
+
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-2.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;MorrisShowDashboardActivity in the Google App&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-2.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-2.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-2.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-2.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-2.jpg" src="../Images/eec1ae00e34ca939b802c1713468bc8a.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/10/Google-Assistant-Driving-Mode-NFC-2.jpg"/> </picture> <figcaption class="body-img-caption">MorrisShowDashboardActivity in the Google App</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>谷歌<a href="https://developer.android.com/guide/topics/connectivity/nfc/nfc#filter-intents">推荐</a>使用NDEF (NFC数据交换格式)来格式化NFC标签，“当你能够控制标签和写入数据的类型时”因此，谷歌可能打算发布预编程为启动助手驾驶模式的NFC标签，他们正在与配件制造商合作开发此类标签，他们正在与汽车制造商合作添加内置NFC标签，或者他们可能正在开发这三种标签的组合。我们有望很快找到答案。<a href="https://www.xda-developers.com/tag/google-pixel4/">谷歌今年宣布的许多新软件功能</a>尚未推出，但这可能是因为谷歌正在等待即将于10月15日举行的<a href="https://www.xda-developers.com/google-pixel-4-october-15-event/">谷歌制造活动的盛大揭幕。</a></p>
+
+ 
+<p class="w-rich w-youtube" id="qtbzAfdfKVU">  </p>
+
+
+<p>我们还无法在自己的设备上启动和运行新的驾驶模式，但我们已经相当接近了。看起来与Pixel 3一起启动的<a href="https://www.xda-developers.com/android-pie-driving-mode-android-auto-do-not-disturb/">现有驾驶模式</a>将被更新，让你选择是否要启动谷歌助手或启用请勿打扰模式(一旦<a href="https://www.xda-developers.com/android-auto-app-no-longer-supported-google-assistant-new-driving-mode/">谷歌逐步淘汰手机的安卓自动界面</a>，当前的“打开安卓自动”很可能会消失)。有趣的是，我们还在Android Auto的设置中发现了一个新的“在手机上使用Android Auto”选项，这可能与新的“手机屏幕Android Auto”应用程序有关，据报道，谷歌<a href="https://www.xda-developers.com/android-auto-app-no-longer-supported-google-assistant-new-driving-mode/">正在开发</a>。</p>
+
+
+
+
+</div>
+
+
+</div>    
+</body>
+</html>

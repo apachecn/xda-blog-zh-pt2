@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Google Play Services 19.0.56 beta hints at smart Bluetooth battery estimates for Fast Pair devices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Google Play服务19.0.56测试版提示快速配对设备的智能蓝牙电池估计</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-play-services-19056-beta-smart-bluetooth-battery-fast-pair/#0001-01-01">https://www.xda-developers.com/google-play-services-19056-beta-smart-bluetooth-battery-fast-pair/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Google Play服务19.0.56测试版提示快速配对设备的智能蓝牙电池估计</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">最新的Google Play服务测试版表明，谷歌正在努力为蓝牙快速配对设备提供更智能的电池估计。请继续阅读！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>3.5毫米耳机插孔<a href="https://www.xda-developers.com/samsung-galaxy-note-10-specs-features-price-availability/">正在被淘汰</a>，我们将见证配件制造商对蓝牙音频设备的更多尝试。早在2017年，谷歌曾<a href="https://www.xda-developers.com/fast-pair-quick-bluetooth-pairing-headphones/">宣布快速配对</a>作为一种实现与兼容设备快速蓝牙配对的方式，使这一过程更容易和方便当时即将推出的<a href="https://www.xda-developers.com/google-pixel-buds-google-assistant/"> Pixel Buds </a>用于<a href="https://forum.xda-developers.com/pixel-2">谷歌Pixel 2 </a>。在Google I/O 2019上，谷歌宣布，它正致力于为真正无线耳机的电池壳在手机上显示电池通知，从Android Q开始。现在，Google Play服务的最新测试版表明，谷歌正在扩展这些电池通知，使其更智能地用于快速配对设备。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些功能目前还没有在live build中实现，可能会在未来的版本中随时被Google拉出来。</p> </div></section>
+<p>Google Play Services v19.0.56包含一些字符串，表明您很快就可以看到您连接的蓝牙设备的估计电池寿命:</p>
+
+<pre> <code class="hljs xml">&lt;string name=<span class="hljs-string">"fast_pair_headset_smart_battery_hr_min"</span>&gt;%<span class="hljs-number">1</span>$s • %<span class="hljs-number">2</span>$d hr %<span class="hljs-number">3</span>$d min left&lt;/string&gt;<br/>&lt;string name=<span class="hljs-string">"fast_pair_headset_smart_battery_min"</span>&gt;%<span class="hljs-number">1</span>$s • %<span class="hljs-number">2</span>$d min left&lt;/string&gt;</code> </pre>
+<p>目前，蓝牙无线耳机的电池寿命以百分比表示。上述字符串表明，谷歌现在将试图对电池寿命做出更智能的估计，将电池的百分比转化为预测的可用小时数和分钟数。</p>
+
+<p>在Android Q中，谷歌正在改造蓝牙设置页面，作为所有通过蓝牙连接的设备的中央管理页面。Google快速配对服务(GFPS)是适用于Android 6.0以上设备的Google Play服务的一部分，有助于通过A2DP或HFP配置文件连接的配件实现更轻松的连接和通信功能。谷歌维护着一个快速配对提供商模型的数据库，所以他们已经有了这些设备的实际物理电池容量的技术数据。谷歌在明智地估计电池寿命时，是否会考虑到由于经常使用而导致的正常电池退化，还有待观察。谷歌还宣布，他们正在与原始设备制造商合作，支持额外的蓝牙配置文件和BLE专用设备，因此我们应该期待在这方面看到更多的成果。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

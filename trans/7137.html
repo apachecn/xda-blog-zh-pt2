@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Android 10 source code confirms the Google Pixel 4 has a 90Hz display</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 10源代码证实谷歌Pixel 4拥有90Hz显示屏</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-pixel-4-90hz-display-android-10-source-code/#0001-01-01">https://www.xda-developers.com/google-pixel-4-90hz-display-android-10-source-code/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>2019年IFA正在进行中，因此我们看到大量智能手机设备制造商推出了他们的最新产品。到目前为止，已经公布的新智能手机都没有高刷新率显示屏。仅在今年，我们就已经看到努比亚Red Magic 3、ROG Phone II和一加7 Pro推出了90Hz或更高的刷新率。我将一加7 Pro评为2019年上半年最佳智能手机，很大程度上是因为它的90Hz显示屏。传言即将发布的谷歌Pixel 4智能手机也有90Hz显示屏，我们现在可以确认这一点，这要感谢一位谷歌人在Android 10源代码中留下的评论。</p>
+
+  
+<p>前几天，谷歌完成了<a href="https://www.xda-developers.com/android-10-source-code-aosp/">上传<a href="https://www.xda-developers.com/google-releases-stable-android-10-for-pixel-smartphones/"> Android 10版本</a>的源代码</a>，我花了一些时间在源代码中挖掘，寻找谷歌没有公布的幕后变化。在检查对Android的SurfaceFlinger(一个负责将应用程序和系统表面合成到显示控制器的单个缓冲区中的系统服务)所做的更改时，我发现了几个与显示刷新率有关的提交。例如，一个提交描述了<a href="https://android.googlesource.com/platform/frameworks/native/+/93bc83d7d196da49db17110694f16cc4d6b331da%5E%21/#F0">基于内容的fps检测</a>，而另一个<a href="https://android.googlesource.com/platform/frameworks/native/+/03b02dda62e8d1dc8a07eb927b2f47189c2a926d%5E%21/#F1">描述了覆盖</a>的实现，以显示设备何时运行在60Hz与90Hz之间。鉴于谷歌一直在对AOSP进行修改，以适应来自原始设备制造商的越来越多的设备——智能手机推出高刷新率面板肯定有上升趋势——这些对Android 10源代码的承诺并不能证明下一个Pixel将拥有90Hz的显示屏。然而，直到我偶然发现了提交中留下的一个注释，这个注释已经被删除了，但是仍然可以通过查看提交历史来查看。</p>
+
+
+
+<p>让我解释一下你在看什么。这段代码添加了一个启用/禁用标志来切换90Hz，根据提交<a href="https://android.googlesource.com/platform/frameworks/native/+/bd6654bdab3bdf9b6c50d24ff23f603f76e37f31%5E%21/#F0">描述</a>，它只是打算暂时使用，直到实现正确的解决方案(不到一个月后<a href="https://android.googlesource.com/platform/frameworks/native/+/97d0423a1af70ac6520213bdb26cab5735d0007d%5E%21/#F0">实现</a>)。if上面的注释...else声明揭示了切换到90Hz的开关“应该只对P19设备可用”，其中P19几乎肯定是像素2019。由于Pixel 3a系列已经发布，但没有90Hz显示屏，这意味着谷歌肯定是指即将到来的Pixel 4系列。</p>
+
+<p>由于我们了解到这些与刷新率相关的代码变化主要是针对谷歌Pixel 4的，所以我们回去检查了SurfaceFlinger的其他变化，看看我们是否可以了解更多。我们发现谷歌打算在Android 10中公开刷新率覆盖作为开发者选项。覆盖图将显示在状态栏中时钟的下方，它将显示为一个细长的矩形，对于60Hz为“红色”，对于90Hz为“绿色”。最后，我们还了解到，谷歌正在准备检测视频播放的时间，以便Pixel 4可以自动调整刷新率。</p>
+
+
+
+
+
+<p>上个月，<a href="https://www.xda-developers.com/google-pixel-4-90hz-smooth-display-6gb-ram/">一位消息人士告诉<em>9 to 5谷歌</em> </a>谷歌Pixel 4将采用90Hz的“平滑显示屏”较大的XL型号预计将有6.3英寸1440p 90Hz有机发光二极管显示屏，而非XL型号预计将有5.7英寸1080p 90Hz有机发光二极管显示屏。XL型号预计将有3700毫安时的电池，而非XL型号则有2800毫安时的电池。使用90Hz显示模式时，较小的2019像素是否会有体面的电池寿命仍有待观察，但我们要等到手机发布后才能知道。</p>
+
+<p>据传，谷歌Pixel 4还有6GB内存和双后置摄像头，其中一个是16MP长焦摄像头。我们有确凿的证据证明<a href="https://www.xda-developers.com/google-pixel-4-telephoto-lens-google-camera/"> Pixel 4的长焦摄像头</a>，所以很可能谷歌不会像一些人希望的那样添加专用的超广角镜头。谷歌证实，2019年底的Pixel将拥有类似Face ID的硬件和一个用于“运动感应”空中手势的<a href="https://www.xda-developers.com/google-pixel-4-face-unlock-soli-gestures/"> Soli雷达</a>(尽管这些手势只在选定国家的<a href="https://www.xda-developers.com/pixel-4-soli-gestures-select-countries/">有效)。由于新的Android操作系统已经达到稳定状态，这两款智能手机都将推出Android 10。我们现在也确切地知道了Pixel 4智能手机的设计，这要归功于</a><a href="https://www.xda-developers.com/google-pixel-4-teaser/">谷歌自己</a>和<a href="https://www.xda-developers.com/google-pixel-4-sprint-leak/">过去一周的两次</a> <a href="https://www.xda-developers.com/google-pixel-4-xl-leaked-hands-on-video/">单独的</a>实践泄露。谷歌的2019款Pixel智能手机预计将于下月发布，随着发布日期的临近，我们势必会揭开更多细节。</p>
+
+<p/><p><a href="https://forum.xda-developers.com/pixel-4"> <strong>谷歌Pixel 4论坛</strong></a>| |<a href="https://forum.xda-developers.com/pixel-4-xl">|<strong>谷歌Pixel 4 XL论坛</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Android 10 DSUs may let you try OTA updates without committing</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 10 DSUs可能会让你尝试OTA更新，而无需提交</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-android-10-dsu-try-ota-updates-without-committing/#0001-01-01">https://www.xda-developers.com/google-android-10-dsu-try-ota-updates-without-committing/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Android操作系统和安全级别碎片化是一个巨大的问题，谷歌正在投入大量的工程努力来解决。在过去的两年中，谷歌宣布了两项旨在加速更新推出的重大举措:<a href="https://www.xda-developers.com/googles-project-treble-modularize-android-so-oems-can-update-devices-faster/">项目三重</a>和<a href="https://www.xda-developers.com/android-q-project-mainline-security/">项目主线</a>。后者仅在今年5月<a href="https://www.xda-developers.com/tag/google-io-2019/">谷歌I/O 2019 </a>期间宣布，并且仅在搭载Android 10的设备上支持。然而，前者自<a href="https://www.xda-developers.com/tag/google-io-2017/"> Google I/O 2017 </a>以来就一直存在，所以我们已经看到它对Android 9 Pie 和<a href="https://www.xda-developers.com/android-q-beta-3-released/"> Android 10 </a>的Android更新<a href="https://www.xda-developers.com/android-p-beta-program-is-now-available/">产生了多大的影响。</a></p>
+
+  
+<p>除了减少碎片化，谷歌还希望Project Treble对应用开发者有用。这就是为什么他们在Android 10中推出了<a href="https://www.xda-developers.com/android-q-dynamic-system-updates-project-treble/">动态系统更新</a> (DSU ),让开发者在不解锁引导加载程序或擦除数据的情况下尝试新操作系统更新的准系统版本。看到DSU的潜力，谷歌并没有止步于此——他们正在扩展其效用，使原始设备制造商的OTA更新可以像GSI一样安装。</p>
+
+<p>这是一大堆行话，但想象一下未来会发生什么:一家OEM厂商发布了一款搭载Android 10的手机，并开始了Android 11的测试程序。你有兴趣尝试这个测试版，看看新的功能，但你不想冒险你目前的日常驱动程序的稳定性。与其更新测试版，然后希望它非常稳定，为什么不通过DSU流暂时安装它呢？如果你不喜欢它，只需重新启动，你的设置将恢复正常。如果你喜欢，你可以“提交”更新。</p>
+
+<p>我不知道你怎么想，但这将是对Android的一个受欢迎的改变，这将使beta测试更加有趣。你将不再需要提交测试版更新来看看它对你来说是什么样的。我敢肯定，你们中的许多人都渴望看到Android 10测试版，但你可能不会马上安装它。随着DSU的改变，这将不再是一个问题。</p>
+
+ 
+<h2 id="dynamic-system-updates-in-android-10---what-s-changing">Android 10+ -中的动态系统更新有什么变化</h2>
+<p>Luca Stefani，XDA门户网站的一个朋友，也是一个被认可的开发者，他告诉我们关于一个在AOSP合并的名为“当存在时挂载多个DSU分区”的T2新提交commit对文件系统表(fstab)和init进程进行更改，以便在引导过程中可以挂载除system以外的DSU分区，现在包括product和vendor。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Android-10-Init-and-fstab-changes-for-multiple-DSU-partitions.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;New code in fstab to add support for loading product_gsi and vendor_gsi images in place of the existing product and vendor partitions respectively. A comment notes that DSUs can be signed by the OEM, but otherwise support Google's official GSIs.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Android-10-Init-and-fstab-changes-for-multiple-DSU-partitions.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Android-10-Init-and-fstab-changes-for-multiple-DSU-partitions.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Android-10-Init-and-fstab-changes-for-multiple-DSU-partitions.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Android-10-Init-and-fstab-changes-for-multiple-DSU-partitions.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Android-10-Init-and-fstab-changes-for-multiple-DSU-partitions.jpg" src="../Images/eeb5f3abf1b5b2b60e25c6699a19d2b6.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Android-10-Init-and-fstab-changes-for-multiple-DSU-partitions.jpg"/> </picture> <figcaption class="body-img-caption">New code in fstab to add support for loading product_gsi and vendor_gsi images in place of the existing product and vendor partitions respectively. A comment notes that DSUs can be signed by the OEM, but otherwise support Google's official GSIs.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>目前，DSU被设计成只能让你启动一个通用的系统映像(GSI)，一个从AOSP编译的准系统映像，所以你可以在最新的Android更新中测试新的API和其他变化。然而，随着这一变化，DSU也将接受产品和供应商的形象。前者包含特定于设备的应用程序、库和其他文件，而后者包含特定于设备的二进制文件。Project Treble使你可以使用没有设备特定文件的系统映像来启动设备，所以现在允许加载产品和供应商似乎没有多大意义。</p>
+
+<p>然而，一名谷歌工程师明确表示，这一变化是为了“允许OEM在/data上安装OTA包，然后使用' DSU '流从/data挂载product.img，system.img，[和] vendor.img。”这意味着，OTA可以通过DSU临时加载，而不是用新的OTA包覆盖当前安装。试用OTA更新后，“用户可以决定是否要将这些图像‘提交’给/super。”关于“提交”变更的最后一部分仍在进行中，正如一位谷歌工程师指出的那样，“目前我们还没有在DSU环境下使DSU分区永久化的计划。”然后他陈述了如何实现这一点，但是这一实现“超出了当前补丁的范围”。</p>
+
+
+
+
+
+<p>这里我们需要解释一些术语和概念，因为谷歌喜欢在每个Android版本中改变分区方案。对于初学者，我建议阅读我以前关于<a href="https://www.xda-developers.com/android-q-dynamic-system-updates-project-treble/">动态系统更新</a>的文章，以全面了解它是如何工作的，但总而言之，它利用了“动态分区”的概念，这是一个真正的存储分区(称为“超级”分区)，它被分成可调整大小的逻辑分区(包括系统、供应商、产品和system_ext)，以临时安装GSI。安装GSI时，DSU通过调整现有用户数据分区的大小来为新系统和用户数据映像创建空间。DSU支持的构建模块(动态分区、内存磁盘和数据备份检查点)是<a href="https://www.xda-developers.com/tag/android10"> Android 10 </a>的发布要求，因此任何使用新Android操作系统版本发布的设备都应该支持DSU。DSU不是你们中的一些人正在寻找的定制rom的双启动解决方案，因为只有匹配Android验证启动(AVB)密钥的映像才能被安装。然而，有了这个新的变化，它在未来可能会更有用。</p>
+
+<p>在动态分区之上，谷歌还在Android 10中引入了“虚拟A/B”的概念。这基本上是以前的<a href="https://www.xda-developers.com/how-a-b-partitions-and-seamless-updates-affect-custom-development-on-xda/">双A/B分区</a>的实现，但是用逻辑分区代替。A/B分区包含重要分区的副本，以允许无缝和安全的更新。使用“虚拟A/B”是一位Google工程师设想的将DSU分区“提交”到当前安装的分区上的方式；与当前的A/B OTA更新过程一样，也许来自新映像的更改会被应用到非活动分区。</p>
+
+<p>这些变化仍在开发中，可能需要一段时间才能被谷歌或原始设备制造商使用。最早在明年Android 11 R发布之前，我们可能不会看到任何这方面的实现。即便如此，也不能保证原始设备制造商会在其OTA更新中采用这一功能。鉴于这似乎对beta测试非常有用，我猜想Google已经在与感兴趣的OEM厂商合作，在未来的更新中启用这一功能。我个人对先试后买新的Android更新的前景感到兴奋，但是你呢？</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

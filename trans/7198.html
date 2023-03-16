@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>Google Camera 7.0 mostly confirms the Google Pixel 4 camera features</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌相机7.0大部分确认了谷歌像素4相机功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-pixel-4-camera-features-google-camera-leak/#0001-01-01">https://www.xda-developers.com/google-pixel-4-camera-features-google-camera-leak/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>今天早些时候，我们发表了一篇文章，详细介绍了Google Pixel 4在Google Camera 7.0中的所有<a href="https://www.xda-developers.com/google-camera-7-0-google-pixel-4-leak-hands-on"> UI变化和新的面向用户的设置</a>。这个版本的谷歌相机应用程序是由我们的线人哈尼(@ <a href="https://twitter.com/HANI_4k">哈尼_4K </a>)发给我们的，他从越南YouTube<a href="https://www.youtube.com/channel/UC7MGCyKDw8iQX7Vs0-BH9uA">T5】ReLab</a>那里获得了APK。最新版本的Pixel camera应用程序的用户界面有很多变化，但也有大量代码揭示了Pixel 4的相机功能。</p>
+
+  
+<p>上周末，我们分析了谷歌相机应用程序的最新公开版本6.3，揭示了谷歌<a href="https://www.xda-developers.com/google-pixel-4-camera-features-audio-zoom-live-hdr-better-wide-angle-photos/">一直在开发几个新功能</a>，我们认为这些功能将出现在2019年的Pixel智能手机上。我们发现了音频缩放、实时HDR、网格扭曲以纠正广角自拍失真以及可能的夜视改善等功能。泄露的谷歌相机应用7.0版本继续致力于这些功能，并证实了它们在Pixel 4上的存在。泄露的APK还透露了几个先前未披露的功能，以及Pixel 4相机功能的可能列表。</p>
+
+ 
+<h2 id="motion-blur-on-the-pixel-4"><strong>像素4上的运动模糊</strong></h2>
+<p>虽然这感觉像是一个永恒的过去，但就在上周，我们第一次听说Pixel 4将在谷歌相机应用程序中拥有“运动模式”。据消息人士透露，新的相机模式将是Pixel 4的主打功能之一。据说它可以让你拍摄前景中的移动物体，同时模糊背景，非常适合体育赛事的照片。</p>
+
+<p>这项“运动模式”功能没有在最近的任何泄露中出现，但这很可能是因为该功能仍然隐藏在预发布设备上的谷歌相机应用程序中。我们发现了一个新相机模式的字符串，虽然字符串本身只列出了模式的代号:“paneer。”</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"mode_paneer"</span>&gt;</span>Paneer<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>作为参考，夜视内部叫“墨鱼”，延时内部叫“猎豹”。我们不确定为什么选择“paneer”这个代号，但很明显这是为了谷歌相机应用程序中的一个新的“运动模糊”功能。“运动模式”可能是这种“运动模糊”功能的营销名称。</p>
+
+
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="testing-zero-shutter-lag-night-sight-and-astrophotography">测试零快门延迟夜视和天文摄影</h2>
+<p>谷歌的消息来源还声称，谷歌<a href="https://www.xda-developers.com/google-pixel-night-sight-google-camera-review/">著名的夜视功能</a>，使用计算摄影算法在低光照条件下产生详细的图像，不仅速度更快，而且能够拍摄星空。一个泄露的宣传视频证实了<a href="https://www.xda-developers.com/google-pixel-4-leaked-promo-video/"> Pixel 4的天文摄影能力</a>，但我们在谷歌相机6.3中发现的新夜视代码没有达到我们的预期。然而，有了谷歌相机7.0，我们更有信心谷歌像素4的夜视能力将得到改善。我们在一个狗粮配置类中发现了多个标志，显示了谷歌是如何测试夜视的主要改进的。</p>
+
+<p>尽管在之前的APK中，我们只模糊地提到了夜视零快门延迟(zsl_ns)，但最新的APK让事情变得非常清楚。ZSL夜视证实，谷歌正在测试一种更快的夜视系统，可能用于Pixel 4。另一方面，对于天体摄影，谷歌将使用GPU(高通骁龙855 中的<a href="https://www.xda-developers.com/google-pixel-4-xl-launch-october-15-2019-qualcomm-snapdragon-855/"> Adreno 640)来加速天空的分割，然后通过“找到”星星并使它们变亮来优化图像。三脚架检测也有所改进，因为它现在将快门按钮改为停止按钮，并在倒计时时将帧数添加到中间。</a></p>
+
+
+
+
+<p class="ad-even"> </p>
+
+
+<h2 id="live-hdr-hdrnet-and-mesh-warping">实时HDR、HDRNet和网格变形</h2>
+<p>在我们拆卸谷歌摄像头6.3的过程中，我们发现了一个“直播HDR”模式的参考资料，似乎与麻省理工学院和谷歌研究人员开发的“<a href="https://groups.csail.mit.edu/graphics/hdrnet/"> HDRNet </a>”算法有关。这种算法可以用来将HDR实时应用到相机取景器中，也可以用来在拍摄照片后几毫秒内自动修饰照片。网格扭曲很可能是指谷歌研究人员开发的一种<a href="https://people.csail.mit.edu/yichangshih/wide_angle_portrait/">新技术</a>，用于纠正广角前置摄像头的失真。谷歌相机应用程序中网格扭曲的存在与Pixel 4拥有广角前置摄像头的传言相符。</p>
+
+<p>我们再次在谷歌相机7.0中发现了对实时HDR、HDRNet和网格扭曲的引用，尽管这一次这些引用没有那么模糊。这些功能仅限于2019年的Pixel智能手机(不包括Pixel 3a和Pixel 3a XL，因为谷歌在代码中将Pixel 3a系列称为“Pixel _ 2019 _ middle ”),因为它们需要新的相机库。</p>
+
+
+<p class="ad-odd"> </p>
+
+
+<h2 id="audio-zoom-on-the-google-pixel-4">谷歌Pixel 4的音频缩放</h2>
+<p>当摄像头放大时，一些智能手机使用麦克风来聚焦主要的音频源。LG和HTC已经这样做了好几年，三星最近在几代人之前淘汰了它之后，在<a href="https://www.xda-developers.com/samsung-galaxy-note-10-specs-features-price-availability/"> Galaxy Note 10 </a>上又把它带了回来。新的苹果iPhone 11也有自己的音频缩放功能，所以我们并不奇怪谷歌Pixel 4也可能会配备该功能。毕竟，谷歌确实<a href="https://www.xda-developers.com/google-completes-acquisition-htc-engineers-google-pixel-2/">获得了HTC的大部分知识产权和人才。2019年像素的配置将“AUDIO_ZOOM_SUPPORTED”列为真，因此它很可能会在Pixel 4上推出。</a></p>
+<p class="ad-even"> </p>
+
+
+<h2 id="dynamic-depth-format-support">动态深度格式支持</h2>
+<p>Android 10 增加了对名为<a href="https://developer.android.com/training/camera2/Dynamic-depth-v1.0.pdf">动态深度格式</a> (DDF)的新文件模式的支持。根据谷歌的说法，DDF文件包含照片的深度数据，允许应用程序在后期处理中使用这些数据来改变模糊，而无需接触原始图像。Pixel 4相机配置将“EMBED_DYNAMIC_DEPTH_REAR”和“EMBED_DYNAMIC_DEPTH_FRONT”都列为true，这表明设备将支持将深度数据保存为DDF文件。值得一提的是，我们还注意到Google Photos应用程序正在测试对处理动态深度格式的支持。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="possible-photobooth-integration-with-playground-ar-stickers">可能的照相亭与游乐场AR贴纸的集成</h2>
+<p><a href="https://www.xda-developers.com/google-camera-photobooth-motion-tracking-google-lens-pixel-2/"> Photobooth </a>是谷歌Pixel 3上推出的谷歌相机功能。该功能在检测到相框中的微笑或滑稽面孔时会自动拍照。虽然我们不知道会对该功能进行什么样的改进，但看起来谷歌可能会引入一些底层的变化。在整个代码中，我们发现检查是否支持“Photobooth2019”，而不是只支持“Photobooth”，这意味着这是对现有Photobooth功能的更新。</p>
+
+<p>一种特别的方法是在激活“Photobooth2019”之前检查是否在设备上找到“com . Google . VR . apps . corrupt . fun shot . Activity . funshot Activity”活动。运行Android 10的Pixel 2 XL或Pixel 3 XL上不存在此活动。鉴于“com . Google . VR . apps . orange”是<a href="https://www.xda-developers.com/download-playground-2-0-ar-stickers-marvel/"> Playground </a>(之前称为AR贴纸)的包名，我们有可能会看到一些AR贴纸与Photobooth的集成。自从将该功能更名为Playground以来，谷歌使AR贴纸更具表现力和互动性，然而，我们不知道升级后的Photobooth是否会根据AR角色的表情来拍摄照片。</p>
+
+
+
+
+<p class="ad-even"> </p>
+
+
+<h2 id="measure-mode-rewind-mode-and-rocky">测量模式、倒带模式和“洛奇”</h2>
+<p>早在4月份，<a href="https://www.xda-developers.com/google-camera-ar-measure/">我们发现了证据</a>表明谷歌正准备将其由<a href="https://www.xda-developers.com/tag/arcore/"> ARCore驱动的</a>增强现实测量应用Measure整合到谷歌相机应用中。这项功能的代码仍然存在于谷歌相机7.0中，但尚不清楚谷歌是否计划与Pixel 4一起推出这项功能。</p>
+
+
+
+
+
+<p>接下来，谷歌相机应用的过去几个版本已经暗示了一种代号为“小飞侠”的倒带模式(在回到未来主角之后。)我们不太确定它是如何工作的；我们能确定的是它的图标是一个倒带符号。</p>
+
+
+
+<p>另一个更不为我们所知的特征是“洛基”我们在ViewfinderEffectElement和“MultiCropModule”中发现了对它的引用，但我们还不知道它应该做什么。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="all-the-google-pixel-4-camera-features-according-to-google-camera-config">根据谷歌相机配置，谷歌像素4相机的所有功能</h2>
+<p>最后，dogfood配置类列出了Google Pixel 4的基本所有相机功能。还有一些论点列出了2016年，2017年，2018年和2019年中期像素的更新相机配置，但为了简洁起见，我们将只关注新设备。摄像机配置表明以下情况属实:</p>
+
+<ul> <li>谷歌Pixel 4支持音频缩放</li> <li>谷歌像素4支持使用新的动态深度格式(DDF)保存深度数据</li> <li>Pixel 4有一个长焦镜头(这个发现已经被<a href="https://www.xda-developers.com/google-pixel-4-xl-8x-zoom-6gb-ram-white-color/">证实了无数次</a>)。)</li> <li>这些设备支持更长的夜视曝光时间。</li> <li>这些设备支持HDRNet算法。</li> <li>Google Lens suggestions可以检测并推荐文档扫描(确实有一个新的“扫描文档”建议芯片的字符串。)</li> </ul>
+
+<p>...除了别的以外。相比而言，2018款Pixel 3支持的功能列表要短得多。</p>
+
+
+<p class="ad-even"> </p>
+
+
+<h2 id="bonus-the-mysterious-2019-pixel-needlefish-re-emerges">额外收获:神秘的2019像素“针状鱼”再次出现</h2>
+<p><a href="https://www.xda-developers.com/google-pixel-4-xl-mysterious-third-device-codename/">早在四月</a>,《AOSP时报》的一篇评论提到了据信属于2019款Pixel智能手机的代号。另外，提到了3个代号，而不是2个代号:“珊瑚”、“火焰”和“针鱼”。我们现在知道“火焰”是较小的Pixel 4，而“珊瑚”是较大的Pixel 4 XL，但自4月以来，我们没有看到提到“针鱼”，也没有看到谷歌正在为2019年底开发第三个Pixel的证据。嗯，“针鱼”又回来了，我们还是和四月份一样迷茫。</p>
+
+<p>Google Camera 7.0中的“DeviceProperties”类区分像素设备，因此可以加载正确的相机配置。我们注意到，在isPixel2019()中，“珊瑚”和“火焰”旁边是“针鱼”，这表明它确实是2019像素。然而，它究竟是什么仍然是个谜。测试设备？统一内核的代号是什么？谁知道呢。除了Pixel 4和Pixel 4 XL之外，几乎没有证据表明存在另一个2019年的像素，所以这是我们现在必须提出的一个谜。</p>
+
+
+
+
+
+<hr/>
+
+<p>这就是我们从预发布的Pixel 4中泄露的谷歌相机7.0版本中挖掘出的所有信息。如果我们了解更多关于2019年像素的信息，我们会努力让你知道，即使这些泄露变得令人疲惫不堪。</p>
+
+<p/><p><a href="https://forum.xda-developers.com/pixel-4"> <strong>谷歌Pixel 4论坛</strong></a>| |<a href="https://forum.xda-developers.com/pixel-4-xl">|<strong>谷歌Pixel 4 XL论坛</strong> </a></p>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

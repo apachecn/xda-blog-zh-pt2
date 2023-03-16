@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>MIUI Camera shows that Xiaomi is working on 8K video recording</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>MIUI摄像头显示小米正在进行8K视频录制</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/miui-camera-xiaomi-8k-30fps-video-recording-smartphone/#0001-01-01">https://www.xda-developers.com/miui-camera-xiaomi-8k-30fps-video-recording-smartphone/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>本周，小米再次向我们展示了他们制造不同价格的一流手机的能力。在预算部分，该公司推出了red mi 8A T1，配有6.2英寸高清显示屏、5000毫安时电池、骁龙439、18W充电支持和12MP索尼IMX 363 Rs。6499 (~$92.)在廉价旗舰细分市场，他们宣布了具有5G连接、30W无线充电、10W反向无线充电的<a href="https://www.xda-developers.com/mi-9-pro-5g-miui-11-snapdragon-mi-tv-pro-8k-video/"> Mi 9 Pro </a>，以及售价约520美元的骁龙855 Plus。最后，他们对大约2800美元的<a href="https://www.xda-developers.com/xiaomi-mi-mix-alpha-surround-display-china-launch/"> Mi MIX Alpha </a>及其180%的屏幕与机身比例完全着迷，以证明他们可以创新。不过，小米似乎还有更多锦囊妙计，因为我们在MIUI相机应用程序中发现了证据，表明未来的智能手机将支持以30fps的速度录制8K分辨率的视频。</p>
+
+  
+<p>除了小米9 Pro 5G和小米MIX Alpha发布之外，小米还发布了其基于Android的软件MIUI的新版本。MIUI 11更新的主要亮点是新的设计，当然，还有一个更新的相机应用程序。自从MIUI 11测试版<a href="https://www.xda-developers.com/download-miui-11-beta-now-for-13-xiaomi-devices-changelog/">开始在中国</a>推出以来，我们花时间分析了最新的MIUI相机APK，以发现新功能。XDA初级成员kackskrz向我们透露了关于以30fps捕捉UHD/8K视频的字符串的内容。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"pref_video_quality_entry_8kuhd"</span>&gt;</span>UHD 8K, 30fps<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"video_ultra_clear_tip_8k"</span>&gt;</span>8K UHD<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>查看代码，我们在与配置视频质量相关的类中发现了证据，表明这个新配置文件的输出分辨率确实是7680x4320，即8K。我们还发现了一个新的8K@30fps录制模式的可绘制资源。本文顶部展示的特色图片中Mi logo旁边的8K@30fps logo，其实是直接从最新的MIUI相机app中拉出来的。因此，我们可以得出结论，小米正在努力在未来添加这种视频录制配置文件。</p>
+
+ 
+<h2 id="future-xiaomi-phone-with-8k-30fps-video-recording">8K@30fps视频录制的未来小米手机</h2>
+<p>那么，下一个问题是，这个功能最终会出现在什么样的小米手机上？我排除了这是新款Mi MIX Alpha上的一种相机模式的想法，因为它没有在任何在线报道中提及，也没有在<a href="https://www.mi.com/mixalpha/specs">官方产品页面</a>上列出，而且它<a href="https://www.xda-developers.com/samsung-isocell-bright-hmx-108mp-camera-sensor-xiaomi/">超过了三星提供的技术规格</a>。(三星的108MP明亮HMX相机传感器能够以30fps的速度录制高达6K分辨率的视频。)没有其他小米手机支持以这种质量录制视频，因此它肯定会在新设备上首次亮相。有趣的是，<a href="https://www.xda-developers.com/mi-9-pro-5g-miui-11-snapdragon-mi-tv-pro-8k-video/">新小米电视Pro </a>能够播放8K视频，因此小米可能会将其8K视频录制的新智能手机定位为其新4K小米电视的补充。</p>
+
+<p>不过，我不认为这种新的相机模式会在任何装有高通骁龙855的新智能手机上首次亮相，因为Spectra 380 ISP的<a href="https://www.xda-developers.com/qualcomm-snapdragon-855-kryo-485-cpu-adreno-640-gpu-spectra-isp-cv/">技术规格</a>将4K@60fps列为支持的最高视频录制质量。虽然可以推动Spectra 380处理8K@15fps，如<a href="https://www.xda-developers.com/nubia-red-magic-3-review/">红色魔法3 </a>所示，但它很难处理它。在<a href="https://forum.xda-developers.com/zenfone-6-2019">华硕ZenFone 6 </a>和<a href="https://forum.xda-developers.com/rog-phone-2">华硕ROG Phone II </a>上，可以8K@24fps录制视频(！)在<a href="https://play.google.com/store/apps/details?id=troop.com.freedcam"> FreeDCam </a>中使用自定义配置文件(感谢那个提示，XDA资深会员<a href="https://forum.xda-developers.com/member.php?u=377973"> defcomg </a>！)，但是这种体验并不愉快，因为不支持e is。</p>
+
+<p>我怀疑下一款高通骁龙旗舰SoC中的升级版Spectra ISP将能够处理8K@30fps，如果属实，这意味着这种新的相机配置文件将首次出现在小米旗舰上，采用下一款旗舰骁龙芯片。然而，我们没有任何确认的细节可以分享下一款旗舰高通骁龙SoC，所以我们不能肯定哪个SoC将为小米智能手机提供这一功能。一旦我们有了更具体的细节，我们会让你知道。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

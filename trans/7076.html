@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>MIUI prepares to automatically recognize and change ringtone for phone calls from food delivery vendors</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>MIUI准备自动识别和更改送餐供应商的电话铃声</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/miui-recognize-food-delivery-vendor-change-ringtone-phone-calls/#0001-01-01">https://www.xda-developers.com/miui-recognize-food-delivery-vendor-change-ringtone-phone-calls/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>小米的MIUI继续得到该公司定期和积极的开发。与其他大型原始设备制造商不同，小米让发烧友用户有机会在这些功能进入稳定版本之前，通过测试版试用其中的一些功能。例如，以前的MIUI测试版展示了一些功能，如附加的<a href="https://www.xda-developers.com/miui-9819-screen-cast-features-dark-mode-scheduling-font/">屏幕投射功能，黑暗模式调度，新的MiLanPro字体</a>，一个<a href="https://www.xda-developers.com/miui-985-dual-clock-under-keyboard-shortcut-bar-dual-wlan-acceleration/">键盘下的快捷栏，双Wi-Fi加速，</a>和<a href="https://www.xda-developers.com/tag/miui/">更多的</a>。这些测试版还提供了一些正在开发的功能，所以我们可以根据经验猜测小米未来会怎么样。针对中国地区的最新MIUI 10 Beta 9.8.20表明，小米正在致力于自动识别来自服务供应商的来电，然后用单独的铃声拨打电话，以便于识别。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些功能目前在live build中没有实现，可能会在未来的build中随时被小米拉出来。</p> </div></section>
+<p>在MIUI 10 Beta 9.8.20的设置应用中发现了以下字符串:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"intelligent_recognition_item_summary"</span>&gt;</span>Identify incoming calls made by service vendors (e.g. food delivery) and use separate ringtones for them<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"intelligent_recognition_item_title"</span>&gt;</span>Identify services<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>虽然这些字符串是在中国MIUI测试版中发现的，但我们相信该功能最终会进入印度。过去，小米与印度的各种第三方服务供应商合作，对MIUI进行本地化，使其对印度观众更有用，而像这样的功能将非常适合印度。像Zomato、Swiggy和Uber Eats这样的食品配送服务在印度非常庞大，尤其是在城市地区，这要归功于它们的深度折扣模式和服务发现方法。许多顾客，从工作人员到参加派对的青少年，都依赖这些服务在瞬间将食物送到他们手中。MIUI与这些服务的更深层次的集成将为最终用户带来好处。</p>
+
+<p>MIUI如何知道这些服务供应商何时会打电话来，尤其是每次送货主管都在变化的时候？我们对此的最佳猜测是，小米<em>可能</em>设想了这样一种场景，这些服务供应商将向小米共享其送货主管的手机号码。MIUI已经包含了本地化的应用程序使用跟踪功能，因此这个<em>可以</em>用于确定客户何时期待特定服务的交付。然后，可以识别来自具有该连接服务的递送主管的呼叫，并且可以应用不同的铃声来提醒用户关于呼叫者和呼叫目的的信息。无可否认，这是一种推测，所以当特性完全开发出来时，功能可能会完全不同。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

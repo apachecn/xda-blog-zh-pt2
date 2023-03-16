@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>QualPwn Vulnerability Overview: It Affects Snapdragon 835, 845, and more</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>QualPwn漏洞概述:它影响Snapdragon 835、845等</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/qualpwn-vulnerability-snapdragon-835-snapdragon-845/#0001-01-01">https://www.xda-developers.com/qualpwn-vulnerability-snapdragon-835-snapdragon-845/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>这些年来，我们已经看到了许多基于Linux的可怕攻击成为焦点。我们已经看过怯场、<a href="https://www.xda-developers.com/android-hardware-vulnerability-rampage/">暴跳、</a>和<a href="https://www.xda-developers.com/android-toast-message-overlay-attack/">斗篷和匕首</a>，仅举几例。当一加和小米都决定提前发布安全更新时，一些人预测这个月的安全补丁会修补一个重大漏洞。这些人是对的:腾讯刀片团队的研究人员发现了一个严重的漏洞，该漏洞被确认会影响所有使用高通骁龙835或高通骁龙845的设备。被称为“QualPwn”的攻击允许远程利用受影响的设备，并且它影响具有两种流行芯片组的设备的事实导致它迅速在互联网上传播。<strong>然而，这种攻击可能会影响更多的芯片组，所以你的设备也很容易受到攻击。</strong></p>
+
+  
+<p>高通就此事发表了以下声明:</p>
+
+<blockquote>
+<p/><h4>“提供支持强大安全性和隐私保护的技术是高通的首要任务。我们赞扬腾讯的安全研究人员通过我们的漏洞奖励计划使用行业标准的协调披露实践。高通技术公司已经向原始设备制造商发布了补丁，我们鼓励最终用户在原始设备制造商提供补丁时更新他们的设备。”</h4>
+ </blockquote>
+<hr/>
+
+
+<h2 id="qualpwn---an-overview">QualPwn -概述</h2>
+<h3 id="affected-devices">受影响的设备</h3>
+<p>首先，值得注意的是，虽然这被认为是远程利用，但利用<strong>依赖于设备和攻击者在同一个网络</strong>。您不能严格通过互联网攻击任何受影响的设备，这意味着保护自己的最佳方式是不要使用不可信的无线网络。然而，问题就在这里。理论上，你所在的网络上的任何人都可以攻击你的设备，而无需任何用户交互。<strong>所有采用高通骁龙835或骁龙845芯片组的设备都会受到影响，除非它们拥有【2019年8月安全补丁 </strong>。尽管如此，根据腾讯Blade为Blackhat提交的白皮书，该漏洞仍未完全修复。</p>
+
+<p>奇怪的是，高通的安全公告详细列出了他们在过去一个月修复的问题，其中有一个芯片组列表，比Snapdragon 835和骁龙845更全面。看看下面就知道了。</p>
+
+<ul> <li><strong>骁龙636 </strong></li> <li><strong>骁龙665 </strong></li> <li><strong>骁龙675 </strong></li> <li><strong>骁龙712 /骁龙710 /骁龙670 </strong></li> <li><strong>骁龙730 </strong></li> <li><strong>骁龙820 </strong></li> <li><strong>骁龙835 </strong></li> <li><strong>骁龙845 / SD 850 </strong></li> <li><strong>骁龙855 </strong></li> <li><strong> Snapdragon 8CX </strong></li> <li><strong>骁龙660开发套件</strong></li> <li><strong>骁龙630 </strong></li> <li><strong>骁龙660 </strong></li> <li>骁龙820汽车</li> <li>IPQ8074</li> <li>QCA6174A</li> <li>QCA6574AU</li> <li>QCA8081</li> <li>QCA9377</li> <li>QCA9379</li> <li>QCS404</li> <li>QCS405</li> <li>QCS605</li> <li>SXR1130</li> </ul>
+
+<p>这份完整的列表是高通声称已经修补的，这意味着几乎任何采用该公司在过去两年发布的芯片组的设备在理论上都容易受到攻击。尚未发现<strong>的任何</strong>芯片组(包括腾讯刀片团队测试的芯片组)被公开利用，但如此大量的设备可能存在潜在漏洞令人担忧。</p>
+
+<p>我做了一些调查，发现在过去，为了安全起见，高通会为重大问题创建安全补丁，甚至会将它们分发到一些不受特定漏洞影响的设备上。这里列出的一些芯片组可能会出现这种情况，但也有可能大多数芯片组在理论上容易受到攻击。那么你能做什么呢？</p>
+
+<h3 id="mitigation">减轻</h3>
+<p>幸运的是，这个bug还没有被真正利用，在你的任何数据面临风险之前，它需要大量的理论条件来实现。您需要连接到同一个WiFi网络，因为有人知道该漏洞并知道如何滥用它(尽管在撰写本文时还没有公开的方法)。更重要的是，如果你的设备有2019年8月的安全补丁，漏洞就已经被修复了，所以潜在的攻击者的兴趣会很快消失。这个bug可能是为什么<a href="https://www.xda-developers.com/oneplus-7-pro-august-2019-security-patch-oxygenos-9511/">一加</a>提早发布8月安全补丁的原因，因为补丁本身并不在禁运之列，只有漏洞本身的细节才在禁运之列。</p>
+
+<p>然而，这仍然是一个严重的安全缺陷，不应该被忽视。修复工作现在掌握在原始设备制造商的手中，高通实际上能做的已经不多了。如果你不能获得潜在受影响芯片组的列表，并且你没有办法获得最新的安全补丁，那么你唯一能做的就是购买一部新的智能手机。</p>
+
+<h3 id="what-is-qualpwn">什么是 QualPwn？</h3>
+<p>为了避免血淋淋的细节，QualPwn利用给定高通芯片组上的WLAN接口，让攻击者控制调制解调器。从那里，内核可能会受到攻击，也可能会被攻击者利用，然后攻击者可能会获得他人设备的完全根用户访问权限。任何东西都可能被潜在的攻击者安装，从而损害您的数据。从理论上讲，它可以用来获得你自己设备的根用户访问权限，尽管要实现这一点还需要做大量的工作。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

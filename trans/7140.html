@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Google Maps for Android may add 4 new types of incident reports</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android版谷歌地图可能增加4种新的事故报告类型</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-maps-report-speed-camera-disabled-vehicle-lane-closure-object-on-road/#0001-01-01">https://www.xda-developers.com/google-maps-report-speed-camera-disabled-vehicle-lane-closure-object-on-road/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新(美国东部时间10/17/19 @下午1:20):</strong>谷歌地图现在可以让你报告施工、残疾车辆、车道封闭和行驶中的物体。</p> </div></section>
+<p/><p>数百万司机使用谷歌地图，因此它作为一个众包交通和事故报告工具非常有用。Maps去年首次推出了事件报告功能，不过Waze早就有了。谷歌在去年11月推出了<a href="https://www.xda-developers.com/google-maps-crash-speed-trap-reporting/">碰撞和速度陷阱报告</a>，几个月前增加了<a href="https://www.xda-developers.com/google-maps-traffic-slowdown-reporting/">交通减速报告</a>。今天早些时候，<a href="https://www.androidpolice.com/2019/09/05/google-maps-lets-you-report-road-constructions/"> <em> AndroidPolice </em> </a>注意到，道路建设报告正在向一些用户推出，我们也可以独立证实这一点。然而，我们也有证据表明，谷歌正在测试至少3种其他类型的事件报告:残疾车辆、车道封闭和道路上的物体。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_2"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>如果你打开谷歌地图应用程序，进入导航模式，点击被气泡包围的+图标，你会看到一个底部的表格，其中有报告路上事故的选项。对于包括我自己在内的大多数用户来说，你只能选择报告道路上的撞车、超速或减速。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Google-Maps-Reporting.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Most users can currently only report crashes, speed traps, and slowdowns.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Google-Maps-Reporting.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Google-Maps-Reporting.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Google-Maps-Reporting.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Google-Maps-Reporting.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="Google Maps reports" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Google-Maps-Reporting.jpg" src="../Images/b18d84558de2b033699ead1b820d674f.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/09/Google-Maps-Reporting.jpg"/> </picture> <figcaption class="body-img-caption">Most users can currently only report crashes, speed traps, and slowdowns.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>我们获得了一个未发布的谷歌地图版本10.25.24，它包含了新的字符串，表明这个底部表单将填充选项，以报告残疾车辆，车道封闭或路上的物体。APK也有报告速度相机的字符串，但这些字符串在过去几个月的地图应用程序的公开发布中已经存在。报告高速摄像机的功能还没有出现在地图应用程序中，所以我们认为这也值得一提。</p>
+
+<p>在版本10.25.24中增加了:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_LANE_CLOSURE"</span>&gt;</span>Lane closure<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_LANE_CLOSURE_REPORTED"</span>&gt;</span>Lane closure added to the map<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_LANE_CLOSURE_REPORTING"</span>&gt;</span>Adding lane closure to the map<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_OBJECT_ON_ROAD"</span>&gt;</span>Object on road<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_OBJECT_ON_ROAD_REPORTED"</span>&gt;</span>Object on road added to the map<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_OBJECT_ON_ROAD_REPORTING"</span>&gt;</span>Adding object on road to the map<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_DISABLED_VEHICLE"</span>&gt;</span>Disabled vehicle<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_DISABLED_VEHICLE_REPORTED"</span>&gt;</span>Disabled vehicle added to the map<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_DISABLED_VEHICLE_REPORTING"</span>&gt;</span>Adding disabled vehicle to the map<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>已经在过去几个月的版本中出现:</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_CAMERA"</span>&gt;</span>Speed camera<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_CAMERA_REPORTED"</span>&gt;</span>Speed camera added to the map<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"REPORT_INCIDENT_PROMPT_CAMERA_REPORTING"</span>&gt;</span>Adding speed camera to the map<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>我真的希望谷歌地图能尽快添加这些事件报告。在休斯顿或洛杉矶这样的城市，开车可能是一件苦差事，在那里，你路线的一个意外变化可能会增加一个多小时的通勤时间。路上的意外物体如果被碾过，可能会损坏你的轮胎，或者如果司机没有安全避开它们，可能会导致事故。残疾车辆报告将给那些想知道是什么在某一天造成如此大的交通流量的司机带来一些安心(至少对我来说是这样的)。)最后，知道测速摄像头在哪里会让你对当前速度更加谨慎，这样你就有希望更安全地驾驶。</p>
+
+<p>这些事件报告都没有在谷歌地图的当前版本中发布，在我们获得的未发布版本中也没有。当他们开始向用户展示时，无论是在全球还是在A/B测试中，我们都会让你们知道。</p>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+<hr/>
+
+
+<h2 id="update-rolling-out">更新:推出</h2>
+
+
+<p>谷歌地图是上个月在APK的一次拆卸中发现的，现在它允许你报告施工、残疾车辆、车道封闭和行驶中的物体。以前，可以报告撞车、超速和交通减速。这使得可以报告的事件总数达到7起。要报告事故，只需点击+号，然后点击“添加报告”</p>
+
+<p><strong>来源:<a href="https://blog.google/products/maps/new-ways-report-driving-incidents-google-maps/">谷歌</a>T3】</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>Android Q AMA Summary: What Google said about Android 10 on Reddit</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Q AMA总结:谷歌在Reddit上对Android 10的评价</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-ama-summary/#0001-01-01">https://www.xda-developers.com/android-q-ama-summary/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>去年，谷歌的Android团队在Reddit的/r/Android dev subredit上举办了一个“问我任何问题”(AMA)，回答关于Android P开发者预览版的问题。今年，负责Android Q测试版的工程团队在Reddit上回答了问题。<a href="https://www.xda-developers.com/android-q-engineering-team-reddit-ama/">AMA</a>于太平洋时间8月1日中午12:00开始，大约一个半小时后结束。33名谷歌工程师参与了AMA，在AMA持续的短暂时间内回答了大量问题。这是我们对所学新知识的总结。</p>
+
+ 
+<h2 id="android-q-ama-everything-we-learned-from-google">AMA:我们从谷歌学到的一切</h2>
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_2"><h3 id="participants-from-the-android-q-beta-team">来自Android Q beta团队的参与者</h3><ul> <li><strong>亚当·科恩:</strong>安卓启动器/系统用户界面上的TLM</li> <li><strong> Adam Powell: </strong> TLM论UI工具包/框架；视图、生命周期、片段、支持库</li> <li><strong>Alan viverette</strong><strong>:</strong>tlm，Jetpack / AndroidX</li> <li><strong> Allen Huang: </strong>对UI、启动器、通知、搜索集成等进行PM！</li> <li><strong>Andrew Sappirstein:</strong>Android上的TLM设置</li> <li>Brahim Elbouchikhi:Android机器学习和相机(NN API、ML套件、CameraX、相机平台)项目经理</li> <li><strong> Chad Brubaker </strong>:软件工程师，Android平台安全</li> <li>李思欣·德席尔瓦:隐私保护</li> <li><strong>切特·哈斯</strong> <strong> : </strong> Android首席倡导者，开发者关系</li> <li><strong> Diana Wong: </strong> PM，应用兼容性，非SDK API使用，艺术，NDK</li> <li><strong>Dianne hack born</strong><strong>:</strong>Android框架团队经理(资源、窗口管理器、活动管理器、多用户、打印、可访问性等。)</li> <li><strong>钟奕基:</strong>UX导演</li> <li><strong> Ian Lake: </strong>软件工程师，Jetpack(片段、导航、架构组件)</li> <li><strong> Iliyan Malchev: </strong>项目主线首席软件工程师</li> <li>Jacob Lehrbaum:Android开发者关系总监</li> <li>杰克·沃顿:软件工程师，Jetpack</li> <li><strong>贾马尔·伊森</strong> <strong> : </strong>下午，安卓工作室</li> <li>杰夫·贝利(Jeff Bailey):TLM，安卓开源项目(AOSP)</li> <li>Jeff Sharkey :软件工程师，Android框架</li> <li>杰弗里·梵高:安卓工作室，编译器</li> <li><strong> Jen Chai: </strong> PM、位置和上下文、验证、自动填充、非SDK API使用、艺术</li> <li><strong>Karen Ng:</strong>Android开发工具、Android Studio、Android Tookit和Jetpack的项目经理小组</li> <li><strong>Paul bank head:</strong>Google Play产品管理总监</li> <li><strong>Rohan Shah:</strong>Android系统UI产品经理</li> <li><strong>罗曼盖伊</strong><strong>:</strong>Android Toolkit/Jetpack团队经理</li> <li><strong>Sagar kam Dar:</strong>Android产品管理总监</li> <li><strong>Sat K:</strong>Android连接工程总监</li> <li><strong> Selim Cinek </strong>:软件工程师，Android系统UI</li> <li><strong>斯蒂芬妮·萨阿德·卡斯伯特森</strong> <strong> : </strong>安卓产品管理高级总监</li> <li>Sumir Kataria: 软件工程师，Jetpack(工作经理)</li> <li><strong>特拉维斯·麦考伊:</strong>下午，安卓平台</li> <li><strong> Trystan Upstill: </strong>杰出工程师，Android系统UI &amp;智能负责人</li> <li><strong>葡萄酒模式:</strong>下午，Android相机</li> </ul> </div></section>
+<h3 id="oems-can-no-longer-kill-apps-when-the-user-swipes-them-away-in-recents">当用户在最近刷走应用程序时，原始设备制造商不再能杀死它们</h3>
+<p>如果你曾经使用过中国品牌的智能手机，那么你可能会遇到恼人的“电池优化”功能，这些功能会在后台杀死所有你最喜欢的应用程序。这种行为不仅让那些出于任何原因希望某些应用程序继续在后台运行的用户感到恼火，也让那些不得不忍受用户差评的开发者感到恼火，因为他们不明白这不是应用程序的错。虽然谷歌<em>仍然</em>没有完全解决这个问题(他们声称这种行为可能已经违反了Android兼容性定义文件的要求)，但该公司<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evq703f/">正在采取行动</a>反对一些原始设备制造商采用的一种“节省电池”行为改变。</p>
+
+<blockquote>
+<p/><h4>“为了帮助解决这种情况，我们在Android Q中添加了一个CTS测试，以确保应用程序在从最近的应用程序中删除时不会被杀死。”</h4>
+ </blockquote>
+<h3 id="android-r-may-bring-more-changes-to-screenshots-than-we-expected">Android R可能会给截图带来比我们预期更多的变化</h3>
+<p>谷歌计划在Android R 中添加<a href="https://www.xda-developers.com/adding-scrolling-screenshot-support-android-infeasible/">滚动屏幕截图，但与此同时，</a><a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evq9y8h/"> Android团队正在</a>“密切关注【他们】如何改善R的整个屏幕-[X]体验。”因此，我们可能会在下一个主要Android版本中看到屏幕截图(和截屏)行为的其他改进。</p>
+
+<h3 id="clarifying-android-q-s-new-desktop-mode">澄清Android Q的新桌面模式</h3>
+<p>Android Q的第一个公开测试版为AOSP和Pixel启动器带来了一个隐藏的桌面模式界面。尽管谷歌<a href="https://www.xda-developers.com/google-more-information-desktop-mode-android-q/">在一次谷歌I/O会议上简要提到了功能</a>，但我们从未直接从谷歌那里听说新功能如何融入Android生态系统。谷歌<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evqa3xs/">现在澄清</a>:</p>
+
+<blockquote>
+<p/><h4>“在Q AOSP‘桌面模式’是一个面向应用程序开发人员的开发人员选项。它允许他们在多显示器和自由窗口模式环境中测试他们的应用程序。以前，没有方便的方法来测试应用程序在辅助显示器上的行为，以及在普通Android上自由调整窗口的大小。这个特性本身并没有产品化，目前也不适合普通用户。尽管如此，对于原始设备制造商来说，创新和做出伟大的产品是Android平台的基线。”</h4>
+ </blockquote>
+<p>因此，我们可以期待看到原始设备制造商建立在Android Q的原生桌面模式上。例如，<a href="https://www.xda-developers.com/oneplus-7-pro-usb-pd-hdmi-variable-refresh-rate/">一加7 Pro支持通过HDMI </a>显示输出，因此基于Android Q 的<a href="https://www.xda-developers.com/oxygenos-10-android-q/"> OxygenOS 10未来有可能拥有自己的桌面模式界面。我们也希望谷歌为即将到来的</a><a href="https://www.xda-developers.com/google-pixel-4-leaks-rumors/"> Pixel 4 </a>开发该功能。</p>
+
+<h3 id="time-based-dark-mode">基于时间的黑暗模式</h3>
+<p>Android Q终于带来了一个被广泛要求的功能:<a href="https://www.xda-developers.com/android-q-dark-mode-overview/">全系统黑暗模式</a>。目前，黑暗模式既可以在设置中手动启用，也可以通过快速设置磁贴启用，或者它可以在启用节电模式时自动激活。在Android Q之前，有一个基于时间启用黑暗模式<a href="https://www.xda-developers.com/android-q-toggle-dark-theme/">的选项，但该选项已被否决。根据克里斯·贝恩斯的说法:</a></p>
+
+<blockquote>
+<p/><h4>在AppCompat v1.1.0中不推荐(而不是删除)此功能有几个原因:它要求应用程序请求位置权限才能准确，即使位置有效，日出/日落时间的计算也可能会出错</h4>
+ </blockquote>
+<p>当被问及这些bug时，Banes先生说“计算日出/日落是出了名的困难，尤其是在靠近南北极的地方。”用户提出，自Android 7.1牛轧糖以来，夜灯可以根据日落/日出时间表自动切换。Banes先生接着说，由于Night Light使用了来自ICU4J的CalendarAstronomer，它使用了“一大块我们不希望AppCompat依赖的代码。”然而，团队<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evqamdp/">声明</a>这个特性是“他们将会研究的东西”</p>
+
+<h3 id="mandatory-camera2-api-camera-hal3-support-for-android-q-launch-devices">Android Q发布设备强制支持Camera2 API/Camera HAL3</h3>
+<p>谷歌推出了Camera2 API，以更好地定义应用程序如何与连接到智能手机的各个相机进行交互。虽然谷歌<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evq9pz2/">鼓励</a>智能手机供应商“向开发者公开他们所有的物理摄像头”，但许多供应商选择不这样做，尽管“API本身目前并不阻止他们。”这意味着许多第三方相机应用程序无法使用现代智能手机上的二级或三级相机模块。然而，随着Android Q改进了<a href="https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.html#REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA"> LOGICAL_MULTI_CAMERA </a>，这是一个API，它让开发人员可以更好地访问设备上的所有相机，并让OEM厂商可以控制功耗和管理多个相机状态。</p>
+
+<p>此外，谷歌表示，他们已经为所有使用Android Q的设备添加了原生支持Camera2 API/Camera HAL3的要求。<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evqdw9j/">根据Vinit Modi </a>:</p>
+
+<blockquote>
+<p/><h4>“从Android P开始，配备1GB或更多RAM的新设备需要原生使用HALv3/camera2。从Android Q开始，所有新设备都需要原生支持HALv3/camera2。不幸的是，从HALv1到HALv3的无线升级相当复杂，可能会产生意想不到的后果，因此我们不得不将范围限制在新设备上。”</h4>
+ </blockquote>
+<p>有趣的是，莫迪关于普通RAM Android P发布设备的声明<a href="https://www.xda-developers.com/android-pie-camera-hal3/">与谷歌早些时候告诉我们的</a>以及在线图像测试套件页面上发布的内容相矛盾。</p>
+
+<h3 id="dynamic-app-theming-with-jetpack-compose">使用Jetpack编写动态应用程序主题</h3>
+<p>索尼的OMS主题框架在几个版本之前就被添加到了AOSP，但是它仅仅是为原始设备制造商准备的。我们已经知道<a href="https://www.xda-developers.com/rootless-custom-themes-android-p/">谷歌反对</a>用户使用运行时资源覆盖来应用主题，但是对于开发者来说，该公司<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evq7vm9/">希望</a>它的<a href="https://www.xda-developers.com/android-jetpack-camerax-biometrics/"> Jetpack Compose UI </a>框架将带来“有趣的动态主题化方法”</p>
+
+<h3 id="vulkan-backend-for-skia-to-render-the-ui">vulkan-Skia呈现UI的后端</h3>
+<p>去年，<a href="https://www.xda-developers.com/google-android-q-vulkan-graphics-render-ui/">我们在谷歌工程师中发现了一场讨论</a>,讨论他们计划让Android框架使用Vulkan graphics API进行UI渲染。虽然现在有可能启用Vulkan硬件加速后端而不会让你的手机崩溃，但我们还没有听到谷歌关于他们计划何时推出这些变化的任何具体计划。这个AMA没有回答这个问题，但至少我们确认它仍在工作中。<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evqbg5o/">据罗曼·盖伊</a>:</p>
+
+<blockquote>
+<p/><h4>“该团队一直在为Skia开发Vulkan后端，这是Android使用的2D渲染器，但目前默认情况下没有启用。UI和画布仍然通过OpenGL ES。”</h4>
+ </blockquote>
+<h3 id="making-android-q-s-gesture-bar-more-dynamic">让Android Q的手势栏更加动态</h3>
+<p>XDA的一些人仍然认为安卓的新手势一团糟，但我个人认为它们很好。不过，如果你尝试一下Android Q中的新手势，你会发现手势栏不会随着你的手指移动。它还会停留在不需要它的屏幕上，比如主屏幕或最近的应用概述。艾伦·黄<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/ev23jzc/">说</a>他们“完全同意有机会”让“航线不那么静态”他进一步说“这是我们正在努力的——但是也要保持平衡，这样它就不会令人分心地出现/消失。”</p>
+
+<h3 id="improvements-to-the-storage-access-framework">存储访问框架的改进</h3>
+<p>Android Q的许多变化极大地提高了平台的安全性和隐私性。其中一个被称为“作用域存储”的变化，以一种合理的方式限制了应用程序对外部存储上的文件的访问；例如，音乐应用不需要查看你的图库。运行在Android Q上的文件管理应用程序必须使用一个叫做存储访问框架的API来继续正常工作，但是<a href="https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/">一些开发者认为这个API不如以前可用的API</a>。来自谷歌<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evq8qxb/">的Jeff Sharkey说</a>团队已经解决了一些开发者的抱怨:</p>
+
+<blockquote>
+<p/><h4>“我们在最新的Android Q测试版中进行了一些SAF性能改进；你能根据最新的测试版检查你的基准吗？还应确保在运行任何批量操作时使用ContentProviderClient。</h4>
+ </blockquote>
+<h3 id="project-treble-improved-android-pie-adoption-versus-android-oreo">与Android Oreo相比，Project Treble提高了Android Pie的采用率</h3>
+<p>我们已经看到了Project Treble，一个主要的Android框架的底层重构，是如何改进新的Android操作系统版本的采用的。谷歌归功于去年加入<a href="https://www.xda-developers.com/android-p-beta-program-is-now-available/"> Android P beta </a>和今年加入<a href="https://www.xda-developers.com/android-q-beta-3-released/"> Android Q beta </a>的智能手机厂商的三倍。首席项目Treble和<a href="https://www.xda-developers.com/android-q-project-mainline-security/">主线</a>工程师<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evqeobj/">Ili Yan mal chev</a>表示，2018年底，Android Pie的采用率是Android Oreo的“3倍”。</p>
+
+<p>在同一篇评论中，Dick Dougherty调侃道，Android版本分布图中有更多有用的指标。这张图表最近一次更新是在5月份，但是它的数据对记者来说比应用开发者更有用。</p>
+
+<h3 id="screen-recording-is-still-a-wip">屏幕录制仍然是WIP</h3>
+<p>早期的Android Q betas版为基本的屏幕录制器添加了一个功能标志，但该平台本身已经通过允许应用程序从其他应用程序捕获音频而大大改善了屏幕录制的实用性。斯蒂芬妮·萨阿德·卡斯伯特森说，团队正在考虑“我们如何才能在屏幕录制需求方面做得更好。”其他智能手机品牌如<a href="https://www.xda-developers.com/download-oneplus-screen-recorder-android-q/">【一加】</a>、华硕、华为和三星都有强大的屏幕记录器，可以记录内部音频，因此谷歌将在这方面迎头赶上。</p>
+
+<h3 id="dark-theme-all-the-things">黑暗主题所有的事情！</h3>
+<p>如果你错过了，谷歌正在给他们的大多数应用程序添加黑暗模式。斯蒂芬妮·萨阿德·卡斯伯特森(Stephanie Saad Cuthbertson <a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evqdjj3/">表示</a>预计所有“主要应用程序”都将支持“官方(Android Q)发布”的黑暗主题即使是谷歌Chrome，目前在启用全系统黑暗主题时强制页面重新加载，也将更新为主题改变时不再刷新。</p>
+
+<h3 id="yes-third-party-launchers-will-work-with-gestures-eventually">是的，第三方启动器将(最终)支持手势</h3>
+<p>当你使用第三方启动器时，Android的手势有点儿<a href="https://www.xda-developers.com/android-q-beta-5-third-party-launcher-gesture-navigation/">失灵。这是因为最近的应用程序UI包含在股票启动器应用程序中，谷歌还没有找到一种方法来实现我们在股票像素启动器中使用手势时看到的无缝过渡。亚当·科恩</a><a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evqy129/?context=3">证实</a>谷歌计划“在发布后尽快”解决这些问题他进一步表示，这种不兼容性“将在Q更新后得到解决，并在Q发布的新设备中进行反向移植。”</p>
+
+<h3 id="dynamic-logical-partitions-are-not-here-to-kill-custom-roms">动态/逻辑分区不是用来杀死定制的rom的</h3>
+<p>为了支持Android Q中的动态系统更新，谷歌Pixel 3和Pixel 3 XL等设备使用了逻辑分区。这些分区可以动态调整大小。这一变化已经证明<a href="https://www.xda-developers.com/magisk-google-pixel-3-pixel-3a-android-q/">在获得根访问工作</a>方面具有挑战性，一些开发者担心定制rom成为目标。Iliyan Malchev向我们保证，其目的并不是要限制定制的rom。作为<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evtzmle/">，他解释道</a>:</p>
+
+<blockquote>
+<p/><h4>“动态分区并不意味着限制你可以用定制的rom做什么。它们只是解决固定分区大小和缺乏在OTA上重新分区设备的安全方法的问题。在动态分区出现之前，如果OEM在调整系统分区等方面出现错误，那么他们将受到该选择的限制，使得在某个时间点之后几乎不可能升级设备。一些原始设备制造商在实践中确实在OTA上对他们的设备进行了重新分区，但这是a)在Android中不被官方支持，以及b)改变分区表被认为是相当冒险的。动态分区旨在通过在物理分区表和操作系统之间引入一个间接层来缓解这个问题。这反过来允许我们在OTA上安全地调整分区大小。至于定制的rom，你不应该像今天这样被你所能做的所束缚。支持定制rom是并将继续是每个OEM决定启用的功能。”</h4>
+ </blockquote>
+<h3 id="project-mainline---art-module-and-support-length">项目主线-艺术模块和支架长度</h3>
+<p>Mainline是Google的一项新举措，旨在标准化某些库和包，以便它们可以独立于平台更新而更新。有些人想知道为什么Android运行时(ART)还不是一个主线模块，但我在Google I/O上被告知，模块化ART所涉及的复杂性阻止了他们将其作为初始APEX包之一。正如Iliyan Malchev和Diana Wong解释的那样:</p>
+
+<blockquote>
+<p/><h4>“对运行时进行更新(尤其是性能&amp; GC修复和核心库)绝对是我们在主线环境中探索的事情。我们可以看到很多好处，能够使这些更新在所有设备和主线的多个版本之间保持一致。这也是一个巨大的技术挑战，因为我们认为如何为开发者做得最好，可能需要多年的努力。这不是Mainline目前能做的事情，但肯定是我们正在考虑的事情。”</h4>
+ </blockquote>
+<p>如果你追随AOSP的精神，你会发现谷歌一直在努力打造运行时顶点。目前，他们似乎正在<a href="https://android-review.googlesource.com/c/platform/art/+/1012047">将Bionic和ART/libcore </a>拆分成独立的APEX模块。</p>
+
+<p>关于项目主线的好处，一位用户询问主线更新的长度。作为回应，Iliyan Malchev <a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evtzmle/">说</a>“这是一个政策问题，我们仍在评估，但我们希望尽可能长时间地更新设备上的主线模块。”XDA知名开发人员<a href="https://forum.xda-developers.com/member.php?u=5778309"> luca020400 </a>询问是否会提供预建主线模块，以便定制ROM开发人员可以合并更新，对此，杰夫·贝利<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evtyrvi/">重申</a>“从AOSP分离出来的模块将拥有与每个模块版本相匹配的源代码版本。”我们已经可以在AOSP看到新的APEX模块的进展，例如用于<a href="https://android-review.googlesource.com/c/platform/system/core/+/1014637">神经网络API </a>的模块。</p>
+
+<h3 id="camerax-meets-ml-kit">相机符合ml套件</h3>
+<p>在今年的I/O大会上，谷歌推出了<a href="https://www.xda-developers.com/android-jetpack-camerax-biometrics/"> CameraX Jetpack库</a>。这个库旨在使开发人员更容易支持Android的Camera2 API，同时保持与Android Lollipop的兼容性。Vinit Modi <a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evtyjrr/">调侃道</a>该公司正致力于将CameraX与<a href="https://www.xda-developers.com/google-ml-kit-machine-learning/"> ML Kit </a>，谷歌的机器学习Firebase SDK整合，这样开发者就可以将图像帧输入ML Kit进行分析。</p>
+
+<h3 id="camerax-vendor-extensions-and-release-date">CameraX供应商扩展和发布日期</h3>
+<p>一个相机应用程序的开发者感叹道，第三方相机应用程序无法使用谷歌像素的夜视等先进的相机功能。这应该可以通过CameraX供应商扩展来解决，对此Google的Jeff Sharkey】说“所有的像素设备都针对CameraX内核进行了优化。”他开玩笑说，“扩展方面将在新的和即将到来的设备上得到支持。”此外，谷歌正在“与几家制造商合作，以便能够将他们的设备功能带给开发者和用户。”虽然没有得到直接证实，但我们可能会看到像<a href="https://www.xda-developers.com/google-pixel-4-leaks-rumors/">谷歌像素4 </a>上的<a href="https://www.xda-developers.com/google-pixel-night-sight-google-camera-review/">夜视</a>这样的功能可以用于使用CameraX库的第三方相机应用程序。</p>
+
+<p>夏基先生表示，谷歌的目标是在今年年底推出测试版。</p>
+
+<h3 id="memory-management-improvements-in-android-q">Android Q中的内存管理改进</h3>
+<p>Pixel 3因发布后出现<a href="https://www.xda-developers.com/google-pixel-3-pixel-3-xl-issues-problems-help-list/">众多问题而遭到痛斥，但谷歌通过众多</a><a href="https://www.xda-developers.com/google-pixel-performance-digital-wellbeing/">发布后更新</a>做了大量工作来解决这些问题。内存管理一直是Pixel 3最薄弱的方面之一，但在Android Q版本中情况应该会有所改善。根据Selim Cinek的说法:</p>
+
+<blockquote>
+<p/><h4>“例如，在SystemUI中，我们在Q中进行了各种大的重构工作，以减少通知和其他表面的RAM使用量。”</h4>
+ </blockquote>
+<h3 id="will-we-finally-get-wireless-adb">我们最终会得到无线ADB吗？</h3>
+<p>如果你想无线调试你的手机，你必须根你的设备。Android工作室团队的Jamal Eason】说他们目前正在解决这个功能的可行性。</p>
+
+<h3 id="does-google-still-test-on-tablets">谷歌还在平板电脑上测试吗？</h3>
+<p>XDA知名开发者Luk1337询问谷歌是否仍在平板电脑上测试AOSP·UX。考虑到<a href="https://www.xda-developers.com/samsung-galaxy-tab-s6-spen-announced/">缺乏好的安卓平板电脑</a>和当前版本中存在的<a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evu1o49/">漏洞</a>，这是一个合理的问题。Allen Huang <a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/evtzbj5/">说</a>谷歌仍然“每年测试和修复”，该公司正与合作伙伴密切合作，“以确保良好的Android平板电脑体验。”</p>
+
+<hr/>
+
+<p>Reddit上有很多完整的帖子。我在这里介绍的内容总结了我们了解到的所有新信息，但是一些谷歌员工(尤其是Dianne Hackborn)对削减X特性或不实现Y权限进行了深入的分析。如果你想更好地理解Android团队的决策，我建议你阅读AMA的全文。</p>
+
+<p/><p><a href="https://www.reddit.com/r/androiddev/comments/ci4tdq/were_on_the_engineering_team_for_android_q_ask_us/?sort=qa"><strong>/r/Android dev</strong>上阅读完整AMA</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Google Camera code hints the Google Pixel 4 may have a telephoto lens</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌相机代码暗示谷歌像素4可能有一个长焦镜头</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-pixel-4-telephoto-lens-google-camera/#0001-01-01">https://www.xda-developers.com/google-pixel-4-telephoto-lens-google-camera/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>当谷歌在2016年发布其第一款Pixel智能手机时，该公司展示了其相机软件在竞争中的领先优势。得益于像<a href="https://www.xda-developers.com/google-pixel-night-sight-google-camera-review/">夜视</a>和超分辨率变焦这样的新功能，谷歌的像素相机继续给人留下深刻印象，但智能手机世界的其他部分正在赶上谷歌<a href="https://www.xda-developers.com/huawei-p30-pro-camera-review-50x-zoom/">，如果不是在变焦和低光等领域已经超过他们</a>。到目前为止，谷歌Pixel智能手机在每个型号上都只有一个后置摄像头，但谷歌已经<a href="https://www.xda-developers.com/google-pixel-4-teaser/">证实</a>这将随着2019年的Pixel而改变。谷歌Pixel 4将至少有两个后置摄像头，由于我们在最新的谷歌相机应用程序中发现的代码，看起来谷歌将在下一个Pixel上引入长焦镜头。</p>
+
+  
+<p/><p><img class="size-large wp-image-264302 aligncenter" src="../Images/a453a1825deb40cda9a57fbdeb6a80b7.png" alt="google pixel 4" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/06/pixel-4-google-teaser-1024x512.jpg"/> <em>谷歌官方分享的谷歌Pixel 4营销渲染图。渲染确认了方形摄像头凸起，其中包含两个后置摄像头，一个LED闪光灯和一个未知的第三传感器。</em></p>
+
+ 
+<h2 id="google-camera-6-3-leaks-from-android-q-beta-5">谷歌摄像头6.3从Android Q Beta 5泄露</h2>
+<p>近4个月前，谷歌<a href="https://www.xda-developers.com/android-q-dp1-google-pixel-2-google-pixel-3/">发布了</a>下一个主要Android版本:Android Q的首次公开预览。该公司已承诺在今年第三季度第一个Android Q稳定版本上线前<a href="https://www.xda-developers.com/android-q-beta-release-schedule/"> 6个公开测试版</a>。Android Q beta 4上个月早些时候在<a href="https://www.xda-developers.com/android-q-beta-4-released-google-pixel/">推出</a>，第五个测试版应该很快就会发布，但是<a href="https://twitter.com/MishaalRahman/status/1146437359279456259">一些幸运的用户</a>已经收到了下一个测试版。这个早期发布的Android Q beta 5的内部版本号为QP1A.190626.001，安全补丁为2019年8月。这意味着该版本不仅是最近才制作的，而且也不打算向公众发布。幸运的是，收到OTA的用户之一在<a href="https://www.apkmirror.com/apk/google-inc/camera/camera-6-3-017-253834016-release/"> <em> APKMirror </em> </a>上分享了谷歌相机应用的更新版本6.3，我们对其进行了检查，以寻找有关Pixel 4的线索。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="google-pixel-4---rear-telephoto-sensor-id">谷歌Pixel 4——“后置长焦”传感器ID？</h2>
+<p>在浏览代码时，我们发现了对“Sabre”的更改，这是谷歌对Super Res Zoom的内部代号。一个名为“SABRE_UNZOOMED_TELEPHOTO”的新领域立即引起了我们的注意，然后让我们有了另一个有趣的发现:新的谷歌相机传感器IDs。我们确认了这些新字段在Google Camera 6.2中不存在。</p>
+
+
+
+
+
+<p>传感器id列表包括“前IR”传感器、“前常规”传感器、“前宽”传感器、“后常规”传感器和“后远摄”传感器。还有“前逻辑”和“后逻辑”传感器，但“逻辑”最有可能是指根据Android 9 Pie的<a href="https://source.android.com/devices/camera/multi-camera#implementation">多摄像头API </a>的“由两个或更多指向同一方向的物理摄像头设备组成的逻辑摄像头设备”。<a href="https://www.xda-developers.com/google-pixel-3-xl-camera-software-design-pixel-stand/">谷歌Pixel 3 </a>有两个前置摄像头(一个“常规”主镜头和一个广角镜头)和一个后置摄像头，所以在这个列表中仅有的两个不同寻常的id是“前置红外”传感器和“后置长焦”传感器。</p>
+
+<p>假设IR代表红外线，那么这个ID可能是用于面部识别的IR传感器。虽然，说实话，我不确定为什么谷歌相机应用程序中会出现这条线。“后置长焦”ID可能指的是后置的长焦相机，这将是Pixel手机的第一款。因为我们知道谷歌Pixel 4系列将是第一批双后置摄像头的像素，这意味着“后置长焦”ID肯定<em>不是指之前Pixel智能手机的任何摄像头。另一方面，Pixel 3具有前置广角摄像头，因此我们无法确认“前置广角”传感器ID是否也指2019款Pixel上的前置摄像头。最后，后置长焦相机的存在意味着官方渲染中显示的可能没有后置广角镜头，这可能会让一些人失望。</em></p>
+
+<p>如果谷歌Pixel 4确实有一个辅助后置长焦摄像头，那么我们真正能说的是，它将支持某种非数字变焦。在不知道长焦和主传感器焦距的情况下，我们无法对光学变焦做出估计。不过，我们可以猜测，谷歌将通过其数字<a href="https://ai.googleblog.com/2018/10/see-better-and-further-with-super-res.html">超分辨率变焦技术</a>来补充长焦镜头的变焦。我怀疑我们会看到与<a href="https://www.xda-developers.com/oppo-reno-10x-zoom-vs-huawei-p30-pro/"> OPPO Reno 10X Zoom或华为P30 Pro </a>不相上下的结果，但谷歌今年可能会再次给我们带来惊喜。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="subtle-improvements-to-night-sight">夜视的细微改进？</h2>
+<p>我们还发现了暗示夜视即将发生变化的代码，尽管我们不完全确定它们是什么意思。有一个参数提到了“天空分割”，另一个参数提到了与“乌贼”相关的功能，这是谷歌对夜视的代号。一个名为“getOptimize_sky”的方法和另一个名为“setSky_segmentation_gpu”的方法听起来像是谷歌正在对夜视算法进行改进，以更好地区分天空，但我们不确定最终结果会是什么。没有任何字符串或其他文件，我们可以看看这里发生了什么，但我们将继续关注未来的谷歌摄像头更新，以了解更多信息。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

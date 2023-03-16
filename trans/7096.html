@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>[Update: Official] Reddit tests showing warnings before posting on highly moderated subreddits</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>[更新:官方] Reddit测试在发布到高度节制的子编辑之前显示警告</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/reddit-tests-posting-warnings-moderated-subreddits/#0001-01-01">https://www.xda-developers.com/reddit-tests-posting-warnings-moderated-subreddits/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新1(美国东部时间2019年8月28日下午5:05):</strong>这个实验为一位Reddit用户上线，他在/r/ModSupport subreddit上发了一个帖子。这引起了许多版主的注意，并引起了Reddit管理员的回应。更多细节见下文。</p> </div></section>
+<p/><p>Reddit是世界上最受欢迎的社交新闻聚合和讨论网站。虽然大多数Redditors更喜欢不同的第三方客户端访问网站，但Reddit自己的官方应用自推出以来一直越来越受欢迎。这款应用程序在这段时间里也获得了新的功能，突出的功能如<a href="https://www.xda-developers.com/reddit-for-android-android-q-dark-mode/">黑暗模式切换</a>得到了普通用户的广泛喜爱和赞赏。现在，为了帮助用户和版主互动和管理高度审核的子编辑，Reddit正在测试额外的警告，这些警告将在用户通过官方应用在这些子编辑中发帖之前出现。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_2"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>像<a href="https://www.reddit.com/r/science/"> /r/science </a>和<a href="https://www.reddit.com/r/history/"> /r/history </a>这样的子编辑是非常严格的，只接受那些符合质量阈值的帖子，而拒绝和删除那些不符合的帖子。不经常向这些子编辑发帖的用户仍然不知道这些提交质量阈值。因此，来自这些不知情的提交者的大量帖子被丢弃，版主通常会得到通知。这只会导致用户因为失去所有努力的结果而感到沮丧，而版主有更多的行动需要审核。推测不同的消息，一个可能在第一次提交之前显示，另一个可能在用户提交失败后试图重新提交时显示。</p>
+
+<p>Android v3.35.0的官方Reddit应用程序似乎将运行一个实验，向用户显示一个警告，指导他们在提交帖子到subreddit之前阅读规则。我们在代码中发现了两个不同的消息，这两个消息也根据子编辑的提交删除率而不同，即低、中或高。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"label_posting_difficulty"</span>&gt;</span>Posting difficulty<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"high_post_removal_rate_header"</span>&gt;</span>High post removal rate<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"high_post_removal_rate_label"</span>&gt;</span>high post removal rate<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"high_post_removal_rate_message_treatment_1"</span>&gt;</span>This community has a high post removal rate, please read the community rules<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"high_post_removal_rate_message_treatment_2"</span>&gt;</span>This community has a high post removal rate, consider selecting a similar community with a lower post removal rate<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"medium_post_removal_rate_header"</span>&gt;</span>Medium post removal rate<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"medium_post_removal_rate_label"</span>&gt;</span>medium post removal rate<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"medium_post_removal_rate_message_treatment_1"</span>&gt;</span>This community has a medium post removal rate, please read the community rules<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"medium_post_removal_rate_message_treatment_2"</span>&gt;</span>This community has a medium post removal rate, consider selecting a similar community with a lower post removal rate<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"low_post_removal_rate_label"</span>&gt;</span>low post removal rate<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>subreddit规则的按钮位于reddit应用程序的提交屏幕上，非常方便，因此用户应该很容易在错误提交之前点击并阅读规则。尽管存在Reddit的桌面网站和第三方应用程序解决方案，但官方应用程序的采用率一直在稳步上升，因此这一变化应该会让很多用户受益。</p>
+
+ 
+
+
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+<hr/>
+
+
+<h2 id="update-1-official-reddit-response">更新Reddit官方回应</h2>
+<p>Reddit用户/u/ <a href="https://www.reddit.com/user/Vullein070"> Vullein070 </a>通知/r/ <a href="https://www.reddit.com/r/ModSupport/comments/cwmqnj/this_community_has_a_medium_post_removal_rate/eyddsoo/"> ModSupport subreddit </a>他们创建了一个备用帐户来测试一些东西。当他们试图在一个未命名的子编辑上发布帖子时，他们发现了关于帖子删除率的新的提交前警告。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/08/Reddit-Medium-Post-Removal-Rate-1024x918.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Credits: \/u\/Vullein070&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/08/Reddit-Medium-Post-Removal-Rate-1024x918.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/08/Reddit-Medium-Post-Removal-Rate-1024x918.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/08/Reddit-Medium-Post-Removal-Rate-1024x918.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/08/Reddit-Medium-Post-Removal-Rate-1024x918.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Reddit post removal rate warning" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/08/Reddit-Medium-Post-Removal-Rate-1024x918.jpg" src="../Images/df0fe60437a40e4e058ed1ff88c19e2e.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/08/Reddit-Medium-Post-Removal-Rate-1024x918.jpg"/> </picture> <figcaption class="body-img-caption">Credits: /u/Vullein070</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>这一变化激怒了Reddit的许多版主，他们认为这一功能将使用户远离他们的社区，为了解决这些抱怨，Reddit管理员<a href="https://www.reddit.com/user/HideHideHidden">hideheived</a><a href="https://www.reddit.com/r/ModSupport/comments/cwmqnj/this_community_has_a_medium_post_removal_rate/eyddsoo/">解释了</a>该公司新功能背后的原因。他们解释说，这是一个“小规模和短期的实验”，让公司“了解[他们]是否可以减少大型社区中被删除的帖子数量。”管理员指出，这只是“他们尝试鼓励更好的用户行为的各种测试之一。”这个删除率警告的目的是减少在“具有更严格规则集的社区”中提交的“低努力内容”的数量不仅如此，该功能还将帮助用户“找到对他们的内容更宽容的互补社区。”管理员正在积极地与子编辑中关心的版主合作，看看如何改进这个功能。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

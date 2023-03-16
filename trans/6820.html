@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>How to enable MIUI's dark mode on POCO F1 or any other Xiaomi phone</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何在POCO F1或任何其他小米手机上启用MIUI的黑暗模式</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/miui-10-dark-mode-poco-f1-xiaomi/#0001-01-01">https://www.xda-developers.com/miui-10-dark-mode-poco-f1-xiaomi/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>小米一直在为几款设备测试MIUI上的全系统黑暗模式。Redmi Note 5 (Note 5 Pro在印度)已经在<a href="https://www.xda-developers.com/android-pie-miui-10-beta-xiaomi-mi-note-3-redmi-note-5-pro-redmi-6-pro/">稳定版本</a>中提供了该功能，而包括Mi 8在内的许多其他受支持的设备早在五月份就通过<a href="https://c.mi.com/thread-2126580-1-1.html"> MIUI全球测试版</a> ROM获得了该功能。<a href="https://www.xda-developers.com/xiaomi-poco-f1-design-display-gaming-performance-review/"> POCO F1 </a>，也许是小米最近最吸引人的预算旗舰，也将在即将到来的更新中与红米Note 7 Pro一起获得黑暗模式-如果不是MIUI 10，那么肯定是MIUI 11。</p>
+
+  
+<p/><p><strong> <span> <a href="https://forum.xda-developers.com/poco-f1"> POCO F1 XDA论坛</a> </span> </strong></p>
+
+<p>与此同时，XDA高级成员<a href="https://forum.xda-developers.com/member.php?u=8317367"> TrippyEngine </a>告知我们一个后门，可以在POCO F1或任何其他运行稳定版本MIUI 10 global ROM的小米智能手机上启用全系统黑暗模式。它要求你运行一个简单的ADB shell命令，这种方法甚至可以在不启动小米智能手机的情况下工作。确保你已经在你的电脑上安装了<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/"> ADB驱动</a>，并且开启了USB调试。</p>
+
+<p>要在MIUI 10上启用全系统黑暗模式，请输入命令:</p>
+
+<p/><p><code><strong>adb shell settings put secure ui_night_mode 2</strong></code></p>
+
+<p>要在MIUI 10上禁用黑暗模式，请输入:</p>
+
+<p/><p><strong>T2<code>adb shell settings put secure ui_night_mode 1</code></strong></p>
+
+<p>要在夜间自动打开黑暗模式，在白天自动关闭，请使用:</p>
+
+<p/><p><code><strong>adb shell settings put secure ui_night_mode 0</strong></code></p>
+
+<p>更新:正如许多用户在下面的评论中指出的，你可能直到重启智能手机才能看到变化。</p>
+
+<p>随着<a href="https://www.xda-developers.com/tag/android-q/"> Android Q </a>，开启黑暗模式的选项<a href="https://www.xda-developers.com/android-q-toggle-dark-theme/">将被原生添加到Android </a>中。由于小米<a href="https://www.xda-developers.com/xiaomi-miui-10-global-beta-dark-theme/">已经在MIUI 10 </a>全球测试版中引入了该功能，我们希望MIUI 10不仅基于Android Pie，还基于奥利奥，应该会得到黑暗模式切换。小米已经证实，全系统黑暗模式将成为MIUI 11的组成部分。</p>
+
+<p>根据之前的报道，MIUI的测试版黑暗模式描绘了通知阴影，最近菜单，设置和系统应用程序，如拨号器，联系人，相机，画廊，笔记，屏幕录制器，更新程序，计算器和SIM工具包。用上面的方法，你应该能够在上面列出的所有应用程序中切换黑暗模式。</p>
+
+<p>如果你在其他应用上发现了黑暗主题，请务必在评论中告诉我们。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

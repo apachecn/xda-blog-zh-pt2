@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Android Q beta 5 blocks gesture navigation on third-party launchers</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Q beta 5阻止了第三方启动器上的手势导航</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-beta-5-third-party-launcher-gesture-navigation/#0001-01-01">https://www.xda-developers.com/android-q-beta-5-third-party-launcher-gesture-navigation/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌首次在Android 9 Pie中引入手势导航，即现在众所周知的双按钮导航。在Android Q beta 2中，谷歌修改了手势，使其更加流畅，占用空间更少。可以说更像iPhone，Android Q的新手势比Android Pie的手势有了实质性的改进，但仍有改进余地。在即将到来的Q beta 5版本中，谷歌证实他们将改变导航抽屉的<a href="https://www.xda-developers.com/android-q-beta-5-gesture-behavior-navigation-drawers/">手势行为，但</a><a href="https://www.xda-developers.com/android-q-beta-5-google-assistant-gesture-animation/">早期泄露的</a>也显示将有新的助手手势提示和动画以及背部灵敏度选项。</p>
+
+  
+<p>现在，我们有了更多关于Android Q beta 5将如何改变手势导航的信息。泄露新助手手势变化的同一位Redditor也证实了第三方启动器现在与手势导航不兼容。考虑到对第三方启动器的手势支持一直有点不稳定，这并不奇怪。从Android 9 Pie开始，最近的应用程序组件被集成到默认的系统启动器中。Android Q的新手势栏使得最近的应用程序概览中的应用程序之间的切换非常流畅，但这导致了自Q beta 3以来第三方启动器支持更加繁琐。似乎谷歌已经决定，当默认启动器改为第三方应用程序时，只阻止用户启用手势导航。</p>
+
+
+
+
+
+<p> </p>
+
+<p/><p>上面的截图由/u/Charizarlslie发布，展示了当你试图改变启用手势导航的默认启动器时会发生什么。当默认启动器被改变时，导航样式被强制回到3按钮导航，并且手势导航选项变得不可访问。我们检查了Q beta 5的SystemUI APK，并确认NavigationModeController类增加了一个方法，当默认启动器切换到非系统应用程序时，可以禁用手势控制。</p>
+
+
+
+<p>有趣的是，通过发出以下ADB命令，当第三方启动器被设为默认时，可以强制启用手势控制:</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">cmd</span> <span class="hljs-selector-tag">overlay</span> <span class="hljs-selector-tag">enable</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.internal</span><span class="hljs-selector-class">.systemui</span><span class="hljs-selector-class">.navbar</span><span class="hljs-selector-class">.gestural</span></code> </pre>
+<p>这是因为3个手势选项都是由覆盖切换的，所以谷歌可能没有预见到用户手动启用覆盖。</p>
+
+<hr/>
+
+<p><i> T </i> <i>感谢PNF软件公司为我们提供使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev">杰布反编译器</a>，这是一款用于Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

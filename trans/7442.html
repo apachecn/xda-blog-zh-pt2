@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Google Fi v20 hints at using dual SIMs to speed up network switching</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Google Fi v20暗示使用双sim卡加速网络切换</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-fi-v20-hints-at-using-dual-sims-to-speed-up-network-switching/#0001-01-01">https://www.xda-developers.com/google-fi-v20-hints-at-using-dual-sims-to-speed-up-network-switching/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>如果你不熟悉Google Fi，那是Google自己的MVNO运营商。虽然大多数MVNOs依赖于一家大型运营商的网络，但Google Fi不同，它使用三家运营商:Sprint、T-Mobile和U.S. Cellular。兼容手机能够根据覆盖范围在这些网络之间智能切换。Google Fi v20 APK为Google Fi提供了一种新的网络切换方式。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>“专为Fi设计”的手机可以通过eSIM或传统的SIM卡进行网络切换。Fi有时切换网络很慢，用户经常抱怨这一点。事实上，有<a href="https://play.google.com/store/apps/details?id=com.cheekydevs.fiswitch&amp;hl=en">第三方应用</a>允许你强制网络切换。Google Fi v20暗示使用双sim卡来加快切换过程，它有可能被用来为更多设备带来网络切换。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"card_configure_starburst_activate"</span>&gt;</span>Maximize networks<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"card_configure_starburst_init_description"</span>&gt;</span>"Unlock faster network switching and more reliable connections by having Fi use both of your phone's SIMs."<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"card_configure_starburst_init_title"</span>&gt;</span>Maximize your networks<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"disable_starburst_auto_switching"</span>&gt;</span>Disabling multisim auto switching<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"enable_starburst_auto_switching"</span>&gt;</span>Enabling multisim auto switching<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"enable_starburst_device_failed"</span>&gt;</span>Unable to maximize your coverage<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"enable_starburst_device_fragment_text"</span>&gt;</span>"Unlock faster network switching and a more reliable signal by having Fi use both of your phone's SIMs. Your phone will restart."<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"enable_starburst_device_fragment_title"</span>&gt;</span>Maximize your coverage<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"starburst_failed_body"</span>&gt;</span>"We'll try again in a few minutes."<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"starburst_failed_title"</span>&gt;</span>Unable to activate second SIM<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"starburst_feature_not_enabled"</span>&gt;</span>Multisim feature not enabled, cannot toggle auto switching.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"starburst_in_progress_title"</span>&gt;</span>Maximizing your network connections…<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"starburst_success_body"</span>&gt;</span>"You now have even faster network switching. Both of your phone's SIMs are now using Google Fi."<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"starburst_success_title"</span>&gt;</span>Your 2 SIMs are active<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>上面的字符串来自谷歌Fi v20 APK。我们可以在一些地方看到谷歌提到使用sim卡来“解锁更快的网络切换和更可靠的信号。”本质上，一个SIM将连接到一个运营商，而另一个SIM将连接到不同的运营商。这将允许手机更容易地在它们之间切换。</p>
+
+<p>看起来这款应用将会有一个“最大化网络”的选项。然后它会引导用户激活两个sim卡。这可能是一个eSIM和一个物理SIM或两个物理SIM。一旦设置完成，你的两个模拟市民将在Fi上激活。</p>
+
+<p>像Pixel 3和Pixel 4这样的手机有eSIM和Fi，传统上这些设备不需要物理SIM。但是现在你可以使用eSIM并充分利用SIM卡插槽来改善你的连接。一些手机有双SIM卡插槽，它们可能会使用两张Google Fi SIM卡来进行网络切换。我们将拭目以待谷歌如何使用这一功能。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

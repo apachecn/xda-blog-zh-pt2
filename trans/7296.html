@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Google Pixel 4's Motion Sense works in 53 regions and with 23 apps</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Pixel 4的运动感应可以在53个地区和23个应用程序中工作</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-pixel-4-motion-sense-list-countries-supported-apps/#0001-01-01">https://www.xda-developers.com/google-pixel-4-motion-sense-list-countries-supported-apps/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>去年的Pixel 3可能赢得了“历史上泄露最多的智能手机”的奖项，但Pixel 4已经非常接近击败它的前任。大量的Pixel 4泄露事件与它的软件有关，这要感谢众多在网上分享新应用的泄密者。新的<a href="https://www.xda-developers.com/download-google-pixel-4-live-wallpapers-port/"> Pixel 4动态壁纸</a>、<a href="https://www.xda-developers.com/download-updated-google-pixel-launcher-4-swipe-down-notification-gesture/"> Pixel Launcher </a>、<a href="https://www.xda-developers.com/google-recorder-app-pixel-4-download/"> Google Recorder应用</a>和<a href="https://www.xda-developers.com/google-camera-7-0-google-pixel-4-leak-hands-on/"> Google Camera应用</a>已经公开，但来自新Pixel的其他apk也已泄露。多亏了<a href="https://nextrift.com/"> <em> Nextrift </em> </a>，我们拿到了一个预发布的运动感应APK，这是谷歌对Soli雷达手势的命名，它可以显示支持哪些国家和媒体应用。</p>
+
+  
+<p>对于那些最近没有跟上所有泄漏的人来说，这里需要一点背景知识。几年来，谷歌一直在研究它称为Soli的雷达技术。Soli能够进行精确的手势检测，<a href="https://www.xda-developers.com/google-pixel-4-face-unlock-soli-gestures/">谷歌正在用它来驱动Pixel 4上的运动感应手势</a>,用于跳过歌曲、打盹闹钟或静音电话。Soli对光不敏感，可以通过塑料材料工作，因为它的工作频率为60GHz。由于这一无线电频率要求，谷歌需要<a href="https://www.xda-developers.com/pixel-4-fcc-wireless-charging-lte/">向国家监管机构认证Pixel 4 </a>，以允许在该范围内传输无线电频率。</p>
+
+<p>如果谷歌没有完成Pixel 4在特定国家的认证，那么Motion Sense就不会在那里工作。我们已经看到<a href="https://www.xda-developers.com/pixel-4-soli-gestures-select-countries/">百思买登陆页面</a>透露日本等国家将不会获得动作感应手势，但上周，<a href="https://9to5google.com/2019/09/26/pixel-4-motion-sense-38-countries/"><em>9 to 5谷歌</em> </a>和我们一样获得了预发布的APK，透露该功能将在38个地区工作。他们还<a href="https://9to5google.com/2019/09/26/motion-sense-pixel-4-9-music-apps/">找到了</a>手势将支持的9个媒体应用的列表，这令人失望，因为我们假设手势会发送标准的意图来改变媒体轨道。</p>
+
+
+
+
+
+<p/><p><em>9到5Google发现了一个APK内支持Motion Sense的国家和媒体应用列表(包名为“com.google.oslo”)。支持的国家列表来自一个名为“isAvailableInCountry”的方法，该方法根据38个MCC(移动国家代码)的列表检查手机的国家代码。)支持的媒体应用程序列表是在一个名为“SkipMediaTrack”的类中，在一个名为“isSupportedApp”的方法下找到的。</em></p>
+
+<p>然而，通过我们自己的挖掘，我们发现了Pixel 4的Soli-radar供电的运动感应手势支持的更完整的地区和媒体应用程序列表。事实上，我们认为目前至少支持53个地区和23个媒体应用程序，而不是之前报道的38个和9个。这是因为<em> 9to5 </em>找到的列表是在APK中硬编码的，它是从预发布的Pixel 4 XL中提取的。我们发现的列表在谷歌内部数据库中，用于控制其应用程序的配置值。更完整的国家列表来自一个名为“mcc_whitelist”的配置，而更完整的支持应用列表来自一个名为“media_app_whitelist”的配置，这两个列表都是针对“oslo”的，Oslo是Motion Sense的代号。由于APK来自预发布的Pixel 4 XL，而这个新列表来自谷歌内部数据库，我们认为我们的列表更准确，因为APK可能已经过时了。</p>
+
+ 
+<h2 id="list-of-53-regions-that-motion-sense-should-work-in">动作感应应该工作的53个区域的列表</h2>
+<ul> <li>美属萨摩亚群岛</li> <li>奥地利</li> <li>澳大利亚</li> <li>比利时</li> <li>保加利亚</li> <li>加拿大</li> <li>克罗地亚</li> <li>塞浦路斯</li> <li>捷克共和国</li> <li>丹麦</li> <li>爱沙尼亚</li> <li>芬兰</li> <li>法国</li> <li>法属圭亚那</li> <li>法属印度洋领土(两个军事管制中心都列在清单上)</li> <li>法属波利尼西亚</li> <li>德国</li> <li>希腊</li> <li>瓜德罗普岛</li> <li>关岛</li> <li>匈牙利</li> <li>爱尔兰</li> <li>意大利</li> <li>朝鲜；韩国</li> <li>拉脱维亚</li> <li>立陶宛</li> <li>卢森堡</li> <li>马耳他</li> <li>马提尼克岛</li> <li>荷兰</li> <li>新喀里多尼亚</li> <li>北马里亚纳群岛</li> <li>挪威</li> <li>波兰</li> <li>葡萄牙</li> <li>波多黎各</li> <li>罗马尼亚</li> <li>圣巴特梅</li> <li>圣马丁岛</li> <li>圣皮埃尔和密克隆</li> <li>新加坡</li> <li>斯洛伐克</li> <li>斯洛文尼亚</li> <li>西班牙</li> <li>瑞典</li> <li>瑞士</li> <li>台湾</li> <li>阿拉伯联合酋长国</li> <li>联合王国</li> <li>美利坚合众国</li> <li>美属维尔京群岛</li> <li>瓦利斯群岛和富图纳群岛</li> </ul>
+
+<p>总共有39个国家，美国和法国的13个地区加起来构成了52个受支持地区的列表，加上一个，因为法属印度洋地区有两个MCC。<em>9 to 5</em>发现的MCC列表仅提到美属维尔京群岛和美国Somoa为受支持地区，但我们的列表通过列出更多地区的MCC对其进行了扩展。我们的名单中最值得注意的是澳大利亚，百思买列为受支持，但没有出现在<em> 9to5的</em>名单中。</p>
+
+<p>有人怀疑谷歌Pixel 4是否会在所有这些地区销售。我们无法确认该设备将在哪些国家销售，并且该列表不应被视为意味着该设备将在特定国家销售。此列表仅告诉我们手势将在哪些区域被激活，因此如果您连接到未列入白名单的区域的网络，您将无法访问这些手势。</p>
+<p class="ad-odd"> </p>
+
+
+
+<ul> <li>亚马逊音乐</li> <li>昂哈密</li> <li>苹果音乐</li> <li>潮流音乐</li> <li>温克音乐</li> <li>伊海尔特拉迪奥</li> <li>我们的音乐</li> <li>加纳音乐</li> <li>YouTube音乐</li> <li>Google Play音乐</li> <li>亨加马音乐</li> <li>JioSaavn</li> <li>珍妮音乐(Genie Music)</li> <li>벅스(虫子音乐)</li> <li>潘多拉</li> <li>Napster音乐</li> <li>沙扎姆</li> <li>SiriusXM</li> <li>KKBOX</li> <li>Spotify</li> <li>Spotify电台</li> <li>Deezer音乐播放器</li> <li>美国酒类协会(American Wine Association)</li> </ul>
+
+<p>我们发现有趣的是，JioSaavn、Wynk、Gaana和Hungama都被列出来了，尽管印度没有出现在受支持地区的列表中，但有可能谷歌只是在为那些在印度以外使用这些应用的用户提供便利。也有可能他们正计划让运动感觉在这个国家发挥作用。</p>
+
+<hr/>
+
+<p><a href="https://www.xda-developers.com/google-pixel-4-motion-sense-gestures-leak/">由于</a> <em> <a href="https://www.xda-developers.com/google-pixel-4-motion-sense-gestures-leak/">的泄露，这是今天的科技</a>，</em>我们确切地知道手势将如何工作。“跳过音轨”手势的工作原理是检测您何时向左或向右挥手,“静音”手势的工作原理是检测您何时在电话上挥手，而“伸手检查电话”手势的工作原理是检测您何时将手靠近电话。</p>
+
+
+
+
+
+<p/><p><em>图片来源:<a href="https://www.youtube.com/watch?v=yp93W9kRvcw">来自今日科技</a>的m .李国豪。</em></p>
+
+<p>我们分析了APK，可以确认没有任何隐藏的手势尚未被发现，这很不幸，因为我希望运动感应能够做得更多。尽管如此，我相信一旦手机发布，我们论坛上的某些人会想出如何定制或添加新的手势。</p>
+
+<p/><p><a href="https://forum.xda-developers.com/pixel-4"> <strong>谷歌Pixel 4论坛</strong></a>| |<a href="https://forum.xda-developers.com/pixel-4-xl">|<strong>谷歌Pixel 4 XL论坛</strong> </a></p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

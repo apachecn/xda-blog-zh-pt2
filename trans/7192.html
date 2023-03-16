@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Android 10 Dark Mode: How to set a schedule for it</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 10黑暗模式:如何为其设置时间表</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-10-dark-mode-schedule/#0001-01-01">https://www.xda-developers.com/android-10-dark-mode-schedule/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>稳定的Android 10现在可用于所有代的Pixel智能手机和Essential手机，它带来了大量备受欢迎的功能，如改进的手势导航和全系统黑暗模式。后一个功能可能是最有影响力的，因为它导致许多应用程序添加了黑色主题，如<a href="https://www.xda-developers.com/google-gmail-dark-mode-android/"> Gmail </a>、<a href="https://www.xda-developers.com/google-play-store-dark-theme-android-10/">谷歌Play商店</a>等等。在早期的Android Q betas中，你可以根据一天中的时间来安排黑暗模式的切换，就像夜间照明一样。然而，谷歌<a href="https://www.xda-developers.com/android-q-ama-summary/">取消了</a>这个选项，因为它可能会在你使用应用程序时突然重启它们，从而对用户体验产生负面影响。谢天谢地，有了第三方应用，你可以带回Android 10黑暗模式调度。</p>
+
+  
+<p>我确认这个应用程序可以在我运行稳定的Android 10版本的Pixel 2 XL上运行。我所要做的就是安装它并运行一个ADB命令来授予它更改控制系统范围黑暗模式切换的设置的权限。ADB，即Android Debug Bridge，是一款开发者工具，可以用来控制手机上的各种选项；它主要用于开发，但也可以用来授予Android操作系统不允许授予的权限。只要你小心你授予权限的应用程序，你将是安全的。哦，运行这个命令不会以任何方式使保修无效。</p>
+
+<p>在您授予应用程序适当的权限后，应用程序将根据您选择的时间表处理黑暗模式的更改。最好的部分是，它还有一个选项，只改变手机锁定时的活动主题。这样，当你在使用某个应用时，它不会突然重启。现在，这里是如何设置它。</p>
+
+
+
+
+
+<p/><p>【Android 10自动黑暗主题截图，从应用的Play Store列表中检索。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p><strong>要求:</strong></p><ul> <li><strong> Android 10(稳定版、测试版或定制ROM): </strong>目前在所有Pixel智能手机和Essential手机上提供稳定版，但也在<a href="https://www.xda-developers.com/emui-10-huawei-p30-pro-android-q-hands-on/">华为P30 Pro </a>、<a href="https://www.xda-developers.com/android-q-miui-xiaomi-mi-9-video/">小米Mi 9 </a>、红米K20 Pro (“稳定版测试版”)和许多其他手机上提供测试版。<a href="https://www.xda-developers.com/tag/android10/">自定义ROM用户</a>也可以利用这个app。</li> <li><strong> ADB安装在您的电脑上。</strong>如何在你的Windows、macOS或Linux电脑上设置它的说明<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/">可以在这里找到</a>。</li> </ul> </div></section>
+<p><strong>步骤:</strong></p>
+
+ 
+
+
+
+<ol> <li>安装来自谷歌Play商店的“Android 10自动黑暗主题”应用程序。您可以点击上方方框中的链接，或者点击此处的<a href="https://play.google.com/store/apps/details?id=com.cannic.apps.automaticdarktheme"/>。</li> <li>将您的手机插入PC，在下载ADB二进制文件的同一目录下打开命令提示符或终端窗口。</li> <li>打开手机上的应用程序。</li> <li>运行以下命令:<strong> Windows 10命令提示符:</strong><pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.cannic</span><span class="hljs-selector-class">.apps</span><span class="hljs-selector-class">.automaticdarktheme</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre><strong>Windows 10 PowerShell:</strong><pre> <code class="hljs css">.\<span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.cannic</span><span class="hljs-selector-class">.apps</span><span class="hljs-selector-class">.automaticdarktheme</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.permission</span><span class="hljs-selector-class">.WRITE_SECURE_SETTINGS</span></code> </pre><strong>MAC OS/Linux终端:</strong> <pre> <code class="hljs sql">./adb shell pm <span class="hljs-keyword">grant</span> com.cannic.apps.automaticdarktheme android.permission.WRITE_SECURE_SETTINGS</code> </pre></li> <li>享受使用应用程序的乐趣！您可以通过更改是否希望应用程序仅在手机锁定时切换黑暗模式来稍微定制应用程序的行为。还可以隐藏应用发布的通知；这个通知对于应用程序在后台运行是必要的，这样它就可以按计划改变黑暗主题，而不会被Android操作系统杀死。</li> </ol>
+
+<p>这款应用的开发者<a href="https://www.reddit.com/r/androidapps/comments/d2pzdl/dev_automatic_dark_theme_for_android_10/">表示</a>他们计划增加基于日出和日落时间表的黑暗模式调度，以及从应用抽屉中隐藏应用图标的选项。这是一个相当简单的应用程序，它的工作做得很好，但这些增加的功能将使Android 10黑暗模式调度感觉像一个原生功能。</p>
+
+<hr/>
+
+<p><em>注意:虽然你可以使用像<a href="http://xda-developers.com/tag/tasker"> Tasker </a>这样的自动化应用程序在技术上自动化Android 10中的黑暗模式，但这个应用程序是免费使用的，并且只有一个目的。如果你对自动化感兴趣，我强烈推荐你学习如何使用像Tasker这样的应用。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

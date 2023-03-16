@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>MIUI 9.8.5 adds a dual clock and prepares an under-keyboard shortcut bar and "Dual WLAN acceleration"</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>MIUI 9.8.5增加了双时钟，并准备了键盘下快捷栏和“双WLAN加速”</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/miui-985-dual-clock-under-keyboard-shortcut-bar-dual-wlan-acceleration/#0001-01-01">https://www.xda-developers.com/miui-985-dual-clock-under-keyboard-shortcut-bar-dual-wlan-acceleration/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>小米使用MIUI测试版来测试即将推出的各种设备的功能，这些设备运行在他们基于Android的定制UX上。看到<a href="https://www.xda-developers.com/miui-always-on-display-xiaomi-redmi/">未来</a>为用户准备了什么总是令人兴奋的，这些测试版让我们有机会观察<a href="https://www.xda-developers.com/xiaomi-mi-file-manager-updated-design-miui-beta/">一些新的和即将到来的变化</a>。这些测试版也给了我们一些线索，让我们知道未来的设备会有什么样的功能，比如<a href="https://www.xda-developers.com/xiaomi-reverse-wireless-charging-miui-beta/">反向无线充电功能</a>。最新的MIUI 9.8.5测试版透露，小米计划在屏幕键盘下方添加一个快捷栏，以及一个名为“双WLAN加速”的双Wi-Fi连接功能。最新的测试版还为其时钟小工具增加了双时钟功能。</p>
+
+ 
+<h2 id="dual-clock">双时钟</h2>
+<p>双时钟功能是小米自己通过他们的<a href="https://www.weibo.com/1786860821/I0PUS95ia"> MIUI微博账号</a>直接确认的。</p>
+
+
+
+<p>在最新的测试版中，你可以通过设置&gt;更多设置&gt;日期和时间&gt;双重时钟来为主屏幕时钟小工具启用双重时钟。拥有这个特性是很方便的，尤其是当你需要与世界上不同地方的人进行协调时。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些功能目前在live build中没有实现，可能会在未来的build中随时被小米拉出来。</p> </div></section><p class="ad-odd"> </p>
+
+
+<h2 id="under-keyboard-shortcut-bar">键盘下的快捷栏</h2>
+<p>在MIUI 9.8.5中，我们还发现了表明小米正计划在键盘下方的快捷栏中添加的字符串。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"raise_bottom_height_of_keyboard"</span>&gt;</span>Enhanced<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"raise_bottom_height_of_keyboard_sub_title"</span>&gt;A bar <span class="hljs-keyword">with</span> customizable shortcuts will appear under the keyboard <span class="hljs-keyword">if</span> you <span class="hljs-keyword">switch</span> to Enhanced mode&lt;<span class="hljs-regexp">/string&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"raise_bottom_height_of_keyboard_title"</span>&gt;</span>Adjust keyboard to full screen display<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>快捷栏将增加一些快捷方式，每次虚拟键盘出现在屏幕上时，这些快捷方式都很容易访问。这些捷径是什么现在还不知道；但是可能的猜测包括剪切、复制和粘贴的快捷方式，以及其他基于文本编辑的操作。这些快捷方式也可以用于快速启动其他应用程序，但考虑到上下文，这样的选项似乎有点反直觉。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="dual-wi-fi-dual-wlan-acceleration">双Wi-Fi /双WLAN加速</h2>
+<p>双Wi-Fi连接最近已经成为一个话题。<a href="https://www.xda-developers.com/mediatek-helio-g90-series-hyperengine-game-technology-launched/">联发科Helio G90系列SOC</a>将双Wi-Fi连接作为联发科超引擎游戏技术的一大亮点。Oppo还<a href="https://www.xda-developers.com/oppo-qualcomm-game-color-plus-dual-wi-fi-technology-mobile-gaming/">最近宣布双Wi-Fi连接</a>是Oppo Reno设备的一大亮点。最新测试版中的Strings表明小米也在研究类似的功能。</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slavewifi"</span>&gt;</span>Dual WLAN<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slavewifi_disconnect"</span>&gt;</span>Disconnect<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slavewifi_notification_title"</span>&gt;</span>Dual WLAN acceleration<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slavewifi_settings"</span>&gt;</span>Tap to modify configuration<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>根据我们的理解，双WLAN加速将允许智能手机同时连接到两个Wi-Fi波段或两个路由器。这将提升设备的整体连接速度，改善网络体验。这对于下载大文件和玩游戏特别有用。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>
