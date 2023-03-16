@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>RIP Menu Button: Android 10 drops legacy support for extremely old apps</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>翻录菜单按钮:Android 10放弃了对极旧应用的传统支持</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/rip-menu-button-android-10-drops-legacy-support-extremely-old-apps/#0001-01-01">https://www.xda-developers.com/rip-menu-button-android-10-drops-legacy-support-extremely-old-apps/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>这个网站上的很多人都是Android的长期用户，从Froyo和Gingerbread的时代就开始了。那时候，智能手机都是带物理按键的(喘气！)用于UI导航:即后退按钮、菜单按钮、主页按钮和搜索按钮。实体按钮被电容触摸按钮所取代，搜索按钮也被一些原始设备制造商放弃了——但通过其他三个专用按钮导航UI和应用程序的总体想法在当时的Android世界中仍然存在。</p>
+
+  
+<p>通过Android 3.0 Honeycomb，谷歌推动平板电脑制造商采用基于软件的屏幕导航按钮来取代物理按钮，并引入了<a href="http://developer.android.com/reference/android/app/ActionBar.html"> ActionBar </a>作为标准解决方案，使用户选项中的操作立即可见并快速调用。“菜单”按钮的想法让<a href="https://android-developers.googleblog.com/2012/01/say-goodbye-to-menu-button.html">也将</a>演变成了一个“动作溢出”按钮，表示一个检索不适合动作栏的动作的按钮；尽管如此，用户仍然继续称它为菜单按钮。Honeycomb最近还为平板电脑推出了应用程序按钮，而Android 4.0冰淇淋三明治则将这一功能推至智能手机。由后退、主页和最近应用组成的标志性3按钮导航栏就这样诞生了，留下了专用菜单和搜索按钮。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/11/Android-Market.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Android Market with the Overflow button, along with the 3-button navigation bar&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/11/Android-Market.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/11/Android-Market.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/11/Android-Market.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/11/Android-Market.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="Android Market" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/11/Android-Market.jpg" src="../Images/3b4f50ef7277412b4379f39ce542e937.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/11/Android-Market.jpg"/> </picture> <figcaption class="body-img-caption">Android Market with the Overflow button, along with the 3-button navigation bar</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>有一个专用的菜单按钮导致应用程序开发人员采用糟糕的设计选择，因为开发人员对屏幕上显示什么动作和菜单中有什么相当粗心。当时，用户会下意识地点击菜单按钮，希望找到更多对他们有用的选项，这是不必要的浪费行为。因此，动作栏的引入带来了更多的设计一致性，因为它建议开发人员将最重要的动作直接放在动作栏上或屏幕上的其他地方，只有那些没有找到位置的动作才会出现在溢出按钮中。</p>
+
+<p>然而，当时许多针对Android 2.3和更低版本的应用程序尚未更新以在屏幕上显示菜单，因此没有专用菜单按钮的用户将无法启动菜单。谷歌通过为传统应用程序添加兼容性行为来解决这一问题，允许系统在仅支持Android 2.3和更低版本的应用程序上的系统导航按钮旁边显示操作溢出/菜单按钮。</p>
+
+
+
+<p>这种遗留支持从Android 3.0蜂巢一直延伸到Android 9派。但随着Android 10的推出，谷歌终于拔掉了插头。针对Android 2.3或更早版本的Android应用程序现在将不再有菜单按钮显示在<a href="https://www.xda-developers.com/android-10-android-q-brand-redesign/"> Android 10 </a>上，以及更高版本。在<a href="https://issuetracker.google.com/issues/140699628">对强调删除的错误报告</a>的回应中，谷歌确认了删除:</p>
+
+<blockquote>
+<p>这是有意删除的，因为该API现已在多个版本中被弃用。所以，这是预期的工作。</p>
+ </blockquote>
+<p>这个决定将影响到非常非常少的用户，他们一直继续依赖古老和长期被遗弃的应用程序-如果它有效，它就有效，对吗？如果你是那些突然发现你最喜欢的应用程序之一不再能够显示它的菜单的人之一，也许是时候继续前进，寻找更新的替代品了。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://issuetracker.google.com/issues/140699628">谷歌问题跟踪者</a>T3】</strong></p>
+
+<p><strong>故事Via:<a href="https://www.reddit.com/r/Android/comments/dvuwpn/remember_the_old_menu_key_of_android_23_now_its/">/r/Android</a>T3】</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

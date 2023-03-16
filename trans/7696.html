@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Enable Pixel 4's Live Caption feature on rooted Android 10 devices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在根Android 10设备上启用Pixel 4的实时字幕功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/enable-pixel-4-live-caption-android-10/#0001-01-01">https://www.xda-developers.com/enable-pixel-4-live-caption-android-10/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>对于失聪或听力困难的用户来说，谷歌在Android 10中新推出的实时字幕工具可能会非常有用。这个工具是今年早些时候在Google I/O上发布的，它可以自动为你设备上播放的音频提供字幕。它适用于视频、播客、音频信息和其他支持的媒体(但不适用于电话或视频通话)。当谷歌推出这项功能时，他们把它变成了<a href="https://www.xda-developers.com/google-pixel-4-specs-features-pricing-availability/"> Pixel 4独有的</a>，尽管<a href="https://www.xda-developers.com/google-pixel-4-what-you-missed/">说他们计划在本月的某个时候把它带到Pixel 3和Pixel 3a上。然而，</a><a href="https://www.xda-developers.com/android-10-live-caption-google-pixel-4/">我们已经展示了</a>它也可以在其他设备上运行，现在我将分享如何在您自己的设备上启用它。</p>
+
+  
+<p class="w-rich w-youtube" id="C6bocsWi9U8">  </p>
+
+
+<p>你需要一个运行Android 10的根设备来实现这一功能，因为谷歌迄今为止打算让Live Caption只在最新的Pixel智能手机上运行。除了我用来在Android 10上启用实时字幕支持的方法，还有另一种方法，涉及到改变系统属性值，以欺骗设备个性化服务应用程序，使其认为它正在Pixel 4上运行。然而，在较旧的Pixel手机上这样做会破坏谷歌相机应用程序，所以我不会分享这种替代方法。我分享的方法不会触及任何系统属性；相反，它直接将控制实时字幕特性的所有值设置为真。因此，相机功能或任何其他功能都不会受到影响。不过，在像这样刷新任何模块之前，你应该准备好备份。</p>
+
+<p>我在Pixel 2 XL和Pixel 3 XL上启用了实时字幕。我在Twitter上的一些粉丝说，它可以在Pixel 3a、第一代Pixel、Essential Phone和运行定制based ROM的Redmi K20上工作。使用这种方法，直播字幕似乎无法在运行OxygenOS 10的一加6T或一加7 Pro上工作，但希望我们可以通过更多的调试让它工作。如果你想在你自己的设备上尝试一下，下面是你需要做的。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_4"><p><strong>要求:</strong></p><ul> <li>运行Android 10的Android智能手机或平板电脑。</li> <li>使用Magisk进行Root访问。</li> </ul> </div></section>
+<p><strong>步骤:</strong></p>
+
+<ol> <li>前往“设置”&gt;“应用”,然后轻按菜单以显示所有系统应用。查看是否安装了“设备个性化服务”。这款应用预装在Pixel设备上。它不应该出现在非像素设备上，但一些定制的rom可能已经捆绑了它。</li> <li>如果您的设备已经安装了“设备个性化服务”，那么您必须更新到从Pixel 4中提取的APK的最新版本。<a href="https://www.apkmirror.com/apk/google-inc/device-personalization-services/device-personalization-services-2-6-278396641-release/device-personalization-services-2-6-278396641-2-android-apk-download/#file">具体来说，安装这个APK </a>。从像素4提取的APK具有用于实况字幕特征的代码。这个APK的其他版本将没有实时字幕。如果您的设备尚未安装设备个性化服务，则不要尝试安装它，只需继续下一步。</li> <li>打开Magisk Manager并从下载部分安装“SQLite for ARM aarch64 devices”模块。<em>注意:如果你已经有一个来自TitaniumBackup或Termux的SQLite二进制文件，那么我的Magisk模块安装程序脚本会检测到它，所以你不需要安装这个单独的SQLite二进制文件。</em></li> <li>重启你的手机。</li> <li>下载我制作的以下Magisk模块之一，并将其安装在Magisk管理器中。如果您的设备安装了“设备个性化服务”，并且您按照步骤#2更新到最新版本，则安装这个名为“<a href="https://www.androidfilehost.com/?fid=4349826312261651123"> LiveCaption_Pixel.zip </a>”的模块。如果你的设备没有安装“设备个性化服务”并且你跳过了第2步，那么安装这个名为“<a href="https://www.androidfilehost.com/?fid=4349826312261651122"> LiveCaption_nonPixel.zip </a>的模块。_Pixel和_nonPixel模块的区别在于_nonPixel模块捆绑了“设备个性化服务”应用程序。这是一个系统应用程序，所以如果你没有安装它，它不能像任何普通的APK一样安装。</li> <li>重启你的手机。</li> <li>检查实时字幕设置的设置&gt;声音或设置&gt;辅助功能。启用该功能，并通过观看带有英语音频的YouTube视频来查看它是否有效。如果它不起作用，尝试重新启动一次。</li> </ol>
+
+
+
+
+
+<p>希望你能在你的Android 10设备上运行实时字幕。我已经在我的Pixel 2 XL上启用该功能两个多月了，没有出现任何问题。不过，给你个警告。<strong>不要通过谷歌Play商店更新设备个性化服务应用程序。</strong>谷歌为不同的设备提供不同版本的应用程序——如果你安装的版本不是为Pixel 4设计的，你将失去实时字幕功能。在Play Store中禁用此应用程序的自动更新，并检查以确保您通过APKMirror安装的任何更新的APK都来自Pixel 4。</p>
+
+<hr/>
+
+<p>这个方法是我自己发现的，但是我要感谢XDA论坛版主<a href="https://forum.xda-developers.com/member.php?u=4667597"> Didgeridoohan </a>和XDA公认开发者<a href="https://forum.xda-developers.com/member.php?u=4470081"> topjohnwu </a>帮我调试我的脚本。我还要感谢XDA的高级成员<a href="https://forum.xda-developers.com/member.php?u=9317193"> 73sydney </a>、jcmm11、adpoliak以及所有参与<a href="https://github.com/stylemessiah/GPay-SQLite-Fix/tree/master/common"> GPay-SQLite-Fix </a> Magisk模块的其他人，因为我借用了代码来检查SQLite二进制文件。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

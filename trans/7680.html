@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Enable Google Stadia on non-Pixel devices without Google Chrome</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在没有谷歌浏览器的非像素设备上启用谷歌视距</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/enable-google-stadia-any-android-smartphone/#0001-01-01">https://www.xda-developers.com/enable-google-stadia-any-android-smartphone/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">如何在没有谷歌浏览器桌面模式的非像素设备上播放谷歌Stadia游戏[Root]</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">以下是如何让谷歌Stadia游戏流媒体在任何Android智能手机上运行，而不仅仅是谷歌Pixel设备。需要根目录。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>经过<a href="https://www.xda-developers.com/google-stadia-games-pricing-availability/">个月的等待</a>，谷歌的云游戏服务终于上线了。总而言之，公平地说，谷歌对Stadia承诺过多，交付不足。然而，尽管事实上许多功能在发布时缺失，对于许多预购的用户来说，发货和代码都被延迟了，而且<a href="https://www.eurogamer.net/articles/2019-11-25-google-issues-statement-after-stadia-owners-say-it-broke-promises-over-game-performance">游戏没有以</a>承诺的4K60质量运行，这项服务本身似乎运行得相当顺利。</p>
+
+  
+<p>我还没有机会在上面玩游戏，但XDA撰稿人Max Weinbach对Stadia目前为止很满意。他与我分享了他的好友通行证，这样我可以在下个月旅行时尝试Stadia，但我不打算带着Pixel 4，因为它的电池寿命很差。不幸的是，如果你想使用Android应用程序将游戏直接传输到智能手机，谷歌要求你拥有Pixel 2、Pixel 3、Pixel 3a或Pixel 4。可以在桌面模式下使用谷歌Chrome启动游戏，但不幸的是，控制器不会这样工作。因此，我想看看我是否可以欺骗Stadia应用程序，让我在任何Android设备上玩游戏。幸运的是，这很容易做到。以下是方法。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_2"><p><strong>要求:</strong></p><ul> <li><a href="https://play.google.com/store/apps/details?id=com.google.stadia.android">谷歌Stadia应用安装</a>。要求安卓6.0+。</li> <li>基于Magisk的Android设备。</li> <li>(可选)安装了ADB的PC或手机上的终端模拟器应用程序。</li> </ul> </div></section>
+<p>启用Stadia支持的最简单方法是简单地打开Magisk管理器并安装我制作的Magisk模块。或者，您可以按照以下步骤手动设置系统属性:</p>
+
+<p><strong>步骤</strong></p>
+
+<ol> <li>打开MagiskManager并查找MagiskHide Props配置模块。</li> <li>安装模块并重启手机。</li> <li>现在，在ADB shell或您的终端应用程序中键入以下命令，进入MagiskHide Props Config的命令行界面:<pre> <code class="hljs ">props</code> </pre></li> <li>键入“<code>5</code>”添加/编辑自定义道具。</li> <li>键入“<code>n</code>”添加新的自定义道具。</li> <li>键入“<code>ro.product.model</code>”来设置这个道具。</li> <li>键入“<code>Pixel 4</code>”，将其设置为“<code>ro.product.model</code>”的值</li> <li>键入“<code>y</code>”接受道具更改。</li> <li>键入“<code>n</code>”，因为我们现在还不想重启。</li> <li>现在，重复步骤#5-8，但这次将“<code>ro.product.manufacturer</code>”设置为“<code>Google</code>”。</li> <li>最后，重启手机。启动后，通过输入以下命令，检查“<code>ro.product.model</code>”和“<code>ro.product.manufacturer</code>”是否分别设置为“<code>Pixel 4</code>”和“<code>Google</code>”:<pre> <code class="hljs css"><span class="hljs-selector-tag">getprop</span> <span class="hljs-selector-tag">ro</span><span class="hljs-selector-class">.product</span><span class="hljs-selector-class">.model</span><br/><span class="hljs-selector-tag">getprop</span> <span class="hljs-selector-tag">ro</span><span class="hljs-selector-class">.product</span><span class="hljs-selector-class">.manufacturer</span></code> </pre></li> </ol>
+
+<p>现在，你应该可以在任何Android手机上启动Stadia中的游戏了！我们在一加7 Pro上进行了测试，正如你在上面显示的特色图片中看到的那样。Stadia应用程序只检查两个系统属性，以确定您的设备是否有资格传输游戏。我们只是伪造了这两个属性，所以Stadia应用程序会认为它运行在谷歌的Pixel 4上。这是一个非常简单的调整，但如果它在Stadia应用程序的未来更新中被打破，我不会感到惊讶。如果教程需要调整，我们会更新这篇文章，但我们希望Stadia很快推广到其他Android设备，这样就没有必要了。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

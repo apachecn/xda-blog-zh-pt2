@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Live Transcribe 2.1 prepares to add Emergency siren detection, Smart Segments, and Speaker ID</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Live Transcribe 2.1准备添加紧急警报检测、智能片段和扬声器ID</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/live-transcribe-2-1-prepares-to-add-emergency-siren-detection-smart-segments-and-speaker-id/#0001-01-01">https://www.xda-developers.com/live-transcribe-2-1-prepares-to-add-emergency-siren-detection-smart-segments-and-speaker-id/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>今年早些时候，在谷歌I/O大会上，该公司<a href="https://www.xda-developers.com/live-transcribe-sound-amplifier-google-hearing-impaired/">推出了两款新的安卓应用</a>来帮助有听力障碍的人——实时转录和声音放大器。虽然这两个应用最初都是针对听力受损者的，但谷歌后来<a href="https://www.xda-developers.com/google-live-transcribe-sound-events-save-transcripts/">更新了实时转录应用</a>，以帮助学生和记者。更新后，该应用程序允许用户在本地设备上保存转录，甚至能够在转录过程中检测声音事件。现在，谷歌似乎正在为这款应用做准备，以引入另外三个功能。</p>
+
+ 
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_1"><p>APK拆卸通常可以预测应用程序未来更新中可能出现的功能，但我们在这里提到的任何功能都可能不会出现在未来的版本中。这是因为这些特性目前还没有在实时构建中实现，并且可能会被开发人员在未来的构建中随时引入。</p> </div></section>
+<p>Live Transcribe的最新更新(版本2.1.276871059)的拆解揭示了暗示即将到来的功能的代码字符串，包括显示紧急警报、智能片段和扬声器ID。显示紧急警报功能将允许应用程序识别紧急警报并提醒用户。这些字符串还包括一个功能对话框，说明“当报告警报时，请谨慎操作。请记住，并非所有的警笛都需要行动或指示相关的紧急情况(例如，电视上的警笛)。此外，我们的警报器检测偶尔会出错。”</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"show_emergency_siren_dialog_message"</span>&gt;</span>Please exercise caution when sirens are reported. Remember that not all sirens require action or indicate a relevant emergency (sirens on TV, for example). Furthermore, our siren detection will occasionally make mistakes.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"show_emergency_siren_title"</span>&gt;</span>Show Emergency Sirens<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"smart_segment"</span>&gt;</span>Smart segment<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"smart_segment_summary"</span>&gt;</span>Segment transcript based on performance (rather than text length)<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"speaker_id_title"</span>&gt;</span>Enable speaker ID<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>智能段功能将根据表现而不是文本长度来划分抄本，发言者ID功能将帮助应用程序识别和标记正在进行的对话中的发言者。我们的主编米沙·拉赫曼(Mishaal Rahman)也看了一下<a href="https://github.com/google/live-transcribe-speech-engine">Live transcript GitHub知识库</a>，其中<a href="https://www.xda-developers.com/google-io-2019-app-live-transcribe-speech-engine-open-source/">包含用于与谷歌的云语音API </a>通信的Android客户端库，并发现自动语音识别(ASR)模块支持内置的说话人识别。然而，没有提供扬声器ID实现，看起来应用程序目前没有它，但在不久的将来可能会改变。</p>
+
+<hr/>
+
+<p><i>感谢PNF软件为我们提供了使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款针对Android应用的专业级逆向工程工具。</i></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

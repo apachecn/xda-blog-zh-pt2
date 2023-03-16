@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Tasker update adds Logcat detection, allowing for a lot of new automation possibilities</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Tasker更新增加了Logcat检测，允许许多新的自动化可能性</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/tasker-update-logcat-detection-automation/#0001-01-01">https://www.xda-developers.com/tasker-update-logcat-detection-automation/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>对于想要定制手机每个部分的高级用户来说，有几个必备的应用程序。MacroDroid、Automate和Llama等应用程序都提供自动化功能，但在我看来，它们都无法与Tasker相比。虽然它可能没有最好的用户界面，但Tasker是我个人最喜欢的自动化应用程序，因为开发人员非常活跃，有多少插件可供使用，以及社区非常活跃。尽管Android APIs在每个新版本中都变得越来越受限制，但Tasker开发人员和社区已经找到了绕过这些限制的方法。例如，最新的v5.9.beta.8版本添加了一个新特性，它为可能的自动化用例开辟了一个全新的领域:logcat检测。</p>
+
+  
+<p><strong> Logcat检测</strong></p>
+
+<p>上个月，Tasker的开发者发布了一个新的测试版，该测试版在Android 10 上启用了剪贴板监控。由于Android 10 <a href="https://www.xda-developers.com/android-q-blocks-background-clipboard-access/">阻止后台应用程序读取剪贴板</a>，你可能想知道这怎么可能。答案是通过阅读logcat。<a href="https://www.xda-developers.com/guide-sending-a-logcat-to-help-debug-your-favorite-app/"> Logcat是一个shell工具</a>，它可以获取所有系统事件和应用程序贡献的其他事件的日志。每当写入新的剪贴板条目时，相应的系统日志将包含剪贴板文本。通过读取该日志，Tasker能够检测当前剪贴板条目是什么。</p>
+
+<p>通常情况下，应用程序不允许读取系统日志，它们也不能要求用户授予它们这样做的权限。这是因为敏感数据可能存在于日志中，并且允许任何应用程序读取日志的能力打开了与隐私和安全相关的整个蠕虫罐。然而，用户可以手动授予应用程序读取日志的权限。如果像Tasker这样的app声明了READ_LOGS权限，那么用户可以通过ADB手动授予该权限。当你安装最新的Tasker测试版时，它会要求你这样做。</p>
+
+<p>那么你能对Tasker中新的Logcat Entry事件做些什么呢？开发者自己给你举几个例子:</p>
+
+
+<p>这些都只是开发人员想出来的不同用例，但这远不是logcat检测可以做的事情的完整列表。</p>
+
+<p>下面的视频演示了如何使用Tasker来捕获和过滤所需条目的logcat:</p>
+
+ 
+<p class="w-rich w-youtube" id="3GSE1q6q_Q4">  </p>
+
+
+<p>logcat检测的两个问题是，它的设置远非用户友好，而且如果开发人员调整他们的应用程序发送的日志，它随时都会发生变化。设置这个需要一些尝试和错误，但是一旦你设置好了，你可能就不需要经常修改你的配置了。</p>
+
+<p><strong>新的快捷动作</strong></p>
+
+<p>Tasker的现任开发者其实是<a href="https://www.xda-developers.com/tasker-joao-dias-autoapps-development/">而不是app的原开发者</a>。当前的开发人员过去主要在一套名为AutoApps的Tasker插件上工作，所以当他接管Tasker的开发工作时，他开始将一些插件的功能迁移到主Tasker应用程序中。最新的Tasker测试版通过添加一个新的快捷操作，从本质上摒弃了AutoShortcut插件。</p>
+
+ 
+<p class="w-rich w-youtube" id="pcZWcnQfzDM">  </p>
+
+
+<hr/>
+
+<p>新的logcat条目检测和快捷方式操作是最新测试版中最大的两个变化，但还有其他一些小变化，如改进的获取位置操作、变量预览以及对两个长期存在的错误的修复。你可以在这里阅读完整的变更日志<a href="https://www.reddit.com/r/tasker/comments/dsf5gj/dev_tasker_59beta8_the_game_changer/">。你可以在Google Play </a>上注册<a href="https://play.google.com/apps/testing/net.dinglisch.android.taskerm">任务测试版，或者现在就下载APK</a><a href="https://www.dropbox.com/s/7j58vurja7vm4hj/Tasker.28.apk?dl=0"/>。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

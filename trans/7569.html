@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Developers: It's super easy to bypass Android's hidden API restrictions</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>开发者:绕过安卓隐藏的API限制超级容易</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-development-bypass-hidden-api-restrictions/#0001-01-01">https://www.xda-developers.com/android-development-bypass-hidden-api-restrictions/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>回到一年多前，我们都很期待看到Android测试版的新内容。用户期待着新的功能，开发者也期待着一些新的工具来让他们的应用变得更好。不幸的是，对于其中一些开发者来说，第一个Android P测试版带来了一点令人讨厌的惊喜:隐藏的API限制。在我深入了解它的确切含义之前，让我解释一下它的背景。</p>
+
+ 
+<h2 id="what-s-this-all-about">这是怎么回事？</h2>
+<p>Android应用开发者在做一个应用的时候，不必从头开始。谷歌提供工具，使应用程序开发更容易，更少重复。其中一个工具是Android SDK。SDK本质上是对开发者可以在他们的应用中安全使用的所有功能的引用。这些功能是谷歌批准的所有Android版本的标准配置。不过，SDK并不详尽。Android框架中有相当多的“隐藏”部分不是SDK的一部分。</p>
+
+<p>这些“隐藏”的部分对于更粗糙或低级的东西来说非常有用。例如，我的<a href="https://www.xda-developers.com/widget-drawer-access-widgets-anywhere/"> Widget抽屉应用</a>利用非SDK功能来检测用户何时从Widget启动应用，这样抽屉就可以自动关闭。你可能会想:“为什么不把这些非SDK功能变成SDK的一部分呢？”嗯，问题是他们的运作是不完全可预测的。谷歌无法确保该框架的每一个部分都能在它批准的每一台设备上运行，因此选择了更重要的方法进行验证。谷歌不保证框架的其余部分会保持一致。制造商可以更改或完全删除这些隐藏的功能。即使在AOSP的不同版本中，你也不知道一个隐藏的功能是否还会存在，或者像以前一样工作。</p>
+
+<p>如果你想知道为什么我一直使用“隐藏”这个词，那是因为这些功能甚至不是SDK的一部分。通常，如果你试图在应用程序中使用隐藏的方法或类，它将无法编译。使用它们需要<a href="https://www.geeksforgeeks.org/reflection-in-java/">反射</a>或修改的SDK。</p>
+
+<p>对于Android P，谷歌认为仅仅隐藏它们是不够的。当第一个测试版发布时，<a href="https://www.xda-developers.com/google-undocumented-hidden-apis-android-p/">宣布</a>大多数(不是全部)隐藏功能不再对应用开发者可用。第一个测试版会在你的应用程序使用黑名单功能时警告你。下一个测试版只是让你的应用崩溃了。至少对我来说，这个黑名单很烦人。它不仅破坏了相当多的<a href="https://forum.xda-developers.com/android/apps-games/official-xda-navigation-gestures-iphone-t3792361">导航手势</a>，而且由于隐藏功能默认被列入黑名单(谷歌不得不手动将一些每次发布的功能列入白名单)，我在让Widget Drawer工作时遇到了很多麻烦。</p>
+
+<p>现在，有几种方法可以绕过黑名单。第一个是简单地保持你的应用以API 27 (Android 8.1)为目标，因为黑名单只适用于以最新API为目标的应用。不幸的是，根据谷歌发布到Play Store的最低API要求(T1 ), API 27可能只能发布这么久。<a href="https://www.xda-developers.com/all-apps-require-target-android-pie-play-store/">截至2019年11月1日</a>，Play Store的所有应用更新必须针对API 28或更高版本。</p>
+
+<p>第二个变通办法实际上是谷歌内置在Android中的东西。可以运行ADB命令来完全禁用黑名单。这对于个人使用和测试来说非常好，但是我可以直接告诉你，试图让最终用户建立和运行ADB是一场噩梦。</p>
+
+<p>那我们该怎么办？如果我们想上传到Play Store，我们不能再以API 27为目标，ADB方法也不可行。但这并不意味着我们别无选择。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="the-hidden-api-fix">隐藏的API“修复”</h2>
+<p>隐藏的API黑名单仅适用于非白名单用户应用程序。系统应用程序、用平台签名签名的应用程序以及在配置文件中指定的应用程序都不在黑名单中。有趣的是，Google Play服务套件都是在配置文件中指定的。我想谷歌比我们其他人都要好。</p>
+
+<p>不管怎样，还是继续说黑名单吧。我们今天感兴趣的部分是系统应用程序是免税的。这意味着，例如，系统UI应用程序可以使用它想要的所有隐藏功能，因为它在系统分区上。显然，我们不能只把一个app推送到系统分区。这需要root，一个好的文件管理器，权限知识....使用亚行会更容易。这不是我们成为系统应用的唯一方式，至少就隐藏的API黑名单而言。</p>
+
+<p>回想一下七段前我提到反思的时候。如果你不知道什么是反思，我推荐你阅读<a href="https://www.geeksforgeeks.org/reflection-in-java/">这一页</a>，但这里有一个快速总结。在Java中，反射是一种访问通常不可访问的类、方法和字段的方式。这是一个非常强大的工具。就像我在那段中说的，反射曾经是访问非SDK函数的一种方式。API黑名单阻止了反射的使用，但是并没有阻止<em>双</em>-反射的使用。</p>
+
+<p>现在，事情变得有点奇怪了。通常，如果你想调用一个隐藏的方法，你应该这样做(这是在Kotlin中，但Java是类似的):</p>
+
+<pre> <code class="hljs bash">val someHiddenClass = Class.forName(<span class="hljs-string">"android.some.hidden.Class"</span>)<br/>val someHiddenMethod = someHiddenClass.getMethod(<span class="hljs-string">"someHiddenMethod"</span>, <span class="hljs-attr">String</span>::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span><br/><br/>someHiddenMethod.invoke(<span class="hljs-literal">null</span>, <span class="hljs-string">"some important string"</span>)<br/></code> </pre>
+<p>不过，多亏了API黑名单，您只能得到一个ClassNotFoundException。然而，如果你反思两次，就没问题了:</p>
+
+<pre> <code class="hljs xml">val forName = Class::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>.<span class="hljs-title">getMethod</span><span class="hljs-params">(<span class="hljs-string">"forName"</span>, String::class.java)</span></span><br/>val getMethod = Class::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>.<span class="hljs-title">getMethod</span><span class="hljs-params">(<span class="hljs-string">"getMethod"</span>, String::class.java, arrayOf&lt;Class&lt;*&gt;&gt;<span class="hljs-params">()</span>::class.java)</span></span><br/>val someHiddenClass = forName.invoke(<span class="hljs-keyword">null</span>, <span class="hljs-string">"android.some.hidden.Class"</span>) <span class="hljs-keyword">as</span> <span class="hljs-class"><span class="hljs-keyword">Class</span>&lt;*&gt;</span><br/>val someHiddenMethod = getMethod.invoke(someHiddenClass, <span class="hljs-string">"someHiddenMethod"</span>, <span class="hljs-attr">String</span>::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span><br/><br/>someHiddenMethod.invoke(<span class="hljs-literal">null</span>, <span class="hljs-string">"some important string"</span>)<br/></code> </pre>
+<p>很奇怪吧？嗯，是的，但也不是。API黑名单跟踪谁在调用一个函数。如果源没有被豁免，它就会崩溃。在第一个例子中，来源是应用程序。然而，在第二个例子中，源是系统本身。我们不是用反射直接得到我们想要的东西，而是用它来告诉系统得到我们想要的东西。由于隐藏函数的调用来源是系统，黑名单不再影响我们。</p>
+
+<p>所以我们结束了。我们现在有办法绕过API黑名单了。这有点笨拙，但是我们可以写一个包装函数，这样我们就不必每次都进行双重反射。不算很棒，但是聊胜于无。但实际上，我们还没完。有一种更好的方法可以让我们使用普通的反射或者修改过的SDK，就像以前一样。</p>
+
+<p>由于黑名单的执行是按进程评估的(在大多数情况下，这与按应用相同)，因此系统可能有某种方法来记录有问题的应用是否被豁免。幸运的是，确实有，而且我们也能接触到。使用新发现的双反射技术，我们得到了一个一次性使用的代码块:</p>
+
+<pre> <code class="hljs xml">val forName = Class::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>.<span class="hljs-title">getDeclaredMethod</span><span class="hljs-params">(<span class="hljs-string">"forName"</span>, String::class.java)</span></span><br/>val getDeclaredMethod = Class::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>.<span class="hljs-title">getDeclaredMethod</span><span class="hljs-params">(<span class="hljs-string">"getDeclaredMethod"</span>, String::class.java, arrayOf&lt;Class&lt;*&gt;&gt;<span class="hljs-params">()</span>::class.java)</span></span><br/><br/>val vmRuntimeClass = forName.invoke(<span class="hljs-keyword">null</span>, <span class="hljs-string">"dalvik.system.VMRuntime"</span>) <span class="hljs-keyword">as</span> <span class="hljs-class"><span class="hljs-keyword">Class</span>&lt;*&gt;</span><br/>val getRuntime = getDeclaredMethod.invoke(vmRuntimeClass, <span class="hljs-string">"getRuntime"</span>, <span class="hljs-literal">null</span>) <span class="hljs-keyword">as</span> Method<br/>val setHiddenApiExemptions = getDeclaredMethod.invoke(vmRuntimeClass, <span class="hljs-string">"setHiddenApiExemptions"</span>, arrayOf(arrayOf&lt;<span class="hljs-built_in">String</span>&gt;()::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)) <span class="hljs-title">as</span> <span class="hljs-title">Method</span></span><br/><br/>val vmRuntime = getRuntime.invoke(<span class="hljs-literal">null</span>)<br/><br/>setHiddenApiExemptions.invoke(vmRuntime, arrayOf(<span class="hljs-string">"L"</span>))<br/></code> </pre>
+<p>好吧，所以从技术上来说，这并不是告诉系统我们的应用程序从API黑名单中豁免。实际上，您可以运行另一个ADB命令来指定不应该列入黑名单的函数。这就是我们在上面所利用的优势。代码基本上覆盖了系统认为对我们的应用程序豁免的任何内容。在末尾传递“L”意味着所有方法都被豁免。如果您想要免除特定的方法，请使用Smali语法:<code>Landroid/some/hidden/Class;Landroid/some/other/hidden/Class;</code>。</p>
+
+<p>现在我们真的完成了。创建一个定制的应用程序类，将代码放入<code>onCreate()</code>方法中，然后就没有任何限制了。</p>
+
+<hr/>
+
+<p>感谢XDA会员舒威，虚拟曝光和太极的开发者，最初发现这个方法。我们还要感谢XDA公认的开发者topjohnwu为我指出了这个变通办法。这里有更多关于它如何工作的信息，虽然是中文的。我也<a href="https://stackoverflow.com/questions/55970137/bypass-androids-hidden-api-restrictions/55970138#55970138">写了关于栈溢出的文章</a>，还有一个JNI的例子。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

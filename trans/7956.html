@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>The U.S. Government funded smartphones which come with pre-installed malware</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>美国政府资助预装恶意软件的智能手机</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/us-government-smartphones-pre-installed-malware/#0001-01-01">https://www.xda-developers.com/us-government-smartphones-pre-installed-malware/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>Malwarebytes 的研究人员发现，一部美国政府资助的智能手机预装了恶意软件。如果不使设备不可用，就无法删除恶意软件。有问题的智能手机是UMX U683CL，作为维珍移动无线保证计划的一部分出售。这是一个联邦生命线援助计划。由FCC于1985年创建的Lifeline是一个旨在使低收入消费者更负担得起通信服务的计划。通过该计划，UMX U683CL的价格仅为35美元，其特点是高通骁龙210，1GB内存，5英寸480p液晶显示器，2000毫安时电池和Android Go。这当然不是一个坏的产品，但似乎价格的可承受性是以隐私为代价的。<em> Malwarebytes </em>的团队在UMX 683CL上发现了不止一个，而是两个预装恶意软件的实例。</p>
+
+ 
+<h2 id="wireless-update-the-return-of-adups">“无线更新”，Adups的回归</h2>
+<p>第一个应用程序是两个应用程序中较小的一个，自我标识为“无线更新”。这是更新设备的唯一方法，但它也有在后台自动安装应用程序的能力，无需用户同意。<em> Malwarebytes </em>将该恶意软件识别为<a href="https://blog.malwarebytes.com/detections/android-pup-riskware-autoins-fota/"> Android/PUP。Riskware.Autoins.Fota.fbcvd </a>，或Adups。</p>
+
+<p>另一方面，包含Adups恶意软件实际上是导致BLU智能手机从亚马逊市场下架的原因。BLU最终<a href="https://www.xda-developers.com/blu-ftc-deceptive-privacy-data-security/">与联邦贸易委员会</a>达成和解。Adups一直在收集大量<strong>用户数据，包括“短信正文、联系人列表、完整电话号码的通话记录，以及包括IMSI和IMEI在内的唯一设备标识符”。这些数据经过<a href="https://www.xda-developers.com/report-android-phones-transmit-data-to-adups-a-chinese-firm/">处理后被传输回家</a>。在UMX U683CL的情况下，一旦设备通电并连接到互联网，该应用程序立即开始在后台安装应用程序。到目前为止，这些应用程序没有恶意软件，但这仍然是在没有用户同意的情况下完成的。这也不意味着它们将来会干净。</strong></p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="pre-installed-and-unremovable-malware">预装和不可删除的恶意软件</h2>
+<p>但是最糟糕的是第二个应用程序，Android/Trojan。Dropper.Agent.UMX ，这是系统中被严重混淆且至关重要的部分。它是设备自带的<strong>设置</strong>应用的一部分，所以移除它会导致设备无法使用。<em> Malwarebytes </em>由于共享的服务名称，以及除变量名以外在各个方面都匹配的代码，该木马与源自中国的其他恶意软件相匹配。它还共享一个名为<em>com . Android . Google . bridge . libimp</em>的隐藏库，其中加载了另一个名为<em> Android/Trojan的木马。HiddenAds.WRACT </em>。它不会立即出现，Malwarebytes的研究人员最终还是收到了。这种新的恶意软件将自己呈现为一个简单的标题为“已满”的通知，没有其他识别信息。有可能卸载它<em> HiddenAds </em>，虽然不知道一旦你这么做了，它是否会一去不复返。</p>
+
+
+
+
+<p class="ad-even"> </p>
+
+
+
+<p>更糟糕的是，<em> Malwarebytes </em>的研究人员带着他们的发现联系了Assurance Wireless，并询问为什么一台美国资助的设备被出售时预装了恶意软件。到目前为止，在给了他们足够的时间作出答复后，他们没有收到任何答复。更可悲的是，针对低收入人群的智能手机不得不在隐私方面做出妥协，因为预算不应该决定消费者是否有隐私权。实际上也没有什么办法——卸载“无线更新”会阻止更新(尽管它不太可能得到很多更新)，而卸载设置应用程序在不阻塞你的手机的情况下或多或少是不可能的。甚至不需要在没有恶意软件和有一部可用的手机之间做出选择。</p>
+
+<p><em> Malwarebytes </em>无法确认UMX是否故意预装了恶意软件。虽然该恶意软件似乎来自中国，而且该设备是由一家中国公司生产的，但这可能只是一个巧合。<em> Malwarebytes </em>也明确表示，这种设备并不孤单，他们已经听说了许多关于其他廉价智能手机也预装恶意软件的报告。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://blog.malwarebytes.com/android/2020/01/united-states-government-funded-phones-come-pre-installed-with-unremovable-malware/">malware bytes</a>T3】</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

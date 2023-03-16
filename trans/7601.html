@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Android backups to Google Drive have been broken for many, here's how to fix it</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android备份到Google Drive已经坏了很多次，以下是修复的方法</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-backup-google-drive-broken-how-to-fix-manager/#0001-01-01">https://www.xda-developers.com/android-backup-google-drive-broken-how-to-fix-manager/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>从一个Android智能手机迁移到另一个Android智能手机的一个痛点是，在应用数据的上下文中，您不太可能进入与开始时相同的设备状态。当您在不同的OEM之间迁移时，这个问题会更加突出，因为特定的OEM解决方案通常以该生态系统为中心。谷歌试图通过利用Google Play服务框架和Google Drive为谷歌的Android提供内置备份管理器服务来解决这个问题。这个内置的解决方案会自动将联系人、通话记录、短信以及某些应用数据和设备设置备份到Google Drive，但从Android Pie开始，你也可以<a href="https://www.xda-developers.com/android-pie-test-manual-backup-google-drive/">自己触发备份</a>。然而，用户一直抱怨谷歌硬盘的备份在过去几个月里被破坏了。</p>
+
+  
+<p>据<em> <a href="https://www.androidpolice.com/2019/11/13/android-backups-to-google-drive-have-been-disabled-on-many-phones-for-months-no-proper-fix-in-sight/"> AndroidPolice </a> </em>报道，几个月来，一些用户一直在抱怨谷歌硬盘备份对他们来说已经完全崩溃了。“立即备份”按钮是灰色的，不能点击，手机停止备份数据，没有任何警告。在各种设备和其他变量中都发现了这个问题，因此您可能需要检查您的设备是否备份了数据。</p>
+
+
+
+<p>可悲的是，谷歌还没有承认这个问题，这意味着没有正式的解决方案。幸运的是，您可以通过几个简单的ADB命令将事情掌握在自己手中并<a href="https://www.xda-developers.com/android-pie-test-manual-backup-google-drive/">强制备份。正如XDA资深会员</a><a href="https://forum.xda-developers.com/member.php?u=8083015"> Dexer125 </a>在<a href="https://forum.xda-developers.com/mi-8/how-to/guide-google-backup-waiting-to-backup-t3895101">他的线程</a>中提到的，您可以使用备份管理器的shell命令界面强制进行备份:</p>
+
+<pre> <code class="hljs sql">adb shell<br/>bmgr run<br/>bmgr backupnow </code> </pre>
+<p>这应该会强制在您的设备上进行备份。如果得到“<em>备份完成，结果:备份取消</em>”，则运行以下命令:</p>
+
+<pre> <code class="hljs sql">bmgr backupnow appdata<br/>bmgr backupnow </code> </pre>
+<p>这应该有希望返回一个成功的结果。完成后，重启你的设备。“立即备份”按钮现在应该是可点击的，您的数据应该在后台备份。然而，我们仍然希望谷歌承认这个问题，并推出一个解决方案。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/mi-8/how-to/guide-google-backup-waiting-to-backup-t3895101">修复谷歌硬盘“等待备份”bug指南——XDA线程</a> </strong></p>
+
+<hr/>
+
+<p>虽然这个问题对受其影响的用户来说肯定是一个问题，但谷歌也应该认识到一个事实，即与苹果为其设备提供的强大解决方案相比，Android上的应用程序和设备设置备份情况非常糟糕。诚然，苹果处理的设备数量少得多，而Android生态系统的多样性绝对是巨大的。</p>
+
+<p>应用程序数据恢复在Android 6.0棉花糖中被引入为“<a href="https://developer.android.com/guide/topics/data/autobackup.html">自动备份应用程序</a>”。</p>
+
+<blockquote>
+<p><em>自动备份应用程序</em>自动备份目标为Android 6.0 (API级别23)或更高版本并在其上运行的应用程序中的用户数据。Android通过将应用程序数据上传到用户的Google Drive来保存应用程序数据，在Google Drive中，应用程序数据受到用户的Google帐户凭证的保护。你的应用的每个用户的数据量被限制在25MB，并且存储备份数据是免费的。你的应用程序可以定制备份过程或通过<a href="https://developer.android.com/guide/topics/data/autobackup.html#EnablingAutoBackup">禁用备份</a>选择退出。</p>
+ </blockquote>
+<p>默认情况下，应用程序可以选择将多达25MB的(<a href="https://developer.android.com/guide/topics/data/autobackup.html#Files">符合条件的</a>)数据备份到用户的Google Drive账户。但出于各种原因，许多开发者选择不将他们的应用程序数据保存到Google Drive。</p>
+
+<p>至于设备设置，Google Drive备份包括设置中的值。系统，设置。但是由于这些设置表对于每个OEM来说往往是不同的，所以许多数据不能被成功地备份或恢复。</p>
+
+<p>由于这些原因——应用程序开发人员选择退出，以及OEM实施中的差异——Android的备份和恢复已经变得脆弱和不完整。大多数用户不太可能知道这个痛点，直到他们到达恢复他们的数据的节点，才发现他们不得不花很多时间让他们的新手机类似于旧手机的软件状态。或许谷歌是时候涉足这些领域了？</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

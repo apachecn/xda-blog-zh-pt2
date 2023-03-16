@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Google Camera and Samsung Camera apps exposed camera and video intents to third-party apps</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌相机和三星相机应用程序将相机和视频意图暴露给第三方应用程序</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-samsung-camera-app-exposed-video-intents-third-party-apps/#0001-01-01">https://www.xda-developers.com/google-samsung-camera-app-exposed-video-intents-third-party-apps/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>与iOS相比，Android为应用程序提供了许多相互交互的方式，使开发人员能够构建一些我们期望并喜欢的更常见的Android功能。这要归功于Android的意图系统，它允许任何应用程序发送任何想要的意图，并允许接收应用程序以创造性的方式处理这些意图。但事实证明，谷歌相机应用程序和三星相机应用程序已将其相机和视频意图暴露给第三方应用程序，这为绕过关键权限的潜在滥用敞开了大门，正如安全研究人员在<em> <a href="https://www.checkmarx.com/blog/how-attackers-could-hijack-your-android-camera"> Checkmarx </a> </em>所展示的那样。</p>
+
+  
+<p>Android 上的<a href="https://developer.android.com/guide/components/intents-filters"> Intents被描述为“<em>消息传递对象，促进应用组件</em>之间的通信”，简单来说就是Intent允许应用互相发送数据。例如，当你试图从文件管理器中向WhatsApp这样的应用程序共享文件时，你是在向WhatsApp发送将文件作为数据的意图。任何应用程序都可以发送它想要的任何意图，并且由接收应用程序通过在其清单文件中定义相同的意图来决定它想要监听哪个意图。接收应用程序还决定如何对这些意图做出反应。此外，接收应用程序还可以确保仅当从特定白名单应用程序(显式意图)或持有特定权限的应用程序(受保护的意图)发送意图时，才执行操作。事实证明，上述相机应用程序中未受保护的意图可能会被坏人利用。</a></p>
+
+<p><em> Checkmarx </em>发现谷歌相机应用程序和三星相机应用程序有未受保护的意图来触发像拍照和录制视频这样的动作。在这种情况下，未受保护的意图意味着接收应用程序不检查发送意图的应用程序是否具有进行动作本身的必要权限——在这种情况下是<em><span>Android . permission . camera</span></em>。相机活动<em>com . Google . Android . Google camera/com . Android . camera . camera activity</em>也是一个导出的活动，这意味着其他应用程序可以调用它。因此，未受保护的意图和导出的活动会导致权限绕过漏洞。</p>
+
+<p>因此，可以构建恶意应用程序，该应用程序不具有相机权限，但仍然能够通过这些相机应用程序路由某些相机功能，并利用其未受保护的意图和导出的活动来操作这些功能。</p>
+
+<p>作为概念验证，<em> Checkmarx </em>创建了一个虚拟的天气应用程序，它没有相机权限，但它有一个存储权限，对于天气应用程序来说，这个权限没有出现问题。在没有相机许可的情况下，天气应用程序能够触发谷歌相机和三星相机拍照和录制视频。存储权限在访问这个以及保存在/DCIM的所有其他照片和视频时起作用——它不需要用于点击照片和录制视频的操作。</p>
+
+ 
+<p class="w-rich w-youtube" id="XJAMJOVoVyw">  </p>
+
+
+<p>在最坏的情况下，这个漏洞可以被用来做一些事情，如在通话中记录用户的视频，如果相机应用程序中启用了位置标记，则从照片的GPS元数据中抓取位置信息(并有效地获取手机的当前位置)，等等。</p>
+
+<p>诚然，用户界面确实会显示相机正在被访问，但这也可以通过利用接近传感器来测量手机显示屏何时关闭来解决，从而避开用户的注意。一个恶意的应用程序还可以静音手机的音量，并在拍照或录制视频时有效地静音设备。</p>
+
+<p>Checkmarx 声称，这个名为CVE-2019-2234的漏洞也存在于其他智能手机供应商的相机应用程序中。但研究人员没有指出除了谷歌和三星之外，哪些厂商和设备受到了影响。如果其他相机应用程序已导出活动来启动照片捕捉和视频录制，并且具有不检查调用应用程序可用权限的未受保护的意图，它们也会受到影响。</p>
+
+<p>由于这不是Android平台或Linux内核中的漏洞，因此它不能作为<a href="https://www.xda-developers.com/november-2019-android-security-patches/"> Android安全公告</a>的一部分包含和发布。2019年7月，谷歌相机应用程序通过应用程序更新修复了该漏洞，三星相机应用程序也修复了该漏洞，尽管没有关于此更新何时推出的具体信息。</p>
+
+<p>在未打补丁的Google Camera版本上，您可以通过运行以下ADB命令来强制通过此漏洞拍摄视频:</p>
+
+<pre> <code class="hljs sql">adb shell am <span class="hljs-keyword">start</span>-activity -n<br/>com.google.android.GoogleCamera/com.android.camera.CameraActivity <br/><span class="hljs-selector-tag">extra_turn_screen_on</span> <span class="hljs-selector-tag">true</span> <span class="hljs-selector-tag">-a</span> <span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.action</span><span class="hljs-selector-class">.VIDEO_CAMERA</span> <span class="hljs-selector-tag">--ez</span><br/><span class="hljs-selector-tag">android</span><span class="hljs-selector-class">.intent</span><span class="hljs-selector-class">.extra</span><span class="hljs-selector-class">.USE_FRONT_CAMERA</span> <span class="hljs-selector-tag">true</span></code> </pre>
+<p>如果使用Google Camera或Samsung Camera，请确保在设备上更新到最新的相机应用程序版本，并通过Play Store或OTA(视情况而定)进行推广。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

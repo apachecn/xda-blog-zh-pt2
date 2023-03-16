@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Google will make file manager devs submit a form to get broad file storage access in Android 11</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌将让文件管理器开发者提交一个表格，以在Android 11中获得广泛的文件存储访问</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-file-manager-devs-submit-form-broad-file-storage-access-android-11/#0001-01-01">https://www.xda-developers.com/google-file-manager-devs-submit-form-broad-file-storage-access-android-11/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>今年早些时候发布的Android 10 beta 2 <a href="https://www.xda-developers.com/android-q-beta-2-everything-new/">显示谷歌计划限制应用程序访问手机内部存储的方式。出于这个目的，Google引入了一种叫做作用域存储的东西。然而，由于几个开发者的强烈反对，公司</a><a href="https://www.xda-developers.com/google-gives-developers-more-time-android-q-scoped-storage/">不得不取消</a>的实施。该公司允许尚未针对Android 10的应用程序像以前一样工作，并在2020年11月1日之前给开发者时间更新他们的应用程序以针对Android 10。</p>
+
+  
+<p>默认情况下，已经针对Android 10的应用程序只能看到其应用程序特定目录中的文件。为了访问其他应用程序创建的文件，如照片、图像、视频和音频，这些应用程序仍然需要请求READ_EXTERNAL_STORAGE权限，但现在获得此权限不再能够访问整个/data/media分区。相反，他们只能在MediaStore API提供的明确定义的位置看到文件。虽然这种实现适用于需要访问媒体文件的应用程序，但它不适用于文件管理器应用程序。</p>
+
+<p>文件管理器需要对外部存储的广泛访问才能工作，如果他们的目标是Android 10，获得广泛文件访问的唯一方法是使用存储访问框架(SAF) API。尽管SAF自Android 5.0 Lollipop以来就已经存在，但开发人员倾向于不使用它，因为它有一个困难且缺乏文档记录的API，用户体验差，性能差，可靠性差。现在，谷歌的目标是通过Android 11解决这些问题。</p>
+
+
+
+<p>根据谷歌的Roxanna Aliabadi、Zimuzo Ezeozue和Yacine Rezgui最近发表的题为“为范围存储做准备”的演讲，谷歌正计划授予“特定用例的特殊应用访问权”。作为谈话的一部分，他们提到，这种“特殊应用程序访问权限”只授予那些证明“明确需要”完全访问共享存储的应用程序，向谷歌“提交声明表”，而不访问“外部应用程序目录”。</p>
+
+
+
+<p>这意味着文件管理器将不得不请求谷歌许可来访问外部存储，就像应用程序请求短信/通话记录许可必须请求谷歌一样。因此，可能会有任意执行的问题，就像我们过去看到的Google Play的决定一样。最后，另一个潜在的问题是，文件管理器将不再能够访问外部应用程序目录。所以，游戏用mods之类的东西就再也不行了。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://youtu.be/UnJ3amzJM94?t=543">YouTube</a>T3】</strong></p>
+
+<p><strong>Via:<a href="https://www.reddit.com/r/androiddev/comments/dr9p98/according_to_google_storage_permission_can_be/">Reddit</a>T3】</strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Android-x86 project releases Android 9 Pie RC while Bliss OS releases Android 10 alpha build for PCs</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android-x86项目发布Android 9 Pie RC，而Bliss OS发布Android 10 alpha build for PCs</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-x86-project-releases-android-9-pie-rc-while-bliss-os-releases-android-10-alpha-build/#0001-01-01">https://www.xda-developers.com/android-x86-project-releases-android-9-pie-rc-while-bliss-os-releases-android-10-alpha-build/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Android-x86项目发布Android 9 Pie RC，而Bliss OS发布Android 10 alpha build for PCs</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Android-x86项目现在已经发布了第一个稳定的基于Pie的PC版本，而Bliss OS已经发布了基于Android 10的alpha版本。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>今年1月早些时候，Android-x86项目<a href="https://www.xda-developers.com/android-x86-stable-android-8-1-oreo/">发布了Android 8.1 Oreo的第一个稳定版本</a>。对于不知道的人来说，Android-x86是一个开源社区项目，旨在将Android带到运行x86或x86-64架构的PC上。在Oreo版本中，该团队添加了大量新功能，如自由窗口模式，以使Android在PC上运行得更好。从那以后，该团队一直在努力开发Android 9 Pie版本，现在已经推出了第一个Android 9 Pie候选版本(RC ),可以在虚拟机或桌面上运行。</p>
+
+  
+<p>据Android Police报道，该版本带来了谷歌在Android 9 Pie中引入的所有功能，以及对桌面硬件的扩展兼容性。虽然这个版本提供了一个接近传统Android的界面，但它确实包含了更适合鼠标和键盘等传统输入设备的附加功能。这些新功能包括一个带有开始菜单的可选任务栏和一个可以用作替代启动器的最近应用托盘。以下是主要特性的完整列表:</p>
+
+<ul> <li>使用最新的LTS内核4.19.80支持64位和32位内核和用户空间。</li> <li>Mesa 19.0.8支持Intel、AMD、Nvidia、QEMU(virgl)的OpenGL ES 3.x硬件加速。</li> <li>通过SwiftShader支持OpenGL ES 3.0，用于在不支持的GPU设备上进行软件渲染。</li> <li>在采用英特尔高清和G45显卡家族的设备上支持硬件加速编解码器。</li> <li>支持从UEFI安全引导并安装到UEFI磁盘。</li> <li>一个基于文本的GUI安装程序。</li> <li>向grb-EFI添加主题支持。</li> <li>支持多点触控、音频、Wifi、蓝牙、传感器、摄像头和以太网(仅限DHCP)。</li> <li>自动安装外部usb驱动器和SD卡。</li> <li>添加任务栏作为替代启动器，将开始菜单和最近应用托盘放在屏幕顶部，并支持自由窗口模式。</li> <li>在没有已知传感器的设备上启用ForceDefaultOrientation。肖像应用可以在横向设备中运行，而无需旋转屏幕。</li> <li>通过本机桥接机制支持arm arch应用程序。(设置-&gt; Android-x86选项)</li> <li>支持从非官方版本升级。</li> <li>为较新的英特尔和AMD GPUs添加实验性Vulkan支持。(通过高级选项-&gt; Vulkan支持启动)</li> <li>通过以太网模拟WiFi适配器，增加app兼容性。</li> <li>对虚拟机的鼠标集成支持，包括VirtualBox、QEMU、VMware和Hyper-V。</li> </ul>
+
+<p>如果你想自己测试最新的Android-x86 Pie RC版本，你可以点击下面的链接获取指导。你也可以从<a href="https://www.fosshub.com/Android-x86.html"> Fosshub </a>或者<a href="https://osdn.net/rel/android-x86/Release%209.0"> OSDN </a>那里获得预建的图像。但是，在您将它安装到您的系统之前，请务必查看下面的已知问题列表:</p>
+
+<ul> <li>Google Play服务有时可能会在32位图像上崩溃。</li> <li>挂起和恢复在某些设备上不起作用。</li> <li>Nvidia GPU (nouveau)有时可能会挂起。</li> <li>VMware的3D支持已中断。(只有非加速模式有效)</li> <li>如果启用了Vulkan，则拍照不起作用。</li> </ul>
+
+<p>如果你对在你的电脑上运行Android 9不感兴趣，而你更喜欢运行Android 10，那么你会很高兴知道Bliss OS已经发布了一个适用于电脑的Android 10 alpha版本。Bliss OS本质上是Android-x86的一个分支，它提供了额外的功能，如任务栏集成，以便在PC上获得更好的用户体验。然而，值得注意的是，Bliss OS的最新版本是实验性的，并不打算用作日常驱动程序。尽管如此，对于那些希望在个人电脑上运行Android 10的人来说，这是一个有趣的项目。你可以通过访问我们下面链接的论坛上的开发线程来下载最新的基于Android 10的Bliss OS 12版本。</p>
+
+<p/><p><strong> <a href="https://forum.xda-developers.com/android/software/bliss-os-x86-pc-s-12-x-development-t4004419">极乐OS 12 XDA论坛</a> </strong></p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://www.android-x86.org/releases/releasenote-9-0-rc1.html">Android-x86</a>T3】</strong></p>
+
+<p><strong> Via: <a href="https://www.androidpolice.com/2019/11/19/android-x86-project-9-0-pie-release-candidate/">安卓警察</a>T3】</strong></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

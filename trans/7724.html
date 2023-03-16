@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Qualcomm Snapdragon 865 supports DSDS, driver's licenses in Android 11</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>高通骁龙865支持安卓11中的DSDS、驾照</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/qualcomm-snapdragon-865-spu-dual-sim-dual-standby-drivers-licenses-android-11/#0001-01-01">https://www.xda-developers.com/qualcomm-snapdragon-865-spu-dual-sim-dual-standby-drivers-licenses-android-11/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>今天早些时候，高通公布了他们最新的高端Snapdragon 800系列SoC的全部规格和功能:高通骁龙865移动平台。在那篇文章中，我们涵盖了您需要知道的所有主要细节，但和往常一样，在主题演讲中也透露了一些更小的信息。在主题演讲中，高通产品管理高级主管Jesse Seed谈到了骁龙865中的一些新安全功能。值得注意的是，安全处理单元(SPU)是负责保护生物特征凭证、支付信息和SIM数据的片上安全元件，现在完全支持双SIM、双待机和Android 11即将推出的IdentityCredential API。</p>
+
+  
+<p><strong>集成双SIM卡，双待机</strong></p>
+
+<p>带有eSIMs的Android智能手机仍然很少，尽管市场上有一些，包括Pixel 2、Pixel 3、Pixel 3a、Pixel 4、Galaxy Fold和摩托罗拉Razr。存储SIM卡数据需要安全的硬件，这对于大多数设备来说意味着需要一个专用的芯片。对于Pixel 2，根据iFixit的拆解，这是ST Microelectronics ST33G1M2 32位MCU，配有ARM SecurCore SC300。然而，<a href="https://www.xda-developers.com/qualcomm-snapdragon-855-secure-processing-unit-eal4/">骁龙855上的安全处理单元具有智能卡等效的EAL4+认证</a>，这意味着它被认为足够安全来处理SIM数据。高通与一家名为<a href="https://www.businesswire.com/news/home/20180527005003/en/Gemalto-Announces-Collaboration-Qualcomm-Technologies-Integrate-eSIM">金雅拓</a>的公司合作，在骁龙的安全处理部门实现eSIM支持。</p>
+
+
+
+<p>在这项工作的基础上，宣布骁龙865的SPU现在完全支持双卡双待(DSDS)。这意味着，SPU不仅可以存储由多个运营商提供的eSIM，而且第二个不活动的eSIM仍然可以接收呼叫和文本。</p>
+
+<p><strong>支持Android 11的身份认证API </strong></p>
+
+<p>早在三月份，谷歌<a href="https://www.xda-developers.com/google-android-digital-drivers-license/">就开始着手</a>一个新的身份认证API。该API允许在设备上以电子方式存储凭证，如驾照或护照。<a href="https://www.xda-developers.com/android-q-security-privacy-features/">谷歌在I/O 2019 </a>上宣布，他们正在与ISO合作，以标准化移动驾照的实施，他们将开发一个Jetpack支持库，以便应用程序可以支持身份凭证的请求。现在，高通已经确认骁龙865的SPU支持谷歌的IdentityCredential API。</p>
+
+
+
+<p>更准确地说，这一声明很可能意味着骁龙865将支持谷歌在IdentityCredential HAL实现中提到的“直接访问”模式。这种模式允许证书被拉起，即使没有足够的电力来启动主要的Android操作系统。</p>
+
+<p><strong>更新:</strong>来自Google的Shawn Willden分享了一些关于如何支持直接访问模式的技术信息。<a href="https://twitter.com/shawnwillden/status/1202648532840144896">据他说</a>，SPU不太可能支持直接访问模式，因为它集成在SoC中。如果安全元件被集成到像NFC控制器这样的分立芯片中，它将更容易支持。然而，有一种可能性，高通可能已经发现或正在研究一种方法，使这项工作。</p>
+
+<p>该API仍在开发中，但我们正在跟踪它在AOSP的进展。谷歌计划在下一个Android版本，也就是Android 11中发布这个API和<a href="https://android-review.googlesource.com/c/platform/frameworks/support/+/979252"> Jetpack库</a>。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

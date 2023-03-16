@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Pixel 4's Motion Sense Gestures can now be Remapped [Root]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Pixel 4的运动感应手势现在可以重新映射[Root]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/remap-pixel-4-motion-sense-gestures/#0001-01-01">https://www.xda-developers.com/remap-pixel-4-motion-sense-gestures/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌的Pixel 4是第一款采用Soli雷达进行手势检测的智能手机。尽管谷歌早期的Soli演示展示了极其精确的手势检测，但我们在Pixel 4中得到的东西没有达到最初的宣传效果。目前，你可以向左/向右滑动来跳过曲目，向任何方向滑动来静音来电/定时器/闹钟，或者伸手唤醒手机。更糟糕的是，跳过音轨手势<a href="https://www.xda-developers.com/google-pixel-4-motion-sense-list-countries-supported-apps/">只适用于23个媒体应用</a>。幸运的是，正如<a href="https://www.xda-developers.com/enable-pixel-4-motion-sense-gestures/">的区域限制</a>一样，XDA社区想出了一个改善运动感觉的解决方案。</p>
+
+  
+<p>目前，只有内置的Motion Sense应用程序和两款演示游戏Pokemon Wave Hello和heading South能够与手势配合工作。上周，谷歌告诉安卓警察T3，该公司没有立即向第三方开发者开放运动感应API的计划。然而，这并没有阻止XDA资深成员<a href="https://forum.xda-developers.com/member.php?u=4180335">阿什格雷</a>。他们修改了内置的Motion Sense Bridge应用程序，该应用程序允许Pokemon使用运动感应手势向南方挥手问好，并在检测到到达、存在、滑动或轻击手势时发送隐含的广播意图。安装这个修改过的Bridge应用程序<a href="https://www.xda-developers.com/google-pixel-4-root-magisk/">需要root访问权限</a>，因为开发者必须禁用谷歌的签名保护。</p>
+
+<p>ashergray还创建了一个名为“OsloBridger”的配套应用程序，可以让你控制发送哪些广播意图，甚至可以让你调整所有支持的手势的灵敏度、距离和粒度。该应用程序创建了一个前台服务，因此即使屏幕关闭，手势事件也会被广播。</p>
+
+
+
+
+
+<p>开发者打算将这个模块与自动化应用程序一起使用，如<a href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm"> Tasker </a>。在Tasker中，您可以通过创建一个具有“Intent Received”事件上下文的新配置文件来对运动感应手势事件做出反应。在“操作”字段中，输入您在OsloBridger中启用的意图操作。以下是支持的4种意图:</p>
+
+<ul> <li>Reach手势Intent:com . jcar letto . oslobridger . reach _ Gesture</li> <li>存在手势意图:com . jcar letto . oslobridger . presence _ Gesture</li> <li>滑动手势意图:com . jcar letto . oslobridger . swipe _ Gesture</li> <li>轻击手势意图:com . jcar letto . oslobridger . flick _ Gesture</li> </ul>
+
+<p>在实际任务中，任何额外的意图都存储在具有相应名称的局部变量中。例如，当接收到FLICK_GESTURE意图时，可以通过%direction局部变量在Tasker中访问“方向”意图extra。在这种特殊情况下,%direction变量分别为东、西、北或南保存1、5、3或7。如果你打算使用这个模式重新映射任何手势，那么我建议你在设置&gt;系统&gt;动作感应中禁用原始手势，这样就不会有任何干扰。</p>
+
+
+
+
+
+<p>有了这个mod，你基本上可以用Pixel 4的运动感应手势做任何你想做的事情。您可以为任何媒体应用程序启用跳过音轨手势。您可以启用增加或降低音量的笔势。这取决于你。</p>
+
+<p>如果你有任何问题或想留下反馈，请访问我们论坛上的<a href="https://forum.xda-developers.com/pixel-4-xl/themes/magisk-motion-sense-soli-oslo-mod-t3993877"> OsloBridger Magisk模块</a>主题。你可以从开发者的GitHub页面<a href="https://github.com/jcarletto27/magisk_module_motionsense_mod">这里</a>下载Magisk模块。开发者GitHub上的自述文件还解释了OsloBridger应用程序中的每个参数和选项。</p>
+
+<p/><p><a href="https://forum.xda-developers.com/pixel-4"> <strong>像素4论坛</strong></a>| |<a href="https://forum.xda-developers.com/pixel-4-xl">|<strong>像素4论坛</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

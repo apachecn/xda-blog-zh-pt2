@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Android 11 may remove Android's 4GB file size limit for video recordings</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android 11可能会取消Android对视频录制的4GB文件大小限制</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-11-unlimited-video-recording-file-size/#0001-01-01">https://www.xda-developers.com/android-11-unlimited-video-recording-file-size/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新(美国东部时间6/12/20 @下午4:00):</strong>官方消息:Android 11终于摆脱了视频录制的4GB文件大小限制。</p> </div></section>
+<p/><p>2019年，智能手机品牌在相机质量方面有了巨大的飞跃，特别是在变焦和低光方面。另一方面，视频质量没有得到同等的重视。这可能会在2020年随着高通骁龙865的改进ISP而改变。然而，尽管Android智能手机配备了更大的内部存储容量，更快的调制解调器，并且现在支持5G网络，但一个旧的限制阻止了大多数手机保存大于4GB的视频文件。然而，这可能会在Android 11中发生变化，Android的下一个主要版本将于2020年发布。</p>
+
+  
+<p>我将尝试总结这种限制背后的原因，而不会深入到技术方面。基本上，Google决定Android的MediaMuxer和MPEG4Writer类(分别负责多路复用(组合)视频文件并将其保存为MP4文件)应该支持输出最大大小为2^32 - 1字节的MP4文件，大约为4GB。这个决定<a href="https://android.googlesource.com/platform/frameworks/av/+/1f1f2b1678fd0d038dfc501252dd2b65ecf10cae%5E%21/">是在2014年初</a>做出的，当时最大内存为32GB的谷歌Nexus 5仍在市场上销售，SD卡仍在广泛使用，第一款具有4K视频录制功能的手机刚刚上市(Galaxy Note 3)。因此，没有太多的需求来保存大小超过4GB的视频文件:大多数手机没有足够的存储空间，FAT32格式的SD卡无论如何都不支持它，很少有手机录制的质量足够高，甚至满足这一限制。一晃5年过去了，很多事情都发生了变化:现在有1TB存储空间的手机，SD卡现在是例外而不是标准，4K视频录制无处不在，8K视频录制很快就会到达设备。</p>
+
+<p>今天，如果你在Pixel 4上录制一段4K视频，你的视频将在大约12分钟内达到4GB的大小；这是默认的质量设置，帧速率为30fps，比特率为48Mbps。在大约12分钟的录制后，相机应用程序将保存视频，并立即开始录制另一个视频-而用户不会注意到。当你查看手机的DCIM文件夹时，你会注意到原本应该是一个连续的视频记录被分割成了多个视频文件。例如，我的Pixel 4上的一个73分钟的视频记录被分成7个不同的文件——所有这些在Google相册中都是单独的记录。在上传到谷歌照片之前，对这些MP4文件进行多路复用并不困难，但如果你想这样做，你必须使用第三方应用程序。我可以想象，大多数人不会费心或者不知道如何去做。</p>
+<div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/Google-Pixel-4-Video-Recording-Size-Limit-485x1024.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;A 73 minute 4K30 video recording from my Pixel 4 split up into 7 different files.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/Google-Pixel-4-Video-Recording-Size-Limit-485x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/Google-Pixel-4-Video-Recording-Size-Limit-485x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/Google-Pixel-4-Video-Recording-Size-Limit-485x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/Google-Pixel-4-Video-Recording-Size-Limit-485x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/Google-Pixel-4-Video-Recording-Size-Limit-485x1024.jpg" src="../Images/702a296c3a3afbb25733b7fe38a3bf32.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/Google-Pixel-4-Video-Recording-Size-Limit-485x1024.jpg"/> </picture> <figcaption class="body-img-caption">A 73 minute 4K30 video recording from my Pixel 4 split up into 7 different files.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>多年来，开发人员一直在寻找一种录制大于4GB的视频文件的方法，现在看来，这种变化最终将在Android 11中出现。根据AOSP gerrit的<a href="https://android-review.googlesource.com/c/platform/frameworks/av/+/1198379">新承诺</a>的描述，谷歌正在更新Android的媒体类，以取消32位文件大小的限制。具体来说，Android现在将“在mpeg4writer中使用[a]64位偏移”，这允许Android“合成/多路复用大于4GB的文件”在测试中，谷歌成功地编写了一个大约32GB大小的文件，在另一次测试中，甚至用一段录音就填满了手机的整个存储容量。2^64 -1字节的最大文件大小是滑稽的大，永远不会真正达到，所以我们希望谷歌限制MediaRecorder API或原始设备制造商限制他们的股票相机应用程序，以支持更合理的最大文件大小。然而，像OpenCamera这样使用Camera2API的应用程序应该仍然能够任意设置他们想要的任何最大文件大小，而不必担心32位文件大小的限制。</p>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/OpenCamera-Video-Settings-1024x257.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;OpenCamera's Video Recording Settings&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/OpenCamera-Video-Settings-1024x257.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/OpenCamera-Video-Settings-1024x257.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/OpenCamera-Video-Settings-1024x257.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/OpenCamera-Video-Settings-1024x257.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/OpenCamera-Video-Settings-1024x257.jpg" src="../Images/76575969ff37a02f1251454ab26c4cc8.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/12/OpenCamera-Video-Settings-1024x257.jpg"/> </picture> <figcaption class="body-img-caption">OpenCamera's Video Recording Settings</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>提交尚未合并，但当它合并时，我们预计这一变化将反映在Android 11中，因为这是Android的下一个主要版本。第一个Android 10测试版于今年3月上线，因此预计将在2020年3月看到Android 11测试版，然后在2020年8月的某个时候发布稳定版。随着来自<a href="https://www.xda-developers.com/miui-camera-xiaomi-8k-30fps-video-recording-smartphone/">小米</a>和<a href="https://www.xda-developers.com/samsung-camera-app-8k-video-209-aspect-ratio-108mp/">三星</a>的手机有望支持8K视频录制，这一变化是受欢迎的——尽管早该如此。</p>
+
+<p><em>感谢XDA公认的开发者<a href="https://forum.xda-developers.com/member.php?u=5778309"> luca020400 </a>的提示！</em></p>
+
+<hr/>
+
+
+<h2 id="update-confirmed">更新:已确认</h2>
+<p>摄像师们欢欣鼓舞，Android 11正式摆脱了视频录制的4GB文件大小限制。Android 11 Beta 1最终取消了这一限制，但你需要使用支持它的相机应用程序。目前，甚至谷歌自己的相机应用程序也不支持它。流行的应用程序<a href="https://play.google.com/store/apps/details?id=net.sourceforge.opencamera"> Open Camera </a>似乎已经支持它了，我们应该会看到更多的应用程序，包括谷歌相机，也增加了支持。</p>
+
+<p><strong>来源:<a href="https://issuetracker.google.com/issues/155575514#comment5">谷歌</a> | Via: <a href="https://www.androidpolice.com/2020/06/12/android-11-will-finally-lift-the-idiotic-4gb-cap-on-video-recordings/">安卓警察</a> </strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>
