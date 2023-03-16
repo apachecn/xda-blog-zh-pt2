@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Google unveils more information about desktop mode in Android Q</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌在Android Q中公布了更多关于桌面模式的信息</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-more-information-desktop-mode-android-q/#0001-01-01">https://www.xda-developers.com/google-more-information-desktop-mode-android-q/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>通过Android Q，谷歌继续努力将Android扩展到传统智能手机、平板电脑、智能手表和电视之外。<a href="https://www.xda-developers.com/samsung-galaxy-fold-specifications-pricing-availability/">三星Galaxy Fold </a>和<a href="https://www.xda-developers.com/huawei-mate-x-5g-foldable-smartphone-specifications/">华为Mate X </a>可折叠智能手机吸引了我们对Android Q的<a href="https://www.xda-developers.com/smartphone-foldable-display-android/">可折叠外形原生支持</a>的大部分注意力，但谷歌正在悄悄地要求开发者修改他们的应用程序，以支持另一种多显示器场景:桌面和显示器。</p>
+
+  
+<p>华为和三星分别推出了<a href="https://www.xda-developers.com/emui-9-review-features-apps-huawei-honor-android-pie/"> Easy Projection </a>和<a href="https://www.xda-developers.com/tag/samsung-dex/"> DeX </a>，引领了弥合智能手机和台式电脑之间差距的潮流。按照传统，谷歌正在把OEM软件的精华部分慢慢整合到AOSP。在Android Q中，该公司正在<a href="https://www.xda-developers.com/android-q-desktop-mode/">增加对“桌面模式”的原生支持。</a>“然而，你不会知道，因为该公司从未在他们的任何谷歌I/O主题演讲中提到过它，而是将其降级为一个为可折叠和多显示器外形(又名桌面模式)构建应用的会议的一小部分。</p>
+
+<p>在题为“为可折叠、多显示器和大屏幕设备构建应用”的演讲中，Android Framework WindowManager团队中从事多显示器工作的软件工程师Andrii Kulian分享了开发人员如何为多显示器环境准备应用的详细信息。</p>
+
+<blockquote>
+<p/><h4>“可折叠手机可能有几个屏幕，但你也可以在汽车上，在桌面模式下连接到更大屏幕的手机上，在Chrome OS上，等等。”——谷歌的安德里·库连。</h4>
+ </blockquote>
+
+<h2 id="developing-for-the-new-desktop-mode-in-android-q">在Android Q中开发新的桌面模式</h2>
+<p>如果您有兴趣更新您的Android应用程序以支持桌面环境，您应该观看本文结尾嵌入的会话。不过，我将总结一下要点:</p>
+
+<ul> <li>为了让您的应用程序支持在主屏幕(电话)和辅助屏幕(显示器)上同时使用，您的应用程序必须支持多个实例。通过意向标志<a href="https://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK"> NEW_TASK </a>和<a href="https://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_MULTIPLE_TASK"> MULTIPLE_TASK </a>，Android Q可以在辅助显示屏上创建应用的第二个窗口。</li> <li>新的<a href="https://www.xda-developers.com/android-q-splitscreen-multitasking-multi-resume/">多重恢复行为</a>也适用于多重显示场景。因此，您可以将您的应用程序配置为在另一个应用程序获得焦点时运行。</li> <li>如果您认为您的应用程序应该主要在主显示器或辅助显示器上启动，您可以检查标志、指标和状态，以找到启动活动的正确显示器。请注意，系统可能会限制在私人显示器上启动活动，为此谷歌在Android Q中添加了一个新的API，以检查呼叫者是否可以在特定活动上启动活动。</li> <li>谷歌在Android Q中增加了在副屏幕上显示软件键盘窗口的支持。虽然仍然可以一次只有一个软件键盘窗口，但是窗口可以在显示器之间移动。</li> <li>壁纸和动态壁纸可以在多显示器上分开。</li> <li>如功能图所示，桌面模式在辅助屏幕上支持第三方启动器。谷歌在意向过滤器中增加了一个<a href="https://developer.android.com/reference/android/content/Intent#CATEGORY_SECONDARY_HOME">新类别，为二级屏幕提供专门的活动。该活动必须有一个启动模式，该模式不会阻止多个实例，并适应不同的屏幕大小。用户可以在设备上设置他们选择的启动器，如果当前选择的启动器有一个用于辅助屏幕的专用活动，它将被系统放在那里。</a></li> <li>开发人员可以通过启用“强制桌面模式”在辅助屏幕上测试他们的应用程序，该模式在所有支持的屏幕上打开系统声明，并在那里显示鼠标指针，而不是当前显示，并“启用<a href="https://www.xda-developers.com/android-nougats-freeform-window-mode-what-it-is-and-how-developers-can-utilize-it/">自由形式窗口</a>以允许浮动应用程序窗口。但是，要使更改生效，您需要重新启动设备。如果你有一个谷歌像素，你可以通过在开发者选项中启用模拟显示来尝试桌面模式。在支持通过HDMI显示输出的其他设备上，如果您有USB-C转HDMI适配器，可以尝试桌面模式。例如，基本手机<a href="https://www.reddit.com/r/essential/comments/bm5g2a/desktop_mode_works/">只需将它插入显示器，就可以启动Android Q中新的桌面模式</a>。</li> </ul>
+
+<p class="w-rich w-youtube" id="8uQEzv3upy8">  </p>
+
+
+<p>我在这里做了一个大胆的猜测，但我认为即将到来的Pixel 4将支持通过HDMI显示，因此谷歌可以将Android Q的新桌面模式作为一个功能来宣传。我们将在5个月后谷歌推出新像素时找到答案。</p>
+
+<p>感谢XDA资深会员farmerbb对本次演讲的提醒！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

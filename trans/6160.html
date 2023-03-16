@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Here are the new Android Q features that Google announced</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>以下是谷歌宣布的Android Q新功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-new-features/#0001-01-01">https://www.xda-developers.com/android-q-new-features/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>人们期待第一个Android Q测试版会在本周发布，而谷歌已经发布了T1(比预期晚了一点)。与前几年相反，谷歌并没有从“开发者预览”开始。这被称为Android Q Beta 1。我们已经<a href="https://www.xda-developers.com/tag/android-q/">谈论了很多关于Android Q </a>的新功能，但是谷歌在这个测试版中分享了一些大功能的细节。</p>
+
+ 
+<h2 id="privacy-protections">隐私保护</h2>
+
+
+<p>正如我们之前谈到的，隐私是Android Q的一大焦点。这是谷歌在更新细节中提到的第一件事。用户可以更多地控制应用程序何时可以获得位置，这是一个新的选项，即“仅在应用程序正在使用时允许”你不必担心应用程序会在后台侦测到你的位置。</p>
+
+<p>隐私不仅仅是位置共享。允许应用程序访问共享文件的控制越来越多，新的运行时权限可以控制对照片、视频和音频的访问。应用程序必须使用系统文件选择器进行下载，开发者可以使用外部存储上的共享区域。你可以<a href="https://developer.android.com/preview/privacy/scoped-storage">在这里</a>了解更多信息。</p>
+
+<p>Android Q将阻止应用程序在后台启动某项活动并接管你的屏幕。谷歌鼓励开发者使用高优先级通知来代替。其他隐私功能包括对IMEI和序列号等设备标识符的有限访问。默认情况下，MAC地址在连接到不同的Wi-Fi网络时也会被随机化。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="foldables">可折叠</h2>
+
+
+<p>Android Q包括对时尚的可折叠手机外形的更多支持。对onResume和onPause函数进行了修改，以支持多重恢复，并在应用程序获得焦点时通知它。他们还改变了<a href="https://developer.android.com/guide/topics/ui/multi-window#resizeableActivity">resizableActivity</a>manifest属性的工作方式，以帮助开发人员管理应用程序在可折叠大屏幕上的显示方式。Android模拟器现在支持这些新的多显示器类型。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="sharing-shortcuts">共享快捷方式</h2>
+
+
+<p>Android Q通过分享快捷方式让分享变得更简单。这让用户可以直接跳转到另一个应用程序来分享内容。开发人员可以发布启动特定活动的共享目标，这些目标显示在共享UI中。分享快捷方式的工作方式类似于<a href="https://www.xda-developers.com/android-app-shortcuts-chrome-os-dev-channel/">应用程序快捷方式</a>，因此谷歌正在扩展<a href="https://developer.android.com/reference/android/content/pm/ShortcutInfo">快捷信息API </a>以使两者的整合更加容易。该API还将允许Android Q之前的设备使用Direct Share中的功能。</p>
+
+<p>Android的共享菜单长期以来一直被抱怨落后和烦人。这次更新可能最终会解决这些问题，但我们必须看看它是如何工作的。由于新的share API使用的是推模式而不是拉模式，谷歌声称它的速度更快，因为它不必每次调用时都填充菜单。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="settings-panels">设置面板</h2>
+
+
+<p>新的设置面板API使得直接在应用程序的上下文中显示关键的系统设置成为可能。这利用了Android Pie中包含的<a href="https://www.xda-developers.com/settings-slices-google-pixel-android-pie/">切片</a>特性。设置面板是一个浮动的UI，可以从应用程序调用来显示系统设置和切换。他们给出了一个浏览器能够显示带有连接设置的面板的例子。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="connectivity">连通性</h2>
+<p>Android Q增加了蓝牙、蜂窝和Wi-Fi网络扫描的位置保护。他们现在要求精确定位许可。谷歌还增加了新的Wi-Fi标准支持，WP3和OWE，以提高家庭和工作网络以及开放/公共网络的安全性。现在可以通过启用高性能和低延迟模式来请求自适应Wi-Fi。谷歌表示，这将有助于游戏和语音通话等领域。</p>
+<p class="ad-odd"> </p>
+
+
+
+
+
+<p>在Android Q中，应用程序可以请求动态深度图像，这些图像由JPEG、深度元素的XMP元数据以及嵌入在相同文件中的深度和置信度图组成。这将使得在应用程序中提供专门的模糊和散景效果成为可能。谷歌表示，未来这些数据还可以用于创建3D图像或支持AR摄影。动态深度是一种开放的格式，他们正在与原始设备制造商合作，使其在尽可能多的设备上可用。</p>
+
+<p>Android Q包括对一些新的音频和视频编解码器的支持。它支持开源视频编解码器AV1、使用Opus的音频编码和HDR10+。<a href="https://developer.android.com/reference/android/media/MediaCodecInfo" target="_blank" rel="noopener noreferrer" data-saferedirecturl="https://www.google.com/url?q=https://developer.android.com/reference/android/media/MediaCodecInfo&amp;source=gmail&amp;ust=1552590315192000&amp;usg=AFQjCNGnZQT5qMiidNDBjzO7CFqVPBNJCw"> MediaCodecInfo API </a>引入了一种更简单的方法来确定Android设备的视频渲染能力。这使得始终选择最佳视频质量进行渲染变得更加容易。</p>
+
+<h3 id="angle-on-vulkan">ANGLE on Vulkan</h3>
+<p>谷歌正在为所有基于Vulkan的设备开发一个标准的、可更新的OpenGL驱动程序。Android Q在Vulkan之上增加了对<a href="https://chromium.googlesource.com/angle/angle/+/master/README.md">角度</a>的实验支持。ANGLE允许使用OpenGL es的应用程序和游戏利用Vulkan的性能和稳定性，并从独立于供应商的ES实现中受益。Android Q正在计划支持OpenGL ES 2.0。</p>
+
+<p>目标是使Vulkan成为一个广泛支持的图形开发API。谷歌正在与原始设备制造商合作，使Vulkan 1.1成为所有运行Android Q及以上版本的64位设备的要求。</p>
+<p class="ad-even"> </p>
+
+
+<h2 id="art-performance">艺术表演</h2>
+
+
+<p>Android Q继续改进ART运行时，以帮助应用程序更快地启动和使用更少的内存。Google Play现在提供基于云的个人资料和apk。</p>
+
+<p/><p>这些是匿名的、聚合的ART配置文件，让ART甚至在应用程序运行之前就对其进行预编译，为整个优化过程提供了一个重要的启动。基于云的配置文件对所有应用都有好处，并且已经可以用于运行Android P和更高版本的设备。</p>
+
+<p>Android Q优化了Zygote进程，提前启动应用程序的进程，并将其移动到安全容器中，以便立即准备就绪。他们还将分代垃圾收集添加到ART的并发复制(CC)垃圾收集器中。</p>
+
+<hr/>
+
+<p>你可以在<a href="https://android-developers.googleblog.com/2019/03/introducing-android-q-beta.html"> Android开发者博客</a>阅读更多关于Android Q的内容。谷歌Pixel、Pixel XL、Pixel 2、Pixel 2 XL、Pixel 3和Pixel 3 XL <a href="https://www.xda-developers.com/android-q-dp1-google-pixel-2-google-pixel-3/">的OTA和工厂图片可在此</a>下载。你也可以<a href="https://www.google.com/android/beta">在这里</a>注册安卓测试计划。请继续关注更多关于Android Q的信息！</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

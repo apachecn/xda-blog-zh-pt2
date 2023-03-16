@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Google Chrome will combat annoying sites that stop you from going back</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Chrome将与阻止你返回的恼人网站作斗争</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-chrome-history-manipulation-back/#0001-01-01">https://www.xda-developers.com/google-chrome-history-manipulation-back/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">谷歌Chrome将与阻止你返回的恼人网站作斗争</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">当一个网站不允许你通过“返回”离开页面时，这是非常令人恼火的，谢天谢地，谷歌Chrome正在做一些事情。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>互联网上最讨厌的事情之一就是劫持你浏览器的网站。不幸的是，这并不是可疑网站的专利。你可能遇到过一个合法的网站，当你点击后退按钮时，它不允许你返回上一页。这是一种非常令人恼火的做法，谢天谢地，谷歌Chrome正在对此采取措施。</p>
+
+  
+<p>如果你足够幸运，从未经历过这个问题，这里有一个简单的例子。你在谷歌上搜索某样东西并选择了一个结果，但你意识到这不是你想要的。当你点击后退按钮离开网站时，它只是刷新页面或拒绝返回。离开页面的唯一方法是反复点击后退按钮，或者打开历史记录，选择上一页。</p>
+
+<p>好消息是谷歌已经有了解决方案。根据三人组<a href="https://chromium-review.googlesource.com/c/chromium/src/+/1347491"> Chromium commits </a>的说法，谷歌正在打击这些“历史操纵”策略。这些网站就是这样阻止你用后退键离开的。他们操纵你的浏览历史，所以“返回”不会去你期望的地方。</p>
+
+<p>以下是来自<a href="https://chromium-review.googlesource.com/c/chromium/src/+/1344199">提交1344199 </a>的描述</p>
+
+<p/><p><em>用户无意添加到后退/前进列表的条目被标记为在后续后退按钮调用时跳过。该CL仅添加该位，随后的CL将基于该位添加度量和干预逻辑。</em></p>
+
+<p>Chrome将开始悄悄地标记这些网站，谷歌将审查这些指标进行分析。该功能最初会被<a href="https://chromium-review.googlesource.com/c/chromium/src/+/1377524">隐藏在一个旗帜后面，可以在<em># enable-skip-redirection-entries-on-back-forward-</em>ui中找到。启用后，Chrome将检测错误条目并完全跳过这些页面。期待这项功能在未来几周内推出。</a></p>
+
+<hr/>
+
+<p><a href="https://9to5google.com/2018/12/17/chrome-sites-wont-go-back/"><strong>Via:9 to 5 Google</strong>T3】</a></p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Android Q will let apps record audio from other apps and monitor device temperature</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Android Q将允许应用程序记录其他应用程序的音频，并监控设备温度</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-record-audio-monitor-device-temperature/#0001-01-01">https://www.xda-developers.com/android-q-record-audio-monitor-device-temperature/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌给予，谷歌拿走。每一个新的Android版本都引入了许多新的API，这些API要么改善了现有应用的功能，要么开辟了新的应用类别。另一方面，谷歌还取消了对现有API的访问或限制其功能，以提高Android平台的安全性。Android Q版本也不例外，我们已经谈了很多关于共享存储、剪贴板访问、通知和其他API的变化。在今年的谷歌I/O开发者大会上，谷歌宣布了Android Q中用户和手机游戏开发者特别感兴趣的新API:AudioPlaybackCapture和Thermal APIs。</p>
+
+ 
+<h2 id="recording-the-audio-from-other-apps-with-audioplaybackcapture-in-android-q">使用Android Q中的AudioPlaybackCapture录制来自其他应用程序的音频</h2>
+<p>手机游戏是一个巨大的行业，短期内没有放缓的迹象，尤其是在美国、中国和印度等市场。随着越来越多的人花时间在智能手机上玩游戏和社交媒体，人们希望在线分享游戏体验也就不足为奇了。</p>
+
+<p>Android基本上从一开始就支持截图，但是从Android 5.0 Lollipop开始，随着<a href="https://developer.android.com/reference/android/media/projection/MediaProjection"> MediaProjection API </a>的引入，才支持捕捉屏幕视频。遗憾的是，这个API不允许第三方应用程序记录其他应用程序的内部音频输出，迫使第三方屏幕记录器记录设备麦克风的外部音频输出。三星和<a href="https://www.xda-developers.com/emui-9-review-features-apps-huawei-honor-android-pie/">华为</a>等原始设备制造商提供系统应用程序来记录屏幕录制期间的内部音频输出，但其他设备的所有者正确记录其设备的视频和音频输出的唯一方法是购买<a href="https://support.mobizen.com/hc/en-us/articles/226494547-Can-I-record-Internal-Sound-">第三方配件</a>。幸运的是，谷歌终于在Android Q中引入了一种方法，让第三方应用程序可以录制其他应用程序的音频。</p>
+
+<p>AudioPlaybackCapture API被Google描述为屏幕捕捉的模拟，但用于音频记录。虽然迄今为止唯一使用该API的应用程序是谷歌的<a href="https://www.xda-developers.com/google-accessibility-live-caption-android-q-live-relay-live-transcribe/"> Live Caption </a>，这是一个为设备上播放的任何视频添加字幕的辅助工具，但该API的文档表明，其主要目的是允许流媒体应用程序捕捉游戏播放的音频。想想手机游戏玩家在Twitch或YouTube等服务上的流媒体游戏。该API旨在不影响正在捕捉音频的应用程序的音频延迟，使其非常适合游戏录制，因此音频和视频不会失去同步。</p>
+
+<p>与Android早期不同，谷歌对新API的态度更加谨慎。仅当正在捕获音频的应用程序和执行捕获的应用程序都满足特定要求时，才能使用AudioPlaybackCapture。以下是对这些要求的总结:</p>
+
+<ul> <li>要让第三方应用程序采集应用程序的音频，必须满足以下要求:<ul> <li>该应用程序必须在其清单中将allowAudioPlaybackCapture设置为true或取消设置。(针对Android Q的应用默认为true，但针对Android Pie的应用可以手动设置。)</li> <li>产生音频的应用程序的音频使用类型必须为USAGE_MEDIA、USAGE_GAME或USAGE_UNKNOWN。</li> <li>音频捕获策略(setAllowedCapturePolicy)必须设置为ALLOW_CAPTURE_BY_ALL。此策略可以在运行时设置，但必须重新启动播放，策略更改才能生效。如果设定了ALLOW_CAPTURE_BY_SYSTEM，则只有系统应用程序可以录制音频(但受到限制，因为它们不能存储音频、将音频传递给第三方应用程序或以大于16kHz的16位单声道质量进行录制。)</li> </ul> </li> <li>对于从另一个应用程序录制音频的应用程序，必须满足以下要求:<ul> <li>该应用程序必须调出mediaprojectionmanager . createscreencaptureintent提示，用户必须接受它。<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/05/Android-MediaProjection-API-Confirmation-Dialog-300x176.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;The confirmation dialog that users see when an app attempts to capture the screen using the MediaProjection API.&quot;"><figure><picture><source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/05/Android-MediaProjection-API-Confirmation-Dialog-300x176.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/><source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/05/Android-MediaProjection-API-Confirmation-Dialog-300x176.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/><source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/05/Android-MediaProjection-API-Confirmation-Dialog-300x176.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/><source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/05/Android-MediaProjection-API-Confirmation-Dialog-300x176.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/><img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/05/Android-MediaProjection-API-Confirmation-Dialog-300x176.jpg" src="../Images/2f4b62c1f948323788d41fc9f929032d.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/05/Android-MediaProjection-API-Confirmation-Dialog-300x176.jpg"/></picture><figcaption class="body-img-caption">当应用程序试图使用MediaProjection API捕捉屏幕时，用户看到的确认对话框。</figcaption>T12</figure></div>T14】</div></li> <li>app必须持有<a href="https://developer.android.com/reference/android/Manifest.permission.html#RECORD_AUDIO"> RECORD_AUDIO </a>权限。</li> <li>该应用程序必须与将要录制音频的应用程序位于同一用户配置文件中。</li> </ul> </li> </ul>
+
+<p>我可以想象，大多数游戏将允许它们的音频被使用这种新API的应用程序捕获，但游戏可能需要一些时间来更新以支持它。另一方面，由于许可问题，不要指望任何音乐或视频流媒体应用程序支持第三方的这种API。然而，如果一个应用程序将其音频捕获策略设置为ALLOW_CAPTURE_BY_SYSTEM，谷歌施加的限制意味着音乐和视频流媒体应用程序的开发者应该可以通过系统启用音频捕获来提高可访问性。</p>
+
+<p>要阅读更多关于Android Q中的AudioPlaybackCapture API的信息，请查看本页。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="monitoring-throttling-with-thermal-api-in-android-q">Android Q中使用Thermal API监控节流</h2>
+<p>热量调节几乎完全由系统管理，受调节影响最大的应用程序没有任何输入，甚至没有任何通知。如果设备的资源过于紧张，大多数设备都会降低CPU和GPU的速度，从而影响游戏的性能。作为一名游戏开发者，除了在用户更改任何设置之前警告用户他们的更改可能对性能产生的潜在影响之外，你真的无能为力。</p>
+
+<p>然而，通过Android Q中新的Thermal API，应用程序可以接收不同阶段性能调节的回调——让开发人员有机会通过减少需要大量CPU、GPU或调制解调器使用的活动来帮助减轻设备的压力。例如，游戏可以动态降低分辨率，直到设备不再受GPU限制，或者地图应用程序可以禁用增强功能，如<a href="https://www.xda-developers.com/google-maps-ar-mode/">增强现实导航</a>，以减少CPU的负载。</p>
+
+<p>要使用这种新的API，应用程序在power manager(addThermalStatusListener)中注册一个监听器，系统会向应用程序发送以下热量状态代码之一:</p>
+
+<ul> <li>THERMAL_STATUS_NONE:“未节流。”</li> <li>THERMAL_STATUS_LIGHT:“在UX不受影响的情况下进行轻度节流。”</li> <li>THERMAL_STATUS_MODERATE:“适度节流，UX不会受到太大影响。”</li> <li>THERMAL_STATUS_SEVERE:“严重节流，UX受到很大影响。”</li> <li>THERMAL_STATUS_CRITICAL:“平台已尽一切努力降低功耗。”</li> <li>THERMAL_STATUS_EMERGENCY:“由于热状况，平台中的关键组件正在关闭。设备功能将受到限制。”</li> <li>THERMAL_STATUS_SHUTDOWN:“需要立即关机。</li> </ul>
+
+<p>对Thermal API的支持显然需要Android Q，但另一个要求是增加一个新的HAL。谷歌表示，Android Q上的Pixel设备(指Pixel、Pixel XL、Pixel 2、Pixel 2 XL、Pixel 3、Pixel 3 XL、<a href="https://forum.xda-developers.com/pixel-3a"> Pixel 3a </a>和<a href="https://forum.xda-developers.com/pixel-3a-xl"> Pixel 3a XL </a>)支持Thermal API，但谷歌正在努力增加对其他设备的支持。</p>
+
+<p>点击阅读更多关于<a href="https://developer.android.com/preview/features#thermal"> Thermal API的信息。</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

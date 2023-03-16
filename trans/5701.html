@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Google Play Services is dropping support for Android ICS (API 14-15)</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Google Play服务不再支持Android ICS (API 14-15)</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-play-services-dropping-support-android-ics-api-14-15/#0001-01-01">https://www.xda-developers.com/google-play-services-dropping-support-android-ics-api-14-15/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>总有一天，我们必须继续前进。这可能包括一段特殊的关系、一份工作或一些琐碎的事情，如旧版本的Android，Google Play服务就是这种情况。Android 4.0冰淇淋三明治是7年前发布的，谷歌认为是时候让这个古老的甜点退休了。本周，该公司宣布Google Play服务将停止支持API 14和API 15。这包括Android版本4.0到4.0.4。</p>
+
+  
+<p>当提到Android的主要版本时，很多人都会谈到Android碎片化。在最新的例子中，Android Pie在4个月前发布，但市场上一些最大的智能手机原始设备制造商现在正在为更新进行公开测试。这些主要版本的更新确实带来了一些最受关注的新功能(因为它们向AOSP添加了新的API)，但由于Google Play服务，还有大量新功能被添加到智能手机中。</p>
+
+<p>由于这一消息，任何运行冰淇淋三明治的人都将不再获得Google Play服务的更新。具体来说，运行Android 4.0至4.0.4的设备将不再从谷歌Play商店更新14.7.99版以上的Play Services APK。老实说，不到1%的活跃Android设备运行的是不再接收Google Play服务更新的Android版本。截至10月下旬,《冰激凌三明治》仅在0.3%的活跃安卓设备上运行。诚然，这仍然不到600万台活跃设备，但当全球有超过20亿台时，这是一个非常小的数量。</p>
+
+<p>由于今年早些时候新的SDK版本的变化，每个库都可以独立发布，并可能更新自己的minSdkVersion。当前支持API级别14或15的应用程序在更新到较新的SDK版本时会遇到构建错误。自然，要修复这些构建错误，Google推荐的行动方针是将API级别16作为支持的最低API级别。然而，仍然有600万活跃的Android设备，一些开发者可能希望继续支持他们。</p>
+
+<p>如果你是这些开发者中的一员，那么你可以通过一些配置和代码管理来做到这一点。您可以使用不同版本的Google Play服务构建多个支持不同最低API级别的apk。要做到这一点，开发人员需要使用Gradle中的构建变体特性，这样你就可以为你的应用的旧版本和新版本定义构建风格</p>
+
+<hr/>
+
+<p><a href="https://android-developers.googleblog.com/2018/12/google-play-services-discontinuing.html"> <strong>来源:谷歌</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

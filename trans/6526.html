@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>[Update: OEM Gestures Allowed] Google's new navigation gestures in Android Q will be mandatory for all devices</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>[更新:允许OEM手势]谷歌在Android Q中的新导航手势将是所有设备的强制要求</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-navigation-gestures-mandatory/#0001-01-01">https://www.xda-developers.com/android-q-navigation-gestures-mandatory/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新1(美国东部时间5/9/19 @ 7:28PM):</strong>这篇文章发表后不久，<em> AndroidAuthority </em>发表文章声明谷歌不会强迫OEM厂商去掉自己的手势。更多细节见下文。</p> </div></section>
+<p/><p>在去年的谷歌I/O开发者大会期间，谷歌推出了第一个带有谷歌新导航手势控制的Android P测试版。谷歌的新手势让人感觉半生不熟，因为这些手势没有释放任何额外的屏幕空间，也没有取代后退按钮。然而，Android Q beta 3 中引入的新手势有所不同。谷歌新的“全手势导航”实现不再有任何按钮供用户按下，底部小了很多，底部栏也薄了很多。新的手势感觉更像iOS，但这不是一件坏事，因为苹果从一开始就有手势。</p>
+
+  
+<p>自从谷歌在主题演讲中展示了新的手势，我们一直在想，随着<em>又一个</em>手势控制界面的引入，Android生态系统会发生什么——特别是谷歌要求开发者做出改变以适应的界面。现在，我们了解到，谷歌正在让<em>的</em>手势控制成为所有运行Android Q的设备的强制要求。<strong>谷歌的导航手势现在只是Android的导航手势。</strong>提醒一下，下面是谷歌新手势的工作方式，在我们之前关于<a href="https://www.xda-developers.com/everything-new-android-q-beta-3/">的文章中有详细介绍，我们在最新测试版</a>中发现了所有的变化。</p>
+
+<ul> <li>从底部垂直向上滑动即可回家</li> <li>向左或向右水平滑动以返回</li> <li>从左下角或右下角对角滑动，直到你的手指到达屏幕中间，以触发谷歌助手</li> <li>在底部手势栏上向左或向右水平滑动，以在应用程序之间快速切换</li> <li>向上滑动并按住以访问最近的应用概述</li> </ul>
+
+<p class="w-rich w-youtube" id="tORIFtHhJ88">  </p>
+
+
+<p>在今天的“在Android Q中使用深色主题和手势支持移动可用性”会议期间，谷歌Android系统UI团队的产品经理Ronan Shah证实，Android平台将只支持<strong>两种导航方法:谷歌的新手势和传统的3按钮手势。</strong></p>
+
+<blockquote>
+<p/><h4>“在Android的未来，我们将支持两种导航模式。第一个是3个按钮，你知道Android用户喜欢3个按钮。我们知道它非常有用，而且它还解决了手势所不能解决的许多可访问性需求。另一方面，我们也知道人们对手势有很多需求，所以我们将支持1手势模式，正如你所看到的那样，在Android中向前发展——而且只有这一种。”-罗南·沙阿，谷歌。</h4>
+ </blockquote>
+<p>Shah先生继续解释为什么他们决定限制原始设备制造商实现他们自己的手势控制。</p>
+
+<blockquote>
+<p/><h4>“用户越来越希望在Android中获得身临其境的体验，设备制造商已经做的一件事就是试图从软件方面实现这一点。他们所做的是建立他们自己的手势导航。每个设备制造商对手势导航应该如何工作都有不同的印象。我们在平台方面认识到，这对开发者来说有点疯狂。当你试图开发、设计、测试你的应用程序时，想想N种不同的手势导航，这有点疯狂。因此，考虑到这一点，我们在Q中引入了这种手势导航，我们将在3个按钮上标准化Q的生态系统，我们的模式将继续发展。”-罗南·沙阿，谷歌。</h4>
+ </blockquote>
+<p>这很有意义，因为Android Q中新的手势导航将要求许多开发人员重新编写他们的应用程序来处理冲突。带有侧边栏的应用程序无法很好地与新的后退按钮手势配合使用，因此开发人员需要放弃这样的用户界面，或者使用新的setSystemGestureExclusionRects API禁用手势控制。因为开发人员现在必须考虑这一点，所以最好只有一个手势控制实现，这样开发人员就不必考虑如何在非谷歌设备上处理手势行为。每个设备制造商都有自己的导航手势系统，所以很高兴知道谷歌正在围绕单一模型在Android Q中标准化手势。</p>
+
+
+
+
+
+<p>可悲的是，这意味着一加、华为、小米和摩托罗拉的出色手势控制将无法在各自的Android Q版本中使用。另一方面，谷歌强制要求将传统的三按钮导航作为可选模式，这很好。谷歌之前从他们自己的Pixel 3和Pixel 3 XL智能手机中删除了3按钮导航，但这两款设备现在都可以访问传统模式，而不必诉诸任何技巧。</p>
+
+<p><em>感谢来自标准银行的<a href="https://twitter.com/suka_hiroaki"> Andreas Proschofsky </a>的提醒！</em></p>
+
+ 
+<h2 id="update-1-oems-won-t-be-forced">更新1:OEM不会被强迫</h2>
+<p>尽管在舞台上说了什么，谷歌向<a href="https://www.androidauthority.com/android-q-third-party-gestures-984744/"> <em> AndroidAuthority </em> </a>证实，他们不会明确禁止第三方手势。相反，谷歌将第三方手势视为“高级用户选项”。因此，虽然原始设备制造商<em>将</em>被迫提供传统的三按钮导航<em>和</em>谷歌的新手势，但它们<em>不会被限制提供额外的导航手势选项。用户将在设置过程中在3键导航模式和Android Q手势之间进行选择，但不清楚OEM厂商是否允许在设置过程中显示自己的手势。</em></p>
+
+<p>对于谷歌来说，这是一个奇怪的立场，它直接与谷歌I/O的舞台上所说的相矛盾。允许原始设备制造商继续提供自己的手势对标准化生态系统没有任何作用，正如谷歌声称他们希望在I/O上做的那样。开发者因此将不得不迎合来自多家设备制造商的多种手势模式，这正是通过在Android Q中强制统一手势模式来解决的问题。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

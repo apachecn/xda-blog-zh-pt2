@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Google ARCore 1.7 now supports Honor View 20, Moto G7, and more</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌ARCore 1.7现在支持Honor View 20、Moto G7等</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-arcore-1-7-honor-view-20-moto-g7-oppo-r17-pro/#0001-01-01">https://www.xda-developers.com/google-arcore-1-7-honor-view-20-moto-g7-oppo-r17-pro/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>谷歌的增强现实软件开发工具包ARCore正在对1.7版进行重大更新。在一篇博客文章中，谷歌表示，1.7版专注于“创造性元素”，比如增强现实自拍，在Sceneform AR应用程序中设置角色动画，集成ARCore Elements，以及添加共享摄像头访问。此外，受支持设备的官方列表已经扩大，包括了诸如Honor View 20、Moto G7系列、OPPO R17 Pro等设备以及更多设备。</p>
+
+ 
+<h2 id="arcore-1-7-overview">ARCore 1.7概述</h2>
+<h3 id="augmented-faces-api">增强人脸API</h3>
+<p>新的<a href="https://developers.google.com/ar/develop/java/augmented-faces/">增强人脸API </a>允许开发者用3D效果覆盖用户的脸。例如，谷歌表示，开发人员可以创建动画面具、眼镜、虚拟帽子等效果，或者进行皮肤修饰。它使用前置摄像头创建一个468点的3D网格，提供坐标和特定区域的锚点。开发人员可以使用Unity或Sceneform开始使用增强的Faces API。</p>
+
+<h3 id="animations-in-sceneform">场景格式中的动画</h3>
+<p>在Sceneform中创建的对象现在可以添加动画，比如跳舞、跳跃或旋转。</p>
+
+<h3 id="arcore-elements-integration">ARCore元素集成</h3>
+<p>ARCore SDK for Unity集成了ARCore Elements，这些通用AR UI组件旨在简化您的工作流程。平面寻找和对象操纵分别简化了检测表面和使用手势操纵虚拟对象的过程，是谷歌在博客中强调的两个AR UI组件。</p>
+
+ 
+
+
+
+<p class="w-rich w-youtube" id="-982WeGIasQ">  </p>
+
+
+<h3 id="shared-camera-access">共享摄像机访问</h3>
+<p>由于SDK中的共享相机访问，用户在AR模式中的切换将变得更加无缝。这项功能让用户暂停AR体验，跳到相机上拍照(理想情况下，是你的应用程序中的某个东西)，然后优雅地返回AR体验。</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_12"><h3 id="arcore-sdk-for-android-1-7-0-changelog">ARCore SDK for Android 1.7.0变更日志</h3><p/><h4><strong>新的API和功能</strong></h4><ul> <li>新增<code>Camera.getTrackingFailureReason()</code> (Java)和<code>ArCamera_getTrackingFailureReason()</code> (NDK)方法，当跟踪状态为<code>PAUSED</code>时返回AR跟踪失败的原因。</li> <li>新的<code>Frame.transformCoordinates2d(…)</code> (Java)和<code>ArFrame_transformCoordinates2d(…)</code> (NDK)方法，将2D坐标列表从一个2D坐标系转换到另一个2D坐标系。</li> <li>新的会话构造函数<code>Session(Context, Set&lt;Session.Feature&gt;)</code> (Java)和<code>ArSession_createWithFeatures()</code> (NDK)启用了新的功能，从:</li> <li><strong>前置摄像头&amp;增强人脸</strong><ul> <li>应用程序现在可以通过在创建会话时请求<code>FRONT_CAMERA</code>功能来启用前置(自拍)摄像头的增强面部。</li> <li>新方法<code>CameraConfig.getFacingDirection()</code> (Java)和<code>ArCameraConfig_getFacingDirection()</code> (NDK)让应用程序检查它是否正在使用前置摄像头。</li> <li><strong>注意:</strong>使用前置摄像头时，运动跟踪、所有类型的锚点、增强图像和平面检测都不可用。</li> <li>新方法<code>Config.setAugmentedFaceMode(…)</code>让一个应用程序能够增强人脸。</li> <li>新的Trackable <code>AugmentedFace</code>类，用于检测人脸、确定区域姿态和生成3D人脸网格。</li> <li><code>AugmentedFace</code> (Java)类和一组<code>ArAugmentedFace_*</code> (NDK)方法提供getters来请求3D人脸网格的中心姿态、区域姿态、顶点、法线和三角形索引。</li> </ul> </li> <li><strong>共享摄像头访问</strong>(仅限Java)<ul> <li>应用程序现在可以通过在创建会话时请求<code>SHARED_CAMERA</code>功能来与ARCore共享相机控制。该功能主要用于在仅相机(非AR)和ARCore模式之间快速切换。</li> <li>演示如何与ARCore共享摄像机访问的新<code>shared_camera_java</code>示例。</li> <li>新的<code>SharedCamera</code>类使应用程序能够与ARCore共享Camera2 API访问。<ul> <li><strong>注意:</strong> <code>Frame.getImageMetadata()</code>使用共享相机会话时抛出<code>IllegalStateException</code>。相反，使用<code>SharedCamera.setCaptureCallback(…)</code>直接订阅相机回调，并使用<code>Frame.getAndroidCameraTimestamp()</code>将帧与元数据相关联。</li> </ul> </li> <li>新方法<code>Session.getSharedCamera()</code>获取会话的共享相机对象。</li> <li>新方法<code>Frame.getAndroidCameraTimestamp()</code>返回图像的Android相机时间戳。</li> </ul> </li> <li>其他仅针对Java的更改:<ul> <li>新方法<code>Session.close()</code>允许明确释放ARCore会话持有的资源，以实现更好的资源控制。</li> <li><code>PointCloud</code>现在实现了<code>Closeable</code>，允许它与Java try-with-resources和Kotlin <code>use</code>块一起使用。</li> </ul> </li> </ul><p/><h4><strong>折旧</strong></h4><ul> <li><code>Frame.transformDisplayUvCoords</code> (Java)和<code>ArFrame_transformDisplayUvCoords</code> (NDK)现已弃用。请用<code>frame.transformCoordinates2d(Coordinates2d.VIEW_NORMALIZED, …, Coordinates2d.TEXTURE_NORMALIZED, …)</code> (Java)和<code>ArFrame_transformCoordinates2d(…, AR_COORDINATES_2D_VIEW_NORMALIZED, …, AR_COORDINATES_2D_TEXTURE_NORMALIZED, …)</code> (NDK)代替。</li> </ul><p/><h4><strong> Bug修复</strong></h4><ul> <li>第630期:<ul> <li><strong> Java: </strong> <code>Session.createAnchor()</code>和<code>Trackable.createAnchor()</code>现在会正确的在适当的时候抛出<code>SessionPausedException</code>和<code>NotTrackingException</code>而不是<code>FatalException</code>。</li> <li><strong> C: </strong> <code>ArSession_acquireNewAnchor()</code>和<code>ArTrackable_acquireNewAnchor()</code>现在会在适当的时候正确返回<code>AR_ERROR_SESSION_PAUSED</code>和<code>AR_ERROR_NOT_TRACKING</code>而不是<code>AR_ERROR_FATAL</code>。</li> </ul> </li> </ul> </div></section><p class="ad-odd"> </p>
+
+
+<h2 id="new-devices-supporting-arcore">支持ARCore的新设备</h2>
+<p>自从我们<a href="https://www.xda-developers.com/oneplus-6t-xiaomi-mi-mix-3-google-arcore/">上次</a> <a href="https://www.xda-developers.com/google-arcore-1-6-lighting-huawei-p20-lite/">在谷歌的增强现实平台上带来</a>你的新闻以来，这里是被添加到谷歌支持的设备列表中的设备。</p>
+
+<ul> <li>荣誉观20</li> <li>华为Nova 4</li> <li>华为Y9 2019</li> <li>摩托罗拉摩托G7</li> <li>摩托罗拉G7 Plus</li> <li>摩托罗拉摩托G7动力</li> <li>摩托罗拉摩托G7 Play</li> <li>OPPO R17 Pro</li> <li>Vivo NEX双显版</li> </ul>
+
+<p/><p><a href="https://forum.xda-developers.com/honor-view-20"> <strong>荣誉观20论坛</strong> </a> <a href="https://forum.xda-developers.com/nova-4"> <strong>华为Nova 4论坛</strong> </a> <a href="https://forum.xda-developers.com/moto-g7"> <strong> Moto G7论坛</strong> </a> <a href="https://forum.xda-developers.com/g7-play"> <strong> Moto G7玩论坛</strong> </a> <a href="https://forum.xda-developers.com/g7-plus"> <strong> Moto G7 Plus论坛</strong> </a> <a href="https://forum.xda-developers.com/g7-power"> <strong> Moto G7力量论坛</strong> </a></p>
+
+<p><a href="https://www.xda-developers.com/honor-view20-india-launch/"> Honor View 20 </a>、<a href="https://www.xda-developers.com/huawei-y9-2019-india-launch-specifications-pricing/">华为Y9 2019 </a>、<a href="https://www.xda-developers.com/motorola-moto-g7-play-power-plus-launch/"> Moto G7 Power </a>、<a href="https://www.xda-developers.com/oppo-r17-r17-pro-india/"> OPPO R17 Pro </a>都于近日在印上市。华为Nova 4<a href="https://www.xda-developers.com/huawei-nova-4-48mp-rear-camera-display-hole/">和Vivo NEX双屏版</a>尚未在中国以外推出。</p>
+
+<p>如果你设法在支持的设备上下载谷歌ARCore 1.7，请查看谷歌Play商店上提供的一些增强现实体验。我在下面链接了一个简单的应用程序，我想用它来验证ARCore是否有效。</p>
+
+ 
+
+
+
+ 
+
+<hr/>
+
+<p><a href="https://developers.googleblog.com/2019/02/new-ui-tools-and-richer-creative-canvas.html?m=1"> <strong>来源1:谷歌开发者博客</strong> </a> <a href="https://github.com/google-ar/arcore-android-sdk/releases/tag/v1.7.0"> <strong>来源2:谷歌ARCore GitHub发布页面</strong> </a> <a href="https://developers.google.com/ar/discover/supported-devices"> <strong>来源3:谷歌ARCore支持的设备</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

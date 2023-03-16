@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Kernel Assisted Superuser (KernelSU) - The Final Frontier for SafetyNet and an Essential Developer Tool</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>内核辅助超级用户(KernelSU)——安全网的最后边界和一个重要的开发工具</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/kernel-assisted-superuser-kernelsu/#0001-01-01">https://www.xda-developers.com/kernel-assisted-superuser-kernelsu/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>根对我们XDA来说非常特殊。它允许用户控制他们的设备，并添加一些并非总是可用的功能，如通话录音、主题和高级电池监控。这些年来已经有了一些根实现，最流行的可能是SuperSU。不过最近，随着安全网的推出和对root设备的限制越来越多，Magisk已经成为首选的root实现，因为它的Magisk Hide功能允许用户有效地隐藏他们拥有网飞和谷歌支付等应用的root的事实。然而，Magisk Hide的实现和功能在很大程度上是谷歌修补它和Magisk围绕该修补程序工作的猫鼠游戏。</p>
+
+  
+<p>Magisk运行在所谓的用户空间。这也是你手机上大多数程序运行的地方，无论是游戏、音乐播放器还是健身追踪器。它是设备操作系统面向用户的“空间”。用户空间也是Magisk Hide大部分战斗发生的地方。不幸的是，随着时间的推移，谷歌修补了越来越多的Magisk Hide的方法，剩下的隐藏空间越来越少。将来，Magisk可能会完全失去隐藏root的能力。</p>
+
+<p>为这种可能性做准备，XDA认可开发人员<a href="https://forum.xda-developers.com/member.php?u=5434776"> zx2c4 </a>(杰森·唐恩菲尔德)，他因<a href="https://www.xda-developers.com/wireguard-vpn-project-support-android-roms/">在WireGuard </a>上的工作和<a href="https://www.xda-developers.com/oneplus-6-bootloader-protection-exploit-physical-access/">一加引导程序漏洞</a>的发现而在XDA出名，他创造了<a href="https://git.zx2c4.com/kernel-assisted-superuser/about/">内核辅助超级用户</a> (KernelSU)。</p>
+
+<p>与Magisk不同，KernelSU将获得root的能力嵌入到内核本身。在这里，它劫持系统调用来欺骗shell以为<code>/system/bin/su</code>存在于设备上，而实际上它并不存在。然后，它执行使用<code>su</code>运行的命令，就像它们是普通命令一样，但是具有root权限。SELinux无法阻止这个过程——如果内核愿意，它甚至可以禁用SELinux——对用户空间隐藏根状态的能力几乎是无限的，因此对SafetyNet也是如此。</p>
+
+<p>然而，KernelSU还远未完成。目前，还没有合适的访问控制机制(想想Magisk Manager)。正因为如此，KernelSU目前对内核开发者的帮助最大，而不是用户。构建内核的过程需要开发人员不断地重新构建和加载引导映像，以测试和修复错误和功能，而拥有root用户使这变得容易得多。但是，对于Magisk或SuperSU这样的root选项，每次构建后都必须修补引导映像，这样root才能正常工作，这会极大地影响开发过程。另一方面，KernelSU意味着在构建时集成，不需要构建后打补丁。为了使KernelSU集成对开发人员来说更容易，可以使用一个简单的一行命令:</p>
+
+<pre> <code class="hljs javascript">curl -LsS <span class="hljs-string">"https://git.zx2c4.com/kernel-assisted-superuser/plain/fetch-and-patch.sh"</span> | bash -</code> </pre>
+<p>一旦执行完毕，KernelSU就可以作为正常构建过程的一部分构建到内核中。这意味着开发人员可以轻松地构建和测试他们的内核，而不必担心添加root。</p>
+
+<p>虽然KernelSU还处于早期，还需要做更多的工作来使它具有完整的特性，但这是一个有趣的项目。我们采访了<a href="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445">Magisk</a>-创建者，XDA认可的开发者<a href="https://forum.xda-developers.com/member.php?u=4470081"> topjohnwu </a>，关于KernelSU，他也觉得很有趣，他说，由于KernelSU在内核级运行，如果添加Magisk Hide的功能将更加可靠，并且它将是一个“实现起来很有趣的事情”</p>
+
+<p>如果你是一个对KernelSU感兴趣的内核或ROM开发者，请查看<a href="https://forum.xda-developers.com/android/software/root-backdoor-android-kernel-development-t3870559"> XDA线程</a>和<a href="https://git.zx2c4.com/kernel-assisted-superuser/about/">项目的主页</a>以了解更多信息。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

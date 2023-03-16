@@ -1,0 +1,10 @@
+<html>
+<head>
+<title>How to unlock the Nokia 2.1 bootloader</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>如何解锁诺基亚2.1引导加载程序</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/unlock-nokia-2-1-bootloader/#0001-01-01">https://www.xda-developers.com/unlock-nokia-2-1-bootloader/#0001-01-01</a></blockquote><div><div class="emaki-custom expandable" id="custom_block_2"><h3 id="expand-instructions">展开说明</h3><p><span> <b>第一步:下载固件，固件包含服务引导程序文件</b> </span></p><p>你可以从https://fih-firmware.hikaricalyx.com/hmd_en.html#e2m下载</p><p>这种情况请下载E2M-0390-0-00WW-B02一个。如果你用的是Android 9，下载E2M-108C-0-00WW-B01。</p><p>然后，解压E2M-0-0390-00WW-1-2-emmc _ apps boot _ service . zip得到服务bootloader文件，解压密码为“WLBGFIH123”。</p><p><span> <b>第二步:启动手机至下载模式(Fastboot mode) </b> </span></p><p>您可以执行以下命令，然后在关机时连接手机，或者使用您熟悉的任何其他方法:</p><p><span> <b>第三步:Flash服务引导程序</b> </span></p><div><p>代码:</p><pre>fastboot oem dm-verity (md5_of_serial_number)</pre></div><p>惊讶吧。这个命令在诺基亚2.1上仍然可用，甚至在Android 9的基础上，不知道为什么。</p><p>例如，如果您的序列号是E2MGAHIKARICALYX，md5校验和是0 ab 1 B1 e 9 F3 aacc 85849341 cd5fb 21412，则命令将是:</p><div><p>代码:</p><pre>fastboot oem dm-verity 0ab1b1e9f3aacc85849341cd5fb21412</pre></div><p>你可以简单地搜索一个网站来计算字符串的md5校验和。</p><p>和闪存服务引导程序:</p><div><p>代码:</p><pre>fastboot flash aboot /path/to/E2M-0-0390-00WW-1-2-emmc_appsboot_service.mbnfastboot reboot-bootloader</pre></div><p><span> <b>第四步:解锁引导程序</b> </span></p><p>您的手机将重新启动，以服务引导加载程序。然后使用以下命令授予解锁权限:</p><div><p>代码:</p><pre>fastboot oem dm-verity (md5_of_serial_number)fastboot oem fih onfastboot oem devlock allow_unlock</pre></div><p>然后解锁引导加载程序:</p><div><p>代码:</p><pre>fastboot oem flashing unlock_critical</pre></div><p>当您的手机正在清除用户数据时，则:</p><div><p>代码:</p><pre>fastboot oem alive(wait for triggering to download mode)fastboot oem dm-verity (md5_of_serial_number)fastboot oem fih onfastboot oem devlock allow_unlockfastboot oem unlock-go</pre></div><p>完成了。您的手机已解锁引导加载程序。</p> </div></div>    
+</body>
+</html>

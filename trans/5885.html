@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Exclusive: Google is working on a Face ID-like feature for Android Q</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>独家报道:谷歌正在为Android Q开发一个类似Face ID的功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-face-id-rumor/#0001-01-01">https://www.xda-developers.com/android-q-face-id-rumor/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>虽然最好的Android智能手机早在苹果iPhone之前就支持指纹扫描仪，但Android设备在安全生物面部认证硬件方面正在迎头赶上。苹果iPhone X是主要设备制造商的第一款智能手机，结合了飞行时间(TOF)传感器、红外照明器、点投影仪和其他传感器，用于硬件面部识别(苹果称之为“Face ID”)。我们已经看到一些Android设备制造商的智能手机采用了类似Face ID的实现，如<a href="https://www.xda-developers.com/huawei-mate-20-pro-review-video/">华为的Mate 20 Pro </a>和<a href="https://www.xda-developers.com/xiaomi-mi-8-mi-8-explorer-edition-mi-8-se-china-launch/">小米的Mi 8探索版</a>，但这些设备制造商不得不大量定制Android以支持这种新硬件。不过，谷歌似乎正在努力在Android Q中引入对安全面部识别硬件的原生支持。</p>
+
+  
+<p>我们已经在我们获得的Android Q 的<a href="https://www.xda-developers.com/android-q-dark-theme-desktop-mode-permission-revamp/">泄露的AOSP版本中的框架、SystemUI和设置apk中发现了几十个字符串和多个与面部识别相关的方法、类和字段。我们发现的代码没有一个出现在AOSP大师或者</a><a href="https://www.xda-developers.com/january-2019-android-security-google-pixel/">最新的Android Pie公开版本</a>中。此外，现有的“面部解锁”功能已经在Android设备上存在了多年，“可信面部”功能是Google Play服务的一部分，是旧的，不安全的，所以我们有信心这是Android Q中的新功能。</p>
+
+<p><em>特别感谢PNF软件公司为我们提供了使用<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB反编译器</a>的许可。JEB Decompiler是一款针对Android应用的专业级逆向工程工具。</em></p>
+
+<h3 id="framework-res">框架-res</h3>
+<p>从我们在Android Q的框架-res APK中发现的面部解锁相关的字符串中，最重要的行是关于当设备没有面部识别硬件时显示的错误信息。这告诉我们，Android Q确实希望该设备具有硬件面部识别传感器，不同于小米、华为/Honor和一加等公司的大多数现代智能手机上的面部解锁功能。</p>
+
+
+
+<h3 id="settings">设置</h3>
+<p>就像设置新指纹一样，新的人脸认证设置流程要求用户设置密码、PIN或模式作为备份。用户还可以选择要求在启动时解密设备数据之前使用密码、PIN或模式。以下字符串是我们发现的最重要的一个字符串，因为它明确表示您的面部不仅可以用于解锁手机，还可以用于授权购买或登录应用程序。</p>
+
+<pre> <code class="hljs sql"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"security_settings_face_enroll_introduction_message"</span>&gt;</span>Use your face to unlock your phone, authorize purchases, or sign in to apps.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>然而，设备管理员仍然可以停用面部解锁。</p>
+
+
+
+<h3 id="here-s-what-it-looks-like">这是它的样子</h3>
+<p>这里有一些截图展示了Android Pie中面部识别的设置过程。不幸的是，我们不能让它实际工作，因为面部解锁哈尔失踪。</p>
+
+ 
+
+
+
+<h3 id="what-does-this-mean-for-android">这对Android意味着什么？</h3>
+<p>如果你认为这些字符串是谷歌Pixel 4将拥有Face ID的证据，那么让我打断你。这些字符串唯一证明的是，AOSP现在支持面部识别硬件，用于面部解锁、支付和应用程序认证。我们希望像华为Mate 20 Pro和小米8探索版这样运行<a href="https://www.xda-developers.com/google-test-android-q-project-treble-gsi/"> Android Q GSI </a>的设备能够实现面部识别。其他拥有必要硬件传感器的设备应该也可以在Android Q中使用它们进行面部识别。</p>
+
+<p>不过，我不怪你猜测谷歌未来的硬件计划。谷歌在Android Q中支持面部识别硬件的事实自然意味着他们有一个正在测试的设备。它可能是Mate 20 Pro，Mi 8 EE，像<a href="https://www.xda-developers.com/samsung-galaxy-s10-rumors-leaks-specs-features/">三星Galaxy S10+ </a>这样尚未发布的智能手机，定制开发板，或者原型<a href="https://www.xda-developers.com/pixel-watch-code-names/"> Pixel 4 </a>。没有提交，我们不知道他们在测试什么。我们可能会在定于2019年5月7日举行的<a href="https://www.xda-developers.com/google-io-2019-may-7-9/">谷歌2019年I/O</a>上了解更多信息。</p>
+
+<hr/>
+
+<p><em>本文更新于2019年2月8日，截图为Android Pie中安全面部识别的设置流程。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

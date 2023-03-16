@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Magisk 18.0 released with new Manager app for better anti-root detection</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Magisk 18.0发布了新的管理器应用程序，以实现更好的反root检测</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/magisk-18-0-manager-app-better-anti-root-detection-built-in-systemless-hosts-module/#0001-01-01">https://www.xda-developers.com/magisk-18-0-manager-app-better-anti-root-detection-built-in-systemless-hosts-module/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Magisk 18.0发布了新的管理器应用程序，以实现更好的防根检测和内置的无系统主机模块</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Magisk已经更新到v18.0稳定版，带来了一个更新的Magisk Manager应用程序和其他几项改进。继续阅读，了解更多信息！</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>Magisk仍然是确定多个设备的根并进行/系统修改的首选方法，同时仍然保持对依赖SafetyNet检测根访问和系统修改的应用程序的访问。</p>
+
+  
+<p>Magisk现在已经<a href="https://github.com/topjohnwu/magisk_files/blob/2ef99925eb85fc961100aea88e70dec499343047/notes.md">更新到版本18.0，作为稳定版</a>。这个版本对Magisk Hide进行了改进，进程监视器现在匹配组件名而不是进程名。这反过来允许Magisk Hide将隐藏列表上的应用程序派生的所有进程作为目标。Magisk还在这个新版本中为所有Android 7.0+设备上的<a href="https://www.xda-developers.com/procfs-leak-lg-oneplus-huawei-xiaomi-asus/"> procfs安全漏洞</a>打补丁，现在它已经转移到基于C++的新代码库，而不是旧的基于C的代码库。Magisk Manager也将更新到6.1.0版，以完全支持新的Magisk版本。</p>
+
+<p>v18版本的<a href="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445/post78368595#post78368595">完整变更日志</a>如下:</p>
+
+<h3 id="magisk-v18-0">神奇v18.0</h3>
+<ul> <li>[常规]将所有代码库迁移到C++</li> <li>[常规]本机修改数据库，而不是通过Magisk管理器</li> <li>[General]不推荐使用路径/sbin/。核心，请开始使用/sbin/。马吉斯克</li> <li>[常规]引导脚本从<magisk_img> /移出。核心/ <stage>。<stage>开发署。d</stage></stage></magisk_img></li> <li>[常规]删除本机无系统主机(Magisk Manager更新了内置的无系统主机模块)</li> <li>[常规]允许模块post-fs-data.sh脚本禁用/删除模块</li> <li>[magis hide]使用组件名而不是进程名作为目标</li> <li>[magis hide]在SDK 24+上添加procfs保护(牛轧糖)</li> <li>[magis hide]删除文件夹/。备份以防止检测</li> <li>[magis Hide]隐藏列表现在存储在数据库中，而不是图像中的原始文本文件</li> <li>[magis hide]将“- status”选项添加到CLI</li> <li>[magis hide]停止卸载与非定制相关的挂载点</li> <li>[MagiskSU]在广播中添加FLAG_INCLUDE_STOPPED_PACKAGES以强制唤醒Magisk Manager</li> <li>[MagiskSU]修正了一个导致SIGWINCH不能被正确检测的错误</li> <li>[MagiskPolicy]支持新的av规则:type_change，type_member</li> <li>[MagiskPolicy]在修补sepolicy后删除所有AUDITDENY规则，以记录用于调试的所有拒绝</li> <li>[MagiskBoot]正确支持引导头中的extra_cmdline</li> <li>[MagiskBoot]尝试修复损坏的v1启动映像头</li> <li>[MagiskBoot]添加新的CPIO命令:" exists "</li> </ul>
+
+<h3 id="magisk-manager-v6-1-0">Magisk Manager v6.1.0</h3>
+<ul> <li>引入新的下载方法:不再使用错误的系统下载管理器</li> <li>引入许多新的通知以获得更好的用户体验</li> <li>添加对Magisk v18.0的支持</li> <li>隐藏(重新打包)后将应用程序名称更改为“管理器”，以防止应用程序名称检测</li> <li>添加内置无系统主机模块(在设置中访问)</li> <li>隐藏(重新打包)和恢复Magisk Manager后，自动启动新安装的应用程序</li> <li>修复了导致模块中的不完整模块.道具具有不正确的用户界面的错误</li> </ul>
+
+<p>Magisk和Magisk Manager的新更新可以从<a href="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445"> Magisk XDA线程</a>下载。</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

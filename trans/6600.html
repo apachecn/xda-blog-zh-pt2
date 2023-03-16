@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>ARM announces the Mali-G77 GPU with new "Valhall" GPU architecture and 1.4x performance improvements</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>ARM宣布推出Mali-G77 GPU，采用全新的“val hall”GPU架构，性能提升1.4倍</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/arm-mali-g77-valhall-gpu-announcement/#0001-01-01">https://www.xda-developers.com/arm-mali-g77-valhall-gpu-announcement/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>ARM在其年度TechDay上发布了Mali-G77 GPU以及Cortex-A77 CPU。虽然Cortex-A77相对于其前身Cortex-A76来说是一个重大的时代进步，但Mali-G77 GPU则完全不同。这是自2016年带来Bifrost架构的Mali-G71以来，ARM Mali阵容中第一个带来新GPU架构的GPU。Mali-G77带来了全新的“Valhall”架构。</p>
+
+  
+<p>尽管ARM的CPU IP在更广泛的智能手机领域一直颇具竞争力，但该公司的Mali系列多年来一直难以与一流的解决方案竞争。一次又一次，Mali系列GPU在性能和能效方面被证明不如他们的Adreno和Imagination Technologies的PowerVR GPUs。Bifrost架构继承了Midgard架构，从向量类型切换到标量类型。不幸的是，它并没有克服性能和能效之间的差距，而这一差距似乎越来越大。Mali-G71和Mali-G72遭受了过高的功耗和节流，这使得它们不如高通的Adreno GPUs和苹果的定制GPU(从苹果A11开始)。</p>
+
+<p>糟糕的GPU性能成为一个如此重要的问题，以至于供应商们正在展望一代人之后实现的较小GPU增益的前景。例如，<a href="https://www.xda-developers.com/samsung-unveils-exynos-9810-3rd-generation-custom-cpu-cores-mali-g72mp18-gpu/"> Exynos 9810 </a>的Mali-G72MP18 GPU是对其前身的温和改进。华为的海思集团与Mali GPUs的斗争要大得多。海思<a href="https://www.xda-developers.com/huawei-mate-9kirin-960-early-testing-comparison-with-pixel-xlsnapdragon-821/">麒麟960 </a>和<a href="https://www.xda-developers.com/huawei-p20-pro-review/">麒麟970 </a>被GPU消耗异常高的功率，同时提供相对较少的性能，以至于华为被迫引入一种非常规的节流机制，导致去年几款华为手机被发现<a href="https://www.xda-developers.com/huawei-p20-huawei-nova-3-honor-play-cheating-benchmarks/">基准测试作弊</a>。</p>
+
+<p>令人欣慰的是，去年的Mali-G76确实在性能和功效方面取得了实质性的进步。使用10核版本的Mali-G76，海思能够承诺46%的性能提升，即使该公司达到了性能数字，<a href="https://www.xda-developers.com/huawei-mate-20-pro-review/">它仍然无法获得GPU性能(峰值和持续性能)</a>以及能效冠军。三星系统LSI在Exynos 9820中实现了12核版本的GPU，<a href="https://www.xda-developers.com/samsung-galaxy-s10e-review-exynos/">最终缩小了与<a href="https://www.xda-developers.com/qualcomm-snapdragon-855-snapdragon-845-kirin-980-cpu-gpu-ai-benchmarks/">高通骁龙855的Adreno 640 GPU </a>的差距</a>。高通的Adreno GPUs仍然是安卓市场的领头羊，但苹果去年凭借苹果A12的定制GPU走得更远。苹果能够在峰值和持续性能方面击败高通，该公司也展示了具有竞争力的能效。目前，A12的GPU仍然是领导者，而骁龙855的Adreno 640 GPU在大多数基准测试中排名第二。</p>
+
+<p>面对这种竞争环境，ARM需要站出来迎接挑战。</p>
+
+
+
+
+
+<p>其结果是Mali-G77和新的Valhall架构。ARM表示，它的性能密度提高了30%，能效提高了30%，机器学习(ML)提高了60%。ARM预计基于Mali-G77的移动设备的峰值图形性能将提高40%。</p>
+
+<p>该公司预计Mali-G77将为手机带来更多高端游戏，并指出2018年是移动游戏收入首次超过主机和PC游戏收入的一年。</p>
+
+
+
+<p>关于ML，ARM表示，Mali-G77为设备提供了在设备上更快地执行“日益复杂”的ML任务的能力，性能密度提高了60%。这比将它们发送到云中进行处理要好，后者会导致更多的安全问题和性能下降，以及更高的延迟。</p>
+
+<p>新的Valhall架构是Mali-G77和未来Mali GPUs的基础。ARM表示，Valhall的以下特性使其成为一种“新颖的架构”:</p>
+
+<ul> <li>“全新的超标量引擎，在能效和性能密度方面实现了又一次飞跃</li> <li>一个简化的标量ISA，具有新的指令集，对编译器更加友好</li> <li>新的指令动态调度</li> <li>返工的数据结构更好地符合现代API，如Vulkan。</li> <li>虽然有许多不同的进步和新功能，但两个关键的是Mali-G77中的执行引擎和纹理映射器。"</li> </ul>
+
+
+
+<p>根据ARM的说法，Mali-G77的宽执行引擎通过共享对大量通道的控制来提高性能密度。Mali-G76有8个宽度的扭曲，每个着色器核心共有24个FMA通道，而Mali-G77有16个宽度的扭曲，32个通道(每个执行引擎有两个16 FMA的集群)，每个着色器核心有一个引擎。据该公司称，与G76相比，这导致相同区域的计算量增加了33%。</p>
+
+
+
+<p>ARM还表示，Mali-G77游戏性能的提高与四纹理映射器有关，该映射器每周期提供四个纹理元素，吞吐量比Mali-G76高2倍，比G72高4倍。据说它可以全面改善高保真和休闲游戏，但它对纹理密集型游戏的影响尤其大。根据ARM的说法，G77的计算能力已经增加，因此纹理能力也需要增加，以保持机器的平衡。最终目标是什么？每平方毫米的性能比以前更高。</p>
+
+<p>Mali-G77已经过优化，以匹配新的16宽执行引擎和四纹理映射器。这种优化包括LSC和属性管道的重新设计，重点是性能密度和能效。</p>
+
+
+
+<p>ARM表示，它“非常重视”提高能源效率，并宣传Mali-G77可以用两年前Mali-G72的50%的能源完成同样的工作。据该公司称，Valhall架构和Mali-G77提高了所有工作负载的能效，使“各种内容”的能效提高了1.3倍，这意味着用户将在高端设备上获得更长的电池寿命。</p>
+
+<p>ARM表示，现在在硬件中处理动态指令调度，以实现更好的性能。据说动态调度器决定从哪个warps执行哪个指令，然后工作以超标量方式被发送到独立的并行alu。</p>
+
+<p>最后，ARM指出，Valhall架构通过AFBC 1.3延续了ARM帧缓冲压缩的发展。它带来了一些新功能，可以在ARM的博客文章中读到。</p>
+
+<p>ARM对Mali-G77有一些重大承诺，宣称它将在复杂的AR和ML中带来显著的性能改善，并提供“毫不妥协的图形性能和更高的效率”。如果这种说法成立，我们最终可能会看到ARM Mali GPU与特定一代的Adreno GPU并驾齐驱，甚至更胜一筹，移动GPU市场的竞争将变得更加激烈。</p>
+
+<p><strong>来源</strong> : <a href="https://community.arm.com/developer/tools-software/graphics/b/blog/posts/introducing-arm-mali-g77-with-new-valhall-architecture?_ga=2.263563279.2020090613.1558938898-871757968.1558938898">手臂</a></p>
+
+<p><strong>经</strong> : <a href="https://www.anandtech.com/show/14385/arm-announces-malig77-gpu">安耐特</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

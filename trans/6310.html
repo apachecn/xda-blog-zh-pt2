@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>Everything New in Android Q Beta 2 for the Google Pixel</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌Pixel在Android Q Beta 2中的所有新功能</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-beta-2-everything-new/#0001-01-01">https://www.xda-developers.com/android-q-beta-2-everything-new/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>又到了Android Q更新的时候了。我们第一次了解Android Q <a href="https://www.xda-developers.com/android-q-dark-theme-desktop-mode-permission-revamp/">大约是在2019年</a>年初，当时我们设法得到了一个非常早期、非常未完成、泄露的alpha版本。当时，我们了解了它的一些最值得注意的功能，包括它的全系统黑暗模式、桌面模式等等。快进2个月，在他们的年度测试程序之后，谷歌<a href="https://www.xda-developers.com/android-q-beta-changes-google-pixel/">发布了第一个官方Android Q测试版</a>，用于整个Pixel手机系列以及Android模拟器。它还有很多未完成的部分，但是它看起来更加完美了，而且更接近成品了。</p>
+
+  
+<p>现在，在首次测试后仅仅3周，谷歌<a href="https://www.xda-developers.com/android-q-beta-2-notification-bubbles/">向公众发布了第二次测试版本</a>，包括<a href="https://www.xda-developers.com/april-2019-android-security-google-pixel-essential-phone/">4月的安全补丁</a>和一些改进。它现在通过无线方式向注册测试计划的Pixel用户推出(谷歌Pixel、Pixel XL、Pixel 2、Pixel 2 XL、Pixel 3、Pixel 3 XL ),我们现在甚至为那些想在他们的Project Treble兼容设备上尝试Android Q的人提供了<a href="https://www.xda-developers.com/android-q-gsi-project-treble/">官方GSIs </a>。但是自Beta 1以来到底发生了什么变化呢？我们总结了自第一个测试版发布以来Android Q中发生的所有变化——好的、坏的、丑陋的和怪异的。如果你更喜欢视频格式，我们还制作了一个视频概述，涵盖了这些变化中的大部分:你可以在下面查看。</p>
+
+ 
+<p class="w-rich w-youtube" id="GE4QN6zkiLQ">  </p>
+
+
+<p/><p><a href="https://www.xda-developers.com/tag/android-q/"> <strong>了解更多安卓Q </strong> </a></p>
+
+<hr/>
+
+
+<h2 id="notification-bubbles">通知气泡</h2>
+<p>很久以来，我们都很熟悉聊天头和消息气泡的概念。毕竟，脸书在2013年首次将“聊天头像”功能引入Android版Facebook Messenger，距今已有6年之久。它利用Android的屏幕覆盖功能来显示消息气泡，让你在使用其他应用程序时可以方便地进行对话。在任何时候，你都可以点击一个聊天头，发送信息或回复信息，再次点击它，然后继续你正在做的任何事情。您也可以通过将它们拖到屏幕底部来轻松消除它们。</p>
+
+<p>从最初开始，用户对聊天头有着复杂的感觉，有些用户喜欢它们，有些用户则完全鄙视它们。但多年来，包括谷歌自己的手机应用在内的许多应用都以类似于Messenger聊天头的方式实现了浮动气泡。所有这些实现仍然使用屏幕覆盖来显示你正在使用的任何应用程序上的浮动气泡，但在Android Q中，似乎浮动气泡现在将作为Android功能得到系统的官方支持。</p>
+
+
+
+
+
+<p/><p><em>Android Q Beta 2中的消息应用程序及其相应气泡的示例。</em></p>
+
+<p>不过，这些气泡不一定是聊天应用程序独有的。其他现有的浮动上下文气泡的例子包括谷歌手机应用程序的气泡实现，它让你在通话过程中快速行动(如挂断电话)。AZ Screen Recorder还在一个浮动的气泡中为您提供快速控制，如开始录制和设置按钮。谷歌的博客文章还引用了笔记和翻译等可移植UI元素的例子。这个功能将允许更多的应用程序自己实现聊天头，但它会变得多普遍将在很大程度上取决于开发者实现这个功能。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="reworked-gestures">返工手势</h2>
+<p>回到Android Pie，我们第一次尝到了导航手势的滋味，但它们并不都很棒。AOSP的实现受到了一些爱好者和用户的强烈批评。它用一颗药丸取代了home和recents按钮，保留了home按钮的功能(点击进入home，长按打开Google Assistant)，但也允许你快速向右滑动以切换到上一个应用程序，向上滑动以打开recents菜单，向右拖动以切换到recents菜单中的任何给定应用程序。保留了后退按钮。与简单明了的软件按钮相比，这整个实现似乎是半生不熟的，并没有提供真正的优势，因为启用手势并没有重新获得屏幕空间。</p>
+
+<p>几个月前，当我们第一次接触到泄露的Android Q build时，我们注意到谷歌正在修改这些药丸手势，以便它们的工作方式更类似于iOS的手势。对于这个新的实现，后退按钮被取消了，只留下了药丸-你现在可以向左滑动返回。此外，一些动画也被改变，使它们看起来更像iPhone。</p>
+
+<p>这在当时被隐藏了起来，因为Android Pie手势是默认实现，但随着Android Q Beta 2的推出，谷歌似乎正在计划手势控制的大事情。普通手势以某种方式进行了重新设计:仍然有一个后退按钮，但拉动药丸不再允许你在应用程序之间切换。现在，在药丸上向左或向右滑动将改为按照时间顺序在你的应用程序之间来回切换，类似于iOS的方式。</p>
+
+
+
+<p/><p><em> Android Q的拉长手势手柄。</em></p>
+
+<p>我们还发现，谷歌正计划用一个细长的手柄取代这个药丸(和上下文后退按钮)，与我们在iPhone X/XS/XR上看到的手柄非常相似。这个现在还不能正常工作，而且它还占用了导航栏的空间。但很明显，谷歌正在考虑他们的手势实现，我们非常兴奋地看到这一点在未来几个测试版和最终版本中变得成熟。</p>
+
+ 
+<p class="w-rich w-youtube" id="oV2tDH-1NFQ">  </p>
+
+
+<p>你可以在这里查看这些重新设计的手势<a href="https://www.xda-developers.com/android-q-beta-2-iphone-x-gesture-bar/">的更深层次。</a></p>
+<p class="ad-even"> </p>
+
+
+<h2 id="expandable-volume-menu-is-back">可扩展卷菜单又回来了</h2>
+<p>Android Pie改变了你调节音量的方式。以前，在没有播放媒体时轻触音量键会调高/调低铃声音量，您可以展开音量菜单来调出媒体/警报音量摇杆。这种行为在Android Pie中被改变了:现在默认情况下改变的是媒体音量而不是铃声音量，重新设计的音量菜单是不可扩展的——你需要进入设置来改变铃声/闹钟音量。音量菜单确实有一个齿轮图标来快速调出设置，但这仍然是一个额外的步骤，很快就会变得令人讨厌。</p>
+
+
+
+<p>在Android Q beta 2中，媒体音量仍然是默认变化的，就像Android Pie和Android Q beta 1一样，但音量菜单现在可以再次扩展:点击齿轮图标现在会弹出一个上下文菜单，而无需进入设置，其中有所有你期望找到的音量摇杆。我个人仍然更喜欢类似于我们在安卓奥利奥的东西，但是，嘿，我们不能拥有一切。这比我们吃的派好多了。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="choosing-notification-dismiss-swipe-direction">选择通知消除滑动方向</h2>
+<p>Android Q的第一个测试版带来了一个意想不到的变化:通知现在只能向右滑动。向左滑动可以打开暂停和阻止选项，但你不能这样滑动。这一变化并没有受到很好的欢迎，谷歌也考虑到了这种反弹:<a href="https://www.xda-developers.com/android-q-change-notification-swipe-to-dismiss-direction/">我们最近报道了</a>谷歌已经确认未来版本的Android将允许用户选择通知滑动方向。</p>
+
+<p>当时，我们不知道谷歌谈论的是未来的Android Q测试版还是未来的Android版本。我们很高兴看到谷歌这么快就兑现了他们的承诺，因为Android Q的第二个测试版已经允许你选择你更喜欢在哪一边刷掉你的通知。</p>
+
+
+
+<p>我宁愿有预Q通知行为，但这仍然是进步。</p>
+
+
+<p class="ad-even"> </p>
+
+
+<h2 id="screenshots-no-longer-show-rounded-corners-notches">截图不再显示圆角/凹口</h2>
+<p>如今圆角和缺口无处不在，但我们都同意一点:它们绝对不应该出现在截图中。毕竟，它不仅看起来怪异和丑陋，而且当你收到某人的截图时，你可能不想看到巨大的缺口。尽管如此，出于某种原因，凹槽和圆角在Android Q beta 1截图中显示为黑色空间。好消息是什么？正如你在这一页的截图中所看到的，在Beta 2中，凹口和角落已经消失了。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="seekbar-for-music-notifications">音乐通知搜索栏</h2>
+<p>除了实际有用的功能，从Android Q beta 2开始，Google Play Music和Spotify等应用程序的音乐通知现在有了用于滚动音乐曲目和播客的搜索栏。这样，你就可以跳过一首曲目，而不需要真正进入应用程序。</p>
+
+
+
+<p>这是一个可能会受到用户欢迎的功能，也是一个实际上让我对Android Q感到兴奋的功能。像这样的小细节对改善整个用户体验有很大帮助。</p>
+<p class="ad-even"> </p>
+
+
+
+<p>自从分享菜单在2015年首次用Android Marshmallow修改以来，它已经引入了一系列自己的问题。用户经常抱怨它速度慢，笨重，使用起来不舒服，这些抱怨已经持续了近4年，并一直延续到去年的Android馅饼。对于Android Q，谷歌正在增加一些急需的改进，试图让它更快、更舒适地使用。它的用户界面看起来还是一样的，但是由于Android新的共享快捷方式机制，它的加载速度要快得多。</p>
+
+
+
+<p>在beta 2中，这个共享菜单现在可以显示您正在共享的任何内容的标题和缩略图，允许您确保您正在共享您真正想要共享的内容。这是一个小变化，但有时可能会派上用场。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="tweaks-in-the-settings">设置中的调整</h2>
+<p>谷歌服务存在于我们手机的每个部分，甚至在我们的设置应用程序中。但Android Q旨在进一步加强这种整合。你现在可以在设置搜索栏的右边看到你的谷歌个人资料图片，类似于Gmail的新材料主题账户切换器。点击它会弹出一个新菜单，里面有你的设备信息、你的紧急信息、管理你的支付方式的“支付”快捷方式，以及底部的谷歌账户快捷方式。</p>
+
+
+
+
+
+<p>设置应用本身也做了一些小改动。在“关于手机”中点击Android版本，现在会显示一个单独的活动，而不是弹出窗口。设置顶部的提示现在包括WiFi之类的切换，你不用进入WiFi设置就可以看到可用的网络。</p>
+
+
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="miscellaneous-changes-and-bug-fixes">杂项更改和错误修复</h2>
+<p>Android Q的第二个测试版也带来了一些较小的变化和修复，这些变化和修复本身并不值得一提。这些是:</p>
+
+<ul> <li>电池图标略有变化:它现在是大胆的轮廓，而不是阴影。<ul> <li>这可能暗示着在接下来的几个测试版中会有更多的UI变化，但是它们看起来都是很小的事情。</li> </ul> </li> <li>取消通知时，现在有<span>“完成”、“无声发送”和“阻止”按钮。</span></li> <li>出于隐私考虑，“范围存储”通过为每个应用程序创建隔离的沙箱来限制应用程序访问文件的方式。<ul> <li>这目前正在破坏一些文件管理器应用，包括MiXplorer。</li> </ul> </li> <li><span>谷歌摄像头现在明确要求获得访问照片和媒体文件的许可，配合这些隐私变化</span></li> <li>在“设置”的“系统”部分有一个“背景卡片”设置，但是我们现在还不确定它是关于什么的。</li> <li>无线充电在锁屏中不再显示为“慢”或“快”。</li> <li>在beta 1中，通知阴影中的电池百分比被替换为“剩余电池时间”,现在恢复为实际的电池百分比。</li> <li>音乐通知在环境显示器上更大</li> <li>应用程序权限菜单现在被称为“权限管理器”</li> </ul>
+
+<p/><p><a href="https://www.xda-developers.com/tag/android-q/"> <strong>了解更多安卓Q </strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

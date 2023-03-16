@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Google May Kill Android's Back Button for Android Q's New Gestures</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>谷歌可能会为Android Q的新手势杀死Android的后退按钮</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-gestures-back-button/#0001-01-01">https://www.xda-developers.com/android-q-gestures-back-button/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>自从苹果在iPhone X上移除了标志性的home键以支持手势导航以来，我们已经看到一些最好的Android手机背后的公司推出了他们自己的手势控制实现。一些手势控制系统，如一加和小米的手势控制系统，因其直观性和引人注目的动画而广受好评，而谷歌的Android Pie手势控制系统则得到了褒贬不一的评价。正如谷歌<a href="https://www.xda-developers.com/android-p-iphone-x-navigation-gesture/">在谷歌I/O 2018之前意外泄露了</a> Android P的手势一样，我们已经从上个月<a href="https://www.xda-developers.com/android-q-dark-theme-desktop-mode-permission-revamp/">获得的一个泄露的Android Q版本中找到了导航手势原型改造的证据</a>。</p>
+
+ 
+<h2 id="gesture-controls-in-android-pie">Android Pie中的手势控制</h2>
+<p>在Android 9 Pie中，3键导航系统<a href="https://www.xda-developers.com/android-p-iphone-x-gestures-official/">被2键系统</a>取代。虽然“最近应用”按钮被移除了，但“后退”按钮却保留了下来。然而，home键变成了一个手势药丸。以下是手势在Android Pie中如何工作的总结:</p>
+
+<ul> <li>Tap药丸:回家</li> <li>长按药丸:启动谷歌助手</li> <li>快速向上滑动药丸:打开横向最近应用概述</li> <li>长时间向上滑动药丸:应用程序抽屉</li> <li>向右滑动药丸:滚动浏览最近的应用程序</li> <li>向右快速滑动药丸:打开最后一个应用程序</li> <li>后退按钮:返回(隐藏在启动屏幕上)</li> </ul>
+<div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/Android-Pie-Gestures.gif" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Gestures in Android Pie. Source: Google.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/Android-Pie-Gestures.gif?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/Android-Pie-Gestures.gif?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/Android-Pie-Gestures.gif?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/Android-Pie-Gestures.gif?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/Android-Pie-Gestures.gif" src="../Images/c708cbaa952e77b653bfba0ee9f01e3f.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/Android-Pie-Gestures.gif"/> </picture> <figcaption class="body-img-caption">Gestures in Android Pie. Source: Google.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>人们对Android Pie手势的大多数抱怨都集中在专用后退按钮的存在以及执行长时间向上滑动药丸以打开应用抽屉的困难。虽然我不知道Android Q是否会改变后一种手势，但谷歌很有可能会取消专用的后退按钮。下面是我们对Android Q中手势的了解。</p>
+<p class="ad-odd"> </p>
+
+
+<h2 id="gesture-controls-in-android-q">Android Q中的手势控制</h2>
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_7"><p>以下信息基于我们获得的Android Q预发布版本。这个建筑是在一月底建造的。虽然我们有信心到目前为止我们发现的主要功能，如全系统黑暗模式和权限修改将出现在发布版本中，但谷歌可能会在开发的任何时候取消这些对手势控制的可能更改。</p> </div></section>
+<p>在Android Q中，谷歌正在试验对Android Pie的手势进行两项重大改变:用手势取代专用的后退按钮，并提高“最后一个应用程序”过渡动画的流畅性。您也不能再通过三按钮导航系统<a href="https://www.xda-developers.com/disable-android-pie-gestures-google-pixel-3/">禁用手势</a>来返回垂直卡最近应用概述。在发布之前可能会有更多的变化，但这是我们目前所发现的。</p>
+
+<h3 id="back-buttonless-navigation">后退无按钮导航</h3>
+<p>Android专用的back按钮从一开始就有了，但不难想象Google是如何在Android Pie中摆脱它的。为什么我们不能向左滑动药丸来执行向后的动作呢？我可以理解为什么谷歌没有在Android Pie中去掉返回键。普通人将他们的Pixel、Pixel XL、Pixel 2或Pixel 2 XL升级到Android 9 Pie可能已经太习惯于专用的后退按钮，所以它的突然删除可能会让他们感到困惑。但是现在所有的Pixel所有者都已经尝到了手势导航控制的滋味，可能是时候放弃专用的后退按钮了。通过Android Q中启用的实验手势，你可以<strong>向左滑动药丸以返回</strong>。这正是我一直希望看到的，就像听起来那么简单！</p>
+
+<h3 id="better-transition-animations">更好的过渡动画</h3>
+<p>看起来谷歌可能会更像iPhone的最后一个应用程序手势动画。在Android Q中，在任何应用程序中向右滑动药丸都可以让你平稳地切换到上一个应用程序。您可以通过继续向右滑动药丸来循环浏览您最近的所有应用程序，这将使您在水平的最近应用程序概览列表中向左移动，直到您到达列表中最早的应用程序。如果你在启动器上滑动药丸，你可以在一个连续的手势中循环所有的应用程序。</p>
+
+<p>[video width = " 480 " height = " 640 " MP4 = " https://static 1 . xdaimages . com/WordPress/WP-content/uploads/2019/02/qlastapp . MP4 "]</p>
+
+<h3 id="summary">摘要</h3>
+<p>以下是Android Q中实验手势的工作原理总结:</p>
+
+<ul> <li>Tap药丸:回家</li> <li>长按药丸:启动谷歌助手</li> <li>快速向上滑动药丸:打开横向最近应用概述</li> <li>长时间向上滑动药丸:应用程序抽屉</li> <li>向右滑动药丸:滚动浏览最近的应用程序</li> <li>向右快速滑动药丸:打开最后一个应用程序</li> <li>向左滑动药丸:返回</li> </ul>
+
+ 
+<p class="w-rich w-youtube" id="PCM2SR5pDn4">  </p>
+
+
+<h3 id="when-will-we-see-these-new-gestures">我们什么时候能看到这些新手势？</h3>
+<p>虽然谷歌可能已经修复了我在新手势控制原型中看到的一些问题，但我非常怀疑我们会在<a href="https://www.xda-developers.com/google-test-android-q-project-treble-gsi/"> Android Q开发者预览版1 </a>中看到新手势。Android原生手势导航控制的一个重大改进是一个变化，我觉得谷歌将保留到<a href="https://www.xda-developers.com/google-io-2019-may-7-9/">谷歌I/O 2019 </a>为止。<a href="https://www.xda-developers.com/android-p-developer-preview-1-google-pixel-xl-pixel-2-xl/"> Android P开发者预览版1 </a>没有手势控制功能，而在<a href="https://www.xda-developers.com/tag/io-2018/"> Google I/O 2018 </a>期间发布的<a href="https://www.xda-developers.com/everything-new-android-p-developer-preview-2/"> Android P开发者预览版2 </a>则有。我们距离Android Q的第一个开发者预览版的预计发布日期只有几周了，所以我们很快就会知道手势是否会进入那个版本。同样，也有可能谷歌在我们获得泄露的版本后的一个月里已经取消了手势的这些改变。然而，鉴于许多商店和用户对Android Pie手势的强烈反应，如果谷歌不对导航手势做出重大改变，我们会感到惊讶。</p>
+
+<p><em>不要脸塞:在任何安卓设备上寻找手势控制？查看我们在谷歌Play商店上的“导航手势”应用程序！</em></p>
+
+ 
+
+
+
+<hr/>
+
+<p>关于Android Q的更多信息:</p>
+
+
+
+<p>非常感谢PNF软件公司为我们提供使用许可<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB Decompiler </a>，这是一款用于Android应用的专业级逆向工程工具。使用JEB Decompiler，在XDA知名开发者luca020400和Quinny899的帮助下，我能够找到隐藏的功能并了解如何激活它。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

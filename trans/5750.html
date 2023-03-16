@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Samsung Galaxy S10 may feature "Bright Night" to take photos in low-light</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>三星Galaxy S10可能具有“明亮的夜晚”功能，可以在弱光下拍照</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/samsung-galaxy-s10-bright-night-camera-low-light/#0001-01-01">https://www.xda-developers.com/samsung-galaxy-s10-bright-night-camera-low-light/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>由于计算摄影技术，2018年最好的智能手机趋势之一是弱光拍照的大幅改善。华为P20是第一款手持长曝光夜间模式的手机，给人留下了深刻的印象。但直到谷歌为Pixel智能手机上的谷歌相机应用程序发布了<a href="https://www.xda-developers.com/google-camera-night-sight-available/">夜视</a>，我们才真正看到这项技术的能力。一加和小米也有自己的特色。值得注意的是，三星一直没有参与这些对话。然而，我们在最新的One UI (Android Pie)测试版中发现了证据，表明该公司正在开发他们自己的类似夜视的功能，该功能可能被称为“明亮的夜晚”。这项功能可能会在即将到来的三星Galaxy S10上首次亮相。</p>
+
+  
+<p>谷歌的夜视功能可能是最知名的，但其他设备上也有类似的功能。一加称他们的"<a href="https://www.xda-developers.com/oneplus-6t-oxygenos-9-0-10-nightscape-december-security-patches/">夜景</a>，"小米称之"<a href="https://www.xda-developers.com/xiaomi-mi-8-mi-mix-2s-night-scene-miui-8-11-8/">夜景</a>，"荣誉有"<a href="https://www.xda-developers.com/how-the-kirin-970-uses-handheld-super-night-mode-to-take-better-photos-at-night/">超亮模式</a>，"华为干脆称之为"<a href="https://www.xda-developers.com/huawei-p20-pro-review/">夜景</a>"这些相机模式大多采用类似的方法:它们拍摄多张照片，然后将它们组合成一张照片，这张照片比典型的弱光照片更亮，显示更多细节，不会过度曝光，并且不依赖于LED闪光灯。这正是三星对他们新的“明亮之夜”功能的描述。</p>
+
+<p>我们反编译了最新Galaxy Note 9的One UI/Android Pie版本中包含的三星相机APK，并发现了一些有趣的字符串，这些字符串明确描述了一个与其他夜间模式功能类似的功能。以下是我们使用PNF软件公司的<a title="" href="https://www.pnfsoftware.com/?aid=xdadev"> JEB反编译器</a>发现的字符串。：</p>
+
+<pre> <code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Title_bright_night"</span>&gt;</span>Bright night<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"smart_tips_bright_night_description"</span>&gt;</span> Suggest mode to take bright pictures even in very dark conditions. <span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"super_night_guide_capture"</span>&gt;</span> Hold your phone steady. Taking picture. <span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/>&lt;string name=<span class="hljs-string">"super_night_guide_ready"</span>&gt; Brighten up <span class="hljs-keyword">this</span> shot <span class="hljs-keyword">with</span> Bright night. &lt;<span class="hljs-regexp">/string&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"bright_night_summary"</span>&gt;</span> Take bright pictures even in very dark conditions <span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"SM_NIGHT"</span>&gt;</span> Night <span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"SM_NIGHT_description"</span>&gt;</span> Take multiple shots and combine them to get brighter, clearer pictures in low light without using the flash. <span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br/><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"bright_night_summary"</span>&gt;</span> Take bright pictures even in very dark conditions. <span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></code> </pre>
+<p>虽然我们不能100%肯定该功能何时发布，但它在即将到来的三星Galaxy S10上首次亮相是有意义的。三星自然会希望在他们最新的手机上宣布他们相机应用程序的任何重大更新，并可能在一段时间内成为Galaxy S10独有的功能。三星通过Galaxy Note 9上的场景优化功能做到了这一点，<a href="https://www.xda-developers.com/samsung-galaxy-s9-scene-optimizer-android-pie/">最终在Galaxy S9和Galaxy S9+各自的One UI beta更新中添加了</a>。甚至<a href="https://www.xda-developers.com/samsung-galaxy-s8-super-slow-motion-ar-emoji/">超慢的Mo最终也从Galaxy S9被反向移植</a>到Galaxy S8和Galaxy Note 8。因此，我们预计三星将在其10周年纪念设备中发布这一功能。</p>
+
+<p>我们很高兴看到关于Galaxy S10的更多信息以及该设备可能推出的所有新功能。传闻中的2019年MWC奥运会的宣布日期即将到来。关于Galaxy S10有很多传言。三星可能会<a href="https://www.xda-developers.com/5g-samsung-galaxy-s10-5g-lg-flagship-mwc-2019/">展示一款5G机型</a>，一款可能会有<a href="https://www.xda-developers.com/samsung-galaxy-s10-plus-renders/">的三后置摄像头</a>，一款<a href="https://www.xda-developers.com/samsung-galaxy-s10-faster-larger-in-display-fingerprint-sensor/">的显示内指纹扫描仪似乎有可能</a>，它可能会有<a href="https://www.xda-developers.com/samsung-galaxy-s10-plus-renders/">的Infinity-O显示屏</a>。我们很快就会知道更多。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

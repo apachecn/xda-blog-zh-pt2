@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>[Update: Clock Plugins] Google is working on lock screen clock customization in Android Q</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>【更新:时钟插件】谷歌正在Android Q中进行锁屏时钟定制</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-lock-screen-clock-customization/#0001-01-01">https://www.xda-developers.com/android-q-lock-screen-clock-customization/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新1(美国东部时间9/4/19 @上午10:54):</strong>Android 10源代码日前发布，证实了时钟插件确实是个东西。可悲的是，流行类型的钟面已被删除。</p> </div></section>
+<p/><p>两天前，第一个Android Q测试版公开了。如果你有谷歌Pixel智能手机，现在就可以下载测试版。Q中最大的新功能是全系统的<a href="https://www.xda-developers.com/android-q-dark-mode-overview/">黑暗模式</a>(它已经莫名其妙地对用户隐藏了<a href="https://www.xda-developers.com/android-q-toggle-dark-theme/">)，隐私和权限改造(尽管泄露的</a><a href="https://www.xda-developers.com/android-q-privacy-permission-controls/">权限概览界面</a>也被隐藏了)，以及<a href="https://www.xda-developers.com/android-q-desktop-mode/">桌面模式</a>。我们一直在使用我们信任的<a href="https://www.xda-developers.com/apktool-2-4-release/"> APKTool </a>和<a href="https://www.pnfsoftware.com/?aid=xdadev"> JEB反编译器</a>来挖掘该版本，以找到所有隐藏的功能，如<a href="https://www.xda-developers.com/android-q-navigation-gesture-controls/">新手势</a>和<a href="https://www.xda-developers.com/android-q-google-pixel-2-pixel-3-remap-active-edge/">活动边缘重新映射</a>，它们可能会在<a href="https://www.xda-developers.com/android-q-beta-release-schedule/">最终Q版本</a>中出现。我们发现的另一个功能是锁屏时钟定制。</p>
+
+  
+<p>如下图所示，谷歌正致力于让你自定义锁屏时钟的外观。他们已经创建了3种不同的自定义时钟预设，可以通过更改隐藏设置的值立即启用。预设时钟包括文本时钟、气泡时钟和拉伸模拟时钟。所有这些定制时钟都是不完整的，因为它们缺少日期和天气，但它们确实可以与Pixel 2和Pixel 3的始终显示一起工作。气泡时钟和拉伸时钟也显示了标准的数字时钟，如果这个功能进入最终的Android Q版本，可能就不是这样了。</p>
+
+
+
+
+
+<p>要在Android Q上启用这些自定义时钟，请遵循以下说明。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_5"><p><strong>要求:</strong></p><ul> <li>运行Android Q beta的谷歌Pixel、Pixel XL、Pixel 2、Pixel 2 XL、Pixel 3或Pixel 3 XL</li> <li>在Windows、Linux或macOS PC上设置的Android调试桥(ADB)。说明可以在<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/">这里找到</a>。</li> </ul> </div></section>
+<p>运行以下命令之一来更改锁屏时钟。该命令立即生效:</p>
+
+<p><strong>泡泡时钟:</strong></p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">settings</span> <span class="hljs-selector-tag">put</span> <span class="hljs-selector-tag">secure</span> <span class="hljs-selector-tag">lock_screen_custom_clock_face</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.keyguard</span><span class="hljs-selector-class">.clock</span><span class="hljs-selector-class">.BubbleClockController</span>"</code> </pre>
+<p><strong>拉伸模拟时钟:</strong></p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">settings</span> <span class="hljs-selector-tag">put</span> <span class="hljs-selector-tag">secure</span> <span class="hljs-selector-tag">lock_screen_custom_clock_face</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.keyguard</span><span class="hljs-selector-class">.clock</span><span class="hljs-selector-class">.StretchAnalogClockController</span>"</code> </pre>
+<p><strong>文字时钟:</strong></p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">settings</span> <span class="hljs-selector-tag">put</span> <span class="hljs-selector-tag">secure</span> <span class="hljs-selector-tag">lock_screen_custom_clock_face</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.keyguard</span><span class="hljs-selector-class">.clock</span><span class="hljs-selector-class">.TypeClockController</span>"</code> </pre>
+<p><strong>正常时钟:</strong></p>
+
+<pre> <code class="hljs javascript">adb shell settings <span class="hljs-keyword">delete</span> secure lock_screen_custom_clock_face</code> </pre>
+<p>对于任何感兴趣的开发人员，下面是SystemUIGoogle的ClockManager类中的相关方法:</p>
+
+<section class="emaki-custom-block emaki-custom-expandable"><div class="emaki-custom expandable" id="custom_block_16"><h3 id="code-for-custom-clock-faces-on-the-lock-screen">锁定屏幕上自定义钟面的代码</h3><pre> <code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">register</span><span class="hljs-params">()</span> </span>{<br/><span class="hljs-built_in">String</span> str = <span class="hljs-string">"lock_screen_custom_clock_face"</span>;<br/><span class="hljs-selector-tag">this</span><span class="hljs-selector-class">.mContentResolver</span><span class="hljs-selector-class">.registerContentObserver</span>(<span class="hljs-selector-tag">Secure</span><span class="hljs-selector-class">.getUriFor</span>(<span class="hljs-selector-tag">str</span>), <span class="hljs-selector-tag">false</span>, <span class="hljs-selector-tag">this</span><span class="hljs-selector-class">.mContentObserver</span>);<br/>ExtensionBuilder newExtension = <span class="hljs-keyword">this</span>.mExtensionController.newExtension(ClockPlugin<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;<br/>newExtension.withPlugin(ClockPlugin<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;<br/><span class="hljs-selector-tag">newExtension</span><span class="hljs-selector-class">.withCallback</span>(<span class="hljs-selector-tag">this</span><span class="hljs-selector-class">.mClockPluginConsumer</span>);<br/>newExtension.withDefault(<span class="hljs-keyword">new</span> SettingsGattedSupplier(<span class="hljs-keyword">this</span>.mContentResolver, str, BubbleClockController.class.getName(), <span class="hljs-keyword">new</span> C0386-$$Lambda$ClockManager$LL3RUa19AVegk9Mkg8eS_BmuG7o(<span class="hljs-keyword">this</span>)));<br/>newExtension.withDefault(<span class="hljs-keyword">new</span> SettingsGattedSupplier(<span class="hljs-keyword">this</span>.mContentResolver, str, StretchAnalogClockController.class.getName(), <span class="hljs-keyword">new</span> C0387-$$Lambda$ClockManager$aVyrwGQVcB_VpjAEn9xTWGKpSj8(<span class="hljs-keyword">this</span>)));<br/>newExtension.withDefault(<span class="hljs-keyword">new</span> SettingsGattedSupplier(<span class="hljs-keyword">this</span>.mContentResolver, str, TypeClockController.class.getName(), <span class="hljs-keyword">new</span> C0384-$$Lambda$ClockManager$<span class="hljs-number">0</span>RLVFJyrdkzcA8PsTIu0AOgpy1E(<span class="hljs-keyword">this</span>)));<br/><span class="hljs-keyword">this</span>.mClockExtension = newExtension.build();<br/>}</code> </pre> </div></section>
+<p>这些定制时钟是作为SystemUI的插件开发的。我们可能会在未来Android Q版本的SystemUI调谐器中看到它们，或者我们可能永远不会以任何用户可访问的方式看到它们。谷歌一直在开发类似的新功能，遗憾的是，其中许多功能从未出现在设置应用中。其中一个最显著的例子就是Android 7 Nougat中的<a href="https://www.xda-developers.com/nav-bar-customization-was-hidden-in-stock-nougat-all-along-and-it-never-needed-root/">隐藏导航栏调谐器</a>。如果锁屏时钟定制确实在未来的Android Q beta版本中发布，我们会让你们都知道。</p>
+
+<p/><p><a href="https://xda-developers.com/tag/android-q"> <strong>更多安卓Q新闻、小技巧、小窍门</strong> </a></p>
+
+<hr/>
+
+<p><strong>更新1(美国东部时间2019年7月18日晚7点):</strong>谷歌在Q beta 4中移除了TypeClockController，他们还更改了Stretch模拟时钟。要启用拉伸模拟时钟，请输入:</p>
+
+<p><code>adb shell settings put secure lock_screen_custom_clock_face "com.android.keyguard.clock.AnalogClockController"</code></p>
+
+<p>气泡时钟命令保持不变。</p>
+
+<hr/>
+
+
+<h2 id="update-2-clock-plugins-in-android-10">更新Android 10中的时钟插件</h2>
+<p>正如在AOSP的<a href="https://android.googlesource.com/platform/frameworks/base/+/android10-release/packages/SystemUI/docs/clock-plugins.md"> readme页面</a>上详细描述的，谷歌增加了一个ClockPlugin插件接口，允许定制出现在锁定屏幕和永远显示屏幕上的时钟。因为时钟是“电池消耗和屏幕老化的高风险”，所以建议OEM厂商将目标设定为“最大开像素比(OPR)为5%。”此外，谷歌建议时钟“不应该由大的实心色块组成，时钟应该在屏幕上移动，以将on像素分布在大量像素上。”在实现时钟之后，谷歌建议进行老化测试。</p>
+
+<p>谷歌目前在AOSP Android 10中支持两种自定义钟面:拉伸模拟和气泡。该公司<a href="https://android.googlesource.com/platform/frameworks/base/+/583067c4e4799b0a633d8e861698c8fc2a5c7a6f%5E%21/#F2">移除了</a>对钟面类型的支持，尽管没有解释原因。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

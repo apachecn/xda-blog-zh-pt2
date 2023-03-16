@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Modders figured out how to increase the Google Pixel 3's wireless charging speed, but it could be risky</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>改装者想出了如何提高谷歌Pixel 3的无线充电速度，但这可能有风险</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/increase-google-pixel-3-wireless-charging-speed/#0001-01-01">https://www.xda-developers.com/increase-google-pixel-3-wireless-charging-speed/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">改装者想出了如何提高谷歌Pixel 3的无线充电速度，但这可能有风险</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">XDA资深成员k0rner公布了一个mod，可以将Pixel 3的无线充电电流提高到高达1.290mA</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>与电缆充电相比，无线充电通常较慢，但最近一些原始设备制造商已经在其设备中实现了更快的无线充电。三星在这一点上是众所周知的，如果你使用<a href="https://www.xda-developers.com/google-pixel-3-google-pixel-3-xl-specs-features-pricing-availability/"> Pixel支架</a>和其他来自<em> Made for Google </em>计划的认证设备，Pixel 3和Pixel 3 XL实际上将充电10W(Belkin去年年底宣布了其10W充电器)。然而，如果您使用的是未经认证的Qi无线充电器，那么默认情况下，您通常会获得大约750mA的充电电流。</p>
+
+  
+<p/><p><a href="https://forum.xda-developers.com/pixel-3"> <strong>像素3 XDA论坛</strong> </a></p>
+
+<p>这是出于多种原因(如发热)，但一些改装者已经找到了一种提高Pixel 3无线充电速度的方法。XDA资深成员<a href="https://forum.xda-developers.com/member.php?u=2309157">科尔纳</a>在周末公布了这一模型，并表示他能够将无线充电电流提高到1290毫安。这是通过将<code>/sys/class/power_supply/wireless/voltage_max</code>的值更改为9000000(从默认的5000000)来实现的。</p>
+
+<p>这种改变需要在设备无线充电时进行，因为一旦充电会话结束，它将重置为默认状态。但是，这个设置可以通过使用<a href="https://forum.xda-developers.com/apps/magisk/module-magic-charging-switch-cs-v2017-9-t3668427" target="_blank" rel="noopener">高级充电控制Magisk模块</a>永久化(只要你进去修改代码添加<code>onPlugged=./wireless/voltage_max:9000000</code>)。</p>
+
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_4"><p>警告:任何干扰充电的修改都是有风险的。您应该始终为您的设备使用高质量的充电器。</p> </div></section>
+<p/><p><a href="https://forum.xda-developers.com/pixel-3/development/mod-pixel-3-fast-wireless-charge-t3889374/"> <strong>在我们的Pixel 3论坛</strong> </a>中阅读更多关于这个mod的信息</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

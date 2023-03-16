@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Chrome OS 76 adds a flag to enable GPU support for Linux apps</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Chrome OS 76添加了一个标志来启用GPU对Linux应用程序的支持</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/chrome-os-76-gpu-support-linux-apps/#0001-01-01">https://www.xda-developers.com/chrome-os-76-gpu-support-linux-apps/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>自从Linux应用程序第一次出现在Chrome OS设备上已经有一年多了。从那以后，越来越多的Chromebooks开始得到支持，项目也变得更好。但是，有一个特性是用户强烈要求的，那就是图形加速。到目前为止，Linux应用程序还没有GPU支持。Chrome OS 76的第一个开发版本添加了一个名为“Crostini GPU支持”的标志，最终实现了爱好者的愿望。</p>
+
+  
+<p>基思·I·迈尔斯最先注意到这个新功能。它在Chrome OS 76.0.3789.0中可用，这是Chrome OS 76的第一个开发版本。不言而喻，这个特性现在是不稳定的。它还处于非常早期的阶段，所以程序错误和稳定性问题是意料之中的。此外，请记住，只有少数Chromebooks支持GPU加速:</p>
+
+<ul> <li>谷歌像素书(eve)</li> <li>Dell Inspiron 14</li> <li>联想Yoga Chromebook C630</li> <li>宏碁Chromebook 13</li> <li>宏碁Chromebook Spin 13</li> <li>惠普X360 Chromebook 14</li> </ul>
+
+<p>如果你拥有其中任何一款，并且准备安装一个非常实验性的Chrome OS版本来测试Crostini GPU加速，你可以阅读下面的说明。</p>
+
+<ol> <li>打开Chrome浏览器，导航到<a href="chrome://flags/#crostini-gpu-support">Chrome://flags/# crostini-GPU-support</a>，启用标志；</li> <li>浏览器将提示您重新启动设备，单击“立即重新启动”按钮即可；</li> <li>现在您必须更新容器。打开终端，运行“sudo apt-get update”命令；</li> <li>现在运行“sudo apt-get dist-upgrade”命令，然后再次重启你的设备；</li> <li>现在，为了确保安全，再次打开终端并运行“glxinfo -B”。S</li> </ol>
+
+<p>如果您在日志中看到“Device: virgl”列，那么您已经成功启用了GPU加速。显存一栏对于部分用户输出0MB，但这似乎不是问题。你可以在下面的视频中看到GPU支持显示了多大的改进。请记住，Portal是一款专门为Windows编写的游戏，它运行在Chrome OS中的Linux容器中，有自定义的GPU支持，因此即使是最小的结果也令人惊讶。</p>
+
+ 
+<p class="w-rich w-youtube" id="0uEjo-jzPHg">  </p>
+
+
+<p>Chrome OS 76稳定版将于8月发布。除了Crostini GPU加速，它还带来了<a href="https://www.xda-developers.com/chrome-os-virtual-desktops-chromebooks/">虚拟桌面</a>。也有一些小的变化，如<a href="https://www.xda-developers.com/chrome-os-76-clear-all-notifications-button/">重排“清除所有”按钮</a>。我们相信，在最终版本发布之前，还会有更多的功能被添加进来，这离最终版本发布还有3个多月的时间。</p>
+
+<hr/>
+
+<p><strong>来源:<a href="https://kmyers.me/blog/chromeos/chromeos-76-0-3789-0-rolling-out-to-the-dev-channel-adds-crostini-gpu-flag/"> Keith I Myers </a> /来源:<a href="https://www.aboutchromebooks.com/news/video-pixel-slate-portal-steam-with-gpu-acceleration-chrome-os-76-chromebook/">关于chrome book</a></strong></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

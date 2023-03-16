@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Magisk Canary adds support for rooting Huawei/Honor devices on EMUI 9</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Magisk Canary增加了对EMUI 9上扎根华为/Honor设备的支持</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/magisk-canary-root-huawei-honor-devices-emui-9/#0001-01-01">https://www.xda-developers.com/magisk-canary-root-huawei-honor-devices-emui-9/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">Magisk Canary增加了对EMUI 9上扎根华为/Honor设备的支持</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">Magisk Canary现在增加了对运行EMUI 9的华为和Honor设备的支持。现在不建议安装它，但是你可以。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>华为采取了强硬的立场，阻止你修改你的智能手机，从7月起不再提供bootloader解锁代码。虽然不再可能正式解锁你的华为或Honor智能手机(<a href="https://www.xda-developers.com/honor-india-support-service-centers-unlock-bootloader/">尽管如果你住在印度</a>可能会解锁，但你<em>可以</em>通过<a href="https://www.xda-developers.com/huawei-honor-unlock-bootloader-fee/"> FunkyHuawei </a>非正式解锁。这会让你付出代价，但它确实能让你扎根于你的智能手机，并完全控制它。只有一个问题:EMUI 9通过修改内核的ramdisk来防止根用户访问，即使你的引导程序没有锁定。XDA公认的开发者和公认的贡献者<a href="https://forum.xda-developers.com/member.php?u=4470081"> topjohnwu </a>已经找到了解决这个问题的方法，Magisk现在在最新的金丝雀版本中使用EMUI 9。</p>
+
+  
+<p>给你一个警告:使用金丝雀版本你会受到其他错误的影响。除非你确切地知道你在做什么，否则使用它并不是一个好主意。如果你愿意接受这些风险，你可以越过<a href="https://forum.xda-developers.com/apps/magisk/dev-magisk-canary-channel-bleeding-edge-t3839337">前往论坛主题</a>下载最新版本。对于大多数用户，我们建议等待下一个稳定版本。</p>
+
+<p>在EMUI 9上获得root访问权限被证明是困难的，最终的解决方案意味着您不能再在设备上安装自定义恢复。当启动智能手机时，要获得root权限，你需要按住调高音量按钮。这将启动自定义恢复，Magisk可以在此运行并正常启动您的设备。因此，在EMUI 9上，Magisk现在被安装到recovery_ramdisk分区，这是TWRP通常会去的地方。您可以查看最新Magisk Canary版本的变更日志和下面的最新Magisk管理器。</p>
+
+<h3 id="magisk-canary-18003-changelog">Magisk金丝雀18003变更日志</h3>
+<ul> <li>支持EMUI 9.0:使用Magisk管理器修补“recovery_ramdisk.img ”,并使用“fast boot flash recovery _ ramdisk<patched image="">”进行安装。为了使用Magisk进行引导，您必须始终重新引导以进行恢复(引导时按下volume up)。</patched></li> <li>简化的“su_info”缓存系统</li> <li>删除系统C++ STL的要求，使用内部“新建”和“删除”实现</li> </ul>
+
+<h3 id="magisk-manager-170-changelog">Magisk Manager 170 Changelog</h3>
+<ul> <li>支持EMUI 9.0</li> <li>如果检测到EMUI 9.0，“重新启动”按钮将重新启动以进行恢复</li> </ul>
+</div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

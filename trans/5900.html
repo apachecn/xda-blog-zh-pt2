@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Enable DTS 3D Stereo sound on all LG V30 variants [Root]</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>在所有LG V30变体上启用DTS 3D立体声[Root]</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/enable-dts-3d-stereo-sound-all-lg-v30-variants/#0001-01-01">https://www.xda-developers.com/enable-dts-3d-stereo-sound-all-lg-v30-variants/#0001-01-01</a></blockquote><div><header class="article_heading">
+
+
+<h1 class="heading_title">在所有LG V30变体上启用DTS 3D立体声[Root]</h1>
+
+<p class="heading_sharing">  </p>
+
+
+<p class="heading_excerpt">11月推出的LG V30更新提到了DTS 3D立体声的添加。这种模式使它能够在设备的所有变体上运行。</p>
+
+
+
+  </header>
+
+<section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p/><p>有许多这样的情况，OEM在他们的设备中使用硬件，但随后进入并使用软件来限制其功能。XDA的发烧友社区以绕过这些限制而闻名，但也有像LG这样的情况。他们增加了(甚至提到了在OTA变更日志中增加了)一个特性，但最终搞乱了一个特性的初始实现。这似乎已经发生在LG V30的变种和它们的DTS 3D立体声音响上。</p>
+
+  
+<p/><p><a href="https://forum.xda-developers.com/lg-v30"> <strong> LG V30 XDA论坛</strong> </a></p>
+
+<p>正如XDA认可的贡献者<a href="https://forum.xda-developers.com/member.php?u=3250376"> ChazzMatt </a>在论坛帖子中指出的，LG V30在去年11月推出的更新提到了DTS 3D立体声的添加。但是，新功能不会作为单独的条目出现，这意味着您不能打开或关闭它。幸运的是，通过root访问，我们可以在LG V30的所有版本(V30/V30+/V30S)上修复这个错误，但截至目前，虽然DTS公告发布在LG的韩国网站上，但只有US998型号被确认有效。</p>
+
+<p>为了让它工作，我们只需要使用一个根文件资源管理器(或build.proper编辑器),并在文件底部添加以下内容:</p>
+
+<p><code>ro.lge.globaleffect.dts=true</code></p>
+
+
+
+
+
+<p/><p><a href="https://forum.xda-developers.com/lg-v30/how-to/enable-dts-3d-stereo-lg-v30-variants-t3887139"> <strong>在我们的LG V30论坛</strong> </a>查看这个mod</p>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>ARM announces the Cortex-A77 CPU core with 20-35% performance improvements</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>ARM宣布推出性能提升20-35%的Cortex-A77 CPU内核</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/arm-cortex-a77-cpu-announcement/#0001-01-01">https://www.xda-developers.com/arm-cortex-a77-cpu-announcement/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>在ARM的年度TechDay活动上，ARM发布了Cortex-A77 CPU内核。Cortex-A77的发布与<a href="https://www.xda-developers.com/arm-mali-g77-valhall-gpu-announcement/"> ARM Mali-G77 GPU </a>的发布同时进行，这是第一款拥有全新“val hall”GPU架构的GPU。这两款产品一起分别接替去年的<a href="https://www.xda-developers.com/arm-cortex-a76-cpu-mali-g76-gpu-mali-v76-vpu-announcement/"> Cortex-A76 CPU和Mali-G76 GPU</a>。</p>
+
+  
+<p>总部位于英国的ARM于2016年被总部位于日本的软银收购，是科技行业最重要的公司之一。世界上的每一部智能手机都是由ARM的指令集驱动的。高通使用半定制的“为Cortex制造”许可证，允许该公司在其产品中集成ARM的CPU IP的定制变体(例如，Kryo 485 Gold是Cortex-A76的半定制变体)。<a href="https://www.xda-developers.com/arm-suspend-business-huawei/">华为的海思集团<em>是</em>另一个ARM的CPU知识产权</a>的高调授权者，使用ARM的CPU核心的库存版本，而三星系统LSI和苹果使用完全定制的核心基于ARM的指令集。三星和海思也授权ARM的Mali GPUs用于他们的内部SOC，而高通和苹果选择使用他们的定制GPU解决方案(例如，高通使用自己的Adreno GPUs)。</p>
+
+<p>这就是为什么当ARM发布新的公告时，它会对智能手机行业产生重大影响。好消息是，ARM在制造新的CPU微体系结构方面已经有一段时间了。Cortex-A72、Cortex-A73和<a href="https://www.xda-developers.com/arm-unveils-cortex-a75-a55-processors-and-mali-g72-gpu/"> Cortex-A75 </a>都是值得尊敬的设计，弥补了Cortex-A57的错误。然而，去年的Cortex-A76在性能方面更上一层楼，因为它承诺“笔记本电脑级的性能”，比已经具备功能的Cortex-A75性能提高35%。因此，<a href="https://www.xda-developers.com/qualcomm-snapdragon-855-performance-gaming-ai-improvements-explained/">高通承诺将骁龙855 </a>的性能提升45%--这是骁龙SoC有史以来最大的性能提升。</p>
+
+<p>Cortex-A76在IPC、PPA和效率领域表现出色。它拥有业界最好的PPA，芯片面积小。它确实受益于TSMC出色的7纳米FinFET工艺，但它带来的IPC改进也留下了印记。它设法在<a href="https://www.xda-developers.com/samsung-unveils-exynos-9810-3rd-generation-custom-cpu-cores-mali-g72mp18-gpu/"> Exynos 9810 </a>中胜过三星的Exynos M3定制核心，尽管解码宽度更窄(4宽对6宽)。即使今年在<a href="https://www.xda-developers.com/samsung-exynos-9820-samsung-galaxy-s10/"> Exynos 9820 </a>中发布的Exynos M4内核也不足以抢走ARM的性能优势(尽管它确实缩小了差距)，因为Cortex-A76 <a href="https://www.xda-developers.com/samsung-galaxy-s10e-review-exynos/">仍然比Exynos M4享有性能和效率优势</a>。(Exynos也因低劣的制造工艺而令人失望:8纳米LPP对7纳米FinFET)。尤其是Cortex-A76的能效令人难以置信。使用Cortex-A76的SOC包括旗舰SOC，如<a href="https://www.xda-developers.com/hisilicon-kirin-980-honor-magic-2-huawei-mate-20-pro/">海思麒麟980 </a>和<a href="https://www.xda-developers.com/qualcomm-snapdragon-855-snapdragon-845-kirin-980-cpu-gpu-ai-benchmarks/">高通骁龙855 </a>，但我们也开始在中端SOC中看到它，如<a href="https://www.xda-developers.com/qualcomm-snapdragon-675-chipset/">高通骁龙675 </a>和<a href="https://www.xda-developers.com/qualcomm-snapdragon-665-snapdragon-730g/">骁龙730/730G </a>。对性能的影响是有效的。</p>
+
+<p>在移动领域，就每时钟指令数(IPC)而言，Cortex-A76仍不如苹果A11和苹果A12上的定制内核。然而，ARM没有表现出放缓其改进速度的迹象。今年8月，该公司公布了其CPU核心路线图，其中包括2019年的“戴莫斯”核心和2020年的“大力神”核心，这两个核心都基于Cortex-A76。令人印象深刻的是，该公司承诺Austin core系列中的每个新芯片组每年都会带来20-25%的CAGR性能提升。手臂向前加速。</p>
+
+
+
+
+
+<p>Cortex-A77是“戴莫斯”CPU核心，它将在2019年底和2020年初成为旗舰SOC。它是Cortex-A76的演变，是奥斯汀核心系列的第二次迭代。CPU是A76的直接微体系结构继任者，其大多数核心功能是相同的。供应商将能够轻松升级SoC IP。在架构方面，它仍然是一个ARM v8.2 CPU内核，旨在与Cortex-A55“小”内核配对，而不是一个DynamIQ共享单元(DSU)集群。</p>
+
+<p>Cortex-A77的缓存大小为:64KB L1指令和数据缓存、256和512KB L2缓存以及高达4MB的共享L3缓存。性能的提高必须来自微架构的改进，因为内核的频率预计不会改变(ARM仍然像A76一样以3GHz为目标，但与A76一样，我们很可能会看到供应商推出更低时钟内核的设计)。下一代SOC的工艺改进预计不会像2018年那样大。(TSMC今年已经转向7纳米EUV工艺，这很可能是下一代麒麟和骁龙芯片组的基础。)</p>
+
+<p>因此，Cortex-A77具有改进的微体系结构，性能提高了20%-35%。A76在架构方面不同于其前辈，它旨在为奥斯汀核心家族的下两个设计提供基线:2019年的Cortex-A77和2020年的“大力神”。</p>
+
+<p>ARM的主要目标是提高架构的IPC，并继续专注于提供业界最佳的PPA(功率、性能和面积)。A76的面积和能效优势仍将是A77的优势。</p>
+
+
+
+<p>在微架构方面，ARM有了很大的改变。在前端，内核具有更高的提取带宽，品牌预测器功能增加了一倍，新的宏运算高速缓存结构充当L0指令高速缓存，新的整数ALU流水线，以及改进的加载/存储队列和发布功能。此外还有动态代码优化，在ARM的博客中有详细的解释。解码宽度保持为4宽度。</p>
+
+<p>内核的后端也有所改进，我建议用户阅读AnandTech的报道以了解更多细节。ARM增加了一个额外的整数ALU。数据预取器也得到了改进，这是一个好消息，因为根据<em> AnandTech </em>的说法，A76已经拥有了优秀的预取器。添加了新的额外预取引擎，以提高预取准确性。这一切都与核心的内存子系统有关，这是一个根本性的方面。CPU的内存子系统由内存延迟和内存带宽组成。</p>
+
+ 
+<h2 id="arm-promises-20-35-performance-improvements-for-the-cortex-a77">ARM承诺Cortex-A77的性能提升20-35%</h2>
+
+
+<p>根据ARM的说法，Cortex-A77的IPC单线程性能比其在Geekbench 4中的前辈提高了20%，在SPECint2006中提高了23%，在SPECfp2006中提高了35%，在SPECint2017中提高了20%，在SPECfp2017中提高了25%。所有这些都是在7纳米工艺和3GHz频率下设计的。如果这些改进得以实现，下一代SOC可能会在未来的智能手机上提供一些惊人的性能和电池寿命体验。尤其是FP的改进是一代人的重大改进。当然，A77不会没有竞争，因为三星将在2020年带着Exynos M5回来，在此之前，苹果的A13肯定会成为新iPhones的一部分。</p>
+
+
+
+<p>ARM还表示，A77的能效将与A76 SoCs保持一致。这意味着，在最高性能下，CPU内核将使用相同的能量(以焦耳为单位)来完成一项任务。但是，动力和能量是两个不同的概念。A77的功耗将随着性能的提高而线性增加。这可能导致电话中TDP限制的问题。为了应对这种情况，我们已经看到主要厂商采用大+中+小的非常规核心配置(海思采用2+2+4，高通采用1+3+4)。A77也将比A76大17%，这意味着它仍将拥有一流的PPA。</p>
+
+<p>我一直是A76实现的忠实粉丝，因为它甚至在骁龙675等中档SOC中也工作得非常好。骁龙855和麒麟980都是高性能的旗舰SOC，我迫不及待地想看到A77的实施在下一代SOC中带来的改进水平。ARM表示，其主要客户仍然非常关注拥有最佳PPA，很容易看出该公司在这方面提供了最佳解决方案。</p>
+
+<p>我们什么时候能在SoC中看到A77？在最近与华为的动荡事件之前，我会说海思麒麟985肯定会在2019年为真正的下一代SoC配备A77和Mali-G77 GPU。然而，随着ARM决定切断与华为的联系，我怀疑这是否还有可能，除非与华为的一触即发的局面在未来几周得到解决。高通的下一代旗舰产品骁龙SoC可能要到2020年第一季度才会向消费者发货，所以希望使用ARM最新CPU内核的消费者可能需要等待一段时间。</p>
+
+<p><strong>来源</strong> : <a href="https://community.arm.com/developer/ip-products/processors/b/processors-ip-blog/posts/new-arm-cortex-a77-provides-compute-performance-leadership?_ga=2.263563279.2020090613.1558938898-871757968.1558938898">手臂</a></p>
+
+<p><strong>经</strong> : <a href="https://www.anandtech.com/show/14384/arm-announces-cortexa77-cpu-ip">安耐特</a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

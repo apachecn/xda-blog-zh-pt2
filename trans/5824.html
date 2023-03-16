@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Huawei confirms they're blocking third-party launchers on Chinese EMUI 9 versions, says it's to reduce problems</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>华为证实他们正在屏蔽中国EMUI 9版本的第三方启动器，称这是为了减少问题</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/huawei-confirms-blocking-third-party-launchers-chinese-emui-9/#0001-01-01">https://www.xda-developers.com/huawei-confirms-blocking-third-party-launchers-chinese-emui-9/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p>华为对EMUI的争议并不陌生，EMUI是该公司内部开发的Android版本。就在最近，他们被指控在最新的EMUI 9中国版中阻止第三方启动器，但没有具体的信息说明原因。根据我们论坛上<a href="https://forum.xda-developers.com/huawei-p20-pro/how-to/emui-9-removes-default-launcher-options-t3853441">成员的说法，这一限制的原因是<strong>据称是为了打击中国一些第三方零售商</strong>的不正当行为(我们已经看到小米在</a><a href="https://www.xda-developers.com/xiaomi-anti-rollback-protection-brick-phone/">多个</a> <a href="https://www.xda-developers.com/flash-miui-global-locked-bootloader-xiaomi-brick/">场合</a>处理这个问题)。现在，该公司已经证实这是故意的，但可访问性启动器的合法开发者可以申请将他们的应用程序列入白名单。<strong>这不影响任何运行EMUI 9 </strong>全球版本的人。</p>
+
+  <div class="body-img landscape"><div class="responsive-img image-expandable img-article-item" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/11/EMUI_9_China_Default_Launcher-1024x747.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;\u201cDefault app\u201d settings on the Honor Magic 2 (TNY-AL00) running EMUI 9.0.0.128. Although Nova Launcher is installed, it cannot be made the default launcher.&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="1500px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/11/EMUI_9_China_Default_Launcher-1024x747.jpg?q=50&amp;fit=crop&amp;w=1500&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="943px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/11/EMUI_9_China_Default_Launcher-1024x747.jpg?q=50&amp;fit=crop&amp;w=943&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="767px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/11/EMUI_9_China_Default_Launcher-1024x747.jpg?q=50&amp;fit=crop&amp;w=767&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="480px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/11/EMUI_9_China_Default_Launcher-1024x747.jpg?q=50&amp;fit=crop&amp;w=480&amp;dpr=1.5"/> <img class="lazyload" alt="Huawei EMUI 9 blocking launchers in China" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/11/EMUI_9_China_Default_Launcher-1024x747.jpg" src="../Images/cbe660a45a065989eb08bc664d1c806a.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/11/EMUI_9_China_Default_Launcher-1024x747.jpg"/> </picture> <figcaption class="body-img-caption">“Default app” settings on the Honor Magic 2 (TNY-AL00) running EMUI 9.0.0.128. Although Nova Launcher is installed, it cannot be made the default launcher.</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>一旦你考虑到中国市场，这种限制是有意义的，尽管如果普通开发者也能把他们的应用程序列入白名单，这种限制会更容易接受。EMUI的启动器缺乏功能，用户不妨安装另一个启动器如Nova启动器、Action启动器、<a href="https://www.xda-developers.com/rootless-pixel-launcher-google-play-store-pixel-bridge/">无根像素启动器</a>、<a href="https://www.xda-developers.com/niagara-launcher-minimalist-notifications/">尼亚加拉启动器</a>等等。这是必需的，因为华为声称第三方经销商会预装非官方的启动器，显示弹出广告，未经许可安装应用程序，并降低你的手机速度。我们无法核实这些说法的真实性，但正如之前所说，小米也面临过类似的问题。如果这是一个普遍的问题，那么你可以想象华为的服务中心可能会非常繁忙。</p>
+
+<p>那么正常用户能做什么呢？之前卸载华为官方的启动器就足以让你选择第三方启动器来代替。不知道它是否还能工作，但是如果你愿意，你可以试一试。不过这需要ADB，在那里你可以找到卸载你的智能手机可能附带的膨胀软件的完整教程<a href="https://www.xda-developers.com/uninstall-carrier-oem-bloatware-without-root-access/">这里</a>。要仅卸载Huawei launcher，请运行以下ADB命令。</p>
+
+<pre> <code class="hljs css"><span class="hljs-selector-tag">adb</span> <span class="hljs-selector-tag">shell</span> <span class="hljs-selector-tag">pm</span> <span class="hljs-selector-tag">uninstall</span> <span class="hljs-selector-tag">-k</span> <span class="hljs-selector-tag">--user</span> 0 <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.huawei</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.launcher</span></code> </pre>
+<p>要拿回枪托，你需要侧装APK。</p>
+
+
+<hr/>
+
+<p><a href="https://club.huawei.com/thread-18575701-1-1.html"> <strong>来源:华为</strong> </a></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>

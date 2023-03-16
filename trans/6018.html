@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>[Update 3: Flag for Settings Toggle Live] Google Chrome's dark mode may also darken web pages</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1>【更新3:设置切换直播标志】谷歌Chrome的黑暗模式也可能使网页变暗</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/google-chrome-dark-mode-darken-web-pages/#0001-01-01">https://www.xda-developers.com/google-chrome-dark-mode-darken-web-pages/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<section class="emaki-custom-block emaki-custom-note"><div class="emaki-custom note" id="custom_block_0"><p><strong>更新3(美国东部时间9/24/19 @ 12:05PM):</strong>Android用户将很快获得Chrome网页黑暗模式的切换。</p><p><strong>更新2(美国东部时间8/28/19 @上午10:50):</strong>Android强制黑暗模式的Chrome将在设置的新“主题”部分提供。</p><p><strong>更新1(2019年2月20日@美国东部时间下午1点54分):</strong>这篇文章发表几个小时后，负责变更的提交被合并，我们抓取了一些截图。</p> </div></section>
+<p/><p>谷歌的<a href="https://www.xda-developers.com/material-design-redesign-gmail-google-photos/">材质主题革新</a>一直以亮白色为主，并不是每个人都喜欢随处可见的炫目白色。他们花了几年时间，但谷歌最终意识到，许多用户确实在寻找一个更黑暗的UX。<a href="https://www.xda-developers.com/youtube-dark-mode-android-roll-out/">几个谷歌应用</a>已经采用了黑暗主题，谷歌Chrome正在迎头赶上。据<a href="https://www.xda-developers.com/google-chrome-dark-mode-macos/">报道，用于macOS的谷歌Chrome获得了原生黑暗模式</a>，用于Windows 10的谷歌Chrome也在金丝雀发布频道获得了黑暗模式。谷歌Android版Chrome也在测试Chrome 73 Beta的夜间模式，但这一设置仅限于浏览器UI。</p>
+
+  
+<p>Chromium的Gerrit发布了一条<a href="https://chromium-review.googlesource.com/c/chromium/src/+/1478106">新代码变更</a>(via<a href="https://9to5google.com/2019/02/19/android-chrome-webview-web-dark-mode/"><em>9 to 5 Google</em></a>)，这表明Chrome for Android计划做的不仅仅是主题化自己的UI元素。当用户在浏览器中选择深色主题时，该应用的未来版本会将网页重新着色为更深的颜色。提交添加了<em># enable-Android-we b-contents-dark-mode</em>标志，该标志启用了允许浏览器使用其内置高对比度设置的其他首选项。高对比度设置通常用于辅助功能，因此这不会影响浏览器或网页的性能。但是，由于这确实会以开发人员不希望的形式显示网站，因此可能会导致网站内的视觉不匹配，这取决于网站的构建方式。</p>
+
+<p>旗帜背后的潜在变化也指向Android内置的WebView浏览器获得夜间模式功能。这两者，Android的Chrome和Android WebView将来都可以使网页变暗。Chrome针对网络内容的实验性黑暗模式应该会在未来几天内进入金丝雀发布渠道，而WebView的测试版需要更多时间才能获得这一功能。</p>
+
+<hr/>
+
+
+<h2 id="update-1-commit-merged-so-here-are-screenshots">更新1:提交合并，所以这里是截图</h2>
+<p>这篇文章发表几个小时后，负责变更的提交被合并。我们决定下载一个新编译的Chromium APK来看看网页中新的黑暗模式是什么样子的。这里有一个前后对比。正如你所看到的，它仍然是一个正在进行的工作，因为它只是颠倒了大部分页面内容，包括图像。</p>
+
+
+
+
+
+<hr/>
+<p class="ad-odd"> </p>
+
+
+<h2 id="update-2-coming-to-settings">更新2:进入设置</h2><div class="body-img portrait"><div class="responsive-img image-expandable img-article-item-portrait" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/chrome-themes-512x1024.jpg" data-modal-id="single-image-modal" data-modal-container-id="single-image-modal-container" data-img-caption="&quot;Current Themes settings&quot;">
+ 
+<figure> <picture>  <source media="(min-width: 1024px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/chrome-themes-512x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 768px)" sizes="750px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/chrome-themes-512x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 481px)" sizes="600px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/chrome-themes-512x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <source media="(min-width: 0px)" sizes="360px" data-srcset="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/chrome-themes-512x1024.jpg?q=50&amp;fit=crop&amp;dpr=1.5"/> <img class="lazyload" alt="" data-img-url="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/chrome-themes-512x1024.jpg" src="../Images/a2ef8093e4f9164eebfe34caf3d19e8a.png" data-original-src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2019/02/chrome-themes-512x1024.jpg"/> </picture> <figcaption class="body-img-caption">Current Themes settings</figcaption> </figure> </div>
+
+
+ </div>
+
+
+<p>Android版Chrome的强制黑暗模式设置正在转向面向消费者的位置。根据最近的一次提交，以前可以通过在所有平台上切换Chrome标志来获得，现在可以在设置的新“主题”部分获得。主题设置包括“系统默认，亮”和“暗”当选择系统默认或黑暗时，会出现一个复选框来启用强制黑暗模式。</p>
+
+<p><strong>来源:<a href="https://chromium-review.googlesource.com/c/chromium/src/+/1762543">铬革里特</a>T3】</strong></p>
+
+<hr/>
+<p class="ad-even"> </p>
+
+
+<h2 id="update-3-flag-for-settings-toggle-live">更新3:设置标志切换实时</h2>
+
+
+
+
+<p>Chrome网页的黑暗模式现在可以在Android 10的Chrome Canary中切换。可以使用上面显示的“主题设置中的暗化网站复选框”标志来启用此切换。当这个标志被启用时，你会在Chrome的主题设置中看到一个复选框“使网站变暗”这似乎也出现在Android Pie中，但不尊重系统默认设置。事实上，这是现在在金丝雀的意思是，它应该很快就会成为稳定的版本。</p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>
