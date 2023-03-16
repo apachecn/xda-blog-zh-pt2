@@ -1,0 +1,13 @@
+# 中兴和 LG 以冠状病毒为由取消 MWC 2020 赛事
+
+> 原文：<https://www.xda-developers.com/zte-lg-cancel-mwc-2020-events-citing-coronavirus-concerns/>
+
+# 中兴和 LG 以冠状病毒为由取消 MWC 2020 赛事
+
+随着冠状病毒威胁的出现，LG 和中兴通讯已经退出 MWC 2020，以保护他们的员工和公众。
+
+过去几周，中国持续爆发的冠状病毒导致的死亡人数继续攀升。新感染病例以两位数的百分比上升，而且没有放缓的迹象。最重要的是，疫情正在[对全球供应链](https://redirect.viglink.com/?format=go&jsonp=vglnk_158088124155710&key=c253a561fbe84b0cd1cd9012f5136c6e&libId=k68ulnx90102gzl9000DAba4nmkwv&loc=https%3A%2F%2Fwww.xda-developers.com%2Fasus-warns-users-rog-phone-ii-short-supply-coronavirus-situation%2F&v=1&opt=true&out=https%3A%2F%2Fwww.wsj.com%2Farticles%2Fcoronavirus-closes-china-to-the-world-straining-global-economy-11580689793&ref=https%3A%2F%2Fwww.google.com%2F&title=ROG%20Phone%20II%20in%20short%20supply%20due%20to%20coronavirus%20outbreak&txt=wreaking%20havoc)造成严重破坏，几家[公司关闭了在中国的店铺](https://redirect.viglink.com/?format=go&jsonp=vglnk_158088125488911&key=c253a561fbe84b0cd1cd9012f5136c6e&libId=k68ulnx90102gzl9000DAba4nmkwv&loc=https%3A%2F%2Fwww.xda-developers.com%2Fasus-warns-users-rog-phone-ii-short-supply-coronavirus-situation%2F&v=1&opt=true&out=https%3A%2F%2Fwww.wsj.com%2Farticles%2Fapple-closes-chinese-stores-corporate-offices-due-to-coronavirus-11580580600%3Fmod%3Darticle_inline&ref=https%3A%2F%2Fwww.google.com%2F&title=ROG%20Phone%20II%20in%20short%20supply%20due%20to%20coronavirus%20outbreak&txt=shut%20down%20stores%20and%20offices)，并从该地区撤出员工。供应短缺的影响已被广泛感受到。本周早些时候，华硕宣布其旗舰产品——ROG 手机 II——将因冠状病毒情况而[缺货。现在，疫情似乎也可能阻碍即将到来的 MWC 2020 贸易展。](https://www.xda-developers.com/asus-warns-users-rog-phone-ii-short-supply-coronavirus-situation/)
+
+GSM 联盟的年度 MWC 贸易展定于本月晚些时候举行。在此次活动中，预计许多智能手机制造商将展示他们 2020 年的产品阵容。然而，由于冠状病毒的爆发，LG 宣布他们将不会参加今年的活动。中兴通讯将不会举行新闻发布会，但他们仍会有一个展台来展示设备。在一份关于此事的声明中，LG 退出了此次活动，以确保其员工和公众的安全。相反，该公司计划在不久的将来举行单独的活动来展示其 2020 年的移动产品。预计该公司将在今年的 MWC 上宣布 [LG V60 ThinQ](https://www.xda-developers.com/lg-v60-thinq-dual-screen-5g-possible-launch-mwc-2020/) 和 [LG G9 ThinQ](https://www.xda-developers.com/lg-g9-renders-leaked/) ，由于目前的形势，这很可能会被推迟。
+
+中国原始设备制造商中兴通讯[之前确认了在 MWC 2020](https://www.mwcbarcelona.com/session/5g-summit-2020-the-road-to-5g-success/) 举办一场以 5G 为主题的新闻发布会。该公司还预计在活动中推出 [Axon 10s Pro 5G](https://www.xda-developers.com/zte-axon-10s-pro-5g-tenaa-snapdragon-865/) ，然而，它也以冠状病毒的情况为由退出了。该公司的公关联系到我们，并确认他们取消了由于同样的原因。在冠状病毒的情况得到控制之前，我们认为更多的原始设备制造商可能会退出今年的贸易展，以保护他们的员工。同样值得注意的是，MWC 2020 已经[最近宣布](https://www.gsma.com/newsroom/statement/gsma-statement-on-coronavirus-04_feb_2020/)在活动中禁止握手，以及其他措施，以帮助减缓病毒的传播。

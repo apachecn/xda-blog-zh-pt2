@@ -1,0 +1,17 @@
+# 非官方的 TWRP 在一加 7 和一加 7 Pro 上实现了真正的双引导
+
+> 原文：<https://www.xda-developers.com/unofficial-twrp-enables-true-dual-boot-oneplus-7-pro-5g/>
+
+由于其可黑客性，一加手机经常被吹捧为谷歌 Nexus 系列的精神继承者。首次亮相的 OnePlus One 可以毫无问题地运行 [Android 10](https://forum.xda-developers.com/oneplus-one/development/rom-lineageos-oneplus-one-t4002111) 甚至 [Ubuntu Touch](https://www.xda-developers.com/ubuntu-to-show-off-community-ports-on-oneplus-one-sony-xperia-z1-at-mwc-2016/) 。高级 mods，比如[多启动](https://www.xda-developers.com/dual-boot-on-android-a-power-users-holy-grail/)，在社区中是相当[知名的 hack](https://www.xda-developers.com/multirom-is-now-available-for-the-oneplus-5/) 。现在，XDA 公认的开发者 [Zackptg5](https://forum.xda-developers.com/member.php?u=6037748) 通过重新基于 [A/B 分区方案](https://www.xda-developers.com/how-a-b-partitions-and-seamless-updates-affect-custom-development-on-xda/)和[发布了](https://forum.xda-developers.com/oneplus-7/oneplus-7--7-pro-cross-device-development/recovery-unofficial-twrp-oneplus-7-7-t4066851)用于一加 7 和 7 Pro(包括 [5G 变体](https://www.xda-developers.com/oneplus-7-pro-5g-android-10-q1-2020/))的全新双引导解决方案，将一加手机上的多引导概念扩展到了一个全新的水平。
+
+**[一加 7 XDA 论坛](https://forum.xda-developers.com/oneplus-7) || [从亚马逊](https://www.amazon.in/Test-Exclusive-610/dp/B07HGH3G46/?tag=xdaportalin-21)购买一加 7**
+
+**[一加 7 Pro XDA 论坛](https://forum.xda-developers.com/oneplus-7-pro) || [从亚马逊购买一加 7 Pro](https://www.amazon.in/Test-Exclusive-604/dp/B07HGLBZ5R/?tag=xdaportalin-21)**
+
+早在 2016 年，XDA 资深认可开发者 [Dees_Troy](http://forum.xda-developers.com/member.php?u=912474) ，即 [Team Win Recovery 项目](http://twrp.me/)的首席开发者，暗示了[利用谷歌 Pixel 系列中的第二组分区](https://www.xda-developers.com/exclusive-dual-boot-may-be-possible-on-pixel-phones/)进行双重启动的想法。Zackptg5 的方法基本上做了同样的事情，因为它提供了一个定制版本的 TWRP，允许将 userdata 分区分成两个独立的插槽，以实现真正的双引导。对于发烧友用户，还提供了另一种以 A/B/C 用户数据为特色的布局，其中“C”是由两个 rom 共享的公共数据分区。
+
+**[双开机兼容 TWRP 一加 7/7 Pro/5G — XDA 线程](https://forum.xda-developers.com/oneplus-7/oneplus-7--7-pro-cross-device-development/recovery-unofficial-twrp-oneplus-7-7-t4066851)**
+
+根据开发商的说法，TWRP 的定制版本是基于 XDA 资深成员[毛罗诺菲奥](https://forum.xda-developers.com/member.php?u=4712355)维护的一加 7 阵容的[常规 TWRP，这本身就是安装 mod 的强制性先决条件。XDA 资深成员](https://forum.xda-developers.com/oneplus-7/oneplus-7--7-pro-cross-device-development/recovery-unofficial-twrp-recovery-t3932943) [cosmicdan](https://forum.xda-developers.com/member.php?u=1844875) 也受到了称赞，因为 Zackptg5 可能受到了他在小米 Mi A1 的高音 bringup】项目中的作品的启发。最后但同样重要的是，我们还可以在信用列表中找到 XDA 公认的开发者 [topjohnwu](https://forum.xda-developers.com/member.php?u=4470081) 的名字，因为全能的 [Magisk](https://forum.xda-developers.com/apps/magisk) 是创建 A/B/C 用户数据布局所绝对需要的。
+
+这个 mod 的源代码[托管在 GitHub](https://github.com/Zackptg5/TWRP-DualBoot-Guac-Unified) 上。Zackptg5 还在 [XDA 讨论帖](https://forum.xda-developers.com/oneplus-7/oneplus-7--7-pro-cross-device-development/recovery-unofficial-twrp-oneplus-7-7-t4066851)中发布了常见的故障排除方法以及[恢复到股票分区布局的指南](https://github.com/Zackptg5/TWRP-DualBoot-Guac-Unified#how-to-manually-repartition-back-to-stock)。虽然重新分区总是一项有风险的工作，但如果事情变糟了，你可以使用特定于设备的 unbrick 工具([一加 7](https://forum.xda-developers.com/oneplus-7/how-to/op7-unbrick-tool-to-restore-device-to-t3954325) ，[一加 7 Pro](https://forum.xda-developers.com/oneplus-7-pro/how-to/op7pro-collection-unbrick-tools-t3956595) )。请记住，任何重新分区都将擦除您的所有数据。
