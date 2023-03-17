@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Android Q Beta is here for the Google Pixel, Pixel 2, and Pixel 3</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1 class="translatedd">Android Q Beta是为谷歌Pixel、Pixel 2和Pixel 3准备的</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/android-q-dp1-google-pixel-2-google-pixel-3/#0001-01-01">https://www.xda-developers.com/android-q-dp1-google-pixel-2-google-pixel-3/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p/><p class="translatedd">等待终于结束了——OTA文件和工厂图像将在第一个公开的Android Q测试版中上线。如果你幸运地拥有谷歌Pixel、谷歌Pixel XL、谷歌Pixel 2、谷歌Pixel 2 XL、谷歌Pixel 3或谷歌Pixel 3 XL(是的，所有三代Pixel都受到支持)，那么你现在就有机会测试下一个主要的Android版本，要么手动更新，要么注册测试版并通过无线方式接收更新。Android 10 Q带来了许多新功能，包括全系统黑暗模式和权限管理的改进。第一个测试版将于今天发布，而最终版预计将于八月初登陆。</p>
+
+  
+<p class="translatedd">请记住，这第一次预览是针对开发人员的。在下一个Android版本面向公众发布之前的几个月，谷歌给了开发者机会，让他们对照新的Android平台API测试自己的应用。这第一个版本不会有所有你会联想到Android Q的新软件功能。谷歌可能会在5月7日开始的<a href="https://www.xda-developers.com/google-io-2019-may-7-9/">谷歌I/O 2019 </a>上推出一系列新功能。我们当然会广泛报道Android Q，因为我们知道我们的读者已经迫不及待地想要得到一个官方版本或者一个定制的ROM。不过，目前谷歌Pixel 2和谷歌Pixel 3用户可以比任何人都更早享受这一版本。</p>
+
+<hr/>
+
+
+<h2 id="download-android-q-beta-1-for-the-pixel-pixel-xl-pixel-2-pixel-2-xl-pixel-3-or-pixel-3-xl" class="translatedd">为Pixel、Pixel XL、Pixel 2、Pixel 2 XL、Pixel 3或Pixel 3 XL下载Android Q Beta 1</h2>
+<p class="translatedd">可以<a href="https://developer.android.com/preview/download">下载OTA镜像文件</a>直接从最新【2019年3月发布的Pixel 2、Pixel 2 XL、Pixel 3、Pixel 3 XL的安全补丁更新。如果你有一个解锁的引导加载程序，并修改了引导镜像来安装TWRP或Magisk，你需要刷新出厂镜像文件。在下一节中可以找到如何操作的一般说明。</p>
+
+
+<p class="translatedd">如果你有兴趣讨论Android Q版本，一定要加入Pixel、Pixel 2和Pixel 3设备的论坛。</p>
+
+<p/><p class="translatedd"><a href="https://forum.xda-developers.com/pixel"> <strong>谷歌像素论坛</strong> </a> <a href="https://forum.xda-developers.com/pixel-xl"> <strong>谷歌像素XL论坛</strong> </a></p>
+
+<p/><p class="translatedd"><a href="https://forum.xda-developers.com/pixel-2"> <strong>谷歌Pixel 2论坛</strong> </a> <a href="https://forum.xda-developers.com/pixel-2-xl"> <strong>谷歌Pixel 2 XL论坛</strong> </a></p>
+
+<p/><p><a href="https://forum.xda-developers.com/pixel-3"> <strong>谷歌Pixel 3论坛</strong> </a> <a href="https://forum.xda-developers.com/pixel-3-xl"> <strong>谷歌Pixel 3 XL论坛</strong> </a></p>
+
+<p>如果你安装了更新并注意到一些我们还没有发现的新东西，<a href="https://www.xda-developers.com/tip-us/">给我们发送一个提示</a>，如果我们根据你的提示写了一篇文章，你就可以得到一个<strong>免费的XDA无广告月</strong>！另外，如果你安装了更新，一定要查看一下<a href="https://developer.android.com/preview/feedback.html" target="_blank" rel="nofollow noopener noreferrer">反馈</a>和<a href="https://developer.android.com/preview/bug" target="_blank" rel="nofollow noopener noreferrer">错误报告</a>页面。谷歌也在关注reddit上的一个新的子编辑以获取反馈。</p>
+
+<hr/>
+<p class="ad-odd translatedd"> </p>
+
+
+<h2 id="how-to-install-android-q-beta-1-on-the-pixel-2-pixel-2-xl-pixel-3-or-pixel-3-xl">如何在Pixel 2、Pixel 2 XL、Pixel 3或Pixel 3 XL上安装Android Q Beta 1</h2>
+<p>如果你的设备是rooted的，或者你对系统或供应商分区做了任何更改，你需要使用工厂镜像安装Android Q。如果你还没有解锁引导程序，并且使用的是最新的Android Pie版本，那么你可以下载OTA来节省时间。在开始之前，按照本教程设置<a href="https://www.xda-developers.com/install-adb-windows-macos-linux/"> ADB和Fastboot。</a></p>
+
+<h3 id="ota-image">OTA图像</h3>
+<ol> <li>从上表中下载适合您设备的OTA文件。</li> <li>将你的手机启动到Android系统并连接到你的电脑，在你存储ADB二进制文件的同一个目录下打开一个命令提示符或终端窗口。</li> <li>输入以下命令进入恢复模式:<b> Windows命令提示符:</b><code>adb reboot recovery</code><b>Windows PowerShell:</b><code>.\adb reboot recovery</code><b>MAC OS/Linux终端:</b> <code>./adb reboot recovery</code></li> <li>在恢复模式下，选择“应用来自ADB的更新”</li> <li>输入以下命令，侧载Android Q OTA更新文件:<b> Windows命令提示符:</b><code>adb sideload ota_file.zip</code><b>Windows PowerShell:</b><code>.\adb sideload ota_file.zip</code><b>MAC OS/Linux终端:</b> <code>./adb sideload ota_file.zip</code>其中“ota_file.zip”是您在步骤1中下载的OTA文件的名称。</li> <li>通过选择“立即重启系统”选项重启手机。</li> </ol>
+
+<h3 id="factory-image">工厂形象</h3>
+<ol> <li>从上表中的链接之一为您的设备下载Android Q工厂映像。</li> <li>提取工厂图像文件。</li> <li>在该文件夹中，您将看到一个引导程序映像、一个广播映像、一个zip文件、一个Windows批处理文件和两个。sh脚本文件。如果你不在乎擦除所有数据，只想立即更新，那么继续双击flash-all.bat(如果你在Windows上)或flash-all.sh(如果你在macOS/Linux上)(在使其可执行之后)。</li> <li>如果要刷新工厂映像而不擦除数据，请在文本编辑器中编辑flash-all.bat脚本(Windows)或flash-all.sh脚本(macOS/Linux ),并从“fastboot -w update”行中删除“-w”命令。然后，您可以开始启动flash-all脚本。</li> </ol>
+
+<p>如果你想看每个步骤的截图，<a href="https://www.xda-developers.com/flash-monthly-security-update-google-pixel/">这个指南</a>会帮到你。虽然它是为了帮助用户刷新每月的安全补丁更新而编写的，但是刷新一个主要的Android版本的步骤是相同的。</p>
+
+<hr/>
+<p class="ad-even translatedd"> </p>
+
+
+<h2 id="android-q-here-we-come">安卓Q，我们来了！</h2>
+<p>我们团队中的一些作家，包括我自己，已经开始在我们的Pixel设备上安装Android Q。我们将记录我们在第一个预览版中发现的新特性。由于早期的泄露，我们在发布前几周就已经设法揭开了许多关于Android Q的细节。请务必关注我们的<a href="https://www.xda-developers.com/tag/android-q/"> Android Q </a>标签，了解下一个主要Android版本的所有最新消息。以下是我推荐你开始接触的文章:</p>
+
+
+</div>
+
+
+</div>    
+</body>
+</html>

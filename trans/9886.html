@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Permissions on Android</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1 class="translatedd">Android上的权限</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/permissions-on-android/#0001-01-01">https://www.xda-developers.com/permissions-on-android/#0001-01-01</a></blockquote><div><section id="article-body" class="article-body" itemprop="articleBody">
+
+<div class="content-block-regular">
+<p class="translatedd">根据安卓开发者的说法，“许可的目的是保护安卓用户的隐私。”我们通过两种方式遇到所有这些权限:</p>
+
+  
+<ol> <li class="translatedd">运行时请求。对于运行Android Marshmallow (6.0/API级别23)或更高版本的设备以及针对相同API级别的应用程序，当您首次打开应用程序时，会出现权限请求。</li> <li class="translatedd">安装时请求。对于运行Android Lollipop (5.1.1/API级别22)或更低版本的设备，或者在任何Android版本上应用程序的API级别为22或更低，在Play Store上安装应用程序之前，您会收到权限请求。</li> </ol>
+
+<p class="translatedd">此外，权限请求为您提供了一个选项，让您可以让应用程序按照预期的方式运行。这里是我的OnePlus 6中列出的所有权限，以显示哪些类型的应用程序属于这些权限的方式进行组织。</p>
+
+<p/><h4/>
+
+
+
+
+<h2 id="sensors" class="translatedd"><strong>传感器</strong></h2>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p class="translatedd">许可</p> </th><th><p class="translatedd">目的</p> </th> </tr></thead><tbody><tr><td><p class="translatedd">身体传感器</p> </td><td><p class="translatedd"><span>帮助“智能锁”功能正确，在“起床唤醒”功能中实现。</span></p> </td> </tr></tbody> </table> </div>
+<p> </p>
+
+
+
+
+<p class="ad-odd translatedd"> </p>
+
+
+<h2 id="personal" class="translatedd"><strong>个人</strong></h2>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p class="translatedd">许可</p> </th><th><p class="translatedd">目的</p> </th> </tr></thead><tbody><tr><td><p class="translatedd">日历</p> </td><td><p class="translatedd">读取日历应用程序中的任何内容以显示信息(会议、生日等)。)在“一览”等应用程序/小工具中</p> </td> </tr><tr><td><p class="translatedd">通话记录</p> </td><td><p class="translatedd">显示来自Google Duo等应用程序或手机应用程序本身的通话记录</p> </td> </tr><tr><td><p class="translatedd">联系人</p> </td><td><p class="translatedd">读取您的联系人以在键盘应用程序(Swiftkey、Gboard等)中显示预测等信息。)</p> </td> </tr><tr><td><p class="translatedd">电话</p> </td><td><p class="translatedd">读取您的电话状态，当您收到电话时唤醒您的电话，当您收到电话时暂停音乐，等等。</p> </td> </tr><tr><td><p class="translatedd">短信</p> </td><td><p class="translatedd">读取你的短信，将信息保存在第三方短信应用程序中，如Textra，可以提供键盘预测</p> </td> </tr></tbody> </table> </div>
+<p> </p>
+
+
+<p class="ad-even translatedd"> </p>
+
+
+
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p class="translatedd">许可</p> </th><th><p class="translatedd">目的</p> </th> </tr></thead><tbody><tr><td><p class="translatedd">相机*</p> </td><td><p class="translatedd">使用您的相机拍照、录制视频</p> </td> </tr><tr><td><p class="translatedd">麦克风*</p> </td><td><p class="translatedd">若要在录制语音提示、视频或使用Shazam时收听</p> </td> </tr><tr><td><p class="translatedd">储存；储备</p> </td><td><p class="translatedd">读取您的存储，以便能够保存文件(图片、视频等)。)</p> </td> </tr></tbody> </table> </div>
+<p> </p>
+
+
+<p class="ad-odd translatedd"> </p>
+
+
+<h2 id="services" class="translatedd"><strong>服务</strong></h2>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p class="translatedd">许可</p> </th><th><p class="translatedd">目的</p> </th> </tr></thead><tbody><tr><td><p class="translatedd">位置*</p> </td><td><p class="translatedd">使用您的GPS追踪您的位置，以获取优步或Instagram贴纸等服务</p> </td> </tr><tr><td><p class="translatedd">汽车信息</p> </td><td><p class="translatedd">安卓汽车</p> </td> </tr></tbody> </table> </div>
+<p> </p>
+
+<p class="translatedd">[spacer color="000000" icon= "选择一个图标"]</p>
+
+<p class="translatedd">根据你的Android版本和手机，你的列表中的权限可能与我的不同，但根据符号应该很容易知道。</p>
+
+<p class="translatedd">*这三个权限是在隐私方面被提及最多的权限。有些app在用户不知情的情况下访问这些权限，更不用说在app没有需求的情况下(比如一个音乐播放器想访问你的位置)有什么正当的理由去访问这些权限了。</p>
+
+<p/><h5><strong>禁用某些应用的某些权限是可能的(安卓棉花糖/6.0及更高版本！)在我的Instagram上，我只启用了这三个权限，因为这是我在应用程序上使用的主要内容。因人而异。然而，如果你禁用的权限是应用稳定性的一大部分，应用稳定性可能会改变(如果你拒绝其相机权限，Snapchat将关闭。)</strong></h5>
+
+ </div>
+
+
+<p id="article-waypoint"/>
+</section>
+
+
+        </div>    
+</body>
+</html>

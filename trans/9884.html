@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>Qualcomm Snapdragon 855 vs Snapdragon 845 vs Kirin 980 Benchmarks</title>
+<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h1 class="translatedd">高通骁龙855 vs骁龙845 vs麒麟980基准测试</h1>
+<blockquote>原文：<a href="https://www.xda-developers.com/qualcomm-snapdragon-855-snapdragon-845-kirin-980-cpu-gpu-ai-benchmarks/#0001-01-01">https://www.xda-developers.com/qualcomm-snapdragon-855-snapdragon-845-kirin-980-cpu-gpu-ai-benchmarks/#0001-01-01</a></blockquote><div><div class="content-block-regular">
+<p class="translatedd">2018年对于智能手机爱好者来说是激动人心的一年。我们看到了几乎无边框设计的开始，多相机的创新，使手持长曝光实用的计算摄影技术，快得离谱的有线充电，无线充电重新成为主流，等等。Android智能手机有如此多的功能来区分它们，但它们仍然由高通、海思、三星或联发科的芯片组驱动。2018年大多数安卓旗舰都由高通骁龙845驱动，但2019年它们将主要由高通骁龙855驱动。虽然新的高通移动平台早在12月的骁龙科技峰会上就已经宣布了，但高通直到上周的T2 CES 2019才让我们对骁龙855进行基准测试。</p>
+
+  
+<p class="translatedd">我们希望我们的许多读者都期待这些基准测试的结果。毕竟，高通骁龙855很可能会用于谷歌Pixel 4、<a href="https://www.xda-developers.com/lg-g8-march-2019-separate-from-5g-phone/"> LG G8 </a>、三星Galaxy S10、<a href="https://www.xda-developers.com/oneplus-qualcomm-snapdragon-855/">一加7 </a>、小米Mi 9、<a href="https://www.xda-developers.com/sony-xperia-xz4-triple-rear-cameras/">索尼Xperia XZ4 </a>等更多设备。这些设备将如何处理图形密集型手机游戏？这些设备处理人工智能工作负载的速度有多快？这些设备与华为Mate 20、<a href="https://www.xda-developers.com/honor-view-20-hands-on-first-impressions-review/"> Honor View 20 </a>和即将推出的<a href="https://www.xda-developers.com/huawei-p30-leaked-renders/">华为P30 </a>等搭载麒麟980的智能手机相比如何？虽然我们无法回答即将推出的骁龙855设备在PUBG Mobile或堡垒之夜等游戏中的表现如何，但我们所做的基准测试应该会让你很好地了解新的骁龙855与骁龙845和麒麟980平台的性能相比如何。</p>
+
+<p class="translatedd">我们已经测试了新的Exynos 9820，但是三星Galaxy S10还没有上市。我们必须等到二月。</p>
+
+ 
+<h2 id="qualcomm-snapdragon-855-snapdragon-845-and-kirin-980-specifications" class="translatedd">高通骁龙855、骁龙845和麒麟980规格</h2>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td> </td><td><p class="translatedd"><strong>高通骁龙855 </strong></p> </td><td><p><strong>高通骁龙845 </strong></p> </td><td><p><strong>海思麒麟980 </strong></p> </td><p> </p> </tr><tr><td><p class="translatedd translated"><strong> CPU </strong></p> </td><td><p>1个Kryo 485“Prime”(基于ARM Cortex-A76)，高达2.84GHz 3个Kryo 485(基于ARM Cortex-A76)，高达2.42GHz 4个Kryo 385(基于ARM Cortex-A55)，与上一代产品相比，性能提升高达1.8 GHz 45% *</p> </td><td><p>4 Kryo 385(基于ARM Cortex-A75)，最高2.8GHz 4 Kryo 385(基于ARM Cortex-A55)，最高1.8GHz，比上一代产品性能提升25% *</p> </td><td><p>2ARM Cortex-A76，最高2.60GHz 2 ARM Cortex-A76，最高1.92GHz 4 ARM Cortex-A55，最高1.80GHz</p> </td><p> </p> </tr><tr><td><p class="translatedd translated"><strong> GPU </strong></p> </td><td><p>Adreno 640比上一代产品性能提升20% *</p> </td><td><p>Adreno 630比上一代产品性能提升25% *</p> </td><td><p>马里-G76MP10</p> </td><p> </p> </tr><tr><td><p><strong>内存</strong></p> </td><td><p>4x 16位2133MHz LPDDR4X</p> </td><td><p>4x 16位1866MHz LPDDR4X</p> </td><td><p>4个16位LPDDR4X-4266</p> </td><p> </p> </tr><tr><td><p><strong>制造过程</strong></p> </td><td><p>7纳米(TSMC)</p> </td><td><p>10纳米LPP(三星)</p> </td><td><p>7纳米(TSMC)</p> </td><p> </p> </tr><p> </p></tbody> </table> </div>
+<p>关于海思麒麟980的详细概述，请阅读<a href="https://www.xda-developers.com/hisilicon-kirin-980-honor-magic-2-huawei-mate-20-pro/">这篇文章</a>。有关高通骁龙855移动平台的更多详情，请阅读我们的<a href="https://www.xda-developers.com/qualcomm-snapdragon-855-kryo-485-cpu-adreno-640-gpu-spectra-isp-cv/">第一篇详情文章</a>和我们的<a href="https://www.xda-developers.com/qualcomm-snapdragon-855-performance-gaming-ai-improvements-explained/">深度文章</a>。</p>
+
+<hr/>
+<p class="ad-odd translatedd"> </p>
+
+
+<h2 id="quick-overview-of-the-benchmarks-we-used">我们使用的基准快速概述</h2>
+<ul> <li><strong>安图图</strong>:这是一个整体基准。AnTuTu测试CPU、GPU和内存性能，同时包括抽象测试和最近的相关用户体验模拟(例如，涉及滚动ListView的子测试)。最终得分权重根据设计者的考虑。</li> <li><strong> GeekBench </strong>:一个以CPU为中心的测试，使用了几种计算工作负载，如压缩、搜索、渲染、物理和光线跟踪、HDR/模糊。还包括一些针对延迟和带宽的内存工作负载。分数细分给出了具体的指标。最终得分权重根据设计者的考虑。</li> <li><strong> GFXBench </strong>:旨在使用最新的API模拟视频游戏图形渲染。大量的屏幕效果和高质量的纹理。较新的测试使用Vulkan，而遗留测试使用OpenGL ES 3.1。度量标准是测试期间的帧数和每秒帧数(本质上是另一个除以测试长度的数字)，这两者都是特定的，而不是一些加权分数，这是非常有用的。</li> <li><strong>辛烷值</strong>、<strong>车速表</strong>、<strong> Jetstream </strong> : Javascript、核心语言特性以及在各种操作上的表现；Javascript数学、加密和搜索性能。</li> <li>3DMark :一个密集的图形基准，有大量的效果和物理，旨在强调帧速率。最终得分权重取决于设计者的考虑因素(即非FPS等)。)</li> <li><strong> AImark (Ludashi)/AI基准</strong>:测试各种人工神经网络(ANN)实现。基本运算包括点积、矩阵乘法和非线性函数。并行化是关键，这些基准使用DSP(特别是Hexagon Vector eXtensions [HVX]而不是Tensor Accelerator)。</li> </ul>
+
+<p><em>每个基准的源代码链接可以在文章末尾找到。</em></p>
+
+<hr/>
+<p class="ad-even translatedd"> </p>
+
+
+<h2 id="benchmark-results">基准测试结果</h2>
+<h3 id="test-devices">测试设备</h3>
+<ul> <li><strong>高通骁龙855参考器件</strong>      <ul> <li>安卓9派(高通定制AOSP软件)</li> <li>6GB内存LPDDR4X内存</li><p> </p> </ul> </li> <li><strong>谷歌像素3 XL(高通骁龙845) </strong>      <ul> <li>Android 9 Pie(带2019年1月安全补丁的谷歌Pixel OEM软件)</li> <li class="translatedd translated">4GB LPDDR4X RAM</li><p> </p> </ul> </li> <li><strong>荣誉魔法2(海思麒麟980) </strong>      <ul> <li>Android 9派(Magic UI 2.0/EMUI 9.0 OEM软件带2018年12月安全补丁)      <ul> <li>电池设置中的“性能模式”已关闭</li><p> </p> </ul> </li> <li class="translatedd translated">8GB LPDDR4X RAM</li><p> </p> </ul> </li> </ul>
+
+<h3 id="qualcomm-snapdragon-855-benchmark-results">高通骁龙855基准测试结果</h3>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p>基准</p> </th><th><p>版本</p> </th><th><p>试验1</p> </th><th><p>试验2</p> </th><th><p>试验3</p> </th><th><p>平均的</p> </th><th><p>参考结果***</p> </th><p> </p> </tr><p> </p></thead><tbody><tr><td><p>安图图</p> </td><td><p>7.1.1*</p> </td><td><p>360,346</p> </td><td><p>360,409</p> </td><td><p>336,467</p> </td><td><p>352,407.3</p> </td><td><p>359,000-360,500</p> </td><p> </p> </tr><tr><td><p>GeekBench(单核)</p> </td><td><p>4.3.0*</p> </td><td><p>3,532</p> </td><td><p>3,525</p> </td><td><p>3,519</p> </td><td><p>3,525.3</p> </td><td><p>3,500-3,600</p> </td><p> </p> </tr><tr><td><p>GeekBench(多核)</p> </td><td><p>4.3.0*</p> </td><td><p>11,193</p> </td><td><p>11,152</p> </td><td><p>11,251</p> </td><td><p>11,198.7</p> </td><td><p>11,000-12,000</p> </td><p> </p> </tr><tr><td><p class="translatedd translated">PCMark</p> </td><td><p>2.0.3710*</p> </td><td><p>8,907</p> </td><td><p>8,957</p> </td><td><p>8,832</p> </td><td><p>8,898.7</p> </td><td><p>9,000</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.1 1080曼哈顿屏幕外</p> </td><td><p>4.0*</p> </td><td><p>71 (4，408帧)</p> </td><td><p>71 (4，401帧)</p> </td><td><p>71 (4，396帧)</p> </td><td><p>71</p> </td><td><p>71</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.1 1080追车画面外</p> </td><td><p>4.0*</p> </td><td><p>42 (2，496帧)</p> </td><td><p>42 (2，495帧)</p> </td><td><p>42 (2，487帧)</p> </td><td><p>42</p> </td><td><p>42</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.0 1080曼哈顿屏幕外</p> </td><td><p>4.0*</p> </td><td><p>102 (6，321帧)</p> </td><td><p>100 (6，207帧)</p> </td><td><p>102 (6，326帧)</p> </td><td><p>101.3</p> </td><td><p>100-102</p> </td><p> </p> </tr><tr><td><p>GFxBench ES2.0 1080霸王龙屏幕外</p> </td><td><p>4.0*</p> </td><td><p>167 (9，353帧)</p> </td><td><p>167 (9，372帧)</p> </td><td><p>167 (9，353帧)</p> </td><td><p>167</p> </td><td><p>167-168</p> </td><p> </p> </tr><tr><td><p class="translatedd translated">3DMark</p> </td><td><p>1.5.3074*</p> </td><td><p>5,463</p> </td><td><p>5,475</p> </td><td><p>5,464</p> </td><td><p>5,467.3</p> </td><td><p>不适用的</p> </td><p> </p> </tr><tr><td><p>人工智能基准</p> </td><td><p>2.1.1*</p> </td><td><p>26,989</p> </td><td><p>26,296</p> </td><td><p>**</p> </td><td><p>26,642.5</p> </td><td><p>27,000</p> </td><p> </p> </tr><tr><td><p>艾马克</p> </td><td><p>1.5*</p> </td><td><p>2,740</p> </td><td><p>2,734</p> </td><td><p>**</p> </td><td><p>2,737</p> </td><td><p>2,740</p> </td><p> </p> </tr><tr><td><p>辛烷</p> </td><td><p>2.0</p> </td><td><p>25,201</p> </td><td><p>24,582</p> </td><td><p>24,492</p> </td><td><p>24,758.3</p> </td><td><p>24,900-25,000</p> </td><p> </p> </tr><tr><td><p>速度计</p> </td><td><p>1.0</p> </td><td><p>118.1</p> </td><td><p>117.8</p> </td><td><p>117.8</p> </td><td><p>117.9</p> </td><td><p>112-122</p> </td><p> </p> </tr><tr><td><p>急流</p> </td><td><p>1.1</p> </td><td><p>116.1</p> </td><td><p>115.9</p> </td><td><p>115.6</p> </td><td><p>115.9</p> </td><td><p>116-117</p> </td><p> </p> </tr><p> </p></tbody> </table> </div>
+<p>*高通在骁龙855参考设备上预装了几个基准。这些基准测试从Play Store版本修改而来，不将数据上传到云。与Play Store版本相比，其中一些基准测试已经过时。</p>
+
+<p>* *由于时间有限，无法获得试验数据。</p>
+
+<p>* * *高通根据他们自己的测试向我们提供了一组预期的基准分数。我们仅将此用作参考。高通没有为3DMark提供任何参考结果。</p>
+
+<h3 id="qualcomm-snapdragon-845-benchmark-results">高通骁龙845基准测试结果</h3>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p>基准</p> </th><th><p>版本</p> </th><th><p>试验1</p> </th><th><p>试验2</p> </th><th><p>试验3</p> </th><th><p>平均的</p> </th><p> </p> </tr><p> </p></thead><tbody><tr><td><p>安图图</p> </td><td><p>7.1.4</p> </td><td><p>285,439</p> </td><td><p>284,727</p> </td><td><p>284,836</p> </td><td><p>285,000.7</p> </td><p> </p> </tr><tr><td><p>GeekBench(单核)</p> </td><td><p>4.3.2</p> </td><td><p>2,372</p> </td><td><p>2,390</p> </td><td><p>2,391</p> </td><td><p>2,384.3</p> </td><p> </p> </tr><tr><td><p>GeekBench(多核)</p> </td><td><p>4.3.2</p> </td><td><p>8,328</p> </td><td><p>8,333</p> </td><td><p>8,292</p> </td><td><p>8,317.7</p> </td><p> </p> </tr><tr><td><p class="translatedd translated">PCMark</p> </td><td><p>2.0.3716</p> </td><td><p>9,055</p> </td><td><p>9,074</p> </td><td><p>9,122</p> </td><td><p>9,083.7</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.1 1080曼哈顿屏幕外</p> </td><td><p>5.0.0</p> </td><td><p>61 (3，763帧)</p> </td><td><p>60 (3，746帧)</p> </td><td><p>60 (3，747帧)</p> </td><td><p>60.3</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.1 1080追车画面外</p> </td><td><p>5.0.0</p> </td><td><p>35 (2，079帧)</p> </td><td><p>35 (2，074帧)</p> </td><td><p>35 (2，073帧)</p> </td><td><p>35</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.0 1080曼哈顿屏幕外</p> </td><td><p>5.0.0</p> </td><td><p>83 (5，174帧)</p> </td><td><p>83 (5，168帧)</p> </td><td><p>83 (5，151帧)</p> </td><td><p>83</p> </td><p> </p> </tr><tr><td><p>GFxBench ES2.0 1080霸王龙屏幕外</p> </td><td><p>5.0.0</p> </td><td><p>153 (8，542帧)</p> </td><td><p>153 (8，541帧)</p> </td><td><p>152 (8，531帧)</p> </td><td><p>152.7</p> </td><p> </p> </tr><tr><td><p class="translatedd translated">3DMark</p> </td><td><p>2.0.4580</p> </td><td><p>4,504</p> </td><td><p>4,642</p> </td><td><p>4,448</p> </td><td><p>4,531.3</p> </td><p> </p> </tr><tr><td><p>人工智能基准</p> </td><td><p>2.1.2</p> </td><td><p>7,166</p> </td><td><p>7,256</p> </td><td><p>7,104</p> </td><td><p>7,175.3</p> </td><p> </p> </tr><tr><td><p>艾马克</p> </td><td><p>1.4</p> </td><td><p>215</p> </td><td><p>201</p> </td><td><p>212</p> </td><td><p>209.3</p> </td><p> </p> </tr><tr><td><p>辛烷</p> </td><td><p>2.0</p> </td><td><p>17,088</p> </td><td><p>16,972</p> </td><td><p>16,841</p> </td><td><p>16,967</p> </td><p> </p> </tr><tr><td><p>速度计</p> </td><td><p>1.0</p> </td><td><p>95.7</p> </td><td><p>96</p> </td><td><p>96.9</p> </td><td><p>96.1</p> </td><p> </p> </tr><tr><td><p>急流</p> </td><td><p>1.1</p> </td><td><p>88.3</p> </td><td><p>86.7</p> </td><td><p>87.8</p> </td><td><p>87.6</p> </td><p> </p> </tr><p> </p></tbody> </table> </div>
+<h3 id="hisilicon-kirin-980-benchmark-results">海思麒麟980基准测试结果</h3>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p>基准</p> </th><th><p>版本</p> </th><th><p>试验1</p> </th><th><p>试验2</p> </th><th><p>试验3</p> </th><th><p>平均的</p> </th><p> </p> </tr><p> </p></thead><tbody><tr><td><p>安图图</p> </td><td><p>7.1.4</p> </td><td><p>271,727</p> </td><td><p>274,133</p> </td><td><p>274,627</p> </td><td><p>273,495.7</p> </td><p> </p> </tr><tr><td><p>GeekBench(单核)</p> </td><td><p>4.3.2</p> </td><td><p>3,334</p> </td><td><p>3,335</p> </td><td><p>3,337</p> </td><td><p>3,335.3</p> </td><p> </p> </tr><tr><td><p>GeekBench(多核)</p> </td><td><p>4.3.2</p> </td><td><p>9,860</p> </td><td><p>9,860</p> </td><td><p>9,794</p> </td><td><p>9,838</p> </td><p> </p> </tr><tr><td><p class="translatedd translated">PCMark</p> </td><td><p>2.0.3716</p> </td><td><p>7,557</p> </td><td><p>7,558</p> </td><td><p>7,527</p> </td><td><p>7,547.3</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.1 1080曼哈顿屏幕外</p> </td><td><p>5.0.0</p> </td><td><p>54 (3，319帧)</p> </td><td><p>53 (3，291帧)</p> </td><td><p>53 (3，308帧)</p> </td><td><p>53.3</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.1 1080追车画面外</p> </td><td><p>5.0.0</p> </td><td><p>30 (1，795帧)</p> </td><td><p>30 (1，767帧)</p> </td><td><p>30 (1，773帧)</p> </td><td><p>30</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.0 1080曼哈顿屏幕外</p> </td><td><p>5.0.0</p> </td><td><p>86 (5，362帧)</p> </td><td><p>77 (4，768帧)</p> </td><td><p>83 (5，151帧)</p> </td><td><p>82</p> </td><p> </p> </tr><tr><td><p>GFxBench ES2.0 1080霸王龙屏幕外</p> </td><td><p>5.0.0</p> </td><td><p>71 (3，989帧)</p> </td><td><p>68 (3，812帧)</p> </td><td><p>68 (3，829帧)</p> </td><td><p>69</p> </td><p> </p> </tr><tr><td><p class="translatedd translated">3DMark</p> </td><td><p>2.0.4580</p> </td><td><p>3,570</p> </td><td><p>3,597</p> </td><td><p>3,594</p> </td><td><p>3,587</p> </td><p> </p> </tr><tr><td><p>人工智能基准</p> </td><td><p>2.1.2</p> </td><td><p>14,021</p> </td><td><p>14,005</p> </td><td><p>14,051</p> </td><td><p>14,025.7</p> </td><p> </p> </tr><tr><td><p>艾马克</p> </td><td><p>1.4</p> </td><td><p>2,295</p> </td><td><p>2,333</p> </td><td><p>2,295</p> </td><td><p>2,307.7</p> </td><p> </p> </tr><tr><td><p>辛烷</p> </td><td><p>2.0</p> </td><td><p>20,553</p> </td><td><p>20,622</p> </td><td><p>2,0889</p> </td><td><p>20,688</p> </td><p> </p> </tr><tr><td><p>速度计</p> </td><td><p>1.0</p> </td><td><p>113</p> </td><td><p>113.4</p> </td><td><p>114.0</p> </td><td><p>113.5</p> </td><p> </p> </tr><tr><td><p>急流</p> </td><td><p>1.1</p> </td><td><p>94.8</p> </td><td><p>94.1</p> </td><td><p>94.1</p> </td><td><p>94.4</p> </td><p> </p> </tr><p> </p></tbody> </table> </div>
+<h3 id="qualcomm-snapdragon-855-vs-snapdragon-845-vs-kirin-980-summary">高通骁龙855 vs骁龙845 vs麒麟980总结</h3>
+<div class="table-container"><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th><p>基准</p> </th><th><p>对抗骁龙845</p> </th><th><p>对阵麒麟980</p> </th><p> </p> </tr><p> </p></thead><tbody><tr><td><p>安图图</p> </td><td><p>1.24</p> </td><td><p>1.29</p> </td><p> </p> </tr><tr><td><p>GeekBench(单核)</p> </td><td><p>1.48</p> </td><td><p>1.06</p> </td><p> </p> </tr><tr><td><p>GeekBench(多核)</p> </td><td><p>1.35</p> </td><td><p>1.14</p> </td><p> </p> </tr><tr><td><p class="translatedd translated">PCMark</p> </td><td><p>0.98</p> </td><td><p>1.18</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.1 1080曼哈顿屏幕外</p> </td><td><p>1.18</p> </td><td><p>1.33</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.1 1080追车画面外</p> </td><td><p>1.20</p> </td><td><p>1.4</p> </td><p> </p> </tr><tr><td><p>GFxBench ES3.0 1080曼哈顿屏幕外</p> </td><td><p>1.22</p> </td><td><p>1.24</p> </td><p> </p> </tr><tr><td><p>GFxBench ES2.0 1080霸王龙屏幕外</p> </td><td><p>1.09</p> </td><td><p>2.42</p> </td><p> </p> </tr><tr><td><p class="translatedd translated">3DMark</p> </td><td><p>1.21</p> </td><td><p>1.52</p> </td><p> </p> </tr><tr><td><p>人工智能基准</p> </td><td><p>3.69</p> </td><td><p>1.9</p> </td><p> </p> </tr><tr><td><p>艾马克</p> </td><td><p>13.16</p> </td><td><p>1.19</p> </td><p> </p> </tr><tr><td><p>辛烷</p> </td><td><p>1.46</p> </td><td><p>1.2</p> </td><p> </p> </tr><tr><td><p>速度计</p> </td><td><p>1.22</p> </td><td><p>1.04</p> </td><p> </p> </tr><tr><td><p>急流</p> </td><td><p>1.32</p> </td><td><p>1.23</p> </td><p> </p> </tr><p> </p></tbody> </table> </div>
+<hr/>
+<p class="ad-odd translatedd"> </p>
+
+
+<h2 id="conclusion">结论</h2>
+<p>以下是您应该从骁龙855与骁龙845的基准测试结果中吸取的一些经验:</p>
+
+<ul> <li>高通声称CPU性能提高了45%。当然，转向基于ARM Cortex-A76的内核应该会带来显著的性能提升。GeekBench单核和多核成绩分别提高了48%和35%，令人印象深刻，而且由于<strong>大多数工作负载都受益于单核性能的提高</strong>，我们认为高通会胜出。</li> <li>正如高通声称的那样，高通骁龙855中的Adreno 640 GPU比高通骁龙845中的adre no 630GPU提供了大约20%的性能提升。(参见:3DMark和GFXBench结果，无过时的T-Rex测试。)</li> <li>由于PCMark衡量的是系统性能，所以在高通骁龙855参考设备上看到经过打磨的谷歌Pixel 3 XL软件略微优于接近AOSP的软件也就不足为奇了。</li> <li>在我们对来自高通的Travis Lanier、Gary Brotman和Ziad Asghar的采访中，我们谈到了对人工智能性能进行基准测试的困难。不管怎样，高通在骁龙855的营销中使用了公开可用的人工智能基准。高通声称，骁龙855的人工智能性能比骁龙845提高了3倍。根据你使用的人工智能基准/人工神经网络模型，如果利用HVX ，骁龙855肯定会提供<strong>实质性的人工智能性能改进。</strong></li> <li>骁龙855确实在内存性能方面有所改进，AnTuTu RAM subscore就是证明。Pixel 3 XL的平均得分约为3400，而骁龙855参考设备的平均得分约为4300。</li> </ul>
+
+<p>以下是我们对骁龙855与麒麟980的基准测试结果的看法:</p>
+
+<ul> <li>不出所料，骁龙855的CPU性能并不比麒麟980好多少。这两个平台都使用ARM Cortex-A76和ARM Cortex-A55 CPU内核，尽管高通对它们进行了一些定制，并且这两个平台具有不同的核心集群配置和时钟速度。</li> <li>高通在骁龙855中定制的Adreno 640 GPU击败了麒麟980平台中的ARM Mali-G76MP10 GPU。甚至骁龙845中的Adreno 630 GPU也超过了麒麟980的GPU。我们没有机会测试真正的游戏，但从这些结果来看，<strong>骁龙855应该是更好的移动游戏平台</strong>。</li> <li>在骁龙峰会上，高通声称他们的新移动平台在人工智能方面比“竞争对手”提供了2倍的改善，我们假设这是麒麟980。尽管没有专门的人工智能处理模块(华为称之为“NPU”)，但高通在计算方面的全面改进使<strong>骁龙855在我们测试的两个人工智能基准</strong>中击败了麒麟980。</li> </ul>
+
+<p><strong>推荐阅读:</strong></p>
+
+
+
+<hr/>
+<p class="ad-even translatedd"> </p>
+
+
+<h2 id="benchmarks-we-used">我们使用的基准</h2>
+<h3 id="cpu-gpu-and-memory">CPU、GPU和内存</h3>
+ 
+
+<h3 id="cpu-and-memory">CPU和内存</h3>
+ 
+
+<h3 id="system">系统</h3>
+ 
+
+
+
+<h3 id="graphics">制图法</h3>
+ 
+
+
+
+ 
+<p class="w-rich w-play_store_app translatedd" id="com.futuremark.dmandroid.application">  </p>
+
+
+<h3 id="ai">人工智能</h3>
+ 
+
+
+
+ 
+
+
+
+<h3 id="browser">浏览器</h3>
+<p><a href="https://chromium.github.io/octane/"> <strong>辛烷2.0 </strong> </a> <a href="https://browserbench.org/Speedometer/"> <strong>车速表1.0</strong></a><a href="https://browserbench.org/JetStream/"><strong>JetStream 1.1</strong></a></p>
+
+<hr/>
+
+<p><em>特写图片由<a href="https://www.xda-developers.com/author/mweinbach/"> Max Weinbach </a>拍摄。Mario Serrafero 对每个基准进行了解释。Mario Serrafero还协助分析了基准测试结果。</em></p>
+
+ </div>
+
+
+</div>    
+</body>
+</html>
