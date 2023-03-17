@@ -1,0 +1,61 @@
+# 小米发布了配备 10.1 英寸显示屏、骁龙 660 和 8，620 毫安时电池的小米 4 Plus
+
+> 原文：<https://www.xda-developers.com/10-inch-xiaomi-mi-pad-4-plus/>
+
+小米 Mi Pad 系列的平价平板电脑在规格和定价方面一直提供了很大的价值。小米 Pad 系列的可用性可能是一个问题，因为小米往往主要在中国销售它们，但它们仍然是买家寻找价格实惠、规格不过时的安卓平板电脑的首选。小米 Mi Pad 4 [于 6 月](https://www.xda-developers.com/xiaomi-mi-pad-4-official-specifications-features/)在中国上市，这是 Mi Pad 系列的最新版本，采用 8 英寸 WUXGA (1920x1200) IPS 显示屏和高通骁龙 660 SoC。现在，小米已经把小米 Mi Pad 4 Plus 官方化了。
+
+米 Pad 4 Plus 是米 Pad 4 的 10 英寸版本。有趣的是，这是小米的第一款 10 英寸平板电脑，因为 Mi Pad、Mi Pad 2、Mi Pad 3 和 Mi Pad 4 都有 8 英寸的显示屏。Mi Pad 4 确实从 4:3 的宽高比切换到了 16:10 的显示屏宽高比，Mi Pad 4 Plus 也有 16:10 的宽高比显示屏。我们来看看它的规格:
+
+## 小米 Mi Pad 4 Plus -规格一览
+
+| 
+
+规范
+
+ | 
+
+小米 Mi Pad 4 Plus
+
+ |
+| --- | --- |
+| 尺寸和重量 | 245.6 x 149.08 x 7.99 毫米，485 克 |
+| 软件 | Android 8.1 奥利奥之上的 MIUI 9 |
+| 社会学 | 八核高通骁龙 660(4 个 2.2GHz Kryo 260 性能核心+4 个 1.8GHz Kryo 260 效率核心)；Adreno 512 GPU |
+| RAM 和存储 | 4GB lpddr 4x 内存，64GB/128GB 存储空间 |
+| 电池 | 8，620 毫安时，5V/2A 充电 |
+| 显示 | 10.1 英寸 WUXGA (1920x1200) IPS 液晶屏，宽高比为 16:10，224 PPI |
+| 连通性 | Wi-Fi 802.11ac，蓝牙 5.0 |
+| 港口 | USB Type-C 口，3.5mm 耳机插孔；Nano SIM 卡插槽 |
+| 法官 | FDD-LTE:频段 1/3/5/7/8TDD-LTE:频段 34/38/39/40/41 |
+| 后置摄像头 | 1300 万像素，带 OmniVision OV13855 传感器，f/2.0 光圈，视频录制速度高达 1080p，每秒 30 帧 |
+| 前置摄像头 | 500 万像素，带三星 S5K5E8 传感器，f/2.0 光圈 |
+
+与 Mi Pad 4 一样，Mi Pad 4 Plus 也采用了金属一体式结构。10.1 英寸的外形和窄边框使它看起来类似于[三星 Galaxy Tab S4](https://www.xda-developers.com/samsung-galaxy-tab-s4-official/) ，这是一款高端 Android 平板电脑，价格明显更高。Mi Pad 4 Plus 上的金属结构应确保出色的构建质量。这款平板在 485 克的纸张上看起来并不算太重。
+
+小米 Mi Pad 4 Plus 还具有前置指纹传感器，这是对标准 Mi Pad 4 的一个很好的改进。
+
+### 表演
+
+Mi Pad 4 Plus 并没有升级 Mi Pad 4 的 SoC。相反，它由相同的高通骁龙 660 SoC 驱动。鉴于最近高通骁龙 670 上周发布的公告，这听起来有点令人失望。小米甚至可以选择今年 5 月发布的骁龙 710。事实上，Mi Pad 4 Plus 仍然采用了一种功能强大的 SoC，但它不再是最新一代的中端 SoC。
+
+骁龙 660 有四个大内核，即主频为 2.2GHz 的 Kryo 260 Performance(Arm Cortex-A73)，以及四个主频为 1.8GHz 的 Kryo 260 Efficiency (Cortex-A53)内核。它采用 Adreno 512 GPU。使用骁龙 670 将会提高单核 CPU 性能以及更好的 GPU 性能。
+
+Mi Pad 4 Plus 确实比 Mi Pad 4 升级了存储配置。Mi Pad 4 有两种型号:3GB 内存和 32GB 存储空间，4GB 内存和 64GB 存储空间。另一方面，Mi Pad 4 Plus 采用 4GB 内存，并有两种存储选项:64GB/128GB。
+
+### 显示
+
+Mi Pad 4 Plus 拥有 10.1 英寸 WUXGA (1920x1200) IPS LCD，纵横比为 16:10，PPI 为 224。它不如 Galaxy Tab S4 的 WQXGA AMOLED 显示屏清晰，但显示质量应该仍然不错。显示器的对比度额定为 1000:1。这里的一个缺点是长宽比，这不是特别适合生产力任务和纵向平板电脑的使用。2048x1536 像素的 4:3 宽高比对于生产力任务和媒体消耗来说是一个更好的折衷方案。
+
+### 连通性
+
+这款平板电脑由一个 8，620 毫安时的大电池供电。没有提到快充支持。在连接方面，Mi Pad 4 Plus 将 LTE 作为标准功能，而 Mi Pad 4 则有单独的 LTE 版本。所有其他选项都保持标准:Wi-Fi 802.11b/g/n/ac，蓝牙 5.0，USB Type-C 端口和 3.5 毫米耳机插孔。
+
+## 软件
+
+小米 Mi Pad 4 Plus 搭载的是基于 Android 8.1 奥利奥之上的 MIUI 9。MIUI 10 测试版应该很快就会推出，预计平板电脑将在未来几个月内获得 MIUI 10 更新。
+
+### 定价和可用性
+
+小米 Mi Pad 4 Plus 有黑色和金色两种颜色。4GB 内存/64GB 存储变体的 CNY 售价为 1899 英镑(275 美元)，而 4GB 内存/128GB 存储变体的 CNY 售价为 2099 英镑(304 美元)。它将于 8 月 16 日在 Mi.com 开始在中国销售。
+
+[**来源:微博上的小米**](https://www.weibo.com/1771925961/GuzlDwO85?type=comment#_rnd1534222152870)
